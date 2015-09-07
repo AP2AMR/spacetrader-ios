@@ -13,6 +13,7 @@
 		5AD5F8991B9A122200154B21 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD5F8981B9A122200154B21 /* Images.xcassets */; };
 		5AD5F89C1B9A122200154B21 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AD5F89A1B9A122200154B21 /* LaunchScreen.xib */; };
 		5AD5F8A81B9A122200154B21 /* SpaceTraderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8A71B9A122200154B21 /* SpaceTraderTests.swift */; };
+		5AD5F8B21B9D160400154B21 /* SolarSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8B11B9D160400154B21 /* SolarSystem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		5AD5F8A11B9A122200154B21 /* SpaceTraderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceTraderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD5F8A61B9A122200154B21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AD5F8A71B9A122200154B21 /* SpaceTraderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceTraderTests.swift; sourceTree = "<group>"; };
+		5AD5F8B11B9D160400154B21 /* SolarSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SolarSystem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				5AD5F8981B9A122200154B21 /* Images.xcassets */,
 				5AD5F89A1B9A122200154B21 /* LaunchScreen.xib */,
 				5AD5F88F1B9A122200154B21 /* Supporting Files */,
+				5AD5F8B11B9D160400154B21 /* SolarSystem.swift */,
 			);
 			path = SpaceTrader;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AD5F8941B9A122200154B21 /* ViewController.swift in Sources */,
+				5AD5F8B21B9D160400154B21 /* SolarSystem.swift in Sources */,
 				5AD5F8921B9A122200154B21 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
