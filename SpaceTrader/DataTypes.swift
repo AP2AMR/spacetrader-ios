@@ -93,3 +93,21 @@ let Technocracy = PoliticsType(name: "Technocracy", index: 15, reactionIllegal: 
 let Theocracy = PoliticsType(name: "Theocracy", index: 16, reactionIllegal: 5, activityPolice: 6, activityPirates: 1, activityTraders: 4, minTech: 0, maxTech: 4, bribeLevel: 0, drugsOk: true, firearmsOk: true, wanted: "Narcotics")
 
 
+class StatusType {
+    let status: String
+    // items in demand (array of ItemTypes?)
+    
+    init(status: String) {
+        self.status = status
+    }
+}
+
+let Status0 = StatusType(status: "under no particular pressure")
+let Status1 = StatusType(status: "at war")
+let Status2 = StatusType(status: "ravaged by a plague")
+let Status3 = StatusType(status: "suffering from a drought")
+let Status4 = StatusType(status: "suffering from extreme boredom")
+let Status5 = StatusType(status: "suffering from a cold spell")
+let Status6 = StatusType(status: "suffering from a crop failure")
+let Status7 = StatusType(status: "lacking enough workers")
+
