@@ -28,6 +28,7 @@ let TechLevel5 = TechLevelType(name: "Industrial", index: 5)
 let TechLevel6 = TechLevelType(name: "Post-industrial", index: 6)
 let TechLevel7 = TechLevelType(name: "Hi-tech", index: 7)
 
+// DEMONSTRATION:
 //class Poop {
 //    var techLevel: TechLevelType
 //    let name: String
@@ -78,3 +79,17 @@ let CapitalistState = PoliticsType(name: "Capitalist State", index: 1, reactionI
 let CommunistState = PoliticsType(name: "Communist State", index: 2, reactionIllegal: 6, activityPolice: 6, activityPirates: 4, activityTraders: 4, minTech: 1, maxTech: 5, bribeLevel: 5, drugsOk: true, firearmsOk: true, wanted: "None")
 let Confederacy = PoliticsType(name: "Confederacy", index: 3, reactionIllegal: 5, activityPolice: 4, activityPirates: 3, activityTraders: 5, minTech: 1, maxTech: 6, bribeLevel: 3, drugsOk: true, firearmsOk: true, wanted: "Games")
 let CorporateState = PoliticsType(name: "Corporate State", index: 4, reactionIllegal: 2, activityPolice: 6, activityPirates: 2, activityTraders: 7, minTech: 4, maxTech: 7, bribeLevel: 2, drugsOk: true, firearmsOk: true, wanted: "Robots")
+let CyberneticState = PoliticsType(name: "Cybernetic State", index: 5, reactionIllegal: 0, activityPolice: 7, activityPirates: 7, activityTraders: 5, minTech: 6, maxTech: 7, bribeLevel: 0, drugsOk: false, firearmsOk: false, wanted: "Ore")
+let Democracy = PoliticsType(name: "Democracy", index: 6, reactionIllegal: 4, activityPolice: 3, activityPirates: 2, activityTraders: 5, minTech: 3, maxTech: 7, bribeLevel: 2, drugsOk: true, firearmsOk: true, wanted: "Games")
+let Dictatorship = PoliticsType(name: "Dictatorship", index: 7, reactionIllegal: 3, activityPolice: 4, activityPirates: 5, activityTraders: 3, minTech: 0, maxTech: 7, bribeLevel: 2, drugsOk: true, firearmsOk: true, wanted: "None")
+let FascistState = PoliticsType(name: "Fascist State", index: 8, reactionIllegal: 7, activityPolice: 7, activityPirates: 7, activityTraders: 1, minTech: 4, maxTech: 7, bribeLevel: 0, drugsOk: false, firearmsOk: true, wanted: "Machinery")
+let FeudalState = PoliticsType(name: "Feudal State", index: 9, reactionIllegal: 1, activityPolice: 1, activityPirates: 6, activityTraders: 2, minTech: 0, maxTech: 3, bribeLevel: 6, drugsOk: true, firearmsOk: true, wanted: "Firearms")
+let MilitaryState = PoliticsType(name: "Military State", index: 10, reactionIllegal: 7, activityPolice: 7, activityPirates: 0, activityTraders: 6, minTech: 2, maxTech: 7, bribeLevel: 0, drugsOk: false, firearmsOk: true, wanted: "Robots")
+let Monarchy = PoliticsType(name: "Monarchy", index: 11, reactionIllegal: 3, activityPolice: 4, activityPirates: 3, activityTraders: 4, minTech: 0, maxTech: 5, bribeLevel: 4, drugsOk: true, firearmsOk: true, wanted: "Medicine")
+let PacifistState = PoliticsType(name: "Pacifist State", index: 12, reactionIllegal: 7, activityPolice: 2, activityPirates: 1, activityTraders: 5, minTech: 0, maxTech: 3, bribeLevel: 1, drugsOk: true, firearmsOk: false, wanted: "None")
+let SocialistState = PoliticsType(name: "Socialist State", index: 13, reactionIllegal: 4, activityPolice: 2, activityPirates: 5, activityTraders: 3, minTech: 0, maxTech: 5, bribeLevel: 6, drugsOk: true, firearmsOk: true, wanted: "None")
+let StateOfSatori = PoliticsType(name: "State of Satori", index: 14, reactionIllegal: 0, activityPolice: 1, activityPirates: 1, activityTraders: 1, minTech: 0, maxTech: 1, bribeLevel: 0, drugsOk: false, firearmsOk: false, wanted: "None")
+let Technocracy = PoliticsType(name: "Technocracy", index: 15, reactionIllegal: 1, activityPolice: 6, activityPirates: 3, activityTraders: 6, minTech: 4, maxTech: 7, bribeLevel: 2, drugsOk: true, firearmsOk: true, wanted: "Water")
+let Theocracy = PoliticsType(name: "Theocracy", index: 16, reactionIllegal: 5, activityPolice: 6, activityPirates: 1, activityTraders: 4, minTech: 0, maxTech: 4, bribeLevel: 0, drugsOk: true, firearmsOk: true, wanted: "Narcotics")
+
+
