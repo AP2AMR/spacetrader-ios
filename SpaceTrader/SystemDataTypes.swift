@@ -1,5 +1,5 @@
 //
-//  DataTypes.swift
+//  SystemDataTypes.swift
 //  SpaceTrader
 //
 //  Created by Marc Auger on 9/7/15.
@@ -8,25 +8,25 @@
 
 import Foundation
 
-class TechLevelType {
-    
-    var name: String
-    var index: Int
-    
-    init(name: String, index: Int) {
-        self.name = name
-        self.index = index
-    }
-}
-
-let TechLevel0 = TechLevelType(name: "Pre-agricultural", index: 0)
-let TechLevel1 = TechLevelType(name: "Agricultural", index: 1)
-let TechLevel2 = TechLevelType(name: "Medieval", index: 2)
-let TechLevel3 = TechLevelType(name: "Renaissance", index: 3)
-let TechLevel4 = TechLevelType(name: "Early Industrial", index: 4)
-let TechLevel5 = TechLevelType(name: "Industrial", index: 5)
-let TechLevel6 = TechLevelType(name: "Post-industrial", index: 6)
-let TechLevel7 = TechLevelType(name: "Hi-tech", index: 7)
+//class TechLevelType {
+//    
+//    var name: String
+//    var index: Int
+//    
+//    init(name: String, index: Int) {
+//        self.name = name
+//        self.index = index
+//    }
+//}
+//
+//let TechLevel0 = TechLevelType(name: "Pre-agricultural", index: 0)
+//let TechLevel1 = TechLevelType(name: "Agricultural", index: 1)
+//let TechLevel2 = TechLevelType(name: "Medieval", index: 2)
+//let TechLevel3 = TechLevelType(name: "Renaissance", index: 3)
+//let TechLevel4 = TechLevelType(name: "Early Industrial", index: 4)
+//let TechLevel5 = TechLevelType(name: "Industrial", index: 5)
+//let TechLevel6 = TechLevelType(name: "Post-industrial", index: 6)
+//let TechLevel7 = TechLevelType(name: "Hi-tech", index: 7)
 
 // DEMONSTRATION:
 //class Poop {
@@ -93,21 +93,14 @@ let Technocracy = PoliticsType(name: "Technocracy", index: 15, reactionIllegal: 
 let Theocracy = PoliticsType(name: "Theocracy", index: 16, reactionIllegal: 5, activityPolice: 6, activityPirates: 1, activityTraders: 4, minTech: 0, maxTech: 4, bribeLevel: 0, drugsOk: true, firearmsOk: true, wanted: "Narcotics")
 
 
-class StatusType {
-    let status: String
-    // items in demand (array of ItemTypes?)
+
+
+
+class SpecialResourcesType {
+    let specialResources: String
     
-    init(status: String) {
-        self.status = status
+    init(specialResources: String) {
+        self.specialResources = specialResources
     }
 }
-
-let Status0 = StatusType(status: "under no particular pressure")
-let Status1 = StatusType(status: "at war")
-let Status2 = StatusType(status: "ravaged by a plague")
-let Status3 = StatusType(status: "suffering from a drought")
-let Status4 = StatusType(status: "suffering from extreme boredom")
-let Status5 = StatusType(status: "suffering from a cold spell")
-let Status6 = StatusType(status: "suffering from a crop failure")
-let Status7 = StatusType(status: "lacking enough workers")
 

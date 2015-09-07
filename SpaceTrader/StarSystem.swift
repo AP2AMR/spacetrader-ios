@@ -11,12 +11,12 @@ import Foundation
 
 class StarSystem {
     //var name: String?
-    var techLevel: TechLevelType          // = TechLevelStruct.Agricultural()
-    var politics: PoliticsType            // struct
-    var status              // struct
+    var techLevel: TechLevelType
+    var politics: PoliticsType
+    var status: Status
     var xCoord: Int?        // requires init
     var yCoord: Int?        // requires init
-    var specialResources    // struct
+    var specialResources: SpecialResourcesType    // struct
     var size                // struct
     // trade items?
     var countdown: Int = 1  // init?
