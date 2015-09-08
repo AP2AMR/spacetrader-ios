@@ -153,9 +153,114 @@ class SpecialEventType {
 //    { "Experiment Failed",		QuestExperimentFailedString, 		0, 0, true },
 //    { "Wild Gets Out",          QuestWildGetsOutString,
 
-// PoliceRecord
 
-// Reputation
+class PoliceRecord {
+    let name: PoliceRecordType
+    let minScore: Int
+    
+    init(name: PoliceRecordType, minScore: Int) {
+        self.name = name
+        self.minScore = minScore
+    }
+}
+
+class Reputation {
+    let name: ReputationType
+    let minScore: Int
+    
+    init(name: ReputationType, minScore: Int) {
+        self.name = name
+        self.minScore = minScore
+    }
+}
+
+class SaveGameType {
+    let Credits: Int
+    let Debt: Int
+    let Days: Int
+    let WarpSystem: StarSystemID
+    let BuyPrice: Int
+    let SellPrice: Int
+    let ShipPrice: Int
+    let GalacticChartSystem: Int                    // ?
+    let PoliceKills: Int
+    let TraderKills: Int
+    let PirateKills: Int
+    let PoliceRecordScore: Int
+    let AutoFuel: Bool
+    let AutoRepair: Bool
+    let Clicks: Bool                                // ?
+    let EncounterType: EncounterType2               // wtf?
+    let Raided: Bool                                // ?
+    let MonsterStatus: MonsterStatusType
+    let DragonflyStatus: DragonflyStatusType
+    let JaporiDiseaseStatus: JaporiDiseaseStatusType
+    let MoonBought: MoonBoughtStatus
+    let MonsterHull: Int                            // what's this?
+    let NameCommander: String
+    let CurForm: Int                                // what's this?
+    let Ship: Ship
+    let Opponent: Ship
+    let Mercenary: [CrewMember]
+    let StarSystem: StarSystemID
+    let EscapePod: Bool
+    let Insurance: Bool
+    let NoClaim: Int                                // what's this?
+    let Inspected: Bool
+    let AlwaysIgnoreTraders: Bool                   // maybe a separate section of settings?
+    let Wormhole: Int                               // NOT INT BUT I HAVE NO IDEA
+    let Difficulty: DifficultyType
+    let VersionMajor                                // what's this?
+    let VersionMinor                                // what's this?
+    // buying price is to be included in specific tradeitems? Else must go here.
+    let ArtifactOnBoard: Bool
+    
+    
+    
+
+
+
+//    int NoClaim;
+//    Boolean Inspected;
+//    Boolean AlwaysIgnoreTraders;
+//    Byte Wormhole[MAXWORMHOLE];
+//    Byte Difficulty;
+//    Byte VersionMajor;
+//    Byte VersionMinor;
+//    long BuyingPrice[MAXTRADEITEM];
+//    Boolean ArtifactOnBoard;
+//    Boolean ReserveMoney;
+//    Boolean PriceDifferences;
+//    Boolean APLscreen;
+//    int LeaveEmpty;
+//    Boolean TribbleMessage;
+//    Boolean AlwaysInfo;
+//    Boolean AlwaysIgnorePolice;
+//    Boolean AlwaysIgnorePirates;
+//    Boolean TextualEncounters;
+//    Byte JarekStatus;
+//    Byte InvasionStatus;
+//    Boolean Continuous;
+//    Boolean AttackFleeing;
+//    Byte ExperimentAndWildStatus;
+//    Byte FabricRipProbability;
+//    Byte VeryRareEncounter;
+//    Byte BooleanCollection;
+//    Byte ReactorStatus;
+//    int TrackedSystem;
+//    Byte ScarabStatus;
+//    Boolean AlwaysIgnoreTradeInOrbit;
+//    Boolean AlreadyPaidForNewspaper;
+//    Boolean GameLoaded;
+//    int Shortcut1;
+//    int Shortcut2;
+//    int Shortcut3;
+//    int Shortcut4;
+//    Boolean LitterWarning;
+//    Boolean SharePreferences;
+//    Boolean IdentifyStartup;
+//    Boolean RectangularButtonsOn;
+}
 
 // SaveGameType
 

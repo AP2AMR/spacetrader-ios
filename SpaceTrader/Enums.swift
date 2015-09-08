@@ -30,7 +30,7 @@ enum StatusType: String {
     case employment = "lacking enough workers"
 }
 
-enum PoliceRecord: String {
+enum PoliceRecordType: String {
     case psychopathScore = "Psyco"
     case villainScore = "Villain"
     case criminalScore = "Criminal"
@@ -43,7 +43,7 @@ enum PoliceRecord: String {
     case heroScore = "Hero"
 }
 
-enum Reputation: String {
+enum ReputationType: String {
     case harmlessRep = "Harmless"
     case mostlyHarmlessRep = "Mostly Harmless"
     case poorRep = "Poor"
@@ -55,7 +55,7 @@ enum Reputation: String {
     case eliteRep = "Elite"
 }
 
-enum DifficultyLevel: String {
+enum DifficultyType: String {
     case beginner = "Beginner"
     case easy = "Easy"
     case normal = "Normal"
@@ -90,7 +90,7 @@ enum Activity: String {
     case swarms = "Swarms"
 }
 
-enum MercenaryNames: String {
+enum CrewMember: String {
     case alyssa = "Alyssa"
     case armatur = "Armatur"
     case bentos = "Bentos"
@@ -300,4 +300,22 @@ enum SizeType {
 //    { "Experiment Failed",		QuestExperimentFailedString, 		0, 0, true },
 //    { "Wild Gets Out",          QuestWildGetsOutString,
 
+enum EncounterType2 {
+    
+}
 
+enum MonsterStatusType {
+    
+}
+
+enum DragonflyStatusType {
+    
+}
+
+enum JaporiDiseaseStatusType {
+    
+}
+
+enum MoonBoughtStatus {
+    // only needed if more than one possibility
+}
