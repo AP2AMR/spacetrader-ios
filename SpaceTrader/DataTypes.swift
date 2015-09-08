@@ -198,7 +198,7 @@ class SaveGameType {
     let MoonBought: MoonBoughtStatus
     let MonsterHull: Int                            // what's this?
     let NameCommander: String
-    let CurForm: Int                                // what's this?
+    let CurrentForm: Int                            // what's this?
     let Ship: Ship
     let Opponent: Ship
     let Mercenary: [CrewMember]
@@ -210,65 +210,76 @@ class SaveGameType {
     let AlwaysIgnoreTraders: Bool                   // maybe a separate section of settings?
     let Wormhole: Int                               // NOT INT BUT I HAVE NO IDEA
     let Difficulty: DifficultyType
-    let VersionMajor                                // what's this?
-    let VersionMinor                                // what's this?
+    //let VersionMajor                                // what's this?
+    //let VersionMinor                                // what's this?
     // buying price is to be included in specific tradeitems? Else must go here.
     let ArtifactOnBoard: Bool
-    
-    
-    
+    let ReserveMoney: Bool                          // ?
+    let PriceDifferences: Bool                      // ?
+    let APLScreen: Bool                             // ?
+    let LeaveEmpty: Int                             // bays?
+    let TribbleMessage: Bool
+    let AlwaysInfo: Bool
+    let AlwaysIgnorePolice: Bool
+    let AlwaysIgnorePirates: Bool
+    // textual encounters
+    let JarekStatus: JarekStatusType
+    // continuous: bool?
+    let AttackFleeing: Bool
+    let ExperimentAndWildStatus: ExperimentAndWildStatusType
+    let FabricRipProbability: FabricRipProbabilityType
+    let VeryRareEncounter: VeryRareEncounterType
+    // boolean collection?
+    let ReactorStatus: ReactorStatusType
+    let TrackedSystem: StarSystemID
+    let ScarabStatus: ScarabStatusType
+    let AlwaysIgnoreTradeInOrbit: Bool
+    let AlreadyPaidForNewspaper: Bool
+    let GameLoaded: Bool                            // ?
+    let LitterWarning: Bool
+    let SharePreferences: Bool                      // ?
 
-
-
-//    int NoClaim;
-//    Boolean Inspected;
-//    Boolean AlwaysIgnoreTraders;
-//    Byte Wormhole[MAXWORMHOLE];
-//    Byte Difficulty;
-//    Byte VersionMajor;
-//    Byte VersionMinor;
-//    long BuyingPrice[MAXTRADEITEM];
-//    Boolean ArtifactOnBoard;
-//    Boolean ReserveMoney;
-//    Boolean PriceDifferences;
-//    Boolean APLscreen;
-//    int LeaveEmpty;
-//    Boolean TribbleMessage;
-//    Boolean AlwaysInfo;
-//    Boolean AlwaysIgnorePolice;
-//    Boolean AlwaysIgnorePirates;
-//    Boolean TextualEncounters;
-//    Byte JarekStatus;
-//    Byte InvasionStatus;
-//    Boolean Continuous;
-//    Boolean AttackFleeing;
-//    Byte ExperimentAndWildStatus;
-//    Byte FabricRipProbability;
-//    Byte VeryRareEncounter;
-//    Byte BooleanCollection;
-//    Byte ReactorStatus;
-//    int TrackedSystem;
-//    Byte ScarabStatus;
-//    Boolean AlwaysIgnoreTradeInOrbit;
-//    Boolean AlreadyPaidForNewspaper;
-//    Boolean GameLoaded;
-//    int Shortcut1;
-//    int Shortcut2;
-//    int Shortcut3;
-//    int Shortcut4;
-//    Boolean LitterWarning;
-//    Boolean SharePreferences;
-//    Boolean IdentifyStartup;
-//    Boolean RectangularButtonsOn;
+    init() {
+        // seriously?
+    }
 }
 
-// SaveGameType
+class HighScore {
+    let name: String
+    let status: EndGameStatus
+    let days: Int
+    let worth: Int
+    let difficulty: DifficultyType
+    
+    init(name: String, status: EndGameStatus, days: Int, worth: Int, difficulty: DifficultyType) {
+        self.name = name
+        self.status = status
+        self.days = days
+        self.worth = worth
+        self.difficulty = difficulty
+    }
+}
 
-// HighScore
+class CrewMember {
+    let name: String        // MercenaryName enum exists. Use this? Also, more mercenaries in java version
+    let pilot: Int
+    let fighter: Int
+    let trader: Int
+    let engineer: Int
+    let currentSystem: StarSystemID
+    
+    init(name: String, pilot: Int, fighter: Int, trader: Int, engineer: Int, currentSystem: StarSystemID) {
+        self.name = name
+        self.pilot = pilot
+        self.fighter = fighter
+        self.trader = trader
+        self.engineer = engineer
+        self.currentSystem = currentSystem
+    }
+}
 
 // ShipType
 
-// Crewmember
 
 // PROPER CLASSES, FOR ANOTHER FILE:
 //      - Ship

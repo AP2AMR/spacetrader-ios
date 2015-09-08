@@ -90,7 +90,7 @@ enum Activity: String {
     case swarms = "Swarms"
 }
 
-enum CrewMember: String {
+enum MercenaryName: String {
     case alyssa = "Alyssa"
     case armatur = "Armatur"
     case bentos = "Bentos"
@@ -318,4 +318,35 @@ enum JaporiDiseaseStatusType {
 
 enum MoonBoughtStatus {
     // only needed if more than one possibility
+}
+
+enum JarekStatusType {
+    
+}
+
+enum ExperimentAndWildStatusType {
+    
+}
+
+enum FabricRipProbabilityType {
+    
+}
+
+enum VeryRareEncounterType {
+
+}
+
+enum ReactorStatusType {
+    
+}
+
+enum ScarabStatusType {
+    
+}
+
+enum EndGameStatus {
+    case Killed
+    case Retired
+    case BoughtMoon
+    case BoughtMoonGirl
 }
