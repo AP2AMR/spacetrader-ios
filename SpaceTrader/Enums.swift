@@ -345,7 +345,22 @@ enum ScarabStatusType {
 }
 
 enum ShipType {
-    
+    case Flea
+    case Gnat
+    case Firefly
+    case Mosquito
+    case Bumblebee
+    case Beetle
+    case Hornet
+    case Grasshopper
+    case Termite
+    case Wasp
+    // non-player ships
+    case SpaceMonster
+    case Dragonfly
+    case Mantis
+    case Scarab
+    case Bottle
 }
 
 enum EndGameStatus {
@@ -353,4 +368,11 @@ enum EndGameStatus {
     case Retired
     case BoughtMoon
     case BoughtMoonGirl
+}
+
+enum IFFStatusType {
+    case Player
+    case Police
+    case Pirate
+    case Trader
 }
