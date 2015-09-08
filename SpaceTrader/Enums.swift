@@ -19,7 +19,7 @@ enum TechLevelType: String {
     case techLevel7 = "Hi-tech"
 }
 
-enum Status: String {
+enum StatusType: String {
     case none = "under no particular pressure"
     case war = "at war"
     case plague = "ravaged by a plague"
@@ -63,7 +63,7 @@ enum DifficultyLevel: String {
     case impossible = "Impossible"
 }
 
-enum SpecialResources: String {
+enum SpecialResourcesType: String {
     case specialResources1 = "Nothing special"
     case specialResources2 = "Mineral rich"
     case specialResources3 = "Mineral poor"
@@ -123,7 +123,7 @@ enum MercenaryNames: String {
     case zeethibal = "Zeethibal"
 }
 
-enum SolarSystemName {
+enum StarSystemID {
     case Acamar
     case Adahn          // The alternate personality for The Nameless One in "Planescape: Torment"
     case Aldea
@@ -245,3 +245,8 @@ enum SolarSystemName {
     case Zalkon
     case Zuul			// From the first Ghostbusters movie
 }
+
+enum SizeType {
+    
+}
+

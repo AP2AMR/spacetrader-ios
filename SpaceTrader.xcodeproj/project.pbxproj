@@ -17,6 +17,7 @@
 		5AD5F8B41B9DEB5300154B21 /* SystemDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8B31B9DEB5300154B21 /* SystemDataTypes.swift */; };
 		5AD5F8B61B9DF5E800154B21 /* TradeItemDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8B51B9DF5E800154B21 /* TradeItemDataTypes.swift */; };
 		5AD5F8B81B9E1B5C00154B21 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8B71B9E1B5C00154B21 /* Enums.swift */; };
+		5AD5F8BB1B9E75B500154B21 /* StarSystemID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8BA1B9E75B500154B21 /* StarSystemID.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		5AD5F8B31B9DEB5300154B21 /* SystemDataTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemDataTypes.swift; sourceTree = "<group>"; };
 		5AD5F8B51B9DF5E800154B21 /* TradeItemDataTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeItemDataTypes.swift; sourceTree = "<group>"; };
 		5AD5F8B71B9E1B5C00154B21 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		5AD5F8BA1B9E75B500154B21 /* StarSystemID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarSystemID.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		5AD5F88E1B9A122200154B21 /* SpaceTrader */ = {
 			isa = PBXGroup;
 			children = (
+				5AD5F8B91B9E759C00154B21 /* enums */,
 				5AD5F8911B9A122200154B21 /* AppDelegate.swift */,
 				5AD5F8931B9A122200154B21 /* ViewController.swift */,
 				5AD5F8951B9A122200154B21 /* Main.storyboard */,
@@ -122,6 +125,14 @@
 				5AD5F8A61B9A122200154B21 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5AD5F8B91B9E759C00154B21 /* enums */ = {
+			isa = PBXGroup;
+			children = (
+				5AD5F8BA1B9E75B500154B21 /* StarSystemID.swift */,
+			);
+			name = enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,6 +237,7 @@
 			files = (
 				5AD5F8941B9A122200154B21 /* ViewController.swift in Sources */,
 				5AD5F8B41B9DEB5300154B21 /* SystemDataTypes.swift in Sources */,
+				5AD5F8BB1B9E75B500154B21 /* StarSystemID.swift in Sources */,
 				5AD5F8B21B9D160400154B21 /* StarSystem.swift in Sources */,
 				5AD5F8921B9A122200154B21 /* AppDelegate.swift in Sources */,
 				5AD5F8B81B9E1B5C00154B21 /* Enums.swift in Sources */,

@@ -13,15 +13,15 @@ class StarSystem {
     //var name: String?
     var techLevel: TechLevelType
     var politics: PoliticsType
-    var status: Status
+    var status: StatusType
     var xCoord: Int?        // requires init
-    var yCoord: Int?        // requires init
-    var specialResources: SpecialResourcesType    // struct
-    var size                // struct
+    var yCoord: Int?
+    var specialResources: SpecialResourcesType
+    var size: SizeType
     // trade items?
-    var countdown: Int = 1  // init?
+    var countdown: Int = 1
     var visited: Bool = false
-    var special             // struct
+    var special: SpecialEventType
 
     var water: Int
     var furs: Int

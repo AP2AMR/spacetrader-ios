@@ -92,15 +92,3 @@ let StateOfSatori = PoliticsType(name: "State of Satori", index: 14, reactionIll
 let Technocracy = PoliticsType(name: "Technocracy", index: 15, reactionIllegal: 1, activityPolice: 6, activityPirates: 3, activityTraders: 6, minTech: 4, maxTech: 7, bribeLevel: 2, drugsOk: true, firearmsOk: true, wanted: "Water")
 let Theocracy = PoliticsType(name: "Theocracy", index: 16, reactionIllegal: 5, activityPolice: 6, activityPirates: 1, activityTraders: 4, minTech: 0, maxTech: 4, bribeLevel: 0, drugsOk: true, firearmsOk: true, wanted: "Narcotics")
 
-
-
-
-
-class SpecialResourcesType {
-    let specialResources: String
-    
-    init(specialResources: String) {
-        self.specialResources = specialResources
-    }
-}
-
