@@ -291,3 +291,14 @@ class CrewMember {
 //      - StarSystem
 //      - TradeItem
 
+class Weapon {
+    
+}
+
+class Shield {
+    
+}
+
+class Gadget {
+    
+}

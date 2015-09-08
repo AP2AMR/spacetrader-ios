@@ -344,6 +344,10 @@ enum ScarabStatusType {
     
 }
 
+enum ShipType {
+    
+}
+
 enum EndGameStatus {
     case Killed
     case Retired
