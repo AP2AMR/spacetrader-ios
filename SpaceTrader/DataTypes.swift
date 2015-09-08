@@ -6,6 +6,10 @@
 //  Copyright (c) 2015 Marc Auger. All rights reserved.
 //
 
+// NOTE: there are two types of data type classes--those with methods and those that just store data. All of these were structs in the C original. I'm trying to just put data storage ones in here, and give proper classes their own files. Enums also have their own file.
+
+// ALSO: these need to be populated. Should that happen here or elsewhere, in a consts file? Maybe the latter...?
+
 import Foundation
 
 //class TechLevelType {
@@ -95,14 +99,19 @@ let Theocracy = PoliticsType(name: "Theocracy", index: 16, reactionIllegal: 5, a
 class SpecialEventType {
     let header: String
     let text: String
-    let cost: Int
+    let price: Int
+    let occurance: Int
+    let justAMessage: Bool
+    
     // second number?
     // bool?
     
-    init(header: String, text: String, cost: Int) {
+    init(header: String, text: String, price: Int, occurance: Int, justAMessage: Bool) {
         self.header = header
         self.text = text
-        self.cost = cost
+        self.price = price
+        self.occurance = occurance
+        self.justAMessage = justAMessage
     }
 }
 
@@ -143,3 +152,26 @@ class SpecialEventType {
 //    { "Disaster Averted",		QuestDisasterAvertedString,			0, 0, true },
 //    { "Experiment Failed",		QuestExperimentFailedString, 		0, 0, true },
 //    { "Wild Gets Out",          QuestWildGetsOutString,
+
+// PoliceRecord
+
+// Reputation
+
+// SaveGameType
+
+// HighScore
+
+// ShipType
+
+// Crewmember
+
+// PROPER CLASSES, FOR ANOTHER FILE:
+//      - Ship
+//      - Gadget
+//      - Weapon
+//      - Shield
+//      - CrewMember?
+//      - ShipType?
+//      - StarSystem
+//      - TradeItem
+
