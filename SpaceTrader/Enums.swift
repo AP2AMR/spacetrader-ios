@@ -455,3 +455,23 @@ enum QuestIDType {
     case experimentFailed
     case wildGetsOut
 }
+
+enum PoliticsType {
+    case anarchy
+    case capitalist
+    case communist
+    case confederacy
+    case corporate
+    case cybernetic
+    case democracy
+    case dictatorship
+    case fascist
+    case feudal
+    case military
+    case monarchy
+    case pacifist
+    case socialist
+    case satori
+    case technocracy
+    case theocracy
+}

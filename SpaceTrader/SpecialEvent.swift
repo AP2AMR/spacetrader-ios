@@ -8,6 +8,8 @@
 
 import Foundation
 
+// leaving off further work on this until the rest of this is further along and I understand better how it will be used
+
 class SpecialEvent {
     let type: QuestIDType
     let title: String
@@ -242,7 +244,6 @@ class SpecialEvent {
             self.price = 0
             self.occurance = 0
             self.justAMessage = true
-        
             
         }
     }
