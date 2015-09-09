@@ -56,30 +56,118 @@ class TradeItem {
             self.minTradePrice = 230
             self.maxTradePrice = 280
             self.roundOff = 5
-        default:
-            self.name = "Water"
-            self.techProduction = TechLevelType.techLevel0
+        case TradeItemType.Food:
+            self.name = "Food"
+            self.techProduction = TechLevelType.techLevel1
             self.techUsage = TechLevelType.techLevel0
-            self.techTopProduction = TechLevelType.techLevel2
-            self.priceLowTech = 30
-            self.priceIncrease = +3
-            self.variance = 4
-            self.doublePriceStatus = StatusType.drought
-            self.cheapResource = SpecialResourcesType.lotsOfWater
-            self.expensiveResource = SpecialResourcesType.desert
-            self.minTradePrice = 30
-            self.maxTradePrice = 50
-            self.roundOff = 1
+            self.techTopProduction = TechLevelType.techLevel1
+            self.priceLowTech = 100
+            self.priceIncrease = +5
+            self.variance = 5
+            self.doublePriceStatus = StatusType.cropFailure
+            self.cheapResource = SpecialResourcesType.richSoil
+            self.expensiveResource = SpecialResourcesType.poorSoil
+            self.minTradePrice = 90
+            self.maxTradePrice = 160
+            self.roundOff = 5
+        case TradeItemType.Ore:
+            self.name = "Ore"
+            self.techProduction = TechLevelType.techLevel2
+            self.techUsage = TechLevelType.techLevel2
+            self.techTopProduction = TechLevelType.techLevel3
+            self.priceLowTech = 350
+            self.priceIncrease = +20
+            self.variance = 10
+            self.doublePriceStatus = StatusType.war
+            self.cheapResource = SpecialResourcesType.mineralRich
+            self.expensiveResource = SpecialResourcesType.mineralPoor
+            self.minTradePrice = 350
+            self.maxTradePrice = 420
+            self.roundOff = 10
+        case TradeItemType.Games:
+            self.name = "Games"
+            self.techProduction = TechLevelType.techLevel3
+            self.techUsage = TechLevelType.techLevel1
+            self.techTopProduction = TechLevelType.techLevel6
+            self.priceLowTech = 250
+            self.priceIncrease = -10
+            self.variance = 5
+            self.doublePriceStatus = StatusType.boredom
+            self.cheapResource = SpecialResourcesType.artisticPopulace
+            self.expensiveResource = SpecialResourcesType.none
+            self.minTradePrice = 160
+            self.maxTradePrice = 270
+            self.roundOff = 5
+        case TradeItemType.Firearms:
+            self.name = "Firearms"
+            self.techProduction = TechLevelType.techLevel3
+            self.techUsage = TechLevelType.techLevel1
+            self.techTopProduction = TechLevelType.techLevel5
+            self.priceLowTech = 1250
+            self.priceIncrease = -75
+            self.variance = 100
+            self.doublePriceStatus = StatusType.war
+            self.cheapResource = SpecialResourcesType.warlikePopulace
+            self.expensiveResource = SpecialResourcesType.none
+            self.minTradePrice = 600
+            self.maxTradePrice = 1100
+            self.roundOff = 25
+        case TradeItemType.Medicine:
+            self.name = "Medicine"
+            self.techProduction = TechLevelType.techLevel4
+            self.techUsage = TechLevelType.techLevel1
+            self.techTopProduction = TechLevelType.techLevel6
+            self.priceLowTech = 650
+            self.priceIncrease = -20
+            self.variance = 110
+            self.doublePriceStatus = StatusType.plague
+            self.cheapResource = SpecialResourcesType.specialHerbs
+            self.expensiveResource = SpecialResourcesType.none
+            self.minTradePrice = 400
+            self.maxTradePrice = 700
+            self.roundOff = 25
+        case TradeItemType.Machines:
+            self.name = "Machines"
+            self.techProduction = TechLevelType.techLevel4
+            self.techUsage = TechLevelType.techLevel3
+            self.techTopProduction = TechLevelType.techLevel5
+            self.priceLowTech = 900
+            self.priceIncrease = -30
+            self.variance = 5
+            self.doublePriceStatus = StatusType.employment
+            self.cheapResource = SpecialResourcesType.none
+            self.expensiveResource = SpecialResourcesType.none
+            self.minTradePrice = 600
+            self.maxTradePrice = 800
+            self.roundOff = 25
+        case TradeItemType.Narcotics:
+            self.name = "Narcotics"
+            self.techProduction = TechLevelType.techLevel5
+            self.techUsage = TechLevelType.techLevel0
+            self.techTopProduction = TechLevelType.techLevel5
+            self.priceLowTech = 3500
+            self.priceIncrease = -125
+            self.variance = 150
+            self.doublePriceStatus = StatusType.boredom
+            self.cheapResource = SpecialResourcesType.weirdMushrooms
+            self.expensiveResource = SpecialResourcesType.none
+            self.minTradePrice = 2000
+            self.maxTradePrice = 3000
+            self.roundOff = 50
+        case TradeItemType.Robots:
+            self.name = "Robots"
+            self.techProduction = TechLevelType.techLevel6
+            self.techUsage = TechLevelType.techLevel4
+            self.techTopProduction = TechLevelType.techLevel7
+            self.priceLowTech = 5000
+            self.priceIncrease = -150
+            self.variance = 100
+            self.doublePriceStatus = StatusType.employment
+            self.cheapResource = SpecialResourcesType.none
+            self.expensiveResource = SpecialResourcesType.none
+            self.minTradePrice = 3500
+            self.maxTradePrice = 5000
+            self.roundOff = 100
         }
     }
 }
-
-//{ "Furs", 	  0, 0, 0,  250,  +10,  10, COLD,          RICHFAUNA,      LIFELESS,     230,  280,   5 },
-//{ "Food", 	  1, 0, 1,  100,   +5,   5, CROPFAILURE,   RICHSOIL,       POORSOIL,      90,  160,   5 },
-//{ "Ore", 	  2, 2, 3,  350,  +20,  10, WAR,           MINERALRICH,    MINERALPOOR,  350,  420,  10 },
-//{ "Games",     3, 1, 6,  250,  -10,   5, BOREDOM,       ARTISTIC,       -1,           160,  270,   5 },
-//{ "Firearms",  3, 1, 5, 1250,  -75, 100, WAR,           WARLIKE,        -1,           600, 1100,  25 },
-//{ "Medicine",  4, 1, 6,  650,  -20,  10, PLAGUE,        LOTSOFHERBS,    -1,           400,  700,  25 },
-//{ "Machines",  4, 3, 5,  900,  -30,   5, LACKOFWORKERS, -1,             -1,           600,  800,  25 },
-//{ "Narcotics", 5, 0, 5, 3500, -125, 150, BOREDOM,       WEIRDMUSHROOMS, -1,          2000, 3000,  50 },
-//{ "Robots",    6, 4, 7, 5000, -150, 100, LACKOFWORKERS, -1,             -1,          3500, 5000, 100 }

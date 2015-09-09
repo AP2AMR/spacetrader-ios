@@ -91,6 +91,7 @@ enum SpecialResourcesType: String {
     case specialHerbs = "Special herbs"
     case artisticPopulace = "Artistic populace"
     case warlikePopulace = "Warlike populace"
+    case none = "None in particular"
 }
 
 enum Activity: String {
