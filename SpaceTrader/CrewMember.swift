@@ -9,13 +9,14 @@
 import Foundation
 
 class CrewMember {
-    let type: MercenaryName
-    let name: String
+    let name: String            // MercenaryType exists
     let pilot: Int
     let fighter: Int
     let trader: Int
     let engineer: Int
     let currentSystem: StarSystemID
+    
+    
     
     init(name: String, pilot: Int, fighter: Int, trader: Int, engineer: Int, currentSystem: StarSystemID) {
         self.name = name
@@ -25,4 +26,6 @@ class CrewMember {
         self.engineer = engineer
         self.currentSystem = currentSystem
     }
+    
+    // I believe this is randomly initialized. Need a method to do this. Need to figure out special cases that are always the same, and method for assigning things to others
 }
