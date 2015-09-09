@@ -391,3 +391,12 @@ enum IFFStatusType {
     case Pirate
     case Trader
 }
+
+enum GadgetType {
+    case CargoBays
+    case AutoRepair
+    case Navigation
+    case Targeting
+    case Cloaking
+    case FuelCompactor
+}

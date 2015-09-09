@@ -278,27 +278,20 @@ class CrewMember {
     }
 }
 
-// ShipType
-
 
 // PROPER CLASSES, FOR ANOTHER FILE:
-//      - Ship
+//      x Ship
 //      - Gadget
 //      - Weapon
 //      - Shield
 //      - CrewMember?
-//      - ShipType?
 //      - StarSystem
-//      - TradeItem
+//      x TradeItem
 
 class Weapon {
     
 }
 
 class Shield {
-    
-}
-
-class Gadget {
     
 }
