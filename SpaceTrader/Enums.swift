@@ -20,6 +20,19 @@ enum TechLevelType: String {
     case techLevel8 = "Unavailable"
 }
 
+enum TradeItemType {
+    case Water
+    case Furs
+    case Food
+    case Ore
+    case Games
+    case Firearms
+    case Medicine
+    case Machines
+    case Narcotics
+    case Robots
+}
+
 enum StatusType: String {
     case none = "under no particular pressure"
     case war = "at war"
@@ -65,19 +78,19 @@ enum DifficultyType: String {
 }
 
 enum SpecialResourcesType: String {
-    case specialResources1 = "Nothing special"
-    case specialResources2 = "Mineral rich"
-    case specialResources3 = "Mineral poor"
-    case specialResources4 = "Desert"
-    case specialResources5 = "Sweetwater oceans"
-    case specialResources6 = "Rich soil"
-    case specialResources7 = "Poor soil"
-    case specialResources8 = "Rich fauna"
-    case specialResources9 = "Lifeless"
-    case specialResources10 = "Weird mushrooms"
-    case specialResources11 = "Special herbs"
-    case specialResources12 = "Artistic populace"
-    case specialResources13 = "Warlike populace"
+    case nothingSpecial = "Nothing special"
+    case mineralRich = "Mineral rich"
+    case mineralPoor = "Mineral poor"
+    case desert = "Desert"
+    case lotsOfWater = "Sweetwater oceans"
+    case richSoil = "Rich soil"
+    case poorSoil = "Poor soil"
+    case richFauna = "Rich fauna"
+    case lifeless = "Lifeless"
+    case weirdMushrooms = "Weird mushrooms"
+    case specialHerbs = "Special herbs"
+    case artisticPopulace = "Artistic populace"
+    case warlikePopulace = "Warlike populace"
 }
 
 enum Activity: String {
