@@ -97,7 +97,9 @@ let Technocracy = PoliticsType(name: "Technocracy", index: 15, reactionIllegal: 
 let Theocracy = PoliticsType(name: "Theocracy", index: 16, reactionIllegal: 5, activityPolice: 6, activityPirates: 1, activityTraders: 4, minTech: 0, maxTech: 4, bribeLevel: 0, drugsOk: true, firearmsOk: true, wanted: "Narcotics")
 
 class SpecialEventType {
+    let type: QuestIDType
     let header: String
+    let questIDString: String       // refers to a constant. Put in number, then copy string
     let text: String
     let price: Int
     let occurance: Int
@@ -199,7 +201,7 @@ class SaveGameType {
     let MonsterHull: Int                            // what's this?
     let NameCommander: String
     let CurrentForm: Int                            // what's this?
-    let Ship: Ship
+    let Ship: Ship                                  // SERIOUSLY XCODE, WHAT THE FUCK?
     let Opponent: Ship
     let Mercenary: [CrewMember]
     let StarSystem: StarSystemID

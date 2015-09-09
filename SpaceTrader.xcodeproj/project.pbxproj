@@ -140,15 +140,15 @@
 		5AD5F8BC1B9E948F00154B21 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5A0265BD1B9FD2660079F6DE /* CrewMember.swift */,
 				5A0265B51B9FC8FC0079F6DE /* Gadget.swift */,
 				5AD5F8C11B9FB54E00154B21 /* Galaxy.swift */,
+				5A0265B91B9FCD2D0079F6DE /* Shield.swift */,
 				5AD5F8BD1B9F3BE700154B21 /* Ship.swift */,
+				5A0265BB1B9FCD8B0079F6DE /* SpecialEvent.swift */,
 				5AD5F8B11B9D160400154B21 /* StarSystem.swift */,
 				5AD5F8BF1B9F473E00154B21 /* TradeItem.swift */,
 				5A0265B71B9FCD170079F6DE /* Weapon.swift */,
-				5A0265B91B9FCD2D0079F6DE /* Shield.swift */,
-				5A0265BB1B9FCD8B0079F6DE /* SpecialEvent.swift */,
-				5A0265BD1B9FD2660079F6DE /* CrewMember.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
