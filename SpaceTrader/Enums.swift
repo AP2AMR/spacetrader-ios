@@ -31,6 +31,7 @@ enum TradeItemType {
     case Machines
     case Narcotics
     case Robots
+    case None
 }
 
 enum StatusType: String {

@@ -39,27 +39,199 @@ class Politics {
             self.firearmsOk = true
             self.wanted = TradeItemType.Food
         case PoliticsType.capitalist:
-            
-            
-//            { "Anarchy",          0, 0, 7, 1, 0, 5, 7, true,  true,  FOOD },
-//            { "Capitalist State", 2, 3, 2, 7, 4, 7, 1, true,  true,  ORE },
-//            { "Communist State",  6, 6, 4, 4, 1, 5, 5, true,  true,  -1 },
-//            { "Confederacy",      5, 4, 3, 5, 1, 6, 3, true,  true,  GAMES },
-//            { "Corporate State",  2, 6, 2, 7, 4, 7, 2, true,  true,  ROBOTS },
-//            { "Cybernetic State", 0, 7, 7, 5, 6, 7, 0, false, false, ORE },
-//            { "Democracy",        4, 3, 2, 5, 3, 7, 2, true,  true,  GAMES },
-//            { "Dictatorship",     3, 4, 5, 3, 0, 7, 2, true,  true,  -1 },
-//            { "Fascist State",    7, 7, 7, 1, 4, 7, 0, false, true,  MACHINERY },
-//            { "Feudal State",     1, 1, 6, 2, 0, 3, 6, true,  true,  FIREARMS },
-//            { "Military State",   7, 7, 0, 6, 2, 7, 0, false, true,  ROBOTS },
-//            { "Monarchy",         3, 4, 3, 4, 0, 5, 4, true,  true,  MEDICINE },
-//            { "Pacifist State",   7, 2, 1, 5, 0, 3, 1, true,  false, -1 },
-//            { "Socialist State",  4, 2, 5, 3, 0, 5, 6, true,  true,  -1 },
-//            { "State of Satori",  0, 1, 1, 1, 0, 1, 0, false, false, -1 },
-//            { "Technocracy",      1, 6, 3, 6, 4, 7, 2, true,  true,  WATER },
-//            { "Theocracy",        5, 6, 1, 4, 0, 4, 0, true,  true,  NARCOTICS }
+            self.name = "Capitalist State"
+            self.reactionIllegal = 2
+            self.activityPolice = 3
+            self.activityPirates = 2
+            self.activityTraders = 7
+            self.minTech = TechLevelType.techLevel4
+            self.maxTech = TechLevelType.techLevel7
+            self.bribeLevel = 1
+            self.drugsOk = true
+            self.firearmsOk = true
+            self.wanted = TradeItemType.Ore
+        case PoliticsType.communist:
+            self.name = "Communist State"
+            self.reactionIllegal = 6
+            self.activityPolice = 6
+            self.activityPirates = 4
+            self.activityTraders = 4
+            self.minTech = TechLevelType.techLevel1
+            self.maxTech = TechLevelType.techLevel5
+            self.bribeLevel = 5
+            self.drugsOk = true
+            self.firearmsOk = true
+            self.wanted = TradeItemType.None
+        case PoliticsType.confederacy:
+            self.name = "Confederacy"
+            self.reactionIllegal = 5
+            self.activityPolice = 4
+            self.activityPirates = 3
+            self.activityTraders = 5
+            self.minTech = TechLevelType.techLevel1
+            self.maxTech = TechLevelType.techLevel6
+            self.bribeLevel = 3
+            self.drugsOk = true
+            self.firearmsOk = true
+            self.wanted = TradeItemType.Games
+        case PoliticsType.corporate:
+            self.name = "Corporate State"
+            self.reactionIllegal = 2
+            self.activityPolice = 6
+            self.activityPirates = 2
+            self.activityTraders = 7
+            self.minTech = TechLevelType.techLevel4
+            self.maxTech = TechLevelType.techLevel7
+            self.bribeLevel = 2
+            self.drugsOk = true
+            self.firearmsOk = true
+            self.wanted = TradeItemType.Robots
+        case PoliticsType.cybernetic:
+            self.name = "Cybernetic State"
+            self.reactionIllegal = 0
+            self.activityPolice = 7
+            self.activityPirates = 7
+            self.activityTraders = 5
+            self.minTech = TechLevelType.techLevel6
+            self.maxTech = TechLevelType.techLevel7
+            self.bribeLevel = 0
+            self.drugsOk = false
+            self.firearmsOk = false
+            self.wanted = TradeItemType.Ore
+        case PoliticsType.democracy:
+            self.name = "Democracy"
+            self.reactionIllegal = 4
+            self.activityPolice = 3
+            self.activityPirates = 2
+            self.activityTraders = 5
+            self.minTech = TechLevelType.techLevel3
+            self.maxTech = TechLevelType.techLevel7
+            self.bribeLevel = 2
+            self.drugsOk = true
+            self.firearmsOk = true
+            self.wanted = TradeItemType.Games
+        case PoliticsType.dictatorship:
+            self.name = "Dictatorship"
+            self.reactionIllegal = 3
+            self.activityPolice = 4
+            self.activityPirates = 5
+            self.activityTraders = 3
+            self.minTech = TechLevelType.techLevel0
+            self.maxTech = TechLevelType.techLevel7
+            self.bribeLevel = 2
+            self.drugsOk = true
+            self.firearmsOk = true
+            self.wanted = TradeItemType.None
+        case PoliticsType.fascist:
+            self.name = "Fascist State"
+            self.reactionIllegal = 7
+            self.activityPolice = 7
+            self.activityPirates = 7
+            self.activityTraders = 1
+            self.minTech = TechLevelType.techLevel4
+            self.maxTech = TechLevelType.techLevel7
+            self.bribeLevel = 0
+            self.drugsOk = false
+            self.firearmsOk = true
+            self.wanted = TradeItemType.Machines
+        case PoliticsType.feudal:
+            self.name = "Feudal State"
+            self.reactionIllegal = 1
+            self.activityPolice = 1
+            self.activityPirates = 6
+            self.activityTraders = 2
+            self.minTech = TechLevelType.techLevel0
+            self.maxTech = TechLevelType.techLevel3
+            self.bribeLevel = 6
+            self.drugsOk = true
+            self.firearmsOk = true
+            self.wanted = TradeItemType.Firearms
+        case PoliticsType.military:
+            self.name = "Military State"
+            self.reactionIllegal = 7
+            self.activityPolice = 7
+            self.activityPirates = 0
+            self.activityTraders = 6
+            self.minTech = TechLevelType.techLevel2
+            self.maxTech = TechLevelType.techLevel7
+            self.bribeLevel = 0
+            self.drugsOk = false
+            self.firearmsOk = true
+            self.wanted = TradeItemType.Robots
+        case PoliticsType.monarchy:
+            self.name = "Monarchy"
+            self.reactionIllegal = 3
+            self.activityPolice = 4
+            self.activityPirates = 3
+            self.activityTraders = 4
+            self.minTech = TechLevelType.techLevel0
+            self.maxTech = TechLevelType.techLevel5
+            self.bribeLevel = 4
+            self.drugsOk = true
+            self.firearmsOk = true
+            self.wanted = TradeItemType.Medicine
+        case PoliticsType.pacifist:
+            self.name = "Pacifist State"
+            self.reactionIllegal = 7
+            self.activityPolice = 2
+            self.activityPirates = 1
+            self.activityTraders = 5
+            self.minTech = TechLevelType.techLevel0
+            self.maxTech = TechLevelType.techLevel3
+            self.bribeLevel = 1
+            self.drugsOk = true
+            self.firearmsOk = false
+            self.wanted = TradeItemType.None
+        case PoliticsType.socialist:
+            self.name = "Socialist State"
+            self.reactionIllegal = 4
+            self.activityPolice = 2
+            self.activityPirates = 5
+            self.activityTraders = 3
+            self.minTech = TechLevelType.techLevel0
+            self.maxTech = TechLevelType.techLevel5
+            self.bribeLevel = 6
+            self.drugsOk = true
+            self.firearmsOk = true
+            self.wanted = TradeItemType.None
+        case PoliticsType.satori:
+            self.name = "State of Satori"
+            self.reactionIllegal = 4
+            self.activityPolice = 2
+            self.activityPirates = 5
+            self.activityTraders = 3
+            self.minTech = TechLevelType.techLevel0
+            self.maxTech = TechLevelType.techLevel1
+            self.bribeLevel = 0
+            self.drugsOk = false
+            self.firearmsOk = false
+            self.wanted = TradeItemType.None
+        case PoliticsType.technocracy:
+            self.name = "Technocracy"
+            self.reactionIllegal = 1
+            self.activityPolice = 6
+            self.activityPirates = 3
+            self.activityTraders = 6
+            self.minTech = TechLevelType.techLevel4
+            self.maxTech = TechLevelType.techLevel7
+            self.bribeLevel = 2
+            self.drugsOk = true
+            self.firearmsOk = true
+            self.wanted = TradeItemType.Water
+        case PoliticsType.theocracy:
+            self.name = "Theocracy"
+            self.reactionIllegal = 5
+            self.activityPolice = 6
+            self.activityPirates = 1
+            self.activityTraders = 4
+            self.minTech = TechLevelType.techLevel0
+            self.maxTech = TechLevelType.techLevel4
+            self.bribeLevel = 0
+            self.drugsOk = true
+            self.firearmsOk = true
+            self.wanted = TradeItemType.Narcotics
         }
-        
-        
     }
+    
+    
 }
