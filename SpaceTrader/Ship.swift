@@ -8,7 +8,6 @@
 
 import Foundation
 
-// one class for both player and opponent ships. Optionals are used for fields only needed for player ship
 class Ship {
     var type: ShipType
     var name: String
@@ -50,25 +49,25 @@ class Ship {
 
     
     func initFlea() {
-        type = ShipType.Flea
-        name = "Flea"
-        cargoBays = 10
-        weaponSlots = 0
-        shieldSlots = 0
-        gadgetSlots = 0
-        crewQuarters = 1
-        fuelTanks = 20
-        minTechLevel = TechLevelType.techLevel4
-        costOfFuel = 1
-        price = 2000
-        bounty = 5
-        occurance = 2
-        hullStrength = 25
-        police = -1
-        pirates = -1
-        traders = 0
-        repairCosts = 1
-        probabilityOfHit = 0
+        self.type = ShipType.Flea
+        self.name = "Flea"
+        self.cargoBays = 10
+        self.weaponSlots = 0
+        self.shieldSlots = 0
+        self.gadgetSlots = 0
+        self.crewQuarters = 1
+        self.fuelTanks = 20
+        self.minTechLevel = TechLevelType.techLevel4
+        self.costOfFuel = 1
+        self.price = 2000
+        self.bounty = 5
+        self.occurance = 2
+        self.hullStrength = 25
+        self.police = -1
+        self.pirates = -1
+        self.traders = 0
+        self.repairCosts = 1
+        self.probabilityOfHit = 0
     }
     
     func initGnat() {
@@ -388,41 +387,331 @@ class Ship {
         self.gadget = []
         self.crew = []
         switch type {
-        case ShipType.Flea:
-            self.initFlea()
-        case ShipType.Gnat:
-            self.initGnat()
-        case ShipType.Firefly:
-            self.initFirefly()
-        case ShipType.Mosquito:
-            self.initMosquito()
-        case ShipType.Bumblebee:
-            self.initBumblebee()
-        case ShipType.Beetle:
-            self.initBeetle()
-        case ShipType.Hornet:
-            self.initHornet()
-        case ShipType.Grasshopper:
-            self.initGrasshopper()
-        case ShipType.Termite:
-            self.initTermite()
-        case ShipType.Wasp:
-            self.initWasp()
-        case ShipType.SpaceMonster:
-            self.initSpaceMonster()
-        case ShipType.Dragonfly:
-            self.initDragonfly()
-        case ShipType.Mantis:
-            self.initMantis()
-        case ShipType.Scarab:
-            self.initScarab()
-        case ShipType.Bottle:
-            self.initBottle()
-        default:
-            self.initFlea()
+            case ShipType.Flea:
+                self.type = ShipType.Flea
+                self.name = "Flea"
+                self.cargoBays = 10
+                self.weaponSlots = 0
+                self.shieldSlots = 0
+                self.gadgetSlots = 0
+                self.crewQuarters = 1
+                self.fuelTanks = 20
+                self.minTechLevel = TechLevelType.techLevel4
+                self.costOfFuel = 1
+                self.price = 2000
+                self.bounty = 5
+                self.occurance = 2
+                self.hullStrength = 25
+                self.police = -1
+                self.pirates = -1
+                self.traders = 0
+                self.repairCosts = 1
+                self.probabilityOfHit = 0
+            case ShipType.Gnat:
+                self.type = ShipType.Gnat
+                self.name = "Gnat"
+                self.cargoBays = 15
+                self.weaponSlots = 1
+                self.shieldSlots = 0
+                self.gadgetSlots = 1
+                self.crewQuarters = 1
+                self.fuelTanks = 14
+                self.minTechLevel = TechLevelType.techLevel5
+                self.costOfFuel = 2
+                self.price = 10000
+                self.bounty = 50
+                self.occurance = 28
+                self.hullStrength = 100
+                self.police = 0
+                self.pirates = 0
+                self.traders = 0
+                self.repairCosts = 1
+                self.probabilityOfHit = 1
+            case ShipType.Firefly:
+                self.type = ShipType.Firefly
+                self.name = "Firefly"
+                self.cargoBays = 20
+                self.weaponSlots = 1
+                self.shieldSlots = 1
+                self.gadgetSlots = 1
+                self.crewQuarters = 1
+                self.fuelTanks = 17
+                self.minTechLevel = TechLevelType.techLevel5
+                self.costOfFuel = 3
+                self.price = 25000
+                self.bounty = 75
+                self.occurance = 20
+                self.hullStrength = 100
+                self.police = 0
+                self.pirates = 0
+                self.traders = 0
+                self.repairCosts = 1
+                self.probabilityOfHit = 1
+            case ShipType.Mosquito:
+                self.type = ShipType.Mosquito
+                self.name = "Mosquito"
+                self.cargoBays = 15
+                self.weaponSlots = 2
+                self.shieldSlots = 1
+                self.gadgetSlots = 1
+                self.crewQuarters = 1
+                self.fuelTanks = 13
+                self.minTechLevel = TechLevelType.techLevel5
+                self.costOfFuel = 5
+                self.price = 30000
+                self.bounty = 100
+                self.occurance = 20
+                self.hullStrength = 100
+                self.police = 0
+                self.pirates = 1
+                self.traders = 0
+                self.repairCosts = 1
+                self.probabilityOfHit = 1
+            case ShipType.Bumblebee:
+                self.type = ShipType.Bumblebee
+                self.name = "Bumblebee"
+                self.cargoBays = 25
+                self.weaponSlots = 1
+                self.shieldSlots = 2
+                self.gadgetSlots = 2
+                self.crewQuarters = 2
+                self.fuelTanks = 15
+                self.minTechLevel = TechLevelType.techLevel5
+                self.costOfFuel = 7
+                self.price = 60000
+                self.bounty = 125
+                self.occurance = 15
+                self.hullStrength = 100
+                self.police = 1
+                self.pirates = 1
+                self.traders = 0
+                self.repairCosts = 1
+                self.probabilityOfHit = 2
+            case ShipType.Beetle:
+                self.type = ShipType.Beetle
+                self.name = "Beetle"
+                self.cargoBays = 50
+                self.weaponSlots = 0
+                self.shieldSlots = 1
+                self.gadgetSlots = 1
+                self.crewQuarters = 3
+                self.fuelTanks = 14
+                self.minTechLevel = TechLevelType.techLevel5
+                self.costOfFuel = 10
+                self.price = 80000
+                self.bounty = 50
+                self.occurance = 3
+                self.hullStrength = 50
+                self.police = -1
+                self.pirates = -1
+                self.traders = 0
+                self.repairCosts = 1
+                self.probabilityOfHit = 2
+            case ShipType.Hornet:
+                self.type = ShipType.Hornet
+                self.name = "Hornet"
+                self.cargoBays = 20
+                self.weaponSlots = 3
+                self.shieldSlots = 2
+                self.gadgetSlots = 1
+                self.crewQuarters = 2
+                self.fuelTanks = 16
+                self.minTechLevel = TechLevelType.techLevel6
+                self.costOfFuel = 15
+                self.price = 100000
+                self.bounty = 200
+                self.occurance = 6
+                self.hullStrength = 150
+                self.police = 2
+                self.pirates = 3
+                self.traders = 1
+                self.repairCosts = 2
+                self.probabilityOfHit = 3
+            case ShipType.Grasshopper:
+                self.type = ShipType.Grasshopper
+                self.name = "Grasshopper"
+                self.cargoBays = 30
+                self.weaponSlots = 2
+                self.shieldSlots = 2
+                self.gadgetSlots = 3
+                self.crewQuarters = 3
+                self.fuelTanks = 15
+                self.minTechLevel = TechLevelType.techLevel6
+                self.costOfFuel = 15
+                self.price = 150000
+                self.bounty = 300
+                self.occurance = 2
+                self.hullStrength = 150
+                self.police = 3
+                self.pirates = 4
+                self.traders = 2
+                self.repairCosts = 3
+                self.probabilityOfHit = 3
+            case ShipType.Termite:
+                self.type = ShipType.Termite
+                self.name = "Termite"
+                self.cargoBays = 60
+                self.weaponSlots = 1
+                self.shieldSlots = 3
+                self.gadgetSlots = 2
+                self.crewQuarters = 3
+                self.fuelTanks = 13
+                self.minTechLevel = TechLevelType.techLevel7
+                self.costOfFuel = 20
+                self.price = 225000
+                self.bounty = 300
+                self.occurance = 2
+                self.hullStrength = 200
+                self.police = 4
+                self.pirates = 5
+                self.traders = 3
+                self.repairCosts = 4
+                self.probabilityOfHit = 4
+            case ShipType.Wasp:
+                self.type = ShipType.Wasp
+                self.name = "Wasp"
+                self.cargoBays = 35
+                self.weaponSlots = 3
+                self.shieldSlots = 2
+                self.gadgetSlots = 2
+                self.crewQuarters = 3
+                self.fuelTanks = 14
+                self.minTechLevel = TechLevelType.techLevel7
+                self.costOfFuel = 20
+                self.price = 300000
+                self.bounty = 500
+                self.occurance = 2
+                self.hullStrength = 200
+                self.police = 5
+                self.pirates = 6
+                self.traders = 4
+                self.repairCosts = 5
+                self.probabilityOfHit = 4
+            case ShipType.SpaceMonster:
+                self.type = ShipType.SpaceMonster
+                self.name = "Space Monster"
+                self.cargoBays = 0
+                self.weaponSlots = 3
+                self.shieldSlots = 0
+                self.gadgetSlots = 0
+                self.crewQuarters = 1
+                self.fuelTanks = 1
+                self.minTechLevel = TechLevelType.techLevel8
+                self.costOfFuel = 1
+                self.price = 500000
+                self.bounty = 0
+                self.occurance = 0
+                self.hullStrength = 500
+                self.police = 8
+                self.pirates = 8
+                self.traders = 8
+                self.repairCosts = 1
+                self.probabilityOfHit = 4
+            case ShipType.Dragonfly:
+                self.type = ShipType.Dragonfly
+                self.name = "Dragonfly"
+                self.cargoBays = 0
+                self.weaponSlots = 2
+                self.shieldSlots = 3
+                self.gadgetSlots = 2
+                self.crewQuarters = 1
+                self.fuelTanks = 1
+                self.minTechLevel = TechLevelType.techLevel8
+                self.costOfFuel = 1
+                self.price = 500000
+                self.bounty = 0
+                self.occurance = 0
+                self.hullStrength = 10
+                self.police = 8
+                self.pirates = 8
+                self.traders = 8
+                self.repairCosts = 1
+                self.probabilityOfHit = 1
+            case ShipType.Mantis:
+                self.type = ShipType.Mantis
+                self.name = "Mantis"
+                self.cargoBays = 0
+                self.weaponSlots = 3
+                self.shieldSlots = 1
+                self.gadgetSlots = 3
+                self.crewQuarters = 3
+                self.fuelTanks = 1
+                self.minTechLevel = TechLevelType.techLevel8
+                self.costOfFuel = 1
+                self.price = 500000
+                self.bounty = 0
+                self.occurance = 0
+                self.hullStrength = 300
+                self.police = 8
+                self.pirates = 8
+                self.traders = 8
+                self.repairCosts = 1
+                self.probabilityOfHit = 2
+            case ShipType.Scarab:
+                self.type = ShipType.Scarab
+                self.name = "Scarab"
+                self.cargoBays = 20
+                self.weaponSlots = 2
+                self.shieldSlots = 0
+                self.gadgetSlots = 0
+                self.crewQuarters = 2
+                self.fuelTanks = 1
+                self.minTechLevel = TechLevelType.techLevel8
+                self.costOfFuel = 1
+                self.price = 500000
+                self.bounty = 0
+                self.occurance = 0
+                self.hullStrength = 400
+                self.police = 8
+                self.pirates = 8
+                self.traders = 8
+                self.repairCosts = 1
+                self.probabilityOfHit = 3
+            case ShipType.Bottle:
+                self.type = ShipType.Bottle
+                self.name = "Bottle"
+                self.cargoBays = 0
+                self.weaponSlots = 0
+                self.shieldSlots = 0
+                self.gadgetSlots = 0
+                self.crewQuarters = 0
+                self.fuelTanks = 1
+                self.minTechLevel = TechLevelType.techLevel8
+                self.costOfFuel = 1
+                self.price = 100
+                self.bounty = 0
+                self.occurance = 0
+                self.hullStrength = 10
+                self.police = 8
+                self.pirates = 8
+                self.traders = 8
+                self.repairCosts = 1
+                self.probabilityOfHit = 1
+            default:
+                self.type = ShipType.Flea
+                self.name = "Flea"
+                self.cargoBays = 10
+                self.weaponSlots = 0
+                self.shieldSlots = 0
+                self.gadgetSlots = 0
+                self.crewQuarters = 1
+                self.fuelTanks = 20
+                self.minTechLevel = TechLevelType.techLevel4
+                self.costOfFuel = 1
+                self.price = 2000
+                self.bounty = 5
+                self.occurance = 2
+                self.hullStrength = 25
+                self.police = -1
+                self.pirates = -1
+                self.traders = 0
+                self.repairCosts = 1
+                self.probabilityOfHit = 0
+        }
         
         self.IFFStatus = IFFStatus
-        self.fuel = self.fuelTanks
-        self.hull = self.hullStrength
+        self.fuel = fuelTanks
+        self.hull = hullStrength
+        // must presumably still populate weapons, shields, etc on non-player ships
     }
 }
