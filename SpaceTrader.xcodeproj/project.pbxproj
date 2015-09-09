@@ -11,6 +11,7 @@
 		5A0265B81B9FCD170079F6DE /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0265B71B9FCD170079F6DE /* Weapon.swift */; };
 		5A0265BA1B9FCD2D0079F6DE /* Shield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0265B91B9FCD2D0079F6DE /* Shield.swift */; };
 		5A0265BC1B9FCD8B0079F6DE /* SpecialEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0265BB1B9FCD8B0079F6DE /* SpecialEvent.swift */; };
+		5A0265BE1B9FD2660079F6DE /* CrewMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0265BD1B9FD2660079F6DE /* CrewMember.swift */; };
 		5AD5F8921B9A122200154B21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8911B9A122200154B21 /* AppDelegate.swift */; };
 		5AD5F8941B9A122200154B21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8931B9A122200154B21 /* ViewController.swift */; };
 		5AD5F8971B9A122200154B21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD5F8951B9A122200154B21 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 		5A0265B71B9FCD170079F6DE /* Weapon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		5A0265B91B9FCD2D0079F6DE /* Shield.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shield.swift; sourceTree = "<group>"; };
 		5A0265BB1B9FCD8B0079F6DE /* SpecialEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialEvent.swift; sourceTree = "<group>"; };
+		5A0265BD1B9FD2660079F6DE /* CrewMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrewMember.swift; sourceTree = "<group>"; };
 		5AD5F88C1B9A122200154B21 /* SpaceTrader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceTrader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD5F8901B9A122200154B21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AD5F8911B9A122200154B21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				5A0265B71B9FCD170079F6DE /* Weapon.swift */,
 				5A0265B91B9FCD2D0079F6DE /* Shield.swift */,
 				5A0265BB1B9FCD8B0079F6DE /* SpecialEvent.swift */,
+				5A0265BD1B9FD2660079F6DE /* CrewMember.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A0265BE1B9FD2660079F6DE /* CrewMember.swift in Sources */,
 				5AD5F8941B9A122200154B21 /* ViewController.swift in Sources */,
 				5AD5F8C01B9F473E00154B21 /* TradeItem.swift in Sources */,
 				5AD5F8BE1B9F3BE700154B21 /* Ship.swift in Sources */,

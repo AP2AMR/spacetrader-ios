@@ -408,3 +408,10 @@ enum WeaponType {
     case militaryLaser
     case morgansLaser
 }
+
+enum ShieldType {
+    case energyShield
+    case reflectiveShield
+    // not for sale:
+    case lightningShield
+}

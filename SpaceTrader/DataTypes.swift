@@ -260,30 +260,14 @@ class HighScore {
     }
 }
 
-class CrewMember {
-    let name: String        // MercenaryName enum exists. Use this? Also, more mercenaries in java version
-    let pilot: Int
-    let fighter: Int
-    let trader: Int
-    let engineer: Int
-    let currentSystem: StarSystemID
-    
-    init(name: String, pilot: Int, fighter: Int, trader: Int, engineer: Int, currentSystem: StarSystemID) {
-        self.name = name
-        self.pilot = pilot
-        self.fighter = fighter
-        self.trader = trader
-        self.engineer = engineer
-        self.currentSystem = currentSystem
-    }
-}
+
 
 
 // PROPER CLASSES, FOR ANOTHER FILE:
 //      x Ship
 //      x Gadget
-//      - Weapon
-//      - Shield
+//      x Weapon
+//      x Shield
 //      - CrewMember?
 //      - StarSystem
 //      x TradeItem
