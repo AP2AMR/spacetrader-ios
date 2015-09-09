@@ -17,6 +17,7 @@ enum TechLevelType: String {
     case techLevel5 = "Industrial"
     case techLevel6 = "Post-industrial"
     case techLevel7 = "Hi-tech"
+    case techLevel8 = "Unavailable"
 }
 
 enum StatusType: String {

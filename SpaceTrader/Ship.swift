@@ -58,7 +58,7 @@ class Ship {
         gadgetSlots = 0
         crewQuarters = 1
         fuelTanks = 20
-        minTechLevel = TechLevelType.techLevel4     // hopefully this is zero indexed!
+        minTechLevel = TechLevelType.techLevel4
         costOfFuel = 1
         price = 2000
         bounty = 5
@@ -69,9 +69,6 @@ class Ship {
         traders = 0
         repairCosts = 1
         probabilityOfHit = 0
-        
-        fuel = 20
-        hull = 25
     }
     
     func initGnat() {
@@ -94,10 +91,6 @@ class Ship {
         traders = 0
         repairCosts = 1
         probabilityOfHit = 1
-        
-        fuel = 14
-        hull = 100
-        
     }
     
     func initFirefly() {
@@ -120,10 +113,6 @@ class Ship {
         traders = 0
         repairCosts = 1
         probabilityOfHit = 1
-        
-        fuel = 17
-        hull = 100
-        
     }
     
     func initMosquito() {
@@ -146,9 +135,6 @@ class Ship {
         traders = 0
         repairCosts = 1
         probabilityOfHit = 1
-        
-        fuel = 13
-        hull = 100
     }
     
     func initBumblebee() {
@@ -171,50 +157,226 @@ class Ship {
         traders = 0
         repairCosts = 1
         probabilityOfHit = 2
-        
-        fuel = 15
-        hull = 100
-        
     }
     
     func initBeetle() {
-        
+        type = ShipType.Beetle
+        name = "Beetle"
+        cargoBays = 50
+        weaponSlots = 0
+        shieldSlots = 1
+        gadgetSlots = 1
+        crewQuarters = 3
+        fuelTanks = 14
+        minTechLevel = TechLevelType.techLevel5
+        costOfFuel = 10
+        price = 80000
+        bounty = 50
+        occurance = 3
+        hullStrength = 50
+        police = -1
+        pirates = -1
+        traders = 0
+        repairCosts = 1
+        probabilityOfHit = 2
     }
     
     func initHornet() {
-        
+        type = ShipType.Hornet
+        name = "Hornet"
+        cargoBays = 20
+        weaponSlots = 3
+        shieldSlots = 2
+        gadgetSlots = 1
+        crewQuarters = 2
+        fuelTanks = 16
+        minTechLevel = TechLevelType.techLevel6
+        costOfFuel = 15
+        price = 100000
+        bounty = 200
+        occurance = 6
+        hullStrength = 150
+        police = 2
+        pirates = 3
+        traders = 1
+        repairCosts = 2
+        probabilityOfHit = 3
     }
     
     func initGrasshopper() {
-        
+        type = ShipType.Grasshopper
+        name = "Grasshopper"
+        cargoBays = 30
+        weaponSlots = 2
+        shieldSlots = 2
+        gadgetSlots = 3
+        crewQuarters = 3
+        fuelTanks = 15
+        minTechLevel = TechLevelType.techLevel6
+        costOfFuel = 15
+        price = 150000
+        bounty = 300
+        occurance = 2
+        hullStrength = 150
+        police = 3
+        pirates = 4
+        traders = 2
+        repairCosts = 3
+        probabilityOfHit = 3
     }
     
     func initTermite() {
-        
+        type = ShipType.Termite
+        name = "Termite"
+        cargoBays = 60
+        weaponSlots = 1
+        shieldSlots = 3
+        gadgetSlots = 2
+        crewQuarters = 3
+        fuelTanks = 13
+        minTechLevel = TechLevelType.techLevel7
+        costOfFuel = 20
+        price = 225000
+        bounty = 300
+        occurance = 2
+        hullStrength = 200
+        police = 4
+        pirates = 5
+        traders = 3
+        repairCosts = 4
+        probabilityOfHit = 4
     }
     
     func initWasp() {
-        
+        type = ShipType.Wasp
+        name = "Wasp"
+        cargoBays = 35
+        weaponSlots = 3
+        shieldSlots = 2
+        gadgetSlots = 2
+        crewQuarters = 3
+        fuelTanks = 14
+        minTechLevel = TechLevelType.techLevel7
+        costOfFuel = 20
+        price = 300000
+        bounty = 500
+        occurance = 2
+        hullStrength = 200
+        police = 5
+        pirates = 6
+        traders = 4
+        repairCosts = 5
+        probabilityOfHit = 4
     }
     
     func initSpaceMonster() {
-        
+        type = ShipType.SpaceMonster
+        name = "Space Monster"
+        cargoBays = 0
+        weaponSlots = 3
+        shieldSlots = 0
+        gadgetSlots = 0
+        crewQuarters = 1
+        fuelTanks = 1
+        minTechLevel = TechLevelType.techLevel8
+        costOfFuel = 1
+        price = 500000
+        bounty = 0
+        occurance = 0
+        hullStrength = 500
+        police = 8
+        pirates = 8
+        traders = 8
+        repairCosts = 1
+        probabilityOfHit = 4
     }
     
     func initDragonfly() {
-        
+        type = ShipType.Dragonfly
+        name = "Dragonfly"
+        cargoBays = 0
+        weaponSlots = 2
+        shieldSlots = 3
+        gadgetSlots = 2
+        crewQuarters = 1
+        fuelTanks = 1
+        minTechLevel = TechLevelType.techLevel8
+        costOfFuel = 1
+        price = 500000
+        bounty = 0
+        occurance = 0
+        hullStrength = 10
+        police = 8
+        pirates = 8
+        traders = 8
+        repairCosts = 1
+        probabilityOfHit = 1
     }
     
     func initMantis() {
-        
+        type = ShipType.Mantis
+        name = "Mantis"
+        cargoBays = 0
+        weaponSlots = 3
+        shieldSlots = 1
+        gadgetSlots = 3
+        crewQuarters = 3
+        fuelTanks = 1
+        minTechLevel = TechLevelType.techLevel8
+        costOfFuel = 1
+        price = 500000
+        bounty = 0
+        occurance = 0
+        hullStrength = 300
+        police = 8
+        pirates = 8
+        traders = 8
+        repairCosts = 1
+        probabilityOfHit = 2
     }
     
     func initScarab() {
-        
+        type = ShipType.Scarab
+        name = "Scarab"
+        cargoBays = 20
+        weaponSlots = 2
+        shieldSlots = 0
+        gadgetSlots = 0
+        crewQuarters = 2
+        fuelTanks = 1
+        minTechLevel = TechLevelType.techLevel8
+        costOfFuel = 1
+        price = 500000
+        bounty = 0
+        occurance = 0
+        hullStrength = 400
+        police = 8
+        pirates = 8
+        traders = 8
+        repairCosts = 1
+        probabilityOfHit = 3
     }
     
     func initBottle() {
-        
+        type = ShipType.Bottle
+        name = "Bottle"
+        cargoBays = 0
+        weaponSlots = 0
+        shieldSlots = 0
+        gadgetSlots = 0
+        crewQuarters = 0
+        fuelTanks = 1
+        minTechLevel = TechLevelType.techLevel8
+        costOfFuel = 1
+        price = 100
+        bounty = 0
+        occurance = 0
+        hullStrength = 10
+        police = 8
+        pirates = 8
+        traders = 8
+        repairCosts = 1
+        probabilityOfHit = 1
     }
     
     init(type: ShipType, IFFStatus: IFFStatusType) {
@@ -260,54 +422,7 @@ class Ship {
             self.initFlea()
         
         self.IFFStatus = IFFStatus
+        self.fuel = self.fuelTanks
+        self.hull = self.hullStrength
     }
-    
-
-
 }
-
-//    {
-//    { "Flea",          10, 0, 0, 0, 1, MAXRANGE, 4,  1,   2000,   5,  2,  25, -1, -1,  0, 1, 0 },
-//    { "Gnat",          15, 1, 0, 1, 1, 14,       5,  2,  10000,  50, 28, 100,  0,  0,  0, 1, 1 },
-//    { "Firefly",       20, 1, 1, 1, 1, 17,       5,  3,  25000,  75, 20, 100,  0,  0,  0, 1, 1 },
-//    { "Mosquito",      15, 2, 1, 1, 1, 13,       5,  5,  30000, 100, 20, 100,  0,  1,  0, 1, 1 },
-//    { "Bumblebee",     25, 1, 2, 2, 2, 15,       5,  7,  60000, 125, 15, 100,  1,  1,  0, 1, 2 },
-//    { "Beetle",        50, 0, 1, 1, 3, 14,       5, 10,  80000,  50,  3,  50, -1, -1,  0, 1, 2 },
-//    { "Hornet",        20, 3, 2, 1, 2, 16, 	   6, 15, 100000, 200,  6, 150,  2,  3,  1, 2, 3 },
-//    { "Grasshopper",   30, 2, 2, 3, 3, 15,       6, 15, 150000, 300,  2, 150,  3,  4,  2, 3, 3 },
-//    { "Termite",       60, 1, 3, 2, 3, 13,       7, 20, 225000, 300,  2, 200,  4,  5,  3, 4, 4 },
-//    { "Wasp",          35, 3, 2, 2, 3, 14,       7, 20, 300000, 500,  2, 200,  5,  6,  4, 5, 4 },
-//    // The ships below can't be bought
-//    { "Space monster",  0, 3, 0, 0, 1,  1,       8,  1, 500000,   0,  0, 500,  8,  8,  8, 1, 4 },
-//    { "Dragonfly",      0, 2, 3, 2, 1,  1,       8,  1, 500000,   0,  0,  10,  8,  8,  8, 1, 1 },
-//    { "Mantis",         0, 3, 1, 3, 3,  1,       8,  1, 500000,   0,  0, 300,  8,  8,  8, 1, 2 },
-//    { "Scarab",        20, 2, 0, 0, 2,  1,       8,  1, 500000,   0,  0, 400,  8,  8,  8, 1, 3 },
-//    { "Bottle",         0, 0, 0, 0, 0,  1,       8,  1,    100,   0,  0,  10,  8,  8,  8, 1, 1 }
-//    };
-
-// big question: what to do about prepopulated vs specific things?
-
-// proposal: an enum of shiptypes, and an init method that sets things up specifically based on shiptype. A separate CustomizeShip method.
-
-// another question: do we go whole hog for any ship, or do we have different classes for player and opponent ships?
-
-// struct for shipType
-//char* Name;
-//Byte CargoBays;		// Number of cargo bays
-//Byte WeaponSlots;	// Number of lasers possible
-//Byte ShieldSlots;	// Number of shields possible
-//Byte GadgetSlots;	// Number of gadgets possible (e.g. docking computers)
-//Byte CrewQuarters;	// Number of crewmembers possible
-//Byte FuelTanks;		// Each tank contains enough fuel to travel 10 parsecs
-//Byte MinTechLevel;	// Minimum tech level needed to build ship
-//Byte CostOfFuel;	// Cost to fill one tank with fuel
-//long Price;			// Base ship cost
-//int Bounty;			// Base bounty
-//int Occurrence;		// Percentage of the ships you meet
-//long HullStrength;	// Hull strength
-//int Police;			// Encountered as police with at least this strength
-//int Pirates;		// idem Pirates
-//int Traders;		// idem Traders
-//Byte RepairCosts;	// Repair costs for 1 point of hull strength.
-//Byte Size;			// Determines how easy it is to hit this ship
-//} SHIPTYPE;

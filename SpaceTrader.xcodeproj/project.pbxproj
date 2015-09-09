@@ -18,6 +18,7 @@
 		5AD5F8B81B9E1B5C00154B21 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8B71B9E1B5C00154B21 /* Enums.swift */; };
 		5AD5F8BE1B9F3BE700154B21 /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8BD1B9F3BE700154B21 /* Ship.swift */; };
 		5AD5F8C01B9F473E00154B21 /* TradeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8BF1B9F473E00154B21 /* TradeItem.swift */; };
+		5AD5F8C21B9FB54E00154B21 /* Galaxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8C11B9FB54E00154B21 /* Galaxy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		5AD5F8B71B9E1B5C00154B21 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		5AD5F8BD1B9F3BE700154B21 /* Ship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
 		5AD5F8BF1B9F473E00154B21 /* TradeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeItem.swift; sourceTree = "<group>"; };
+		5AD5F8C11B9FB54E00154B21 /* Galaxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Galaxy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				5AD5F8B11B9D160400154B21 /* StarSystem.swift */,
 				5AD5F8BD1B9F3BE700154B21 /* Ship.swift */,
 				5AD5F8BF1B9F473E00154B21 /* TradeItem.swift */,
+				5AD5F8C11B9FB54E00154B21 /* Galaxy.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				5AD5F8BE1B9F3BE700154B21 /* Ship.swift in Sources */,
 				5AD5F8B41B9DEB5300154B21 /* DataTypes.swift in Sources */,
 				5AD5F8B21B9D160400154B21 /* StarSystem.swift in Sources */,
+				5AD5F8C21B9FB54E00154B21 /* Galaxy.swift in Sources */,
 				5AD5F8921B9A122200154B21 /* AppDelegate.swift in Sources */,
 				5AD5F8B81B9E1B5C00154B21 /* Enums.swift in Sources */,
 			);
