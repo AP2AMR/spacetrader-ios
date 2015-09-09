@@ -398,5 +398,13 @@ enum GadgetType {
     case Navigation
     case Targeting
     case Cloaking
+    // not for sale:
     case FuelCompactor
+}
+
+enum WeaponType {
+    case pulseLaser
+    case beamLaser
+    case militaryLaser
+    case morgansLaser
 }

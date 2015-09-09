@@ -381,6 +381,6 @@ class Ship {
         self.IFFStatus = IFFStatus
         self.fuel = fuelTanks
         self.hull = hullStrength
-        // must presumably still populate weapons, shields, etc on non-player ships
+        // must presumably still populate weapons, shields, etc on non-player ships. See global.c for info
     }
 }
