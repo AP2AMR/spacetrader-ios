@@ -96,26 +96,26 @@ import Foundation
 //let Technocracy = PoliticsType(name: "Technocracy", index: 15, reactionIllegal: 1, activityPolice: 6, activityPirates: 3, activityTraders: 6, minTech: 4, maxTech: 7, bribeLevel: 2, drugsOk: true, firearmsOk: true, wanted: "Water")
 //let Theocracy = PoliticsType(name: "Theocracy", index: 16, reactionIllegal: 5, activityPolice: 6, activityPirates: 1, activityTraders: 4, minTech: 0, maxTech: 4, bribeLevel: 0, drugsOk: true, firearmsOk: true, wanted: "Narcotics")
 
-class SpecialEventType {
-    let type: QuestIDType
-    let header: String
-    let questIDString: String       // refers to a constant. Put in number, then copy string
-    let text: String
-    let price: Int
-    let occurance: Int
-    let justAMessage: Bool
-    
-    // second number?
-    // bool?
-    
-    init(header: String, text: String, price: Int, occurance: Int, justAMessage: Bool) {
-        self.header = header
-        self.text = text
-        self.price = price
-        self.occurance = occurance
-        self.justAMessage = justAMessage
-    }
-}
+//class SpecialEventType {
+//    let type: QuestIDType
+//    let header: String
+//    let questIDString: String       // refers to a constant. Put in number, then copy string
+//    let text: String
+//    let price: Int
+//    let occurance: Int
+//    let justAMessage: Bool
+//    
+//    // second number?
+//    // bool?
+//    
+//    init(header: String, text: String, price: Int, occurance: Int, justAMessage: Bool) {
+//        self.header = header
+//        self.text = text
+//        self.price = price
+//        self.occurance = occurance
+//        self.justAMessage = justAMessage
+//    }
+//}
 
 
 class PoliceRecord {
@@ -138,75 +138,75 @@ class Reputation {
     }
 }
 
-class SaveGameType {
-    let Credits: Int
-    let Debt: Int
-    let Days: Int
-    let WarpSystem: StarSystemID
-    let BuyPrice: Int
-    let SellPrice: Int
-    let ShipPrice: Int
-    let GalacticChartSystem: Int                    // ?
-    let PoliceKills: Int
-    let TraderKills: Int
-    let PirateKills: Int
-    let PoliceRecordScore: Int
-    let AutoFuel: Bool
-    let AutoRepair: Bool
-    let Clicks: Bool                                // ?
-    let EncounterType: EncounterType2               // wtf?
-    let Raided: Bool                                // ?
-    let MonsterStatus: MonsterStatusType
-    let DragonflyStatus: DragonflyStatusType
-    let JaporiDiseaseStatus: JaporiDiseaseStatusType
-    let MoonBought: MoonBoughtStatus
-    let MonsterHull: Int                            // what's this?
-    let NameCommander: String
-    let CurrentForm: Int                            // what's this?
-    let Ship: Ship                                  // SERIOUSLY XCODE, WHAT THE FUCK?
-    let Opponent: Ship
-    let Mercenary: [CrewMember]
-    let StarSystem: StarSystemID
-    let EscapePod: Bool
-    let Insurance: Bool
-    let NoClaim: Int                                // what's this?
-    let Inspected: Bool
-    let AlwaysIgnoreTraders: Bool                   // maybe a separate section of settings?
-    let Wormhole: Int                               // NOT INT BUT I HAVE NO IDEA
-    let Difficulty: DifficultyType
-    //let VersionMajor                                // what's this?
-    //let VersionMinor                                // what's this?
-    // buying price is to be included in specific tradeitems? Else must go here.
-    let ArtifactOnBoard: Bool
-    let ReserveMoney: Bool                          // ?
-    let PriceDifferences: Bool                      // ?
-    let APLScreen: Bool                             // ?
-    let LeaveEmpty: Int                             // bays?
-    let TribbleMessage: Bool
-    let AlwaysInfo: Bool
-    let AlwaysIgnorePolice: Bool
-    let AlwaysIgnorePirates: Bool
-    // textual encounters
-    let JarekStatus: JarekStatusType
-    // continuous: bool?
-    let AttackFleeing: Bool
-    let ExperimentAndWildStatus: ExperimentAndWildStatusType
-    let FabricRipProbability: FabricRipProbabilityType
-    let VeryRareEncounter: VeryRareEncounterType
-    // boolean collection?
-    let ReactorStatus: ReactorStatusType
-    let TrackedSystem: StarSystemID
-    let ScarabStatus: ScarabStatusType
-    let AlwaysIgnoreTradeInOrbit: Bool
-    let AlreadyPaidForNewspaper: Bool
-    let GameLoaded: Bool                            // ?
-    let LitterWarning: Bool
-    let SharePreferences: Bool                      // ?
-
-    init() {
-        // seriously?
-    }
-}
+//class SaveGameType {
+//    let Credits: Int
+//    let Debt: Int
+//    let Days: Int
+//    let WarpSystem: StarSystemID
+//    let BuyPrice: Int
+//    let SellPrice: Int
+//    let ShipPrice: Int
+//    let GalacticChartSystem: Int                    // ?
+//    let PoliceKills: Int
+//    let TraderKills: Int
+//    let PirateKills: Int
+//    let PoliceRecordScore: Int
+//    let AutoFuel: Bool
+//    let AutoRepair: Bool
+//    let Clicks: Bool                                // ?
+//    let EncounterType: EncounterType2               // wtf?
+//    let Raided: Bool                                // ?
+//    let MonsterStatus: MonsterStatusType
+//    let DragonflyStatus: DragonflyStatusType
+//    let JaporiDiseaseStatus: JaporiDiseaseStatusType
+//    let MoonBought: MoonBoughtStatus
+//    let MonsterHull: Int                            // what's this?
+//    let NameCommander: String
+//    let CurrentForm: Int                            // what's this?
+//    let Ship: SpaceShip
+//    let Opponent: SpaceShip
+//    let Mercenary: [CrewMember]
+//    let StarSystem: StarSystemID
+//    let EscapePod: Bool
+//    let Insurance: Bool
+//    let NoClaim: Int                                // what's this?
+//    let Inspected: Bool
+//    let AlwaysIgnoreTraders: Bool                   // maybe a separate section of settings?
+//    let Wormhole: Int                               // NOT INT BUT I HAVE NO IDEA
+//    let Difficulty: DifficultyType
+//    //let VersionMajor                                // what's this?
+//    //let VersionMinor                                // what's this?
+//    // buying price is to be included in specific tradeitems? Else must go here.
+//    let ArtifactOnBoard: Bool
+//    let ReserveMoney: Bool                          // ?
+//    let PriceDifferences: Bool                      // ?
+//    let APLScreen: Bool                             // ?
+//    let LeaveEmpty: Int                             // bays?
+//    let TribbleMessage: Bool
+//    let AlwaysInfo: Bool
+//    let AlwaysIgnorePolice: Bool
+//    let AlwaysIgnorePirates: Bool
+//    // textual encounters
+//    let JarekStatus: JarekStatusType
+//    // continuous: bool?
+//    let AttackFleeing: Bool
+//    let ExperimentAndWildStatus: ExperimentAndWildStatusType
+//    let FabricRipProbability: FabricRipProbabilityType
+//    let VeryRareEncounter: VeryRareEncounterType
+//    // boolean collection?
+//    let ReactorStatus: ReactorStatusType
+//    let TrackedSystem: StarSystemID
+//    let ScarabStatus: ScarabStatusType
+//    let AlwaysIgnoreTradeInOrbit: Bool
+//    let AlreadyPaidForNewspaper: Bool
+//    let GameLoaded: Bool                            // ?
+//    let LitterWarning: Bool
+//    let SharePreferences: Bool                      // ?
+//
+//    init() {
+//        // seriously?
+//    }
+//}
 
 class HighScore {
     let name: String

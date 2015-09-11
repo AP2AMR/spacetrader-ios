@@ -168,6 +168,20 @@ class TradeItem {
             self.minTradePrice = 3500
             self.maxTradePrice = 5000
             self.roundOff = 100
+        default:
+            self.name = "Water"
+            self.techProduction = TechLevelType.techLevel0
+            self.techUsage = TechLevelType.techLevel0
+            self.techTopProduction = TechLevelType.techLevel2
+            self.priceLowTech = 30
+            self.priceIncrease = +3
+            self.variance = 4
+            self.doublePriceStatus = StatusType.drought
+            self.cheapResource = SpecialResourcesType.lotsOfWater
+            self.expensiveResource = SpecialResourcesType.desert
+            self.minTradePrice = 30
+            self.maxTradePrice = 50
+            self.roundOff = 1
         }
     }
 }

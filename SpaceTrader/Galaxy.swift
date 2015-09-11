@@ -9,5 +9,7 @@
 import Foundation
 
 class Galaxy {
+    // method to randomly create all planets
     
+    // figure out how display is done
 }

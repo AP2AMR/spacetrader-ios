@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Ship {
+class SpaceShip {
     var type: ShipType
     var name: String
     var cargoBays: Int
