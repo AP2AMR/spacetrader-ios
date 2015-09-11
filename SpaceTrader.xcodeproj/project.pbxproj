@@ -26,6 +26,7 @@
 		5AD5F8BE1B9F3BE700154B21 /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8BD1B9F3BE700154B21 /* Ship.swift */; };
 		5AD5F8C01B9F473E00154B21 /* TradeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8BF1B9F473E00154B21 /* TradeItem.swift */; };
 		5AD5F8C21B9FB54E00154B21 /* Galaxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8C11B9FB54E00154B21 /* Galaxy.swift */; };
+		5AF1CA2D1BA36C2300643C5F /* NewCommanderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF1CA2C1BA36C2300643C5F /* NewCommanderVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		5AD5F8BD1B9F3BE700154B21 /* Ship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
 		5AD5F8BF1B9F473E00154B21 /* TradeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeItem.swift; sourceTree = "<group>"; };
 		5AD5F8C11B9FB54E00154B21 /* Galaxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Galaxy.swift; sourceTree = "<group>"; };
+		5AF1CA2C1BA36C2300643C5F /* NewCommanderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCommanderVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				5AD5F8981B9A122200154B21 /* Images.xcassets */,
 				5AD5F89A1B9A122200154B21 /* LaunchScreen.xib */,
 				5AD5F88F1B9A122200154B21 /* Supporting Files */,
+				5AF1CA2B1BA365DC00643C5F /* ViewControllers */,
 				5AD5F8BC1B9E948F00154B21 /* Classes */,
 				5AD5F8B31B9DEB5300154B21 /* DataTypes.swift */,
 				5AD5F8B71B9E1B5C00154B21 /* Enums.swift */,
@@ -157,6 +160,14 @@
 				5A0265C11BA329670079F6DE /* Commander.swift */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		5AF1CA2B1BA365DC00643C5F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5AF1CA2C1BA36C2300643C5F /* NewCommanderVC.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +278,7 @@
 				5A0265BC1B9FCD8B0079F6DE /* SpecialEvent.swift in Sources */,
 				5A0265BA1B9FCD2D0079F6DE /* Shield.swift in Sources */,
 				5AD5F8B21B9D160400154B21 /* StarSystem.swift in Sources */,
+				5AF1CA2D1BA36C2300643C5F /* NewCommanderVC.swift in Sources */,
 				5A0265B81B9FCD170079F6DE /* Weapon.swift in Sources */,
 				5AD5F8C21B9FB54E00154B21 /* Galaxy.swift in Sources */,
 				5A0265C21BA329670079F6DE /* Commander.swift in Sources */,
