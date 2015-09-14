@@ -197,13 +197,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Jameson" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IJr-Dd-I9l">
-                                <rect key="frame" x="160" y="107" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSP-fk-Ju7">
-                                <rect key="frame" x="93" y="111" width="51" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSP-fk-Ju7">
+                                <rect key="frame" x="36" y="84" width="51" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -346,19 +341,26 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Zyg-E7-QYl" kind="presentation" id="e3e-SC-iXg"/>
+                                    <segue destination="Zyg-E7-QYl" kind="presentation" modalPresentationStyle="pageSheet" animates="NO" id="e3e-SC-iXg"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Jameson" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IJr-Dd-I9l">
+                                <rect key="frame" x="93" y="80" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="cSP-fk-Ju7" firstAttribute="leading" secondItem="pF2-uB-GnB" secondAttribute="leadingMargin" constant="25" id="QH6-Xg-r0j"/>
-                            <constraint firstItem="cSP-fk-Ju7" firstAttribute="top" secondItem="tRu-ZW-R25" secondAttribute="bottom" constant="30" id="iSH-QK-8Ck"/>
-                            <constraint firstItem="IJr-Dd-I9l" firstAttribute="leading" secondItem="cSP-fk-Ju7" secondAttribute="trailing" constant="16" id="s5M-Ub-tXX"/>
-                            <constraint firstItem="IJr-Dd-I9l" firstAttribute="top" secondItem="tRu-ZW-R25" secondAttribute="bottom" constant="43" id="veI-Mu-e1b"/>
+                            <constraint firstItem="cSP-fk-Ju7" firstAttribute="leading" secondItem="pF2-uB-GnB" secondAttribute="leadingMargin" constant="20" id="qbu-cN-GNi"/>
+                            <constraint firstItem="IJr-Dd-I9l" firstAttribute="leading" secondItem="cSP-fk-Ju7" secondAttribute="trailing" constant="16" id="rJY-WY-T0x"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Create New Commander" id="9Pr-fC-Ei7"/>
+                    <connections>
+                        <outlet property="NameField" destination="IJr-Dd-I9l" id="9sl-Jc-ris"/>
+                        <outlet property="OKButton" destination="BQh-BL-VD8" id="UlM-Df-g6v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tgk-E6-7Pm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
