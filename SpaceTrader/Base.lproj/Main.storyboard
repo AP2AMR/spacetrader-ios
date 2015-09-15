@@ -152,6 +152,9 @@
                                 <state key="normal" title="−">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="DifficultyMinusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="8oU-ud-a8M"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzM-3J-FH0">
                                 <rect key="frame" x="126" y="166" width="30" height="39"/>
@@ -166,6 +169,9 @@
                                 <state key="normal" title="+">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="DifficultyPlusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="UDh-AT-vrY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHo-Bu-P66">
                                 <rect key="frame" x="182" y="215" width="30" height="39"/>
@@ -173,6 +179,9 @@
                                 <state key="normal" title="+">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="PilotPlusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="WP8-La-Kgy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6p-tB-b1x">
                                 <rect key="frame" x="126" y="214" width="30" height="39"/>
@@ -180,6 +189,9 @@
                                 <state key="normal" title="−">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="PilotMinusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="Amf-YU-pj7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htJ-Lb-Yli">
                                 <rect key="frame" x="126" y="262" width="30" height="39"/>
@@ -187,6 +199,9 @@
                                 <state key="normal" title="−">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="FighterMinusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="dXh-Pn-XO2"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AD3-m9-6ag">
                                 <rect key="frame" x="126" y="310" width="30" height="39"/>
@@ -194,6 +209,9 @@
                                 <state key="normal" title="−">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="TraderMinusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="cNv-KS-Vd6"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAr-Di-a3D">
                                 <rect key="frame" x="126" y="358" width="30" height="39"/>
@@ -201,6 +219,9 @@
                                 <state key="normal" title="−">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="EngineerMinusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="khj-ly-E6g"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Normal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qvw-jZ-T4a">
                                 <rect key="frame" x="164" y="127" width="84" height="21"/>
@@ -214,6 +235,9 @@
                                 <state key="normal" title="+">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="FighterPlusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="YrU-Za-2Ea"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tqb-Ip-gxw">
                                 <rect key="frame" x="182" y="311" width="30" height="39"/>
@@ -221,6 +245,9 @@
                                 <state key="normal" title="+">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="TraderPlusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="2jt-pu-rpY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXM-qg-4xr">
                                 <rect key="frame" x="182" y="359" width="30" height="39"/>
@@ -228,6 +255,9 @@
                                 <state key="normal" title="+">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="EngineerPlusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="GTX-WB-OE1"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFo-sl-Yc6">
                                 <rect key="frame" x="164" y="225" width="10" height="21"/>
@@ -264,6 +294,9 @@
                                 <state key="normal" title="Ok">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="OkButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="tip-Rv-JGQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -279,7 +312,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Create New Commander" id="9Pr-fC-Ei7"/>
                     <connections>
-                        <outlet property="NameField" destination="IJr-Dd-I9l" id="9sl-Jc-ris"/>
+                        <outlet property="DifficultyLevel" destination="qvw-jZ-T4a" id="pmn-gv-Jfg"/>
+                        <outlet property="EngineerPoints" destination="SBR-8R-CQD" id="Dw5-eb-bQO"/>
+                        <outlet property="FighterPoints" destination="90C-WM-dpg" id="ltt-P1-kad"/>
+                        <outlet property="NameField" destination="IJr-Dd-I9l" id="3In-qJ-JZc"/>
+                        <outlet property="PilotPoints" destination="BFo-sl-Yc6" id="Ooz-Kk-N0a"/>
+                        <outlet property="SkillPoints" destination="ShZ-4q-D3O" id="PGs-Jx-46x"/>
+                        <outlet property="TraderPoints" destination="fXV-5h-rCO" id="E5w-mN-zUn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tgk-E6-7Pm" userLabel="First Responder" sceneMemberID="firstResponder"/>
