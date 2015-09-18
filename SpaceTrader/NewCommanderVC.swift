@@ -12,7 +12,7 @@ class NewCommanderVC: UIViewController {
 
     @IBOutlet weak var NameField: UITextField!
     
-    @IBOutlet weak var DifficultyLevel: UILabel!
+    @IBOutlet weak var difficultyLevel: UILabel!
     @IBOutlet weak var OKButton: UIButton!
     @IBOutlet weak var skillPoints: UILabel!
     @IBOutlet weak var pilotPoints: UILabel!
@@ -30,12 +30,23 @@ class NewCommanderVC: UIViewController {
     }
     var name = String()
     
-    var difficulty: DifficultyType {
-        get {
-            
-        }
-        set {
-            
+    var difficulty: Int = 2 {
+        didSet {
+            // crappy kludge
+            switch difficulty {
+            case 0:
+                difficultyLevel.text = "Beginner"
+            case 1:
+                difficultyLevel.text = "Easy"
+            case 2:
+                difficultyLevel.text = "Normal"
+            case 3:
+                difficultyLevel.text = "Hard"
+            case 4:
+                difficultyLevel.text = "Impossible"
+            default:
+                difficultyLevel.text = "UH OH"
+            }
         }
     }
     var pilot: Int {
@@ -84,12 +95,42 @@ class NewCommanderVC: UIViewController {
     }
     
     @IBAction func OkButton() {
+        var kludgeDifficulty = DifficultyType.normal
+        switch difficulty {
+        case 0:
+            kludgeDifficulty = DifficultyType.beginner
+        case 1:
+            kludgeDifficulty = DifficultyType.easy
+        case 2:
+            kludgeDifficulty = DifficultyType.normal
+        case 3:
+            kludgeDifficulty = DifficultyType.hard
+        case 4:
+            kludgeDifficulty = DifficultyType.impossible
+        default:
+            println("fix difficulty switch")
+            
+        }
+        
+        // must check that information is complete--name must be present and valid.
+        
+        // this needs to be available everywhere. Is it?
+        let player = Commander(commanderName: NameField.text, difficulty: kludgeDifficulty, pilotSkill: pilot, fighterSkill: fighter, traderSkill: trader, engineerSkill: engineer)
+        
+        // segue should probably not be "show". Talk to steph about this.
+        self.performSegueWithIdentifier("newCommanderToMain", sender: nil)
     }
 
     @IBAction func DifficultyPlusButton() {
+        if difficulty < 4 {
+            difficulty += 1
+        }
     }
 
     @IBAction func DifficultyMinusButton() {
+        if difficulty > 0 {
+            difficulty -= 1
+        }
     }
     
     @IBAction func PilotMinusButton() {
@@ -148,6 +189,12 @@ class NewCommanderVC: UIViewController {
             availableSkill += 1
         }
     }
+    
+    // REMAINING ISSUES:
+    // - done button on keyboard must make keyboard go away
+    // (- very crappy implementation of difficulty label)
+    // (- everything about the view)
+    // - ok button
 
     
 }

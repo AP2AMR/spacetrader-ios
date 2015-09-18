@@ -27,6 +27,7 @@
 		5AD5F8C01B9F473E00154B21 /* TradeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8BF1B9F473E00154B21 /* TradeItem.swift */; };
 		5AD5F8C21B9FB54E00154B21 /* Galaxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8C11B9FB54E00154B21 /* Galaxy.swift */; };
 		5AF1CA2D1BA36C2300643C5F /* NewCommanderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF1CA2C1BA36C2300643C5F /* NewCommanderVC.swift */; };
+		5AF1CA2F1BAB3E7A00643C5F /* BuyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF1CA2E1BAB3E7A00643C5F /* BuyVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		5AD5F8BF1B9F473E00154B21 /* TradeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeItem.swift; sourceTree = "<group>"; };
 		5AD5F8C11B9FB54E00154B21 /* Galaxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Galaxy.swift; sourceTree = "<group>"; };
 		5AF1CA2C1BA36C2300643C5F /* NewCommanderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCommanderVC.swift; sourceTree = "<group>"; };
+		5AF1CA2E1BAB3E7A00643C5F /* BuyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				5AF1CA2C1BA36C2300643C5F /* NewCommanderVC.swift */,
+				5AF1CA2E1BAB3E7A00643C5F /* BuyVC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				5A0265BA1B9FCD2D0079F6DE /* Shield.swift in Sources */,
 				5AD5F8B21B9D160400154B21 /* StarSystem.swift in Sources */,
 				5AF1CA2D1BA36C2300643C5F /* NewCommanderVC.swift in Sources */,
+				5AF1CA2F1BAB3E7A00643C5F /* BuyVC.swift in Sources */,
 				5A0265B81B9FCD170079F6DE /* Weapon.swift in Sources */,
 				5AD5F8C21B9FB54E00154B21 /* Galaxy.swift in Sources */,
 				5A0265C21BA329670079F6DE /* Commander.swift in Sources */,
