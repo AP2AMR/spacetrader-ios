@@ -108,14 +108,14 @@ class NewCommanderVC: UIViewController {
         case 4:
             kludgeDifficulty = DifficultyType.impossible
         default:
-            println("fix difficulty switch")
+            print("fix difficulty switch")
             
         }
         
         // must check that information is complete--name must be present and valid.
         
         // this needs to be available everywhere. Is it?
-        let player = Commander(commanderName: NameField.text, difficulty: kludgeDifficulty, pilotSkill: pilot, fighterSkill: fighter, traderSkill: trader, engineerSkill: engineer)
+        //let player = Commander(commanderName: (NameField.text?)!, difficulty: kludgeDifficulty, pilotSkill: pilot, fighterSkill: fighter, traderSkill: trader, engineerSkill: engineer)
         
         // segue should probably not be "show". Talk to steph about this.
         self.performSegueWithIdentifier("newCommanderToMain", sender: nil)
