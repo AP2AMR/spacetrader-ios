@@ -11,7 +11,7 @@ import Foundation
 // NOT DONE, COMMENTED OUT SO WON'T INTERFERE
 
 class StarSystem {
-    //var name: String?
+    var name: String
     var techLevel: TechLevelType
     var politics: PoliticsType
     var status: StatusType
@@ -35,7 +35,8 @@ class StarSystem {
     var narcotics: Int = 0
     var robots: Int = 0
     
-    init(techLevel: TechLevelType, politics: PoliticsType, status: StatusType, xCoord: Int, yCoord: Int, specialResources: SpecialResourcesType, size: SizeType) {
+    init(name: String, techLevel: TechLevelType, politics: PoliticsType, status: StatusType, xCoord: Int, yCoord: Int, specialResources: SpecialResourcesType, size: SizeType) {
+        self.name = name
         self.techLevel = techLevel
         self.politics = politics
         self.status = status

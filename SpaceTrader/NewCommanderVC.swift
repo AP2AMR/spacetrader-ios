@@ -10,7 +10,7 @@ import UIKit
 
 class NewCommanderVC: UIViewController {
 
-    @IBOutlet weak var NameField: UITextField!
+    @IBOutlet weak var nameField: UITextField!
     
     @IBOutlet weak var difficultyLevel: UILabel!
     @IBOutlet weak var OKButton: UIButton!
@@ -115,7 +115,15 @@ class NewCommanderVC: UIViewController {
         // must check that information is complete--name must be present and valid.
         
         // this needs to be available everywhere. Is it?
-        //let player = Commander(commanderName: (NameField.text?)!, difficulty: kludgeDifficulty, pilotSkill: pilot, fighterSkill: fighter, traderSkill: trader, engineerSkill: engineer)
+
+        player = Commander(commanderName: "poop", difficulty: kludgeDifficulty, pilotSkill: pilot, fighterSkill: fighter, traderSkill: trader, engineerSkill: engineer)
+        
+//        if (nameField.text != nil) {
+//            let name = nameField.text!
+//            var player = Commander(commanderName: name, difficulty: kludgeDifficulty, pilotSkill: pilot, fighterSkill: fighter, traderSkill: trader, engineerSkill: engineer)
+//        }
+        
+        
         
         // segue should probably not be "show". Talk to steph about this.
         self.performSegueWithIdentifier("newCommanderToMain", sender: nil)

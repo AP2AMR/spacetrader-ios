@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Target system: Daled" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhB-eS-HHC">
-                                <rect key="frame" x="16" y="460" width="161" height="21"/>
+                                <rect key="frame" x="16" y="460" width="170" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -372,24 +372,34 @@
                     <navigationItem key="navigationItem" title="Buy Cargo" id="frR-GY-IBc"/>
                     <connections>
                         <outlet property="firearmsPrice" destination="Z7f-vP-p8y" id="4js-kV-a7m"/>
+                        <outlet property="firearmsProjectedPL" destination="e5F-9N-0qN" id="OC9-xS-gHT"/>
                         <outlet property="firearmsQty" destination="9bs-ce-KnU" id="LzZ-li-Eru"/>
                         <outlet property="foodPrice" destination="gpU-dk-f7K" id="JJk-tH-NJJ"/>
+                        <outlet property="foodProjectedPL" destination="LbW-ZJ-zIn" id="sfh-9n-V2p"/>
                         <outlet property="foodQty" destination="Fd4-LH-2cF" id="6V5-k5-PiA"/>
                         <outlet property="fursPrice" destination="o3V-aZ-Feb" id="rO6-kM-Huh"/>
+                        <outlet property="fursProjectedPL" destination="eZM-JU-Lx1" id="Fzv-MG-UbS"/>
                         <outlet property="fursQty" destination="5Xp-qo-8k4" id="5wu-mP-u7D"/>
                         <outlet property="gamesPrice" destination="ARO-Ae-OrT" id="6Di-O9-140"/>
+                        <outlet property="gamesProjectedPL" destination="CWt-Hz-ZX7" id="kHN-gH-DAD"/>
                         <outlet property="gamesQty" destination="9M2-2J-Fub" id="d58-I7-2oh"/>
                         <outlet property="machinesPrice" destination="zbw-UK-P1Y" id="syW-g7-aW4"/>
+                        <outlet property="machinesProjectedPL" destination="NHu-VG-A5F" id="nnv-Ux-TJT"/>
                         <outlet property="machinesQty" destination="qDd-2X-yGb" id="d3y-9k-bDi"/>
                         <outlet property="medicinePrice" destination="nof-BO-nk7" id="RB9-cr-c54"/>
+                        <outlet property="medicineProjectedPL" destination="U5h-8K-dN5" id="AHy-c5-iox"/>
                         <outlet property="medicineQty" destination="LMc-K3-ljs" id="DhD-vp-EJA"/>
                         <outlet property="narcoticsPrice" destination="eQb-1e-hYS" id="Pc1-OF-lAF"/>
+                        <outlet property="narcoticsProjectedPL" destination="YMf-IK-iy0" id="TJt-BO-rvE"/>
                         <outlet property="narcoticsQty" destination="vcL-Og-Ppn" id="nFU-6l-h7i"/>
                         <outlet property="orePrice" destination="1HS-nd-ByZ" id="UO5-H1-mrs"/>
+                        <outlet property="oreProjectedPL" destination="c23-9d-cZJ" id="sES-ib-FS0"/>
                         <outlet property="oreQty" destination="N2M-MG-dpU" id="NtJ-AK-31s"/>
                         <outlet property="robotsPrice" destination="Vom-N8-djY" id="rsW-YJ-mXo"/>
+                        <outlet property="robotsProjectedPL" destination="LRt-eR-uIE" id="AmT-vG-jN7"/>
                         <outlet property="robotsQty" destination="DWn-ne-IqM" id="UED-Uq-rLG"/>
                         <outlet property="waterPrice" destination="iU5-Sm-Hjh" id="x4p-Wg-kbO"/>
+                        <outlet property="waterProjectedPL" destination="Eqm-K6-X1F" id="N46-vS-obT"/>
                         <outlet property="waterQty" destination="1I7-wN-8H3" id="WWN-t4-Kj8"/>
                     </connections>
                 </viewController>

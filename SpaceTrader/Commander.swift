@@ -23,6 +23,41 @@ class Commander {
     var traderSkill: Int
     var engineerSkill: Int
     
+    // local prices
+    var waterBuy: Int = 0
+    var fursBuy: Int = 0
+    var foodBuy: Int = 0
+    var oreBuy: Int = 0
+    var gamesBuy: Int = 0
+    var firearmsBuy: Int = 0
+    var medicineBuy: Int = 0
+    var machinesBuy: Int = 0
+    var narcoticsBuy: Int = 0
+    var robotsBuy: Int = 0
+    var waterSell: Int = 0
+    var fursSell: Int = 0
+    var foodSell: Int = 0
+    var oreSell: Int = 0
+    var gamesSell: Int = 0
+    var firearmsSell: Int = 0
+    var medicineSell: Int = 0
+    var machinesSell: Int = 0
+    var narcoticsSell: Int = 0
+    var robotsSell: Int = 0
+    
+    // prices paid
+    var waterPaid: Int = 0
+    var fursPaid: Int = 0
+    var foodPaid: Int = 0
+    var orePaid: Int = 0
+    var gamesPaid: Int = 0
+    var firearmsPaid: Int = 0
+    var medicinePaid: Int = 0
+    var machinesPaid: Int = 0
+    var narcoticsPaid: Int = 0
+    var robotsPaid: Int = 0
+    
+    
     init(commanderName: String, difficulty: DifficultyType, pilotSkill: Int, fighterSkill: Int, traderSkill: Int, engineerSkill: Int) {
         self.commanderName = commanderName
         self.difficulty = difficulty
