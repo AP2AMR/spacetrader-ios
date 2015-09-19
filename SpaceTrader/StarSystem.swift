@@ -24,6 +24,7 @@ class StarSystem {
     var visited: Bool = false
     //var special: SpecialEventType
 
+    // quantities and prices
     var water: Int = 0
     var furs: Int = 0
     var food: Int = 0
@@ -34,6 +35,27 @@ class StarSystem {
     var machines: Int = 0
     var narcotics: Int = 0
     var robots: Int = 0
+    
+    var waterBuy: Int = 0
+    var fursBuy: Int = 0
+    var foodBuy: Int = 0
+    var oreBuy: Int = 0
+    var gamesBuy: Int = 0
+    var firearmsBuy: Int = 0
+    var medicineBuy: Int = 0
+    var machinesBuy: Int = 0
+    var narcoticsBuy: Int = 0
+    var robotsBuy: Int = 0
+    var waterSell: Int = 0
+    var fursSell: Int = 0
+    var foodSell: Int = 0
+    var oreSell: Int = 0
+    var gamesSell: Int = 0
+    var firearmsSell: Int = 0
+    var medicineSell: Int = 0
+    var machinesSell: Int = 0
+    var narcoticsSell: Int = 0
+    var robotsSell: Int = 0
     
     init(name: String, techLevel: TechLevelType, politics: PoliticsType, status: StatusType, xCoord: Int, yCoord: Int, specialResources: SpecialResourcesType, size: SizeType) {
         self.name = name

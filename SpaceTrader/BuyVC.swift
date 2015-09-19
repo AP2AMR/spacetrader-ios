@@ -50,6 +50,7 @@ class BuyVC: UIViewController {
         
         let controlState = UIControlState()
 
+        // DUMMY DATA
         currentSystem.water = 20
         currentSystem.furs = 1
         currentSystem.food = 7
@@ -57,11 +58,22 @@ class BuyVC: UIViewController {
         currentSystem.games = 12
         currentSystem.firearms = 38
         
+        currentSystem.waterBuy = 37
+        currentSystem.fursBuy = 274
+        currentSystem.foodBuy = 108
+        currentSystem.oreBuy = 397
+        currentSystem.gamesBuy = 158
+        currentSystem.firearmsBuy = 1101
         
+        targetSystem.waterSell = 45
+        targetSystem.fursSell = 290
+        targetSystem.foodSell = 0
+        targetSystem.oreSell = 441
+        targetSystem.gamesSell = 178
+        targetSystem.firearmsSell = 752
+        // END DUMMY DATA
         
-        
-        
-        // set quantities. The star system will eventually be currentSystem in Player
+
         waterQty.setTitle("\(currentSystem.water)", forState: controlState)
         fursQty.setTitle("\(currentSystem.furs)", forState: controlState)
         foodQty.setTitle("\(currentSystem.food)", forState: controlState)
@@ -72,21 +84,114 @@ class BuyVC: UIViewController {
         machinesQty.setTitle("\(currentSystem.machines)", forState: controlState)
         narcoticsQty.setTitle("\(currentSystem.narcotics)", forState: controlState)
         robotsQty.setTitle("\(currentSystem.robots)", forState: controlState)
-
-        player.oreBuy = 397
         
+        waterPrice.text = "\(currentSystem.waterBuy) cr."
+        fursPrice.text = "\(currentSystem.fursBuy) cr."
+        foodPrice.text = "\(currentSystem.foodBuy) cr."
+        orePrice.text = "\(currentSystem.oreBuy) cr."
+        gamesPrice.text = "\(currentSystem.gamesBuy) cr."
+        firearmsPrice.text = "\(currentSystem.firearmsBuy) cr."
+        medicinePrice.text = "\(currentSystem.medicineBuy) cr."
+        machinesPrice.text = "\(currentSystem.machinesBuy) cr."
+        narcoticsPrice.text = "\(currentSystem.narcoticsBuy) cr."
+        robotsPrice.text = "\(currentSystem.robotsBuy) cr."
         
-        waterPrice.text = "\(player.waterBuy) cr."
-        fursPrice.text = "\(player.fursBuy) cr."
-        foodPrice.text = "\(player.foodBuy) cr."
-        orePrice.text = "\(player.oreBuy) cr."
-        gamesPrice.text = "\(player.gamesBuy) cr."
-        firearmsPrice.text = "\(player.firearmsBuy) cr."
-        medicinePrice.text = "\(player.medicineBuy) cr."
-        machinesPrice.text = "\(player.machinesBuy) cr."
-        narcoticsPrice.text = "\(player.narcoticsBuy) cr."
-        robotsPrice.text = "\(player.robotsBuy) cr."
+        waterProjectedPL.text = "\(targetSystem.waterSell - currentSystem.waterBuy) cr."       // use some fancy format option to display +/-?
+        fursProjectedPL.text = "\(targetSystem.fursSell - currentSystem.fursBuy) cr."
+        foodProjectedPL.text = "\(targetSystem.foodSell - currentSystem.foodBuy) cr."
+        oreProjectedPL.text = "\(targetSystem.fursSell - currentSystem.fursBuy) cr."
+        gamesProjectedPL.text = "\(targetSystem.gamesSell - currentSystem.gamesBuy) cr."
+        firearmsProjectedPL.text = "\(targetSystem.firearmsSell - currentSystem.firearmsBuy) cr."
+        medicineProjectedPL.text = "\(targetSystem.medicineSell - currentSystem.medicineBuy) cr."
+        machinesProjectedPL.text = "\(targetSystem.machinesSell - currentSystem.machinesBuy) cr."
+        narcoticsProjectedPL.text = "\(targetSystem.narcoticsSell - currentSystem.narcoticsBuy) cr."
+        robotsProjectedPL.text = "\(targetSystem.robotsSell - currentSystem.robotsBuy) cr."
         
+        // experiment
+        robotsQty.setTitle("", forState: controlState)
+        
+        // eliminating buttons/labels for things not traded
+        if currentSystem.water == 0 {
+            waterQty.setTitle("", forState: controlState)
+            waterPrice.text = "not sold"
+            waterProjectedPL.text = "---"
+        }
+        if currentSystem.furs == 0 {
+            fursQty.setTitle("", forState: controlState)
+            fursPrice.text = "not sold"
+            fursProjectedPL.text = "---"
+        }
+        if currentSystem.food == 0 {
+            foodQty.setTitle("", forState: controlState)
+            foodPrice.text = "not sold"
+            foodProjectedPL.text = "---"
+        }
+        if currentSystem.ore == 0 {
+            oreQty.setTitle("", forState: controlState)
+            orePrice.text = "not sold"
+            oreProjectedPL.text = "---"
+        }
+        if currentSystem.games == 0 {
+            gamesQty.setTitle("", forState: controlState)
+            gamesPrice.text = "not sold"
+            gamesProjectedPL.text = "---"
+        }
+        if currentSystem.firearms == 0 {
+            firearmsQty.setTitle("", forState: controlState)
+            firearmsPrice.text = "not sold"
+            firearmsProjectedPL.text = "---"
+        }
+        if currentSystem.medicine == 0 {
+            medicineQty.setTitle("", forState: controlState)
+            medicinePrice.text = "not sold"
+            medicineProjectedPL.text = "---"
+        }
+        if currentSystem.machines == 0 {
+            machinesQty.setTitle("", forState: controlState)
+            machinesPrice.text = "not sold"
+            machinesProjectedPL.text = "---"
+        }
+        if currentSystem.narcotics == 0 {
+            narcoticsQty.setTitle("", forState: controlState)
+            narcoticsPrice.text = "not sold"
+            narcoticsProjectedPL.text = "---"
+        }
+        if currentSystem.robots == 0 {
+            robotsQty.setTitle("", forState: controlState)
+            robotsPrice.text = "not sold"
+            robotsProjectedPL.text = "---"
+        }
+        
+        if targetSystem.waterSell == 0 {
+            waterProjectedPL.text = "---"
+        }
+        if targetSystem.fursSell == 0 {
+            fursProjectedPL.text = "---"
+        }
+        if targetSystem.foodSell == 0 {
+            foodProjectedPL.text = "---"
+        }
+        if targetSystem.oreSell == 0 {
+            oreProjectedPL.text = "---"
+        }
+        if targetSystem.gamesSell == 0 {
+            gamesProjectedPL.text = "---"
+        }
+        if targetSystem.firearmsSell == 0 {
+            firearmsProjectedPL.text = "---"
+        }
+        if targetSystem.medicineSell == 0 {
+            medicineProjectedPL.text = "---"
+        }
+        if targetSystem.machinesSell == 0 {
+            machinesProjectedPL.text = "---"
+        }
+        if targetSystem.narcoticsSell == 0 {
+            narcoticsProjectedPL.text = "---"
+        }
+        if targetSystem.robotsSell == 0 {
+            robotsProjectedPL.text = "---"
+        }
         
         
     }
