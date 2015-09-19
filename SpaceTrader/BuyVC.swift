@@ -45,6 +45,8 @@ class BuyVC: UIViewController {
         let testPrice01 = 158
         gamesQty.setTitle("12", forState: controlState)
         gamesPrice.text = "\(testPrice01) cr."
+        
+        var dummySystem = 
     }
 
     
