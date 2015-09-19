@@ -119,4 +119,94 @@ class Commander {
 //    let SharePreferences: Bool
     
     // preferences
+    
+    func buyWater(quantity: Int) {
+        let totalPrice = quantity * currentSystem.waterBuy
+        if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
+            credits -= totalPrice
+            player.commanderShip.waterOnBoard += quantity
+            waterPaid = currentSystem.waterBuy
+        }
+    }
+    
+    func buyFurs(quantity: Int) {
+        let totalPrice = quantity * currentSystem.fursBuy
+        if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
+            credits -= totalPrice
+            player.commanderShip.fursOnBoard += quantity
+            fursPaid = currentSystem.fursBuy
+        }
+    }
+    
+    func buyFood(quantity: Int) {
+        let totalPrice = quantity * currentSystem.foodBuy
+        if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
+            credits -= totalPrice
+            player.commanderShip.foodOnBoard += quantity
+            foodPaid = currentSystem.foodBuy
+        }
+    }
+    
+    func buyOre(quantity: Int) {
+        let totalPrice = quantity * currentSystem.oreBuy
+        if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
+            credits -= totalPrice
+            player.commanderShip.oreOnBoard += quantity
+            orePaid = currentSystem.oreBuy
+        }
+    }
+    
+    func buyGames(quantity: Int) {
+        let totalPrice = quantity * currentSystem.gamesBuy
+        if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
+            credits -= totalPrice
+            player.commanderShip.gamesOnBoard += quantity
+            gamesPaid = currentSystem.gamesBuy
+        }
+    }
+    
+    func buyFirearms(quantity: Int) {
+        let totalPrice = quantity * currentSystem.firearmsBuy
+        if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
+            credits -= totalPrice
+            player.commanderShip.firearmsOnBoard += quantity
+            firearmsPaid = currentSystem.firearmsBuy
+        }
+    }
+    
+    func buyMedicine(quantity: Int) {
+        let totalPrice = quantity * currentSystem.medicineBuy
+        if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
+            credits -= totalPrice
+            player.commanderShip.medicineOnBoard += quantity
+            medicinePaid = currentSystem.medicineBuy
+        }
+    }
+    
+    func buyMachines(quantity: Int) {
+        let totalPrice = quantity * currentSystem.machinesBuy
+        if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
+            credits -= totalPrice
+            player.commanderShip.machinesOnBoard += quantity
+            machinesPaid = currentSystem.machinesBuy
+        }
+    }
+    
+    func buyNarcotics(quantity: Int) {
+        let totalPrice = quantity * currentSystem.narcoticsBuy
+        if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
+            credits -= totalPrice
+            player.commanderShip.narcoticsOnBoard += quantity
+            narcoticsPaid = currentSystem.narcoticsBuy
+        }
+    }
+    
+    func buyRobots(quantity: Int) {
+        let totalPrice = quantity * currentSystem.robotsBuy
+        if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
+            credits -= totalPrice
+            player.commanderShip.robotsOnBoard += quantity
+            robotsPaid = currentSystem.robotsBuy
+        }
+    }
 }

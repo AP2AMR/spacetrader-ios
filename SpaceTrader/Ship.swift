@@ -35,7 +35,7 @@ class SpaceShip {
     // image damaged
     
     
-    var cargo: [TradeItem] = []     // initializing everything empty. Override this if needed.
+    //var cargo: [Int] = []     // initializing everything empty. Override this if needed.
     var weapon: [Weapon] = []
     var shield: [Shield] = []
     var shieldStrength: [Int] = []  // these arrays are getting scary
@@ -45,11 +45,34 @@ class SpaceShip {
     var hull: Int
     var tribbles: Int = 0
     
+    var totalCargo: Int {
+        get {
+            return waterOnBoard + fursOnBoard + foodOnBoard + oreOnBoard + gamesOnBoard + firearmsOnBoard + medicineOnBoard + machinesOnBoard + narcoticsOnBoard + robotsOnBoard
+        }
+    }
+    
+    var baysAvailable: Int {
+        get {
+            return cargoBays - totalCargo
+        }
+    }
+    
+    var waterOnBoard: Int = 0
+    var fursOnBoard: Int = 0
+    var foodOnBoard: Int = 0
+    var oreOnBoard: Int = 0
+    var gamesOnBoard: Int = 0
+    var firearmsOnBoard: Int = 0
+    var medicineOnBoard: Int = 0
+    var machinesOnBoard: Int = 0
+    var narcoticsOnBoard: Int = 0
+    var robotsOnBoard: Int = 0
+    
     // escape pod currently is a global, as escape pods are transferred
 
     init(type: ShipType, IFFStatus: IFFStatusType) {
         self.type = type
-        self.cargo = []
+        //self.cargo = []
         self.weapon = []
         self.shield = []
         self.shieldStrength = []
@@ -356,26 +379,6 @@ class SpaceShip {
                 self.traders = 8
                 self.repairCosts = 1
                 self.probabilityOfHit = 1
-            default:
-                self.type = ShipType.Flea
-                self.name = "Flea"
-                self.cargoBays = 10
-                self.weaponSlots = 0
-                self.shieldSlots = 0
-                self.gadgetSlots = 0
-                self.crewQuarters = 1
-                self.fuelTanks = 20
-                self.minTechLevel = TechLevelType.techLevel4
-                self.costOfFuel = 1
-                self.price = 2000
-                self.bounty = 5
-                self.occurance = 2
-                self.hullStrength = 25
-                self.police = -1
-                self.pirates = -1
-                self.traders = 0
-                self.repairCosts = 1
-                self.probabilityOfHit = 0
         }
         
         self.IFFStatus = IFFStatus
@@ -383,4 +386,6 @@ class SpaceShip {
         self.hull = hullStrength
         // must presumably still populate weapons, shields, etc on non-player ships. See global.c for info
     }
+    
+
 }

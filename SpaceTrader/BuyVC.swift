@@ -103,7 +103,7 @@ class BuyVC: UIViewController {
         robotsPrice.text = "\(currentSystem.robotsBuy) cr."
         
         waterProjectedPL.text = "\(getPPLString(targetSystem.waterSell, currentBuy: currentSystem.waterBuy))"
-        fursProjectedPL.text = "\(getPPLString(targetSystem.fursSell, currentBuy: currentSystem.fursBuy))"
+        fursProjectedPL.text = "\(getPPLString(targetSystem.fursSell, currentBuy: currentSystem.fursBuy))"
         foodProjectedPL.text = "\(getPPLString(targetSystem.foodSell, currentBuy: currentSystem.foodBuy))"
         oreProjectedPL.text = "\(getPPLString(targetSystem.oreSell, currentBuy: currentSystem.oreBuy))"
         gamesProjectedPL.text = "\(getPPLString(targetSystem.gamesSell, currentBuy: currentSystem.gamesBuy))"
