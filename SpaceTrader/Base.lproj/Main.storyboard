@@ -371,6 +371,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Buy Cargo" id="frR-GY-IBc"/>
                     <connections>
+                        <outlet property="baysLabel" destination="sPE-Mh-LoY" id="dfJ-Jc-Nbi"/>
+                        <outlet property="cashLabel" destination="upo-Fl-rUI" id="fRb-xH-3Ri"/>
                         <outlet property="firearmsPrice" destination="Z7f-vP-p8y" id="4js-kV-a7m"/>
                         <outlet property="firearmsProjectedPL" destination="e5F-9N-0qN" id="OC9-xS-gHT"/>
                         <outlet property="firearmsQty" destination="9bs-ce-KnU" id="LzZ-li-Eru"/>
@@ -398,6 +400,7 @@
                         <outlet property="robotsPrice" destination="Vom-N8-djY" id="rsW-YJ-mXo"/>
                         <outlet property="robotsProjectedPL" destination="LRt-eR-uIE" id="AmT-vG-jN7"/>
                         <outlet property="robotsQty" destination="DWn-ne-IqM" id="UED-Uq-rLG"/>
+                        <outlet property="targetSystemLabel" destination="IhB-eS-HHC" id="pur-Ks-MPB"/>
                         <outlet property="waterPrice" destination="iU5-Sm-Hjh" id="x4p-Wg-kbO"/>
                         <outlet property="waterProjectedPL" destination="Eqm-K6-X1F" id="N46-vS-obT"/>
                         <outlet property="waterQty" destination="1I7-wN-8H3" id="WWN-t4-Kj8"/>

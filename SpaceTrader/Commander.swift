@@ -46,7 +46,7 @@ class Commander {
         
         self.credits = 1000
         
-        self.commanderShip = SpaceShip(type: ShipType.Flea, IFFStatus: IFFStatusType.Player)
+        self.commanderShip = SpaceShip(type: ShipType.Gnat, IFFStatus: IFFStatusType.Player)
     }
     
     // current prices

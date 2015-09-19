@@ -42,6 +42,12 @@ class BuyVC: UIViewController {
     @IBOutlet weak var machinesProjectedPL: UILabel!
     @IBOutlet weak var narcoticsProjectedPL: UILabel!
     @IBOutlet weak var robotsProjectedPL: UILabel!
+    
+    
+    @IBOutlet weak var targetSystemLabel: UILabel!
+    @IBOutlet weak var baysLabel: UILabel!
+    @IBOutlet weak var cashLabel: UILabel!
+
 
 
     
@@ -96,16 +102,16 @@ class BuyVC: UIViewController {
         narcoticsPrice.text = "\(currentSystem.narcoticsBuy) cr."
         robotsPrice.text = "\(currentSystem.robotsBuy) cr."
         
-        waterProjectedPL.text = "\(targetSystem.waterSell - currentSystem.waterBuy) cr."       // use some fancy format option to display +/-?
-        fursProjectedPL.text = "\(targetSystem.fursSell - currentSystem.fursBuy) cr."
-        foodProjectedPL.text = "\(targetSystem.foodSell - currentSystem.foodBuy) cr."
-        oreProjectedPL.text = "\(targetSystem.fursSell - currentSystem.fursBuy) cr."
-        gamesProjectedPL.text = "\(targetSystem.gamesSell - currentSystem.gamesBuy) cr."
-        firearmsProjectedPL.text = "\(targetSystem.firearmsSell - currentSystem.firearmsBuy) cr."
-        medicineProjectedPL.text = "\(targetSystem.medicineSell - currentSystem.medicineBuy) cr."
-        machinesProjectedPL.text = "\(targetSystem.machinesSell - currentSystem.machinesBuy) cr."
-        narcoticsProjectedPL.text = "\(targetSystem.narcoticsSell - currentSystem.narcoticsBuy) cr."
-        robotsProjectedPL.text = "\(targetSystem.robotsSell - currentSystem.robotsBuy) cr."
+        waterProjectedPL.text = "\(getPPLString(targetSystem.waterSell, currentBuy: currentSystem.waterBuy))"
+        fursProjectedPL.text = "\(getPPLString(targetSystem.fursSell, currentBuy: currentSystem.fursBuy))"
+        foodProjectedPL.text = "\(getPPLString(targetSystem.foodSell, currentBuy: currentSystem.foodBuy))"
+        oreProjectedPL.text = "\(getPPLString(targetSystem.oreSell, currentBuy: currentSystem.oreBuy))"
+        gamesProjectedPL.text = "\(getPPLString(targetSystem.gamesSell, currentBuy: currentSystem.gamesBuy))"
+        firearmsProjectedPL.text = "\(getPPLString(targetSystem.firearmsSell, currentBuy: currentSystem.firearmsBuy))"
+        medicineProjectedPL.text = "\(getPPLString(targetSystem.medicineSell, currentBuy: currentSystem.medicineBuy))"
+        machinesProjectedPL.text = "\(getPPLString(targetSystem.machinesSell, currentBuy: currentSystem.machinesBuy))"
+        narcoticsProjectedPL.text = "\(getPPLString(targetSystem.narcoticsSell, currentBuy: currentSystem.narcoticsBuy))"
+        robotsProjectedPL.text = "\(getPPLString(targetSystem.robotsSell, currentBuy: currentSystem.robotsBuy))"
         
         // experiment
         robotsQty.setTitle("", forState: controlState)
@@ -193,8 +199,36 @@ class BuyVC: UIViewController {
             robotsProjectedPL.text = "---"
         }
         
+        // fill out info at the bottom
+        
+        targetSystemLabel.text = "Target system: \(targetSystem.name)"
+        baysLabel.text = "Bays: 0/\(player.commanderShip.cargoBays)"    // FIX
+        cashLabel.text = "Cash: \(player.credits) cr."
+        
         
     }
+    
+    func getPPLString(targetSell: Int, currentBuy: Int) -> String {
+        let value = targetSell - currentBuy
+        var sign: String = ""
+        if value > 0 {
+            sign = "+"
+        } else {
+            sign = ""
+        }
+        let string = "\(sign)\(value) cr."
+        print(string)
+        return string
+    }
+    
+//    func writePPLString(commodity: TradeItemType) {
+//        var value: Int = 0
+//        switch commodity {
+//        case .Water:
+//            value = targetSystem.waterSell - currentSystem.waterBuy
+//            
+//        }
+//    }
 
     
 }
