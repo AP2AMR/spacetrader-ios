@@ -209,4 +209,29 @@ class Commander {
             robotsPaid = currentSystem.robotsBuy
         }
     }
+    
+    func buy(commodity: TradeItemType, quantity: Int) -> Bool {
+        switch commodity {
+        case .Water:
+            let totalPrice = quantity * currentSystem.waterBuy
+            if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
+                credits -= totalPrice
+                player.commanderShip.waterOnBoard += quantity
+                waterPaid = currentSystem.waterBuy
+                return true
+            } else {
+                return false
+            }
+        case .Furs:
+            let totalPrice = quantity * currentSystem.fursBuy
+            if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
+                credits -= totalPrice
+                player.commanderShip.fursOnBoard += quantity
+                fursPaid = currentSystem.fursBuy
+                return true
+            } else {
+                return false
+            }
+        }
+    }
 }
