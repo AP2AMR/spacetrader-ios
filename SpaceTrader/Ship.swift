@@ -35,7 +35,7 @@ class SpaceShip {
     // image damaged
     
     
-    //var cargo: [Int] = []     // initializing everything empty. Override this if needed.
+    var cargo: [TradeItem] = []     // initializing everything empty. Override this if needed.
     var weapon: [Weapon] = []
     var shield: [Shield] = []
     var shieldStrength: [Int] = []  // these arrays are getting scary
@@ -46,8 +46,15 @@ class SpaceShip {
     var tribbles: Int = 0
     
     var totalCargo: Int {
+//        get {
+//            return waterOnBoard + fursOnBoard + foodOnBoard + oreOnBoard + gamesOnBoard + firearmsOnBoard + medicineOnBoard + machinesOnBoard + narcoticsOnBoard + robotsOnBoard
+//        }
         get {
-            return waterOnBoard + fursOnBoard + foodOnBoard + oreOnBoard + gamesOnBoard + firearmsOnBoard + medicineOnBoard + machinesOnBoard + narcoticsOnBoard + robotsOnBoard
+            var totalItems: Int
+            for item in cargo {
+                totalItems += item.quantity
+            }
+            return totalItems
         }
     }
     

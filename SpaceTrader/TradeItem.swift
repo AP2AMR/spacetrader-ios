@@ -24,8 +24,13 @@ class TradeItem {
     let maxTradePrice: Int                  // Maximum price to buy/sell in orbit
     let roundOff: Int                       // Roundoff price for trade in orbit
     
-    init(item: TradeItemType) {
+    let quantity: Int
+    let pricePaid: Int
+    
+    init(item: TradeItemType, quantity: Int, pricePaid: Int) {
         self.item = item
+        self.quantity = quantity
+        self.pricePaid = pricePaid
         
         switch item {
         case TradeItemType.Water:
