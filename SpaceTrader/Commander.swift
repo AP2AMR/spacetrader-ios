@@ -212,132 +212,142 @@ class Commander {
     
     func buy(commodity: TradeItemType, quantity: Int) -> Bool {
         switch commodity {
-        case .Water:
-            let totalPrice = quantity * currentSystem.waterBuy
-            if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
-                credits -= totalPrice
-                let water = TradeItem(item: .Water, quantity: quantity, pricePaid: currentSystem.waterBuy)
-                player.commanderShip.cargo.append(water)
-                return true
-            } else {
-                return false
-            }
-        case .Furs:
-            let totalPrice = quantity * currentSystem.fursBuy
-            if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
-                credits -= totalPrice
-                let furs = TradeItem(item: .Furs, quantity: quantity, pricePaid: currentSystem.fursBuy)
-                player.commanderShip.cargo.append(furs)
-                return true
-            } else {
-                return false
-            }
-        case .Food:
-            let totalPrice = quantity * currentSystem.foodBuy
-            if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
-                credits -= totalPrice
-                let food = TradeItem(item: .Food, quantity: quantity, pricePaid: currentSystem.foodBuy)
-                player.commanderShip.cargo.append(food)
-                return true
-            } else {
-                return false
-            }
-        case .Ore:
-            let totalPrice = quantity * currentSystem.oreBuy
-            if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
-                credits -= totalPrice
-                let ore = TradeItem(item: .Ore, quantity: quantity, pricePaid: currentSystem.oreBuy)
-                player.commanderShip.cargo.append(ore)
-                return true
-            } else {
-                return false
-            }
-        case .Games:
-            let totalPrice = quantity * currentSystem.gamesBuy
-            if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
-                credits -= totalPrice
-                let games = TradeItem(item: .Games, quantity: quantity, pricePaid: currentSystem.gamesBuy)
-                player.commanderShip.cargo.append(games)
-                return true
-            } else {
-                return false
-            }
-        case .Firearms:
-            let totalPrice = quantity * currentSystem.firearmsBuy
-            if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
-                credits -= totalPrice
-                let firearms = TradeItem(item: .Firearms, quantity: quantity, pricePaid: currentSystem.firearmsBuy)
-                player.commanderShip.cargo.append(firearms)
-                return true
-            } else {
-                return false
-            }
-        case .Medicine:
-            let totalPrice = quantity * currentSystem.medicineBuy
-            if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
-                credits -= totalPrice
-                let medicine = TradeItem(item: .Medicine, quantity: quantity, pricePaid: currentSystem.medicineBuy)
-                player.commanderShip.cargo.append(medicine)
-                return true
-            } else {
-                return false
-            }
-        case .Machines:
-            let totalPrice = quantity * currentSystem.machinesBuy
-            if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
-                credits -= totalPrice
-                let machines = TradeItem(item: .Machines, quantity: quantity, pricePaid: currentSystem.machinesBuy)
-                player.commanderShip.cargo.append(machines)
-                return true
-            } else {
-                return false
-            }
-        case .Narcotics:
-            let totalPrice = quantity * currentSystem.narcoticsBuy
-            if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
-                credits -= totalPrice
-                let narcotics = TradeItem(item: .Narcotics, quantity: quantity, pricePaid: currentSystem.narcoticsBuy)
-                player.commanderShip.cargo.append(narcotics)
-                return true
-            } else {
-                return false
-            }
-        case .Robots:
-            let totalPrice = quantity * currentSystem.robotsBuy
-            if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
-                credits -= totalPrice
-                let robots = TradeItem(item: .Robots, quantity: quantity, pricePaid: currentSystem.robotsBuy)
-                player.commanderShip.cargo.append(robots)
-                return true
-            } else {
-                return false
-            }
-        default: return false
+            case .Water:
+                let totalPrice = quantity * currentSystem.waterBuy
+                if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
+                    credits -= totalPrice
+                    let water = TradeItem(item: .Water, quantity: quantity, pricePaid: currentSystem.waterBuy)
+                    player.commanderShip.cargo.append(water)
+                    return true
+                } else {
+                    return false
+                }
+            case .Furs:
+                let totalPrice = quantity * currentSystem.fursBuy
+                if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
+                    credits -= totalPrice
+                    let furs = TradeItem(item: .Furs, quantity: quantity, pricePaid: currentSystem.fursBuy)
+                    player.commanderShip.cargo.append(furs)
+                    return true
+                } else {
+                    return false
+                }
+            case .Food:
+                let totalPrice = quantity * currentSystem.foodBuy
+                if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
+                    credits -= totalPrice
+                    let food = TradeItem(item: .Food, quantity: quantity, pricePaid: currentSystem.foodBuy)
+                    player.commanderShip.cargo.append(food)
+                    return true
+                } else {
+                    return false
+                }
+            case .Ore:
+                let totalPrice = quantity * currentSystem.oreBuy
+                if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
+                    credits -= totalPrice
+                    let ore = TradeItem(item: .Ore, quantity: quantity, pricePaid: currentSystem.oreBuy)
+                    player.commanderShip.cargo.append(ore)
+                    return true
+                } else {
+                    return false
+                }
+            case .Games:
+                let totalPrice = quantity * currentSystem.gamesBuy
+                if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
+                    credits -= totalPrice
+                    let games = TradeItem(item: .Games, quantity: quantity, pricePaid: currentSystem.gamesBuy)
+                    player.commanderShip.cargo.append(games)
+                    return true
+                } else {
+                    return false
+                }
+            case .Firearms:
+                let totalPrice = quantity * currentSystem.firearmsBuy
+                if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
+                    credits -= totalPrice
+                    let firearms = TradeItem(item: .Firearms, quantity: quantity, pricePaid: currentSystem.firearmsBuy)
+                    player.commanderShip.cargo.append(firearms)
+                    return true
+                } else {
+                    return false
+                }
+            case .Medicine:
+                let totalPrice = quantity * currentSystem.medicineBuy
+                if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
+                    credits -= totalPrice
+                    let medicine = TradeItem(item: .Medicine, quantity: quantity, pricePaid: currentSystem.medicineBuy)
+                    player.commanderShip.cargo.append(medicine)
+                    return true
+                } else {
+                    return false
+                }
+            case .Machines:
+                let totalPrice = quantity * currentSystem.machinesBuy
+                if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
+                    credits -= totalPrice
+                    let machines = TradeItem(item: .Machines, quantity: quantity, pricePaid: currentSystem.machinesBuy)
+                    player.commanderShip.cargo.append(machines)
+                    return true
+                } else {
+                    return false
+                }
+            case .Narcotics:
+                let totalPrice = quantity * currentSystem.narcoticsBuy
+                if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
+                    credits -= totalPrice
+                    let narcotics = TradeItem(item: .Narcotics, quantity: quantity, pricePaid: currentSystem.narcoticsBuy)
+                    player.commanderShip.cargo.append(narcotics)
+                    return true
+                } else {
+                    return false
+                }
+            case .Robots:
+                let totalPrice = quantity * currentSystem.robotsBuy
+                if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
+                    credits -= totalPrice
+                    let robots = TradeItem(item: .Robots, quantity: quantity, pricePaid: currentSystem.robotsBuy)
+                    player.commanderShip.cargo.append(robots)
+                    return true
+                } else {
+                    return false
+                }
+            default: return false
         }
     }
     
     func getMax(commodity: TradeItemType) -> Int {
-        let cargoHolds = player.commanderShip.baysAvailable
-        let credits = player.credits
         var availableQuantity: Int {
             switch commodity {
-            case .Water: return currentSystem.water
-            case .Furs: return currentSystem.furs
-            case .Food: return currentSystem.food
-            case .Ore: return currentSystem.ore
-            case .Games: return currentSystem.games
-            case .Firearms: return currentSystem.firearms
-            case .Medicine: return currentSystem.medicine
-            case .Machines: return currentSystem.machines
-            case .Narcotics: return currentSystem.narcotics
-            case .Robots: return currentSystem.robots
-            default: return 0
+                case .Water: return currentSystem.water
+                case .Furs: return currentSystem.furs
+                case .Food: return currentSystem.food
+                case .Ore: return currentSystem.ore
+                case .Games: return currentSystem.games
+                case .Firearms: return currentSystem.firearms
+                case .Medicine: return currentSystem.medicine
+                case .Machines: return currentSystem.machines
+                case .Narcotics: return currentSystem.narcotics
+                case .Robots: return currentSystem.robots
+                default: return 0
             }
         }
         var pricePerUnit: Int {
-            
+            switch commodity {
+                case .Water: return currentSystem.waterBuy
+                case .Furs: return currentSystem.fursBuy
+                case .Food: return currentSystem.foodBuy
+                case .Ore: return currentSystem.oreBuy
+                case .Games: return currentSystem.gamesBuy
+                case .Firearms: return currentSystem.firearmsBuy
+                case .Medicine: return currentSystem.medicineBuy
+                case .Machines: return currentSystem.machinesBuy
+                case .Narcotics: return currentSystem.narcoticsBuy
+                case .Robots: return currentSystem.robotsBuy
+                default: return 0
+            }
         }
-        let maxMoney = credits /
-        
+        let maxMoney = player.credits / pricePerUnit
+        return min(maxMoney, player.commanderShip.baysAvailable, availableQuantity)
     }
 }

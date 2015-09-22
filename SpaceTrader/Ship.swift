@@ -50,7 +50,7 @@ class SpaceShip {
 //            return waterOnBoard + fursOnBoard + foodOnBoard + oreOnBoard + gamesOnBoard + firearmsOnBoard + medicineOnBoard + machinesOnBoard + narcoticsOnBoard + robotsOnBoard
 //        }
         get {
-            var totalItems: Int
+            var totalItems: Int = 0
             for item in cargo {
                 totalItems += item.quantity
             }
