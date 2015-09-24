@@ -16,49 +16,43 @@ class SellVC: UIViewController {
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    @IBAction func CreateCustom(sender: AnyObject) {
-        let custom = MyCustomView()
-        custom.addCustomView()
-    }
-    
-    
-}
-
-class MyCustomView: UIView {
-    var label: UILabel = UILabel()
-    var myNames = ["dipen","laxu","anis","aakash","santosh","raaa","ggdds","house"]
-    
-//    override init(){
-//        super.init()
-//    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.addCustomView()
-    }
-    
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func addCustomView() {
-        label.frame = CGRectMake(50, 10, 200, 100)
-        label.backgroundColor=UIColor.whiteColor()
-        label.textAlignment = NSTextAlignment.Center
-        label.text = "test label"
-        label.hidden=true
-        self.addSubview(label)
+    @IBAction func CreateCustom(sender: AnyObject) {    // makes action sheet, thing that comes up from the bottom with several hamburger options
+        // 1
+        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
         
-        var btn: UIButton = UIButton()
-        btn.frame=CGRectMake(50, 120, 200, 100)
-        btn.backgroundColor=UIColor.redColor()
-        btn.setTitle("button", forState: UIControlState.Normal)
-        btn.addTarget(self, action: "changeLabel", forControlEvents: UIControlEvents.TouchUpInside)
-        self.addSubview(btn)
+        // 2
+        let deleteAction = UIAlertAction(title: "Delete", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            print("File Deleted")
+        })
+        let saveAction = UIAlertAction(title: "Save", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            print("File Saved")
+        })
         
-        var txtField : UITextField = UITextField()
-        txtField.frame = CGRectMake(50, 250, 100,50)
-        txtField.backgroundColor = UIColor.grayColor()
-        self.addSubview(txtField)
+        //
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            print("Cancelled")
+        })
+        
+        
+        // 4
+        optionMenu.addAction(deleteAction)
+        optionMenu.addAction(saveAction)
+        optionMenu.addAction(cancelAction)
+        
+        // 5
+        self.presentViewController(optionMenu, animated: true, completion: nil)
     }
+    
+    
+    @IBAction func ProgrammaticallyLaunchModal(sender: AnyObject) {
+        var modal : BuyModalVC = BuyModalVC()
+        self.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
+        self.modalPresentationStyle = .CurrentContext
+        self.presentViewController(modal, animated: true, completion: nil)
+    }
+    
+    
 }

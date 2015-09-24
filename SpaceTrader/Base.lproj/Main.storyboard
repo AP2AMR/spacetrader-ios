@@ -49,6 +49,9 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="LPm-1O-B39" kind="presentation" modalPresentationStyle="overCurrentContext" id="H0r-5Z-731"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="37 cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iU5-Sm-Hjh">
                                 <rect key="frame" x="164" y="72" width="65" height="21"/>
@@ -410,6 +413,30 @@
             </objects>
             <point key="canvasLocation" x="2285" y="-319"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="HqQ-NS-lm0">
+            <objects>
+                <viewController id="LPm-1O-B39" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FKZ-2n-RYq"/>
+                        <viewControllerLayoutGuide type="bottom" id="3kA-hs-4Ng"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="NfL-0w-xAQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gzk-SY-vpw">
+                                <rect key="frame" x="180" y="28" width="240" height="128"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rkS-BF-hMV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2990" y="-319"/>
+        </scene>
         <!--Shipyard-->
         <scene sceneID="ttq-Ff-k7u">
             <objects>
@@ -468,10 +495,17 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oey-Rf-dNZ">
-                                <rect key="frame" x="20" y="110" width="211" height="30"/>
-                                <state key="normal" title="Button to Trigger Custom View"/>
+                                <rect key="frame" x="20" y="110" width="130" height="30"/>
+                                <state key="normal" title="Show Action Sheet"/>
                                 <connections>
                                     <action selector="CreateCustom:" destination="Bvy-Ci-dTJ" eventType="touchUpInside" id="XCh-0s-r52"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFe-mn-1Km">
+                                <rect key="frame" x="20" y="148" width="43" height="30"/>
+                                <state key="normal" title="Modal"/>
+                                <connections>
+                                    <segue destination="DWw-vV-6HL" kind="presentation" modalPresentationStyle="currentContext" id="rU7-AP-Ipq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -482,6 +516,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EtW-Km-5oq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2285" y="-1015"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Ai7-yh-TSf">
+            <objects>
+                <viewController modalPresentationStyle="overCurrentContext" id="DWw-vV-6HL" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wFi-Fg-EuG"/>
+                        <viewControllerLayoutGuide type="bottom" id="fzr-09-Thb"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="o6I-It-5nt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pUW-2a-isg">
+                                <rect key="frame" x="20" y="28" width="240" height="128"/>
+                                <color key="backgroundColor" red="1" green="0.66045376089999996" blue="0.57319752130000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mFi-9m-bWb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3002" y="-1023"/>
         </scene>
         <!--Create New Commander-->
         <scene sceneID="BhZ-D6-Upr">
