@@ -50,7 +50,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="LPm-1O-B39" kind="presentation" modalPresentationStyle="overCurrentContext" id="H0r-5Z-731"/>
+                                    <segue destination="LPm-1O-B39" kind="presentation" identifier="water" modalPresentationStyle="overCurrentContext" id="H0r-5Z-731"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="37 cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iU5-Sm-Hjh">
@@ -413,10 +413,10 @@
             </objects>
             <point key="canvasLocation" x="2285" y="-319"/>
         </scene>
-        <!--View Controller-->
+        <!--Buy ModalVC-->
         <scene sceneID="HqQ-NS-lm0">
             <objects>
-                <viewController id="LPm-1O-B39" sceneMemberID="viewController">
+                <viewController id="LPm-1O-B39" customClass="BuyModalVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FKZ-2n-RYq"/>
                         <viewControllerLayoutGuide type="bottom" id="3kA-hs-4Ng"/>
@@ -436,6 +436,9 @@
                                         <rect key="frame" x="190" y="162" width="30" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Buy"/>
+                                        <connections>
+                                            <action selector="buy" destination="LPm-1O-B39" eventType="touchUpInside" id="eql-w0-NoC"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Buy Water" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9e-q8-TZs">
                                         <rect key="frame" x="58" y="19" width="155" height="21"/>
@@ -445,6 +448,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2C-NJ-03h">
                                         <rect key="frame" x="50" y="162" width="48" height="30"/>
                                         <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancel" destination="LPm-1O-B39" eventType="touchUpInside" id="8oF-aj-vCs"/>
+                                        </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" text="At 46 cr. each, you can buy up to 5. How many do you want to buy?" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQo-8s-iEV">
                                         <rect key="frame" x="8" y="50" width="254" height="50"/>
@@ -472,6 +478,9 @@
                             <constraint firstItem="gzk-SY-vpw" firstAttribute="centerX" secondItem="NfL-0w-xAQ" secondAttribute="centerX" id="uEM-at-zn8"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="quantityField" destination="Gtv-Dy-Nsa" id="rj8-eE-VCC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rkS-BF-hMV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
