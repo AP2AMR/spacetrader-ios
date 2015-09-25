@@ -425,12 +425,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gzk-SY-vpw">
-                                <rect key="frame" x="180" y="28" width="240" height="128"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <view opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8OD-Gt-s0D">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gzk-SY-vpw">
+                                <rect key="frame" x="150" y="91" width="270" height="200"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Dk-Ax-cfv">
+                                        <rect key="frame" x="190" y="162" width="30" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Buy"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Buy Water" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9e-q8-TZs">
+                                        <rect key="frame" x="58" y="19" width="155" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2C-NJ-03h">
+                                        <rect key="frame" x="50" y="162" width="48" height="30"/>
+                                        <state key="normal" title="Cancel"/>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" text="At 46 cr. each, you can buy up to 5. How many do you want to buy?" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQo-8s-iEV">
+                                        <rect key="frame" x="8" y="50" width="254" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="5" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gtv-Dy-Nsa">
+                                        <rect key="frame" x="111" y="108" width="48" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="m2C-NJ-03h" firstAttribute="leading" secondItem="gzk-SY-vpw" secondAttribute="leading" constant="50" id="4Pi-30-cr3"/>
+                                    <constraint firstItem="mQo-8s-iEV" firstAttribute="top" secondItem="gzk-SY-vpw" secondAttribute="top" constant="50" id="Ilz-Wm-7L5"/>
+                                    <constraint firstItem="x9e-q8-TZs" firstAttribute="centerX" secondItem="gzk-SY-vpw" secondAttribute="centerX" id="UEi-SK-Huu"/>
+                                    <constraint firstAttribute="trailing" secondItem="7Dk-Ax-cfv" secondAttribute="trailing" constant="50" id="tGm-li-fOC"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gzk-SY-vpw" firstAttribute="top" secondItem="FKZ-2n-RYq" secondAttribute="bottom" constant="80" id="S0y-7d-Phc"/>
+                            <constraint firstItem="gzk-SY-vpw" firstAttribute="centerX" secondItem="NfL-0w-xAQ" secondAttribute="centerX" id="uEM-at-zn8"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rkS-BF-hMV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -454,7 +494,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFK-kE-RT1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2286" y="343"/>
+            <point key="canvasLocation" x="2286" y="342.99999999999994"/>
         </scene>
         <!--Warp-->
         <scene sceneID="iXi-GJ-Mc7">
@@ -515,7 +555,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EtW-Km-5oq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2285" y="-1015"/>
+            <point key="canvasLocation" x="2285" y="-1014.9999999999999"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Ai7-yh-TSf">
@@ -539,7 +579,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mFi-9m-bWb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3002" y="-1023"/>
+            <point key="canvasLocation" x="3002" y="-1022.9999999999999"/>
         </scene>
         <!--Create New Commander-->
         <scene sceneID="BhZ-D6-Upr">
@@ -565,7 +605,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSP-fk-Ju7">
-                                <rect key="frame" x="16" y="70" width="51" height="21"/>
+                                <rect key="frame" x="20" y="70" width="51" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -779,7 +819,7 @@
                         <outlet property="PilotPoints" destination="BFo-sl-Yc6" id="Ooz-Kk-N0a"/>
                         <outlet property="SkillPoints" destination="ShZ-4q-D3O" id="PGs-Jx-46x"/>
                         <outlet property="TraderPoints" destination="fXV-5h-rCO" id="E5w-mN-zUn"/>
-                        <segue destination="Zyg-E7-QYl" kind="show" identifier="newCommanderToMain" id="fBh-Az-gsT"/>
+                        <segue destination="Zyg-E7-QYl" kind="presentation" identifier="newCommanderToMain" id="fBh-Az-gsT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tgk-E6-7Pm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -824,7 +864,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cab-Yu-jDs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1474" y="-1023"/>
+            <point key="canvasLocation" x="1474" y="-1022.9999999999999"/>
         </scene>
         <!--Buy-->
         <scene sceneID="Hyc-zn-b2c">
@@ -862,7 +902,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DNZ-Au-rJe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1474" y="343"/>
+            <point key="canvasLocation" x="1474" y="342.99999999999994"/>
         </scene>
         <!--Warp-->
         <scene sceneID="b9g-JE-yR2">
