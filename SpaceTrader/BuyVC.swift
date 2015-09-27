@@ -221,14 +221,34 @@ class BuyVC: UIViewController {
         return string
     }
     
-//    func writePPLString(commodity: TradeItemType) {
-//        var value: Int = 0
-//        switch commodity {
-//        case .Water:
-//            value = targetSystem.waterSell - currentSystem.waterBuy
-//            
-//        }
-//    }
-
+    var buyItemTapped: TradeItemType?
     
+    @IBAction func buyWaterTapped(sender: AnyObject) {
+        print("buy water tapped, sender side")
+        performSegueWithIdentifier("buyModal", sender: sender) //TradeItemType.Water)
+        //buyItemTapped = TradeItemType.Water
+        buySellCommodity = TradeItemType.Water
+        buyAsOpposedToSell = true
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        print("prepareForSegue firing")
+//        if segue.identifier == "buyModal" {
+//            if let colorViewController = segue.destinationViewController as? ColorViewController {
+//                colorViewController.color = sender as? UIColor
+//            }
+//        }
+    }
 }
+
+//class BuyModalVCSuper: UIViewController {
+//    
+//    var item: TradeItemType?
+//    var buy: Bool?
+//    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        
+//        view.item = item
+//        view.buy = buy
+//}

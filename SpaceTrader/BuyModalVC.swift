@@ -13,9 +13,14 @@ class BuyModalVC: UIViewController {
     var max = 5
     
     @IBOutlet weak var quantityField: UITextField!
+    @IBOutlet weak var textField: UITextView!
         
     override func viewDidLoad() {
         quantityField.becomeFirstResponder()
+        if buySellCommodity == TradeItemType.Water && buyAsOpposedToSell {
+            textField.text = "trade item type is water & mode is buy"
+        }
+        
     }
     
     @IBAction func cancel() {

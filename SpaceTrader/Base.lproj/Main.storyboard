@@ -50,7 +50,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="LPm-1O-B39" kind="presentation" identifier="water" modalPresentationStyle="overCurrentContext" id="H0r-5Z-731"/>
+                                    <action selector="buyWaterTapped:" destination="jzz-KE-2cI" eventType="touchUpInside" id="vlh-Xt-rFW"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="37 cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iU5-Sm-Hjh">
@@ -407,6 +407,7 @@
                         <outlet property="waterPrice" destination="iU5-Sm-Hjh" id="x4p-Wg-kbO"/>
                         <outlet property="waterProjectedPL" destination="Eqm-K6-X1F" id="N46-vS-obT"/>
                         <outlet property="waterQty" destination="1I7-wN-8H3" id="WWN-t4-Kj8"/>
+                        <segue destination="LPm-1O-B39" kind="presentation" identifier="buyModal" modalPresentationStyle="overCurrentContext" id="1Ij-RU-wnj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UfU-FP-PCE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -480,6 +481,7 @@
                     </view>
                     <connections>
                         <outlet property="quantityField" destination="Gtv-Dy-Nsa" id="rj8-eE-VCC"/>
+                        <outlet property="textField" destination="mQo-8s-iEV" id="8Ju-5k-eMP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rkS-BF-hMV" userLabel="First Responder" sceneMemberID="firstResponder"/>

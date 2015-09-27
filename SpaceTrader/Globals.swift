@@ -33,5 +33,8 @@ var targetSystem = StarSystem(
     SpecialResourcesType.none,
     size: SizeType.Medium)
 
+var buySellCommodity: TradeItemType?
+var buyAsOpposedToSell: Bool = true
+
 // dummy data
 
