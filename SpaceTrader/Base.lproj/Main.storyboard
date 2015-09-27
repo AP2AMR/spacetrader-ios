@@ -504,6 +504,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="headerField" destination="x9e-q8-TZs" id="aPz-58-1U7"/>
                         <outlet property="quantityField" destination="Gtv-Dy-Nsa" id="rj8-eE-VCC"/>
                         <outlet property="textField" destination="mQo-8s-iEV" id="8Ju-5k-eMP"/>
                     </connections>

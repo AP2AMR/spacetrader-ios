@@ -20,18 +20,18 @@ enum TechLevelType: String {
     case techLevel8 = "Unavailable"
 }
 
-enum TradeItemType {
-    case Water
-    case Furs
-    case Food
-    case Ore
-    case Games
-    case Firearms
-    case Medicine
-    case Machines
-    case Narcotics
-    case Robots
-    case None
+enum TradeItemType: String {
+    case Water = "Water"
+    case Furs = "Furs"
+    case Food = "Food"
+    case Ore = "Ore"
+    case Games = "Games"
+    case Firearms = "Firearms"
+    case Medicine = "Medicine"
+    case Machines = "Machines"
+    case Narcotics = "Narcotics"
+    case Robots = "Robots"
+    case None = "NONE"
 }
 
 enum StatusType: String {

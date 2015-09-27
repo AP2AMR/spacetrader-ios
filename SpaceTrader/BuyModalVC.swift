@@ -10,8 +10,8 @@ import UIKit
 
 class BuyModalVC: UIViewController {
 
-    var tradeItem: TradeItemType?
-    var tradeItemName: String?
+    var tradeItem: TradeItemType!
+    var tradeItemName: String = buySellCommodity!.rawValue  // need name here
     var tradeItemPrice: Int {
         get {
             switch buySellCommodity! {
@@ -42,6 +42,7 @@ class BuyModalVC: UIViewController {
     }
     var max = player.getMax(buySellCommodity!)      // BUG ALERT: this causes the game to crash if you tap one of the nonexistent buttons for something not stocked in the system in question. Rather than checking here, need to make those buttons nonexistent.
     
+    @IBOutlet weak var headerField: UILabel!
     @IBOutlet weak var quantityField: UITextField!
     @IBOutlet weak var textField: UITextView!
         
@@ -54,7 +55,7 @@ class BuyModalVC: UIViewController {
         
         
         if buyAsOpposedToSell {
-            // SET TITLE FIELD
+            headerField.text = "Buy \(tradeItemName)"
             textField.text = "At \(tradeItemPrice) cr. each, you can buy up to \(max). How many do you want to buy?"
         }
         
@@ -68,10 +69,11 @@ class BuyModalVC: UIViewController {
         if quantityField.text != nil {
             let quantity = Int(quantityField.text!)
             if quantity <= max {
-                print("buy \(quantity!) items")
+                player.buy(buySellCommodity!, quantity: quantity!)
                 self.dismissViewControllerAnimated(false, completion: nil)
             } else {
                 self.dismissViewControllerAnimated(false, completion: nil)
+                print("max exceeded; buy failed")
             }
         }
     }

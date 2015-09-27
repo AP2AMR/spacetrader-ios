@@ -49,7 +49,6 @@ class BuyVC: UIViewController {
     @IBOutlet weak var cashLabel: UILabel!
 
 
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -202,6 +201,7 @@ class BuyVC: UIViewController {
         
         // fill out info at the bottom
         
+        // BUG: THIS STUFF MUST UPDATE WHEN BUY MODAL DISMISSED
         targetSystemLabel.text = "Target system: \(targetSystem.name)"
         baysLabel.text = "Bays: 0/\(player.commanderShip.cargoBays)"    // FIX
         cashLabel.text = "Cash: \(player.credits) cr."
@@ -285,6 +285,7 @@ class BuyVC: UIViewController {
 //            }
 //        }
     }
+    
 }
 
 //class BuyModalVCSuper: UIViewController {
