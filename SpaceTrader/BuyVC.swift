@@ -55,6 +55,7 @@ class BuyVC: UIViewController {
         super.viewDidLoad()
         
         let controlState = UIControlState()
+        buyAsOpposedToSell = true
 
         // DUMMY DATA
         currentSystem.water = 20
@@ -221,15 +222,60 @@ class BuyVC: UIViewController {
         return string
     }
     
-    var buyItemTapped: TradeItemType?
     
     @IBAction func buyWaterTapped(sender: AnyObject) {
         print("buy water tapped, sender side")
-        performSegueWithIdentifier("buyModal", sender: sender) //TradeItemType.Water)
-        //buyItemTapped = TradeItemType.Water
         buySellCommodity = TradeItemType.Water
-        buyAsOpposedToSell = true
+        performSegueWithIdentifier("buyModal", sender: sender) //TradeItemType.Water)
     }
+    
+    @IBAction func buyFursTapped(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Furs
+        performSegueWithIdentifier("buyModal", sender: sender)
+    }
+    
+    @IBAction func buyFoodTapped(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Food
+        buyAsOpposedToSell = true
+        performSegueWithIdentifier("buyModal", sender: sender)
+    }
+    
+    @IBAction func buyOreTapped(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Ore
+        performSegueWithIdentifier("buyModal", sender: sender)
+    }
+    
+    @IBAction func buyGamesTapped(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Games
+        performSegueWithIdentifier("buyModal", sender: sender)
+    }
+    
+    @IBAction func buyFirearmsTapped(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Firearms
+        performSegueWithIdentifier("buyModal", sender: sender)
+    }
+    
+    @IBAction func buyMedicineTapped(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Medicine
+        performSegueWithIdentifier("buyModal", sender: sender)
+    }
+    
+    @IBAction func buyMachinesTapped(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Machines
+        performSegueWithIdentifier("buyModal", sender: sender)
+    }
+    
+    @IBAction func buyNarcoticsTapped(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Narcotics
+        performSegueWithIdentifier("buyModal", sender: sender)
+    }
+    
+    @IBAction func buyRobotsTapped(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Robots
+        performSegueWithIdentifier("buyModal", sender: sender)
+    }
+    
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         print("prepareForSegue firing")
