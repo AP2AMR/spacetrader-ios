@@ -218,6 +218,7 @@ class Commander {
                     credits -= totalPrice
                     let water = TradeItem(item: .Water, quantity: quantity, pricePaid: currentSystem.waterBuy)
                     player.commanderShip.cargo.append(water)
+                    currentSystem.water -= quantity
                     return true
                 } else {
                     return false
@@ -228,6 +229,7 @@ class Commander {
                     credits -= totalPrice
                     let furs = TradeItem(item: .Furs, quantity: quantity, pricePaid: currentSystem.fursBuy)
                     player.commanderShip.cargo.append(furs)
+                    currentSystem.furs -= quantity
                     return true
                 } else {
                     return false
@@ -238,6 +240,7 @@ class Commander {
                     credits -= totalPrice
                     let food = TradeItem(item: .Food, quantity: quantity, pricePaid: currentSystem.foodBuy)
                     player.commanderShip.cargo.append(food)
+                    currentSystem.food -= quantity
                     return true
                 } else {
                     return false
@@ -248,6 +251,7 @@ class Commander {
                     credits -= totalPrice
                     let ore = TradeItem(item: .Ore, quantity: quantity, pricePaid: currentSystem.oreBuy)
                     player.commanderShip.cargo.append(ore)
+                    currentSystem.ore -= quantity
                     return true
                 } else {
                     return false
@@ -258,6 +262,7 @@ class Commander {
                     credits -= totalPrice
                     let games = TradeItem(item: .Games, quantity: quantity, pricePaid: currentSystem.gamesBuy)
                     player.commanderShip.cargo.append(games)
+                    currentSystem.games -= quantity
                     return true
                 } else {
                     return false
@@ -268,6 +273,7 @@ class Commander {
                     credits -= totalPrice
                     let firearms = TradeItem(item: .Firearms, quantity: quantity, pricePaid: currentSystem.firearmsBuy)
                     player.commanderShip.cargo.append(firearms)
+                    currentSystem.firearms -= quantity
                     return true
                 } else {
                     return false
@@ -278,6 +284,7 @@ class Commander {
                     credits -= totalPrice
                     let medicine = TradeItem(item: .Medicine, quantity: quantity, pricePaid: currentSystem.medicineBuy)
                     player.commanderShip.cargo.append(medicine)
+                    currentSystem.medicine -= quantity
                     return true
                 } else {
                     return false
@@ -288,6 +295,7 @@ class Commander {
                     credits -= totalPrice
                     let machines = TradeItem(item: .Machines, quantity: quantity, pricePaid: currentSystem.machinesBuy)
                     player.commanderShip.cargo.append(machines)
+                    currentSystem.machines -= quantity
                     return true
                 } else {
                     return false
@@ -298,6 +306,7 @@ class Commander {
                     credits -= totalPrice
                     let narcotics = TradeItem(item: .Narcotics, quantity: quantity, pricePaid: currentSystem.narcoticsBuy)
                     player.commanderShip.cargo.append(narcotics)
+                    currentSystem.narcotics -= quantity
                     return true
                 } else {
                     return false
@@ -308,6 +317,7 @@ class Commander {
                     credits -= totalPrice
                     let robots = TradeItem(item: .Robots, quantity: quantity, pricePaid: currentSystem.robotsBuy)
                     player.commanderShip.cargo.append(robots)
+                    currentSystem.robots -= quantity
                     return true
                 } else {
                     return false
