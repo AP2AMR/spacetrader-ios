@@ -13,9 +13,11 @@ protocol BuyModalVCDelegate: class {
     
 }
 
-class BuyModalVC: UIViewController {
+class BuyModalVC: UIViewController  {       // the one that calls the function in the delegate
 
-    weak var delegate: BuyModalVCDelegate?
+    
+    weak var delegate: BuyModalVCDelegate?  // not enough. Must also set delegate.
+    
     var modalClosed = false
     var tradeItem: TradeItemType!
     var tradeItemName: String = buySellCommodity!.rawValue  // need name here
@@ -79,6 +81,7 @@ class BuyModalVC: UIViewController {
                 player.buy(buySellCommodity!, quantity: quantity!)
                 print("buy pressed. Delegate should now be called")
                 // call updateUI method within BuyVC here, using delegate
+                // note: if I wanted a value from the other thing, I'd set a variable equal to a function in the other VC, that would just return that local var
                 delegate?.buyModalDidFinish(self)
                 self.dismissViewControllerAnimated(false, completion: nil)
             } else {

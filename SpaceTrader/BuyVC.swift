@@ -218,7 +218,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
             sign = ""
         }
         let string = "\(sign)\(value) cr."
-        print(string)
+        //print(string)
         return string
     }
     
@@ -275,24 +275,20 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         performSegueWithIdentifier("buyModal", sender: sender)
     }
     
-    func buyModalDidFinish(controller: BuyModalVC) {
-        print("delegate function firing")
+    func buyModalDidFinish(controller: BuyModalVC) {                    // DELEGATE FUNCTION
         targetSystemLabel.text = "Target system: \(targetSystem.name)"
         baysLabel.text = "Bays: 0/\(player.commanderShip.cargoBays)"    // FIX
         cashLabel.text = "Cash: \(player.credits) cr."
     }
     
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        // magic required to make delegate work
-//        if segue.identifier == "buyModal" {
-//            
-//            let controller = segue.destinationViewController.navigationController?.topViewController as! BuyModalVC
-//            //let navigationController = segue.destinationViewController as! UINavigationController
-//            //let controller = navigationController.topViewController as! BuyModalVC
-//            controller.delegate = self
-//        }
-//    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // magic required to make delegate work
+        if segue.identifier == "buyModal" {
+            let modalVC: BuyModalVC = segue.destinationViewController as! BuyModalVC
+            modalVC.delegate = self
+        }
+    }
     
 }
 
