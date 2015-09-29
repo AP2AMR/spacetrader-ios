@@ -10,6 +10,7 @@ import UIKit
 
 class BuyModalVC: UIViewController {
 
+    var modalClosed = false
     var tradeItem: TradeItemType!
     var tradeItemName: String = buySellCommodity!.rawValue  // need name here
     var tradeItemPrice: Int {

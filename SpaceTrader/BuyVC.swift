@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol transactionDelegate: class {
+
+
+}
+
 class BuyVC: UIViewController {
 
     @IBOutlet weak var waterQty: UIButton!
@@ -47,8 +52,6 @@ class BuyVC: UIViewController {
     @IBOutlet weak var targetSystemLabel: UILabel!
     @IBOutlet weak var baysLabel: UILabel!
     @IBOutlet weak var cashLabel: UILabel!
-
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -275,6 +278,11 @@ class BuyVC: UIViewController {
         performSegueWithIdentifier("buyModal", sender: sender)
     }
     
+    func updateUI() {       // this function must be called upon dismissal of the modal
+        targetSystemLabel.text = "Target system: \(targetSystem.name)"
+        baysLabel.text = "Bays: 0/\(player.commanderShip.cargoBays)"    // FIX
+        cashLabel.text = "Cash: \(player.credits) cr."
+    }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -288,14 +296,4 @@ class BuyVC: UIViewController {
     
 }
 
-//class BuyModalVCSuper: UIViewController {
-//    
-//    var item: TradeItemType?
-//    var buy: Bool?
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        
-//        view.item = item
-//        view.buy = buy
-//}
+
