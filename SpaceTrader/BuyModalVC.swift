@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol BuyModalVCDelegate: class {
+    func buyModalDidFinish(controller: BuyModalVC)
+    
+}
+
 class BuyModalVC: UIViewController {
 
+    weak var delegate: BuyModalVCDelegate?
     var modalClosed = false
     var tradeItem: TradeItemType!
     var tradeItemName: String = buySellCommodity!.rawValue  // need name here
@@ -71,6 +77,9 @@ class BuyModalVC: UIViewController {
             let quantity = Int(quantityField.text!)
             if quantity <= max {
                 player.buy(buySellCommodity!, quantity: quantity!)
+                print("buy pressed. Delegate should now be called")
+                // call updateUI method within BuyVC here, using delegate
+                delegate?.buyModalDidFinish(self)
                 self.dismissViewControllerAnimated(false, completion: nil)
             } else {
                 self.dismissViewControllerAnimated(false, completion: nil)

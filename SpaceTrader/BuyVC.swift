@@ -8,12 +8,9 @@
 
 import UIKit
 
-protocol transactionDelegate: class {
 
 
-}
-
-class BuyVC: UIViewController {
+class BuyVC: UIViewController, BuyModalVCDelegate {
 
     @IBOutlet weak var waterQty: UIButton!
     @IBOutlet weak var fursQty: UIButton!
@@ -278,21 +275,24 @@ class BuyVC: UIViewController {
         performSegueWithIdentifier("buyModal", sender: sender)
     }
     
-    func updateUI() {       // this function must be called upon dismissal of the modal
+    func buyModalDidFinish(controller: BuyModalVC) {
+        print("delegate function firing")
         targetSystemLabel.text = "Target system: \(targetSystem.name)"
         baysLabel.text = "Bays: 0/\(player.commanderShip.cargoBays)"    // FIX
         cashLabel.text = "Cash: \(player.credits) cr."
     }
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        print("prepareForSegue firing")
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        // magic required to make delegate work
 //        if segue.identifier == "buyModal" {
-//            if let colorViewController = segue.destinationViewController as? ColorViewController {
-//                colorViewController.color = sender as? UIColor
-//            }
+//            
+//            let controller = segue.destinationViewController.navigationController?.topViewController as! BuyModalVC
+//            //let navigationController = segue.destinationViewController as! UINavigationController
+//            //let controller = navigationController.topViewController as! BuyModalVC
+//            controller.delegate = self
 //        }
-    }
+//    }
     
 }
 
