@@ -50,6 +50,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     @IBOutlet weak var baysLabel: UILabel!
     @IBOutlet weak var cashLabel: UILabel!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -77,6 +78,26 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         targetSystem.oreSell = 441
         targetSystem.gamesSell = 178
         targetSystem.firearmsSell = 752
+        
+        systemsInRange.append(StarSystem(
+            name: "Tarchannen",
+            techLevel: TechLevelType.techLevel2,
+            politics: PoliticsType.confederacy,
+            status: StatusType.none,
+            xCoord: 5,
+            yCoord: 5,
+            specialResources: SpecialResourcesType.none,
+            size: SizeType.Small))
+        
+        systemsInRange.append(StarSystem(
+            name: "Meridian",
+            techLevel: TechLevelType.techLevel7,
+            politics: PoliticsType.technocracy,
+            status: StatusType.none,
+            xCoord: 6,
+            yCoord: 6,
+            specialResources: SpecialResourcesType.none,
+            size: SizeType.Tiny))
         // END DUMMY DATA
         
 
@@ -201,7 +222,6 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         
         // fill out info at the bottom
         
-        // BUG: THIS STUFF MUST UPDATE WHEN BUY MODAL DISMISSED
         targetSystemLabel.text = "Target system: \(targetSystem.name)"
         baysLabel.text = "Bays: 0/\(player.commanderShip.cargoBays)"    // FIX
         cashLabel.text = "Cash: \(player.credits) cr."
@@ -275,7 +295,44 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         performSegueWithIdentifier("buyModal", sender: sender)
     }
     
+    // Max functions
+    
+    @IBAction func waterMax() {
+        player.buy(TradeItemType.Water, quantity: player.getMax(TradeItemType.Water))
+        updateUI()
+    }
+    
+    @IBAction func fursMax() {
+    }
+    
+    @IBAction func foodMax() {
+    }
+    
+    @IBAction func oreMax() {
+    }
+    
+    @IBAction func gamesMax() {
+    }
+    
+    
+    
+    
+    
+    
+    @IBAction func systemCycleBack() {
+        
+    }
+    
+    @IBAction func systemCycleForward(sender: AnyObject) {
+    }
+    
+    
+    
     func buyModalDidFinish(controller: BuyModalVC) {                    // DELEGATE FUNCTION
+        updateUI()
+    }
+    
+    func updateUI() {
         targetSystemLabel.text = "Target system: \(targetSystem.name)"
         baysLabel.text = "Bays: \(player.commanderShip.totalCargo)/\(player.commanderShip.cargoBays)"    // FIX
         cashLabel.text = "Cash: \(player.credits) cr."

@@ -71,6 +71,9 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="waterMax" destination="jzz-KE-2cI" eventType="touchUpInside" id="1nB-Mo-sf7"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Furs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsZ-6J-n1i">
                                 <rect key="frame" x="48" y="101" width="60" height="21"/>
@@ -107,6 +110,9 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="fursMax" destination="jzz-KE-2cI" eventType="touchUpInside" id="nIZ-bE-709"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Food" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgH-z8-tZu">
                                 <rect key="frame" x="48" y="135" width="60" height="21"/>
@@ -143,6 +149,9 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="foodMax" destination="jzz-KE-2cI" eventType="touchUpInside" id="iKY-SK-mv3"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ore" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9A-bg-685">
                                 <rect key="frame" x="48" y="169" width="60" height="21"/>
@@ -179,6 +188,9 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="oreMax" destination="jzz-KE-2cI" eventType="touchUpInside" id="RUr-6o-LFC"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Games" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="whY-8Y-3by">
                                 <rect key="frame" x="48" y="203" width="60" height="21"/>
@@ -215,6 +227,9 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="gamesMax" destination="jzz-KE-2cI" eventType="touchUpInside" id="573-l5-3F3"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Firearms" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PR8-37-h5N">
                                 <rect key="frame" x="48" y="237" width="60" height="21"/>
@@ -393,6 +408,17 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEk-zr-5OK">
+                                <rect key="frame" x="208" y="451" width="30" height="30"/>
+                                <state key="normal" title="&lt;"/>
+                                <connections>
+                                    <action selector="systemCycleBack:" destination="jzz-KE-2cI" eventType="touchUpInside" id="0Z1-Vm-qZO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nUc-je-sPa">
+                                <rect key="frame" x="262" y="451" width="30" height="30"/>
+                                <state key="normal" title="&gt;"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -562,29 +588,6 @@
                     <view key="view" contentMode="scaleToFill" id="kGs-Me-6HE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8s-9I-Aa2">
-                                <rect key="frame" x="20" y="72" width="154" height="30"/>
-                                <state key="normal" title="Button to Trigger Alert"/>
-                                <connections>
-                                    <action selector="CreateAlert:" destination="Bvy-Ci-dTJ" eventType="touchUpInside" id="uE5-6m-zAn"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oey-Rf-dNZ">
-                                <rect key="frame" x="20" y="110" width="130" height="30"/>
-                                <state key="normal" title="Show Action Sheet"/>
-                                <connections>
-                                    <action selector="CreateCustom:" destination="Bvy-Ci-dTJ" eventType="touchUpInside" id="XCh-0s-r52"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFe-mn-1Km">
-                                <rect key="frame" x="20" y="148" width="43" height="30"/>
-                                <state key="normal" title="Modal"/>
-                                <connections>
-                                    <segue destination="DWw-vV-6HL" kind="presentation" modalPresentationStyle="currentContext" id="rU7-AP-Ipq"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Sell Cargo" id="6dl-JS-rLB"/>
