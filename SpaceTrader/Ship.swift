@@ -64,6 +64,10 @@ class SpaceShip {
         }
     }
     
+//    var baysInUse: Int {
+//        
+//    }
+    
     var waterOnBoard: Int = 0
     var fursOnBoard: Int = 0
     var foodOnBoard: Int = 0

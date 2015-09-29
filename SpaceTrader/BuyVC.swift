@@ -277,7 +277,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     
     func buyModalDidFinish(controller: BuyModalVC) {                    // DELEGATE FUNCTION
         targetSystemLabel.text = "Target system: \(targetSystem.name)"
-        baysLabel.text = "Bays: 0/\(player.commanderShip.cargoBays)"    // FIX
+        baysLabel.text = "Bays: \(player.commanderShip.totalCargo)/\(player.commanderShip.cargoBays)"    // FIX
         cashLabel.text = "Cash: \(player.credits) cr."
     }
     
