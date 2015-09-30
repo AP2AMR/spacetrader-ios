@@ -41,4 +41,10 @@ class SellVC: UIViewController {
         narcoticsQuantity.setTitle("\(player.commanderShip.getQuantity(.Narcotics))", forState: controlState)
         robotsQuantity.setTitle("\(player.commanderShip.getQuantity(.Robots))", forState: controlState)
     }
+    
+    // this updates quantities when this page becomes active
+    override func viewWillAppear(animated: Bool) {
+        updateQuantities()
+    }
+    
 }
