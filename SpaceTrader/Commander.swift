@@ -326,6 +326,25 @@ class Commander {
         }
     }
     
+    func sellAll(commodity: TradeItemType) -> Bool {
+        var quantity: Int = 0
+        for entry in player.commanderShip.cargo {
+            if entry.item == commodity {
+                quantity += entry.quantity
+            }
+        }
+        // remove entry from cargo
+        // increment credits
+        
+        print("quantity = \(quantity)")
+        
+        if quantity > 0 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     func getMax(commodity: TradeItemType) -> Int {
         var availableQuantity: Int {
             switch commodity {

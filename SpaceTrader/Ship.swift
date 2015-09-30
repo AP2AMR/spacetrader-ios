@@ -46,9 +46,6 @@ class SpaceShip {
     var tribbles: Int = 0
     
     var totalCargo: Int {
-//        get {
-//            return waterOnBoard + fursOnBoard + foodOnBoard + oreOnBoard + gamesOnBoard + firearmsOnBoard + medicineOnBoard + machinesOnBoard + narcoticsOnBoard + robotsOnBoard
-//        }
         get {
             var totalItems: Int = 0
             for item in cargo {
@@ -56,6 +53,16 @@ class SpaceShip {
             }
             return totalItems
         }
+    }
+    
+    func getQuantity(commodity: TradeItemType) -> Int {
+        var quantity: Int = 0
+        for entry in cargo {
+            if entry.item == commodity {
+                quantity += entry.quantity
+            }
+        }
+        return quantity
     }
     
     var baysAvailable: Int {
