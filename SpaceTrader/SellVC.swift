@@ -12,6 +12,9 @@ class SellVC: UIViewController {
     
     let controlState = UIControlState()
     
+
+    
+    // quantities
     @IBOutlet weak var waterQuantity: UIButton!
     @IBOutlet weak var fursQuantity: UIButton!
     @IBOutlet weak var foodQuantity: UIButton!
@@ -23,13 +26,65 @@ class SellVC: UIViewController {
     @IBOutlet weak var narcoticsQuantity: UIButton!
     @IBOutlet weak var robotsQuantity: UIButton!
     
+    // things at the bottom
+
+    @IBOutlet weak var targetSystemLabel: UILabel!
+    @IBOutlet weak var baysAvailableLabel: UILabel!
+    @IBOutlet weak var cashLabel: UILabel!
+
+    
+    
+    // "All" buttons
+    @IBAction func waterAll() {
+        player.sellAll(.Water)
+        recurringUpdate()
+    }
+    
+    @IBAction func fursAll() {
+    }
+    
+    @IBAction func foodAll() {
+    }
+    
+    @IBAction func oreAll() {
+    }
+
+    @IBAction func gamesAll() {
+    }
+    
+    @IBAction func firearmsAll() {
+    }
+    
+    @IBAction func medicineAll() {
+    }
+    
+    @IBAction func machinesAll() {
+    }
+    
+    @IBAction func narcoticsAll() {
+    }
+    
+    @IBAction func robotsAll() {
+    }
+    
+    
+    
     override func viewDidLoad() {
-        updateQuantities()
+        recurringUpdate()
+        
+        // DUMMY DATA
+        currentSystem.waterSell = 45
+        currentSystem.fursSell = 290
+        currentSystem.foodSell = 0
+        currentSystem.oreSell = 441
+        currentSystem.gamesSell = 178
+        currentSystem.firearmsSell = 752
+        // END DUMMY DATA
         
         
     }
     
-    func updateQuantities() {
+    func recurringUpdate() {
         waterQuantity.setTitle("\(player.commanderShip.getQuantity(.Water))", forState: controlState)
         fursQuantity.setTitle("\(player.commanderShip.getQuantity(.Furs))", forState: controlState)
         foodQuantity.setTitle("\(player.commanderShip.getQuantity(.Food))", forState: controlState)
@@ -40,11 +95,13 @@ class SellVC: UIViewController {
         machinesQuantity.setTitle("\(player.commanderShip.getQuantity(.Machines))", forState: controlState)
         narcoticsQuantity.setTitle("\(player.commanderShip.getQuantity(.Narcotics))", forState: controlState)
         robotsQuantity.setTitle("\(player.commanderShip.getQuantity(.Robots))", forState: controlState)
+        
+        cashLabel.text = "Cash: \(player.credits) cr."
     }
     
     // this updates quantities when this page becomes active
     override func viewWillAppear(animated: Bool) {
-        updateQuantities()
+        recurringUpdate()
     }
     
 }

@@ -617,7 +617,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cash: 997 cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P5n-q4-udY">
-                                <rect key="frame" x="220" y="489" width="113" height="21"/>
+                                <rect key="frame" x="220" y="489" width="176" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -686,6 +686,9 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="waterAll" destination="Bvy-Ci-dTJ" eventType="touchUpInside" id="uy1-Cs-oeF"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Furs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHa-MD-npf">
                                 <rect key="frame" x="68" y="139" width="60" height="21"/>
@@ -719,6 +722,9 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="fursAll" destination="Bvy-Ci-dTJ" eventType="touchUpInside" id="mJb-bZ-snm"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Food" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCd-bN-KKK">
                                 <rect key="frame" x="68" y="173" width="60" height="21"/>
@@ -752,6 +758,9 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="foodAll" destination="Bvy-Ci-dTJ" eventType="touchUpInside" id="oIz-r7-AlV"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ore" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BA0-rh-qxe">
                                 <rect key="frame" x="68" y="207" width="60" height="21"/>
@@ -785,6 +794,9 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="oreAll" destination="Bvy-Ci-dTJ" eventType="touchUpInside" id="lID-LZ-w1p"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Games" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5f-9F-gD9">
                                 <rect key="frame" x="68" y="241" width="60" height="21"/>
@@ -818,6 +830,9 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="gamesAll" destination="Bvy-Ci-dTJ" eventType="touchUpInside" id="RtN-uz-OHW"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Firearms" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GK0-im-7jC">
                                 <rect key="frame" x="68" y="275" width="60" height="21"/>
@@ -851,6 +866,9 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="firearmsAll" destination="Bvy-Ci-dTJ" eventType="touchUpInside" id="2kx-vi-dTG"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Medicine" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egW-RT-cLF">
                                 <rect key="frame" x="68" y="309" width="63" height="21"/>
@@ -884,6 +902,9 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="medicineAll" destination="Bvy-Ci-dTJ" eventType="touchUpInside" id="X13-nf-3jw"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Machines" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIM-Zz-EIa">
                                 <rect key="frame" x="68" y="343" width="66" height="21"/>
@@ -917,6 +938,9 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="machinesAll" destination="Bvy-Ci-dTJ" eventType="touchUpInside" id="bnX-4e-sr6"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Narcotics" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YeZ-Wy-tnl">
                                 <rect key="frame" x="68" y="377" width="66" height="21"/>
@@ -950,6 +974,9 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="narcoticsAll" destination="Bvy-Ci-dTJ" eventType="touchUpInside" id="pmj-Jn-e9a"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Robots" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kg4-2k-pOx">
                                 <rect key="frame" x="68" y="411" width="60" height="21"/>
@@ -983,12 +1010,17 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="robotsAll" destination="Bvy-Ci-dTJ" eventType="touchUpInside" id="NXP-qc-tXO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Sell Cargo" id="6dl-JS-rLB"/>
                     <connections>
+                        <outlet property="baysAvailableLabel" destination="Pux-5c-bsU" id="FFQ-Ad-Et1"/>
+                        <outlet property="cashLabel" destination="P5n-q4-udY" id="cn7-Vw-cr7"/>
                         <outlet property="firearmsQuantity" destination="YVy-br-E0U" id="TF2-6s-oi0"/>
                         <outlet property="foodQuantity" destination="kfL-BK-hdM" id="lns-VL-Onv"/>
                         <outlet property="fursQuantity" destination="cjN-dj-YqI" id="W33-7q-ZKe"/>
@@ -998,6 +1030,7 @@
                         <outlet property="narcoticsQuantity" destination="K0U-s0-F7t" id="Pwz-oO-U6V"/>
                         <outlet property="oreQuantity" destination="gHC-v1-Qmv" id="wmL-iQ-qAz"/>
                         <outlet property="robotsQuantity" destination="fNO-R5-INC" id="edV-jf-hXy"/>
+                        <outlet property="targetSystemLabel" destination="a17-p1-q2d" id="XV8-FI-Bjh"/>
                         <outlet property="waterQuantity" destination="fSI-XD-q9C" id="ugb-lR-0At"/>
                     </connections>
                 </viewController>

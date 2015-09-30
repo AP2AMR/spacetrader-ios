@@ -334,9 +334,35 @@ class Commander {
             }
         }
         // remove entry from cargo
-        // increment credits
+        var salePrice: Int = 0
+        switch commodity {
+            case .Water:
+                salePrice = quantity * currentSystem.waterSell
+            case .Furs:
+                salePrice = quantity * currentSystem.fursSell
+            case .Food:
+                salePrice = quantity * currentSystem.foodSell
+            case .Ore:
+                salePrice = quantity * currentSystem.oreSell
+            case .Games:
+                salePrice = quantity * currentSystem.gamesSell
+            case .Firearms:
+                salePrice = quantity * currentSystem.firearmsSell
+            case .Medicine:
+                salePrice = quantity * currentSystem.medicineSell
+            case .Machines:
+                salePrice = quantity * currentSystem.machinesSell
+            case .Narcotics:
+                salePrice = quantity * currentSystem.narcoticsSell
+            case .Robots:
+                salePrice = quantity * currentSystem.robotsSell
+            default:
+                salePrice = 0
+        }
+        print(salePrice)
+        player.credits += salePrice
         
-        print("quantity = \(quantity)")
+        
         
         if quantity > 0 {
             return true
