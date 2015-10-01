@@ -109,6 +109,91 @@ class Galaxy {
             availableNames.removeAtIndex(nameIndex)
             newStarSystem.name = nameString
             
+            // tech level, politics, size--ALL COMPLETELY RANDOM
+            let techLevelRand = Int(arc4random_uniform(8))
+            switch techLevelRand{
+                case 0:
+                    newStarSystem.techLevel = TechLevelType.techLevel0
+                case 1:
+                    newStarSystem.techLevel = TechLevelType.techLevel1
+                case 2:
+                    newStarSystem.techLevel = TechLevelType.techLevel2
+                case 3:
+                    newStarSystem.techLevel = TechLevelType.techLevel3
+                case 4:
+                    newStarSystem.techLevel = TechLevelType.techLevel4
+                case 5:
+                    newStarSystem.techLevel = TechLevelType.techLevel5
+                case 6:
+                    newStarSystem.techLevel = TechLevelType.techLevel6
+                case 7:
+                    newStarSystem.techLevel = TechLevelType.techLevel7
+                default:
+                    newStarSystem.techLevel = TechLevelType.techLevel8
+            }
+            
+            
+            // politics
+            let politicsRand = Int(arc4random_uniform(17))
+            switch politicsRand {
+                case 0:
+                    newStarSystem.politics = PoliticsType.anarchy
+                case 1:
+                    newStarSystem.politics = PoliticsType.capitalist
+                case 2:
+                    newStarSystem.politics = PoliticsType.communist
+                case 3:
+                    newStarSystem.politics = PoliticsType.confederacy
+                case 4:
+                    newStarSystem.politics = PoliticsType.corporate
+                case 5:
+                    newStarSystem.politics = PoliticsType.cybernetic
+                case 6:
+                    newStarSystem.politics = PoliticsType.democracy
+                case 7:
+                    newStarSystem.politics = PoliticsType.dictatorship
+                case 8:
+                    newStarSystem.politics = PoliticsType.fascist
+                case 9:
+                    newStarSystem.politics = PoliticsType.feudal
+                case 10:
+                    newStarSystem.politics = PoliticsType.military
+                case 11:
+                    newStarSystem.politics = PoliticsType.monarchy
+                case 12:
+                    newStarSystem.politics = PoliticsType.pacifist
+                case 13:
+                    newStarSystem.politics = PoliticsType.socialist
+                case 14:
+                    newStarSystem.politics = PoliticsType.satori
+                case 15:
+                    newStarSystem.politics = PoliticsType.technocracy
+                case 16:
+                    newStarSystem.politics = PoliticsType.theocracy
+                default:
+                    newStarSystem.politics = PoliticsType.anarchy
+            }
+            
+            // size
+            let sizeRand = Int(arc4random_uniform(5))
+            switch sizeRand {
+                case 0:
+                    newStarSystem.size = SizeType.Tiny
+                case 1:
+                    newStarSystem.size = SizeType.Small
+                case 2:
+                    newStarSystem.size = SizeType.Medium
+                case 3:
+                    newStarSystem.size = SizeType.Large
+                case 4:
+                    newStarSystem.size = SizeType.Huge
+                default:
+                    newStarSystem.size = SizeType.Tiny
+            }
+            
+            
+            
+            
             
             // end of loop
             planets.append(newStarSystem)
@@ -124,6 +209,9 @@ class Galaxy {
             print("name: \(planet.name)")
             print("x coord: \(planet.xCoord)")
             print("y coord: \(planet.yCoord)")
+            print("tech level: \(planet.techLevel)")
+            print("politics: \(planet.politics)")
+            print("size: \(planet.size)")
         }
         
     }
