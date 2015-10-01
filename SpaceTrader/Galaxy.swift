@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Galaxy {
     var planets: [StarSystem] = []
@@ -23,23 +24,47 @@ class Galaxy {
                 // place each of the six with a wormhole within a square, defined as the middle of each square of the galaxy broken into a 3x2 grid
                 switch i {
                 case 0:
-                    newStarSystem.xCoord = 1
-                    newStarSystem.yCoord = 1
+                    let wUpper: UInt32 = 48
+                    let wLower: UInt32 = 2
+                    let hUpper: UInt32 = 54
+                    let hLower: UInt32 = 2
+                    newStarSystem.xCoord = Int(arc4random_uniform(wUpper - wLower) + wLower)
+                    newStarSystem.yCoord = Int(arc4random_uniform(hUpper - hLower) + hLower)
                 case 1:
-                    newStarSystem.xCoord = 1
-                    newStarSystem.yCoord = 1
+                    let wUpper: UInt32 = 98
+                    let wLower: UInt32 = 52
+                    let hUpper: UInt32 = 54
+                    let hLower: UInt32 = 2
+                    newStarSystem.xCoord = Int(arc4random_uniform(wUpper - wLower) + wLower)
+                    newStarSystem.yCoord = Int(arc4random_uniform(hUpper - hLower) + hLower)
                 case 2:
-                    newStarSystem.xCoord = 1
-                    newStarSystem.yCoord = 1
+                    let wUpper: UInt32 = 148
+                    let wLower: UInt32 = 102
+                    let hUpper: UInt32 = 54
+                    let hLower: UInt32 = 2
+                    newStarSystem.xCoord = Int(arc4random_uniform(wUpper - wLower) + wLower)
+                    newStarSystem.yCoord = Int(arc4random_uniform(hUpper - hLower) + hLower)
                 case 3:
-                    newStarSystem.xCoord = 1
-                    newStarSystem.yCoord = 1
+                    let wUpper: UInt32 = 48
+                    let wLower: UInt32 = 2
+                    let hUpper: UInt32 = 108
+                    let hLower: UInt32 = 56
+                    newStarSystem.xCoord = Int(arc4random_uniform(wUpper - wLower) + wLower)
+                    newStarSystem.yCoord = Int(arc4random_uniform(hUpper - hLower) + hLower)
                 case 4:
-                    newStarSystem.xCoord = 1
-                    newStarSystem.yCoord = 1
+                    let wUpper: UInt32 = 98
+                    let wLower: UInt32 = 52
+                    let hUpper: UInt32 = 108
+                    let hLower: UInt32 = 56
+                    newStarSystem.xCoord = Int(arc4random_uniform(wUpper - wLower) + wLower)
+                    newStarSystem.yCoord = Int(arc4random_uniform(hUpper - hLower) + hLower)
                 case 5:
-                    newStarSystem.xCoord = 1
-                    newStarSystem.yCoord = 1
+                    let wUpper: UInt32 = 148
+                    let wLower: UInt32 = 102
+                    let hUpper: UInt32 = 108
+                    let hLower: UInt32 = 56
+                    newStarSystem.xCoord = Int(arc4random_uniform(wUpper - wLower) + wLower)
+                    newStarSystem.yCoord = Int(arc4random_uniform(hUpper - hLower) + hLower)
                 default:
                     newStarSystem.xCoord = 100
                     newStarSystem.yCoord = 100
@@ -49,8 +74,25 @@ class Galaxy {
                 
             } else {
                 // place others randomly, not closer than 2 from the edge
+                let wUpper: UInt32 = 148
+                let wLower: UInt32 = 2
+                let hUpper: UInt32 = 108
+                let hLower: UInt32 = 2
+                newStarSystem.xCoord = Int(arc4random_uniform(wUpper - wLower) + wLower)
+                newStarSystem.yCoord = Int(arc4random_uniform(hUpper - hLower) + hLower)
+                
                 
                 // make sure each one is no closer than MINDISTANCE to another planet
+                var proximityFlag = false
+                while !proximityFlag {
+                    let wUpper: UInt32 = 148
+                    let wLower: UInt32 = 2
+                    let hUpper: UInt32 = 108
+                    let hLower: UInt32 = 2
+                    newStarSystem.xCoord = Int(arc4random_uniform(wUpper - wLower) + wLower)
+                    newStarSystem.yCoord = Int(arc4random_uniform(hUpper - hLower) + hLower)
+                    proximityFlag = verifyMinDistance(newStarSystem, i: i)
+                }
                 
                 // (later we will verify that all planets are within CLOSEDISTANCE of each other. If they aren't, we'll regenerate their coords until they satisfy this condition)
             }
@@ -72,8 +114,24 @@ class Galaxy {
         
     }
     
-    func initializeTradeItems() {
+    func getDistance(system1: StarSystem, system2: StarSystem) -> Int {
+        let xDistance = abs(system1.xCoord - system2.xCoord)
+        let yDistance = abs(system1.yCoord - system2.yCoord)
+        let sum: Double = Double((xDistance * xDistance) + (yDistance * yDistance))
+        return Int(sqrt(sum))       // might need to round. Not worrying about that now
     }
+    
+    func verifyMinDistance(system1: StarSystem, i: Int) -> Bool {
+        for var index in 0..<i {
+            if getDistance(system1, system2: planets[index]) < MINDISTANCE {
+                return false
+            }
+        }
+        return true
+    }
+    
+//    func initializeTradeItems(StarSystem) -> StarSystem {
+//    }
     
     // figure out how display is done
 }
