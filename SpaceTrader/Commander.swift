@@ -504,20 +504,15 @@ class Commander {
         return total
     }
     
-    func getPricePaid(commodity: TradeItemType) -> Int? {        var total: Int = 0
+    func getPricePaid(commodity: TradeItemType) -> Int? {
+        var total: Int = 0
         var average: Int = 0
         for entry in player.commanderShip.cargo {
             if entry.item == commodity {
                 total += entry.quantity
                 average += (entry.pricePaid * entry.quantity)
-                
-                // debugging
-                if entry.item == TradeItemType.Firearms {
-                    print("firearms price paid: \(entry.pricePaid)")
-                }
             }
         }
-        print("average: \(average)")
         if average > 0 {
             average = average / total
             return average

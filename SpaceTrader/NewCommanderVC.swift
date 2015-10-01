@@ -114,14 +114,9 @@ class NewCommanderVC: UIViewController {
         
         // must check that information is complete--name must be present and valid.
         
-        // this needs to be available everywhere. Is it?
 
         player = Commander(commanderName: "poop", difficulty: kludgeDifficulty, pilotSkill: pilot, fighterSkill: fighter, traderSkill: trader, engineerSkill: engineer)
-        
-//        if (nameField.text != nil) {
-//            let name = nameField.text!
-//            var player = Commander(commanderName: name, difficulty: kludgeDifficulty, pilotSkill: pilot, fighterSkill: fighter, traderSkill: trader, engineerSkill: engineer)
-//        }
+        galaxy.createGalaxy()
         
         
         

@@ -15,13 +15,15 @@ class StarSystem {
     var techLevel: TechLevelType
     var politics: PoliticsType
     var status: StatusType
-    var xCoord: Int?        // requires init
-    var yCoord: Int?
+    var xCoord: Int = 0        // requires init
+    var yCoord: Int = 0
     var specialResources: SpecialResourcesType
     var size: SizeType
     // trade items?
     var countdown: Int? = 1
     var visited: Bool = false
+    var wormhole: Bool = false              // DEAL WITH THESE
+    var wormholeDestination: Int = 0        // DEAL WITH THESE
     //var special: SpecialEventType
 
     // quantities and prices
