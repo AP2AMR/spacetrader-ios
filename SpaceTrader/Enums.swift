@@ -243,7 +243,7 @@ enum StarSystemID {
     case Tarchannen
     case Terosa
     case Thera          // A seldom encountered Dutch girl's name
-    case Titan          // The largest moon of Jupiter
+    case Titan          // The largest moon of Saturn
     case Torin          // A hero from Master of Magic
     case Triacus
     case Turkana
