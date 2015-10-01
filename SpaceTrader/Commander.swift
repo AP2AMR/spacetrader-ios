@@ -493,4 +493,14 @@ class Commander {
         average = average / total
         return (total, average)
     }
+    
+    func getCargoQuantity(commodity: TradeItemType) -> Int {
+        var total: Int = 0
+        for entry in player.commanderShip.cargo {
+            if entry.item == commodity {
+                total += entry.quantity
+            }
+        }
+        return total
+    }
 }

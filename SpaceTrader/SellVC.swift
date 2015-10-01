@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SellVC: UIViewController {
+class SellVC: UIViewController, BuyModalVCDelegate {
     
     let controlState = UIControlState()
     
@@ -91,53 +91,82 @@ class SellVC: UIViewController {
     // sell buttons--need sender, unfortunately
     
     @IBAction func sellWater(sender: AnyObject) {
-        buySellCommodity = TradeItemType.Water
-        performSegueWithIdentifier("sellModal", sender: sender)
+        if player.getCargoQuantity(.Water) != 0 {
+            buySellCommodity = TradeItemType.Water
+            performSegueWithIdentifier("sellModal", sender: sender)
+        }
     }
     
     @IBAction func sellFurs(sender: AnyObject) {
-        buySellCommodity = TradeItemType.Furs
-        performSegueWithIdentifier("sellModal", sender: sender)
+        if player.getCargoQuantity(.Furs) != 0 {
+            buySellCommodity = TradeItemType.Furs
+            performSegueWithIdentifier("sellModal", sender: sender)
+        }
+
     }
     
     @IBAction func sellFood(sender: AnyObject) {
-        buySellCommodity = TradeItemType.Food
-        performSegueWithIdentifier("sellModal", sender: sender)
+        if player.getCargoQuantity(.Food) != 0 {
+            buySellCommodity = TradeItemType.Food
+            performSegueWithIdentifier("sellModal", sender: sender)
+        }
+
     }
     
     @IBAction func sellOre(sender: AnyObject) {
-        buySellCommodity = TradeItemType.Ore
-        performSegueWithIdentifier("sellModal", sender: sender)
+        if player.getCargoQuantity(.Ore) != 0 {
+            buySellCommodity = TradeItemType.Ore
+            performSegueWithIdentifier("sellModal", sender: sender)
+        }
+
     }
     
     @IBAction func sellGames(sender: AnyObject) {
-        buySellCommodity = TradeItemType.Games
-        performSegueWithIdentifier("sellModal", sender: sender)
+        if player.getCargoQuantity(.Games) != 0 {
+            buySellCommodity = TradeItemType.Games
+            performSegueWithIdentifier("sellModal", sender: sender)
+        }
+
     }
     
     @IBAction func sellFirearms(sender: AnyObject) {
-        buySellCommodity = TradeItemType.Firearms
-        performSegueWithIdentifier("sellModal", sender: sender)
+        if player.getCargoQuantity(.Firearms) != 0 {
+            buySellCommodity = TradeItemType.Firearms
+            performSegueWithIdentifier("sellModal", sender: sender)
+        }
+
     }
 
     @IBAction func sellMedicine(sender: AnyObject) {
-        buySellCommodity = TradeItemType.Medicine
-        performSegueWithIdentifier("sellModal", sender: sender)
+        if player.getCargoQuantity(.Medicine) != 0 {
+            buySellCommodity = TradeItemType.Medicine
+            performSegueWithIdentifier("sellModal", sender: sender)
+        }
+
     }
 
     @IBAction func sellMachines(sender: AnyObject) {
-        buySellCommodity = TradeItemType.Machines
-        performSegueWithIdentifier("sellModal", sender: sender)
+        if player.getCargoQuantity(.Machines) != 0 {
+            buySellCommodity = TradeItemType.Machines
+            performSegueWithIdentifier("sellModal", sender: sender)
+        }
+
     }
     
     @IBAction func sellNarcotics(sender: AnyObject) {
-        buySellCommodity = TradeItemType.Narcotics
-        performSegueWithIdentifier("sellModal", sender: sender)
+        if player.getCargoQuantity(.Narcotics) != 0 {
+            buySellCommodity = TradeItemType.Narcotics
+            performSegueWithIdentifier("sellModal", sender: sender)
+        }
+
     }
     
     @IBAction func sellRobots(sender: AnyObject) {
-        buySellCommodity = TradeItemType.Robots
-        performSegueWithIdentifier("sellModal", sender: sender)
+        if player.getCargoQuantity(.Robots) != 0 {
+            buySellCommodity = TradeItemType.Robots
+            performSegueWithIdentifier("sellModal", sender: sender)
+        }
+
     }
     
     
@@ -181,4 +210,15 @@ class SellVC: UIViewController {
         buyAsOpposedToSell = false
     }
     
+    func buyModalDidFinish(controller: BuyModalVC) {                    // DELEGATE FUNCTION
+        recurringUpdate()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // magic required to make delegate work
+        if segue.identifier == "sellModal" {
+            let modalVC: BuyModalVC = segue.destinationViewController as! BuyModalVC
+            modalVC.delegate = self
+        }
+    }
 }

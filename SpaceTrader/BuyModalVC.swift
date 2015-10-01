@@ -18,6 +18,8 @@ class BuyModalVC: UIViewController  {       // the one that calls the function i
     
     weak var delegate: BuyModalVCDelegate?  // not enough. Must also set delegate.
     
+    @IBOutlet weak var buyButtonForLabel: UIButton!
+    
     var modalClosed = false
     var tradeItem: TradeItemType!
     var tradeItemName: String = buySellCommodity!.rawValue  // need name here
@@ -112,6 +114,10 @@ class BuyModalVC: UIViewController  {       // the one that calls the function i
             
             headerField.text = "Sell \(tradeItemName)"
             textField.text = "You can sell \(quantityAvailableToSell) at up to \(tradeItemSellPrice) cr. each. You paid \(averagePricePaid) cr. per unit. Your \(pOrL) per unit is \(abs(profitLoss)) cr. How many do you want to sell?"
+            
+            // set text of buy button
+            let controlState = UIControlState()
+            buyButtonForLabel.setTitle("Sell", forState: controlState)
         }
         
     }
@@ -121,17 +127,28 @@ class BuyModalVC: UIViewController  {       // the one that calls the function i
     }
    
     @IBAction func buy() {
-        if quantityField.text != nil {
-            let quantity = Int(quantityField.text!)
-            if quantity <= max {
-                player.buy(buySellCommodity!, quantity: quantity!)
+        // wrap all this in an if to handle buy vs sell
+        if buyAsOpposedToSell {
+            if quantityField.text != nil {
+                let quantity = Int(quantityField.text!)
+                if quantity <= max {
+                    player.buy(buySellCommodity!, quantity: quantity!)
+                    delegate?.buyModalDidFinish(self)
+                    self.dismissViewControllerAnimated(false, completion: nil)
+                } else {
+                    self.dismissViewControllerAnimated(false, completion: nil)
+                    print("max exceeded; buy failed")
+                }
+            }
+        } else {
+            if quantityField.text != nil {
+                let quantity = Int(quantityField.text!)
+                player.sell(buySellCommodity!, quantity: quantity!)
                 delegate?.buyModalDidFinish(self)
                 self.dismissViewControllerAnimated(false, completion: nil)
-            } else {
-                self.dismissViewControllerAnimated(false, completion: nil)
-                print("max exceeded; buy failed")
             }
         }
+        
     }
 
     
