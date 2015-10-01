@@ -26,8 +26,11 @@ class SellVC: UIViewController {
     @IBOutlet weak var narcoticsQuantity: UIButton!
     @IBOutlet weak var robotsQuantity: UIButton!
     
+    // price label
+    
+    // P/L label
+    
     // things at the bottom
-
     @IBOutlet weak var targetSystemLabel: UILabel!
     @IBOutlet weak var baysAvailableLabel: UILabel!
     @IBOutlet weak var cashLabel: UILabel!
@@ -85,10 +88,65 @@ class SellVC: UIViewController {
         recurringUpdate()
     }
     
+    // sell buttons--need sender, unfortunately
+    
+    @IBAction func sellWater(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Water
+        performSegueWithIdentifier("sellModal", sender: sender)
+    }
+    
+    @IBAction func sellFurs(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Furs
+        performSegueWithIdentifier("sellModal", sender: sender)
+    }
+    
+    @IBAction func sellFood(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Food
+        performSegueWithIdentifier("sellModal", sender: sender)
+    }
+    
+    @IBAction func sellOre(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Ore
+        performSegueWithIdentifier("sellModal", sender: sender)
+    }
+    
+    @IBAction func sellGames(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Games
+        performSegueWithIdentifier("sellModal", sender: sender)
+    }
+    
+    @IBAction func sellFirearms(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Firearms
+        performSegueWithIdentifier("sellModal", sender: sender)
+    }
+
+    @IBAction func sellMedicine(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Medicine
+        performSegueWithIdentifier("sellModal", sender: sender)
+    }
+
+    @IBAction func sellMachines(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Machines
+        performSegueWithIdentifier("sellModal", sender: sender)
+    }
+    
+    @IBAction func sellNarcotics(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Narcotics
+        performSegueWithIdentifier("sellModal", sender: sender)
+    }
+    
+    @IBAction func sellRobots(sender: AnyObject) {
+        buySellCommodity = TradeItemType.Robots
+        performSegueWithIdentifier("sellModal", sender: sender)
+    }
+    
+    
+    
     
     
     override func viewDidLoad() {
         recurringUpdate()
+        buyAsOpposedToSell = false
         
         // DUMMY DATA
         currentSystem.waterSell = 45
@@ -120,6 +178,7 @@ class SellVC: UIViewController {
     // this updates quantities when this page becomes active
     override func viewWillAppear(animated: Bool) {
         recurringUpdate()
+        buyAsOpposedToSell = false
     }
     
 }

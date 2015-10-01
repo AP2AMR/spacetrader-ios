@@ -134,7 +134,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     
     
     @IBAction func buyWaterTapped(sender: AnyObject) {
-        print("buy water tapped, sender side")
+        //print("buy water tapped, sender side")
         buySellCommodity = TradeItemType.Water
         performSegueWithIdentifier("buyModal", sender: sender) //TradeItemType.Water)
     }
@@ -420,6 +420,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     override func viewWillAppear(animated: Bool) {
         updateUIInitial()
         updateUI()
+        buyAsOpposedToSell = true
     }
     
 }
