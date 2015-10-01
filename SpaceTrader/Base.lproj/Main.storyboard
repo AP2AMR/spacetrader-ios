@@ -519,12 +519,12 @@
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" text="At 46 cr. each, you can buy up to 5. How many do you want to buy?" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQo-8s-iEV">
-                                        <rect key="frame" x="8" y="50" width="254" height="50"/>
+                                        <rect key="frame" x="8" y="50" width="254" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="5" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gtv-Dy-Nsa">
-                                        <rect key="frame" x="111" y="108" width="48" height="30"/>
+                                        <rect key="frame" x="111" y="130" width="48" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>

@@ -151,7 +151,7 @@ class SellVC: UIViewController {
         // DUMMY DATA
         currentSystem.waterSell = 45
         currentSystem.fursSell = 290
-        currentSystem.foodSell = 0
+        currentSystem.foodSell = 120
         currentSystem.oreSell = 441
         currentSystem.gamesSell = 178
         currentSystem.firearmsSell = 752

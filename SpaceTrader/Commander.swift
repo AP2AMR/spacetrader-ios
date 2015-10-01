@@ -480,4 +480,17 @@ class Commander {
         let maxMoney = player.credits / pricePerUnit
         return min(maxMoney, player.commanderShip.baysAvailable, availableQuantity)
     }
+    
+    func getCargoOnBoard(commodity: TradeItemType) -> (Int, Int) {
+        var total: Int = 0
+        var average: Int = 0
+        for entry in player.commanderShip.cargo {
+            if entry.item == commodity {
+                total += entry.quantity
+                average += (entry.pricePaid * entry.quantity)
+            }
+        }
+        average = average / total
+        return (total, average)
+    }
 }

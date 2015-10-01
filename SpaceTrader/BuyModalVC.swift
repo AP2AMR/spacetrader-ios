@@ -49,6 +49,36 @@ class BuyModalVC: UIViewController  {       // the one that calls the function i
             }
         }
     }
+    
+    var tradeItemSellPrice: Int {
+        get {
+            switch buySellCommodity! {
+                case .Water:
+                    return currentSystem.waterSell
+                case .Furs:
+                    return currentSystem.fursSell
+                case .Food:
+                    return currentSystem.foodSell
+                case .Ore:
+                    return currentSystem.oreSell
+                case .Games:
+                    return currentSystem.gamesSell
+                case .Firearms:
+                    return currentSystem.firearmsSell
+                case .Medicine:
+                    return currentSystem.medicineSell
+                case .Machines:
+                    return currentSystem.machinesSell
+                case .Narcotics:
+                    return currentSystem.narcoticsSell
+                case .Robots:
+                    return currentSystem.robotsSell
+                default:
+                    return 0
+            }
+        }
+    }
+    
     var max = player.getMax(buySellCommodity!)      // BUG ALERT: this causes the game to crash if you tap one of the nonexistent buttons for something not stocked in the system in question. Rather than checking here, need to make those buttons nonexistent.
     
     @IBOutlet weak var headerField: UILabel!
@@ -66,6 +96,22 @@ class BuyModalVC: UIViewController  {       // the one that calls the function i
         if buyAsOpposedToSell {
             headerField.text = "Buy \(tradeItemName)"
             textField.text = "At \(tradeItemPrice) cr. each, you can buy up to \(max). How many do you want to buy?"
+        } else {
+            let returnTuple = player.getCargoOnBoard(buySellCommodity!)
+            let (quantityAvailableToSell, averagePricePaid) = returnTuple
+            print("quantity: \(quantityAvailableToSell), average price paid: \(averagePricePaid)")
+            
+            let profitLoss = tradeItemSellPrice - averagePricePaid
+            
+            var pOrL = String()
+            if profitLoss >= 0 {
+                pOrL = "profit"
+            } else {
+                pOrL = "loss"
+            }
+            
+            headerField.text = "Sell \(tradeItemName)"
+            textField.text = "You can sell \(quantityAvailableToSell) at up to \(tradeItemSellPrice) cr. each. You paid \(averagePricePaid) cr. per unit. Your \(pOrL) per unit is \(abs(profitLoss)) cr. How many do you want to sell?"
         }
         
     }
@@ -79,9 +125,6 @@ class BuyModalVC: UIViewController  {       // the one that calls the function i
             let quantity = Int(quantityField.text!)
             if quantity <= max {
                 player.buy(buySellCommodity!, quantity: quantity!)
-                print("buy pressed. Delegate should now be called")
-                // call updateUI method within BuyVC here, using delegate
-                // note: if I wanted a value from the other thing, I'd set a variable equal to a function in the other VC, that would just return that local var
                 delegate?.buyModalDidFinish(self)
                 self.dismissViewControllerAnimated(false, completion: nil)
             } else {
