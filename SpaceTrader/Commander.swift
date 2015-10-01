@@ -503,4 +503,94 @@ class Commander {
         }
         return total
     }
+    
+    func getPricePaid(commodity: TradeItemType) -> Int? {        var total: Int = 0
+        var average: Int = 0
+        for entry in player.commanderShip.cargo {
+            if entry.item == commodity {
+                total += entry.quantity
+                average += (entry.pricePaid * entry.quantity)
+                
+                // debugging
+                if entry.item == TradeItemType.Firearms {
+                    print("firearms price paid: \(entry.pricePaid)")
+                }
+            }
+        }
+        print("average: \(average)")
+        if average > 0 {
+            average = average / total
+            return average
+        } else {
+            return nil
+        }
+    }
+    
+    func getPLString(commodity: TradeItemType) -> String {
+        let pricePaid = getPricePaid(commodity)
+        if pricePaid != nil {
+            let PL = getLocalSellPriceOf(commodity) - pricePaid!
+            if PL >= 0 {
+                return "+\(PL)"
+            } else {
+                return "-\(abs(PL))"
+            }
+        } else {
+            return "---"
+        }
+    }
+    
+    func getLocalSellPriceOf(commodity: TradeItemType) -> Int {
+        switch commodity {
+        case .Water:
+            return currentSystem.waterSell
+        case .Furs:
+            return currentSystem.fursSell
+        case .Food:
+            return currentSystem.foodSell
+        case .Ore:
+            return currentSystem.oreSell
+        case .Games:
+            return currentSystem.gamesSell
+        case .Firearms:
+            return currentSystem.firearmsSell
+        case .Medicine:
+            return currentSystem.medicineSell
+        case .Machines:
+            return currentSystem.machinesSell
+        case .Narcotics:
+            return currentSystem.narcoticsSell
+        case .Robots:
+            return currentSystem.robotsSell
+        default:
+            return 0
+        }
+    }
+    
+    func getLocalBuyPriceOf(commodity: TradeItemType) -> Int {
+        switch commodity {
+        case .Water:
+            return currentSystem.waterBuy
+        case .Furs:
+            return currentSystem.fursBuy
+        case .Food:
+            return currentSystem.foodBuy
+        case .Ore:
+            return currentSystem.oreBuy
+        case .Games:
+            return currentSystem.gamesBuy
+        case .Firearms:
+            return currentSystem.firearmsBuy
+        case .Medicine:
+            return currentSystem.medicineBuy
+        case .Machines:
+            return currentSystem.machinesBuy
+        case .Narcotics:
+            return currentSystem.narcoticsBuy
+        case .Robots:
+            return currentSystem.robotsBuy
+        default:
+            return 0
+        }
+    }
 }

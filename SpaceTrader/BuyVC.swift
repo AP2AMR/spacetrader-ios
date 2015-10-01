@@ -64,6 +64,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         currentSystem.ore = 57
         currentSystem.games = 12
         currentSystem.firearms = 38
+        currentSystem.robots = 1            // REMOVE
         
         currentSystem.waterBuy = 37
         currentSystem.fursBuy = 274
@@ -71,6 +72,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         currentSystem.oreBuy = 397
         currentSystem.gamesBuy = 158
         currentSystem.firearmsBuy = 1101
+        currentSystem.robotsBuy = 50        // REMOVE
         
         targetSystem.waterSell = 45
         targetSystem.fursSell = 290

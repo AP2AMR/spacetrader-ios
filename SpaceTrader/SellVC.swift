@@ -27,8 +27,40 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     @IBOutlet weak var robotsQuantity: UIButton!
     
     // price label
+    @IBOutlet weak var waterPrice: UILabel!
+    @IBOutlet weak var fursPrice: UILabel!
+    @IBOutlet weak var foodPrice: UILabel!
+    @IBOutlet weak var orePrice: UILabel!
+    @IBOutlet weak var gamesPrice: UILabel!
+    @IBOutlet weak var firearmsPrice: UILabel!
+    @IBOutlet weak var medicinePrice: UILabel!
+    @IBOutlet weak var machinesPrice: UILabel!
+    @IBOutlet weak var narcoticsPrice: UILabel!
+    @IBOutlet weak var robotsPrice: UILabel!
     
     // P/L label
+    @IBOutlet weak var waterPL: UILabel!
+    @IBOutlet weak var fursPL: UILabel!
+    @IBOutlet weak var foodPL: UILabel!
+    @IBOutlet weak var orePL: UILabel!
+    @IBOutlet weak var gamesPL: UILabel!
+    @IBOutlet weak var firearmsPL: UILabel!
+    @IBOutlet weak var medicinePL: UILabel!
+    @IBOutlet weak var machinesPL: UILabel!
+    @IBOutlet weak var narcoticsPL: UILabel!
+    @IBOutlet weak var robotsPL: UILabel!
+    
+    // "All" buttons, so they can be set to "Dump" if necessary
+    @IBOutlet weak var waterAllLabel: UIButton!
+    @IBOutlet weak var fursAllLabel: UIButton!
+    @IBOutlet weak var foodAllLabel: UIButton!
+    @IBOutlet weak var oreAllLabel: UIButton!
+    @IBOutlet weak var gamesAllLabel: UIButton!
+    @IBOutlet weak var firearmsAllLabel: UIButton!
+    @IBOutlet weak var medicineAllLabel: UIButton!
+    @IBOutlet weak var machinesAllLabel: UIButton!
+    @IBOutlet weak var narcoticsAllLabel: UIButton!
+    @IBOutlet weak var robotsAllLabel: UIButton!
     
     // things at the bottom
     @IBOutlet weak var targetSystemLabel: UILabel!
@@ -41,51 +73,61 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     @IBAction func waterAll() {
         player.sellAll(.Water)
         recurringUpdate()
+        loadPrices()
     }
     
     @IBAction func fursAll() {
         player.sellAll(.Furs)
         recurringUpdate()
+        loadPrices()
     }
     
     @IBAction func foodAll() {
         player.sellAll(.Food)
         recurringUpdate()
+        loadPrices()
     }
     
     @IBAction func oreAll() {
         player.sellAll(.Ore)
         recurringUpdate()
+        loadPrices()
     }
 
     @IBAction func gamesAll() {
         player.sellAll(.Games)
         recurringUpdate()
+        loadPrices()
     }
     
     @IBAction func firearmsAll() {
         player.sellAll(.Firearms)
         recurringUpdate()
+        loadPrices()
     }
     
     @IBAction func medicineAll() {
         player.sellAll(.Medicine)
         recurringUpdate()
+        loadPrices()
     }
     
     @IBAction func machinesAll() {
         player.sellAll(.Machines)
         recurringUpdate()
+        loadPrices()
     }
     
     @IBAction func narcoticsAll() {
         player.sellAll(.Narcotics)
         recurringUpdate()
+        loadPrices()
     }
     
     @IBAction func robotsAll() {
         player.sellAll(.Robots)
         recurringUpdate()
+        loadPrices()
     }
     
     // sell buttons--need sender, unfortunately
@@ -174,8 +216,9 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     
     
     override func viewDidLoad() {
-        recurringUpdate()
-        buyAsOpposedToSell = false
+        
+        
+        
         
         // DUMMY DATA
         currentSystem.waterSell = 45
@@ -185,6 +228,10 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         currentSystem.gamesSell = 178
         currentSystem.firearmsSell = 752
         // END DUMMY DATA
+        
+        recurringUpdate()
+        loadPrices()
+        buyAsOpposedToSell = false
         
         
     }
@@ -204,14 +251,74 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         cashLabel.text = "Cash: \(player.credits) cr."
     }
     
+    func loadPrices() {
+        waterPrice.text = "\(currentSystem.waterSell) cr."
+        fursPrice.text = "\(currentSystem.fursSell) cr."
+        foodPrice.text = "\(currentSystem.foodSell) cr."
+        orePrice.text = "\(currentSystem.oreSell) cr."
+        gamesPrice.text = "\(currentSystem.gamesSell) cr."
+        firearmsPrice.text = "\(currentSystem.firearmsSell) cr."
+        medicinePrice.text = "\(currentSystem.medicineSell) cr."
+        machinesPrice.text = "\(currentSystem.machinesSell) cr."
+        narcoticsPrice.text = "\(currentSystem.narcoticsSell) cr."
+        robotsPrice.text = "\(currentSystem.robotsSell) cr."
+        
+        waterPL.text = "\(player.getPLString(.Water))"
+        fursPL.text = "\(player.getPLString(.Furs))"
+        foodPL.text = "\(player.getPLString(.Food))"
+        orePL.text = "\(player.getPLString(.Ore))"
+        gamesPL.text = "\(player.getPLString(.Games))"
+        firearmsPL.text = "\(player.getPLString(.Firearms))"
+        medicinePL.text = "\(player.getPLString(.Medicine))"
+        machinesPL.text = "\(player.getPLString(.Machines))"
+        narcoticsPL.text = "\(player.getPLString(.Narcotics))"
+        robotsPL.text = "\(player.getPLString(.Robots))"
+        
+        // handle dump buttons
+        if currentSystem.waterSell == 0 {
+            waterAllLabel.setTitle("Dump", forState: controlState)
+        }
+        if currentSystem.fursSell == 0 {
+            fursAllLabel.setTitle("Dump", forState: controlState)
+        }
+        if currentSystem.foodSell == 0 {
+            foodAllLabel.setTitle("Dump", forState: controlState)
+        }
+        if currentSystem.oreSell == 0 {
+            oreAllLabel.setTitle("Dump", forState: controlState)
+        }
+        if currentSystem.gamesSell == 0 {
+            gamesAllLabel.setTitle("Dump", forState: controlState)
+        }
+        if currentSystem.firearmsSell == 0 {
+            firearmsAllLabel.setTitle("Dump", forState: controlState)
+        }
+        if currentSystem.medicineSell == 0 {
+            medicineAllLabel.setTitle("Dump", forState: controlState)
+        }
+        if currentSystem.machinesSell == 0 {
+            machinesAllLabel.setTitle("Dump", forState: controlState)
+        }
+        if currentSystem.narcoticsSell == 0 {
+            narcoticsAllLabel.setTitle("Dump", forState: controlState)
+        }
+        if currentSystem.robotsSell == 0 {
+            robotsAllLabel.setTitle("Dump", forState: controlState)
+        }
+        
+    }
+    
     // this updates quantities when this page becomes active
     override func viewWillAppear(animated: Bool) {
         recurringUpdate()
         buyAsOpposedToSell = false
+        loadPrices()
+        
     }
     
     func buyModalDidFinish(controller: BuyModalVC) {                    // DELEGATE FUNCTION
         recurringUpdate()
+        loadPrices()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
