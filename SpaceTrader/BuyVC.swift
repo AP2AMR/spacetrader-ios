@@ -417,6 +417,11 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        updateUIInitial()
+        updateUI()
+    }
+    
 }
 
 

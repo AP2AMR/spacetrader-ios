@@ -328,12 +328,23 @@ class Commander {
     
     func sellAll(commodity: TradeItemType) -> Bool {
         var quantity: Int = 0
+        var indices: [Int] = []
+        var counter: Int = 0
+
+        // get quantity, remove items from cargo
         for entry in player.commanderShip.cargo {
             if entry.item == commodity {
                 quantity += entry.quantity
+                indices.append(counter)
             }
+            counter += 1
         }
-        // remove entry from cargo
+
+        for number in indices {
+            player.commanderShip.cargo.removeAtIndex(number)
+        }
+        
+        // calculate price
         var salePrice: Int = 0
         switch commodity {
             case .Water:
@@ -369,6 +380,70 @@ class Commander {
         } else {
             return false
         }
+    }
+    
+    func sell(commodity: TradeItemType, quantity: Int) -> Bool {
+        var onHand: Int = 0
+        var indices: [Int] = []
+        var counter: Int = 0
+        
+        // get quantity, remove items from cargo
+        for entry in player.commanderShip.cargo {
+            if entry.item == commodity {
+                onHand += entry.quantity
+                indices.append(counter)
+            }
+            counter += 1
+        }
+        
+        if onHand >= quantity {
+            // get price paid for first one (kludge)
+            let firstInBay = player.commanderShip.cargo[indices[0]]
+            let paid = firstInBay.pricePaid
+            
+            // delete all in hold
+            for number in indices {
+                player.commanderShip.cargo.removeAtIndex(number)
+            }
+            
+            // re-add balance
+            let replacementQuantity = onHand - quantity
+            let replacement = TradeItem(item: commodity, quantity: replacementQuantity, pricePaid: paid)
+            player.commanderShip.cargo.append(replacement)
+            
+            // calculate price
+            var salePrice: Int = 0
+            switch commodity {
+            case .Water:
+                salePrice = quantity * currentSystem.waterSell
+            case .Furs:
+                salePrice = quantity * currentSystem.fursSell
+            case .Food:
+                salePrice = quantity * currentSystem.foodSell
+            case .Ore:
+                salePrice = quantity * currentSystem.oreSell
+            case .Games:
+                salePrice = quantity * currentSystem.gamesSell
+            case .Firearms:
+                salePrice = quantity * currentSystem.firearmsSell
+            case .Medicine:
+                salePrice = quantity * currentSystem.medicineSell
+            case .Machines:
+                salePrice = quantity * currentSystem.machinesSell
+            case .Narcotics:
+                salePrice = quantity * currentSystem.narcoticsSell
+            case .Robots:
+                salePrice = quantity * currentSystem.robotsSell
+            default:
+                salePrice = 0
+            }
+            player.credits += salePrice
+            return true
+        } else {
+            return false
+        }
+        
+        
     }
     
     func getMax(commodity: TradeItemType) -> Int {

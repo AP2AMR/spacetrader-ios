@@ -41,30 +41,48 @@ class SellVC: UIViewController {
     }
     
     @IBAction func fursAll() {
+        player.sellAll(.Furs)
+        recurringUpdate()
     }
     
     @IBAction func foodAll() {
+        player.sellAll(.Food)
+        recurringUpdate()
     }
     
     @IBAction func oreAll() {
+        player.sellAll(.Ore)
+        recurringUpdate()
     }
 
     @IBAction func gamesAll() {
+        player.sellAll(.Games)
+        recurringUpdate()
     }
     
     @IBAction func firearmsAll() {
+        player.sellAll(.Firearms)
+        recurringUpdate()
     }
     
     @IBAction func medicineAll() {
+        player.sellAll(.Medicine)
+        recurringUpdate()
     }
     
     @IBAction func machinesAll() {
+        player.sellAll(.Machines)
+        recurringUpdate()
     }
     
     @IBAction func narcoticsAll() {
+        player.sellAll(.Narcotics)
+        recurringUpdate()
     }
     
     @IBAction func robotsAll() {
+        player.sellAll(.Robots)
+        recurringUpdate()
     }
     
     
