@@ -101,16 +101,22 @@ class Galaxy {
             var nameString = "system\(i)"
             newStarSystem.name = nameString
             
-            // DEBUGGING:
-            print("name: \(newStarSystem.name)")
-            print("x coord: \(newStarSystem.xCoord)")
-            print("y coord: \(newStarSystem.yCoord)")
             
             // end of loop
             planets.append(newStarSystem)
             i += 1
         }
         
+        // verify everything is close enough
+        verifyAndFixProximity()
+        
+        // log output to console
+        // DEBUGGING:
+        for planet in planets {
+            print("name: \(planet.name)")
+            print("x coord: \(planet.xCoord)")
+            print("y coord: \(planet.yCoord)")
+        }
         
     }
     
@@ -129,6 +135,47 @@ class Galaxy {
         }
         return true
     }
+    
+    func distanceToNearestNeighbor(system: StarSystem) -> Int {
+        var min: Int = 100
+        for planet in planets {
+            let distance = getDistance(system, system2: planet)
+            if distance < min {
+                min = distance
+            }
+        }
+        return min
+    }
+    
+    func verifyAndFixProximity() -> Bool {
+        var ok = false
+        while !ok {
+            ok = true
+            for planet in planets {
+                let distance = distanceToNearestNeighbor(planet)
+                if distance > MINDISTANCE {
+                    ok = false
+                    reassignRandomCoords(planet)
+                }
+            }
+        }
+        return true
+    }
+    
+    func reassignRandomCoords(system: StarSystem) {
+        var proximityFlag = false
+        while !proximityFlag {
+            let wUpper: UInt32 = 148
+            let wLower: UInt32 = 2
+            let hUpper: UInt32 = 108
+            let hLower: UInt32 = 2
+            system.xCoord = Int(arc4random_uniform(wUpper - wLower) + wLower)
+            system.yCoord = Int(arc4random_uniform(hUpper - hLower) + hLower)
+            proximityFlag = verifyMinDistance(system, i: planets.count)
+        }
+    }
+    
+
     
 //    func initializeTradeItems(StarSystem) -> StarSystem {
 //    }
