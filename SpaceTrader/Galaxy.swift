@@ -108,6 +108,7 @@ class Galaxy {
             let nameString = availableNames[nameIndex]
             availableNames.removeAtIndex(nameIndex)
             newStarSystem.name = nameString
+            newStarSystem.indexNumber = i
             
             // tech level, politics, size--ALL COMPLETELY RANDOM
             let techLevelRand = Int(arc4random_uniform(8))
@@ -191,9 +192,69 @@ class Galaxy {
                     newStarSystem.size = SizeType.Tiny
             }
             
+            // special resources
+            let specialResourcesRand1 = Int(arc4random_uniform(5))
+            if specialResourcesRand1 >= 3 {
+                let specialResourcesRand2 = Int(arc4random_uniform(12))
+                switch specialResourcesRand2 {
+                    case 0:
+                        newStarSystem.specialResources = SpecialResourcesType.mineralRich
+                    case 1:
+                        newStarSystem.specialResources = SpecialResourcesType.desert
+                    case 2:
+                        newStarSystem.specialResources = SpecialResourcesType.mineralRich
+                    case 3:
+                        newStarSystem.specialResources = SpecialResourcesType.lotsOfWater
+                    case 4:
+                        newStarSystem.specialResources = SpecialResourcesType.richSoil
+                    case 5:
+                        newStarSystem.specialResources = SpecialResourcesType.poorSoil
+                    case 6:
+                        newStarSystem.specialResources = SpecialResourcesType.richFauna
+                    case 7:
+                        newStarSystem.specialResources = SpecialResourcesType.lifeless
+                    case 8:
+                        newStarSystem.specialResources = SpecialResourcesType.weirdMushrooms
+                    case 9:
+                        newStarSystem.specialResources = SpecialResourcesType.specialHerbs
+                    case 10:
+                        newStarSystem.specialResources = SpecialResourcesType.artisticPopulace
+                    case 11:
+                        newStarSystem.specialResources = SpecialResourcesType.warlikePopulace
+                    default:
+                        newStarSystem.specialResources = SpecialResourcesType.none
+                }
+            } else {
+                 newStarSystem.specialResources = SpecialResourcesType.none
+            }
             
+            // status
+            let statusRand1 = Int(arc4random_uniform(100))
+            if statusRand1 >= 85 {
+                newStarSystem.status = StatusType.none
+            } else {
+                let statusRand2 = Int(arc4random_uniform(7))
+                switch statusRand2 {
+                case 0:
+                    newStarSystem.status = StatusType.war
+                case 0:
+                    newStarSystem.status = StatusType.plague
+                case 0:
+                    newStarSystem.status = StatusType.drought
+                case 0:
+                    newStarSystem.status = StatusType.boredom
+                case 0:
+                    newStarSystem.status = StatusType.cold
+                case 0:
+                    newStarSystem.status = StatusType.cropFailure
+                case 0:
+                    newStarSystem.status = StatusType.employment
+                default:
+                    newStarSystem.status = StatusType.none
+                }
+            }
             
-            
+            // anything else that needs to be set here?
             
             // end of loop
             planets.append(newStarSystem)
@@ -203,15 +264,35 @@ class Galaxy {
         // verify everything is close enough
         verifyAndFixProximity()
         
+        // set wormhole destinations
+        var indicesOfPlanetsWithWormholes: [Int] = [0, 1, 2, 3, 4, 5]
+        for planet in planets {
+            if planet.wormhole {
+                // randomly choose a number in the array
+                let index = Int(arc4random_uniform(UInt32(indicesOfPlanetsWithWormholes.count)))
+                let number = indicesOfPlanetsWithWormholes[index]
+                // remove it from the array
+                indicesOfPlanetsWithWormholes.removeAtIndex(index)
+                // assign it
+                planet.wormholeDestination = number
+                // DEBUGGING
+                print(indicesOfPlanetsWithWormholes)
+            }
+        }
+        
         // log output to console
         // DEBUGGING:
         for planet in planets {
+            print("************************")
             print("name: \(planet.name)")
             print("x coord: \(planet.xCoord)")
             print("y coord: \(planet.yCoord)")
             print("tech level: \(planet.techLevel)")
             print("politics: \(planet.politics)")
             print("size: \(planet.size)")
+            print("special resources: \(planet.specialResources)")
+            print("status: \(planet.status)")
+            print("wormhole destination: \(planet.wormholeDestination)")
         }
         
     }

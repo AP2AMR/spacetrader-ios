@@ -23,7 +23,8 @@ class StarSystem {
     var countdown: Int? = 1
     var visited: Bool = false
     var wormhole: Bool = false              // DEAL WITH THESE
-    var wormholeDestination: Int = 0        // DEAL WITH THESE
+    var wormholeDestination: Int? = nil        // DEAL WITH THESE
+    var indexNumber: Int = 200
     //var special: SpecialEventType
 
     // quantities and prices
