@@ -255,7 +255,8 @@ class Galaxy {
             }
             
             // initialize trade items
-            newStarSystem = initializeTradeItems(newStarSystem)
+            //newStarSystem = initializeTradeItems(newStarSystem)
+            initializeTradeItems(newStarSystem)
             determinePrices(newStarSystem)
             
             
@@ -388,7 +389,7 @@ class Galaxy {
     
 
     
-    func initializeTradeItems(system: StarSystem) -> StarSystem {
+    func initializeTradeItems(system: StarSystem) {
         var passFlag = false
         let difficulty = getDifficultyValue(player.difficulty)
         let tradeItems: [TradeItem] = [
@@ -483,12 +484,76 @@ class Galaxy {
                 print("?")
             }
         }
-        return system
     }
     
     func determinePrices(system: StarSystem) {
-        system.waterBuy = 114
+        let tradeItems: [TradeItem] = [
+            TradeItem(item: .Water, quantity: 1, pricePaid: 1),
+            TradeItem(item: .Furs, quantity: 1, pricePaid: 1),
+            TradeItem(item: .Food, quantity: 1, pricePaid: 1),
+            TradeItem(item: .Ore, quantity: 1, pricePaid: 1),
+            TradeItem(item: .Games, quantity: 1, pricePaid: 1),
+            TradeItem(item: .Firearms, quantity: 1, pricePaid: 1),
+            TradeItem(item: .Medicine, quantity: 1, pricePaid: 1),
+            TradeItem(item: .Machines, quantity: 1, pricePaid: 1),
+            TradeItem(item: .Narcotics, quantity: 1, pricePaid: 1),
+            TradeItem(item: .Robots, quantity: 1, pricePaid: 1)]
         
+        for item in tradeItems {
+            // call standardPrice
+        }
+        
+        
+        //system.waterBuy = 114
+        
+    }
+    
+    func standardPrice(good: TradeItemType, systemSize: SizeType, systemTech: TechLevelType, systemGovernment: PoliticsType, systemResources: SpecialResourcesType) -> Int {
+        
+        var price: Int = 0
+        let politics = Politics(type: systemGovernment)
+        let techLevelValue = getTechLevelValue(systemTech)
+        let sizeValue = getSizeValue(systemSize)
+        let tradeItem = TradeItem(item: good, quantity: 1, pricePaid: 1)
+
+        if ((good == .Firearms) && (!politics.firearmsOk)) || ((good == .Narcotics) && (!politics.drugsOk)) {
+            return 0
+        }
+        
+        // Determine base price on techlevel of system
+        price = tradeItem.priceLowTech + (techLevelValue * tradeItem.priceIncrease)
+        
+        // If a good is highly requested, increase the price
+        if politics.wanted == tradeItem.item {
+            price = (price * 4) / 3
+        }
+        
+        // High trader activity decreases prices
+        price = (price * (2 * politics.activityTraders)) / 100
+        
+        // Large system = high production decreases prices
+        price = (price * (100 - sizeValue)) / 100
+        
+        // account for special resources
+        if systemResources != SpecialResourcesType.none {
+            if tradeItem.cheapResource != SpecialResourcesType.none {
+                if systemResources == tradeItem.cheapResource {
+                    price = (price * 3) / 4
+                }
+            }
+            if tradeItem.expensiveResource != SpecialResourcesType.none {
+                if systemResources == tradeItem.expensiveResource {
+                    price = (price * 4) / 3
+                }
+            }
+        }
+        
+        // if a system can't use something, set it's price to zero
+        if techLevelValue < getTechLevelValue(tradeItem.techUsage) {
+            return 0
+        }
+        
+        return price
     }
     
     func getTechLevelValue(level: TechLevelType) -> Int {
