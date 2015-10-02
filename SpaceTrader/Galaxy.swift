@@ -296,7 +296,16 @@ class Galaxy {
             print("special resources: \(planet.specialResources)")
             print("status: \(planet.status)")
             print("wormhole destination: \(planet.wormholeDestination)")
-            print("food: \(planet.food)")
+            print("water quantity: \(planet.water)")
+            print("furs quantity: \(planet.furs)")
+            print("food quantity: \(planet.food)")
+            print("ore quantity: \(planet.ore)")
+            print("games quantity: \(planet.games)")
+            print("firearms quantity: \(planet.firearms)")
+            print("medicine quantity: \(planet.medicine)")
+            print("machines quantity: \(planet.machines)")
+            print("narcotics quantity: \(planet.narcotics)")
+            print("robots quantity: \(planet.robots)")
         }
         
     }
@@ -360,6 +369,7 @@ class Galaxy {
     
     func initializeTradeItems(system: StarSystem) -> StarSystem {
         var passFlag = false
+        let difficulty = getDifficultyValue(player.difficulty)
         let tradeItems: [TradeItem] = [
             TradeItem(item: .Water, quantity: 1, pricePaid: 1),
             TradeItem(item: .Furs, quantity: 1, pricePaid: 1),
@@ -374,26 +384,139 @@ class Galaxy {
         // iterate through all tradeItems
         for item in tradeItems {
             let politics = Politics(type: system.politics)
+            var quantity: Int = 0
             passFlag == false
             // continue only if not above max trade item for tech level && not ignored here
-            if system.techLevel < item.techProduction {
-                passFlag == true
+            if getTechLevelValue(system.techLevel) < getTechLevelValue(item.techProduction) {
+                quantity = 0
+                passFlag = true
             }
             if item.item == .Firearms && !politics.firearmsOk {
-                passFlag == true
+                quantity = 0
+                passFlag = true
             }
             if item.item == .Narcotics && !politics.drugsOk {
-                passFlag == true
+                quantity = 0
+                passFlag = true
             }
             
+            
+            if !passFlag {
+                // general case: (9 + rand(5)) - abs((techTopProduction - techLevel) * (1 + size))
+                let rand = Int(arc4random_uniform(5))
+                quantity = (9 * rand) - abs(getTechLevelValue(item.techTopProduction) - getTechLevelValue(system.techLevel) * (1 + getSizeValue(system.size)))
+                
+                // if robots or narcotics, prevent crazy lucrative scenario
+                if (item.item == .Robots) || (item.item == .Narcotics) {
+                    quantity = (quantity * (5 - difficulty)) / ((6 - difficulty) + 1)
+                }
+                
+                // if cheapResource
+                if system.specialResources == item.cheapResource {
+                    quantity = (quantity * 4) / 3
+                }
+                
+                // if expensiveResource
+                if system.specialResources == item.expensiveResource {
+                    quantity = quantity / 2
+                }
+                
+                // if doublePriceStatus
+                if system.status == item.doublePriceStatus {
+                    quantity = quantity / 5
+                }
+                
+                // further randomize
+                quantity = quantity + Int(arc4random_uniform(10)) - Int(arc4random_uniform(10))
+                
+                // if less than zero, make zero
+                if quantity < 0 {
+                    quantity = 0
+                }
+            }
+            
+            
+            //  write quantity to system
+            switch item.item {
+            case .Water:
+                system.water = quantity
+            case .Furs:
+                system.furs = quantity
+            case .Food:
+                system.food = quantity
+            case .Ore:
+                system.ore = quantity
+            case .Games:
+                system.games = quantity
+            case .Firearms:
+                system.firearms = quantity
+            case .Medicine:
+                system.medicine = quantity
+            case .Machines:
+                system.machines = quantity
+            case .Narcotics:
+                system.narcotics = quantity
+            case .Robots:
+                system.robots = quantity
+            default:
+                print("?")
+            }
         }
-        
-        
-            // general case: (9 + rand(5)) - abs((techTopProduction - techLevel) * (1 + size))
         return system
     }
     
-
+    func getTechLevelValue(level: TechLevelType) -> Int {
+        switch level {
+            case TechLevelType.techLevel0:
+                return 0
+            case TechLevelType.techLevel1:
+                return 1
+            case TechLevelType.techLevel2:
+                return 2
+            case TechLevelType.techLevel3:
+                return 3
+            case TechLevelType.techLevel4:
+                return 4
+            case TechLevelType.techLevel5:
+                return 5
+            case TechLevelType.techLevel6:
+                return 6
+            case TechLevelType.techLevel7:
+                return 7
+            case TechLevelType.techLevel8:
+                return 8
+        }
+    }
+    
+    func getSizeValue(size: SizeType) -> Int {
+        switch size {
+        case .Tiny:
+            return 0
+        case .Small:
+            return 1
+        case .Medium:
+            return 2
+        case .Large:
+            return 3
+        case .Huge:
+            return 4
+        }
+    }
+    
+    func getDifficultyValue(difficulty: DifficultyType) -> Int {
+        switch difficulty {
+            case .beginner:
+                return 0
+            case .easy:
+                return 1
+            case .normal:
+                return 2
+            case .hard:
+                return 3
+            case .impossible:
+                return 4
+        }
+    }
     
 
 }
