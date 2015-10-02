@@ -134,46 +134,65 @@ class Galaxy {
             }
             
             
-            // politics
-            let politicsRand = Int(arc4random_uniform(17))
-            switch politicsRand {
+            // politics--BUG: MUST ADHERE TO CONSTRAINTS
+            
+            var politicsTypeTemp: PoliticsType = PoliticsType.anarchy
+            var satisfiesTechLevelRequirements = false
+            
+            while !satisfiesTechLevelRequirements {
+                let politicsRand = Int(arc4random_uniform(17))
+                
+                switch politicsRand {
                 case 0:
-                    newStarSystem.politics = PoliticsType.anarchy
+                    politicsTypeTemp = PoliticsType.anarchy
                 case 1:
-                    newStarSystem.politics = PoliticsType.capitalist
+                    politicsTypeTemp = PoliticsType.capitalist
                 case 2:
-                    newStarSystem.politics = PoliticsType.communist
+                    politicsTypeTemp = PoliticsType.communist
                 case 3:
-                    newStarSystem.politics = PoliticsType.confederacy
+                    politicsTypeTemp = PoliticsType.confederacy
                 case 4:
-                    newStarSystem.politics = PoliticsType.corporate
+                    politicsTypeTemp = PoliticsType.corporate
                 case 5:
-                    newStarSystem.politics = PoliticsType.cybernetic
+                    politicsTypeTemp = PoliticsType.cybernetic
                 case 6:
-                    newStarSystem.politics = PoliticsType.democracy
+                    politicsTypeTemp = PoliticsType.democracy
                 case 7:
-                    newStarSystem.politics = PoliticsType.dictatorship
+                    politicsTypeTemp = PoliticsType.dictatorship
                 case 8:
-                    newStarSystem.politics = PoliticsType.fascist
+                    politicsTypeTemp = PoliticsType.fascist
                 case 9:
-                    newStarSystem.politics = PoliticsType.feudal
+                    politicsTypeTemp = PoliticsType.feudal
                 case 10:
-                    newStarSystem.politics = PoliticsType.military
+                    politicsTypeTemp = PoliticsType.military
                 case 11:
-                    newStarSystem.politics = PoliticsType.monarchy
+                    politicsTypeTemp = PoliticsType.monarchy
                 case 12:
-                    newStarSystem.politics = PoliticsType.pacifist
+                    politicsTypeTemp = PoliticsType.pacifist
                 case 13:
-                    newStarSystem.politics = PoliticsType.socialist
+                    politicsTypeTemp = PoliticsType.socialist
                 case 14:
-                    newStarSystem.politics = PoliticsType.satori
+                    politicsTypeTemp = PoliticsType.satori
                 case 15:
-                    newStarSystem.politics = PoliticsType.technocracy
+                    politicsTypeTemp = PoliticsType.technocracy
                 case 16:
-                    newStarSystem.politics = PoliticsType.theocracy
+                    politicsTypeTemp = PoliticsType.theocracy
                 default:
-                    newStarSystem.politics = PoliticsType.anarchy
+                    politicsTypeTemp = PoliticsType.anarchy
+                }
+                
+                let politicsProto = Politics(type: politicsTypeTemp)
+                let minTech = getTechLevelValue(politicsProto.minTech)
+                let maxTech = getTechLevelValue(politicsProto.maxTech)
+                let techLevelValue = getTechLevelValue(newStarSystem.techLevel)
+                
+                if (techLevelValue >= minTech) && (techLevelValue <= maxTech) {
+                    satisfiesTechLevelRequirements = true
+                }
+                
+                newStarSystem.politics = politicsTypeTemp
             }
+            
             
             // size
             let sizeRand = Int(arc4random_uniform(5))
@@ -460,28 +479,28 @@ class Galaxy {
             
             //  write quantity to system
             switch item.item {
-            case .Water:
-                system.water = quantity
-            case .Furs:
-                system.furs = quantity
-            case .Food:
-                system.food = quantity
-            case .Ore:
-                system.ore = quantity
-            case .Games:
-                system.games = quantity
-            case .Firearms:
-                system.firearms = quantity
-            case .Medicine:
-                system.medicine = quantity
-            case .Machines:
-                system.machines = quantity
-            case .Narcotics:
-                system.narcotics = quantity
-            case .Robots:
-                system.robots = quantity
-            default:
-                print("?")
+                case .Water:
+                    system.water = quantity
+                case .Furs:
+                    system.furs = quantity
+                case .Food:
+                    system.food = quantity
+                case .Ore:
+                    system.ore = quantity
+                case .Games:
+                    system.games = quantity
+                case .Firearms:
+                    system.firearms = quantity
+                case .Medicine:
+                    system.medicine = quantity
+                case .Machines:
+                    system.machines = quantity
+                case .Narcotics:
+                    system.narcotics = quantity
+                case .Robots:
+                    system.robots = quantity
+                default:
+                    print("?")
             }
         }
     }
@@ -500,12 +519,82 @@ class Galaxy {
             TradeItem(item: .Robots, quantity: 1, pricePaid: 1)]
         
         for item in tradeItems {
-            // call standardPrice
-        }
-        
-        
-        //system.waterBuy = 114
-        
+            var done = false
+            let systemSize = system.size
+            let systemTech = system.techLevel
+            let systemGovernment = system.politics
+            let systemResources = system.specialResources
+            
+            // call standardPrice() as a starting point
+            var buyPrice = standardPrice(item.item, systemSize: systemSize, systemTech: systemTech, systemGovernment: systemGovernment, systemResources: systemResources)
+            var sellPrice = 0
+            
+            if buyPrice == 0 {
+                done = true
+            }
+            
+            if !done {
+                // In case of a special status, adapt price accordingly
+                if item.doublePriceStatus != StatusType.none {
+                    if system.status == item.doublePriceStatus {
+                        buyPrice = (buyPrice * 3) / 2
+                    }
+                }
+                
+                // randomize price a bit
+                buyPrice = buyPrice + Int(arc4random_uniform(UInt32(item.variance))) - Int(arc4random_uniform(UInt32(item.variance)))
+                
+                // should never happen
+                if buyPrice < 0 {
+                    buyPrice = 0
+                }
+                
+                // criminals have to pay off an intermediary 10% IMPLEMENT THIS LATER
+                
+                // SELLPRICE WTF?
+                sellPrice = buyPrice
+                
+                // RECALCULATEBUYPRICES?
+            }
+            
+            
+            // set buy and sell price for specific item
+            switch item.item {
+                case .Water:
+                    system.waterBuy = buyPrice
+                    system.waterSell = sellPrice
+                case .Furs:
+                    system.fursBuy = buyPrice
+                    system.fursSell = sellPrice
+                case .Food:
+                    system.foodBuy = buyPrice
+                    system.foodSell = sellPrice
+                case .Ore:
+                    system.oreBuy = buyPrice
+                    system.oreSell = sellPrice
+                case .Games:
+                    system.gamesBuy = buyPrice
+                    system.gamesSell = sellPrice
+                case .Firearms:
+                    system.firearmsBuy = buyPrice
+                    system.firearmsSell = sellPrice
+                case .Medicine:
+                    system.medicineBuy = buyPrice
+                    system.medicineSell = sellPrice
+                case .Machines:
+                    system.machinesBuy = buyPrice
+                    system.machinesSell = sellPrice
+                case .Narcotics:
+                    system.narcoticsBuy = buyPrice
+                    system.narcoticsSell = sellPrice
+                case .Robots:
+                    system.robotsBuy = buyPrice
+                    system.robotsSell = sellPrice
+                default:
+                    print("?")
+            }
+            
+        }        
     }
     
     func standardPrice(good: TradeItemType, systemSize: SizeType, systemTech: TechLevelType, systemGovernment: PoliticsType, systemResources: SpecialResourcesType) -> Int {
@@ -522,6 +611,8 @@ class Galaxy {
         
         // Determine base price on techlevel of system
         price = tradeItem.priceLowTech + (techLevelValue * tradeItem.priceIncrease)
+        //print("DEBUG: priceLowTech \(tradeItem.priceLowTech) + (techLevelValue \(techLevelValue) * priceIncrease \(tradeItem.priceIncrease)")
+        //print("DEBUG: tradeItem: \(tradeItem.item), basePrice: \(price)")
         
         // If a good is highly requested, increase the price
         if politics.wanted == tradeItem.item {
@@ -529,7 +620,7 @@ class Galaxy {
         }
         
         // High trader activity decreases prices
-        price = (price * (2 * politics.activityTraders)) / 100
+        price = price * ((100 - (2 * politics.activityTraders))) / 100
         
         // Large system = high production decreases prices
         price = (price * (100 - sizeValue)) / 100
@@ -552,7 +643,6 @@ class Galaxy {
         if techLevelValue < getTechLevelValue(tradeItem.techUsage) {
             return 0
         }
-        
         return price
     }
     
