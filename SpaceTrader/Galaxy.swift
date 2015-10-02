@@ -256,6 +256,7 @@ class Galaxy {
             
             // initialize trade items
             newStarSystem = initializeTradeItems(newStarSystem)
+            determinePrices(newStarSystem)
             
             
             // anything else that needs to be set here?
@@ -286,7 +287,7 @@ class Galaxy {
         // log output to console
         // DEBUGGING:
         for planet in planets {
-            print("************************")
+            print("*****************************************************")
             print("name: \(planet.name)")
             print("x coord: \(planet.xCoord)")
             print("y coord: \(planet.yCoord)")
@@ -306,6 +307,26 @@ class Galaxy {
             print("machines quantity: \(planet.machines)")
             print("narcotics quantity: \(planet.narcotics)")
             print("robots quantity: \(planet.robots)")
+            print("waterBuy: \(planet.waterBuy)")
+            print("waterSell: \(planet.waterSell)")
+            print("fursBuy: \(planet.fursBuy)")
+            print("fursSell: \(planet.fursSell)")
+            print("foodBuy: \(planet.foodBuy)")
+            print("foodSell: \(planet.foodSell)")
+            print("oreBuy: \(planet.oreBuy)")
+            print("oreSell: \(planet.oreSell)")
+            print("gamesBuy: \(planet.gamesBuy)")
+            print("gamesSell: \(planet.gamesSell)")
+            print("firearmsBuy: \(planet.firearmsBuy)")
+            print("firearmsSell: \(planet.firearmsSell)")
+            print("medicineBuy: \(planet.medicineBuy)")
+            print("medicineSell: \(planet.medicineSell)")
+            print("machinesBuy: \(planet.machinesBuy)")
+            print("machinesSell: \(planet.machinesSell)")
+            print("narcoticsBuy: \(planet.narcoticsBuy)")
+            print("narcoticsSell: \(planet.narcoticsSell)")
+            print("robotsBuy: \(planet.robotsBuy)")
+            print("robotsSell: \(planet.robotsSell)")
         }
         
     }
@@ -463,6 +484,11 @@ class Galaxy {
             }
         }
         return system
+    }
+    
+    func determinePrices(system: StarSystem) {
+        system.waterBuy = 114
+        
     }
     
     func getTechLevelValue(level: TechLevelType) -> Int {
