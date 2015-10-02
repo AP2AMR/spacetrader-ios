@@ -20,7 +20,7 @@ class Galaxy {
         
         var i: Int = 0
         while i < MAXSOLARSYSTEM {
-            let newStarSystem = StarSystem(name: "NOT SET YET", techLevel: TechLevelType.techLevel0, politics: PoliticsType.anarchy, status: StatusType.none, xCoord: 0, yCoord: 0, specialResources: SpecialResourcesType.none, size: SizeType.Tiny)
+            var newStarSystem = StarSystem(name: "NOT SET YET", techLevel: TechLevelType.techLevel0, politics: PoliticsType.anarchy, status: StatusType.none, xCoord: 0, yCoord: 0, specialResources: SpecialResourcesType.none, size: SizeType.Tiny)
             
 
             if i < MAXWORMHOLE {
@@ -254,7 +254,12 @@ class Galaxy {
                 }
             }
             
+            // initialize trade items
+            newStarSystem = initializeTradeItems(newStarSystem)
+            
+            
             // anything else that needs to be set here?
+            // mercenaries?
             
             // end of loop
             planets.append(newStarSystem)
@@ -275,8 +280,6 @@ class Galaxy {
                 indicesOfPlanetsWithWormholes.removeAtIndex(index)
                 // assign it
                 planet.wormholeDestination = number
-                // DEBUGGING
-                print(indicesOfPlanetsWithWormholes)
             }
         }
         
@@ -293,6 +296,7 @@ class Galaxy {
             print("special resources: \(planet.specialResources)")
             print("status: \(planet.status)")
             print("wormhole destination: \(planet.wormholeDestination)")
+            print("food: \(planet.food)")
         }
         
     }
@@ -354,8 +358,42 @@ class Galaxy {
     
 
     
-//    func initializeTradeItems(StarSystem) -> StarSystem {
-//    }
+    func initializeTradeItems(system: StarSystem) -> StarSystem {
+        var passFlag = false
+        let tradeItems: [TradeItem] = [
+            TradeItem(item: .Water, quantity: 1, pricePaid: 1),
+            TradeItem(item: .Furs, quantity: 1, pricePaid: 1),
+            TradeItem(item: .Food, quantity: 1, pricePaid: 1),
+            TradeItem(item: .Ore, quantity: 1, pricePaid: 1),
+            TradeItem(item: .Games, quantity: 1, pricePaid: 1),
+            TradeItem(item: .Firearms, quantity: 1, pricePaid: 1),
+            TradeItem(item: .Medicine, quantity: 1, pricePaid: 1),
+            TradeItem(item: .Machines, quantity: 1, pricePaid: 1),
+            TradeItem(item: .Narcotics, quantity: 1, pricePaid: 1),
+            TradeItem(item: .Robots, quantity: 1, pricePaid: 1)]
+        // iterate through all tradeItems
+        for item in tradeItems {
+            let politics = Politics(type: system.politics)
+            passFlag == false
+            // continue only if not above max trade item for tech level && not ignored here
+            if system.techLevel < item.techProduction {
+                passFlag == true
+            }
+            if item.item == .Firearms && !politics.firearmsOk {
+                passFlag == true
+            }
+            if item.item == .Narcotics && !politics.drugsOk {
+                passFlag == true
+            }
+            
+        }
+        
+        
+            // general case: (9 + rand(5)) - abs((techTopProduction - techLevel) * (1 + size))
+        return system
+    }
     
-    // figure out how display is done
+
+    
+
 }
