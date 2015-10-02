@@ -404,7 +404,7 @@ class Galaxy {
             if !passFlag {
                 // general case: (9 + rand(5)) - abs((techTopProduction - techLevel) * (1 + size))
                 let rand = Int(arc4random_uniform(5))
-                quantity = (9 * rand) - abs(getTechLevelValue(item.techTopProduction) - getTechLevelValue(system.techLevel) * (1 + getSizeValue(system.size)))
+                quantity = ((9 + rand) - abs(getTechLevelValue(item.techTopProduction) - getTechLevelValue(system.techLevel))) * (1 + getSizeValue(system.size))
                 
                 // if robots or narcotics, prevent crazy lucrative scenario
                 if (item.item == .Robots) || (item.item == .Narcotics) {
