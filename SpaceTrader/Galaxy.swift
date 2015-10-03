@@ -676,6 +676,9 @@ class Galaxy {
                 }
             }
         }
+        
+        // DEBUG--ARBITRARY ASSIGNMENT OF TARGETSYSTEM
+        targetSystem = systemsInRange[0]
     }
     
     func getTechLevelValue(level: TechLevelType) -> Int {

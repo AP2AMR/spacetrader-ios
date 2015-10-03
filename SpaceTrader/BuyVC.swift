@@ -58,28 +58,28 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         buyAsOpposedToSell = true
 
         // DUMMY DATA
-        currentSystem.water = 20
-        currentSystem.furs = 1
-        currentSystem.food = 7
-        currentSystem.ore = 57
-        currentSystem.games = 12
-        currentSystem.firearms = 38
-        currentSystem.robots = 1            // REMOVE
+//        currentSystem.water = 20
+//        currentSystem.furs = 1
+//        currentSystem.food = 7
+//        currentSystem.ore = 57
+//        currentSystem.games = 12
+//        currentSystem.firearms = 38
+//        currentSystem.robots = 1            // REMOVE
+//        
+//        currentSystem.waterBuy = 37
+//        currentSystem.fursBuy = 274
+//        currentSystem.foodBuy = 108
+//        currentSystem.oreBuy = 397
+//        currentSystem.gamesBuy = 158
+//        currentSystem.firearmsBuy = 1101
+//        currentSystem.robotsBuy = 50        // REMOVE
         
-        currentSystem.waterBuy = 37
-        currentSystem.fursBuy = 274
-        currentSystem.foodBuy = 108
-        currentSystem.oreBuy = 397
-        currentSystem.gamesBuy = 158
-        currentSystem.firearmsBuy = 1101
-        currentSystem.robotsBuy = 50        // REMOVE
-        
-        targetSystem.waterSell = 45
-        targetSystem.fursSell = 290
-        targetSystem.foodSell = 0
-        targetSystem.oreSell = 441
-        targetSystem.gamesSell = 178
-        targetSystem.firearmsSell = 752
+//        targetSystem.waterSell = 45
+//        targetSystem.fursSell = 290
+//        targetSystem.foodSell = 0
+//        targetSystem.oreSell = 441
+//        targetSystem.gamesSell = 178
+//        targetSystem.firearmsSell = 752
         
         systemsInRange.append(StarSystem(
             name: "Tarchannen",
@@ -114,7 +114,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         
         // fill out info at the bottom
         
-        targetSystemLabel.text = "Target system: \(targetSystem.name)"
+        targetSystemLabel.text = "Target system: \(galaxy.targetSystem!.name)"
         baysLabel.text = "Bays: 0/\(player.commanderShip.cargoBays)"    // FIX
         cashLabel.text = "Cash: \(player.credits) cr."
         
@@ -190,70 +190,70 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     // Max functions
     
     @IBAction func waterMax() {
-        if currentSystem.water > 0 {
+        if galaxy.currentSystem!.water > 0 {
             player.buy(TradeItemType.Water, quantity: player.getMax(TradeItemType.Water))
             updateUI()
         }
     }
     
     @IBAction func fursMax() {
-        if currentSystem.furs > 0 {
+        if galaxy.currentSystem!.furs > 0 {
             player.buy(TradeItemType.Furs, quantity: player.getMax(TradeItemType.Furs))
             updateUI()
         }
     }
     
     @IBAction func foodMax() {
-        if currentSystem.food > 0 {
+        if galaxy.currentSystem!.food > 0 {
             player.buy(TradeItemType.Food, quantity: player.getMax(TradeItemType.Food))
             updateUI()
         }
     }
     
     @IBAction func oreMax() {
-        if currentSystem.ore > 0 {
+        if galaxy.currentSystem!.ore > 0 {
             player.buy(TradeItemType.Ore, quantity: player.getMax(TradeItemType.Ore))
             updateUI()
         }
     }
     
     @IBAction func gamesMax() {
-        if currentSystem.games > 0 {
+        if galaxy.currentSystem!.games > 0 {
             player.buy(TradeItemType.Games, quantity: player.getMax(TradeItemType.Games))
             updateUI()
         }
     }
     
     @IBAction func firearmsMax() {
-        if currentSystem.firearms > 0 {
+        if galaxy.currentSystem!.firearms > 0 {
             player.buy(TradeItemType.Firearms, quantity: player.getMax(TradeItemType.Firearms))
             updateUI()
         }
     }
     
     @IBAction func medicineMax() {
-        if currentSystem.medicine > 0 {
+        if galaxy.currentSystem!.medicine > 0 {
             player.buy(TradeItemType.Medicine, quantity: player.getMax(TradeItemType.Medicine))
             updateUI()
         }
     }
     
     @IBAction func machinesMax() {
-        if currentSystem.machines > 0 {
+        if galaxy.currentSystem!.machines > 0 {
             player.buy(TradeItemType.Machines, quantity: player.getMax(TradeItemType.Machines))
             updateUI()
         }
     }
     
     @IBAction func narcoticsMax() {
-        if currentSystem.narcotics > 0 {
+        if galaxy.currentSystem!.narcotics > 0 {
             player.buy(TradeItemType.Narcotics, quantity: player.getMax(TradeItemType.Narcotics))
             updateUI()
         }
     }
     
     @IBAction func robotsMax() {
-        if currentSystem.robots > 0 {
+        if galaxy.currentSystem!.robots > 0 {
             player.buy(TradeItemType.Robots, quantity: player.getMax(TradeItemType.Robots))
             updateUI()
         }
@@ -276,71 +276,71 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     func updateUI() {   // called initially, also when transaction completed
         // ISSUE: should display positive P/L numbers in smaller font. Need to learn how to change font size of label programmatically
         
-        targetSystemLabel.text = "Target system: \(targetSystem.name)"
+        targetSystemLabel.text = "Target system: \(galaxy.targetSystem!.name)"
         baysLabel.text = "Bays: \(player.commanderShip.totalCargo)/\(player.commanderShip.cargoBays)"    // FIX
         cashLabel.text = "Cash: \(player.credits) cr."
         
         let controlState = UIControlState()
         
         // set quantities
-        waterQty.setTitle("\(currentSystem.water)", forState: controlState)
-        fursQty.setTitle("\(currentSystem.furs)", forState: controlState)
-        foodQty.setTitle("\(currentSystem.food)", forState: controlState)
-        oreQty.setTitle("\(currentSystem.ore)", forState: controlState)
-        gamesQty.setTitle("\(currentSystem.games)", forState: controlState)
-        firearmsQty.setTitle("\(currentSystem.firearms)", forState: controlState)
-        medicineQty.setTitle("\(currentSystem.medicine)", forState: controlState)
-        machinesQty.setTitle("\(currentSystem.machines)", forState: controlState)
-        narcoticsQty.setTitle("\(currentSystem.narcotics)", forState: controlState)
-        robotsQty.setTitle("\(currentSystem.robots)", forState: controlState)
+        waterQty.setTitle("\(galaxy.currentSystem!.water)", forState: controlState)
+        fursQty.setTitle("\(galaxy.currentSystem!.furs)", forState: controlState)
+        foodQty.setTitle("\(galaxy.currentSystem!.food)", forState: controlState)
+        oreQty.setTitle("\(galaxy.currentSystem!.ore)", forState: controlState)
+        gamesQty.setTitle("\(galaxy.currentSystem!.games)", forState: controlState)
+        firearmsQty.setTitle("\(galaxy.currentSystem!.firearms)", forState: controlState)
+        medicineQty.setTitle("\(galaxy.currentSystem!.medicine)", forState: controlState)
+        machinesQty.setTitle("\(galaxy.currentSystem!.machines)", forState: controlState)
+        narcoticsQty.setTitle("\(galaxy.currentSystem!.narcotics)", forState: controlState)
+        robotsQty.setTitle("\(galaxy.currentSystem!.robots)", forState: controlState)
         
         // handle things not traded. Do so if buy price is zero.
-        if currentSystem.waterBuy == 0 {
+        if galaxy.currentSystem!.waterBuy == 0 {
             waterQty.setTitle("", forState: controlState)
             waterPrice.text = "not sold"
             waterProjectedPL.text = "---"
         }
-        if currentSystem.fursBuy == 0 {
+        if galaxy.currentSystem!.fursBuy == 0 {
             fursQty.setTitle("", forState: controlState)
             fursPrice.text = "not sold"
             fursProjectedPL.text = "---"
         }
-        if currentSystem.foodBuy == 0 {
+        if galaxy.currentSystem!.foodBuy == 0 {
             foodQty.setTitle("", forState: controlState)
             foodPrice.text = "not sold"
             foodProjectedPL.text = "---"
         }
-        if currentSystem.oreBuy == 0 {
+        if galaxy.currentSystem!.oreBuy == 0 {
             oreQty.setTitle("", forState: controlState)
             orePrice.text = "not sold"
             oreProjectedPL.text = "---"
         }
-        if currentSystem.gamesBuy == 0 {
+        if galaxy.currentSystem!.gamesBuy == 0 {
             gamesQty.setTitle("", forState: controlState)
             gamesPrice.text = "not sold"
             gamesProjectedPL.text = "---"
         }
-        if currentSystem.firearmsBuy == 0 {
+        if galaxy.currentSystem!.firearmsBuy == 0 {
             firearmsQty.setTitle("", forState: controlState)
             firearmsPrice.text = "not sold"
             firearmsProjectedPL.text = "---"
         }
-        if currentSystem.medicineBuy == 0 {
+        if galaxy.currentSystem!.medicineBuy == 0 {
             medicineQty.setTitle("", forState: controlState)
             medicinePrice.text = "not sold"
             medicineProjectedPL.text = "---"
         }
-        if currentSystem.machinesBuy == 0 {
+        if galaxy.currentSystem!.machinesBuy == 0 {
             machinesQty.setTitle("", forState: controlState)
             machinesPrice.text = "not sold"
             machinesProjectedPL.text = "---"
         }
-        if currentSystem.narcoticsBuy == 0 {
+        if galaxy.currentSystem!.narcoticsBuy == 0 {
             narcoticsQty.setTitle("", forState: controlState)
             narcoticsPrice.text = "not sold"
             narcoticsProjectedPL.text = "---"
         }
-        if currentSystem.robotsBuy == 0 {
+        if galaxy.currentSystem!.robotsBuy == 0 {
             robotsQty.setTitle("", forState: controlState)
             robotsPrice.text = "not sold"
             robotsProjectedPL.text = "---"
@@ -353,58 +353,58 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         updateUI()
         
         // set prices
-        waterPrice.text = "\(currentSystem.waterBuy) cr."
-        fursPrice.text = "\(currentSystem.fursBuy) cr."
-        foodPrice.text = "\(currentSystem.foodBuy) cr."
-        orePrice.text = "\(currentSystem.oreBuy) cr."
-        gamesPrice.text = "\(currentSystem.gamesBuy) cr."
-        firearmsPrice.text = "\(currentSystem.firearmsBuy) cr."
-        medicinePrice.text = "\(currentSystem.medicineBuy) cr."
-        machinesPrice.text = "\(currentSystem.machinesBuy) cr."
-        narcoticsPrice.text = "\(currentSystem.narcoticsBuy) cr."
-        robotsPrice.text = "\(currentSystem.robotsBuy) cr."
+        waterPrice.text = "\(galaxy.currentSystem!.waterBuy) cr."
+        fursPrice.text = "\(galaxy.currentSystem!.fursBuy) cr."
+        foodPrice.text = "\(galaxy.currentSystem!.foodBuy) cr."
+        orePrice.text = "\(galaxy.currentSystem!.oreBuy) cr."
+        gamesPrice.text = "\(galaxy.currentSystem!.gamesBuy) cr."
+        firearmsPrice.text = "\(galaxy.currentSystem!.firearmsBuy) cr."
+        medicinePrice.text = "\(galaxy.currentSystem!.medicineBuy) cr."
+        machinesPrice.text = "\(galaxy.currentSystem!.machinesBuy) cr."
+        narcoticsPrice.text = "\(galaxy.currentSystem!.narcoticsBuy) cr."
+        robotsPrice.text = "\(galaxy.currentSystem!.robotsBuy) cr."
         
         // set P/L
-        waterProjectedPL.text = "\(getPPLString(targetSystem.waterSell, currentBuy: currentSystem.waterBuy))"
-        fursProjectedPL.text = "\(getPPLString(targetSystem.fursSell, currentBuy: currentSystem.fursBuy))"
-        foodProjectedPL.text = "\(getPPLString(targetSystem.foodSell, currentBuy: currentSystem.foodBuy))"
-        oreProjectedPL.text = "\(getPPLString(targetSystem.oreSell, currentBuy: currentSystem.oreBuy))"
-        gamesProjectedPL.text = "\(getPPLString(targetSystem.gamesSell, currentBuy: currentSystem.gamesBuy))"
-        firearmsProjectedPL.text = "\(getPPLString(targetSystem.firearmsSell, currentBuy: currentSystem.firearmsBuy))"
-        medicineProjectedPL.text = "\(getPPLString(targetSystem.medicineSell, currentBuy: currentSystem.medicineBuy))"
-        machinesProjectedPL.text = "\(getPPLString(targetSystem.machinesSell, currentBuy: currentSystem.machinesBuy))"
-        narcoticsProjectedPL.text = "\(getPPLString(targetSystem.narcoticsSell, currentBuy: currentSystem.narcoticsBuy))"
-        robotsProjectedPL.text = "\(getPPLString(targetSystem.robotsSell, currentBuy: currentSystem.robotsBuy))"
+        waterProjectedPL.text = "\(getPPLString(galaxy.targetSystem!.waterSell, currentBuy: galaxy.currentSystem!.waterBuy))"
+        fursProjectedPL.text = "\(getPPLString(galaxy.targetSystem!.fursSell, currentBuy: galaxy.currentSystem!.fursBuy))"
+        foodProjectedPL.text = "\(getPPLString(galaxy.targetSystem!.foodSell, currentBuy: galaxy.currentSystem!.foodBuy))"
+        oreProjectedPL.text = "\(getPPLString(galaxy.targetSystem!.oreSell, currentBuy: galaxy.currentSystem!.oreBuy))"
+        gamesProjectedPL.text = "\(getPPLString(galaxy.targetSystem!.gamesSell, currentBuy: galaxy.currentSystem!.gamesBuy))"
+        firearmsProjectedPL.text = "\(getPPLString(galaxy.targetSystem!.firearmsSell, currentBuy: galaxy.currentSystem!.firearmsBuy))"
+        medicineProjectedPL.text = "\(getPPLString(galaxy.targetSystem!.medicineSell, currentBuy: galaxy.currentSystem!.medicineBuy))"
+        machinesProjectedPL.text = "\(getPPLString(galaxy.targetSystem!.machinesSell, currentBuy: galaxy.currentSystem!.machinesBuy))"
+        narcoticsProjectedPL.text = "\(getPPLString(galaxy.targetSystem!.narcoticsSell, currentBuy: galaxy.currentSystem!.narcoticsBuy))"
+        robotsProjectedPL.text = "\(getPPLString(galaxy.targetSystem!.robotsSell, currentBuy: galaxy.currentSystem!.robotsBuy))"
  
         // P/L: handle commodities not traded in target system
-        if targetSystem.waterSell == 0 {
+        if galaxy.targetSystem!.waterSell == 0 {
             waterProjectedPL.text = "---"
         }
-        if targetSystem.fursSell == 0 {
+        if galaxy.targetSystem!.fursSell == 0 {
             fursProjectedPL.text = "---"
         }
-        if targetSystem.foodSell == 0 {
+        if galaxy.targetSystem!.foodSell == 0 {
             foodProjectedPL.text = "---"
         }
-        if targetSystem.oreSell == 0 {
+        if galaxy.targetSystem!.oreSell == 0 {
             oreProjectedPL.text = "---"
         }
-        if targetSystem.gamesSell == 0 {
+        if galaxy.targetSystem!.gamesSell == 0 {
             gamesProjectedPL.text = "---"
         }
-        if targetSystem.firearmsSell == 0 {
+        if galaxy.targetSystem!.firearmsSell == 0 {
             firearmsProjectedPL.text = "---"
         }
-        if targetSystem.medicineSell == 0 {
+        if galaxy.targetSystem!.medicineSell == 0 {
             medicineProjectedPL.text = "---"
         }
-        if targetSystem.machinesSell == 0 {
+        if galaxy.targetSystem!.machinesSell == 0 {
             machinesProjectedPL.text = "---"
         }
-        if targetSystem.narcoticsSell == 0 {
+        if galaxy.targetSystem!.narcoticsSell == 0 {
             narcoticsProjectedPL.text = "---"
         }
-        if targetSystem.robotsSell == 0 {
+        if galaxy.targetSystem!.robotsSell == 0 {
             robotsProjectedPL.text = "---"
         }
 
