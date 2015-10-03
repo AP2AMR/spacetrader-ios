@@ -493,7 +493,7 @@ class Galaxy {
             }
             
             
-            //  write quantity to system
+            //  write quantity to system                // REPLACE WITH DEDICATED FUNCTION
             switch item.item {
                 case .Water:
                     system.water = quantity
@@ -565,10 +565,11 @@ class Galaxy {
                     buyPrice = 0
                 }
                 
+                // set sell price, as a factor of trader skill
+                sellPrice = (buyPrice * (100 - player.traderSkill)) / 100
+                
                 // criminals have to pay off an intermediary 10% IMPLEMENT THIS LATER
                 
-                // SELLPRICE WTF?
-                sellPrice = buyPrice
                 
                 // RECALCULATEBUYPRICES?
             }
@@ -758,10 +759,189 @@ class Galaxy {
         targetSystem = systemsInRange[currentIndex - 1]
     }
     
-    func warp() {
+    func updateGalaxy() {
+        // handles all events that happen with the passage of a day.
+        player.days += 1
+        shuffleStatus()
+        
+    }
+    
+    func shuffleStatus() {
+        for planet in planets {
+            if planet.status != StatusType.none {
+                let statusRand1 = Int(arc4random_uniform(100))
+                if statusRand1 < 15 {
+                    planet.status = StatusType.none
+                }
+            } else {
+                let statusRand2 = Int(arc4random_uniform(7))
+                switch statusRand2 {
+                    case 0:
+                        planet.status = StatusType.war
+                    case 0:
+                        planet.status = StatusType.plague
+                    case 0:
+                        planet.status = StatusType.drought
+                    case 0:
+                        planet.status = StatusType.boredom
+                    case 0:
+                        planet.status = StatusType.cold
+                    case 0:
+                        planet.status = StatusType.cropFailure
+                    case 0:
+                        planet.status = StatusType.employment
+                    default:
+                        planet.status = StatusType.none
+                }
+            }
+        }
+    }
+    
+    func updateQuantities() {
+        for planet in planets {
+            planet.countdown -= 1
+            if planet.countdown <= 0 {
+                planet.countdown = (3 + getDifficultyValue(player.difficulty))
+                initializeTradeItems(planet)            // really? we want this to happen only seldom
+            } else {
+                // increment all trade items, unless they are not traded there
+                var skipFlag = false
+                // set skipFlag to true if needed
+                var adjustQuantityBy: Int = 0
+                let politics = Politics(type: planet.politics)
+                
+                let tradeItems: [TradeItem] = [
+                    TradeItem(item: .Water, quantity: 1, pricePaid: 1),
+                    TradeItem(item: .Furs, quantity: 1, pricePaid: 1),
+                    TradeItem(item: .Food, quantity: 1, pricePaid: 1),
+                    TradeItem(item: .Ore, quantity: 1, pricePaid: 1),
+                    TradeItem(item: .Games, quantity: 1, pricePaid: 1),
+                    TradeItem(item: .Firearms, quantity: 1, pricePaid: 1),
+                    TradeItem(item: .Medicine, quantity: 1, pricePaid: 1),
+                    TradeItem(item: .Machines, quantity: 1, pricePaid: 1),
+                    TradeItem(item: .Narcotics, quantity: 1, pricePaid: 1),
+                    TradeItem(item: .Robots, quantity: 1, pricePaid: 1)]
+                for item in tradeItems {
+                    if getTechLevelValue(planet.techLevel) < getTechLevelValue(item.techProduction) {
+                        adjustQuantityBy = 0
+                        skipFlag = true
+                    }
+                    if item.item == .Firearms && !politics.firearmsOk {
+                        adjustQuantityBy = 0
+                        skipFlag = true
+                    }
+                    if item.item == .Narcotics && !politics.drugsOk {
+                        adjustQuantityBy = 0
+                        skipFlag = true
+                    }
+                    
+                    if !skipFlag {
+                        // get quantities to update by
+                        adjustQuantityBy += Int(arc4random_uniform(5)) - Int(arc4random_uniform(5))
+                        
+                        // update
+                        addToSystemCommodities(planet, commodity: item.item, amountToAdd: adjustQuantityBy)
+                        setCommodityToZeroIfNegative(planet, commodity: item.item)
+                    }
+                }
+            }
+        }
+    }
+    
+        
+    
+    func addToSystemCommodities(system: StarSystem, commodity: TradeItemType, amountToAdd: Int) {
+        switch commodity {
+            case .Water:
+                system.water += amountToAdd
+            case .Furs:
+                system.furs += amountToAdd
+            case .Food:
+                system.food += amountToAdd
+            case .Ore:
+                system.ore += amountToAdd
+            case .Games:
+                system.games += amountToAdd
+            case .Firearms:
+                system.firearms += amountToAdd
+            case .Medicine:
+                system.medicine += amountToAdd
+            case .Machines:
+                system.machines += amountToAdd
+            case .Narcotics:
+                system.narcotics += amountToAdd
+            case .Robots:
+                system.robots += amountToAdd
+            default:
+                print("?")
+        }
+    }
+    
+    func setCommodityToZeroIfNegative(system: StarSystem, commodity: TradeItemType) {
+        switch commodity {
+            case .Water:
+                if system.water < 0 {
+                    system.water = 0
+                }
+            case .Furs:
+                if system.furs < 0 {
+                    system.furs = 0
+                }
+            case .Food:
+                if system.food < 0 {
+                    system.food = 0
+                }
+            case .Ore:
+                if system.ore < 0 {
+                    system.ore = 0
+                }
+            case .Games:
+                if system.games < 0 {
+                    system.games = 0
+                }
+            case .Firearms:
+                if system.firearms < 0 {
+                    system.firearms = 0
+                }
+            case .Medicine:
+                if system.medicine < 0 {
+                    system.medicine = 0
+                }
+            case .Machines:
+                if system.machines < 0 {
+                    system.machines = 0
+                }
+            case .Narcotics:
+                if system.narcotics < 0 {
+                    system.narcotics = 0
+                }
+            case .Robots:
+                if system.robots < 0 {
+                    system.robots = 0
+                }
+            default:
+                print("?")
+        }
+    }
+    
+    func warp() -> Bool {
         currentSystem = targetSystem
         getSystemsInRange()
+        updateGalaxy()
+        updateQuantities()
+        // update prices, etc. somehow
+        // run some sort of passage of time function?
+        // deal with money. Pay mercenaries, interest, collect tax if necessary, forbid if not enough
+        
+        // fabric rip
+        
+        // reset news events
+        
+        // handle countdown
+        
+        return true
     }
+
     
     // DEBUG METHOD
     func printSystemsInRange() {

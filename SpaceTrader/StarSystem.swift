@@ -15,15 +15,15 @@ class StarSystem {
     var techLevel: TechLevelType
     var politics: PoliticsType
     var status: StatusType
-    var xCoord: Int = 0        // requires init
+    var xCoord: Int = 0 
     var yCoord: Int = 0
     var specialResources: SpecialResourcesType
     var size: SizeType
     // trade items?
-    var countdown: Int? = 1
+    var countdown: Int = 1                  // does this need a special initializer?
     var visited: Bool = false
-    var wormhole: Bool = false              // DEAL WITH THESE
-    var wormholeDestination: Int? = nil        // DEAL WITH THESE
+    var wormhole: Bool = false
+    var wormholeDestination: Int? = nil
     var indexNumber: Int = 200
     //var special: SpecialEventType
 
@@ -69,7 +69,7 @@ class StarSystem {
         self.yCoord = yCoord
         self.specialResources = specialResources
         self.size = size
-        self.countdown = nil
+        self.countdown = Int(arc4random_uniform(6))
         self.visited = false
     }
 }
