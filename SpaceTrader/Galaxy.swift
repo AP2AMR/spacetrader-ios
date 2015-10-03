@@ -5,12 +5,24 @@
 //  Created by Marc Auger on 9/8/15.
 //  Copyright (c) 2015 Marc Auger. All rights reserved.
 //
+//
+// createGalaxy() initializes the galaxy. All planets are stored in .planets. currentSystem and targetSystem also exist, and should be referenced from here. systemsInRange, an array, also lives here. It seems that modifying things in these arrays modifies them referentially, in the main array as well, so handling should be easy. Confirm this.
+//
+// standardPrice() gets a starting point price. determinePrices sets all prices, though does not yet correctly do sell prices. Need to figure out how to update prices and quantities.
+//
+// getSystemsInRange() populates systems in range, and should be called from warp.
+//
+//
 
 import Foundation
 import UIKit
 
 class Galaxy {
+    // do I need a proper way of doing this by reference?
     var planets: [StarSystem] = []
+    var systemsInRange: [StarSystem] = []
+    var currentSystem: StarSystem?
+    var targetSystem: StarSystem?
     
     func createGalaxy() {
         print("Initializing galaxy...")
@@ -20,7 +32,7 @@ class Galaxy {
         
         var i: Int = 0
         while i < MAXSOLARSYSTEM {
-            var newStarSystem = StarSystem(name: "NOT SET YET", techLevel: TechLevelType.techLevel0, politics: PoliticsType.anarchy, status: StatusType.none, xCoord: 0, yCoord: 0, specialResources: SpecialResourcesType.none, size: SizeType.Tiny)
+            let newStarSystem = StarSystem(name: "NOT SET YET", techLevel: TechLevelType.techLevel0, politics: PoliticsType.anarchy, status: StatusType.none, xCoord: 0, yCoord: 0, specialResources: SpecialResourcesType.none, size: SizeType.Tiny)
             
 
             if i < MAXWORMHOLE {
@@ -303,6 +315,10 @@ class Galaxy {
                 planet.wormholeDestination = number
             }
         }
+        
+        currentSystem = planets[50]             // FIX THIS. ARBITRARY CHOICE TO BE REPLACED
+        getSystemsInRange()
+        printSystemsInRange()
         
         // log output to console
         // DEBUGGING:
@@ -646,6 +662,22 @@ class Galaxy {
         return price
     }
     
+    func getSystemsInRange() {
+        // dump old
+        systemsInRange = []
+        
+        let range = player.commanderShip.fuel
+        
+        for planet in planets {
+            let distance = getDistance(currentSystem!, system2: planet)
+            if planet.name != currentSystem!.name {
+                if distance <= range {
+                    systemsInRange.append(planet)
+                }
+            }
+        }
+    }
+    
     func getTechLevelValue(level: TechLevelType) -> Int {
         switch level {
             case TechLevelType.techLevel0:
@@ -671,16 +703,16 @@ class Galaxy {
     
     func getSizeValue(size: SizeType) -> Int {
         switch size {
-        case .Tiny:
-            return 0
-        case .Small:
-            return 1
-        case .Medium:
-            return 2
-        case .Large:
-            return 3
-        case .Huge:
-            return 4
+            case .Tiny:
+                return 0
+            case .Small:
+                return 1
+            case .Medium:
+                return 2
+            case .Large:
+                return 3
+            case .Huge:
+                return 4
         }
     }
     
@@ -696,6 +728,15 @@ class Galaxy {
                 return 3
             case .impossible:
                 return 4
+        }
+    }
+    
+    // DEBUG METHOD
+    func printSystemsInRange() {
+        print("SYSTEMS IN RANGE:")
+        
+        for system in systemsInRange {
+            print("\(system.name), distance: \(getDistance(currentSystem!, system2: system))")
         }
     }
     

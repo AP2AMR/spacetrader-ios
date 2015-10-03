@@ -221,12 +221,12 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         
         
         // DUMMY DATA
-        currentSystem.waterSell = 45
-        currentSystem.fursSell = 290
-        currentSystem.foodSell = 120
-        currentSystem.oreSell = 441
-        currentSystem.gamesSell = 178
-        currentSystem.firearmsSell = 752
+//        currentSystem.waterSell = 45
+//        currentSystem.fursSell = 290
+//        currentSystem.foodSell = 120
+//        currentSystem.oreSell = 441
+//        currentSystem.gamesSell = 178
+//        currentSystem.firearmsSell = 752
         // END DUMMY DATA
         
         recurringUpdate()
@@ -313,6 +313,12 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         recurringUpdate()
         buyAsOpposedToSell = false
         loadPrices()
+        
+//        print("DEBUG*********SELL VC TESTING***************")
+//        galaxy.currentSystem = galaxy.planets[52]
+//        galaxy.currentSystem!.food = 555
+//        print("should say 555 if referential: \(galaxy.planets[52].food)")
+        
         
     }
     
