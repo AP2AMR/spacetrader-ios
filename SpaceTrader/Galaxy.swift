@@ -734,6 +734,35 @@ class Galaxy {
         }
     }
     
+    func cycleForward() {
+        var i: Int = 0
+        var currentIndex: Int = 0
+        for system in systemsInRange {
+            if system.name == targetSystem!.name {
+                currentIndex = i
+            }
+            i += 1
+        }
+        targetSystem = systemsInRange[currentIndex + 1]
+    }
+    
+    func cycleBackward() {
+        var i: Int = 0
+        var currentIndex: Int = 0
+        for system in systemsInRange {
+            if system.name == targetSystem!.name {
+                currentIndex = i
+            }
+            i += 1
+        }
+        targetSystem = systemsInRange[currentIndex - 1]
+    }
+    
+    func warp() {
+        currentSystem = targetSystem
+        getSystemsInRange()
+    }
+    
     // DEBUG METHOD
     func printSystemsInRange() {
         print("SYSTEMS IN RANGE:")
