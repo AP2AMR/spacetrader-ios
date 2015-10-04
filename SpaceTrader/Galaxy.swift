@@ -679,6 +679,11 @@ class Galaxy {
             }
         }
         
+        // if tanks empty and no range, add current system to systemsInRange, so that it can become the target system and nothing will break
+        if systemsInRange.count == 0 {
+            systemsInRange.append(currentSystem!)
+        }
+        
         // DEBUG--ARBITRARY ASSIGNMENT OF TARGETSYSTEM
         targetSystem = systemsInRange[0]
     }
