@@ -736,6 +736,31 @@ class Galaxy {
         }
     }
     
+    func getActivityForInt(activity: Int) -> String {
+        var activityString: String = ""
+        switch activity {
+        case 0:
+            activityString = "Absent"
+        case 1:
+            activityString = "Minimal"
+        case 2:
+            activityString = "Few"
+        case 3:
+            activityString = "Some"
+        case 4:
+            activityString = "Moderate"
+        case 5:
+            activityString = "Many"
+        case 6:
+            activityString = "Abundant"
+        case 7:
+            activityString = "Swarms"
+        default:
+            activityString = "RANGE ERROR"
+        }
+        return activityString
+    }
+    
     func cycleForward() {
         var i: Int = 0
         var currentIndex: Int = 0
@@ -938,10 +963,11 @@ class Galaxy {
         updateQuantities()      // reset quantities with time
         
         // check things to see if warp can happen. Fuel, enough money to pay mercenaries, taxes, interest.
-//        let journeyDistance = getDistance(oldSystem!, system2: currentSystem!)
-//        if journeyDistance > player.commanderShip.fuel {
-//            return false
-//        }
+        let journeyDistance = getDistance(oldSystem!, system2: currentSystem!)
+        if journeyDistance > player.commanderShip.fuel {
+            // return something to display the not enough fuel message
+            return false
+        }
         
         
         // deal with money. Pay mercenaries, interest, collect tax if necessary, return false if not enough
@@ -950,8 +976,8 @@ class Galaxy {
         
         // news events
         
-        // // decrement fuel by distance
-        //player.commanderShip.fuel -= journeyDistance                          // FUEL USE DISABLED
+         // decrement fuel by distance
+        player.commanderShip.fuel -= journeyDistance
         
         return true
     }

@@ -1,0 +1,60 @@
+//
+//  DockVC.swift
+//  SpaceTrader
+//
+//  Created by Marc Auger on 10/4/15.
+//  Copyright © 2015 Marc Auger. All rights reserved.
+//
+
+import UIKit
+
+class DockVC: UIViewController {
+
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var sizeLabel: UILabel!
+    @IBOutlet weak var techLevelLabel: UILabel!
+    @IBOutlet weak var governmentLabel: UILabel!
+    @IBOutlet weak var resourceLabel: UILabel!
+    @IBOutlet weak var policeLabel: UILabel!
+    @IBOutlet weak var piratesLabel: UILabel!
+    @IBOutlet weak var fuelMessage: UITextView!
+    @IBOutlet weak var repairsMessage: UITextView!
+    
+    override func viewDidLoad() {
+        updateUI()
+    }
+    
+    func updateUI() {
+        let localPolitics = Politics(type: galaxy.currentSystem!.politics)
+        
+        nameLabel.text = galaxy.currentSystem!.name
+        sizeLabel.text = galaxy.currentSystem!.size.rawValue
+        techLevelLabel.text = galaxy.currentSystem!.techLevel.rawValue
+        governmentLabel.text = galaxy.currentSystem!.politics.rawValue
+        resourceLabel.text = galaxy.currentSystem!.specialResources.rawValue
+        policeLabel.text = galaxy.getActivityForInt(localPolitics.activityPolice)
+        piratesLabel.text = galaxy.getActivityForInt(localPolitics.activityPirates)
+        
+        let fuelNeeded = player.commanderShip.fuelTanks - player.commanderShip.fuel
+        let fullTankCost = fuelNeeded * player.commanderShip.costOfFuel
+        if fuelNeeded == 0 {
+            fuelMessage.text = "You have enough fuel to fly \(player.commanderShip.fuel) parsecs. Your tank is full."
+            // disappear fuel button
+        } else {
+            fuelMessage.text = "You have enough fuel to fly \(player.commanderShip.fuel) parsecs. A full tank costs \(fullTankCost) cr."
+            // make fuel button visible
+        }
+        
+        let repairsNeeded = player.commanderShip.hull - player.commanderShip.hullStrength
+        let repairsCost = repairsNeeded * player.commanderShip.repairCosts
+        if repairsNeeded == 0 {
+            repairsMessage.text = "Your hull strength is at 100%. No repairs are needed"
+            // disappear repairs button
+        } else {
+            repairsMessage.text = "Your hull strength is at \(player.commanderShip.hullStrength)%. Full repairs will cost \(repairsCost) cr."
+            // make repairs button visible
+        }
+        
+        
+    }
+}

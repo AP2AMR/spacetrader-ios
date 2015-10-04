@@ -35,7 +35,7 @@ class WarpVC: UIViewController {
     }
 
     override func viewDidLoad() {
-        // let politics = Politics(type: galaxy.currentSystem!.politics)
+        
         // make function to get police/pirate activity word from int. Maybe bake into StarSystem?
         
         updateView()
@@ -43,13 +43,15 @@ class WarpVC: UIViewController {
     }
     
     func updateView() {
+        let politics = Politics(type: galaxy.targetSystem!.politics)
+        
         nameLabel.text = galaxy.targetSystem!.name
         sizeLabel.text = galaxy.targetSystem!.size.rawValue
         techLevelLabel.text = galaxy.targetSystem!.techLevel.rawValue
         governmentLabel.text = galaxy.targetSystem!.politics.rawValue
         resourceLabel.text = galaxy.targetSystem!.specialResources.rawValue
-        policeLabel.text = "placeholder"
-        piratesLabel.text = "placeholder"
+        policeLabel.text = galaxy.getActivityForInt(politics.activityPolice)
+        piratesLabel.text = galaxy.getActivityForInt(politics.activityPirates)
         distanceLabel.text = "\(galaxy.getDistance(galaxy.currentSystem!, system2: galaxy.targetSystem!))"
     }
     
