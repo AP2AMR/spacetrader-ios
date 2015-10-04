@@ -261,15 +261,22 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     
     
     @IBAction func systemCycleBack() {
+        galaxy.cycleBackward()
+        updateUIInitial()
+        updateUI()
         
     }
     
     @IBAction func systemCycleForward(sender: AnyObject) {
+        galaxy.cycleForward()
+        updateUIInitial()
+        updateUI()
     }
     
     
     
     func buyModalDidFinish(controller: BuyModalVC) {                    // DELEGATE FUNCTION
+        updateUIInitial()
         updateUI()
     }
     

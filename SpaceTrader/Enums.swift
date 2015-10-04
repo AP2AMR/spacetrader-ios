@@ -262,12 +262,12 @@ enum StarSystemID {
     case Zuul			// From the first Ghostbusters movie
 }
 
-enum SizeType {
-    case Tiny
-    case Small
-    case Medium
-    case Large
-    case Huge
+enum SizeType: String {
+    case Tiny = "Tiny"
+    case Small = "Small"
+    case Medium = "Medium"
+    case Large = "Large"
+    case Huge = "Huge"
 }
 
 //enum SpecialEventType: String {
@@ -457,22 +457,22 @@ enum QuestIDType {
     case wildGetsOut
 }
 
-enum PoliticsType {
-    case anarchy
-    case capitalist
-    case communist
-    case confederacy
-    case corporate
-    case cybernetic
-    case democracy
-    case dictatorship
-    case fascist
-    case feudal
-    case military
-    case monarchy
-    case pacifist
-    case socialist
-    case satori
-    case technocracy
-    case theocracy
+enum PoliticsType: String {
+    case anarchy = "Anarchy"
+    case capitalist = "Capitalist State"
+    case communist = "Communist State"
+    case confederacy = "Confederacy"
+    case corporate = "Corporate State"
+    case cybernetic = "Cybernetic State"
+    case democracy = "Democracy"
+    case dictatorship = "Dictatorship"
+    case fascist = "Fascist State"
+    case feudal = "Feudal State"
+    case military = "Military State"
+    case monarchy = "Monarchy"
+    case pacifist = "Pacifist State"
+    case socialist = "Socialist State"
+    case satori = "State of Satori"
+    case technocracy = "Technocracy"
+    case theocracy = "Theocracy"
 }

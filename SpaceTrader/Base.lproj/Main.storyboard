@@ -427,12 +427,15 @@
                                 <rect key="frame" x="208" y="451" width="30" height="30"/>
                                 <state key="normal" title="&lt;"/>
                                 <connections>
-                                    <action selector="systemCycleBack:" destination="jzz-KE-2cI" eventType="touchUpInside" id="0Z1-Vm-qZO"/>
+                                    <action selector="systemCycleBack" destination="jzz-KE-2cI" eventType="touchUpInside" id="9ow-vV-uSl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nUc-je-sPa">
                                 <rect key="frame" x="262" y="451" width="30" height="30"/>
                                 <state key="normal" title="&gt;"/>
+                                <connections>
+                                    <action selector="systemCycleForward:" destination="jzz-KE-2cI" eventType="touchUpInside" id="Xdu-fN-dbX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -577,7 +580,7 @@
         <!--Warp-->
         <scene sceneID="iXi-GJ-Mc7">
             <objects>
-                <viewController id="7yT-gW-eCt" sceneMemberID="viewController">
+                <viewController id="7yT-gW-eCt" customClass="WarpVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6re-LY-gwK"/>
                         <viewControllerLayoutGuide type="bottom" id="vzO-Ca-kfX"/>
@@ -641,49 +644,70 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdY-h3-g0Y">
-                                <rect key="frame" x="145" y="101" width="100" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utd-LI-saJ">
-                                <rect key="frame" x="145" y="130" width="100" height="21"/>
+                                <rect key="frame" x="145" y="101" width="140" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqp-7l-xCY">
-                                <rect key="frame" x="145" y="159" width="100" height="21"/>
+                                <rect key="frame" x="145" y="159" width="140" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKe-WU-VKR">
-                                <rect key="frame" x="145" y="188" width="100" height="21"/>
+                                <rect key="frame" x="145" y="188" width="140" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkT-Uo-Mym">
-                                <rect key="frame" x="145" y="217" width="100" height="21"/>
+                                <rect key="frame" x="145" y="217" width="140" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISd-OU-RX3">
-                                <rect key="frame" x="145" y="246" width="100" height="21"/>
+                                <rect key="frame" x="145" y="246" width="140" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvd-bY-B7V">
-                                <rect key="frame" x="145" y="275" width="100" height="21"/>
+                                <rect key="frame" x="145" y="275" width="140" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sgz-iC-iIl">
-                                <rect key="frame" x="145" y="304" width="100" height="21"/>
+                                <rect key="frame" x="145" y="304" width="140" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zg1-0w-rR4">
+                                <rect key="frame" x="20" y="333" width="77" height="30"/>
+                                <state key="normal" title="&lt;"/>
+                                <connections>
+                                    <action selector="cycleBackwards" destination="7yT-gW-eCt" eventType="touchUpInside" id="L9y-B5-uqI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qiY-ZW-Vsr">
+                                <rect key="frame" x="105" y="333" width="77" height="30"/>
+                                <state key="normal" title="&gt;"/>
+                                <connections>
+                                    <action selector="cycleForwards" destination="7yT-gW-eCt" eventType="touchUpInside" id="BTE-RT-Aj2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CE1-tQ-ZwZ">
+                                <rect key="frame" x="57" y="371" width="77" height="30"/>
+                                <state key="normal" title="Warp"/>
+                                <connections>
+                                    <action selector="warpButton" destination="7yT-gW-eCt" eventType="touchUpInside" id="wFw-l4-KS4"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utd-LI-saJ">
+                                <rect key="frame" x="145" y="130" width="140" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -692,6 +716,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Warp" id="6lO-LX-mGx"/>
+                    <connections>
+                        <outlet property="distanceLabel" destination="Sgz-iC-iIl" id="jZ1-Bi-Ctf"/>
+                        <outlet property="governmentLabel" destination="hKe-WU-VKR" id="kGg-jR-2zo"/>
+                        <outlet property="nameLabel" destination="hdY-h3-g0Y" id="CFE-0G-Bww"/>
+                        <outlet property="piratesLabel" destination="Yvd-bY-B7V" id="Rc9-Js-G0Q"/>
+                        <outlet property="policeLabel" destination="ISd-OU-RX3" id="m4v-mh-0UQ"/>
+                        <outlet property="resourceLabel" destination="tkT-Uo-Mym" id="42n-7U-9qy"/>
+                        <outlet property="sizeLabel" destination="utd-LI-saJ" id="9u9-ZH-qbm"/>
+                        <outlet property="techLevelLabel" destination="Fqp-7l-xCY" id="Qic-Cr-ZDP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTA-qk-eCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

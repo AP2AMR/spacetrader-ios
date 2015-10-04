@@ -318,6 +318,7 @@ class Galaxy {
         
         currentSystem = planets[50]             // FIX THIS. ARBITRARY CHOICE TO BE REPLACED
         getSystemsInRange()
+        targetSystem = systemsInRange[0]        // INITIAL VALUE THAT SHOULD ACTUALLY BE IN RANGE
         printSystemsInRange()
         
         // log output to console
@@ -744,7 +745,8 @@ class Galaxy {
             }
             i += 1
         }
-        targetSystem = systemsInRange[currentIndex + 1]
+        let newIndex = (currentIndex + 1) % systemsInRange.count
+        targetSystem = systemsInRange[newIndex]
     }
     
     func cycleBackward() {
@@ -756,7 +758,11 @@ class Galaxy {
             }
             i += 1
         }
-        targetSystem = systemsInRange[currentIndex - 1]
+        var newIndex = (currentIndex - 1)
+        if newIndex < 0 {
+            newIndex = systemsInRange.count - 1
+        }
+        targetSystem = systemsInRange[newIndex]
     }
     
     func updateGalaxy() {
