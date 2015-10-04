@@ -695,10 +695,16 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ClN-cV-FtP">
                                 <rect key="frame" x="293" y="305" width="30" height="30"/>
                                 <state key="normal" title="Fuel"/>
+                                <connections>
+                                    <action selector="fuelButtonTapped" destination="iag-H1-Vfg" eventType="touchUpInside" id="gPc-Ca-NDe"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQj-NM-992">
                                 <rect key="frame" x="293" y="356" width="44" height="30"/>
                                 <state key="normal" title="Repair"/>
+                                <connections>
+                                    <action selector="repairButtonTapped" destination="iag-H1-Vfg" eventType="touchUpInside" id="YNR-Q3-vuc"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Your hull strength is at 100%. No repairs are needed." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TWt-WD-TBN">
                                 <rect key="frame" x="20" y="350" width="224" height="50"/>
@@ -708,27 +714,44 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Y2-4F-sPr">
                                 <rect key="frame" x="203" y="441" width="98" height="30"/>
                                 <state key="normal" title="View Ship Info"/>
+                                <connections>
+                                    <action selector="viewShipInfoTapped" destination="iag-H1-Vfg" eventType="touchUpInside" id="Hy0-k4-Z1v"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQy-Mu-XiN">
                                 <rect key="frame" x="203" y="476" width="133" height="30"/>
                                 <state key="normal" title="Buy/Sell Equipment"/>
+                                <connections>
+                                    <action selector="buySellEquipmentTapped" destination="iag-H1-Vfg" eventType="touchUpInside" id="CUG-ch-Yru"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GIL-9B-T0Q">
                                 <rect key="frame" x="203" y="521" width="111" height="30"/>
                                 <state key="normal" title="Buy Escape Pod"/>
+                                <connections>
+                                    <action selector="buyEscapePodTapped" destination="iag-H1-Vfg" eventType="touchUpInside" id="Ydy-R9-unz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Shipyard" id="6Bd-Ka-PzO"/>
                     <connections>
+                        <outlet property="buyEscapePodAccess" destination="GIL-9B-T0Q" id="1Qx-Z4-jum"/>
+                        <outlet property="buySellEquipmentAccess" destination="xQy-Mu-XiN" id="3I8-4Z-f1n"/>
+                        <outlet property="equipmentMessage" destination="vmi-iH-tuP" id="TIe-pg-6Tu"/>
+                        <outlet property="escapePodMessage" destination="ug2-RM-GDb" id="4z5-c4-EDv"/>
+                        <outlet property="fuelButtonAccess" destination="ClN-cV-FtP" id="O7g-ez-Lqk"/>
                         <outlet property="fuelMessage" destination="f8Z-YC-Brf" id="czO-pa-df8"/>
                         <outlet property="governmentLabel" destination="6mw-bd-eos" id="NQV-rJ-vZA"/>
                         <outlet property="nameLabel" destination="kjH-Oc-qAY" id="jdO-nn-le3"/>
                         <outlet property="piratesLabel" destination="8ra-wZ-k21" id="8K3-BF-pcq"/>
                         <outlet property="policeLabel" destination="jdz-Hy-s0k" id="Bnd-Ms-TEX"/>
+                        <outlet property="repairButtonAccess" destination="BQj-NM-992" id="Xwz-nQ-Hqo"/>
                         <outlet property="repairsMessage" destination="TWt-WD-TBN" id="IWi-g3-grU"/>
                         <outlet property="resourceLabel" destination="KDf-3y-Fo7" id="ojG-Ol-NrN"/>
+                        <outlet property="shipInfoAccess" destination="2Y2-4F-sPr" id="AG5-0R-2R9"/>
+                        <outlet property="shipsMessage" destination="ofh-Z5-cdh" id="Jcp-ay-eAQ"/>
                         <outlet property="sizeLabel" destination="SeK-G5-P6a" id="oL8-SE-m84"/>
                         <outlet property="techLevelLabel" destination="DQe-Or-bdi" id="SRt-Ri-dzX"/>
                     </connections>

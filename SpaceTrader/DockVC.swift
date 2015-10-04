@@ -19,6 +19,17 @@ class DockVC: UIViewController {
     @IBOutlet weak var piratesLabel: UILabel!
     @IBOutlet weak var fuelMessage: UITextView!
     @IBOutlet weak var repairsMessage: UITextView!
+    @IBOutlet weak var shipsMessage: UITextView!
+    @IBOutlet weak var equipmentMessage: UITextView!
+    @IBOutlet weak var escapePodMessage: UITextView!
+    
+    @IBOutlet weak var fuelButtonAccess: UIButton!
+    @IBOutlet weak var repairButtonAccess: UIButton!
+    @IBOutlet weak var shipInfoAccess: UIButton!
+    @IBOutlet weak var buySellEquipmentAccess: UIButton!
+    @IBOutlet weak var buyEscapePodAccess: UIButton!
+    
+    
     
     override func viewDidLoad() {
         updateUI()
@@ -55,6 +66,34 @@ class DockVC: UIViewController {
             // make repairs button visible
         }
         
+        // display ships for sale message if ships are for sale
         
+        // display equipment for sale message if equipment is for sale
+        
+        if player.credits < 2000 {
+            escapePodMessage.text = "You need at least 2,000 cr. to buy an escape pod."
+            // make button available
+        } else {
+            // if current system is advanced enough to sell escape pods, make available
+            // if not, don't
+        }
     }
+
+    
+    @IBAction func fuelButtonTapped() {
+    }
+    
+    @IBAction func repairButtonTapped() {
+    }
+    
+    @IBAction func viewShipInfoTapped() {
+    }
+    
+    @IBAction func buySellEquipmentTapped() {
+    }
+
+    @IBAction func buyEscapePodTapped() {
+    }
+    
+    
 }
