@@ -925,19 +925,27 @@ class Galaxy {
     }
     
     func warp() -> Bool {
+        let oldSystem = currentSystem
         currentSystem = targetSystem
         getSystemsInRange()
-        updateGalaxy()
-        updateQuantities()
-        // update prices, etc. somehow
-        // run some sort of passage of time function?
-        // deal with money. Pay mercenaries, interest, collect tax if necessary, forbid if not enough
+        updateGalaxy()          // now just increments days and runs shuffleStatus. Will eventially hold special event related things
+        updateQuantities()      // reset quantities with time
         
-        // fabric rip
+        // check things to see if warp can happen. Fuel, enough money to pay mercenaries, taxes, interest.
+//        let journeyDistance = getDistance(oldSystem!, system2: currentSystem!)
+//        if journeyDistance > player.commanderShip.fuel {
+//            return false
+//        }
         
-        // reset news events
         
-        // handle countdown
+        // deal with money. Pay mercenaries, interest, collect tax if necessary, return false if not enough
+        
+        // deal with fabric rip
+        
+        // news events
+        
+        // // decrement fuel by distance
+        //player.commanderShip.fuel -= journeyDistance                          // FUEL USE DISABLED
         
         return true
     }
