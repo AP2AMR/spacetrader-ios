@@ -25,19 +25,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bays: 0/15" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPE-Mh-LoY">
-                                <rect key="frame" x="16" y="489" width="115" height="21"/>
+                                <rect key="frame" x="16" y="522" width="115" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cash: 997 cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upo-Fl-rUI">
-                                <rect key="frame" x="200" y="489" width="113" height="21"/>
+                                <rect key="frame" x="200" y="522" width="113" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Target system: Daled" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhB-eS-HHC">
-                                <rect key="frame" x="16" y="460" width="195" height="21"/>
+                                <rect key="frame" x="16" y="469" width="195" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -424,14 +424,20 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEk-zr-5OK">
-                                <rect key="frame" x="208" y="451" width="30" height="30"/>
+                                <rect key="frame" x="199" y="465" width="30" height="30"/>
                                 <state key="normal" title="&lt;"/>
                                 <connections>
                                     <action selector="systemCycleBack" destination="jzz-KE-2cI" eventType="touchUpInside" id="9ow-vV-uSl"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="System description goes here." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dza-Ed-Gie">
+                                <rect key="frame" x="16" y="498" width="564" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nUc-je-sPa">
-                                <rect key="frame" x="262" y="451" width="30" height="30"/>
+                                <rect key="frame" x="237" y="465" width="30" height="30"/>
                                 <state key="normal" title="&gt;"/>
                                 <connections>
                                     <action selector="systemCycleForward:" destination="jzz-KE-2cI" eventType="touchUpInside" id="Xdu-fN-dbX"/>
@@ -471,6 +477,7 @@
                         <outlet property="robotsPrice" destination="Vom-N8-djY" id="rsW-YJ-mXo"/>
                         <outlet property="robotsProjectedPL" destination="LRt-eR-uIE" id="AmT-vG-jN7"/>
                         <outlet property="robotsQty" destination="DWn-ne-IqM" id="UED-Uq-rLG"/>
+                        <outlet property="targetSystemDescriptionLabel" destination="dza-Ed-Gie" id="pNM-z3-BFy"/>
                         <outlet property="targetSystemLabel" destination="IhB-eS-HHC" id="pur-Ks-MPB"/>
                         <outlet property="waterPrice" destination="iU5-Sm-Hjh" id="x4p-Wg-kbO"/>
                         <outlet property="waterProjectedPL" destination="Eqm-K6-X1F" id="N46-vS-obT"/>
@@ -895,9 +902,9 @@
                                     <action selector="warpButton" destination="7yT-gW-eCt" eventType="touchUpInside" id="wFw-l4-KS4"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x85-0a-Xbg">
-                                <rect key="frame" x="128" y="371" width="300" height="172"/>
-                                <color key="backgroundColor" red="0.79571445159424459" green="1" blue="0.88367627326246767" alpha="1" colorSpace="calibratedRGB"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x85-0a-Xbg" customClass="ShortRangeChartView" customModule="SpaceTrader" customModuleProvider="target">
+                                <rect key="frame" x="128" y="371" width="350" height="200"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

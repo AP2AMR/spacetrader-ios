@@ -47,6 +47,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     
     
     @IBOutlet weak var targetSystemLabel: UILabel!
+    @IBOutlet weak var targetSystemDescriptionLabel: UILabel!
     @IBOutlet weak var baysLabel: UILabel!
     @IBOutlet weak var cashLabel: UILabel!
     
@@ -353,6 +354,8 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
             robotsProjectedPL.text = "---"
         }
         
+        // set description string
+        targetSystemDescriptionLabel.text = galaxy.getShortDescriptorString(galaxy.targetSystem!)
         
     }
     

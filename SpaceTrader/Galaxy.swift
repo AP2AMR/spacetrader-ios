@@ -766,6 +766,13 @@ class Galaxy {
         return activityString
     }
     
+    func getShortDescriptorString(system: StarSystem) -> String {
+        let size = system.size.rawValue
+        let techLevel = system.techLevel.rawValue
+        let politics = system.politics.rawValue
+        return "\(size), \(techLevel), \(politics)"
+    }
+    
     func cycleForward() {
         var i: Int = 0
         var currentIndex: Int = 0
