@@ -8,7 +8,12 @@
 
 import UIKit
 
+protocol reverseDelegate: class {
+    func redrawSelf()
+}
+
 class WarpVC: UIViewController, ShortRangeChartDelegate {
+    weak var 
 
     @IBOutlet weak var shortRangeChart: ShortRangeChartView! {
         didSet {
@@ -33,6 +38,8 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     @IBAction func cycleForwards() {
         galaxy.cycleForward()
         updateView()
+        // need to redraw view
+        //ShortRangeChartView.redrawSelf()
     }
     
     @IBAction func warpButton() {
@@ -41,8 +48,6 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     }
 
     override func viewDidLoad() {
-        
-        // make function to get police/pirate activity word from int. Maybe bake into StarSystem?
         
         updateView()
         

@@ -902,7 +902,7 @@
                                     <action selector="warpButton" destination="7yT-gW-eCt" eventType="touchUpInside" id="wFw-l4-KS4"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x85-0a-Xbg" customClass="ShortRangeChartView" customModule="SpaceTrader" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" restorationIdentifier="shortrange" translatesAutoresizingMaskIntoConstraints="NO" id="x85-0a-Xbg" customClass="ShortRangeChartView" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="128" y="371" width="350" height="200"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                             </view>

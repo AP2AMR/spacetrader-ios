@@ -213,6 +213,11 @@ class ShortRangeChartView: UIView {
         UIColor.blackColor().setStroke()
         leftTick.stroke()
     }
+    
+    // EXPERIMENTAL
+    func redrawSelf() {
+        self.setNeedsDisplay()
+    }
 }
 
 class mapPlanet {
