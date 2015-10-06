@@ -23,6 +23,7 @@ class Galaxy {
     var systemsInRange: [StarSystem] = []
     var currentSystem: StarSystem?
     var targetSystem: StarSystem?
+    var targetSystemInRange = true          // NEW ADDITION
     
     func createGalaxy() {
         print("Initializing galaxy...")
