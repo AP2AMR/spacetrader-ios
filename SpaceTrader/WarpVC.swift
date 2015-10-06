@@ -10,6 +10,12 @@ import UIKit
 
 class WarpVC: UIViewController, ShortRangeChartDelegate {
 
+    @IBOutlet weak var shortRangeChart: ShortRangeChartView! {
+        didSet {
+            shortRangeChart.delegate = self
+        }
+    }
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var sizeLabel: UILabel!
     @IBOutlet weak var techLevelLabel: UILabel!
@@ -61,6 +67,7 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     
     func targetSystemDidChange() {
         print("delegate protocol firing")
+        updateView()
     }
     
 }

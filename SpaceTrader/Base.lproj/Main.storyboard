@@ -920,6 +920,7 @@
                         <outlet property="piratesLabel" destination="Yvd-bY-B7V" id="Rc9-Js-G0Q"/>
                         <outlet property="policeLabel" destination="ISd-OU-RX3" id="m4v-mh-0UQ"/>
                         <outlet property="resourceLabel" destination="tkT-Uo-Mym" id="42n-7U-9qy"/>
+                        <outlet property="shortRangeChart" destination="x85-0a-Xbg" id="ilg-oa-7Ea"/>
                         <outlet property="sizeLabel" destination="utd-LI-saJ" id="9u9-ZH-qbm"/>
                         <outlet property="techLevelLabel" destination="Fqp-7l-xCY" id="Qic-Cr-ZDP"/>
                     </connections>

@@ -61,17 +61,17 @@ class ShortRangeChartView: UIView {
         let xCoord: CGFloat = currentSystemMapXCoord + (xDifference * CGFloat(pointsPerParsec))
         let yCoord: CGFloat = currentSystemMapYCoord + (yDifference * CGFloat(pointsPerParsec))
         
-        print("************************************************************")
-        print("second planet: \(system.name)")
-        print("DEBUG DRAW currentSystem: galaxy xCoord: \(galaxy.currentSystem!.xCoord)")
-        print("DEBUG DRAW currentSystem: galaxy yCoord: \(galaxy.currentSystem!.yCoord)")
-        print("DEBUG DRAW currentSystem: map xCoord: \(currentSystemMapXCoord)")
-        print("DEBUG DRAW currentSystem: map yCoord: \(currentSystemMapYCoord)")
-        
-        print("DEBUG DRAW second planet: galaxy xCoord: \(system.xCoord)")
-        print("DEBUG DRAW second planet: galaxy yCoord: \(system.yCoord)")
-        print("DEBUG DRAW second planet: map xCoord: \(xCoord)")
-        print("DEBUG DRAW second planet: map yCoord: \(yCoord)")
+//        print("************************************************************")
+//        print("second planet: \(system.name)")
+//        print("DEBUG DRAW currentSystem: galaxy xCoord: \(galaxy.currentSystem!.xCoord)")
+//        print("DEBUG DRAW currentSystem: galaxy yCoord: \(galaxy.currentSystem!.yCoord)")
+//        print("DEBUG DRAW currentSystem: map xCoord: \(currentSystemMapXCoord)")
+//        print("DEBUG DRAW currentSystem: map yCoord: \(currentSystemMapYCoord)")
+//        
+//        print("DEBUG DRAW second planet: galaxy xCoord: \(system.xCoord)")
+//        print("DEBUG DRAW second planet: galaxy yCoord: \(system.yCoord)")
+//        print("DEBUG DRAW second planet: map xCoord: \(xCoord)")
+//        print("DEBUG DRAW second planet: map yCoord: \(yCoord)")
 
         let location = CGPointMake(xCoord, yCoord)
         let visited: Bool = system.visited
@@ -95,7 +95,7 @@ class ShortRangeChartView: UIView {
         // draw target crosshairs
         for planet in planetsOnMap {
             if planet.system.name == galaxy.targetSystem!.name {
-                print("target system found")
+                //print("target system found")
                 drawTargetCrosshairs(planet)
             }
         }
@@ -114,14 +114,16 @@ class ShortRangeChartView: UIView {
             let distance = distanceFromTouchToPlanet(touchLocation, planet: mapPlanet)
             // print("planet: \(mapPlanet.system.name), distance: \(distance)")
             if distance < 20 {
-                print("\(mapPlanet.system.name) touched")
+                //print("\(mapPlanet.system.name) touched")
                 galaxy.targetSystem = mapPlanet.system
                 print("new target system: \(galaxy.targetSystem!.name)")
                 delegate?.targetSystemDidChange()
+                //print("just called delegate. Should fire.")
                 // now, must redraw warp page to show new target system
                 // must also indicate graphically that system is highlighted
                 //redrawTarget()
                 self.setNeedsDisplay()
+                // this seems not to be clearing things, or something. Each time I select a new system, it does so multiple times.
             }
         }
         
