@@ -9,7 +9,7 @@
 import UIKit
 
 class ShortRangeChartView: UIView {
-    let pointsPerParsec: CGFloat = 5
+    let pointsPerParsec: CGFloat = 7
     let circleColor = UIColor.blackColor()
     
     var locationOfCurrentPlanet: CGPoint {
@@ -29,15 +29,6 @@ class ShortRangeChartView: UIView {
         rangeCirclePath.stroke()
         
         // populate planets
-        
-        // test structure for displaying planet name
-        drawPlanetCircle(locationOfCurrentPlanet, visited: true)
-        let nameLocationX: CGFloat = locationOfCurrentPlanet.x - 15
-        let nameLocationY: CGFloat = locationOfCurrentPlanet.y - 20
-        let nameLocation = CGPointMake(nameLocationX, nameLocationY)
-        let text = NSAttributedString(string: galaxy.currentSystem!.name)
-        text.drawAtPoint(nameLocation)
-        
         
         for planet in galaxy.planets {
             drawPlanet(planet)
@@ -77,7 +68,19 @@ class ShortRangeChartView: UIView {
         let location = CGPointMake(xCoord, yCoord)
         let visited: Bool = system.visited
         
-        drawPlanetCircle(location, visited: visited)
+        // draw only if on the map and not on the edge
+        if isItOnTheMap(xCoord, yCoord: yCoord) {
+            drawPlanetCircle(location, visited: visited)
+            
+            // add name
+            let nameLocationX: CGFloat = xCoord - 15
+            let nameLocationY: CGFloat = yCoord - 20
+            let nameLocation = CGPointMake(nameLocationX, nameLocationY)
+            let text = NSAttributedString(string: system.name)
+            text.drawAtPoint(nameLocation)
+        }
+        
+        
     }
     
     // make function to draw planet, given StarSystem. Draws from planet info to determine if visited or has wormhole. Early version could take coordinates, specs from arguments.
@@ -98,4 +101,22 @@ class ShortRangeChartView: UIView {
         planetCircle.stroke()
         planetCircle.fill()
     }
+    
+    func isItOnTheMap(xCoord: CGFloat, yCoord: CGFloat) -> Bool {
+     
+        var xOk = false
+        var yOk = false
+        if xCoord > 10 && xCoord < (self.frame.width - 10) {
+            xOk = true
+        }
+        if yCoord > 10 && yCoord < (self.frame.height - 10) {
+            yOk = true
+        }
+        
+        if xOk && yOk {
+            return true
+        }
+        return false
+    }
+    
 }
