@@ -13,7 +13,7 @@ protocol reverseDelegate: class {
 }
 
 class WarpVC: UIViewController, ShortRangeChartDelegate {
-    weak var 
+    weak var delegate: reverseDelegate?
 
     @IBOutlet weak var shortRangeChart: ShortRangeChartView! {
         didSet {
@@ -33,13 +33,14 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     @IBAction func cycleBackwards() {
         galaxy.cycleBackward()
         updateView()
+        delegate?.redrawSelf()
     }
     
     @IBAction func cycleForwards() {
         galaxy.cycleForward()
         updateView()
         // need to redraw view
-        //ShortRangeChartView.redrawSelf()
+        delegate?.redrawSelf()
     }
     
     @IBAction func warpButton() {

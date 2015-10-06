@@ -12,7 +12,9 @@ protocol ShortRangeChartDelegate: class {
     func targetSystemDidChange()
 }
 
-class ShortRangeChartView: UIView {
+class ShortRangeChartView: UIView, reverseDelegate {
+    // must somehow create a reference to parent VC for reverse delegate to work
+    
     weak var delegate: ShortRangeChartDelegate?
     
     var planetsOnMap: [mapPlanet] = []
