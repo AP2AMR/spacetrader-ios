@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WarpVC: UIViewController {
+class WarpVC: UIViewController, ShortRangeChartDelegate {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var sizeLabel: UILabel!
@@ -57,6 +57,10 @@ class WarpVC: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         //galaxy.getSystemsInRange()
+    }
+    
+    func targetSystemDidChange() {
+        print("delegate protocol firing")
     }
     
 }
