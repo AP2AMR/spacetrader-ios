@@ -23,7 +23,7 @@ class StarSystem {
     var countdown: Int = 1                  // does this need a special initializer?
     var visited: Bool = false
     var wormhole: Bool = false
-    var wormholeDestination: Int? = nil
+    var wormholeDestination: StarSystem? = nil
     var indexNumber: Int = 200
     //var special: SpecialEventType
 

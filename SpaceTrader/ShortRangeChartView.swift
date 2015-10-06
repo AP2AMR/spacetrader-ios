@@ -17,6 +17,7 @@ class ShortRangeChartView: UIView {
     weak var delegate: ShortRangeChartDelegate?
     
     var planetsOnMap: [mapPlanet] = []
+    var wormholeAsOpposedToPlanet = false
     
     let pointsPerParsec: CGFloat = 7
     let circleColor = UIColor.blackColor()
@@ -96,8 +97,15 @@ class ShortRangeChartView: UIView {
         // draw target crosshairs
         for planet in planetsOnMap {
             if planet.system.name == galaxy.targetSystem!.name {
-                //print("target system found")
                 drawTargetCrosshairs(planet, wormhole: false)
+                // IMPLEMENT LESS DYSFUNCTIONAL VERSION OF BELOW
+                
+//                if !wormholeAsOpposedToPlanet {
+//                    drawTargetCrosshairs(planet, wormhole: false)
+//                } else {
+//                    drawTargetCrosshairs(planet, wormhole: true)
+//                    wormholeAsOpposedToPlanet = false
+//                }    
             }
         }
         
@@ -126,7 +134,9 @@ class ShortRangeChartView: UIView {
                     if tapDistanceFromWormhole < distance {
                         print("TOUCH IS CLOSER TO WORMHOLE")
                         // set target system to wormhole planet, draw crosshairs on wormhole, redraw
-                        //galaxy.targetSystem = mapPlanet.system.wormholeDestination
+                        galaxy.targetSystem = mapPlanet.system.wormholeDestination
+                        wormholeAsOpposedToPlanet = true
+                        delegate?.targetSystemDidChange()
                         
                         
                         // set out of range, unless you're at the neighboring planet
@@ -136,7 +146,11 @@ class ShortRangeChartView: UIView {
                         
                     } else {
                         print("TOUCH IS CLOSER TO PLANET")
-                        // fall through, do usual thing
+                        // do usual thing
+                        galaxy.targetSystem = mapPlanet.system
+                        delegate?.targetSystemDidChange()
+                        
+                        // must fix whether drawPlanetWithCrosshairs is called. Not called here, even though planet has one
                     }
                     
                 }

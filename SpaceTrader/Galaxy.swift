@@ -313,7 +313,7 @@ class Galaxy {
                 // remove it from the array
                 indicesOfPlanetsWithWormholes.removeAtIndex(index)
                 // assign it
-                planet.wormholeDestination = number
+                planet.wormholeDestination = planets[number]        // this just fixed
             }
         }
         
