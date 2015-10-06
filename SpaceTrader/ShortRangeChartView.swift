@@ -101,6 +101,10 @@ class ShortRangeChartView: UIView {
             // print("planet: \(mapPlanet.system.name), distance: \(distance)")
             if distance < 20 {
                 print("\(mapPlanet.system.name) touched")
+                galaxy.targetSystem = mapPlanet.system
+                print("new target system: \(galaxy.targetSystem!.name)")
+                // now, must redraw warp page to show new target system
+                // must also indicate graphically that system is highlighted
             }
         }
         
@@ -130,10 +134,10 @@ class ShortRangeChartView: UIView {
      
         var xOk = false
         var yOk = false
-        if xCoord > 10 && xCoord < (self.frame.width - 20) {
+        if xCoord > 20 && xCoord < (self.frame.width - 20) {
             xOk = true
         }
-        if yCoord > 10 && yCoord < (self.frame.height - 20) {
+        if yCoord > 20 && yCoord < (self.frame.height - 20) {
             yOk = true
         }
         
