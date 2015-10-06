@@ -28,19 +28,26 @@ class ShortRangeChartView: UIView {
         circleColor.set()
         rangeCirclePath.stroke()
         
-        // draw current planet
+        // populate planets
+        
+        // test structure for displaying planet name
         drawPlanetCircle(locationOfCurrentPlanet, visited: true)
+        let nameLocationX: CGFloat = locationOfCurrentPlanet.x - 15
+        let nameLocationY: CGFloat = locationOfCurrentPlanet.y - 20
+        let nameLocation = CGPointMake(nameLocationX, nameLocationY)
+        let text = NSAttributedString(string: galaxy.currentSystem!.name)
+        text.drawAtPoint(nameLocation)
         
-        let x = galaxy.currentSystem!.xCoord + 5
-        let y = galaxy.currentSystem!.yCoord + 7
         
-        let testPlanet = StarSystem(name: "test", techLevel: TechLevelType.techLevel4, politics: PoliticsType.socialist, status: StatusType.none, xCoord: x, yCoord: y, specialResources: SpecialResourcesType.none, size: SizeType.Small)
-        drawPlanet(testPlanet)
-        
-        for system in systemsInRange {
-            drawPlanet(system)
+        for planet in galaxy.planets {
+            drawPlanet(planet)
         }
         
+        // let x = galaxy.currentSystem!.xCoord + 5
+        // let y = galaxy.currentSystem!.yCoord + 7
+        
+        // let testPlanet = StarSystem(name: "test", techLevel: TechLevelType.techLevel4, politics: PoliticsType.socialist, status: StatusType.none, xCoord: x, yCoord: y, specialResources: SpecialResourcesType.none, size: SizeType.Small)
+        // drawPlanet(testPlanet)
     }
     
     

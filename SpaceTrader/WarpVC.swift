@@ -55,4 +55,8 @@ class WarpVC: UIViewController {
         distanceLabel.text = "\(galaxy.getDistance(galaxy.currentSystem!, system2: galaxy.targetSystem!))"
     }
     
+    override func viewDidAppear(animated: Bool) {
+        //galaxy.getSystemsInRange()
+    }
+    
 }

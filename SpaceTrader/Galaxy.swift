@@ -317,6 +317,7 @@ class Galaxy {
         }
         
         currentSystem = planets[50]             // FIX THIS. ARBITRARY CHOICE TO BE REPLACED
+        currentSystem!.visited = true
         getSystemsInRange()
         targetSystem = systemsInRange[0]        // INITIAL VALUE THAT SHOULD ACTUALLY BE IN RANGE
         printSystemsInRange()
