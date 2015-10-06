@@ -9,6 +9,8 @@
 import UIKit
 
 class ShortRangeChartView: UIView {
+    var planetsOnMap: [mapPlanet] = []
+    
     let pointsPerParsec: CGFloat = 7
     let circleColor = UIColor.blackColor()
     
@@ -78,6 +80,28 @@ class ShortRangeChartView: UIView {
             let nameLocation = CGPointMake(nameLocationX, nameLocationY)
             let text = NSAttributedString(string: system.name)
             text.drawAtPoint(nameLocation)
+            
+            // add to planetsOnMap
+            let mapEntry = mapPlanet(system: system, mapLocation: location)
+            planetsOnMap.append(mapEntry)
+        }
+        
+        
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        // print("view touched!")
+        let touch = touches.first!
+        let touchLocation = touch.locationInView(self)
+        // print(touchLocation)
+        
+        // identify planet in mapPlanet that was touched
+        for mapPlanet in planetsOnMap {
+            let distance = distanceFromTouchToPlanet(touchLocation, planet: mapPlanet)
+            // print("planet: \(mapPlanet.system.name), distance: \(distance)")
+            if distance < 20 {
+                print("\(mapPlanet.system.name) touched")
+            }
         }
         
         
@@ -106,10 +130,10 @@ class ShortRangeChartView: UIView {
      
         var xOk = false
         var yOk = false
-        if xCoord > 10 && xCoord < (self.frame.width - 10) {
+        if xCoord > 10 && xCoord < (self.frame.width - 20) {
             xOk = true
         }
-        if yCoord > 10 && yCoord < (self.frame.height - 10) {
+        if yCoord > 10 && yCoord < (self.frame.height - 20) {
             yOk = true
         }
         
@@ -119,4 +143,21 @@ class ShortRangeChartView: UIView {
         return false
     }
     
+    func distanceFromTouchToPlanet(touchLocation: CGPoint, planet: mapPlanet) -> CGFloat {
+        let xDistance = abs(touchLocation.x - planet.mapLocation.x)
+        let yDistance = abs(touchLocation.y - planet.mapLocation.y)
+        let distance = sqrt((xDistance * xDistance) + (yDistance * yDistance))
+        return distance
+    }
+    
+}
+
+class mapPlanet {
+    let system: StarSystem
+    let mapLocation: CGPoint
+    
+    init(system: StarSystem, mapLocation: CGPoint) {
+        self.system = system
+        self.mapLocation = mapLocation
+    }
 }
