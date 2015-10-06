@@ -113,7 +113,8 @@ class ShortRangeChartView: UIView {
                 print("new target system: \(galaxy.targetSystem!.name)")
                 // now, must redraw warp page to show new target system
                 // must also indicate graphically that system is highlighted
-                redrawTarget()
+                //redrawTarget()
+                self.setNeedsDisplay()
             }
         }
         
