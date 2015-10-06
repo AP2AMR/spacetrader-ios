@@ -13,6 +13,8 @@ protocol ShortRangeChartDelegate: class {
 }
 
 class ShortRangeChartView: UIView {
+    weak var delegate: ShortRangeChartDelegate?
+    
     var planetsOnMap: [mapPlanet] = []
     
     let pointsPerParsec: CGFloat = 7
