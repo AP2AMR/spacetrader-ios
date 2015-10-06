@@ -12,8 +12,7 @@ protocol ShortRangeChartDelegate: class {
     func targetSystemDidChange()
 }
 
-class ShortRangeChartView: UIView, reverseDelegate {
-    // must somehow create a reference to parent VC for reverse delegate to work
+class ShortRangeChartView: UIView {
     
     weak var delegate: ShortRangeChartDelegate?
     
@@ -216,7 +215,6 @@ class ShortRangeChartView: UIView, reverseDelegate {
         leftTick.stroke()
     }
     
-    // EXPERIMENTAL
     func redrawSelf() {
         self.setNeedsDisplay()
     }

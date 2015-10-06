@@ -8,12 +8,8 @@
 
 import UIKit
 
-protocol reverseDelegate: class {
-    func redrawSelf()
-}
 
 class WarpVC: UIViewController, ShortRangeChartDelegate {
-    weak var delegate: reverseDelegate?
 
     @IBOutlet weak var shortRangeChart: ShortRangeChartView! {
         didSet {
@@ -33,14 +29,13 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     @IBAction func cycleBackwards() {
         galaxy.cycleBackward()
         updateView()
-        delegate?.redrawSelf()
+        shortRangeChart.redrawSelf()
     }
     
     @IBAction func cycleForwards() {
         galaxy.cycleForward()
         updateView()
-        // need to redraw view
-        delegate?.redrawSelf()
+        shortRangeChart.redrawSelf()
     }
     
     @IBAction func warpButton() {
@@ -68,7 +63,7 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
-        //galaxy.getSystemsInRange()
+        updateView()
     }
     
     func targetSystemDidChange() {
