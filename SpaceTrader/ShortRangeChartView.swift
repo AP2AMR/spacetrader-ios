@@ -86,6 +86,14 @@ class ShortRangeChartView: UIView {
             planetsOnMap.append(mapEntry)
         }
         
+        // draw target crosshairs
+        for planet in planetsOnMap {
+            if planet.system.name == galaxy.targetSystem!.name {
+                print("target system found")
+                drawTargetCrosshairs(planet)
+            }
+        }
+        
         
     }
     
@@ -105,6 +113,7 @@ class ShortRangeChartView: UIView {
                 print("new target system: \(galaxy.targetSystem!.name)")
                 // now, must redraw warp page to show new target system
                 // must also indicate graphically that system is highlighted
+                redrawTarget()
             }
         }
         
@@ -154,6 +163,46 @@ class ShortRangeChartView: UIView {
         return distance
     }
     
+    func redrawTarget() {
+        // remove old target indicator
+        
+        for system in planetsOnMap {
+            drawTargetCrosshairs(system)
+        }
+    }
+    
+    func drawTargetCrosshairs(planetOnMap: mapPlanet) {
+        let planetZeroX = planetOnMap.mapLocation.x
+        let planetZeroY = planetOnMap.mapLocation.y
+        
+        let upperTick = UIBezierPath()
+        upperTick.moveToPoint(CGPoint(x: planetZeroX, y: planetZeroY - 5))
+        upperTick.addLineToPoint(CGPoint(x: planetZeroX, y: planetZeroY - 8))
+        upperTick.lineWidth = 2.0
+        UIColor.blackColor().setStroke()
+        upperTick.stroke()
+        
+        let lowerTick = UIBezierPath()
+        lowerTick.moveToPoint(CGPoint(x: planetZeroX, y: planetZeroY + 5))
+        lowerTick.addLineToPoint(CGPoint(x: planetZeroX, y: planetZeroY + 10))
+        lowerTick.lineWidth = 2.0
+        UIColor.blackColor().setStroke()
+        lowerTick.stroke()
+        
+        let rightTick = UIBezierPath()
+        rightTick.moveToPoint(CGPoint(x: planetZeroX + 5, y: planetZeroY))
+        rightTick.addLineToPoint(CGPoint(x: planetZeroX + 10, y: planetZeroY))
+        rightTick.lineWidth = 2.0
+        UIColor.blackColor().setStroke()
+        rightTick.stroke()
+        
+        let leftTick = UIBezierPath()
+        leftTick.moveToPoint(CGPoint(x: planetZeroX - 5, y: planetZeroY))
+        leftTick.addLineToPoint(CGPoint(x: planetZeroX - 10, y: planetZeroY))
+        leftTick.lineWidth = 2.0
+        UIColor.blackColor().setStroke()
+        leftTick.stroke()
+    }
 }
 
 class mapPlanet {
