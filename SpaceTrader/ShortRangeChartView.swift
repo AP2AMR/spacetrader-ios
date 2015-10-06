@@ -117,6 +117,7 @@ class ShortRangeChartView: UIView {
                 print("\(mapPlanet.system.name) touched")
                 galaxy.targetSystem = mapPlanet.system
                 print("new target system: \(galaxy.targetSystem!.name)")
+                delegate?.targetSystemDidChange()
                 // now, must redraw warp page to show new target system
                 // must also indicate graphically that system is highlighted
                 //redrawTarget()
