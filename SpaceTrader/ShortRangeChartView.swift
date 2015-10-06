@@ -79,7 +79,7 @@ class ShortRangeChartView: UIView {
         
         // draw only if on the map and not on the edge
         if isItOnTheMap(xCoord, yCoord: yCoord) {
-            drawPlanetCircle(location, visited: visited)
+            drawPlanetCircle(location, visited: visited, wormhole: system.wormhole)
             
             // add name
             let nameLocationX: CGFloat = xCoord - 15
@@ -117,7 +117,7 @@ class ShortRangeChartView: UIView {
             if distance < 20 {
                 //print("\(mapPlanet.system.name) touched")
                 galaxy.targetSystem = mapPlanet.system
-                print("new target system: \(galaxy.targetSystem!.name)")
+                //print("new target system: \(galaxy.targetSystem!.name)")
                 delegate?.targetSystemDidChange()
                 //print("just called delegate. Should fire.")
                 // now, must redraw warp page to show new target system
@@ -133,7 +133,7 @@ class ShortRangeChartView: UIView {
     
     // make function to draw planet, given StarSystem. Draws from planet info to determine if visited or has wormhole. Early version could take coordinates, specs from arguments.
     // locations are relative to current planet
-    func drawPlanetCircle(location: CGPoint, visited: Bool) {
+    func drawPlanetCircle(location: CGPoint, visited: Bool, wormhole: Bool) {
         let planetRadius = CGFloat(4)
         //let location = CGPointMake(xCoord, yCoord)
         let planetCircle = UIBezierPath(arcCenter: location, radius: planetRadius, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
@@ -148,6 +148,16 @@ class ShortRangeChartView: UIView {
         
         planetCircle.stroke()
         planetCircle.fill()
+        
+        if wormhole {
+            let wormholeDrawLocationX = location.x + 10
+            let wormholeDrawLocationY = location.y
+            let wormholeDrawLocation = CGPoint(x: wormholeDrawLocationX, y: wormholeDrawLocationY)
+            let wormholeCircle = UIBezierPath(arcCenter: wormholeDrawLocation, radius: planetRadius, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
+            UIColor.redColor().setStroke()
+            UIColor.whiteColor().setFill()
+            wormholeCircle.stroke()
+        }
     }
     
     func isItOnTheMap(xCoord: CGFloat, yCoord: CGFloat) -> Bool {

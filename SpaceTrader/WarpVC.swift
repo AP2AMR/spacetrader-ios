@@ -41,6 +41,7 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     @IBAction func warpButton() {
         galaxy.warp()
         updateView()
+        shortRangeChart.redrawSelf()
     }
 
     override func viewDidLoad() {
@@ -64,6 +65,7 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     
     override func viewDidAppear(animated: Bool) {
         updateView()
+        shortRangeChart.redrawSelf()
     }
     
     func targetSystemDidChange() {

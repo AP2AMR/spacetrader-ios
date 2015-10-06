@@ -971,6 +971,7 @@ class Galaxy {
     func warp() -> Bool {
         let oldSystem = currentSystem
         currentSystem = targetSystem
+        currentSystem?.visited = true
         getSystemsInRange()
         updateGalaxy()          // now just increments days and runs shuffleStatus. Will eventially hold special event related things
         updateQuantities()      // reset quantities with time
