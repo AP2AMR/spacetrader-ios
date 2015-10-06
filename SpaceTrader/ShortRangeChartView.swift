@@ -126,7 +126,7 @@ class ShortRangeChartView: UIView {
                     if tapDistanceFromWormhole < distance {
                         print("TOUCH IS CLOSER TO WORMHOLE")
                         // set target system to wormhole planet, draw crosshairs on wormhole, redraw
-                        
+                        //galaxy.targetSystem = mapPlanet.system.wormholeDestination
                         
                         
                         // set out of range, unless you're at the neighboring planet
