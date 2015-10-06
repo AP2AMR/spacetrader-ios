@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ShortRangeChartDelegate: class {
+    func targetSystemDidChange()
+}
+
 class ShortRangeChartView: UIView {
     var planetsOnMap: [mapPlanet] = []
     
