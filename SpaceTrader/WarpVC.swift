@@ -66,7 +66,6 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     }
     
     func targetSystemDidChange() {
-        print("delegate protocol firing")
         updateView()
     }
     
