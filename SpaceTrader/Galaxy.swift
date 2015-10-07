@@ -993,9 +993,9 @@ class Galaxy {
     
     func warp() -> Bool {
         let journeyDistance = getDistance(currentSystem!, system2: targetSystem!)
-        print("pre-warp fuel: \(player.commanderShip.fuel)")
-        print("target system in range? \(targetSystemInRange)")
-        print("trip should require \(journeyDistance) fuel. You have \(player.commanderShip.fuel)")
+        // print("pre-warp fuel: \(player.commanderShip.fuel)")
+        // print("target system in range? \(targetSystemInRange)")
+        // print("trip should require \(journeyDistance) fuel. You have \(player.commanderShip.fuel)")
         
         var canWeWarp = true
         if !targetSystemInRange {
@@ -1024,8 +1024,8 @@ class Galaxy {
             
             player.commanderShip.fuel -= journeyDistance
             
-            print("post-warp fuel: \(player.commanderShip.fuel)")
-            print("is new target system in range? \(targetSystemInRange)")
+            // print("post-warp fuel: \(player.commanderShip.fuel)")
+            // print("is new target system in range? \(targetSystemInRange)")
             
             // recalculate systemsInRange
             getSystemsInRange()

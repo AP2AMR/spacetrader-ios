@@ -91,14 +91,9 @@ class ShortRangeChartView: UIView {
             let mapEntry = mapPlanet(system: system, mapLocation: location)
             planetsOnMap.append(mapEntry)
         }
-
-        
-        
+   
         // draw target crosshairs--non wormhole edition
         if system.name == galaxy.targetSystem!.name {
-            
-            
-            
             let mostRecentPlanet = planetsOnMap.last
            
 //            if !wormholeAsOpposedToPlanet {
@@ -113,7 +108,16 @@ class ShortRangeChartView: UIView {
 //                print("target system: \(galaxy.targetSystem!.name)")
 //                redrawSelf()        // necessary?
 //            } 
-            drawTargetCrosshairs(mostRecentPlanet!, wormhole: false)
+            
+            
+            //drawTargetCrosshairs(mostRecentPlanet!, wormhole: false)
+            
+            if !wormholeAsOpposedToPlanet {
+                drawTargetCrosshairs(mostRecentPlanet!, wormhole: false)
+            } else {
+                drawTargetCrosshairs(mostRecentPlanet!, wormhole: true)
+                wormholeAsOpposedToPlanet = false
+            }
         }
         
 //        print("cycling through systems to draw crosshairs")
