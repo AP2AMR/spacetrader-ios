@@ -24,7 +24,6 @@ class Galaxy {
     var currentSystem: StarSystem?
     var targetSystem: StarSystem? {
         didSet {
-            //print("TARGET SYSTEM SET AS \(targetSystem!.name)")
             let distance = getDistance(currentSystem!, system2: targetSystem!)
             if distance > player.commanderShip.fuel {
                 targetSystemInRange = false
@@ -33,10 +32,20 @@ class Galaxy {
             }
             //print("target system in range? \(targetSystemInRange)")
             
-            // add logic here to handle wormhole situation
+            // handle wormhole
+            
+            if targetSystemIsThroughWormhole {
+                if currentSystem?.wormholeDestination?.name == targetSystem?.name {
+                    print("system in range through wormhole")
+                    targetSystemInRange = true
+                } else {
+                    targetSystemInRange = false
+                }
+            }
         }
     }
-    var targetSystemInRange = true          // NEW ADDITION
+    var targetSystemInRange = true                  // NEW ADDITION
+    var targetSystemIsThroughWormhole = false       // NEW ADDITION
     
     func createGalaxy() {
         print("Initializing galaxy...")
@@ -983,9 +992,14 @@ class Galaxy {
     }
     
     func warp() -> Bool {
+        let journeyDistance = getDistance(currentSystem!, system2: targetSystem!)
+        print("pre-warp fuel: \(player.commanderShip.fuel)")
+        print("target system in range? \(targetSystemInRange)")
+        print("trip should require \(journeyDistance) fuel. You have \(player.commanderShip.fuel)")
+        
         var canWeWarp = true
-        if targetSystemInRange {
-            canWeWarp = true
+        if !targetSystemInRange {
+            canWeWarp = false
         }
         
         if canWeWarp {
@@ -1007,11 +1021,17 @@ class Galaxy {
             // news events
             
             // decrement fuel by distance
-            let journeyDistance = getDistance(currentSystem!, system2: targetSystem!)
+            
             player.commanderShip.fuel -= journeyDistance
             
-            //print("fuel remaining: \(player.commanderShip.fuel)")
+            print("post-warp fuel: \(player.commanderShip.fuel)")
+            print("is new target system in range? \(targetSystemInRange)")
             
+            // recalculate systemsInRange
+            getSystemsInRange()
+            
+            
+        
             return true
         }
         return false

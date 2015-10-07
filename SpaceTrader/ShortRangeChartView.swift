@@ -29,7 +29,7 @@ class ShortRangeChartView: UIView {
     }
     
     var rangeCircleRadius: CGFloat {
-        return CGFloat(player.commanderShip.fuelTanks) * pointsPerParsec
+        return CGFloat(player.commanderShip.fuel) * pointsPerParsec
     }
     
     override func drawRect(rect: CGRect) {
@@ -110,14 +110,10 @@ class ShortRangeChartView: UIView {
                 }
             }
         }
-        
-        // else if planet in systemsInRange
-        
 
         
         
         // draw target crosshairs
-        
         if system.name == galaxy.targetSystem!.name {
             
             
