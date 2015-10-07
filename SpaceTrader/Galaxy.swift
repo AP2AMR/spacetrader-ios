@@ -24,7 +24,7 @@ class Galaxy {
     var currentSystem: StarSystem?
     var targetSystem: StarSystem? {
         didSet {
-            //print("TARGET SYSTEM SET")
+            //print("TARGET SYSTEM SET AS \(targetSystem!.name)")
             let distance = getDistance(currentSystem!, system2: targetSystem!)
             if distance > player.commanderShip.fuel {
                 targetSystemInRange = false

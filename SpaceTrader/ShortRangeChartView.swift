@@ -33,6 +33,13 @@ class ShortRangeChartView: UIView {
     }
     
     override func drawRect(rect: CGRect) {
+        // REMOVE
+        //print("SYSTEMS IN RANGE:")
+//        for system in galaxy.systemsInRange {
+//            print(system.name)
+//        }
+        //print("PLANETS DRAWN:")
+        
         let rangeCirclePath = UIBezierPath(arcCenter: locationOfCurrentPlanet, radius: rangeCircleRadius, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
         rangeCirclePath.lineWidth = 1
         circleColor.set()
@@ -40,9 +47,12 @@ class ShortRangeChartView: UIView {
         
         // populate planets
         planetsOnMap = []                       // IMPORTANT: CLEAR PLANETSONMAP AS PART OF REFRESH
+        print("if this appears, drawPlanet for loop is running through galaxy")     // DEBUG
         for planet in galaxy.planets {
             drawPlanet(planet)
         }
+        print("[after big drawPlanet loop] planetsOnMap.count: \(planetsOnMap.count)")
+        //print("there should be something here: \(planetsOnMap[0].system.name)")
     }
     
     
@@ -76,14 +86,73 @@ class ShortRangeChartView: UIView {
             // add to planetsOnMap
             let mapEntry = mapPlanet(system: system, mapLocation: location)
             planetsOnMap.append(mapEntry)
+            
+            
+        } else {
+            //print("systemsInRange.count: \(systemsInRange.count)")
+            for systemInRange in galaxy.systemsInRange {
+                //print("(we've made it inside the systemsInRange loop)")
+                if system.name == systemInRange.name {
+                    print("****************************ERROR DETECTED!")
+                    
+                    // do things we were supposed to do...
+                    drawPlanetCircle(location, visited: visited, wormhole: system.wormhole)
+                    
+                    // add name
+                    let nameLocationX: CGFloat = xCoord - 15
+                    let nameLocationY: CGFloat = yCoord - 20
+                    let nameLocation = CGPointMake(nameLocationX, nameLocationY)
+                    let text = NSAttributedString(string: system.name)
+                    text.drawAtPoint(nameLocation)
+                    
+                    // add to planetsOnMap
+                    let mapEntry = mapPlanet(system: system, mapLocation: location)
+                    planetsOnMap.append(mapEntry)
+                    
+                }
+            }
         }
+        
+        // else if planet in systemsInRange
+        
+
+        
         
         // draw target crosshairs
         
         if system.name == galaxy.targetSystem!.name {
-            // print("DEBUG: DRAWING CROSSHAIRS on \(galaxy.targetSystem!.name)")
+            
+            
+            
             let mostRecentPlanet = planetsOnMap.last
-            drawTargetCrosshairs(mostRecentPlanet!, wormhole: false)
+            
+            // DEBUGGING
+//            print("*************planetsOnMap:")
+//            for planet in planetsOnMap {
+//                print(planet.system.name)
+//            }
+            print("****target system is \(galaxy.targetSystem!.name)")
+            //print("mostRecentPlanet is \(mostRecentPlanet?.system.name)")
+            print("drawing crosshairs on \(mostRecentPlanet?.system.name)")
+            if galaxy.targetSystem!.name != mostRecentPlanet?.system.name {
+                print("*****UH OH*****")
+                print("[errorReport] target system is \(galaxy.targetSystem!.name)")
+                print("[errorReport] mostRecentPlanet reads as \(mostRecentPlanet?.system.name)")
+                print("[errorReport] planetsOnMap[0] reads as \(planetsOnMap[0].system.name)")
+                print("[errorReport] are we drawing crosshairs on two different planets at once? Should be drawing them on mostRecentPlanet")
+                
+                print("[errorReport] fuel: \(player.commanderShip.fuel)")
+                print("[errorReport] systemsInRange.count: \(galaxy.systemsInRange.count). planetsOnMap.count: \(planetsOnMap.count)")
+                print("[errorReport] here are the contents of systemsInRange:")
+                for system in galaxy.systemsInRange {
+                    print("[errorReport] \(system.name)")
+                }
+            } else {
+                print("no problem. systemsInRange.count: \(galaxy.systemsInRange.count). planetsOnMap.count: \(planetsOnMap.count)")
+            }
+            // END DEBUGGING
+            
+            drawTargetCrosshairs(mostRecentPlanet!, wormhole: false)    // BUG
         }
         
 //        print("cycling through systems to draw crosshairs")
@@ -100,8 +169,7 @@ class ShortRangeChartView: UIView {
 ////                }    
 //            }
 //        }
-        
-        
+     
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -191,6 +259,7 @@ class ShortRangeChartView: UIView {
      
         var xOk = false
         var yOk = false
+        
         if xCoord > 20 && xCoord < (self.frame.width - 20) {
             xOk = true
         }
@@ -234,10 +303,6 @@ class ShortRangeChartView: UIView {
         if wormhole {
             planetZeroX += 10
         }
-        
-        // put this in a CAShapeLayer?              EXPERIMENTAL
-        let crosshairLayer = CAShapeLayer()
-        crosshairLayer.frame = self.layer.bounds
         
         
         let upperTick = UIBezierPath()
