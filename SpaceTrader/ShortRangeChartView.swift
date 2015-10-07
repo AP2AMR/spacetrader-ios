@@ -19,7 +19,7 @@ class ShortRangeChartView: UIView {
     var planetsOnMap: [mapPlanet] = []
     var wormholeAsOpposedToPlanet = false
     
-    let pointsPerParsec: CGFloat = 7
+    let pointsPerParsec: CGFloat = 6
     let circleColor = UIColor.blackColor()
     
     var locationOfCurrentPlanet: CGPoint {
@@ -47,11 +47,10 @@ class ShortRangeChartView: UIView {
         
         // populate planets
         planetsOnMap = []                       // IMPORTANT: CLEAR PLANETSONMAP AS PART OF REFRESH
-        print("if this appears, drawPlanet for loop is running through galaxy")     // DEBUG
         for planet in galaxy.planets {
             drawPlanet(planet)
         }
-        print("[after big drawPlanet loop] planetsOnMap.count: \(planetsOnMap.count)")
+        //print("[after big drawPlanet loop] planetsOnMap.count: \(planetsOnMap.count)")
         //print("there should be something here: \(planetsOnMap[0].system.name)")
     }
     
@@ -88,12 +87,11 @@ class ShortRangeChartView: UIView {
             planetsOnMap.append(mapEntry)
             
             
-        } else {
-            //print("systemsInRange.count: \(systemsInRange.count)")
+        } else {        // KLUDGE FIX--hopefully eliminate need for this?
             for systemInRange in galaxy.systemsInRange {
                 //print("(we've made it inside the systemsInRange loop)")
                 if system.name == systemInRange.name {
-                    print("****************************ERROR DETECTED!")
+                    print("KLUDGE IS FIRING")
                     
                     // do things we were supposed to do...
                     drawPlanetCircle(location, visited: visited, wormhole: system.wormhole)
@@ -125,32 +123,6 @@ class ShortRangeChartView: UIView {
             
             
             let mostRecentPlanet = planetsOnMap.last
-            
-            // DEBUGGING
-//            print("*************planetsOnMap:")
-//            for planet in planetsOnMap {
-//                print(planet.system.name)
-//            }
-            print("****target system is \(galaxy.targetSystem!.name)")
-            //print("mostRecentPlanet is \(mostRecentPlanet?.system.name)")
-            print("drawing crosshairs on \(mostRecentPlanet?.system.name)")
-            if galaxy.targetSystem!.name != mostRecentPlanet?.system.name {
-                print("*****UH OH*****")
-                print("[errorReport] target system is \(galaxy.targetSystem!.name)")
-                print("[errorReport] mostRecentPlanet reads as \(mostRecentPlanet?.system.name)")
-                print("[errorReport] planetsOnMap[0] reads as \(planetsOnMap[0].system.name)")
-                print("[errorReport] are we drawing crosshairs on two different planets at once? Should be drawing them on mostRecentPlanet")
-                
-                print("[errorReport] fuel: \(player.commanderShip.fuel)")
-                print("[errorReport] systemsInRange.count: \(galaxy.systemsInRange.count). planetsOnMap.count: \(planetsOnMap.count)")
-                print("[errorReport] here are the contents of systemsInRange:")
-                for system in galaxy.systemsInRange {
-                    print("[errorReport] \(system.name)")
-                }
-            } else {
-                print("no problem. systemsInRange.count: \(galaxy.systemsInRange.count). planetsOnMap.count: \(planetsOnMap.count)")
-            }
-            // END DEBUGGING
             
             drawTargetCrosshairs(mostRecentPlanet!, wormhole: false)    // BUG
         }
@@ -216,7 +188,6 @@ class ShortRangeChartView: UIView {
                 delegate?.targetSystemDidChange()
 
                 self.setNeedsDisplay()
-                // BUG: STUFF IS PROLIFERATING AND CAUSING TROUBLE. MUST ACTUALLY REMOVE DRAWN THINGS, PARTICULARLY CROSSHAIRS
             }
         }
         
@@ -288,13 +259,13 @@ class ShortRangeChartView: UIView {
     }
     
     // THIS IS CURRENTLY UNUSED
-    func redrawTarget() {
-        // remove old target indicator
-        
-        for system in planetsOnMap {
-            drawTargetCrosshairs(system, wormhole: false)
-        }
-    }
+//    func redrawTarget() {
+//        // remove old target indicator
+//        
+//        for system in planetsOnMap {
+//            drawTargetCrosshairs(system, wormhole: false)
+//        }
+//    }
     
     func drawTargetCrosshairs(planetOnMap: mapPlanet, wormhole: Bool) {
         var planetZeroX = planetOnMap.mapLocation.x
