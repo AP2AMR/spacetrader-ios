@@ -85,7 +85,7 @@ class ShortRangeChartView: UIView {
             for systemInRange in galaxy.systemsInRange {
                 //print("(we've made it inside the systemsInRange loop)")
                 if system.name == systemInRange.name {
-                    print("KLUDGE IS FIRING")
+                    //print("KLUDGE IS FIRING")
                     
                     // do things we were supposed to do...
                     drawPlanetCircle(location, visited: visited, wormhole: system.wormhole)
@@ -147,7 +147,6 @@ class ShortRangeChartView: UIView {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        print("************touchesBegan firing")
         let touch = touches.first!
         let touchLocation = touch.locationInView(self)
         //print(touchLocation)
@@ -158,17 +157,17 @@ class ShortRangeChartView: UIView {
             let distance = distanceFromTouchToPlanet(touchLocation, planet: mapPlanet)
             // print("planet: \(mapPlanet.system.name), distance: \(distance)")
             if distance < 20 {
-                print("touch recorded near a planet")
+                //print("touch recorded near a planet")
                 //print("\(mapPlanet.system.name) touched")
                 
                 if mapPlanet.system.wormhole {
-                    print("THIS PLANET HAS A WORMHOLE")
+                    //print("THIS PLANET HAS A WORMHOLE")
                     
                     let wormholePoint = CGPoint(x: mapPlanet.mapLocation.x + 10, y: mapPlanet.mapLocation.y)
                     let tapDistanceFromWormhole = distanceFromTouchToPoint(touchLocation, point: wormholePoint)
-                    print("distance to planet: \(distance), distance to wormhole: \(tapDistanceFromWormhole)")
+                    //print("distance to planet: \(distance), distance to wormhole: \(tapDistanceFromWormhole)")
                     if tapDistanceFromWormhole < distance {
-                        print("TOUCH IS CLOSER TO WORMHOLE")
+                        //print("TOUCH IS CLOSER TO WORMHOLE")
                         // set target system to wormhole planet, draw crosshairs on wormhole, redraw
                         galaxy.targetSystem = mapPlanet.system.wormholeDestination
                         wormholeAsOpposedToPlanet = true
@@ -176,7 +175,7 @@ class ShortRangeChartView: UIView {
                         
                         
                     } else {
-                        print("TOUCH IS CLOSER TO PLANET")
+                        //print("TOUCH IS CLOSER TO PLANET")
                         // do usual thing
                         galaxy.targetSystem = mapPlanet.system
                         wormholeAsOpposedToPlanet = false
@@ -186,7 +185,7 @@ class ShortRangeChartView: UIView {
                     }
                     
                 }
-                print("setting target system")
+                //print("setting target system")
                 galaxy.targetSystem = mapPlanet.system
                 delegate?.targetSystemDidChange()
 
