@@ -22,7 +22,20 @@ class Galaxy {
     var planets: [StarSystem] = []
     var systemsInRange: [StarSystem] = []
     var currentSystem: StarSystem?
-    var targetSystem: StarSystem?
+    var targetSystem: StarSystem? {
+        didSet {
+            //print("TARGET SYSTEM SET")
+            let distance = getDistance(currentSystem!, system2: targetSystem!)
+            if distance > player.commanderShip.fuel {
+                targetSystemInRange = false
+            } else {
+                targetSystemInRange = true
+            }
+            //print("target system in range? \(targetSystemInRange)")
+            
+            // add logic here to handle wormhole situation
+        }
+    }
     var targetSystemInRange = true          // NEW ADDITION
     
     func createGalaxy() {
@@ -970,31 +983,38 @@ class Galaxy {
     }
     
     func warp() -> Bool {
-        let oldSystem = currentSystem
-        currentSystem = targetSystem
-        currentSystem?.visited = true
-        getSystemsInRange()
-        updateGalaxy()          // now just increments days and runs shuffleStatus. Will eventially hold special event related things
-        updateQuantities()      // reset quantities with time
-        
-        // check things to see if warp can happen. Fuel, enough money to pay mercenaries, taxes, interest.
-        let journeyDistance = getDistance(oldSystem!, system2: currentSystem!)
-        if journeyDistance > player.commanderShip.fuel {
-            // return something to display the not enough fuel message
-            return false
+        var canWeWarp = true
+        if targetSystemInRange {
+            canWeWarp = true
         }
         
-        
-        // deal with money. Pay mercenaries, interest, collect tax if necessary, return false if not enough
-        
-        // deal with fabric rip
-        
-        // news events
-        
-         // decrement fuel by distance
-        player.commanderShip.fuel -= journeyDistance
-        
-        return true
+        if canWeWarp {
+            let oldSystem = currentSystem
+            currentSystem = targetSystem
+            currentSystem?.visited = true
+            getSystemsInRange()
+            updateGalaxy()          // now just increments days and runs shuffleStatus. Will eventially hold special event related things
+            updateQuantities()      // reset quantities with time
+            
+            // check things to see if warp can happen. Fuel, enough money to pay mercenaries, taxes, interest.
+            
+            
+            
+            // deal with money. Pay mercenaries, interest, collect tax if necessary, return false if not enough
+            
+            // deal with fabric rip
+            
+            // news events
+            
+            // decrement fuel by distance
+            let journeyDistance = getDistance(currentSystem!, system2: targetSystem!)
+            player.commanderShip.fuel -= journeyDistance
+            
+            //print("fuel remaining: \(player.commanderShip.fuel)")
+            
+            return true
+        }
+        return false
     }
 
     

@@ -39,7 +39,7 @@ class ShortRangeChartView: UIView {
         rangeCirclePath.stroke()
         
         // populate planets
-        print("drawRect running, populating planets")
+        planetsOnMap = []                       // IMPORTANT: CLEAR PLANETSONMAP AS PART OF REFRESH
         for planet in galaxy.planets {
             drawPlanet(planet)
         }
@@ -81,7 +81,7 @@ class ShortRangeChartView: UIView {
         // draw target crosshairs
         
         if system.name == galaxy.targetSystem!.name {
-            print("DEBUG: DRAWING CROSSHAIRS on \(galaxy.targetSystem!.name)")
+            // print("DEBUG: DRAWING CROSSHAIRS on \(galaxy.targetSystem!.name)")
             let mostRecentPlanet = planetsOnMap.last
             drawTargetCrosshairs(mostRecentPlanet!, wormhole: false)
         }
@@ -105,16 +105,18 @@ class ShortRangeChartView: UIView {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        // print("view touched!")
+        print("************touchesBegan firing")
         let touch = touches.first!
         let touchLocation = touch.locationInView(self)
-        // print(touchLocation)
+        //print(touchLocation)
         
         // identify planet in mapPlanet that was touched
         for mapPlanet in planetsOnMap {
+            
             let distance = distanceFromTouchToPlanet(touchLocation, planet: mapPlanet)
             // print("planet: \(mapPlanet.system.name), distance: \(distance)")
             if distance < 20 {
+                print("touch recorded near a planet")
                 //print("\(mapPlanet.system.name) touched")
                 
                 if mapPlanet.system.wormhole {
@@ -131,11 +133,6 @@ class ShortRangeChartView: UIView {
                         delegate?.targetSystemDidChange()
                         
                         
-                        // set out of range, unless you're at the neighboring planet
-                        if mapPlanet.system.name != galaxy.currentSystem!.name {
-                            galaxy.targetSystemInRange = false
-                        }
-                        
                     } else {
                         print("TOUCH IS CLOSER TO PLANET")
                         // do usual thing
@@ -146,6 +143,7 @@ class ShortRangeChartView: UIView {
                     }
                     
                 }
+                print("setting target system")
                 galaxy.targetSystem = mapPlanet.system
                 delegate?.targetSystemDidChange()
 
