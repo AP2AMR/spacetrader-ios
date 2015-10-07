@@ -93,48 +93,18 @@ class ShortRangeChartView: UIView {
         }
    
         // draw target crosshairs--non wormhole edition
+        //drawTargetCrosshairs(mostRecentPlanet!, wormhole: false)
+        
         if system.name == galaxy.targetSystem!.name {
             let mostRecentPlanet = planetsOnMap.last
-           
-//            if !wormholeAsOpposedToPlanet {
-//                drawTargetCrosshairs(mostRecentPlanet!, wormhole: false)
-//                print("target system: \(galaxy.targetSystem!.name)")
-//                redrawSelf()
-//            } else {
-//                drawTargetCrosshairs(mostRecentPlanet!, wormhole: true)
-//                wormholeAsOpposedToPlanet = false
-//                // proceed with caution
-//                galaxy.targetSystem = mostRecentPlanet?.system.wormholeDestination
-//                print("target system: \(galaxy.targetSystem!.name)")
-//                redrawSelf()        // necessary?
-//            } 
-            
-            
-            //drawTargetCrosshairs(mostRecentPlanet!, wormhole: false)
-            
+     
             if !wormholeAsOpposedToPlanet {
                 drawTargetCrosshairs(mostRecentPlanet!, wormhole: false)
             } else {
                 drawTargetCrosshairs(mostRecentPlanet!, wormhole: true)
                 wormholeAsOpposedToPlanet = false
             }
-        }
-        
-//        print("cycling through systems to draw crosshairs")
-//        for planet in planetsOnMap {
-//            if planet.system.name == galaxy.targetSystem!.name {
-//                
-//                // IMPLEMENT LESS DYSFUNCTIONAL VERSION OF BELOW
-//                
-////                if !wormholeAsOpposedToPlanet {
-////                    drawTargetCrosshairs(planet, wormhole: false)
-////                } else {
-////                    drawTargetCrosshairs(planet, wormhole: true)
-////                    wormholeAsOpposedToPlanet = false
-////                }    
-//            }
-//        }
-     
+        }     
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
