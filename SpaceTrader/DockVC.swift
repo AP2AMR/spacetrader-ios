@@ -81,6 +81,8 @@ class DockVC: UIViewController {
 
     
     @IBAction func fuelButtonTapped() {
+        player.buyMaxFuel()
+        updateUI()
     }
     
     @IBAction func repairButtonTapped() {

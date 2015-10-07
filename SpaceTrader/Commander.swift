@@ -446,6 +446,18 @@ class Commander {
         
     }
     
+    func buyMaxFuel() -> Bool {
+        let fuelNeeded = player.commanderShip.fuelTanks - player.commanderShip.fuel
+        let cost = fuelNeeded * player.commanderShip.costOfFuel
+        
+        if player.credits >= cost {
+            player.commanderShip.fuel += fuelNeeded
+            player.credits -= cost
+            return true
+        }
+        return false
+    }
+    
     func getMax(commodity: TradeItemType) -> Int {
         var availableQuantity: Int {
             switch commodity {
