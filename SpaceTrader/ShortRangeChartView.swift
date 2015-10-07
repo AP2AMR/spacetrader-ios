@@ -39,21 +39,17 @@ class ShortRangeChartView: UIView {
         rangeCirclePath.stroke()
         
         // populate planets
-        
+        print("drawRect running, populating planets")
         for planet in galaxy.planets {
             drawPlanet(planet)
         }
-        
-        // let x = galaxy.currentSystem!.xCoord + 5
-        // let y = galaxy.currentSystem!.yCoord + 7
-        
-        // let testPlanet = StarSystem(name: "test", techLevel: TechLevelType.techLevel4, politics: PoliticsType.socialist, status: StatusType.none, xCoord: x, yCoord: y, specialResources: SpecialResourcesType.none, size: SizeType.Small)
-        // drawPlanet(testPlanet)
     }
     
     
     
     func drawPlanet(system: StarSystem) {
+        //print("DRAW PLANET BEING CALLED")
+        
         let currentSystemMapXCoord: CGFloat = locationOfCurrentPlanet.x
         let currentSystemMapYCoord: CGFloat = locationOfCurrentPlanet.y
         
@@ -62,18 +58,6 @@ class ShortRangeChartView: UIView {
         
         let xCoord: CGFloat = currentSystemMapXCoord + (xDifference * CGFloat(pointsPerParsec))
         let yCoord: CGFloat = currentSystemMapYCoord + (yDifference * CGFloat(pointsPerParsec))
-        
-//        print("************************************************************")
-//        print("second planet: \(system.name)")
-//        print("DEBUG DRAW currentSystem: galaxy xCoord: \(galaxy.currentSystem!.xCoord)")
-//        print("DEBUG DRAW currentSystem: galaxy yCoord: \(galaxy.currentSystem!.yCoord)")
-//        print("DEBUG DRAW currentSystem: map xCoord: \(currentSystemMapXCoord)")
-//        print("DEBUG DRAW currentSystem: map yCoord: \(currentSystemMapYCoord)")
-//        
-//        print("DEBUG DRAW second planet: galaxy xCoord: \(system.xCoord)")
-//        print("DEBUG DRAW second planet: galaxy yCoord: \(system.yCoord)")
-//        print("DEBUG DRAW second planet: map xCoord: \(xCoord)")
-//        print("DEBUG DRAW second planet: map yCoord: \(yCoord)")
 
         let location = CGPointMake(xCoord, yCoord)
         let visited: Bool = system.visited
@@ -95,19 +79,27 @@ class ShortRangeChartView: UIView {
         }
         
         // draw target crosshairs
-        for planet in planetsOnMap {
-            if planet.system.name == galaxy.targetSystem!.name {
-                drawTargetCrosshairs(planet, wormhole: false)
-                // IMPLEMENT LESS DYSFUNCTIONAL VERSION OF BELOW
-                
-//                if !wormholeAsOpposedToPlanet {
-//                    drawTargetCrosshairs(planet, wormhole: false)
-//                } else {
-//                    drawTargetCrosshairs(planet, wormhole: true)
-//                    wormholeAsOpposedToPlanet = false
-//                }    
-            }
+        
+        if system.name == galaxy.targetSystem!.name {
+            print("DEBUG: DRAWING CROSSHAIRS on \(galaxy.targetSystem!.name)")
+            let mostRecentPlanet = planetsOnMap.last
+            drawTargetCrosshairs(mostRecentPlanet!, wormhole: false)
         }
+        
+//        print("cycling through systems to draw crosshairs")
+//        for planet in planetsOnMap {
+//            if planet.system.name == galaxy.targetSystem!.name {
+//                
+//                // IMPLEMENT LESS DYSFUNCTIONAL VERSION OF BELOW
+//                
+////                if !wormholeAsOpposedToPlanet {
+////                    drawTargetCrosshairs(planet, wormhole: false)
+////                } else {
+////                    drawTargetCrosshairs(planet, wormhole: true)
+////                    wormholeAsOpposedToPlanet = false
+////                }    
+//            }
+//        }
         
         
     }
@@ -244,6 +236,11 @@ class ShortRangeChartView: UIView {
         if wormhole {
             planetZeroX += 10
         }
+        
+        // put this in a CAShapeLayer?              EXPERIMENTAL
+        let crosshairLayer = CAShapeLayer()
+        crosshairLayer.frame = self.layer.bounds
+        
         
         let upperTick = UIBezierPath()
         upperTick.moveToPoint(CGPoint(x: planetZeroX, y: planetZeroY - 5))
