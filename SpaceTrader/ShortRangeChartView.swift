@@ -65,8 +65,19 @@ class ShortRangeChartView: UIView {
         let location = CGPointMake(xCoord, yCoord)
         let visited: Bool = system.visited
         
+        var add = false
         // draw only if on the map and not on the edge
         if isItOnTheMap(xCoord, yCoord: yCoord) {
+            add = true
+        } else {        // KLUDGE FIX--hopefully eliminate need for this?
+            for systemInRange in galaxy.systemsInRange {
+                if system.name == systemInRange.name {
+                    add = true
+                }
+            }
+        }
+        
+        if add {
             drawPlanetCircle(location, visited: visited, wormhole: system.wormhole)
             
             // add name
@@ -79,30 +90,6 @@ class ShortRangeChartView: UIView {
             // add to planetsOnMap
             let mapEntry = mapPlanet(system: system, mapLocation: location)
             planetsOnMap.append(mapEntry)
-            
-            
-        } else {        // KLUDGE FIX--hopefully eliminate need for this?
-            for systemInRange in galaxy.systemsInRange {
-                //print("(we've made it inside the systemsInRange loop)")
-                if system.name == systemInRange.name {
-                    //print("KLUDGE IS FIRING")
-                    
-                    // do things we were supposed to do...
-                    drawPlanetCircle(location, visited: visited, wormhole: system.wormhole)
-                    
-                    // add name
-                    let nameLocationX: CGFloat = xCoord - 15
-                    let nameLocationY: CGFloat = yCoord - 20
-                    let nameLocation = CGPointMake(nameLocationX, nameLocationY)
-                    let text = NSAttributedString(string: system.name)
-                    text.drawAtPoint(nameLocation)
-                    
-                    // add to planetsOnMap
-                    let mapEntry = mapPlanet(system: system, mapLocation: location)
-                    planetsOnMap.append(mapEntry)
-                    
-                }
-            }
         }
 
         
