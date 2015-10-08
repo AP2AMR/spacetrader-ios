@@ -99,15 +99,13 @@ class ShortRangeChartView: UIView {
             let mostRecentPlanet = planetsOnMap.last
      
             if !wormholeAsOpposedToPlanet {
-                //print("drawing crosshairs on planet normally")
+                print("drawing crosshairs on planet normally")
                 drawTargetCrosshairs(mostRecentPlanet!, wormhole: false)
-            } //else {
-//                print("WORMHOLEASOPPOSEDTOPLANET IS TRUE. Trying to draw crosshairs on wormhole")
-//                drawTargetCrosshairs(mostRecentPlanet!, wormhole: true)
-//                wormholeAsOpposedToPlanet = false
-//            }
-        //} else if wormholeAsOpposedToPlanet {
-        } else if system.wormholeDestination?.name == galaxy.targetSystem!.name {
+            } else {
+                // this seems never to execute
+                print("not drawing crosshairs on planet")
+            }
+        } else if wormholeAsOpposedToPlanet {
             print("THIS WOULD SEEM TO BE A WORMHOLE")
             //let mostRecentPlanet = planetsOnMap.last
             //drawTargetCrosshairs(mostRecentPlanet!, wormhole: true)
