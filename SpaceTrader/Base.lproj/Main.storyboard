@@ -711,6 +711,7 @@
                                 <state key="normal" title="Repair"/>
                                 <connections>
                                     <action selector="repairButtonTapped" destination="iag-H1-Vfg" eventType="touchUpInside" id="YNR-Q3-vuc"/>
+                                    <segue destination="kAX-Ef-6w2" kind="presentation" modalPresentationStyle="overCurrentContext" id="0lu-57-J69"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Your hull strength is at 100%. No repairs are needed." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TWt-WD-TBN">
@@ -766,6 +767,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFK-kE-RT1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2286" y="342"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="PC5-hq-2qm">
+            <objects>
+                <viewController id="kAX-Ef-6w2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xbo-31-PdB"/>
+                        <viewControllerLayoutGuide type="bottom" id="7wI-CZ-8oA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kud-Hn-MJR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MI4-Md-QvE">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FKP-bf-gfT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2990" y="342"/>
         </scene>
         <!--Warp-->
         <scene sceneID="iXi-GJ-Mc7">

@@ -217,18 +217,6 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     
     override func viewDidLoad() {
         
-        
-        
-        
-        // DUMMY DATA
-//        currentSystem.waterSell = 45
-//        currentSystem.fursSell = 290
-//        currentSystem.foodSell = 120
-//        currentSystem.oreSell = 441
-//        currentSystem.gamesSell = 178
-//        currentSystem.firearmsSell = 752
-        // END DUMMY DATA
-        
         recurringUpdate()
         loadPrices()
         buyAsOpposedToSell = false
@@ -252,16 +240,16 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     }
     
     func loadPrices() {
-        waterPrice.text = "\(currentSystem.waterSell) cr."
-        fursPrice.text = "\(currentSystem.fursSell) cr."
-        foodPrice.text = "\(currentSystem.foodSell) cr."
-        orePrice.text = "\(currentSystem.oreSell) cr."
-        gamesPrice.text = "\(currentSystem.gamesSell) cr."
-        firearmsPrice.text = "\(currentSystem.firearmsSell) cr."
-        medicinePrice.text = "\(currentSystem.medicineSell) cr."
-        machinesPrice.text = "\(currentSystem.machinesSell) cr."
-        narcoticsPrice.text = "\(currentSystem.narcoticsSell) cr."
-        robotsPrice.text = "\(currentSystem.robotsSell) cr."
+        waterPrice.text = "\(galaxy.currentSystem!.waterSell) cr."
+        fursPrice.text = "\(galaxy.currentSystem!.fursSell) cr."
+        foodPrice.text = "\(galaxy.currentSystem!.foodSell) cr."
+        orePrice.text = "\(galaxy.currentSystem!.oreSell) cr."
+        gamesPrice.text = "\(galaxy.currentSystem!.gamesSell) cr."
+        firearmsPrice.text = "\(galaxy.currentSystem!.firearmsSell) cr."
+        medicinePrice.text = "\(galaxy.currentSystem!.medicineSell) cr."
+        machinesPrice.text = "\(galaxy.currentSystem!.machinesSell) cr."
+        narcoticsPrice.text = "\(galaxy.currentSystem!.narcoticsSell) cr."
+        robotsPrice.text = "\(galaxy.currentSystem!.robotsSell) cr."
         
         waterPL.text = "\(player.getPLString(.Water))"
         fursPL.text = "\(player.getPLString(.Furs))"
@@ -275,34 +263,34 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         robotsPL.text = "\(player.getPLString(.Robots))"
         
         // handle dump buttons
-        if currentSystem.waterSell == 0 {
+        if galaxy.currentSystem!.waterSell == 0 {
             waterAllLabel.setTitle("Dump", forState: controlState)
         }
-        if currentSystem.fursSell == 0 {
+        if galaxy.currentSystem!.fursSell == 0 {
             fursAllLabel.setTitle("Dump", forState: controlState)
         }
-        if currentSystem.foodSell == 0 {
+        if galaxy.currentSystem!.foodSell == 0 {
             foodAllLabel.setTitle("Dump", forState: controlState)
         }
-        if currentSystem.oreSell == 0 {
+        if galaxy.currentSystem!.oreSell == 0 {
             oreAllLabel.setTitle("Dump", forState: controlState)
         }
-        if currentSystem.gamesSell == 0 {
+        if galaxy.currentSystem!.gamesSell == 0 {
             gamesAllLabel.setTitle("Dump", forState: controlState)
         }
-        if currentSystem.firearmsSell == 0 {
+        if galaxy.currentSystem!.firearmsSell == 0 {
             firearmsAllLabel.setTitle("Dump", forState: controlState)
         }
-        if currentSystem.medicineSell == 0 {
+        if galaxy.currentSystem!.medicineSell == 0 {
             medicineAllLabel.setTitle("Dump", forState: controlState)
         }
-        if currentSystem.machinesSell == 0 {
+        if galaxy.currentSystem!.machinesSell == 0 {
             machinesAllLabel.setTitle("Dump", forState: controlState)
         }
-        if currentSystem.narcoticsSell == 0 {
+        if galaxy.currentSystem!.narcoticsSell == 0 {
             narcoticsAllLabel.setTitle("Dump", forState: controlState)
         }
-        if currentSystem.robotsSell == 0 {
+        if galaxy.currentSystem!.robotsSell == 0 {
             robotsAllLabel.setTitle("Dump", forState: controlState)
         }
         

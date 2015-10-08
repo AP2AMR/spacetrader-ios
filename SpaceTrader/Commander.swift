@@ -216,108 +216,108 @@ class Commander {
                 let totalPrice = quantity * currentSystem.waterBuy
                 if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
                     credits -= totalPrice
-                    let water = TradeItem(item: .Water, quantity: quantity, pricePaid: currentSystem.waterBuy)
+                    let water = TradeItem(item: .Water, quantity: quantity, pricePaid: galaxy.currentSystem!.waterBuy)
                     player.commanderShip.cargo.append(water)
-                    currentSystem.water -= quantity
+                    galaxy.currentSystem!.water -= quantity
                     return true
                 } else {
                     return false
                 }
             case .Furs:
-                let totalPrice = quantity * currentSystem.fursBuy
+                let totalPrice = quantity * galaxy.currentSystem!.fursBuy
                 if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
                     credits -= totalPrice
-                    let furs = TradeItem(item: .Furs, quantity: quantity, pricePaid: currentSystem.fursBuy)
+                    let furs = TradeItem(item: .Furs, quantity: quantity, pricePaid: galaxy.currentSystem!.fursBuy)
                     player.commanderShip.cargo.append(furs)
-                    currentSystem.furs -= quantity
+                    galaxy.currentSystem!.furs -= quantity
                     return true
                 } else {
                     return false
                 }
             case .Food:
-                let totalPrice = quantity * currentSystem.foodBuy
+                let totalPrice = quantity * galaxy.currentSystem!.foodBuy
                 if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
                     credits -= totalPrice
-                    let food = TradeItem(item: .Food, quantity: quantity, pricePaid: currentSystem.foodBuy)
+                    let food = TradeItem(item: .Food, quantity: quantity, pricePaid: galaxy.currentSystem!.foodBuy)
                     player.commanderShip.cargo.append(food)
-                    currentSystem.food -= quantity
+                    galaxy.currentSystem!.food -= quantity
                     return true
                 } else {
                     return false
                 }
             case .Ore:
-                let totalPrice = quantity * currentSystem.oreBuy
+                let totalPrice = quantity * galaxy.currentSystem!.oreBuy
                 if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
                     credits -= totalPrice
-                    let ore = TradeItem(item: .Ore, quantity: quantity, pricePaid: currentSystem.oreBuy)
+                    let ore = TradeItem(item: .Ore, quantity: quantity, pricePaid: galaxy.currentSystem!.oreBuy)
                     player.commanderShip.cargo.append(ore)
-                    currentSystem.ore -= quantity
+                    galaxy.currentSystem!.ore -= quantity
                     return true
                 } else {
                     return false
                 }
             case .Games:
-                let totalPrice = quantity * currentSystem.gamesBuy
+                let totalPrice = quantity * galaxy.currentSystem!.gamesBuy
                 if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
                     credits -= totalPrice
-                    let games = TradeItem(item: .Games, quantity: quantity, pricePaid: currentSystem.gamesBuy)
+                    let games = TradeItem(item: .Games, quantity: quantity, pricePaid: galaxy.currentSystem!.gamesBuy)
                     player.commanderShip.cargo.append(games)
-                    currentSystem.games -= quantity
+                    galaxy.currentSystem!.games -= quantity
                     return true
                 } else {
                     return false
                 }
             case .Firearms:
-                let totalPrice = quantity * currentSystem.firearmsBuy
+                let totalPrice = quantity * galaxy.currentSystem!.firearmsBuy
                 if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
                     credits -= totalPrice
-                    let firearms = TradeItem(item: .Firearms, quantity: quantity, pricePaid: currentSystem.firearmsBuy)
+                    let firearms = TradeItem(item: .Firearms, quantity: quantity, pricePaid: galaxy.currentSystem!.firearmsBuy)
                     player.commanderShip.cargo.append(firearms)
-                    currentSystem.firearms -= quantity
+                    galaxy.currentSystem!.firearms -= quantity
                     return true
                 } else {
                     return false
                 }
             case .Medicine:
-                let totalPrice = quantity * currentSystem.medicineBuy
+                let totalPrice = quantity * galaxy.currentSystem!.medicineBuy
                 if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
                     credits -= totalPrice
-                    let medicine = TradeItem(item: .Medicine, quantity: quantity, pricePaid: currentSystem.medicineBuy)
+                    let medicine = TradeItem(item: .Medicine, quantity: quantity, pricePaid: galaxy.currentSystem!.medicineBuy)
                     player.commanderShip.cargo.append(medicine)
-                    currentSystem.medicine -= quantity
+                    galaxy.currentSystem!.medicine -= quantity
                     return true
                 } else {
                     return false
                 }
             case .Machines:
-                let totalPrice = quantity * currentSystem.machinesBuy
+                let totalPrice = quantity * galaxy.currentSystem!.machinesBuy
                 if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
                     credits -= totalPrice
-                    let machines = TradeItem(item: .Machines, quantity: quantity, pricePaid: currentSystem.machinesBuy)
+                    let machines = TradeItem(item: .Machines, quantity: quantity, pricePaid: galaxy.currentSystem!.machinesBuy)
                     player.commanderShip.cargo.append(machines)
-                    currentSystem.machines -= quantity
+                    galaxy.currentSystem!.machines -= quantity
                     return true
                 } else {
                     return false
                 }
             case .Narcotics:
-                let totalPrice = quantity * currentSystem.narcoticsBuy
+                let totalPrice = quantity * galaxy.currentSystem!.narcoticsBuy
                 if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
                     credits -= totalPrice
-                    let narcotics = TradeItem(item: .Narcotics, quantity: quantity, pricePaid: currentSystem.narcoticsBuy)
+                    let narcotics = TradeItem(item: .Narcotics, quantity: quantity, pricePaid: galaxy.currentSystem!.narcoticsBuy)
                     player.commanderShip.cargo.append(narcotics)
-                    currentSystem.narcotics -= quantity
+                    galaxy.currentSystem!.narcotics -= quantity
                     return true
                 } else {
                     return false
                 }
             case .Robots:
-                let totalPrice = quantity * currentSystem.robotsBuy
+                let totalPrice = quantity * galaxy.currentSystem!.robotsBuy
                 if player.commanderShip.baysAvailable >= quantity && player.credits >= totalPrice {
                     credits -= totalPrice
-                    let robots = TradeItem(item: .Robots, quantity: quantity, pricePaid: currentSystem.robotsBuy)
+                    let robots = TradeItem(item: .Robots, quantity: quantity, pricePaid: galaxy.currentSystem!.robotsBuy)
                     player.commanderShip.cargo.append(robots)
-                    currentSystem.robots -= quantity
+                    galaxy.currentSystem!.robots -= quantity
                     return true
                 } else {
                     return false
@@ -348,25 +348,25 @@ class Commander {
         var salePrice: Int = 0
         switch commodity {
             case .Water:
-                salePrice = quantity * currentSystem.waterSell
+                salePrice = quantity * galaxy.currentSystem!.waterSell
             case .Furs:
-                salePrice = quantity * currentSystem.fursSell
+                salePrice = quantity * galaxy.currentSystem!.fursSell
             case .Food:
-                salePrice = quantity * currentSystem.foodSell
+                salePrice = quantity * galaxy.currentSystem!.foodSell
             case .Ore:
-                salePrice = quantity * currentSystem.oreSell
+                salePrice = quantity * galaxy.currentSystem!.oreSell
             case .Games:
-                salePrice = quantity * currentSystem.gamesSell
+                salePrice = quantity * galaxy.currentSystem!.gamesSell
             case .Firearms:
-                salePrice = quantity * currentSystem.firearmsSell
+                salePrice = quantity * galaxy.currentSystem!.firearmsSell
             case .Medicine:
-                salePrice = quantity * currentSystem.medicineSell
+                salePrice = quantity * galaxy.currentSystem!.medicineSell
             case .Machines:
-                salePrice = quantity * currentSystem.machinesSell
+                salePrice = quantity * galaxy.currentSystem!.machinesSell
             case .Narcotics:
-                salePrice = quantity * currentSystem.narcoticsSell
+                salePrice = quantity * galaxy.currentSystem!.narcoticsSell
             case .Robots:
-                salePrice = quantity * currentSystem.robotsSell
+                salePrice = quantity * galaxy.currentSystem!.robotsSell
             default:
                 salePrice = 0
         }
@@ -415,25 +415,25 @@ class Commander {
             var salePrice: Int = 0
             switch commodity {
             case .Water:
-                salePrice = quantity * currentSystem.waterSell
+                salePrice = quantity * galaxy.currentSystem!.waterSell
             case .Furs:
-                salePrice = quantity * currentSystem.fursSell
+                salePrice = quantity * galaxy.currentSystem!.fursSell
             case .Food:
-                salePrice = quantity * currentSystem.foodSell
+                salePrice = quantity * galaxy.currentSystem!.foodSell
             case .Ore:
-                salePrice = quantity * currentSystem.oreSell
+                salePrice = quantity * galaxy.currentSystem!.oreSell
             case .Games:
-                salePrice = quantity * currentSystem.gamesSell
+                salePrice = quantity * galaxy.currentSystem!.gamesSell
             case .Firearms:
-                salePrice = quantity * currentSystem.firearmsSell
+                salePrice = quantity * galaxy.currentSystem!.firearmsSell
             case .Medicine:
-                salePrice = quantity * currentSystem.medicineSell
+                salePrice = quantity * galaxy.currentSystem!.medicineSell
             case .Machines:
-                salePrice = quantity * currentSystem.machinesSell
+                salePrice = quantity * galaxy.currentSystem!.machinesSell
             case .Narcotics:
-                salePrice = quantity * currentSystem.narcoticsSell
+                salePrice = quantity * galaxy.currentSystem!.narcoticsSell
             case .Robots:
-                salePrice = quantity * currentSystem.robotsSell
+                salePrice = quantity * galaxy.currentSystem!.robotsSell
             default:
                 salePrice = 0
             }
@@ -462,31 +462,31 @@ class Commander {
     func getMax(commodity: TradeItemType) -> Int {
         var availableQuantity: Int {
             switch commodity {
-                case .Water: return currentSystem.water
-                case .Furs: return currentSystem.furs
-                case .Food: return currentSystem.food
-                case .Ore: return currentSystem.ore
-                case .Games: return currentSystem.games
-                case .Firearms: return currentSystem.firearms
-                case .Medicine: return currentSystem.medicine
-                case .Machines: return currentSystem.machines
-                case .Narcotics: return currentSystem.narcotics
-                case .Robots: return currentSystem.robots
+                case .Water: return galaxy.currentSystem!.water
+                case .Furs: return galaxy.currentSystem!.furs
+                case .Food: return galaxy.currentSystem!.food
+                case .Ore: return galaxy.currentSystem!.ore
+                case .Games: return galaxy.currentSystem!.games
+                case .Firearms: return galaxy.currentSystem!.firearms
+                case .Medicine: return galaxy.currentSystem!.medicine
+                case .Machines: return galaxy.currentSystem!.machines
+                case .Narcotics: return galaxy.currentSystem!.narcotics
+                case .Robots: return galaxy.currentSystem!.robots
                 default: return 0
             }
         }
         var pricePerUnit: Int {
             switch commodity {
-                case .Water: return currentSystem.waterBuy
-                case .Furs: return currentSystem.fursBuy
-                case .Food: return currentSystem.foodBuy
-                case .Ore: return currentSystem.oreBuy
-                case .Games: return currentSystem.gamesBuy
-                case .Firearms: return currentSystem.firearmsBuy
-                case .Medicine: return currentSystem.medicineBuy
-                case .Machines: return currentSystem.machinesBuy
-                case .Narcotics: return currentSystem.narcoticsBuy
-                case .Robots: return currentSystem.robotsBuy
+                case .Water: return galaxy.currentSystem!.waterBuy
+                case .Furs: return galaxy.currentSystem!.fursBuy
+                case .Food: return galaxy.currentSystem!.foodBuy
+                case .Ore: return galaxy.currentSystem!.oreBuy
+                case .Games: return galaxy.currentSystem!.gamesBuy
+                case .Firearms: return galaxy.currentSystem!.firearmsBuy
+                case .Medicine: return galaxy.currentSystem!.medicineBuy
+                case .Machines: return galaxy.currentSystem!.machinesBuy
+                case .Narcotics: return galaxy.currentSystem!.narcoticsBuy
+                case .Robots: return galaxy.currentSystem!.robotsBuy
                 default: return 0
             }
         }
@@ -551,25 +551,25 @@ class Commander {
     func getLocalSellPriceOf(commodity: TradeItemType) -> Int {
         switch commodity {
         case .Water:
-            return currentSystem.waterSell
+            return galaxy.currentSystem!.waterSell
         case .Furs:
-            return currentSystem.fursSell
+            return galaxy.currentSystem!.fursSell
         case .Food:
-            return currentSystem.foodSell
+            return galaxy.currentSystem!.foodSell
         case .Ore:
-            return currentSystem.oreSell
+            return galaxy.currentSystem!.oreSell
         case .Games:
-            return currentSystem.gamesSell
+            return galaxy.currentSystem!.gamesSell
         case .Firearms:
-            return currentSystem.firearmsSell
+            return galaxy.currentSystem!.firearmsSell
         case .Medicine:
-            return currentSystem.medicineSell
+            return galaxy.currentSystem!.medicineSell
         case .Machines:
-            return currentSystem.machinesSell
+            return galaxy.currentSystem!.machinesSell
         case .Narcotics:
-            return currentSystem.narcoticsSell
+            return galaxy.currentSystem!.narcoticsSell
         case .Robots:
-            return currentSystem.robotsSell
+            return galaxy.currentSystem!.robotsSell
         default:
             return 0
         }
@@ -578,25 +578,25 @@ class Commander {
     func getLocalBuyPriceOf(commodity: TradeItemType) -> Int {
         switch commodity {
         case .Water:
-            return currentSystem.waterBuy
+            return galaxy.currentSystem!.waterBuy
         case .Furs:
-            return currentSystem.fursBuy
+            return galaxy.currentSystem!.fursBuy
         case .Food:
-            return currentSystem.foodBuy
+            return galaxy.currentSystem!.foodBuy
         case .Ore:
-            return currentSystem.oreBuy
+            return galaxy.currentSystem!.oreBuy
         case .Games:
-            return currentSystem.gamesBuy
+            return galaxy.currentSystem!.gamesBuy
         case .Firearms:
-            return currentSystem.firearmsBuy
+            return galaxy.currentSystem!.firearmsBuy
         case .Medicine:
-            return currentSystem.medicineBuy
+            return galaxy.currentSystem!.medicineBuy
         case .Machines:
-            return currentSystem.machinesBuy
+            return galaxy.currentSystem!.machinesBuy
         case .Narcotics:
-            return currentSystem.narcoticsBuy
+            return galaxy.currentSystem!.narcoticsBuy
         case .Robots:
-            return currentSystem.robotsBuy
+            return galaxy.currentSystem!.robotsBuy
         default:
             return 0
         }
