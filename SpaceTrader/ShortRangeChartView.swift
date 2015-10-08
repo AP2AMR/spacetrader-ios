@@ -129,6 +129,7 @@ class ShortRangeChartView: UIView {
                         // TOUCH IS ON WORMHOLE
                         print("touch is on wormhole")
                         galaxy.targetSystem = mapPlanet.system.wormholeDestination
+                        print("touched wormhole. New target: \(galaxy.targetSystem!.name)")
                         wormholeAsOpposedToPlanet = true
                         delegate?.targetSystemDidChange()
                     } else {
@@ -146,6 +147,7 @@ class ShortRangeChartView: UIView {
                     print("touch is on non-wormhole system")
                     galaxy.targetSystem = mapPlanet.system
                     delegate?.targetSystemDidChange()
+                    wormholeAsOpposedToPlanet = false
                     
                     self.setNeedsDisplay()
                 }
