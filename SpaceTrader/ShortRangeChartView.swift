@@ -145,16 +145,14 @@ class ShortRangeChartView: UIView {
                         // must fix whether drawPlanetWithCrosshairs is called. Not called here, even though planet has one
                     }
                     
+                } else {
+                    galaxy.targetSystem = mapPlanet.system
+                    delegate?.targetSystemDidChange()
+                    
+                    self.setNeedsDisplay()
                 }
-                //print("setting target system")
-                galaxy.targetSystem = mapPlanet.system
-                delegate?.targetSystemDidChange()
-
-                self.setNeedsDisplay()
             }
-        }
-        
-        
+        }  
     }
     
     // make function to draw planet, given StarSystem. Draws from planet info to determine if visited or has wormhole. Early version could take coordinates, specs from arguments.
