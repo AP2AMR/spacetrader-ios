@@ -50,9 +50,8 @@ class ShortRangeChartView: UIView {
     
     
     
+    // draws planet, also draws wormhole if necessary.
     func drawPlanet(system: StarSystem) {
-        //print("DRAW PLANET BEING CALLED")
-        
         let currentSystemMapXCoord: CGFloat = locationOfCurrentPlanet.x
         let currentSystemMapYCoord: CGFloat = locationOfCurrentPlanet.y
         
@@ -78,7 +77,7 @@ class ShortRangeChartView: UIView {
         }
         
         if add {
-            drawPlanetCircle(location, visited: visited, wormhole: system.wormhole)
+            drawPlanetCircle(location, visited: visited)
             
             // add name
             let nameLocationX: CGFloat = xCoord - 15
@@ -90,85 +89,51 @@ class ShortRangeChartView: UIView {
             // add to planetsOnMap
             let mapEntry = mapPlanet(system: system, mapLocation: location)
             planetsOnMap.append(mapEntry)
+            
+            // if planet has a wormhole, draw one of those, and add it to the map
+            if system.wormhole {
+                let wormholeX = location.x + 5
+                let wormholeY = location.y
+                let wormholeLocation = CGPoint(x: wormholeX, y: wormholeY)
+                drawWormholeCircle(wormholeLocation)
+                
+                let wormholeMapEntry = mapPlanet(system: system.wormholeDestination!, mapLocation: wormholeLocation)
+                planetsOnMap.append(wormholeMapEntry)
+            }
         }
         
-        // if tapped system is the target, e.g., if it isn't a wormhole
-        if system.name == galaxy.targetSystem!.name {
-            print("target system is \(galaxy.targetSystem!.name)")
-            //print("drawing crosshairs")
-            //print("wormholeAsOpposedToPlanet: \(wormholeAsOpposedToPlanet)")
-            let mostRecentPlanet = planetsOnMap.last
-     
-            if !wormholeAsOpposedToPlanet {
-                print("drawing crosshairs on planet normally")
-                drawTargetCrosshairs(mostRecentPlanet!, wormhole: false)
-            } else {
-                // this seems never to execute
-                print("not drawing crosshairs on planet")
-            }
-        } else if wormholeAsOpposedToPlanet {
-            print("THIS WOULD SEEM TO BE A WORMHOLE. \(wormholeAsOpposedToPlanet)")
-            print("system.name is \(system.name). targetSystem.name is \(targetSystem.name)")
-            let mostRecentPlanet = planetsOnMap.last
-            drawTargetCrosshairs(mostRecentPlanet!, wormhole: true)
-            wormholeAsOpposedToPlanet = false
-        }
+        
     }
     
     // outcome of this function should be a new targetSystem and a call to redraw
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         let touch = touches.first!
         let touchLocation = touch.locationInView(self)
-        //print(touchLocation)
+        print("******************TOUCH REGISTERED***************")
         
         // identify planet in mapPlanet that was touched
+        var minDistance: CGFloat = 100
+        var closestPlanet: mapPlanet?
+        
         for mapPlanet in planetsOnMap {
             
             let distance = distanceFromTouchToPlanet(touchLocation, planet: mapPlanet)
-            // print("planet: \(mapPlanet.system.name), distance: \(distance)")
+            print("planet: \(mapPlanet.system.name), distance: \(distance)")
+            
             if distance < 20 {
-                
-                // HANDLE TOUCH ON WORMHOLE SYSTEM
-                if mapPlanet.system.wormhole {
-                    
-                    let wormholePoint = CGPoint(x: mapPlanet.mapLocation.x + 10, y: mapPlanet.mapLocation.y)
-                    let tapDistanceFromWormhole = distanceFromTouchToPoint(touchLocation, point: wormholePoint)
-
-                    if tapDistanceFromWormhole < distance {
-                        // TOUCH IS ON WORMHOLE
-                        galaxy.targetSystem = mapPlanet.system.wormholeDestination
-                        //print("touched wormhole. New target: \(galaxy.targetSystem!.name)")
-                        wormholeAsOpposedToPlanet = true
-                        //print("should say true: \(wormholeAsOpposedToPlanet)")
-                        delegate?.targetSystemDidChange()
-                        self.setNeedsDisplay()              // TRYING THIS
-                    } else {
-                        // TOUCH IS ON PLANET IN WORMHOLE SYSTEM
-                        galaxy.targetSystem = mapPlanet.system
-                        wormholeAsOpposedToPlanet = false
-                        delegate?.targetSystemDidChange()
-                        self.setNeedsDisplay()              // TRYING THIS
-                        // must fix whether drawPlanetWithCrosshairs is called. Not called here, even though planet has one
-                    }
-                    
-                } else {
-                    // TOUCH IS ON NON-WORMHOLE SYSTEM
-                    //print("touch is on non-wormhole system")
-                    galaxy.targetSystem = mapPlanet.system
-                    delegate?.targetSystemDidChange()
-                    wormholeAsOpposedToPlanet = false
-                    
-                    self.setNeedsDisplay()
+                if distance < minDistance {
+                    minDistance = distance
+                    closestPlanet = mapPlanet
                 }
+                galaxy.targetSystem = closestPlanet!.system
+                delegate?.targetSystemDidChange()
             }
         }
+        
     }
     
-    // make function to draw planet, given StarSystem. Draws from planet info to determine if visited or has wormhole. Early version could take coordinates, specs from arguments.
-    // locations are relative to current planet
-    func drawPlanetCircle(location: CGPoint, visited: Bool, wormhole: Bool) {
+    func drawPlanetCircle(location: CGPoint, visited: Bool) {
         let planetRadius = CGFloat(4)
-        //let location = CGPointMake(xCoord, yCoord)
         let planetCircle = UIBezierPath(arcCenter: location, radius: planetRadius, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
         let unvisitedColor: UIColor = UIColor.greenColor()
         let visitedColor: UIColor = UIColor.blueColor()
@@ -181,19 +146,17 @@ class ShortRangeChartView: UIView {
         
         planetCircle.stroke()
         planetCircle.fill()
-        
-        // draw wormhole, if necessary
-        if wormhole {
-            let wormholeDrawLocationX = location.x + 10
-            let wormholeDrawLocationY = location.y
-            let wormholeDrawLocation = CGPoint(x: wormholeDrawLocationX, y: wormholeDrawLocationY)
-            let wormholeCircle = UIBezierPath(arcCenter: wormholeDrawLocation, radius: planetRadius, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
-            UIColor.redColor().setStroke()
-            UIColor.whiteColor().setFill()
-            wormholeCircle.stroke()
-            
-            // maybe make this a smaller circle with a thicker stroke?
-        }
+    }
+    
+    func drawWormholeCircle(location: CGPoint) {
+        let planetRadius = CGFloat(4)
+        let wormholeDrawLocationX = location.x + 10
+        let wormholeDrawLocationY = location.y
+        let wormholeDrawLocation = CGPoint(x: wormholeDrawLocationX, y: wormholeDrawLocationY)
+        let wormholeCircle = UIBezierPath(arcCenter: wormholeDrawLocation, radius: planetRadius, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
+        UIColor.redColor().setStroke()
+        UIColor.whiteColor().setFill()
+        wormholeCircle.stroke()
     }
     
     func isItOnTheMap(xCoord: CGFloat, yCoord: CGFloat) -> Bool {
@@ -237,14 +200,9 @@ class ShortRangeChartView: UIView {
 //        }
 //    }
     
-    func drawTargetCrosshairs(planetOnMap: mapPlanet, wormhole: Bool) {
+    func drawTargetCrosshairs(planetOnMap: mapPlanet) {
         var planetZeroX = planetOnMap.mapLocation.x
         let planetZeroY = planetOnMap.mapLocation.y
-        
-        if wormhole {
-            planetZeroX += 10
-        }
-        
         
         let upperTick = UIBezierPath()
         upperTick.moveToPoint(CGPoint(x: planetZeroX, y: planetZeroY - 5))
