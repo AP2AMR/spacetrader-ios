@@ -94,6 +94,7 @@ class ShortRangeChartView: UIView {
         
         // if tapped system is the target, e.g., if it isn't a wormhole
         if system.name == galaxy.targetSystem!.name {
+            print("target system is \(galaxy.targetSystem!.name)")
             //print("drawing crosshairs")
             //print("wormholeAsOpposedToPlanet: \(wormholeAsOpposedToPlanet)")
             let mostRecentPlanet = planetsOnMap.last
@@ -106,13 +107,15 @@ class ShortRangeChartView: UIView {
                 print("not drawing crosshairs on planet")
             }
         } else if wormholeAsOpposedToPlanet {
-            print("THIS WOULD SEEM TO BE A WORMHOLE")
-            //let mostRecentPlanet = planetsOnMap.last
-            //drawTargetCrosshairs(mostRecentPlanet!, wormhole: true)
+            print("THIS WOULD SEEM TO BE A WORMHOLE. \(wormholeAsOpposedToPlanet)")
+            print("system.name is \(system.name). targetSystem.name is \(targetSystem.name)")
+            let mostRecentPlanet = planetsOnMap.last
+            drawTargetCrosshairs(mostRecentPlanet!, wormhole: true)
             wormholeAsOpposedToPlanet = false
         }
     }
     
+    // outcome of this function should be a new targetSystem and a call to redraw
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         let touch = touches.first!
         let touchLocation = touch.locationInView(self)
