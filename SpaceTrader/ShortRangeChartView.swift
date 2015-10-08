@@ -92,19 +92,27 @@ class ShortRangeChartView: UIView {
             planetsOnMap.append(mapEntry)
         }
         
-        // if this is the target system, draw the crosshairs
+        // if tapped system is the target, e.g., if it isn't a wormhole
         if system.name == galaxy.targetSystem!.name {
+            //print("drawing crosshairs")
+            //print("wormholeAsOpposedToPlanet: \(wormholeAsOpposedToPlanet)")
             let mostRecentPlanet = planetsOnMap.last
      
             if !wormholeAsOpposedToPlanet {
-                print("drawing crosshairs on planet normally")
+                //print("drawing crosshairs on planet normally")
                 drawTargetCrosshairs(mostRecentPlanet!, wormhole: false)
-            } else {
-                print("drawing crosshairs on wormhole system")
-                drawTargetCrosshairs(mostRecentPlanet!, wormhole: true)
-                wormholeAsOpposedToPlanet = false
-            }
-        }     
+            } //else {
+//                print("WORMHOLEASOPPOSEDTOPLANET IS TRUE. Trying to draw crosshairs on wormhole")
+//                drawTargetCrosshairs(mostRecentPlanet!, wormhole: true)
+//                wormholeAsOpposedToPlanet = false
+//            }
+        //} else if wormholeAsOpposedToPlanet {
+        } else if system.wormholeDestination?.name == galaxy.targetSystem!.name {
+            print("THIS WOULD SEEM TO BE A WORMHOLE")
+            //let mostRecentPlanet = planetsOnMap.last
+            //drawTargetCrosshairs(mostRecentPlanet!, wormhole: true)
+            wormholeAsOpposedToPlanet = false
+        }
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -127,24 +135,24 @@ class ShortRangeChartView: UIView {
 
                     if tapDistanceFromWormhole < distance {
                         // TOUCH IS ON WORMHOLE
-                        print("touch is on wormhole")
                         galaxy.targetSystem = mapPlanet.system.wormholeDestination
-                        print("touched wormhole. New target: \(galaxy.targetSystem!.name)")
+                        //print("touched wormhole. New target: \(galaxy.targetSystem!.name)")
                         wormholeAsOpposedToPlanet = true
+                        //print("should say true: \(wormholeAsOpposedToPlanet)")
                         delegate?.targetSystemDidChange()
+                        self.setNeedsDisplay()              // TRYING THIS
                     } else {
                         // TOUCH IS ON PLANET IN WORMHOLE SYSTEM
-                        print("touch is on planet in wormhole system")
                         galaxy.targetSystem = mapPlanet.system
                         wormholeAsOpposedToPlanet = false
                         delegate?.targetSystemDidChange()
-                        
+                        self.setNeedsDisplay()              // TRYING THIS
                         // must fix whether drawPlanetWithCrosshairs is called. Not called here, even though planet has one
                     }
                     
                 } else {
                     // TOUCH IS ON NON-WORMHOLE SYSTEM
-                    print("touch is on non-wormhole system")
+                    //print("touch is on non-wormhole system")
                     galaxy.targetSystem = mapPlanet.system
                     delegate?.targetSystemDidChange()
                     wormholeAsOpposedToPlanet = false
