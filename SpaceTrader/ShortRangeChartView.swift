@@ -97,7 +97,7 @@ class ShortRangeChartView: UIView {
             
             // if planet has a wormhole, draw one of those, and add it to the map
             if system.wormhole {
-                let wormholeX = location.x + 5
+                let wormholeX = location.x + 10
                 let wormholeY = location.y
                 let wormholeLocation = CGPoint(x: wormholeX, y: wormholeY)
                 drawWormholeCircle(wormholeLocation)
@@ -154,7 +154,7 @@ class ShortRangeChartView: UIView {
     
     func drawWormholeCircle(location: CGPoint) {
         let planetRadius = CGFloat(4)
-        let wormholeDrawLocationX = location.x + 10
+        let wormholeDrawLocationX = location.x
         let wormholeDrawLocationY = location.y
         let wormholeDrawLocation = CGPoint(x: wormholeDrawLocationX, y: wormholeDrawLocationY)
         let wormholeCircle = UIBezierPath(arcCenter: wormholeDrawLocation, radius: planetRadius, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
