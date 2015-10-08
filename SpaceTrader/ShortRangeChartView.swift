@@ -44,8 +44,13 @@ class ShortRangeChartView: UIView {
         for planet in galaxy.planets {
             drawPlanet(planet)
         }
-        //print("[after big drawPlanet loop] planetsOnMap.count: \(planetsOnMap.count)")
-        //print("there should be something here: \(planetsOnMap[0].system.name)")
+        
+        // draw crosshairs
+        for mapPlanet in planetsOnMap {
+            if mapPlanet.system.name == galaxy.targetSystem!.name {
+                drawTargetCrosshairs(mapPlanet)
+            }
+        }
     }
     
     
@@ -100,6 +105,8 @@ class ShortRangeChartView: UIView {
                 let wormholeMapEntry = mapPlanet(system: system.wormholeDestination!, mapLocation: wormholeLocation)
                 planetsOnMap.append(wormholeMapEntry)
             }
+            
+            
         }
         
         
@@ -109,17 +116,13 @@ class ShortRangeChartView: UIView {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         let touch = touches.first!
         let touchLocation = touch.locationInView(self)
-        print("******************TOUCH REGISTERED***************")
         
         // identify planet in mapPlanet that was touched
         var minDistance: CGFloat = 100
         var closestPlanet: mapPlanet?
         
         for mapPlanet in planetsOnMap {
-            
             let distance = distanceFromTouchToPlanet(touchLocation, planet: mapPlanet)
-            print("planet: \(mapPlanet.system.name), distance: \(distance)")
-            
             if distance < 20 {
                 if distance < minDistance {
                     minDistance = distance
@@ -127,6 +130,7 @@ class ShortRangeChartView: UIView {
                 }
                 galaxy.targetSystem = closestPlanet!.system
                 delegate?.targetSystemDidChange()
+                self.setNeedsDisplay()
             }
         }
         
@@ -191,17 +195,8 @@ class ShortRangeChartView: UIView {
         return distance
     }
     
-    // THIS IS CURRENTLY UNUSED
-//    func redrawTarget() {
-//        // remove old target indicator
-//        
-//        for system in planetsOnMap {
-//            drawTargetCrosshairs(system, wormhole: false)
-//        }
-//    }
-    
     func drawTargetCrosshairs(planetOnMap: mapPlanet) {
-        var planetZeroX = planetOnMap.mapLocation.x
+        let planetZeroX = planetOnMap.mapLocation.x
         let planetZeroY = planetOnMap.mapLocation.y
         
         let upperTick = UIBezierPath()
