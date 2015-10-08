@@ -34,6 +34,7 @@ class ShortRangeChartView: UIView {
     
     override func drawRect(rect: CGRect) {
         
+        // draw range circle
         let rangeCirclePath = UIBezierPath(arcCenter: locationOfCurrentPlanet, radius: rangeCircleRadius, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
         rangeCirclePath.lineWidth = 1
         circleColor.set()
@@ -45,7 +46,7 @@ class ShortRangeChartView: UIView {
             drawPlanet(planet)
         }
         
-        // draw crosshairs
+        // draw crosshairs on target system
         for mapPlanet in planetsOnMap {
             if mapPlanet.system.name == galaxy.targetSystem!.name {
                 drawTargetCrosshairs(mapPlanet)
@@ -103,6 +104,7 @@ class ShortRangeChartView: UIView {
                 drawWormholeCircle(wormholeLocation)
                 
                 let wormholeMapEntry = mapPlanet(system: system.wormholeDestination!, mapLocation: wormholeLocation)
+                wormholeMapEntry.throughWormhole == true
                 planetsOnMap.append(wormholeMapEntry)
             }
             
@@ -236,6 +238,7 @@ class ShortRangeChartView: UIView {
 class mapPlanet {
     let system: StarSystem
     let mapLocation: CGPoint
+    let throughWormhole: Bool = false
     
     init(system: StarSystem, mapLocation: CGPoint) {
         self.system = system

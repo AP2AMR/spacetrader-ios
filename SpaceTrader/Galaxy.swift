@@ -30,22 +30,17 @@ class Galaxy {
             } else {
                 targetSystemInRange = true
             }
-            //print("target system in range? \(targetSystemInRange)")
             
             // handle wormhole
-            
-            if targetSystemIsThroughWormhole {
-                if currentSystem?.wormholeDestination?.name == targetSystem?.name {
-                    print("system in range through wormhole")
+            if currentSystem!.wormhole {
+                if currentSystem!.wormholeDestination!.name == targetSystem!.name {
                     targetSystemInRange = true
-                } else {
-                    targetSystemInRange = false
                 }
             }
+            
         }
     }
     var targetSystemInRange = true                  // NEW ADDITION
-    var targetSystemIsThroughWormhole = false       // NEW ADDITION
     
     func createGalaxy() {
         print("Initializing galaxy...")
@@ -703,6 +698,11 @@ class Galaxy {
             }
         }
         
+        // if currentPlanet has a wormhole, add its destination to the list
+        if currentSystem!.wormhole {
+            systemsInRange.append(currentSystem!.wormholeDestination!)
+        }
+        
         // if tanks empty and no range, add current system to systemsInRange, so that it can become the target system and nothing will break
         if systemsInRange.count == 0 {
             systemsInRange.append(currentSystem!)
@@ -1029,9 +1029,6 @@ class Galaxy {
             
             // recalculate systemsInRange
             getSystemsInRange()
-            
-            
-        
             return true
         }
         return false

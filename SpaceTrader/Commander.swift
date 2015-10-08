@@ -453,6 +453,7 @@ class Commander {
         if player.credits >= cost {
             player.commanderShip.fuel += fuelNeeded
             player.credits -= cost
+            galaxy.getSystemsInRange()
             return true
         }
         return false
