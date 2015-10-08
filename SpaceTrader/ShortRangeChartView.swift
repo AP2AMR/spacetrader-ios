@@ -91,16 +91,16 @@ class ShortRangeChartView: UIView {
             let mapEntry = mapPlanet(system: system, mapLocation: location)
             planetsOnMap.append(mapEntry)
         }
-   
-        // draw target crosshairs--non wormhole edition
-        //drawTargetCrosshairs(mostRecentPlanet!, wormhole: false)
         
+        // if this is the target system, draw the crosshairs
         if system.name == galaxy.targetSystem!.name {
             let mostRecentPlanet = planetsOnMap.last
      
             if !wormholeAsOpposedToPlanet {
+                print("drawing crosshairs on planet normally")
                 drawTargetCrosshairs(mostRecentPlanet!, wormhole: false)
             } else {
+                print("drawing crosshairs on wormhole system")
                 drawTargetCrosshairs(mostRecentPlanet!, wormhole: true)
                 wormholeAsOpposedToPlanet = false
             }
@@ -118,26 +118,22 @@ class ShortRangeChartView: UIView {
             let distance = distanceFromTouchToPlanet(touchLocation, planet: mapPlanet)
             // print("planet: \(mapPlanet.system.name), distance: \(distance)")
             if distance < 20 {
-                //print("touch recorded near a planet")
-                //print("\(mapPlanet.system.name) touched")
                 
+                // HANDLE TOUCH ON WORMHOLE SYSTEM
                 if mapPlanet.system.wormhole {
-                    //print("THIS PLANET HAS A WORMHOLE")
                     
                     let wormholePoint = CGPoint(x: mapPlanet.mapLocation.x + 10, y: mapPlanet.mapLocation.y)
                     let tapDistanceFromWormhole = distanceFromTouchToPoint(touchLocation, point: wormholePoint)
-                    //print("distance to planet: \(distance), distance to wormhole: \(tapDistanceFromWormhole)")
+
                     if tapDistanceFromWormhole < distance {
-                        //print("TOUCH IS CLOSER TO WORMHOLE")
-                        // set target system to wormhole planet, draw crosshairs on wormhole, redraw
+                        // TOUCH IS ON WORMHOLE
+                        print("touch is on wormhole")
                         galaxy.targetSystem = mapPlanet.system.wormholeDestination
                         wormholeAsOpposedToPlanet = true
                         delegate?.targetSystemDidChange()
-                        
-                        
                     } else {
-                        //print("TOUCH IS CLOSER TO PLANET")
-                        // do usual thing
+                        // TOUCH IS ON PLANET IN WORMHOLE SYSTEM
+                        print("touch is on planet in wormhole system")
                         galaxy.targetSystem = mapPlanet.system
                         wormholeAsOpposedToPlanet = false
                         delegate?.targetSystemDidChange()
@@ -146,13 +142,15 @@ class ShortRangeChartView: UIView {
                     }
                     
                 } else {
+                    // TOUCH IS ON NON-WORMHOLE SYSTEM
+                    print("touch is on non-wormhole system")
                     galaxy.targetSystem = mapPlanet.system
                     delegate?.targetSystemDidChange()
                     
                     self.setNeedsDisplay()
                 }
             }
-        }  
+        }
     }
     
     // make function to draw planet, given StarSystem. Draws from planet info to determine if visited or has wormhole. Early version could take coordinates, specs from arguments.
