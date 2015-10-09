@@ -109,6 +109,10 @@ class DockVC: UIViewController, FuelRepairModalDelegate {
         updateUI()
     }
     
+    func getFuelAsOpposedToRepair() -> Bool {
+        return fuelAsOpposedToRepair
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "fuelRepairModal" {
             let modalVC: FuelRepairModalVC = segue.destinationViewController as! FuelRepairModalVC

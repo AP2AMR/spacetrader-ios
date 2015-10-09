@@ -10,6 +10,7 @@ import UIKit
 
 protocol FuelRepairModalDelegate: class {
     func modalDidFinish()
+    func getFuelAsOpposedToRepair() -> Bool
 }
 
 class FuelRepairModalVC: UIViewController {
@@ -22,6 +23,14 @@ class FuelRepairModalVC: UIViewController {
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
         entryField.becomeFirstResponder()
+        
+        let fuelAsOpposedToRepair = delegate!.getFuelAsOpposedToRepair()
+        
+        if !fuelAsOpposedToRepair {
+            titleLabel.text = "Hull Repair"
+            
+            // put default value in entryField
+        }
         
     }
     

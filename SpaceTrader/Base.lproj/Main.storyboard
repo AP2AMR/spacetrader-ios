@@ -788,7 +788,6 @@
                                 <state key="normal" title="Repair"/>
                                 <connections>
                                     <action selector="repairButtonTapped" destination="iag-H1-Vfg" eventType="touchUpInside" id="YNR-Q3-vuc"/>
-                                    <segue destination="Z1D-po-ACl" kind="presentation" identifier="fuelRepairModal" modalPresentationStyle="overCurrentContext" id="mJM-uB-n8g"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Your hull strength is at 100%. No repairs are needed." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TWt-WD-TBN">
@@ -839,6 +838,7 @@
                         <outlet property="shipsMessage" destination="ofh-Z5-cdh" id="Jcp-ay-eAQ"/>
                         <outlet property="sizeLabel" destination="SeK-G5-P6a" id="oL8-SE-m84"/>
                         <outlet property="techLevelLabel" destination="DQe-Or-bdi" id="SRt-Ri-dzX"/>
+                        <segue destination="Z1D-po-ACl" kind="presentation" identifier="fuelRepairModal" modalPresentationStyle="overCurrentContext" id="CM3-cv-FPS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFK-kE-RT1" userLabel="First Responder" sceneMemberID="firstResponder"/>
