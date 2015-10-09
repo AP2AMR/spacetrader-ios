@@ -16,6 +16,9 @@ protocol FuelRepairModalDelegate: class {
 class FuelRepairModalVC: UIViewController {
     weak var delegate: FuelRepairModalDelegate?
     
+    var fuelAsOpposedToRepair = true
+    
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var mainText: UITextView!
     @IBOutlet weak var entryField: UITextField!
@@ -23,8 +26,9 @@ class FuelRepairModalVC: UIViewController {
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
         entryField.becomeFirstResponder()
+        fuelAsOpposedToRepair = delegate!.getFuelAsOpposedToRepair()
         
-        let fuelAsOpposedToRepair = delegate!.getFuelAsOpposedToRepair()
+        
         
         if !fuelAsOpposedToRepair {
             titleLabel.text = "Hull Repair"
@@ -39,19 +43,33 @@ class FuelRepairModalVC: UIViewController {
     }
     
     @IBAction func okButton() {
-        var price: Int = 0
+        
         if entryField.text != nil {
-            price = Int(entryField.text!)!
-            let amountOfFuelToBuy: Int = price / player.commanderShip.costOfFuel
-            player.buyFuel(amountOfFuelToBuy)
-            delegate?.modalDidFinish()
-            self.dismissViewControllerAnimated(false, completion: nil)
+            let price = Int(entryField.text!)
+            if fuelAsOpposedToRepair {
+                let amountOfFuelToBuy: Int = price! / player.commanderShip.costOfFuel
+                player.buyFuel(amountOfFuelToBuy)
+                delegate?.modalDidFinish()
+                self.dismissViewControllerAnimated(false, completion: nil)
+            } else {
+                player.buyRepairs(price!)
+                delegate?.modalDidFinish()
+                self.dismissViewControllerAnimated(false, completion: nil)
+            }
         }
     }
 
     @IBAction func maxButton() {
-        player.buyMaxFuel()
-        delegate?.modalDidFinish()
-        self.dismissViewControllerAnimated(false, completion: nil)
+        if fuelAsOpposedToRepair {
+            player.buyMaxFuel()
+            delegate?.modalDidFinish()
+            self.dismissViewControllerAnimated(false, completion: nil)
+        } else {
+            player.buyMaxRepairs()
+            delegate?.modalDidFinish()
+            self.dismissViewControllerAnimated(false, completion: nil)
+        }
+        
+        
     }
 }

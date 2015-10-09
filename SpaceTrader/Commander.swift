@@ -470,6 +470,29 @@ class Commander {
         return false
     }
     
+    func buyRepairs(price: Int) -> Bool {
+        if player.credits >= price {
+            let unitsOfRepairs: Int = price / player.commanderShip.repairCosts
+            
+            player.commanderShip.hullStrength += unitsOfRepairs
+            player.credits -= price
+            return true
+        }
+        return false
+    }
+    
+    func buyMaxRepairs() -> Bool {
+        let repairsNeeded = player.commanderShip.hull - player.commanderShip.hullStrength
+        let cost = repairsNeeded * player.commanderShip.repairCosts
+        
+        if player.credits >= cost {
+            player.commanderShip.hullStrength = player.commanderShip.hull
+            player.credits -= cost
+            return true
+        }
+        return false
+    }
+    
     func getMax(commodity: TradeItemType) -> Int {
         var availableQuantity: Int {
             switch commodity {
