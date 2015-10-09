@@ -30,23 +30,31 @@ class GalacticChartView: UIView {
     override func drawRect(rect: CGRect) {
         
         // draw range circle
-        let rangeCirclePath = UIBezierPath(arcCenter: locationOfCurrentPlanet, radius: rangeCircleRadius, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
-        rangeCirclePath.lineWidth = 1
-        circleColor.set()
-        rangeCirclePath.stroke()
+        
         
         // populate planets
         planetsOnMap = []                       // IMPORTANT: CLEAR PLANETSONMAP AS PART OF REFRESH
         for planet in galaxy.planets {
             drawPlanet(planet)
         }
+
         
-        // draw crosshairs on target system
+        // draw crosshairs on target system, range circle on current planet
         for mapPlanet in planetsOnMap {
             if mapPlanet.system.name == galaxy.targetSystem!.name {
                 drawTargetCrosshairs(mapPlanet)
             }
+            if mapPlanet.system.name == galaxy.currentSystem!.name {
+                drawRangeCircle(mapPlanet.mapLocation)
+            }
         }
+    }
+    
+    func drawRangeCircle(mapLocation: CGPoint) {
+        let rangeCirclePath = UIBezierPath(arcCenter: mapLocation, radius: rangeCircleRadius, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
+        rangeCirclePath.lineWidth = 1
+        circleColor.set()
+        rangeCirclePath.stroke()
     }
     
     
