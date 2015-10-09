@@ -1076,6 +1076,10 @@
                             <constraint firstItem="W4U-3Y-Ppa" firstAttribute="top" secondItem="ig7-TH-mrV" secondAttribute="bottom" id="yeF-V7-GHN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="galacticChart" destination="m0z-TI-hcG" id="WaD-aM-bfQ"/>
+                        <outlet property="shortRangeChart" destination="Le1-rW-Y7j" id="hJW-Sm-5QP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oWf-qV-9NY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
