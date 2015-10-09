@@ -43,6 +43,8 @@ class GalacticChartView: UIView {
         for mapPlanet in planetsOnMap {
             if mapPlanet.system.name == galaxy.targetSystem!.name {
                 drawTargetCrosshairs(mapPlanet)
+                print("galactic map location: \(mapPlanet.mapLocation.x), \(mapPlanet.mapLocation.y)")
+                print("system coordinates: \(mapPlanet.system.xCoord), \(mapPlanet.system.yCoord)")
             }
             if mapPlanet.system.name == galaxy.currentSystem!.name {
                 drawRangeCircle(mapPlanet.mapLocation)
