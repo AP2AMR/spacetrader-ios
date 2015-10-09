@@ -24,7 +24,7 @@ class FuelRepairModalVC: UIViewController {
     @IBOutlet weak var entryField: UITextField!
 
     override func viewDidLoad() {
-        self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
+        self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
         entryField.becomeFirstResponder()
         fuelAsOpposedToRepair = delegate!.getFuelAsOpposedToRepair()
         
