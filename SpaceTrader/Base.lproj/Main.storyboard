@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Buy Cargo-->
@@ -1514,251 +1513,6 @@
             </objects>
             <point key="canvasLocation" x="2286" y="-1056"/>
         </scene>
-        <!--Create New Commander-->
-        <scene sceneID="BhZ-D6-Upr">
-            <objects>
-                <viewController id="BXy-0C-Nhw" customClass="NewCommanderVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="tRu-ZW-R25"/>
-                        <viewControllerLayoutGuide type="bottom" id="gzd-Za-aCK"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="pF2-uB-GnB">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Create New Commander" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVe-HI-QNG">
-                                <rect key="frame" x="203" y="20" width="194" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Jameson" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="IJr-Dd-I9l">
-                                <rect key="frame" x="75" y="66" width="509" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSP-fk-Ju7">
-                                <rect key="frame" x="20" y="70" width="51" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Difficulty:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UlY-J8-pkh">
-                                <rect key="frame" x="16" y="118" width="102" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Skill points:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejI-ra-Lwz">
-                                <rect key="frame" x="16" y="166" width="102" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pilot:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHj-bg-mhU">
-                                <rect key="frame" x="16" y="214" width="102" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fighter:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rI6-nL-5f1">
-                                <rect key="frame" x="16" y="262" width="102" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Trader:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESh-Nd-Bsd">
-                                <rect key="frame" x="16" y="310" width="102" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Engineer:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdX-eJ-5bl">
-                                <rect key="frame" x="16" y="358" width="102" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tki-Qh-03c">
-                                <rect key="frame" x="126" y="118" width="30" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="−">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="DifficultyMinusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="8oU-ud-a8M"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzM-3J-FH0">
-                                <rect key="frame" x="126" y="166" width="30" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WX8-ih-QFE">
-                                <rect key="frame" x="256" y="116" width="30" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="+">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="DifficultyPlusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="UDh-AT-vrY"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHo-Bu-P66">
-                                <rect key="frame" x="182" y="215" width="30" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="+">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="PilotPlusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="WP8-La-Kgy"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6p-tB-b1x">
-                                <rect key="frame" x="126" y="214" width="30" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="−">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="PilotMinusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="Amf-YU-pj7"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htJ-Lb-Yli">
-                                <rect key="frame" x="126" y="262" width="30" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="−">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="FighterMinusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="dXh-Pn-XO2"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AD3-m9-6ag">
-                                <rect key="frame" x="126" y="310" width="30" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="−">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="TraderMinusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="cNv-KS-Vd6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAr-Di-a3D">
-                                <rect key="frame" x="126" y="358" width="30" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="−">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="EngineerMinusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="khj-ly-E6g"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Normal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qvw-jZ-T4a">
-                                <rect key="frame" x="164" y="127" width="84" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCD-Cd-5pj">
-                                <rect key="frame" x="182" y="263" width="30" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="+">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="FighterPlusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="YrU-Za-2Ea"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tqb-Ip-gxw">
-                                <rect key="frame" x="182" y="311" width="30" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="+">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="TraderPlusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="2jt-pu-rpY"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXM-qg-4xr">
-                                <rect key="frame" x="182" y="359" width="30" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="+">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="EngineerPlusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="GTX-WB-OE1"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFo-sl-Yc6">
-                                <rect key="frame" x="164" y="225" width="10" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90C-WM-dpg">
-                                <rect key="frame" x="164" y="273" width="10" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXV-5h-rCO">
-                                <rect key="frame" x="164" y="321" width="10" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBR-8R-CQD">
-                                <rect key="frame" x="164" y="369" width="10" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="16" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ShZ-4q-D3O">
-                                <rect key="frame" x="164" y="175" width="20" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RbB-t9-nw9">
-                                <rect key="frame" x="126" y="405" width="30" height="30"/>
-                                <state key="normal" title="Ok">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="OkButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="tip-Rv-JGQ"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="IJr-Dd-I9l" firstAttribute="trailing" secondItem="pF2-uB-GnB" secondAttribute="trailingMargin" id="I0v-3o-n9L"/>
-                            <constraint firstItem="cSP-fk-Ju7" firstAttribute="centerY" secondItem="IJr-Dd-I9l" secondAttribute="centerY" constant="-0.5" id="MQg-iR-jTo"/>
-                            <constraint firstAttribute="centerX" secondItem="vVe-HI-QNG" secondAttribute="centerX" id="P4Y-by-Jfm"/>
-                            <constraint firstItem="cSP-fk-Ju7" firstAttribute="top" secondItem="tRu-ZW-R25" secondAttribute="bottom" constant="50" id="atc-lt-RDg"/>
-                            <constraint firstItem="IJr-Dd-I9l" firstAttribute="leading" secondItem="cSP-fk-Ju7" secondAttribute="trailing" constant="8" id="quU-g2-yIN"/>
-                            <constraint firstItem="cSP-fk-Ju7" firstAttribute="leading" secondItem="pF2-uB-GnB" secondAttribute="leadingMargin" id="zTH-cS-Krf"/>
-                            <constraint firstItem="vVe-HI-QNG" firstAttribute="top" secondItem="tRu-ZW-R25" secondAttribute="bottom" id="zj6-EX-EaP"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Create New Commander" id="9Pr-fC-Ei7"/>
-                    <connections>
-                        <outlet property="DifficultyLevel" destination="qvw-jZ-T4a" id="pmn-gv-Jfg"/>
-                        <outlet property="EngineerPoints" destination="SBR-8R-CQD" id="Dw5-eb-bQO"/>
-                        <outlet property="FighterPoints" destination="90C-WM-dpg" id="ltt-P1-kad"/>
-                        <outlet property="NameField" destination="IJr-Dd-I9l" id="3In-qJ-JZc"/>
-                        <outlet property="PilotPoints" destination="BFo-sl-Yc6" id="Ooz-Kk-N0a"/>
-                        <outlet property="SkillPoints" destination="ShZ-4q-D3O" id="PGs-Jx-46x"/>
-                        <outlet property="TraderPoints" destination="fXV-5h-rCO" id="E5w-mN-zUn"/>
-                        <segue destination="Zyg-E7-QYl" kind="presentation" identifier="newCommanderToMain" id="fBh-Az-gsT"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Tgk-E6-7Pm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-276" y="-296"/>
-        </scene>
         <!--New GameVC-->
         <scene sceneID="CMX-NT-M3M">
             <objects>
@@ -1778,7 +1532,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YYk-3A-vMG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-813" y="415"/>
+            <point key="canvasLocation" x="-721" y="150"/>
         </scene>
         <!--New CommanderVC-->
         <scene sceneID="qNF-vS-8lj">
@@ -1844,7 +1598,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="DifficultyMinusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="p5q-4h-qSQ"/>
+                                            <action selector="DifficultyMinusButton" destination="hAw-Mn-ebQ" eventType="touchUpInside" id="vnr-fN-cLm"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cjs-8K-0ez">
@@ -1861,7 +1615,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="DifficultyPlusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="Wkx-Ql-CRZ"/>
+                                            <action selector="DifficultyPlusButton" destination="hAw-Mn-ebQ" eventType="touchUpInside" id="hHh-Oh-GTg"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZw-de-5U6">
@@ -1871,7 +1625,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="PilotPlusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="ABq-NU-OeC"/>
+                                            <action selector="PilotPlusButton" destination="hAw-Mn-ebQ" eventType="touchUpInside" id="r8f-B4-Sqn"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ead-nD-Zqs">
@@ -1881,7 +1635,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="PilotMinusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="Vml-xf-AMY"/>
+                                            <action selector="PilotMinusButton" destination="hAw-Mn-ebQ" eventType="touchUpInside" id="AOZ-Gi-QWX"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PyP-cV-zLe">
@@ -1891,7 +1645,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="FighterMinusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="968-pq-TiF"/>
+                                            <action selector="FighterMinusButton" destination="hAw-Mn-ebQ" eventType="touchUpInside" id="Boy-iO-Z1z"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35O-bZ-B3S">
@@ -1901,7 +1655,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="TraderMinusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="YoY-N1-Fii"/>
+                                            <action selector="TraderMinusButton" destination="hAw-Mn-ebQ" eventType="touchUpInside" id="Akz-Jd-lYm"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkP-oc-15o">
@@ -1911,7 +1665,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="EngineerMinusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="yXL-mk-cas"/>
+                                            <action selector="EngineerMinusButton" destination="hAw-Mn-ebQ" eventType="touchUpInside" id="6EC-qD-hXh"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Normal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dx6-Zb-GVE">
@@ -1927,7 +1681,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="FighterPlusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="OgA-l1-xFn"/>
+                                            <action selector="FighterPlusButton" destination="hAw-Mn-ebQ" eventType="touchUpInside" id="qmM-v9-KKP"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aX-62-TNh">
@@ -1937,7 +1691,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="TraderPlusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="97Q-yh-hcS"/>
+                                            <action selector="TraderPlusButton" destination="hAw-Mn-ebQ" eventType="touchUpInside" id="86A-PN-kP0"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4M-Yh-V1s">
@@ -1947,7 +1701,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="EngineerPlusButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="VZi-2O-QBn"/>
+                                            <action selector="EngineerPlusButton" destination="hAw-Mn-ebQ" eventType="touchUpInside" id="dqx-eZ-Zkg"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6F-NN-TR8">
@@ -1986,7 +1740,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="OkButton" destination="BXy-0C-Nhw" eventType="touchUpInside" id="Wvb-h1-feH"/>
+                                            <action selector="OkButton" destination="hAw-Mn-ebQ" eventType="touchUpInside" id="cf7-8b-VT6"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YY-iE-RFk">
@@ -2010,10 +1764,21 @@
                             <constraint firstItem="6n4-ja-ens" firstAttribute="top" secondItem="TX6-c7-O41" secondAttribute="bottom" constant="50" id="gXs-cK-1N9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="OKButton" destination="FgZ-oF-t9v" id="obM-e8-R3f"/>
+                        <outlet property="difficultyLevel" destination="dx6-Zb-GVE" id="Du1-C9-LD9"/>
+                        <outlet property="engineerPoints" destination="Twf-A0-k66" id="46f-dx-rze"/>
+                        <outlet property="fighterPoints" destination="8dD-LI-OzA" id="mX6-lq-OJO"/>
+                        <outlet property="nameField" destination="nnT-55-CPc" id="BWC-AQ-66i"/>
+                        <outlet property="pilotPoints" destination="r6F-NN-TR8" id="hvj-Cd-oLB"/>
+                        <outlet property="skillPoints" destination="Lbv-5s-w5p" id="Sof-Ml-ALK"/>
+                        <outlet property="traderPoints" destination="e7b-Bv-JM4" id="oUK-Qn-RyX"/>
+                        <segue destination="Zyg-E7-QYl" kind="show" identifier="newCommanderToMain" id="64M-bi-8yt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O0j-ed-caq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-119" y="427"/>
+            <point key="canvasLocation" x="-49" y="150"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="vdJ-Vu-z9d">
