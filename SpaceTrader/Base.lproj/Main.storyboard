@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Buy Cargo-->
@@ -973,7 +974,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CE1-tQ-ZwZ">
-                                <rect key="frame" x="190" y="333" width="77" height="30"/>
+                                <rect key="frame" x="274" y="333" width="77" height="30"/>
                                 <state key="normal" title="Warp"/>
                                 <connections>
                                     <action selector="warpButton" destination="7yT-gW-eCt" eventType="touchUpInside" id="wFw-l4-KS4"/>
@@ -983,6 +984,13 @@
                                 <rect key="frame" x="128" y="371" width="350" height="200"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jP-eb-HYM">
+                                <rect key="frame" x="167" y="333" width="99" height="30"/>
+                                <state key="normal" title="Galactic Chart"/>
+                                <connections>
+                                    <segue destination="xWp-F5-yqg" kind="presentation" id="mOa-TD-K3W"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1005,6 +1013,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTA-qk-eCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2285" y="1045"/>
+        </scene>
+        <!--Galactic ChartVC-->
+        <scene sceneID="udT-xm-6fo">
+            <objects>
+                <viewController id="xWp-F5-yqg" customClass="GalacticChartVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ig7-TH-mrV"/>
+                        <viewControllerLayoutGuide type="bottom" id="E9d-Fn-lAc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NDZ-KJ-XKV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W4U-3Y-Ppa">
+                                <rect key="frame" x="20" y="20" width="560" height="560"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tM4-Dv-Rhi">
+                                        <rect key="frame" x="522" y="8" width="30" height="30"/>
+                                        <state key="normal" title="x"/>
+                                        <connections>
+                                            <action selector="closeButton" destination="xWp-F5-yqg" eventType="touchUpInside" id="6Zl-Nc-gfz"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Galactic Chart" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gla-d1-njB">
+                                        <rect key="frame" x="8" y="12" width="126" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="tM4-Dv-Rhi" secondAttribute="trailing" constant="8" id="y6x-QI-whz"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="W4U-3Y-Ppa" secondAttribute="leading" id="Dxb-M0-2bt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="W4U-3Y-Ppa" secondAttribute="trailing" id="R09-JM-cZz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="W4U-3Y-Ppa" secondAttribute="trailing" id="n7x-q8-Gp0"/>
+                            <constraint firstItem="W4U-3Y-Ppa" firstAttribute="top" secondItem="ig7-TH-mrV" secondAttribute="bottom" id="yeF-V7-GHN"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oWf-qV-9NY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2990" y="1045"/>
         </scene>
         <!--Sell Cargo-->
         <scene sceneID="y8P-Gd-QmM">

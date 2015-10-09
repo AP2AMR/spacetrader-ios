@@ -133,8 +133,13 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         
         // must check that information is complete--name must be present and valid.
         
+        if nameField.text == nil {
+            name = "Sampson"
+        } else {
+            name = nameField.text!
+        }
 
-        player = Commander(commanderName: "poop", difficulty: kludgeDifficulty, pilotSkill: pilot, fighterSkill: fighter, traderSkill: trader, engineerSkill: engineer)
+        player = Commander(commanderName: "name", difficulty: kludgeDifficulty, pilotSkill: pilot, fighterSkill: fighter, traderSkill: trader, engineerSkill: engineer)
         galaxy.createGalaxy()
         
         
