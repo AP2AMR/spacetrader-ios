@@ -446,6 +446,17 @@ class Commander {
         
     }
     
+    func buyFuel(units: Int) -> Bool {
+        let cost = units * player.commanderShip.costOfFuel
+        if player.credits >= cost {
+            player.commanderShip.fuel += units
+            player.credits -= cost
+            galaxy.getSystemsInRange()
+            return true
+        }
+        return false
+    }
+    
     func buyMaxFuel() -> Bool {
         let fuelNeeded = player.commanderShip.fuelTanks - player.commanderShip.fuel
         let cost = fuelNeeded * player.commanderShip.costOfFuel

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DockVC: UIViewController {
+class DockVC: UIViewController, FuelRepairModalDelegate {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var sizeLabel: UILabel!
@@ -78,6 +78,10 @@ class DockVC: UIViewController {
             // if not, don't
         }
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        updateUI()
+    }
 
     
     @IBAction func fuelButtonTapped() {
@@ -97,5 +101,15 @@ class DockVC: UIViewController {
     @IBAction func buyEscapePodTapped() {
     }
     
+    func modalDidFinish() {
+        updateUI()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "fuelRepairModal" {
+            let modalVC: FuelRepairModalVC = segue.destinationViewController as! FuelRepairModalVC
+            modalVC.delegate = self
+        }
+    }
     
 }

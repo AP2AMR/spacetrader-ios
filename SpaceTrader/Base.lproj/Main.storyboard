@@ -595,14 +595,23 @@
                                         <rect key="frame" x="198" y="162" width="37" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Max"/>
+                                        <connections>
+                                            <action selector="maxButton" destination="Z1D-po-ACl" eventType="touchUpInside" id="CFu-y0-K8T"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VDS-Ej-QfF">
                                         <rect key="frame" x="120" y="162" width="30" height="30"/>
                                         <state key="normal" title="OK"/>
+                                        <connections>
+                                            <action selector="okButton" destination="Z1D-po-ACl" eventType="touchUpInside" id="Ow0-Pz-kNJ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FiL-7u-kLd">
                                         <rect key="frame" x="35" y="162" width="48" height="30"/>
                                         <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelButton" destination="Z1D-po-ACl" eventType="touchUpInside" id="frX-Dk-5ak"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -623,6 +632,11 @@
                             <constraint firstItem="ZbB-QG-L06" firstAttribute="centerX" secondItem="X1r-xQ-JZl" secondAttribute="centerX" id="o1h-ob-SpN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="entryField" destination="ZbB-QG-L06" id="ZeA-Ty-exE"/>
+                        <outlet property="mainText" destination="Ufu-Dc-3YA" id="WI0-eM-gdZ"/>
+                        <outlet property="titleLabel" destination="tW8-du-W3F" id="C6G-Io-0cn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9aI-VI-O2L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -774,7 +788,7 @@
                                 <state key="normal" title="Repair"/>
                                 <connections>
                                     <action selector="repairButtonTapped" destination="iag-H1-Vfg" eventType="touchUpInside" id="YNR-Q3-vuc"/>
-                                    <segue destination="Z1D-po-ACl" kind="presentation" modalPresentationStyle="overCurrentContext" id="mJM-uB-n8g"/>
+                                    <segue destination="Z1D-po-ACl" kind="presentation" identifier="fuelRepairModal" modalPresentationStyle="overCurrentContext" id="mJM-uB-n8g"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Your hull strength is at 100%. No repairs are needed." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TWt-WD-TBN">
