@@ -29,6 +29,8 @@ class DockVC: UIViewController, FuelRepairModalDelegate {
     @IBOutlet weak var buySellEquipmentAccess: UIButton!
     @IBOutlet weak var buyEscapePodAccess: UIButton!
     
+    var fuelAsOpposedToRepair = true
+    
     
     
     override func viewDidLoad() {
@@ -85,11 +87,13 @@ class DockVC: UIViewController, FuelRepairModalDelegate {
 
     
     @IBAction func fuelButtonTapped() {
-        player.buyMaxFuel()
-        updateUI()
+        fuelAsOpposedToRepair = true
+        performSegueWithIdentifier("fuelRepairModal", sender: self)
     }
     
     @IBAction func repairButtonTapped() {
+        fuelAsOpposedToRepair = false
+        performSegueWithIdentifier("fuelRepairModal", sender: self)
     }
     
     @IBAction func viewShipInfoTapped() {
