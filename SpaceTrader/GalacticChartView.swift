@@ -53,14 +53,21 @@ class GalacticChartView: UIView {
     
     // draws planet, also draws wormhole if necessary.
     func drawPlanet(system: StarSystem) {
-        let currentSystemMapXCoord: CGFloat = locationOfCurrentPlanet.x
-        let currentSystemMapYCoord: CGFloat = locationOfCurrentPlanet.y
         
-        let xDifference: CGFloat = CGFloat(galaxy.currentSystem!.xCoord) - CGFloat(system.xCoord)
-        let yDifference: CGFloat = CGFloat(galaxy.currentSystem!.yCoord) - CGFloat(system.yCoord)
+        // this is the center
+        //let currentSystemMapXCoord: CGFloat = locationOfCurrentPlanet.x
+        //let currentSystemMapYCoord: CGFloat = locationOfCurrentPlanet.y
         
-        let xCoord: CGFloat = currentSystemMapXCoord + (xDifference * CGFloat(pointsPerParsec))
-        let yCoord: CGFloat = currentSystemMapYCoord + (yDifference * CGFloat(pointsPerParsec))
+        // this is distance it should be from center
+        //let xDifference: CGFloat = CGFloat(galaxy.currentSystem!.xCoord) - CGFloat(system.xCoord)
+        //let yDifference: CGFloat = CGFloat(galaxy.currentSystem!.yCoord) - CGFloat(system.yCoord)
+        
+        // current map coord: center + differenceFromCenter
+        //let xCoord: CGFloat = currentSystemMapXCoord + (xDifference * CGFloat(pointsPerParsec))
+        //let yCoord: CGFloat = currentSystemMapYCoord + (yDifference * CGFloat(pointsPerParsec))
+        
+        let xCoord: CGFloat = CGFloat(system.xCoord + 6) * pointsPerParsec
+        let yCoord: CGFloat = CGFloat(system.yCoord + 3) * pointsPerParsec
         
         let location = CGPointMake(xCoord, yCoord)
         let visited: Bool = system.visited
@@ -68,16 +75,11 @@ class GalacticChartView: UIView {
         
         drawPlanetCircle(location, visited: visited)
         
-        // add name
-//        let nameLocationX: CGFloat = xCoord - 15
-//        let nameLocationY: CGFloat = yCoord - 20
-//        let nameLocation = CGPointMake(nameLocationX, nameLocationY)
-//        let text = NSAttributedString(string: system.name)
-//        text.drawAtPoint(nameLocation)
-        
         // add to planetsOnMap
         let mapEntry = mapPlanet(system: system, mapLocation: location)
         planetsOnMap.append(mapEntry)
+        print("map x coord: \(xCoord)")
+        print("map y coord: \(yCoord)")
         
         // if planet has a wormhole, draw one of those, and add it to the map
         if system.wormhole {
@@ -166,7 +168,7 @@ class GalacticChartView: UIView {
         
         let upperTick = UIBezierPath()
         upperTick.moveToPoint(CGPoint(x: planetZeroX, y: planetZeroY - 5))
-        upperTick.addLineToPoint(CGPoint(x: planetZeroX, y: planetZeroY - 8))
+        upperTick.addLineToPoint(CGPoint(x: planetZeroX, y: planetZeroY - 10))
         upperTick.lineWidth = 2.0
         UIColor.blackColor().setStroke()
         upperTick.stroke()
