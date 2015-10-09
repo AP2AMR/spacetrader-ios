@@ -50,6 +50,7 @@ class ShortRangeChartView: UIView {
         for mapPlanet in planetsOnMap {
             if mapPlanet.system.name == galaxy.targetSystem!.name {
                 drawTargetCrosshairs(mapPlanet)
+                print("short range chart local coords: \(mapPlanet.mapLocation.x), \(mapPlanet.mapLocation.y)")
             }
         }
     }
@@ -64,8 +65,8 @@ class ShortRangeChartView: UIView {
         let xDifference: CGFloat = CGFloat(galaxy.currentSystem!.xCoord) - CGFloat(system.xCoord)
         let yDifference: CGFloat = CGFloat(galaxy.currentSystem!.yCoord) - CGFloat(system.yCoord)
         
-        let xCoord: CGFloat = currentSystemMapXCoord + (xDifference * CGFloat(pointsPerParsec))
-        let yCoord: CGFloat = currentSystemMapYCoord + (yDifference * CGFloat(pointsPerParsec))
+        let xCoord: CGFloat = currentSystemMapXCoord - (xDifference * CGFloat(pointsPerParsec))
+        let yCoord: CGFloat = currentSystemMapYCoord - (yDifference * CGFloat(pointsPerParsec))
 
         let location = CGPointMake(xCoord, yCoord)
         let visited: Bool = system.visited

@@ -64,18 +64,6 @@ class GalacticChartView: UIView {
     // draws planet, also draws wormhole if necessary.
     func drawPlanet(system: StarSystem) {
         
-        // this is the center
-        //let currentSystemMapXCoord: CGFloat = locationOfCurrentPlanet.x
-        //let currentSystemMapYCoord: CGFloat = locationOfCurrentPlanet.y
-        
-        // this is distance it should be from center
-        //let xDifference: CGFloat = CGFloat(galaxy.currentSystem!.xCoord) - CGFloat(system.xCoord)
-        //let yDifference: CGFloat = CGFloat(galaxy.currentSystem!.yCoord) - CGFloat(system.yCoord)
-        
-        // current map coord: center + differenceFromCenter
-        //let xCoord: CGFloat = currentSystemMapXCoord + (xDifference * CGFloat(pointsPerParsec))
-        //let yCoord: CGFloat = currentSystemMapYCoord + (yDifference * CGFloat(pointsPerParsec))
-        
         let xCoord: CGFloat = CGFloat(system.xCoord + 6) * pointsPerParsec
         let yCoord: CGFloat = CGFloat(system.yCoord + 3) * pointsPerParsec
         
@@ -88,8 +76,6 @@ class GalacticChartView: UIView {
         // add to planetsOnMap
         let mapEntry = mapPlanet(system: system, mapLocation: location)
         planetsOnMap.append(mapEntry)
-        print("map x coord: \(xCoord)")
-        print("map y coord: \(yCoord)")
         
         // if planet has a wormhole, draw one of those, and add it to the map
         if system.wormhole {
