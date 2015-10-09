@@ -139,7 +139,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     @IBAction func buyWaterTapped(sender: AnyObject) {
         //print("buy water tapped, sender side")
         buySellCommodity = TradeItemType.Water
-        performSegueWithIdentifier("buyModal", sender: sender) //TradeItemType.Water)
+        performSegueWithIdentifier("buyModal", sender: sender)
     }
     
     @IBAction func buyFursTapped(sender: AnyObject) {
