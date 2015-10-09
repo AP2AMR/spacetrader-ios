@@ -43,13 +43,13 @@ class GalacticChartView: UIView {
         for mapPlanet in planetsOnMap {
             if mapPlanet.system.name == galaxy.targetSystem!.name {
                 drawTargetCrosshairs(mapPlanet)
-                print("galactic map location: \(mapPlanet.mapLocation.x), \(mapPlanet.mapLocation.y)")
-                print("system coordinates: \(mapPlanet.system.xCoord), \(mapPlanet.system.yCoord)")
             }
             if mapPlanet.system.name == galaxy.currentSystem!.name {
                 drawRangeCircle(mapPlanet.mapLocation)
             }
         }
+        
+        // maybe draw red arrow for wormhole?
     }
     
     func drawRangeCircle(mapLocation: CGPoint) {
@@ -57,6 +57,20 @@ class GalacticChartView: UIView {
         rangeCirclePath.lineWidth = 1
         circleColor.set()
         rangeCirclePath.stroke()
+    }
+    
+    func drawWormholeArrow(startWormhole: mapPlanet, endWormhole: mapPlanet) {
+        let startX: CGFloat = startWormhole.mapLocation.x
+        let startY: CGFloat = startWormhole.mapLocation.y
+        let endX: CGFloat = endWormhole.mapLocation.x
+        let endY: CGFloat = endWormhole.mapLocation.y
+        
+        let redArrow = UIBezierPath()
+        redArrow.moveToPoint(CGPoint(x: startX, y: startY))
+        redArrow.addLineToPoint(CGPoint(x: endX, y: endY))
+        redArrow.lineWidth = 3.0
+        UIColor.redColor().setStroke()
+        redArrow.stroke()
     }
     
     
@@ -79,7 +93,7 @@ class GalacticChartView: UIView {
         
         // if planet has a wormhole, draw one of those, and add it to the map
         if system.wormhole {
-            let wormholeX = location.x + 10
+            let wormholeX = location.x + 7
             let wormholeY = location.y
             let wormholeLocation = CGPoint(x: wormholeX, y: wormholeY)
             drawWormholeCircle(wormholeLocation)

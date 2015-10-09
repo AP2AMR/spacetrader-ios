@@ -50,7 +50,6 @@ class ShortRangeChartView: UIView {
         for mapPlanet in planetsOnMap {
             if mapPlanet.system.name == galaxy.targetSystem!.name {
                 drawTargetCrosshairs(mapPlanet)
-                print("short range chart local coords: \(mapPlanet.mapLocation.x), \(mapPlanet.mapLocation.y)")
             }
         }
     }
