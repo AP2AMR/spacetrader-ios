@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewCommanderVC: UIViewController {
+class NewCommanderVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameField: UITextField!
     
@@ -19,6 +19,13 @@ class NewCommanderVC: UIViewController {
     @IBOutlet weak var fighterPoints: UILabel!
     @IBOutlet weak var traderPoints: UILabel!
     @IBOutlet weak var engineerPoints: UILabel!
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool // called when 'return' key pressed. return NO to ignore.
+    {
+        textField.resignFirstResponder()
+        return true;
+    }
+    
     
     var availableSkill: Int {
         get {
@@ -87,7 +94,9 @@ class NewCommanderVC: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
         
-        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        nameField.delegate = self
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
 
         // Do any additional setup after loading the view.
