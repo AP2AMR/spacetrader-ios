@@ -1042,9 +1042,27 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Le1-rW-Y7j" customClass="ShortRangeChartView" customModule="SpaceTrader" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="312" width="544" height="192"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m0z-TI-hcG" customClass="GalacticChartView" customModule="SpaceTrader" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="41" width="544" height="234"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Short-Range Chart" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7f6-Lz-3bE">
+                                        <rect key="frame" x="8" y="283" width="156" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="m0z-TI-hcG" firstAttribute="leading" secondItem="W4U-3Y-Ppa" secondAttribute="leading" constant="8" id="2RE-YF-a38"/>
+                                    <constraint firstAttribute="bottom" secondItem="Le1-rW-Y7j" secondAttribute="bottom" constant="56" id="EDb-gg-hte"/>
+                                    <constraint firstAttribute="trailing" secondItem="m0z-TI-hcG" secondAttribute="trailing" constant="8" id="dX2-k1-zf4"/>
+                                    <constraint firstAttribute="trailing" secondItem="Le1-rW-Y7j" secondAttribute="trailing" constant="8" id="erG-cs-DzP"/>
                                     <constraint firstAttribute="trailing" secondItem="tM4-Dv-Rhi" secondAttribute="trailing" constant="8" id="y6x-QI-whz"/>
                                 </constraints>
                             </view>
@@ -1054,6 +1072,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="W4U-3Y-Ppa" secondAttribute="leading" id="Dxb-M0-2bt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="W4U-3Y-Ppa" secondAttribute="trailing" id="R09-JM-cZz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="W4U-3Y-Ppa" secondAttribute="trailing" id="n7x-q8-Gp0"/>
+                            <constraint firstItem="Le1-rW-Y7j" firstAttribute="leading" secondItem="NDZ-KJ-XKV" secondAttribute="leadingMargin" constant="8" id="x9b-3F-3lM"/>
                             <constraint firstItem="W4U-3Y-Ppa" firstAttribute="top" secondItem="ig7-TH-mrV" secondAttribute="bottom" id="yeF-V7-GHN"/>
                         </constraints>
                     </view>

@@ -35,6 +35,7 @@
 		5AD5F8C21B9FB54E00154B21 /* Galaxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8C11B9FB54E00154B21 /* Galaxy.swift */; };
 		5AEC942C1BC84B2900C68F7F /* NewGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEC942B1BC84B2900C68F7F /* NewGameVC.swift */; settings = {ASSET_TAGS = (); }; };
 		5AEC942E1BC8594F00C68F7F /* GalacticChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEC942D1BC8594F00C68F7F /* GalacticChartVC.swift */; settings = {ASSET_TAGS = (); }; };
+		5AEC94301BC85CF100C68F7F /* GalacticChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEC942F1BC85CF100C68F7F /* GalacticChartView.swift */; settings = {ASSET_TAGS = (); }; };
 		5AF1CA2D1BA36C2300643C5F /* NewCommanderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF1CA2C1BA36C2300643C5F /* NewCommanderVC.swift */; };
 		5AF1CA2F1BAB3E7A00643C5F /* BuyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF1CA2E1BAB3E7A00643C5F /* BuyVC.swift */; };
 /* End PBXBuildFile section */
@@ -82,6 +83,7 @@
 		5AD5F8C11B9FB54E00154B21 /* Galaxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Galaxy.swift; sourceTree = "<group>"; };
 		5AEC942B1BC84B2900C68F7F /* NewGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameVC.swift; sourceTree = "<group>"; };
 		5AEC942D1BC8594F00C68F7F /* GalacticChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalacticChartVC.swift; sourceTree = "<group>"; };
+		5AEC942F1BC85CF100C68F7F /* GalacticChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalacticChartView.swift; sourceTree = "<group>"; };
 		5AF1CA2C1BA36C2300643C5F /* NewCommanderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCommanderVC.swift; sourceTree = "<group>"; };
 		5AF1CA2E1BAB3E7A00643C5F /* BuyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -190,12 +192,13 @@
 				5AF1CA2E1BAB3E7A00643C5F /* BuyVC.swift */,
 				5A518FB11BC18C0B00021B13 /* DockVC.swift */,
 				5A518FB51BC80CF800021B13 /* FuelRepairModalVC.swift */,
+				5AEC942D1BC8594F00C68F7F /* GalacticChartVC.swift */,
+				5AEC942F1BC85CF100C68F7F /* GalacticChartView.swift */,
 				5AF1CA2C1BA36C2300643C5F /* NewCommanderVC.swift */,
 				5AEC942B1BC84B2900C68F7F /* NewGameVC.swift */,
 				5A078ABE1BB1CBD20005155D /* SellVC.swift */,
 				5A518FB31BC31E9200021B13 /* ShortRangeChartView.swift */,
 				5A518FAF1BC0ACC400021B13 /* WarpVC.swift */,
-				5AEC942D1BC8594F00C68F7F /* GalacticChartVC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				5A0265C21BA329670079F6DE /* Commander.swift in Sources */,
 				5A0265C01B9FDE1E0079F6DE /* PoliticsType.swift in Sources */,
 				5AD5F8921B9A122200154B21 /* AppDelegate.swift in Sources */,
+				5AEC94301BC85CF100C68F7F /* GalacticChartView.swift in Sources */,
 				5A518FB01BC0ACC400021B13 /* WarpVC.swift in Sources */,
 				5A078ABF1BB1CBD20005155D /* SellVC.swift in Sources */,
 				5AD5F8B81B9E1B5C00154B21 /* Enums.swift in Sources */,
