@@ -44,10 +44,20 @@ class GalacticChartView: UIView {
             if mapPlanet.system.name == galaxy.targetSystem!.name {
                 drawTargetCrosshairs(mapPlanet)
             }
+            
+            // range circle
             if mapPlanet.system.name == galaxy.currentSystem!.name {
                 drawRangeCircle(mapPlanet.mapLocation)
             }
+//            if mapPlanet.throughWormhole {
+//                // DEAL WITH THIS LATER
+//                // find destination system
+//                print("*********************************************************************")
+//                print("you selected a wormhole. Destination: \(mapPlanet.system.name)")
+//                
+//            }
         }
+        
         
         // maybe draw red arrow for wormhole?
     }
@@ -55,7 +65,7 @@ class GalacticChartView: UIView {
     func drawRangeCircle(mapLocation: CGPoint) {
         let rangeCirclePath = UIBezierPath(arcCenter: mapLocation, radius: rangeCircleRadius, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
         rangeCirclePath.lineWidth = 1
-        circleColor.set()
+        UIColor.blackColor().setStroke()
         rangeCirclePath.stroke()
     }
     
