@@ -321,18 +321,110 @@ class Galaxy {
         verifyAndFixProximity()
         
         // set wormhole destinations
-        var indicesOfPlanetsWithWormholes: [Int] = [0, 1, 2, 3, 4, 5]
+        var planetsWithWormholes: [StarSystem] = []
+        
+        // populate list
         for planet in planets {
             if planet.wormhole {
-                // randomly choose a number in the array
-                let index = Int(arc4random_uniform(UInt32(indicesOfPlanetsWithWormholes.count)))
-                let number = indicesOfPlanetsWithWormholes[index]
-                // remove it from the array
-                indicesOfPlanetsWithWormholes.removeAtIndex(index)
-                // assign it
-                planet.wormholeDestination = planets[number]        // this just fixed
+                planetsWithWormholes.append(planet)
             }
         }
+        
+        // assign randomly
+        var doOverNecessary = true
+        var repetitions: Int = 0
+        
+        while doOverNecessary == true {
+            print("times through the loop: \(repetitions)")
+            repetitions += 1
+            for planet in planetsWithWormholes {
+                var indicesOfPlanetsWithUnassignedWormholes: [Int] = [0, 1, 2, 3, 4, 5]
+                doOverNecessary = false
+                let randomIndex = Int(arc4random_uniform(UInt32(indicesOfPlanetsWithUnassignedWormholes.count)))
+                let destinationIndex = indicesOfPlanetsWithUnassignedWormholes[randomIndex]
+                indicesOfPlanetsWithUnassignedWormholes.removeAtIndex(randomIndex)
+                planet.wormholeDestination = planets[destinationIndex]
+                
+                
+                // make sure planet not assigned to self
+                if planet.wormholeDestination!.name == planet.name {
+                    doOverNecessary = true
+                }
+            }
+            
+
+            // check to see that all six are in a single chain
+            for index in 0...5 {
+                // check each does not point to self
+                if planets[index].wormholeDestination!.name == planets[index].name {
+                    doOverNecessary = true
+                }
+                
+                // check not 2 loop
+                if planets[index].wormholeDestination!.wormholeDestination!.name == planets[index].name {
+                    doOverNecessary = true
+                }
+                
+                // check not 3 loop
+                if planets[index].wormholeDestination!.wormholeDestination!.wormholeDestination!.name == planets[index].name {
+                    doOverNecessary = true
+                }
+                
+                // check not 4 loop
+                if planets[index].wormholeDestination!.wormholeDestination!.wormholeDestination!.wormholeDestination!.name == planets[index].name {
+                    doOverNecessary = true
+                }
+                
+                // check not 5 loop
+                if planets[index].wormholeDestination!.wormholeDestination!.wormholeDestination!.wormholeDestination!.wormholeDestination!.name == planets[index].name {
+                    doOverNecessary = true
+                }
+            }
+            
+            // make sure is a 6 loop
+            if planets[0].wormholeDestination!.wormholeDestination!.wormholeDestination!.wormholeDestination!.wormholeDestination!.wormholeDestination!.name == planets[0].name {
+                continue
+            } else {
+                doOverNecessary = true
+            }
+        }
+        
+        
+        
+//        var indicesOfPlanetsWithWormholes: [Int] = [0, 1, 2, 3, 4, 5]
+//        for planet in planets {
+//            if planet.wormhole {
+//                // randomly choose a number in the array
+//                var index: Int = 50
+//                var number: Int = 50
+//                // must make sure planet is not assigned its own index
+//            
+//                index = Int(arc4random_uniform(UInt32(indicesOfPlanetsWithWormholes.count)))
+//                number = indicesOfPlanetsWithWormholes[index]
+//                
+//                while number == planet.indexNumber {
+//                    index = Int(arc4random_uniform(UInt32(indicesOfPlanetsWithWormholes.count)))
+//                    number = indicesOfPlanetsWithWormholes[index]
+//                    if (planet.indexNumber == 5) && (number == 5) {
+//                        print("this is the infinite loop case. Handling manually")
+//                        let oldFourthDestination = planets[4].wormholeDestination
+//                        planets[5].wormholeDestination = oldFourthDestination
+//                        planets[4].wormholeDestination =
+//                    }
+//                    print("while loop: planet index: \(planet.indexNumber), wormhole index: \(number)")
+//                }
+//                
+//                
+//                
+//                print("first round: planet index: \(planet.indexNumber), wormhole index: \(number)")
+//                // doesn't work because if failure is on 5, there is no other option
+//                
+//                // remove it from the array
+//                indicesOfPlanetsWithWormholes.removeAtIndex(index)
+//                // assign it
+//                planet.wormholeDestination = planets[number]
+//            }
+//        }
         
         currentSystem = planets[50]             // FIX THIS. ARBITRARY CHOICE TO BE REPLACED
         currentSystem!.visited = true
@@ -387,12 +479,12 @@ class Galaxy {
         
         print("******************************************************************")
         print("WORMHOLE MAPPING:")
-        print("planet 0. Name: \(planets[0].name), wormhole destination: \(planets[0].wormholeDestination?.name)")
-        print("planet 1. Name: \(planets[1].name), wormhole destination: \(planets[1].wormholeDestination?.name)")
-        print("planet 2. Name: \(planets[2].name), wormhole destination: \(planets[2].wormholeDestination?.name)")
-        print("planet 3. Name: \(planets[3].name), wormhole destination: \(planets[3].wormholeDestination?.name)")
-        print("planet 4. Name: \(planets[4].name), wormhole destination: \(planets[4].wormholeDestination?.name)")
-        print("planet 5. Name: \(planets[5].name), wormhole destination: \(planets[5].wormholeDestination?.name)")
+        print("planet 0. Name: \(planets[0].name), wormhole destination: \(planets[0].wormholeDestination!.name)")
+        print("planet 1. Name: \(planets[1].name), wormhole destination: \(planets[1].wormholeDestination!.name)")
+        print("planet 2. Name: \(planets[2].name), wormhole destination: \(planets[2].wormholeDestination!.name)")
+        print("planet 3. Name: \(planets[3].name), wormhole destination: \(planets[3].wormholeDestination!.name)")
+        print("planet 4. Name: \(planets[4].name), wormhole destination: \(planets[4].wormholeDestination!.name)")
+        print("planet 5. Name: \(planets[5].name), wormhole destination: \(planets[5].wormholeDestination!.name)")
         
     }
     
