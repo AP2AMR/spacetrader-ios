@@ -44,19 +44,23 @@ class GalacticChartView: UIView {
             if mapPlanet.system.name == galaxy.targetSystem!.name {
                 drawTargetCrosshairs(mapPlanet)
                 print("drawing crosshairs on \(mapPlanet.system.name)")
+                if mapPlanet.throughWormhole {
+                    print("target system is through a wormhole")
+                    // get other end of wormhole
+                    for potentialDestination in planetsOnMap {
+                        if (potentialDestination.system.name == mapPlanet.system.name) && (potentialDestination.throughWormhole == false) {
+                            let otherEnd = potentialDestination
+                            drawWormholeArrow(mapPlanet, endWormhole: otherEnd)
+                        }
+                    }
+                }
             }
             
             // range circle
             if mapPlanet.system.name == galaxy.currentSystem!.name {
                 drawRangeCircle(mapPlanet.mapLocation)
             }
-//            if mapPlanet.throughWormhole {
-//                // DEAL WITH THIS LATER
-//                // find destination system
-//                print("*********************************************************************")
-//                print("you selected a wormhole. Destination: \(mapPlanet.system.name)")
-//                
-//            }
+
         }
         
         
@@ -79,8 +83,8 @@ class GalacticChartView: UIView {
         let redArrow = UIBezierPath()
         redArrow.moveToPoint(CGPoint(x: startX, y: startY))
         redArrow.addLineToPoint(CGPoint(x: endX, y: endY))
-        redArrow.lineWidth = 3.0
-        UIColor.redColor().setStroke()
+        redArrow.lineWidth = 1.0
+        UIColor.blackColor().setStroke()
         redArrow.stroke()
     }
     
@@ -110,7 +114,7 @@ class GalacticChartView: UIView {
             drawWormholeCircle(wormholeLocation)
             
             let wormholeMapEntry = mapPlanet(system: system.wormholeDestination!, mapLocation: wormholeLocation)
-            wormholeMapEntry.throughWormhole == true
+            wormholeMapEntry.throughWormhole = true
             planetsOnMap.append(wormholeMapEntry)
         }
         

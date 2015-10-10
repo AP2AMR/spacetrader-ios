@@ -238,7 +238,7 @@ class ShortRangeChartView: UIView {
 class mapPlanet {
     let system: StarSystem
     let mapLocation: CGPoint
-    let throughWormhole: Bool = false
+    var throughWormhole: Bool = false
     
     init(system: StarSystem, mapLocation: CGPoint) {
         self.system = system
