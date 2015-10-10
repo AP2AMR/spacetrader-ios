@@ -43,6 +43,7 @@ class GalacticChartView: UIView {
         for mapPlanet in planetsOnMap {
             if mapPlanet.system.name == galaxy.targetSystem!.name {
                 drawTargetCrosshairs(mapPlanet)
+                print("drawing crosshairs on \(mapPlanet.system.name)")
             }
             
             // range circle
