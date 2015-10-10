@@ -385,6 +385,15 @@ class Galaxy {
             print("robotsSell: \(planet.robotsSell)")
         }
         
+        print("******************************************************************")
+        print("WORMHOLE MAPPING:")
+        print("planet 0. Name: \(planets[0].name), wormhole destination: \(planets[0].wormholeDestination?.name)")
+        print("planet 1. Name: \(planets[1].name), wormhole destination: \(planets[1].wormholeDestination?.name)")
+        print("planet 2. Name: \(planets[2].name), wormhole destination: \(planets[2].wormholeDestination?.name)")
+        print("planet 3. Name: \(planets[3].name), wormhole destination: \(planets[3].wormholeDestination?.name)")
+        print("planet 4. Name: \(planets[4].name), wormhole destination: \(planets[4].wormholeDestination?.name)")
+        print("planet 5. Name: \(planets[5].name), wormhole destination: \(planets[5].wormholeDestination?.name)")
+        
     }
     
     func getDistance(system1: StarSystem, system2: StarSystem) -> Int {
