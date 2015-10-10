@@ -635,4 +635,19 @@ class Commander {
             return 0
         }
     }
+    
+    func getDifficultyInt() -> Int {
+        switch difficulty {
+            case .beginner:
+                return 0
+            case .easy:
+                return 1
+            case .normal:
+                return 2
+            case .hard:
+                return 3
+            case .impossible:
+                return 4
+        }
+    }
 }

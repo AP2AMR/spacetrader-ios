@@ -1155,6 +1155,23 @@ class Galaxy {
                 }
             }
             
+            // encounter with space monster at acamar?
+            
+            // encounter with stolen scarab?
+            
+            // encounter with stolen dragonfly?
+            
+            // encounter with alien mantis at Gemulon if invasion happened?
+            
+            // ELSE, check if it is time for an encounter
+            var encounterTest = Int(arc4random_uniform(UInt32(44 - (2 * player.getDifficultyInt()))))
+            print("encounter test: \(encounterTest)")
+            
+            // encounters are half as likely if you're in a flea
+            if player.commanderShip.type == ShipType.Flea {
+                encounterTest = encounterTest / 2
+            }
+            
             
             print("current range: \(clicks) clicks. ")
             clicks -= 1
