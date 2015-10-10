@@ -42,7 +42,7 @@ var buyAsOpposedToSell: Bool = true
 
 // settable constants:
 
-let MAXSOLARSYSTEM = 120
+let MAXSOLARSYSTEM = 119
 let MAXWORMHOLE = 6
 let MINDISTANCE = 6
 let CLOSEDISTANCE = 13
