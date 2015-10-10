@@ -12,6 +12,7 @@ class Shield {
     let type: ShieldType
     let name: String
     let power: Int
+    var currentStrength: Int = 0    // do we want to initialize them at zero? I think so?
     let price: Int
     let techLevel: TechLevelType
     let chance: Int                 // percent chance that this is fitted in a slot

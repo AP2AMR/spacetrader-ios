@@ -1109,6 +1109,8 @@ class Galaxy {
             getSystemsInRange()
             updateGalaxy()          // now just increments days and runs shuffleStatus. Will eventially hold special event related things
             updateQuantities()      // reset quantities with time
+            player.commanderShip.fuel -= journeyDistance
+            getSystemsInRange()
             
             // check things to see if warp can happen. Fuel, enough money to pay mercenaries, taxes, interest.
             
@@ -1120,18 +1122,43 @@ class Galaxy {
             
             // news events
             
-            // decrement fuel by distance
+            generateEncounters()
             
-            player.commanderShip.fuel -= journeyDistance
             
-            // print("post-warp fuel: \(player.commanderShip.fuel)")
-            // print("is new target system in range? \(targetSystemInRange)")
+        
             
-            // recalculate systemsInRange
-            getSystemsInRange()
             return true
         }
         return false
+    }
+    
+    func generateEncounters() {
+        var clicks = 20
+        
+        // handle possibility of spacetime rip
+        
+        while clicks > 0 {
+            
+            // engineer may do some repairs
+            let repairs = Int(arc4random_uniform(UInt32(player.engineerSkill))) / 2
+            print("repairs: \(repairs)")
+            player.commanderShip.hull += repairs
+            if player.commanderShip.hull >= player.commanderShip.hullStrength {
+                player.commanderShip.hull = player.commanderShip.hullStrength
+            }
+            
+            // shields are easier
+            for shield in player.commanderShip.shield {
+                shield.currentStrength += repairs
+                if shield.currentStrength >= shield.power {
+                    shield.currentStrength = shield.power
+                }
+            }
+            
+            
+            print("current range: \(clicks) clicks. ")
+            clicks -= 1
+        }
     }
 
     
