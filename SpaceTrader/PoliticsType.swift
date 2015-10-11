@@ -197,8 +197,8 @@ class Politics {
         case PoliticsType.satori:
             self.name = "State of Satori"
             self.reactionIllegal = 4
-            self.activityPolice = 2
-            self.activityPirates = 5
+            self.activityPolice = 2     // THESE ARE BOTH VERY SUSPICIOUS VALUES
+            self.activityPirates = 5    //
             self.activityTraders = 3
             self.minTech = TechLevelType.techLevel0
             self.maxTech = TechLevelType.techLevel1
