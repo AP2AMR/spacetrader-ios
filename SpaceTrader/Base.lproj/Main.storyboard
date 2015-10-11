@@ -1008,7 +1008,7 @@
                         <outlet property="shortRangeChart" destination="x85-0a-Xbg" id="ilg-oa-7Ea"/>
                         <outlet property="sizeLabel" destination="utd-LI-saJ" id="9u9-ZH-qbm"/>
                         <outlet property="techLevelLabel" destination="Fqp-7l-xCY" id="Qic-Cr-ZDP"/>
-                        <segue destination="Z73-QX-bwt" kind="presentation" id="EH0-ci-QzU"/>
+                        <segue destination="Z73-QX-bwt" kind="presentation" identifier="encounterModal" id="EH0-ci-QzU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTA-qk-eCd" userLabel="First Responder" sceneMemberID="firstResponder"/>

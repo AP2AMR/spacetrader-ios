@@ -1225,6 +1225,7 @@ class Galaxy {
             // create encounter
             if pirate {
                 print("PIRATE ENCOUNTER AT \(clicks) CLICKS")
+                runEncounter("pirate")
             } else if police {
                 print("POLICE ENCOUNTER AT \(clicks) CLICKS")
             } else if trader {
@@ -1282,6 +1283,10 @@ class Galaxy {
         // autofuel & autorepair
         
         // Og system lightning shield easter egg?
+    }
+    
+    func runEncounter(type: String) {
+        performSegueWithIdentifier("encounterModal", sender: self)
     }
 
     
