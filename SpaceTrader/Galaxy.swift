@@ -1138,6 +1138,8 @@ class Galaxy {
         var police = false
         var trader = false
         
+        var mantis = false
+        
         let localPolitics = Politics(type: galaxy.currentSystem!.politics)
         
         let strengthPirates = localPolitics.activityPirates
@@ -1146,11 +1148,13 @@ class Galaxy {
         
         // handle possibility of spacetime rip
         
+        print("****************************************************")
+        print("WARP SEQUENCE BEGUN")
+        
         while clicks > 0 {
             
             // engineer may do some repairs
             let repairs = Int(arc4random_uniform(UInt32(player.engineerSkill))) / 2
-            print("repairs: \(repairs)")
             player.commanderShip.hull += repairs
             if player.commanderShip.hull >= player.commanderShip.hullStrength {
                 player.commanderShip.hull = player.commanderShip.hullStrength
@@ -1193,16 +1197,67 @@ class Galaxy {
             if !pirate && !police && !trader {
                 if player.commanderShip.artifactOnBoard && (arc4random_uniform(20) <= 3) {
                     // mantis
-                    print("MANTIS ENCOUNTER AT \(clicks) clicks")
+                    mantis = true
+                    print("MANTIS ENCOUNTER AT \(clicks) CLICKS")
                 }
             }
             
-            //
+            // create encounter
+            if pirate {
+                print("PIRATE ENCOUNTER AT \(clicks) CLICKS")
+            } else if police {
+                print("POLICE ENCOUNTER AT \(clicks) CLICKS")
+            } else if trader {
+                print("TRADER ENCOUNTER AT \(clicks) CLICKS")
+            }
             
+            // very rare event
+            if !pirate && !police && !trader && !mantis {
+                if (player.days > 10) && (arc4random_uniform(1000) < 5) {
+                    print("VERY RARE ENCOUNTER")
+                } else if player.commanderShip.justLootedMarieCeleste {
+                    print("CHANCE OF POLICE ENCOUNTER OVER MARIE CELESTE")
+                    player.commanderShip.justLootedMarieCeleste = false
+                }
+            }
             
-            print("current range: \(clicks) clicks. ")
+            if pirate || police || trader || mantis {
+                player.uneventfulTrip = false
+            }
+            
             clicks -= 1
         }
+        
+        // arrive
+        if player.uneventfulTrip {
+            print("After an uneventful trip, you arrive at your destination")
+            player.uneventfulTrip = true
+        } else {
+            print("Arrival alert goes here.")
+        }
+        
+        if player.debt > 75000 {
+            print("LARGE DEBT WARNING")
+        }
+        
+        if player.debt > 0 && player.remindLoans && (player.days % 5 == 0) {
+            print("LOAN REMINDER")
+        }
+        
+        // reactor warnings?
+        
+        // if arrived at tracked system, set tracked system to nil
+        
+        // tribbles:
+            // if present, increase their number
+            // handle irradiated tribbles
+            // handle high tribbles
+            // handle tribbles eating food
+            // if tribbles increased past certain thresholds, trigger alert
+        
+        // autofuel & autorepair
+        
+        // Og system lightning shield easter egg?
     }
 
     

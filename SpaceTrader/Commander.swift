@@ -17,6 +17,11 @@ class Commander {
     var debt: Int = 0
     var days: Int = 0
     
+    var uneventfulTrip = true
+    var remindLoans = false
+    var autoFuel = false
+    var autoRepair = false
+    
     // skills
     var pilotSkill: Int
     var fighterSkill: Int
