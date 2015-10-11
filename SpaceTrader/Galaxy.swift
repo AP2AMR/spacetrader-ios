@@ -1134,6 +1134,15 @@ class Galaxy {
     
     func generateEncounters() {
         var clicks = 20
+        var pirate = false
+        var police = false
+        var trader = false
+        
+        let localPolitics = Politics(type: galaxy.currentSystem!.politics)
+        
+        let strengthPirates = localPolitics.activityPirates
+        let strengthPolice = localPolitics.activityPolice
+        let strengthTraders = localPolitics.activityTraders
         
         // handle possibility of spacetime rip
         
@@ -1171,6 +1180,24 @@ class Galaxy {
             if player.commanderShip.type == ShipType.Flea {
                 encounterTest = encounterTest / 2
             }
+            
+            // determine if there will be an encounter, and with whom
+            if (encounterTest < strengthPirates) && !player.commanderShip.raided {
+                pirate = true
+            } else if encounterTest < (strengthPirates + strengthPolice) {
+                police = true
+            } else if encounterTest < (strengthPirates + strengthPolice + strengthTraders) {
+                trader = true
+            } // else if Wild status/Kravat...
+            
+            if !pirate && !police && !trader {
+                if player.commanderShip.artifactOnBoard && (arc4random_uniform(20) <= 3) {
+                    // mantis
+                    print("MANTIS ENCOUNTER AT \(clicks) clicks")
+                }
+            }
+            
+            //
             
             
             print("current range: \(clicks) clicks. ")

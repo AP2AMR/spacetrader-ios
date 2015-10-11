@@ -29,6 +29,9 @@ class SpaceShip {
     var repairCosts: Int            // cost per one point of damage
     var probabilityOfHit: Int         // scale of 0 to 4, 4 is easiest to hit
     
+    var raided = false
+    var artifactOnBoard = false
+    
     var IFFStatus: IFFStatusType    // player, police, pirate, trader
     // image
     // image shielded
