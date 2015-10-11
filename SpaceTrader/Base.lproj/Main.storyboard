@@ -1008,6 +1008,7 @@
                         <outlet property="shortRangeChart" destination="x85-0a-Xbg" id="ilg-oa-7Ea"/>
                         <outlet property="sizeLabel" destination="utd-LI-saJ" id="9u9-ZH-qbm"/>
                         <outlet property="techLevelLabel" destination="Fqp-7l-xCY" id="Qic-Cr-ZDP"/>
+                        <segue destination="Z73-QX-bwt" kind="presentation" id="EH0-ci-QzU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTA-qk-eCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1084,6 +1085,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oWf-qV-9NY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2990" y="1045"/>
+        </scene>
+        <!--EncounterVC-->
+        <scene sceneID="VX2-xJ-PLV">
+            <objects>
+                <viewController id="Z73-QX-bwt" customClass="EncounterVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8wb-cF-FJj"/>
+                        <viewControllerLayoutGuide type="bottom" id="Iod-j8-EQc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="79J-SY-Ayx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wcG-AA-R22">
+                                <rect key="frame" x="165" y="100" width="270" height="400"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wcG-AA-R22" firstAttribute="top" secondItem="8wb-cF-FJj" secondAttribute="bottom" constant="80" id="3vL-jH-dcD"/>
+                            <constraint firstItem="wcG-AA-R22" firstAttribute="centerX" secondItem="79J-SY-Ayx" secondAttribute="centerX" id="Jyi-89-211"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RHb-zr-ix5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2990" y="1731"/>
         </scene>
         <!--Sell Cargo-->
         <scene sceneID="y8P-Gd-QmM">

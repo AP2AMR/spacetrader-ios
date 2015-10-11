@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A01212E1BCA1190009DBAA2 /* EncounterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A01212D1BCA1190009DBAA2 /* EncounterVC.swift */; settings = {ASSET_TAGS = (); }; };
 		5A0265B61B9FC8FC0079F6DE /* Gadget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0265B51B9FC8FC0079F6DE /* Gadget.swift */; };
 		5A0265B81B9FCD170079F6DE /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0265B71B9FCD170079F6DE /* Weapon.swift */; };
 		5A0265BA1B9FCD2D0079F6DE /* Shield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0265B91B9FCD2D0079F6DE /* Shield.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A01212D1BCA1190009DBAA2 /* EncounterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncounterVC.swift; sourceTree = "<group>"; };
 		5A0265B51B9FC8FC0079F6DE /* Gadget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gadget.swift; sourceTree = "<group>"; };
 		5A0265B71B9FCD170079F6DE /* Weapon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		5A0265B91B9FCD2D0079F6DE /* Shield.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shield.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				5A078ABE1BB1CBD20005155D /* SellVC.swift */,
 				5A518FB31BC31E9200021B13 /* ShortRangeChartView.swift */,
 				5A518FAF1BC0ACC400021B13 /* WarpVC.swift */,
+				5A01212D1BCA1190009DBAA2 /* EncounterVC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A01212E1BCA1190009DBAA2 /* EncounterVC.swift in Sources */,
 				5A0265BE1B9FD2660079F6DE /* CrewMember.swift in Sources */,
 				5AEC942E1BC8594F00C68F7F /* GalacticChartVC.swift in Sources */,
 				5AD5F8941B9A122200154B21 /* ViewController.swift in Sources */,
