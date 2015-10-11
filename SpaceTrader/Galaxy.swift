@@ -1286,7 +1286,9 @@ class Galaxy {
     }
     
     func runEncounter(type: String) {
-        performSegueWithIdentifier("encounterModal", sender: self)
+        // this might need to go through a delegate to the WarpVC?
+        
+        //performSegueWithIdentifier("encounterModal", sender: self)
     }
 
     
