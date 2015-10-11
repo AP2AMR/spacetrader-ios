@@ -1117,13 +1117,8 @@ class Galaxy {
             updateQuantities()      // reset quantities with time
             
             var travelByWormhole = false
-            if currentSystem!.wormhole {
-                print("wormhole system")
-                print("current system wormhole destination: \(currentSystem!.wormholeDestination!.name)")
-                print("target system name: \(targetSystem!.name)")
-                if currentSystem!.wormholeDestination!.name == targetSystem!.name {
-                    
-                    print("travel by wormhole. No fuel used.")
+            if oldSystem!.wormhole {
+                if currentSystem!.name == oldSystem!.wormholeDestination!.name {
                     travelByWormhole = true
                 }
             }
@@ -1215,7 +1210,7 @@ class Galaxy {
             } else if encounterTest < (strengthPirates + strengthPolice) {
                 police = true
             //} else if encounterTest < (strengthPirates + strengthPolice + strengthTraders) {
-            } else if encounterTest < strengthTraders {
+            } else if encounterTest < (strengthTraders / 2) {       // not orthodox, but this seemed high
                 trader = true
             } // else if Wild status/Kravat...
             
