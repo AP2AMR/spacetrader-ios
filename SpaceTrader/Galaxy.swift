@@ -17,8 +17,9 @@
 import Foundation
 import UIKit
 
+
 class Galaxy {
-    // do I need a proper way of doing this by reference?
+    
     var planets: [StarSystem] = []
     var systemsInRange: [StarSystem] = []
     var currentSystem: StarSystem?
@@ -1288,7 +1289,21 @@ class Galaxy {
     func runEncounter(type: String) {
         // this might need to go through a delegate to the WarpVC?
         
+
         //performSegueWithIdentifier("encounterModal", sender: self)
+        
+        //let viewController:UIViewController = UIStoryboard(name: "encounterModal", bundle: nil)
+        //instantiateViewControllerWithIdentifier("ViewController") as UIViewController
+//        
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = storyboard.instantiateViewControllerWithIdentifier("EncounterVC") // as! UIViewController
+//        vc.presentViewController(vc, animated: true, completion: nil)
+        
+        //self.navigationController?.pushViewController(vc, animated: true)
+        
+
+        
+
     }
 
     

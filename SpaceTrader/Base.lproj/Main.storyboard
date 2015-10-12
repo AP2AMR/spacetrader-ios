@@ -1089,7 +1089,7 @@
         <!--EncounterVC-->
         <scene sceneID="VX2-xJ-PLV">
             <objects>
-                <viewController id="Z73-QX-bwt" customClass="EncounterVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="encounterModal" id="Z73-QX-bwt" customClass="EncounterVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8wb-cF-FJj"/>
                         <viewControllerLayoutGuide type="bottom" id="Iod-j8-EQc"/>
