@@ -21,13 +21,12 @@ class Journey {
     
     var openEncounter = false
     
-    let localPolitics = Politics(type: galaxy.currentSystem!.politics)
+    let localPolitics = Politics(type: galaxy.targetSystem!.politics)
     
     let strengthPirates: Int
     let strengthPolice: Int
     let strengthTraders: Int
     
-    var encounterTest: Int
     var uneventfulTrip = true
     
     
@@ -38,13 +37,6 @@ class Journey {
         strengthPirates = localPolitics.activityPirates
         strengthPolice = localPolitics.activityPolice
         strengthTraders = localPolitics.activityTraders
-        
-        self.encounterTest = Int(arc4random_uniform(UInt32(44 - (2 * player.getDifficultyInt()))))
-
-        // encounters are half as likely if you're in a flea
-        if player.commanderShip.type == ShipType.Flea {
-            self.encounterTest = encounterTest / 2
-        }
     }
     
     func beginJourney() {
@@ -55,6 +47,10 @@ class Journey {
         print("WARP SEQUENCE INITIATED")
         
         // I don't think there's actually anything to do here?
+        
+        // DEBUG
+        print("strengthPirates: \(strengthPirates)")
+        print("strengthPolice: \(strengthPolice)")
         
         resumeJourney()
         
@@ -77,8 +73,18 @@ class Journey {
     func executeClick() {
         var encounterThisClick = false
         
+        var encounterTest = Int(arc4random_uniform(UInt32(44 - (2 * player.getDifficultyInt()))))
+        
+        // encounters are half as likely if you're in a flea
+        if player.commanderShip.type == ShipType.Flea {
+            encounterTest = encounterTest / 2
+        }
+        
+        print("at \(encounterTest) clicks, encounterTest is \(encounterTest)")
+        
         // engineer may do some repairs
-        let repairs = Int(arc4random_uniform(UInt32(player.engineerSkill))) / 2     // BUG DANGER THIS FAILED ONCE
+        let engineerSkill = UInt32(player.engineerSkill)
+        let repairs = Int(arc4random_uniform(engineerSkill)) / 2     // BUG DANGER THIS FAILED ONCE
         player.commanderShip.hull += repairs
         if player.commanderShip.hull >= player.commanderShip.hullStrength {
             player.commanderShip.hull = player.commanderShip.hullStrength
@@ -148,10 +154,22 @@ class Journey {
         clicks -= 1
         
         if !encounterThisClick {
-            executeClick()
+            print("at \(clicks + 1) clicks, no encounter")
+            if clicks > 0 {
+                executeClick()
+            } else {
+                completeJourney()
+            }
+            
         } else {
             print("Encounter at \(clicks) clicks. Stopping execution until encounter handled.")
             print("(except actually not, for testing purposes)")
+            // TESTING ONLY. FOR REAL, NOTHING, CONTROL STOPS
+            if clicks > 0 {
+                executeClick()
+            } else {
+                completeJourney()
+            }
         }
     }
 
