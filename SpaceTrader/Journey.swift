@@ -48,10 +48,6 @@ class Journey {
         
         // I don't think there's actually anything to do here?
         
-        // DEBUG
-        print("strengthPirates: \(strengthPirates)")
-        print("strengthPolice: \(strengthPolice)")
-        
         resumeJourney()
         
     }
@@ -79,8 +75,6 @@ class Journey {
         if player.commanderShip.type == ShipType.Flea {
             encounterTest = encounterTest / 2
         }
-        
-        print("at \(encounterTest) clicks, encounterTest is \(encounterTest)")
         
         // engineer may do some repairs
         let engineerSkill = UInt32(player.engineerSkill)
@@ -154,7 +148,6 @@ class Journey {
         clicks -= 1
         
         if !encounterThisClick {
-            print("at \(clicks + 1) clicks, no encounter")
             if clicks > 0 {
                 executeClick()
             } else {
@@ -162,11 +155,9 @@ class Journey {
             }
             
         } else {
-            print("Encounter at \(clicks) clicks. Stopping execution until encounter handled.")
-            print("(except actually not, for testing purposes)")
             // TESTING ONLY. FOR REAL, NOTHING, CONTROL STOPS
             if clicks > 0 {
-                executeClick()
+                //executeClick()
             } else {
                 completeJourney()
             }

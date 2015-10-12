@@ -1098,7 +1098,7 @@ class Galaxy {
     }
     
     func warp() -> Bool {
-        let journeyDistance = getDistance(currentSystem!, system2: targetSystem!)
+        // let journeyDistance = getDistance(currentSystem!, system2: targetSystem!)
         // print("pre-warp fuel: \(player.commanderShip.fuel)")
         // print("target system in range? \(targetSystemInRange)")
         // print("trip should require \(journeyDistance) fuel. You have \(player.commanderShip.fuel)")
