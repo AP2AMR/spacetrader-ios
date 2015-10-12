@@ -1287,23 +1287,7 @@ class Galaxy {
     }
     
     func runEncounter(type: String) {
-        // this might need to go through a delegate to the WarpVC?
-        
-
-        //performSegueWithIdentifier("encounterModal", sender: self)
-        
-        //let viewController:UIViewController = UIStoryboard(name: "encounterModal", bundle: nil)
-        //instantiateViewControllerWithIdentifier("ViewController") as UIViewController
-//        
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = storyboard.instantiateViewControllerWithIdentifier("EncounterVC") // as! UIViewController
-//        vc.presentViewController(vc, animated: true, completion: nil)
-        
-        //self.navigationController?.pushViewController(vc, animated: true)
-        
-
-        
-
+        NSNotificationCenter.defaultCenter().postNotificationName("messageNotification", object: NSString(string: "I am being passed from the model! Now is time to trigger the segue."))
     }
 
     

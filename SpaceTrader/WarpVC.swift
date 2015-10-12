@@ -48,6 +48,11 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
         
         updateView()
         
+        let encounterNotification = NSNotificationCenter.defaultCenter().addObserver(self, selector: "messageHandler:", name: "messageNotification", object: nil)
+    }
+    
+    func messageHandler(notification: NSNotification) {
+        print("receiving notification: \(notification.object)")
     }
     
     func updateView() {
