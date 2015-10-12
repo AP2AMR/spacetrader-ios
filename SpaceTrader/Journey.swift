@@ -119,6 +119,8 @@ class Journey {
         
         // create encounter
         if pirate {
+            let encounterString = NSString(string: "At \(clicks) clicks from \(galaxy.currentSystem!.name) you encounter a pirate <shiptype>.")
+            NSNotificationCenter.defaultCenter().postNotificationName("messageNotification", object: encounterString)
             print("PIRATE ENCOUNTER AT \(clicks) CLICKS")
         } else if police {
             print("POLICE ENCOUNTER AT \(clicks) CLICKS")
@@ -228,8 +230,6 @@ class Journey {
         // Og system lightning shield easter egg?
     }
     
-    // code for triggering modal
     
-    //    let encounterString = NSString(string: "At \(clicks) clicks from \(galaxy.currentSystem!.name) you encounter a \(type) <shiptype>.")
-    //    NSNotificationCenter.defaultCenter().postNotificationName("messageNotification", object: encounterString)
+
 }
