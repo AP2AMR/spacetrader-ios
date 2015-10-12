@@ -1226,7 +1226,7 @@ class Galaxy {
             // create encounter
             if pirate {
                 print("PIRATE ENCOUNTER AT \(clicks) CLICKS")
-                runEncounter("pirate")
+                runEncounter("pirate", clicks: clicks)
             } else if police {
                 print("POLICE ENCOUNTER AT \(clicks) CLICKS")
             } else if trader {
@@ -1286,8 +1286,11 @@ class Galaxy {
         // Og system lightning shield easter egg?
     }
     
-    func runEncounter(type: String) {
-        NSNotificationCenter.defaultCenter().postNotificationName("messageNotification", object: NSString(string: "I am being passed from the model! Now is time to trigger the segue."))
+    func runEncounter(type: String, clicks: Int) {
+        let encounterString = NSString(string: "At \(clicks) clicks from \(currentSystem!.name) you encounter a \(type) <shiptype>.")
+        NSNotificationCenter.defaultCenter().postNotificationName("messageNotification", object: encounterString)
+        
+        // must now wait for reply
     }
 
     
