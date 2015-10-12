@@ -430,7 +430,6 @@ class Galaxy {
         currentSystem!.visited = true
         getSystemsInRange()
         targetSystem = systemsInRange[0]        // INITIAL VALUE THAT SHOULD ACTUALLY BE IN RANGE
-        printSystemsInRange()
         
         // DEBUGGING:
         // log output to console
@@ -1109,199 +1108,15 @@ class Galaxy {
             canWeWarp = false
         }
         
-        if canWeWarp {
-            let oldSystem = currentSystem
-            currentSystem = targetSystem
-            currentSystem?.visited = true
-            getSystemsInRange()
-            updateGalaxy()          // now just increments days and runs shuffleStatus. Will eventially hold special event related things
-            updateQuantities()      // reset quantities with time
-            
-            var travelByWormhole = false
-            if oldSystem!.wormhole {
-                if currentSystem!.name == oldSystem!.wormholeDestination!.name {
-                    travelByWormhole = true
-                }
-            }
-            if !travelByWormhole {
-                player.commanderShip.fuel -= journeyDistance
-            }
-            
-            getSystemsInRange()
-            
-            // check things to see if warp can happen. Fuel, enough money to pay mercenaries, taxes, interest.
-            
-            
-            
-            // deal with money. Pay mercenaries, interest, collect tax if necessary, return false if not enough
-            
-            // deal with fabric rip
-            
-            // news events
-            
-            generateEncounters()
-            
-            
+        // handle other checks, like on debt, set canWeWarp to false if they fail
         
-            
+        if canWeWarp {
+            print("warp function signing off on warp and passing control to journey")
+            let currentJourney = Journey(origin: galaxy.currentSystem!, destination: galaxy.targetSystem!)
+            currentJourney.beginJourney()
             return true
         }
+        print("warp disallowed. Not enough fuel, or else something something like debt that I haven't implemented yet")
         return false
     }
-    
-    func generateEncounters() {
-        var clicks = 20
-        var pirate = false
-        var police = false
-        var trader = false
-        
-        var mantis = false
-        
-        let localPolitics = Politics(type: galaxy.currentSystem!.politics)
-        
-        let strengthPirates = localPolitics.activityPirates
-        let strengthPolice = localPolitics.activityPolice
-        let strengthTraders = localPolitics.activityTraders
-        
-        // handle possibility of spacetime rip
-        
-        print("****************************************************")
-        print("WARP SEQUENCE BEGUN")
-        
-        while clicks > 0 {
-            
-            // engineer may do some repairs
-            let repairs = Int(arc4random_uniform(UInt32(player.engineerSkill))) / 2
-            player.commanderShip.hull += repairs
-            if player.commanderShip.hull >= player.commanderShip.hullStrength {
-                player.commanderShip.hull = player.commanderShip.hullStrength
-            }
-            
-            // shields are easier
-            for shield in player.commanderShip.shield {
-                shield.currentStrength += repairs
-                if shield.currentStrength >= shield.power {
-                    shield.currentStrength = shield.power
-                }
-            }
-            
-            // encounter with space monster at acamar?
-            
-            // encounter with stolen scarab?
-            
-            // encounter with stolen dragonfly?
-            
-            // encounter with alien mantis at Gemulon if invasion happened?
-            
-            // ELSE, check if it is time for an encounter
-            var encounterTest = Int(arc4random_uniform(UInt32(44 - (2 * player.getDifficultyInt()))))
-            
-            // messing with this trying to get odds more appropriate
-            //var encounterTest = Int(arc4random_uniform(UInt32(100 - (4 * player.getDifficultyInt()))))
-            //print("encounter test: \(encounterTest)")
-            
-            // encounters are half as likely if you're in a flea
-            if player.commanderShip.type == ShipType.Flea {
-                encounterTest = encounterTest / 2
-            }
-            
-            // determine if there will be an encounter, and with whom
-            if (encounterTest < strengthPirates) && !player.commanderShip.raided {
-                pirate = true
-            } else if encounterTest < (strengthPirates + strengthPolice) {
-                police = true
-            //} else if encounterTest < (strengthPirates + strengthPolice + strengthTraders) {
-            } else if encounterTest < (strengthTraders / 2) {       // not orthodox, but this seemed high
-                trader = true
-            } // else if Wild status/Kravat...
-            
-            if !pirate && !police && !trader {
-                if player.commanderShip.artifactOnBoard && (arc4random_uniform(20) <= 3) {
-                    // mantis
-                    mantis = true
-                    print("MANTIS ENCOUNTER AT \(clicks) CLICKS")
-                }
-            }
-            
-            // create encounter
-            if pirate {
-                print("PIRATE ENCOUNTER AT \(clicks) CLICKS")
-                runEncounter("pirate", clicks: clicks)
-            } else if police {
-                print("POLICE ENCOUNTER AT \(clicks) CLICKS")
-            } else if trader {
-                print("TRADER ENCOUNTER AT \(clicks) CLICKS")
-            }
-            
-            // very rare event
-            if !pirate && !police && !trader && !mantis {
-                if (player.days > 10) && (arc4random_uniform(1000) < 5) {
-                    print("VERY RARE ENCOUNTER")
-                } else if player.commanderShip.justLootedMarieCeleste {
-                    print("CHANCE OF POLICE ENCOUNTER OVER MARIE CELESTE")
-                    player.commanderShip.justLootedMarieCeleste = false
-                }
-            }
-            
-            if pirate || police || trader || mantis {
-                player.uneventfulTrip = false
-            }
-            
-            clicks -= 1
-            pirate = false
-            police = false
-            trader = false
-            mantis = false
-        }
-        
-        // arrive
-        if player.uneventfulTrip {
-            print("After an uneventful trip, you arrive at your destination")
-            player.uneventfulTrip = true
-        } else {
-            print("Arrival alert goes here.")
-        }
-        
-        if player.debt > 75000 {
-            print("LARGE DEBT WARNING")
-        }
-        
-        if player.debt > 0 && player.remindLoans && (player.days % 5 == 0) {
-            print("LOAN REMINDER")
-        }
-        
-        // reactor warnings?
-        
-        // if arrived at tracked system, set tracked system to nil
-        
-        // tribbles:
-            // if present, increase their number
-            // handle irradiated tribbles
-            // handle high tribbles
-            // handle tribbles eating food
-            // if tribbles increased past certain thresholds, trigger alert
-        
-        // autofuel & autorepair
-        
-        // Og system lightning shield easter egg?
-    }
-    
-    func runEncounter(type: String, clicks: Int) {
-        let encounterString = NSString(string: "At \(clicks) clicks from \(currentSystem!.name) you encounter a \(type) <shiptype>.")
-        NSNotificationCenter.defaultCenter().postNotificationName("messageNotification", object: encounterString)
-        
-        // must now wait for reply
-    }
-
-    
-    // DEBUG METHOD
-    func printSystemsInRange() {
-        print("SYSTEMS IN RANGE:")
-        
-        for system in systemsInRange {
-            print("\(system.name), distance: \(getDistance(currentSystem!, system2: system))")
-        }
-    }
-    
-
 }

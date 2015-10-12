@@ -21,6 +21,7 @@
 		5A518FB21BC18C0B00021B13 /* DockVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A518FB11BC18C0B00021B13 /* DockVC.swift */; settings = {ASSET_TAGS = (); }; };
 		5A518FB41BC31E9200021B13 /* ShortRangeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A518FB31BC31E9200021B13 /* ShortRangeChartView.swift */; settings = {ASSET_TAGS = (); }; };
 		5A518FB61BC80CF800021B13 /* FuelRepairModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A518FB51BC80CF800021B13 /* FuelRepairModalVC.swift */; settings = {ASSET_TAGS = (); }; };
+		5A723F401BCC531B006FFB13 /* Journey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A723F3F1BCC531B006FFB13 /* Journey.swift */; settings = {ASSET_TAGS = (); }; };
 		5A81AD181BACFBCD001F2918 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81AD171BACFBCD001F2918 /* Globals.swift */; settings = {ASSET_TAGS = (); }; };
 		5AD5F8921B9A122200154B21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8911B9A122200154B21 /* AppDelegate.swift */; };
 		5AD5F8941B9A122200154B21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8931B9A122200154B21 /* ViewController.swift */; };
@@ -66,6 +67,7 @@
 		5A518FB11BC18C0B00021B13 /* DockVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DockVC.swift; sourceTree = "<group>"; };
 		5A518FB31BC31E9200021B13 /* ShortRangeChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortRangeChartView.swift; sourceTree = "<group>"; };
 		5A518FB51BC80CF800021B13 /* FuelRepairModalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelRepairModalVC.swift; sourceTree = "<group>"; };
+		5A723F3F1BCC531B006FFB13 /* Journey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Journey.swift; sourceTree = "<group>"; };
 		5A81AD171BACFBCD001F2918 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		5AD5F88C1B9A122200154B21 /* SpaceTrader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceTrader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD5F8901B9A122200154B21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				5A0265B51B9FC8FC0079F6DE /* Gadget.swift */,
 				5AD5F8C11B9FB54E00154B21 /* Galaxy.swift */,
 				5A81AD171BACFBCD001F2918 /* Globals.swift */,
+				5A723F3F1BCC531B006FFB13 /* Journey.swift */,
 				5A0265BF1B9FDE1E0079F6DE /* PoliticsType.swift */,
 				5A0265B91B9FCD2D0079F6DE /* Shield.swift */,
 				5AD5F8BD1B9F3BE700154B21 /* Ship.swift */,
@@ -327,6 +330,7 @@
 				5A078AC11BB33C100005155D /* BuyModalVC.swift in Sources */,
 				5AF1CA2D1BA36C2300643C5F /* NewCommanderVC.swift in Sources */,
 				5AEC942C1BC84B2900C68F7F /* NewGameVC.swift in Sources */,
+				5A723F401BCC531B006FFB13 /* Journey.swift in Sources */,
 				5AF1CA2F1BAB3E7A00643C5F /* BuyVC.swift in Sources */,
 				5A0265B81B9FCD170079F6DE /* Weapon.swift in Sources */,
 				5AD5F8C21B9FB54E00154B21 /* Galaxy.swift in Sources */,
