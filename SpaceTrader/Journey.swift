@@ -19,7 +19,7 @@ class Journey {
     
     var mantis = false
     
-    var openEncounter = false
+    var currentEncounter: Encounter?
     
     let localPolitics = Politics(type: galaxy.targetSystem!.politics)
     
@@ -53,17 +53,12 @@ class Journey {
     }
     
     func resumeJourney() {
-        if !openEncounter {
-            if clicks > 0 {
-                executeClick()
-            } else {
-                completeJourney()
-            }
+        // this fires when an encounter is done. No need to check if open encounter.
+        if clicks > 0 {
+            executeClick()
         } else {
-            // carry on with current encounter
+            completeJourney()
         }
-        
-        
     }
     
     func executeClick() {
@@ -119,14 +114,19 @@ class Journey {
         
         // create encounter
         if pirate {
-            let encounterString = NSString(string: "At \(clicks) clicks from \(galaxy.currentSystem!.name) you encounter a pirate <shiptype>.")
-            NSNotificationCenter.defaultCenter().postNotificationName("messageNotification", object: encounterString)
-            print("PIRATE ENCOUNTER AT \(clicks) CLICKS")
+            //let encounterString = NSString(string: "At \(clicks) clicks from \(galaxy.currentSystem!.name) you encounter a pirate <shiptype>.")
+            //NSNotificationCenter.defaultCenter().postNotificationName("messageNotification", object: encounterString)
+            currentEncounter = Encounter(type: IFFStatusType.Pirate, clicks: clicks)
+            currentEncounter!.beginEncounter()
         } else if police {
-            print("POLICE ENCOUNTER AT \(clicks) CLICKS")
+            currentEncounter = Encounter(type: IFFStatusType.Police, clicks: clicks)
+            currentEncounter!.beginEncounter()
         } else if trader {
-            print("TRADER ENCOUNTER AT \(clicks) CLICKS")
+            currentEncounter = Encounter(type: IFFStatusType.Trader, clicks: clicks)
+            currentEncounter!.beginEncounter()
         }
+        
+        // I think this has to terminate here, otherwise it will just keep running
         
         // very rare event
         if !pirate && !police && !trader && !mantis {
@@ -156,13 +156,6 @@ class Journey {
                 completeJourney()
             }
             
-        } else {
-            // TESTING ONLY. FOR REAL, NOTHING, CONTROL STOPS
-            if clicks > 0 {
-                //executeClick()
-            } else {
-                completeJourney()
-            }
         }
     }
 
@@ -189,46 +182,46 @@ class Journey {
         galaxy.getSystemsInRange()
     }
     
-    func generateEncounters() {         // OLD, but with useful code
-        
-        
-        // handle possibility of spacetime rip
-
-        while clicks > 0 {
-            
-        }
-        
-        // arrive
-        if uneventfulTrip {
-            print("After an uneventful trip, you arrive at your destination")
-            uneventfulTrip = true
-        } else {
-            print("Arrival alert goes here.")
-        }
-        
-        if player.debt > 75000 {
-            print("LARGE DEBT WARNING")
-        }
-        
-        if player.debt > 0 && player.remindLoans && (player.days % 5 == 0) {
-            print("LOAN REMINDER")
-        }
-        
-        // reactor warnings?
-        
-        // if arrived at tracked system, set tracked system to nil
-        
-        // tribbles:
-        // if present, increase their number
-        // handle irradiated tribbles
-        // handle high tribbles
-        // handle tribbles eating food
-        // if tribbles increased past certain thresholds, trigger alert
-        
-        // autofuel & autorepair
-        
-        // Og system lightning shield easter egg?
-    }
+//    func generateEncounters() {         // OLD, but with useful code
+//        
+//        
+//        // handle possibility of spacetime rip
+//
+//        while clicks > 0 {
+//            
+//        }
+//        
+//        // arrive
+//        if uneventfulTrip {
+//            print("After an uneventful trip, you arrive at your destination")
+//            uneventfulTrip = true
+//        } else {
+//            print("Arrival alert goes here.")
+//        }
+//        
+//        if player.debt > 75000 {
+//            print("LARGE DEBT WARNING")
+//        }
+//        
+//        if player.debt > 0 && player.remindLoans && (player.days % 5 == 0) {
+//            print("LOAN REMINDER")
+//        }
+//        
+//        // reactor warnings?
+//        
+//        // if arrived at tracked system, set tracked system to nil
+//        
+//        // tribbles:
+//        // if present, increase their number
+//        // handle irradiated tribbles
+//        // handle high tribbles
+//        // handle tribbles eating food
+//        // if tribbles increased past certain thresholds, trigger alert
+//        
+//        // autofuel & autorepair
+//        
+//        // Og system lightning shield easter egg?
+//    }
     
     
 

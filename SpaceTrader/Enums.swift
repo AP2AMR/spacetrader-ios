@@ -386,11 +386,11 @@ enum EndGameStatus {
     case BoughtMoonGirl
 }
 
-enum IFFStatusType {
-    case Player
-    case Police
-    case Pirate
-    case Trader
+enum IFFStatusType: String {
+    case Player = "Player"
+    case Police = "Police"
+    case Pirate = "Pirate"
+    case Trader = "Trader"
 }
 
 enum GadgetType {

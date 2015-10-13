@@ -42,6 +42,7 @@ class Galaxy {
         }
     }
     var targetSystemInRange = true                  // NEW ADDITION
+    var currentJourney: Journey?
     
     func createGalaxy() {
         print("Initializing galaxy...")
@@ -1112,8 +1113,8 @@ class Galaxy {
         
         if canWeWarp {
             print("warp function signing off on warp and passing control to journey")
-            let currentJourney = Journey(origin: galaxy.currentSystem!, destination: galaxy.targetSystem!)
-            currentJourney.beginJourney()
+            currentJourney = Journey(origin: galaxy.currentSystem!, destination: galaxy.targetSystem!)
+            currentJourney!.beginJourney()
             return true
         }
         print("warp disallowed. Not enough fuel, or else something something like debt that I haven't implemented yet")

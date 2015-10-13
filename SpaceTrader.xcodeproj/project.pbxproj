@@ -22,6 +22,7 @@
 		5A518FB41BC31E9200021B13 /* ShortRangeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A518FB31BC31E9200021B13 /* ShortRangeChartView.swift */; settings = {ASSET_TAGS = (); }; };
 		5A518FB61BC80CF800021B13 /* FuelRepairModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A518FB51BC80CF800021B13 /* FuelRepairModalVC.swift */; settings = {ASSET_TAGS = (); }; };
 		5A723F401BCC531B006FFB13 /* Journey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A723F3F1BCC531B006FFB13 /* Journey.swift */; settings = {ASSET_TAGS = (); }; };
+		5A723F421BCD5EA5006FFB13 /* Encounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A723F411BCD5EA5006FFB13 /* Encounter.swift */; settings = {ASSET_TAGS = (); }; };
 		5A81AD181BACFBCD001F2918 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81AD171BACFBCD001F2918 /* Globals.swift */; settings = {ASSET_TAGS = (); }; };
 		5AD5F8921B9A122200154B21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8911B9A122200154B21 /* AppDelegate.swift */; };
 		5AD5F8941B9A122200154B21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8931B9A122200154B21 /* ViewController.swift */; };
@@ -68,6 +69,7 @@
 		5A518FB31BC31E9200021B13 /* ShortRangeChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortRangeChartView.swift; sourceTree = "<group>"; };
 		5A518FB51BC80CF800021B13 /* FuelRepairModalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelRepairModalVC.swift; sourceTree = "<group>"; };
 		5A723F3F1BCC531B006FFB13 /* Journey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Journey.swift; sourceTree = "<group>"; };
+		5A723F411BCD5EA5006FFB13 /* Encounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encounter.swift; sourceTree = "<group>"; };
 		5A81AD171BACFBCD001F2918 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		5AD5F88C1B9A122200154B21 /* SpaceTrader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceTrader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD5F8901B9A122200154B21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			children = (
 				5A0265C11BA329670079F6DE /* Commander.swift */,
 				5A0265BD1B9FD2660079F6DE /* CrewMember.swift */,
+				5A723F411BCD5EA5006FFB13 /* Encounter.swift */,
 				5A0265B51B9FC8FC0079F6DE /* Gadget.swift */,
 				5AD5F8C11B9FB54E00154B21 /* Galaxy.swift */,
 				5A81AD171BACFBCD001F2918 /* Globals.swift */,
@@ -322,6 +325,7 @@
 				5AD5F8C01B9F473E00154B21 /* TradeItem.swift in Sources */,
 				5AD5F8BE1B9F3BE700154B21 /* Ship.swift in Sources */,
 				5AD5F8B41B9DEB5300154B21 /* DataTypes.swift in Sources */,
+				5A723F421BCD5EA5006FFB13 /* Encounter.swift in Sources */,
 				5A0265BC1B9FCD8B0079F6DE /* SpecialEvent.swift in Sources */,
 				5A0265BA1B9FCD2D0079F6DE /* Shield.swift in Sources */,
 				5AD5F8B21B9D160400154B21 /* StarSystem.swift in Sources */,
