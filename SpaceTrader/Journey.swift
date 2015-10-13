@@ -114,8 +114,7 @@ class Journey {
         
         // create encounter
         if pirate {
-            //let encounterString = NSString(string: "At \(clicks) clicks from \(galaxy.currentSystem!.name) you encounter a pirate <shiptype>.")
-            //NSNotificationCenter.defaultCenter().postNotificationName("messageNotification", object: encounterString)
+            
             currentEncounter = Encounter(type: IFFStatusType.Pirate, clicks: clicks)
             currentEncounter!.beginEncounter()
         } else if police {

@@ -48,11 +48,11 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
         
         updateView()
         
-        let encounterNotification = NSNotificationCenter.defaultCenter().addObserver(self, selector: "messageHandler:", name: "messageNotification", object: nil)
+        let encounterNotification = NSNotificationCenter.defaultCenter().addObserver(self, selector: "messageHandler:", name: "encounterModalFireNotification", object: nil)
     }
     
     func messageHandler(notification: NSNotification) {             // THIS FIRES WHEN THE MODEL SAYS TO
-        print("receiving notification: \(notification.object)")
+        //print("receiving notification: \(notification.object)")
         performSegueWithIdentifier("encounterModal", sender: nil)
     }
     

@@ -26,9 +26,8 @@ class Encounter {
     }
     
     func beginEncounter() {
-        // test
-        print("Encounter with \(type.rawValue) at \(clicks) clicks instantiated.")
-        print("control stopping at this point. Modal button will trigger resume.")
+        let passedText = NSString(string: "nothing needed here")
+        NSNotificationCenter.defaultCenter().postNotificationName("encounterModalFireNotification", object: passedText)
         
         // set data for first modal, fire it, and return
     }
