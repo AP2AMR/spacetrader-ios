@@ -19,6 +19,7 @@ class Encounter {
     var button1Text = "button1"
     var button2Text = "button2"
     var button3Text = "button3"
+    var button4Text = "button4"
     
     init(type: EncounterType, clicks: Int) {
         self.type = type
@@ -71,6 +72,8 @@ class Encounter {
             encounterText2 = "pirate \(opponent.name)."
             encounterText3 = ""
             encounterText4 = "Your opponent attacks."
+        } else if type == EncounterType.policeInspection {
+            
         }
         
 

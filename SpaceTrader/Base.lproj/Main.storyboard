@@ -1107,11 +1107,18 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceD-pJ-zL5">
-                                        <rect key="frame" x="127" y="362" width="46" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gr9-HP-Nbr">
+                                        <rect key="frame" x="221" y="362" width="71" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <action selector="button2:" destination="Z73-QX-bwt" eventType="touchUpInside" id="mcd-kp-oQw"/>
+                                            <action selector="button4:" destination="Z73-QX-bwt" eventType="touchUpInside" id="SLU-Hn-Kc2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceD-pJ-zL5">
+                                        <rect key="frame" x="167" y="362" width="46" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="button3:" destination="Z73-QX-bwt" eventType="touchUpInside" id="yLR-Au-JG5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3X2-km-Zbk">
@@ -1145,18 +1152,17 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gr9-HP-Nbr">
-                                        <rect key="frame" x="211" y="362" width="81" height="30"/>
-                                        <state key="normal" title="Dismiss"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbt-Vb-pAF">
+                                        <rect key="frame" x="92" y="362" width="46" height="30"/>
+                                        <state key="normal" title="Button"/>
                                         <connections>
-                                            <action selector="button3:" destination="Z73-QX-bwt" eventType="touchUpInside" id="Dhr-Oa-5Nc"/>
+                                            <action selector="button2:" destination="Z73-QX-bwt" eventType="touchUpInside" id="T3R-6Y-pW8"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="3X2-km-Zbk" firstAttribute="leading" secondItem="wcG-AA-R22" secondAttribute="leading" constant="15" id="Fmr-a7-84N"/>
-                                    <constraint firstItem="ceD-pJ-zL5" firstAttribute="centerX" secondItem="wcG-AA-R22" secondAttribute="centerX" id="Hch-wv-Wit"/>
                                     <constraint firstItem="aLr-xF-vYF" firstAttribute="centerX" secondItem="wcG-AA-R22" secondAttribute="centerX" id="ZPs-d8-cVI"/>
                                     <constraint firstAttribute="trailing" secondItem="gr9-HP-Nbr" secondAttribute="trailing" constant="8" id="hry-In-COx"/>
                                 </constraints>
@@ -1170,8 +1176,9 @@
                     </view>
                     <connections>
                         <outlet property="button1Text" destination="3X2-km-Zbk" id="LGI-gN-xvi"/>
-                        <outlet property="button2Text" destination="ceD-pJ-zL5" id="9hC-gO-18A"/>
-                        <outlet property="button3Text" destination="gr9-HP-Nbr" id="OBO-Kc-imm"/>
+                        <outlet property="button2Text" destination="rbt-Vb-pAF" id="YDR-m2-49N"/>
+                        <outlet property="button3Text" destination="ceD-pJ-zL5" id="mnY-Oc-RbQ"/>
+                        <outlet property="button4Text" destination="gr9-HP-Nbr" id="fhh-BJ-Tpb"/>
                         <outlet property="encounterText1" destination="3E6-Jb-c9y" id="EUQ-Xg-Vvb"/>
                         <outlet property="encounterText2" destination="HYw-iW-bO0" id="JwN-LO-cok"/>
                         <outlet property="encounterText3" destination="yPs-3p-hCH" id="DSf-ER-jdY"/>

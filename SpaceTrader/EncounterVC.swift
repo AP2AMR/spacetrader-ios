@@ -25,6 +25,7 @@ class EncounterVC: UIViewController {
         button1Text.setTitle("\(galaxy.currentJourney!.currentEncounter!.button1Text)", forState: controlState)
         button2Text.setTitle("\(galaxy.currentJourney!.currentEncounter!.button2Text)", forState: controlState)
         button3Text.setTitle("\(galaxy.currentJourney!.currentEncounter!.button3Text)", forState: controlState)
+        button4Text.setTitle("\(galaxy.currentJourney!.currentEncounter!.button4Text)", forState: controlState)
     }
 
     
@@ -36,6 +37,7 @@ class EncounterVC: UIViewController {
     @IBOutlet weak var button1Text: UIButton!
     @IBOutlet weak var button2Text: UIButton!
     @IBOutlet weak var button3Text: UIButton!
+    @IBOutlet weak var button4Text: UIButton!
     
     @IBAction func button1(sender: AnyObject) {
         galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
@@ -48,4 +50,9 @@ class EncounterVC: UIViewController {
     @IBAction func button3(sender: AnyObject) {
         galaxy.currentJourney!.currentEncounter!.resumeEncounter(3)
     }
+    
+    @IBAction func button4(sender: AnyObject) {
+        galaxy.currentJourney!.currentEncounter!.resumeEncounter(4)
+    }
+    
 }
