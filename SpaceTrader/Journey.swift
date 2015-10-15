@@ -115,15 +115,15 @@ class Journey {
         // create encounter
         if pirate {
             
-            currentEncounter = Encounter(type: IFFStatusType.Pirate, clicks: clicks)
+            currentEncounter = Encounter(type: EncounterType.pirateAttack, clicks: clicks)
             currentEncounter!.beginEncounter()
-        } else if police {
-            currentEncounter = Encounter(type: IFFStatusType.Police, clicks: clicks)
-            currentEncounter!.beginEncounter()
-        } else if trader {
-            currentEncounter = Encounter(type: IFFStatusType.Trader, clicks: clicks)
-            currentEncounter!.beginEncounter()
-        }
+        } //else if police {
+//            currentEncounter = Encounter(type: IFFStatusType.Police, clicks: clicks)
+//            currentEncounter!.beginEncounter()
+//        } else if trader {
+//            currentEncounter = Encounter(type: IFFStatusType.Trader, clicks: clicks)
+//            currentEncounter!.beginEncounter()
+//        }
         
         // I think this has to terminate here, otherwise it will just keep running
         

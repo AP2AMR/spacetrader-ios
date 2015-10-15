@@ -1107,11 +1107,6 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" text="[encounter text goes here]" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5OT-NW-jJs">
-                                        <rect key="frame" x="15" y="186" width="240" height="128"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gr9-HP-Nbr">
                                         <rect key="frame" x="178" y="362" width="81" height="30"/>
                                         <state key="normal" title="Dismiss"/>
@@ -1133,11 +1128,34 @@
                                             <action selector="button1:" destination="Z73-QX-bwt" eventType="touchUpInside" id="v0B-LD-uh9"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;line 1&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3E6-Jb-c9y">
+                                        <rect key="frame" x="8" y="205" width="254" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;line 2&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYw-iW-bO0">
+                                        <rect key="frame" x="8" y="229" width="254" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;line 3&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPs-3p-hCH">
+                                        <rect key="frame" x="8" y="253" width="254" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;line 4&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7X-mP-KuD">
+                                        <rect key="frame" x="8" y="277" width="254" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="aLr-xF-vYF" firstAttribute="centerX" secondItem="wcG-AA-R22" secondAttribute="centerX" id="ZPs-d8-cVI"/>
-                                    <constraint firstItem="5OT-NW-jJs" firstAttribute="centerX" secondItem="wcG-AA-R22" secondAttribute="centerX" id="iiz-i0-nfh"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1151,7 +1169,10 @@
                         <outlet property="button1Text" destination="3X2-km-Zbk" id="LGI-gN-xvi"/>
                         <outlet property="button2Text" destination="ceD-pJ-zL5" id="9hC-gO-18A"/>
                         <outlet property="button3Text" destination="gr9-HP-Nbr" id="OBO-Kc-imm"/>
-                        <outlet property="encounterText" destination="5OT-NW-jJs" id="LqK-0M-2Dz"/>
+                        <outlet property="encounterText1" destination="3E6-Jb-c9y" id="EUQ-Xg-Vvb"/>
+                        <outlet property="encounterText2" destination="HYw-iW-bO0" id="JwN-LO-cok"/>
+                        <outlet property="encounterText3" destination="yPs-3p-hCH" id="DSf-ER-jdY"/>
+                        <outlet property="encounterText4" destination="r7X-mP-KuD" id="1No-JP-37b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RHb-zr-ix5" userLabel="First Responder" sceneMemberID="firstResponder"/>

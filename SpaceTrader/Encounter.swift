@@ -12,7 +12,10 @@ class Encounter {
     let type: EncounterType
     let opponent: SpaceShip
     let clicks: Int
-    var encounterText1: String = "null"
+    var encounterText1 = "null"
+    var encounterText2 = "null"
+    var encounterText3 = "null"
+    var encounterText4 = "null"
     
     init(type: EncounterType, clicks: Int) {
         self.type = type

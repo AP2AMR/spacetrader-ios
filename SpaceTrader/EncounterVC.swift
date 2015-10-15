@@ -16,10 +16,18 @@ class EncounterVC: UIViewController {
         self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
         super.viewDidLoad()
 
-        encounterText.text = galaxy.currentJourney!.currentEncounter!.encounterText1
+        encounterText1.text = galaxy.currentJourney!.currentEncounter!.encounterText1
+        encounterText2.text = galaxy.currentJourney!.currentEncounter!.encounterText2
+        encounterText3.text = galaxy.currentJourney!.currentEncounter!.encounterText3
+        encounterText4.text = galaxy.currentJourney!.currentEncounter!.encounterText4
     }
 
-    @IBOutlet weak var encounterText: UITextView!
+    
+    @IBOutlet weak var encounterText1: UILabel!
+    @IBOutlet weak var encounterText2: UILabel!
+    @IBOutlet weak var encounterText3: UILabel!
+    @IBOutlet weak var encounterText4: UILabel!
+
     @IBOutlet weak var button1Text: UIButton!
     @IBOutlet weak var button2Text: UIButton!
     @IBOutlet weak var button3Text: UIButton!
