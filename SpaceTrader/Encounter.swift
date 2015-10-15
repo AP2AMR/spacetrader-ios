@@ -16,12 +16,15 @@ class Encounter {
     var encounterText2 = "null"
     var encounterText3 = "null"
     var encounterText4 = "null"
+    var button1Text = "button1"
+    var button2Text = "button2"
+    var button3Text = "button3"
     
     init(type: EncounterType, clicks: Int) {
         self.type = type
         self.clicks = clicks
         
-        // generate opponent
+        // generate opponent--original function GenerateOpponent in traveler.c
         // set opponent ShipType
         var opponentShipType = ShipType.Gnat
         
@@ -33,10 +36,9 @@ class Encounter {
     func beginEncounter() {
         // HandleEncounterType? What type will be given here? Presumably a specific one?
         // DrawEncounterTextAndButtons
+        setEncounterTextAndButtons()
         
-        encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a [pirate?] \(opponent.name)."
-        let passedText = NSString(string: "nothing needed here")
-        NSNotificationCenter.defaultCenter().postNotificationName("encounterModalFireNotification", object: passedText)
+        fireModal()
         
         // set data for first modal, fire it, and return
     }
@@ -57,5 +59,25 @@ class Encounter {
             bounty = 2500
         }
         return bounty
+    }
+    
+    func setEncounterTextAndButtons() {
+        if type == EncounterType.pirateAttack {
+            button1Text = "Attack"
+            button2Text = "Flee"
+            button3Text = "Surrender"
+            
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a"
+            encounterText2 = "pirate \(opponent.name)."
+            encounterText3 = ""
+            encounterText4 = "Your opponent attacks."
+        }
+        
+
+    }
+    
+    func fireModal() {
+        let passedText = NSString(string: "nothing needed here")
+        NSNotificationCenter.defaultCenter().postNotificationName("encounterModalFireNotification", object: passedText)
     }
 }

@@ -28,8 +28,6 @@ class FuelRepairModalVC: UIViewController {
         entryField.becomeFirstResponder()
         fuelAsOpposedToRepair = delegate!.getFuelAsOpposedToRepair()
         
-        
-        
         if !fuelAsOpposedToRepair {
             titleLabel.text = "Hull Repair"
             

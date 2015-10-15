@@ -20,6 +20,11 @@ class EncounterVC: UIViewController {
         encounterText2.text = galaxy.currentJourney!.currentEncounter!.encounterText2
         encounterText3.text = galaxy.currentJourney!.currentEncounter!.encounterText3
         encounterText4.text = galaxy.currentJourney!.currentEncounter!.encounterText4
+        
+        let controlState = UIControlState()
+        button1Text.setTitle("\(galaxy.currentJourney!.currentEncounter!.button1Text)", forState: controlState)
+        button2Text.setTitle("\(galaxy.currentJourney!.currentEncounter!.button2Text)", forState: controlState)
+        button3Text.setTitle("\(galaxy.currentJourney!.currentEncounter!.button3Text)", forState: controlState)
     }
 
     
