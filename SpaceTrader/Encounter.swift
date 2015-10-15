@@ -9,12 +9,12 @@
 import Foundation
 
 class Encounter {
-    let type: IFFStatusType
+    let type: EncounterType
     let opponent: SpaceShip
     let clicks: Int
     var encounterText1: String = "null"
     
-    init(type: IFFStatusType, clicks: Int) {
+    init(type: EncounterType, clicks: Int) {
         self.type = type
         self.clicks = clicks
         
@@ -22,12 +22,16 @@ class Encounter {
         // set opponent ShipType
         var opponentShipType = ShipType.Gnat
         
-        
-        self.opponent = SpaceShip(type: ShipType.Beetle, IFFStatus: type)
+        // obviously just a test
+        let testIFF = IFFStatusType.Pirate
+        self.opponent = SpaceShip(type: ShipType.Beetle, IFFStatus: testIFF)
     }
     
     func beginEncounter() {
-        encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a \(type.rawValue) \(opponent.name)."
+        // HandleEncounterType? What type will be given here? Presumably a specific one?
+        // DrawEncounterTextAndButtons
+        
+        encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a [pirate?] \(opponent.name)."
         let passedText = NSString(string: "nothing needed here")
         NSNotificationCenter.defaultCenter().postNotificationName("encounterModalFireNotification", object: passedText)
         
@@ -40,5 +44,15 @@ class Encounter {
     
     func concludeEncounter() {
         galaxy.currentJourney!.resumeJourney()
+    }
+    
+    func getBounty() -> Int {
+        var bounty = opponent.price / 200
+        if bounty <= 0 {
+            bounty = 25
+        } else if bounty > 2500 {
+            bounty = 2500
+        }
+        return bounty
     }
 }

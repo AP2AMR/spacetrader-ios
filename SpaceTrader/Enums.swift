@@ -476,3 +476,31 @@ enum PoliticsType: String {
     case technocracy = "Technocracy"
     case theocracy = "Theocracy"
 }
+
+enum EncounterType {
+    case policeInspection
+    case postMariePoliceEncounter
+    case policeFlee
+    case traderFlee
+    case pirateFlee
+    case pirateAttack
+    case policeAttack
+    case scarabAttack
+    case famousCapAttack
+    case spaceMonsterAttack
+    case dragonflyAttack
+    case traderIgnore
+    case policeIgnore
+    case pirateIgnore
+    case spaceMonsterIgnore
+    case dragonflyIgnore
+    case scarabIgnore
+    case traderSurrender
+    case pirateSurrender
+    case marieCelesteEncounter
+    case HWAttack
+    case bottleGoodEncounter
+    case bottleOldEncounter
+    case traderSell
+    case traderBuy
+}
