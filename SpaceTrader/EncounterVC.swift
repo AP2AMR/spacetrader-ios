@@ -16,7 +16,7 @@ class EncounterVC: UIViewController {
         self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        encounterText.text = galaxy.currentJourney!.currentEncounter!.encounterText1
     }
 
     @IBOutlet weak var encounterText: UITextView!
@@ -25,11 +25,14 @@ class EncounterVC: UIViewController {
     @IBOutlet weak var button3Text: UIButton!
     
     @IBAction func button1(sender: AnyObject) {
+        galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
     }
 
     @IBAction func button2(sender: AnyObject) {
+        galaxy.currentJourney!.currentEncounter!.resumeEncounter(2)
     }
 
     @IBAction func button3(sender: AnyObject) {
+        galaxy.currentJourney!.currentEncounter!.resumeEncounter(3)
     }
 }
