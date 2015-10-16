@@ -16,12 +16,10 @@ class EncounterVC: UIViewController {
         self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
         super.viewDidLoad()
 
-        encounterText1.text = galaxy.currentJourney!.currentEncounter!.encounterText1
-        encounterText2.text = galaxy.currentJourney!.currentEncounter!.encounterText2
-        encounterText3.text = galaxy.currentJourney!.currentEncounter!.encounterText3
-        encounterText4.text = galaxy.currentJourney!.currentEncounter!.encounterText4
-        encounterText5.text = galaxy.currentJourney!.currentEncounter!.encounterText5
-        encounterText6.text = galaxy.currentJourney!.currentEncounter!.encounterText6
+        firstTextBlock.text = "At \(galaxy.currentJourney!.clicks) clicks from \(galaxy.targetSystem!.name) you encounter a \(galaxy.currentJourney!.currentEncounter!.opponent.IFFStatus.rawValue) \(galaxy.currentJourney!.currentEncounter!.opponent.name)."
+        
+        //firstTextBlock.text = galaxy.currentJourney!.currentEncounter!.encounterText1
+        secondTextBlock.text = galaxy.currentJourney!.currentEncounter!.encounterText2
         
         let controlState = UIControlState()
         button1Text.setTitle("\(galaxy.currentJourney!.currentEncounter!.button1Text)", forState: controlState)
@@ -31,12 +29,9 @@ class EncounterVC: UIViewController {
     }
 
     
-    @IBOutlet weak var encounterText1: UILabel!
-    @IBOutlet weak var encounterText2: UILabel!
-    @IBOutlet weak var encounterText3: UILabel!
-    @IBOutlet weak var encounterText4: UILabel!
-    @IBOutlet weak var encounterText5: UILabel!
-    @IBOutlet weak var encounterText6: UILabel!
+    @IBOutlet weak var firstTextBlock: UITextView!
+    @IBOutlet weak var secondTextBlock: UITextView!
+
 
     @IBOutlet weak var button1Text: UIButton!
     @IBOutlet weak var button2Text: UIButton!

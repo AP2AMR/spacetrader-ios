@@ -384,10 +384,10 @@ enum EndGameStatus {
 }
 
 enum IFFStatusType: String {
-    case Player = "Player"
-    case Police = "Police"
-    case Pirate = "Pirate"
-    case Trader = "Trader"
+    case Player = "player"
+    case Police = "police"
+    case Pirate = "pirate"
+    case Trader = "trader"
 }
 
 enum GadgetType {

@@ -72,156 +72,116 @@ class Encounter {
             button3Text = "Surrender"
             button4Text = ""
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a"
-            encounterText2 = "pirate \(opponent.name)."
-            encounterText3 = ""
-            encounterText4 = "Your opponent attacks."
-            encounterText5 = ""
-            encounterText6 = ""
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a pirate \(opponent.name)."
+            encounterText2 = "Your opponent attacks."
+
         } else if type == EncounterType.pirateSurrender {
             button1Text = "Attack"
             button2Text = "Plunder"
             button3Text = ""
             button4Text = ""
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a"
-            encounterText2 = "pirate \(opponent.name)."
-            encounterText3 = ""
-            encounterText4 = "Your opponent hails that he"
-            encounterText5 = "surrenders to you."
-            encounterText6 = ""
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a pirate \(opponent.name)."
+            encounterText2 = "Your opponent hails that he surrenders to you."
+
         } else if type == EncounterType.pirateIgnore {
             button1Text = "Attack"
             button2Text = "Ignore"
             button3Text = ""
             button4Text = ""
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a"
-            encounterText2 = "pirate \(opponent.name)."
-            encounterText3 = ""
-            encounterText4 = "It ignores you."
-            encounterText5 = ""
-            encounterText6 = ""
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a pirate \(opponent.name)."
+            encounterText2 = "It ignores you."
+
         } else if type == EncounterType.pirateFlee {
             button1Text = "Attack"
             button2Text = "Ignore"
             button3Text = ""
             button4Text = ""
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a"
-            encounterText2 = "pirate \(opponent.name)."
-            encounterText3 = ""
-            encounterText4 = "Your opponent is fleeing."
-            encounterText5 = ""
-            encounterText6 = ""
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a pirate \(opponent.name)."
+            encounterText2 = "Your opponent is fleeing."
+
         } else if type == EncounterType.policeInspection {
             button1Text = "Attack"
             button2Text = "Flee"
             button3Text = "Submit"
             button4Text = "Bribe"
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a"
-            encounterText2 = "police \(opponent.name)."
-            encounterText3 = ""
-            encounterText4 = "The police summon you to submit to an"
-            encounterText5 = "inspection."
-            encounterText6 = ""
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a police \(opponent.name)."
+            encounterText2 = "The police summon you to submit to an inspection"
+
         } else if type == EncounterType.policeFlee {
             button1Text = "Attack"
             button2Text = "Ignore"
             button3Text = ""
             button4Text = ""
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a"
-            encounterText2 = "police \(opponent.name)."
-            encounterText3 = ""
-            encounterText4 = "Your opponent is fleeing."
-            encounterText5 = ""
-            encounterText6 = ""
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a police \(opponent.name)."
+            encounterText2 = "Your opponent is fleeing."
+
         } else if type == EncounterType.policeAttack {
             button1Text = "Attack"
             button2Text = "Flee"
             button3Text = "Surrender"
             button4Text = ""
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a"
-            encounterText2 = "police \(opponent.name)."
-            encounterText3 = ""
-            encounterText4 = "Your opponent attacks."
-            encounterText5 = ""
-            encounterText6 = ""
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a police \(opponent.name)."
+            encounterText2 = "Your opponent attacks."
+
         } else if type == EncounterType.policeIgnore {
             button1Text = "Attack"
             button2Text = "Ignore"
             button3Text = ""
             button4Text = ""
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a"
-            encounterText2 = "police \(opponent.name)."
-            encounterText3 = ""
-            encounterText4 = "It ignores you."
-            encounterText5 = ""
-            encounterText6 = ""
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a police \(opponent.name)."
+            encounterText2 = "It ignores you."
+
         } else if type == EncounterType.policeSurrenderDemand {
             button1Text = "Attack"
             button2Text = "Flee"
             button3Text = "Surrender"
             button4Text = ""
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a"
-            encounterText2 = "police \(opponent.name)."
-            encounterText3 = ""
-            encounterText4 = "The police hail they want"
-            encounterText5 = "you to surrender."
-            encounterText6 = ""
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a police \(opponent.name)."
+            encounterText2 = "The police hail that they want you to surrender."
+
         } else if type == EncounterType.postMariePoliceEncounter {
             button1Text = "Attack"
             button2Text = "Flee"
             button3Text = "Yield"
             button4Text = "Bribe"
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a"
-            encounterText2 = "police \(opponent.name)."
-            encounterText3 = ""
-            encounterText4 = "We know you removed illegal"
-            encounterText5 = "goods from the Marie Celeste."
-            encounterText6 = "You must give them up at once!"
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a police \(opponent.name)."
+            encounterText2 = "We know you removed illegal goods from the Marie Celeste. You must give them up at once!"
+
         } else if type == EncounterType.pirateIgnore {
             button1Text = "Attack"
             button2Text = "Ignore"
             button3Text = ""
             button4Text = ""
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a"
-            encounterText2 = "pirate \(opponent.name)."
-            encounterText3 = ""
-            encounterText4 = "It ignores you."
-            encounterText5 = ""
-            encounterText6 = ""
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a pirate \(opponent.name)."
+            encounterText2 = "It ignores you."
+
         } else if type == EncounterType.pirateFlee {
             button1Text = "Attack"
             button2Text = "Ignore"
             button3Text = ""
             button4Text = ""
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a"
-            encounterText2 = "pirate \(opponent.name)."
-            encounterText3 = ""
-            encounterText4 = "Your opponent is fleeing."
-            encounterText5 = ""
-            encounterText6 = ""
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a pirate \(opponent.name)."
+            encounterText2 = "Your opponent is fleeing."
+
         } else if type == EncounterType.marieCelesteEncounter {
             button1Text = "Board"
             button2Text = "Ignore"
             button3Text = ""
             button4Text = ""
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a"
-            encounterText2 = "[SOMETHING]"
-            encounterText3 = ""
-            encounterText4 = "The Marie Celeste appears to"
-            encounterText5 = "be completely abandoned."
-            encounterText6 = ""
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter the a trader ship, the Marie Celeste"
+            encounterText2 = "The Marie Celeste appears to be completely abandoned."
         }
         
         // UP NEXT
