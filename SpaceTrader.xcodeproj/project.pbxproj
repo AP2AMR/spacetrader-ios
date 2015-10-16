@@ -39,6 +39,7 @@
 		5AEC942C1BC84B2900C68F7F /* NewGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEC942B1BC84B2900C68F7F /* NewGameVC.swift */; settings = {ASSET_TAGS = (); }; };
 		5AEC942E1BC8594F00C68F7F /* GalacticChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEC942D1BC8594F00C68F7F /* GalacticChartVC.swift */; settings = {ASSET_TAGS = (); }; };
 		5AEC94301BC85CF100C68F7F /* GalacticChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEC942F1BC85CF100C68F7F /* GalacticChartView.swift */; settings = {ASSET_TAGS = (); }; };
+		5AF0AAF71BD193B900BBE7CA /* Opponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0AAF61BD193B900BBE7CA /* Opponent.swift */; settings = {ASSET_TAGS = (); }; };
 		5AF1CA2D1BA36C2300643C5F /* NewCommanderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF1CA2C1BA36C2300643C5F /* NewCommanderVC.swift */; };
 		5AF1CA2F1BAB3E7A00643C5F /* BuyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF1CA2E1BAB3E7A00643C5F /* BuyVC.swift */; };
 /* End PBXBuildFile section */
@@ -90,6 +91,7 @@
 		5AEC942B1BC84B2900C68F7F /* NewGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameVC.swift; sourceTree = "<group>"; };
 		5AEC942D1BC8594F00C68F7F /* GalacticChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalacticChartVC.swift; sourceTree = "<group>"; };
 		5AEC942F1BC85CF100C68F7F /* GalacticChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalacticChartView.swift; sourceTree = "<group>"; };
+		5AF0AAF61BD193B900BBE7CA /* Opponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Opponent.swift; sourceTree = "<group>"; };
 		5AF1CA2C1BA36C2300643C5F /* NewCommanderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCommanderVC.swift; sourceTree = "<group>"; };
 		5AF1CA2E1BAB3E7A00643C5F /* BuyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,6 +191,7 @@
 				5AD5F8B11B9D160400154B21 /* StarSystem.swift */,
 				5AD5F8BF1B9F473E00154B21 /* TradeItem.swift */,
 				5A0265B71B9FCD170079F6DE /* Weapon.swift */,
+				5AF0AAF61BD193B900BBE7CA /* Opponent.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				5AD5F8B81B9E1B5C00154B21 /* Enums.swift in Sources */,
 				5A0265B61B9FC8FC0079F6DE /* Gadget.swift in Sources */,
 				5A518FB41BC31E9200021B13 /* ShortRangeChartView.swift in Sources */,
+				5AF0AAF71BD193B900BBE7CA /* Opponent.swift in Sources */,
 				5A518FB61BC80CF800021B13 /* FuelRepairModalVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

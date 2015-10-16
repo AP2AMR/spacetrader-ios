@@ -503,3 +503,16 @@ enum EncounterType {
     case traderBuy
     case nullEncounter
 }
+
+enum OpponentType {
+    case pirate
+    case police
+    case trader
+    case mantis
+    case dragonfly
+    case spaceMonster
+    case scarab
+    case marieCeleste
+    case famousCaptain
+    case bottle
+}

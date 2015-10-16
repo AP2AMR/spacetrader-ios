@@ -31,6 +31,7 @@ class Commander {
     var reputation = ReputationType.harmlessRep
     
     var inspected = false
+    var wildStatus = false
     
     
     init(commanderName: String, difficulty: DifficultyType, pilotSkill: Int, fighterSkill: Int, traderSkill: Int, engineerSkill: Int) {
