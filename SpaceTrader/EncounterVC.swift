@@ -45,18 +45,30 @@ class EncounterVC: UIViewController {
     
     @IBAction func button1(sender: AnyObject) {
         galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
+        self.dismissViewControllerAnimated(false, completion: nil)
     }
 
     @IBAction func button2(sender: AnyObject) {
         galaxy.currentJourney!.currentEncounter!.resumeEncounter(2)
+        self.dismissViewControllerAnimated(false, completion: nil)
     }
 
     @IBAction func button3(sender: AnyObject) {
         galaxy.currentJourney!.currentEncounter!.resumeEncounter(3)
+        self.dismissViewControllerAnimated(false, completion: nil)
     }
     
     @IBAction func button4(sender: AnyObject) {
         galaxy.currentJourney!.currentEncounter!.resumeEncounter(4)
+        self.dismissViewControllerAnimated(false, completion: nil)
     }
+    
+    // FOR TESTING PURPOSES ONLY
+    @IBAction func closeButton(sender: AnyObject) {
+        self.dismissViewControllerAnimated(false, completion: nil)
+        galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+        print("test encounter escape button used. Concluding encounter...")
+    }
+    
     
 }

@@ -115,7 +115,7 @@ class Journey {
         // create encounter
         var encounterType = EncounterType.pirateAttack      // holder, will be updated
         if pirate {
-            
+            print("standard issue pirate encounter. No optons yet.")
             currentEncounter = Encounter(type: EncounterType.pirateAttack, clicks: clicks)
             currentEncounter!.beginEncounter()
         } else if police {                                                // BEGIN POLICE
@@ -154,7 +154,7 @@ class Journey {
             } else if player.policeRecord.rawValue == 5 {
                 // clean police record gets 50% chance of inspection
                 print("your police record is clean. 50% chance of inspection.")
-                if arc4random_uniform(10) < 5 {
+                if (arc4random_uniform(10) < 5) && !player.inspected {
                     encounterType = EncounterType.policeInspection
                     player.inspected = true
                 }

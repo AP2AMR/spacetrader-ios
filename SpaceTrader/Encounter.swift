@@ -51,6 +51,7 @@ class Encounter {
     }
     
     func concludeEncounter() {
+        print("concluding encounter and carrying on")
         galaxy.currentJourney!.resumeJourney()
     }
     
