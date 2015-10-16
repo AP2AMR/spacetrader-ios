@@ -1114,55 +1114,69 @@
                                             <action selector="button4:" destination="Z73-QX-bwt" eventType="touchUpInside" id="SLU-Hn-Kc2"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceD-pJ-zL5">
-                                        <rect key="frame" x="167" y="362" width="46" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceD-pJ-zL5">
+                                        <rect key="frame" x="160" y="362" width="60" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="button3:" destination="Z73-QX-bwt" eventType="touchUpInside" id="yLR-Au-JG5"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbt-Vb-pAF">
+                                        <rect key="frame" x="80" y="362" width="60" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="button2:" destination="Z73-QX-bwt" eventType="touchUpInside" id="T3R-6Y-pW8"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3X2-km-Zbk">
-                                        <rect key="frame" x="15" y="362" width="46" height="30"/>
+                                        <rect key="frame" x="8" y="362" width="46" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="button1:" destination="Z73-QX-bwt" eventType="touchUpInside" id="v0B-LD-uh9"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;line 1&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3E6-Jb-c9y">
-                                        <rect key="frame" x="8" y="205" width="284" height="16"/>
+                                        <rect key="frame" x="8" y="180" width="284" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;line 2&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYw-iW-bO0">
-                                        <rect key="frame" x="8" y="229" width="284" height="20"/>
+                                        <rect key="frame" x="8" y="204" width="284" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;line 3&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPs-3p-hCH">
-                                        <rect key="frame" x="8" y="253" width="284" height="20"/>
+                                        <rect key="frame" x="8" y="228" width="284" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;line 4&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7X-mP-KuD">
-                                        <rect key="frame" x="8" y="277" width="284" height="20"/>
+                                        <rect key="frame" x="8" y="252" width="284" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbt-Vb-pAF">
-                                        <rect key="frame" x="92" y="362" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="button2:" destination="Z73-QX-bwt" eventType="touchUpInside" id="T3R-6Y-pW8"/>
-                                        </connections>
-                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;line 5&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSz-yH-7FT">
+                                        <rect key="frame" x="8" y="280" width="284" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;line 6&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9I-Zy-2R4">
+                                        <rect key="frame" x="8" y="304" width="284" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="3X2-km-Zbk" firstAttribute="leading" secondItem="wcG-AA-R22" secondAttribute="leading" constant="15" id="Fmr-a7-84N"/>
+                                    <constraint firstItem="rbt-Vb-pAF" firstAttribute="leading" secondItem="wcG-AA-R22" secondAttribute="leading" constant="80" id="U40-k5-xnA"/>
+                                    <constraint firstAttribute="trailing" secondItem="ceD-pJ-zL5" secondAttribute="trailing" constant="80" id="WlG-o0-ooQ"/>
                                     <constraint firstItem="aLr-xF-vYF" firstAttribute="centerX" secondItem="wcG-AA-R22" secondAttribute="centerX" id="ZPs-d8-cVI"/>
                                     <constraint firstAttribute="trailing" secondItem="gr9-HP-Nbr" secondAttribute="trailing" constant="8" id="hry-In-COx"/>
                                 </constraints>
@@ -1183,6 +1197,8 @@
                         <outlet property="encounterText2" destination="HYw-iW-bO0" id="JwN-LO-cok"/>
                         <outlet property="encounterText3" destination="yPs-3p-hCH" id="DSf-ER-jdY"/>
                         <outlet property="encounterText4" destination="r7X-mP-KuD" id="1No-JP-37b"/>
+                        <outlet property="encounterText5" destination="dSz-yH-7FT" id="bNB-Go-Tdh"/>
+                        <outlet property="encounterText6" destination="V9I-Zy-2R4" id="Gyl-Yb-zlu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RHb-zr-ix5" userLabel="First Responder" sceneMemberID="firstResponder"/>

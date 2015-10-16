@@ -27,17 +27,10 @@ class Commander {
     var traderSkill: Int
     var engineerSkill: Int
     
-    // prices paid
-//    var waterPaid: Int = 0
-//    var fursPaid: Int = 0
-//    var foodPaid: Int = 0
-//    var orePaid: Int = 0
-//    var gamesPaid: Int = 0
-//    var firearmsPaid: Int = 0
-//    var medicinePaid: Int = 0
-//    var machinesPaid: Int = 0
-//    var narcoticsPaid: Int = 0
-//    var robotsPaid: Int = 0
+    var policeRecord = PoliceRecordType.cleanScore
+    var reputation = ReputationType.harmlessRep
+    
+    var inspected = false
     
     
     init(commanderName: String, difficulty: DifficultyType, pilotSkill: Int, fighterSkill: Int, traderSkill: Int, engineerSkill: Int) {
@@ -653,5 +646,42 @@ class Commander {
             case .impossible:
                 return 4
         }
+    }
+    
+    func getPoliceRecordString(record: PoliceRecordType) -> String {
+        switch record {
+            case .psychopathScore: return "Psyco"
+            case .villainScore: return "Villain"
+            case .criminalScore: return "Criminal"
+            case .crookScore: return "Crook"
+            case .dubiousScore: return "Dubious"
+            case .cleanScore: return "Clean"
+            case .lawfulScore: return "Lawful"
+            case .trustedScore: return "Trusted"
+            case .likedScore: return "Liked"
+            case .heroScore: return "Hero"
+        }
+    }
+    
+    func getCommanderPoliceRecord() -> String {
+        return getPoliceRecordString(player.policeRecord)
+    }
+    
+    func getReputationString(reputation: ReputationType) -> String {
+        switch reputation {
+            case .harmlessRep: return "Harmless"
+            case .mostlyHarmlessRep: return "Mostly Harmless"
+            case .poorRep: return "Poor"
+            case .averageRep: return "Average"
+            case .aboveAverageRep: return "Above average"
+            case .competentRep: return "Competent"
+            case .dangerousRep: return "Dangerous"
+            case .deadlyRep: return "Deadly"
+            case .eliteRep: return "Elite"
+        }
+    }
+    
+    func getCommanderReputation() -> String {
+        return getReputationString(player.reputation)
     }
 }

@@ -16,6 +16,8 @@ class Encounter {
     var encounterText2 = "null"
     var encounterText3 = "null"
     var encounterText4 = "null"
+    var encounterText5 = "null"
+    var encounterText6 = "null"
     var button1Text = "button1"
     var button2Text = "button2"
     var button3Text = "button3"
@@ -67,14 +69,37 @@ class Encounter {
             button1Text = "Attack"
             button2Text = "Flee"
             button3Text = "Surrender"
+            button4Text = ""
+            
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a"
+            encounterText2 = "police \(opponent.name)."
+            encounterText3 = ""
+            encounterText4 = "The police summon you to submit to an"
+            encounterText5 = "inspection."
+            encounterText6 = ""
+        } else if type == EncounterType.policeInspection {
+            button1Text = "Attack"
+            button2Text = "Flee"
+            button3Text = "Submit"
+            button4Text = "Bribe"
             
             encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a"
             encounterText2 = "pirate \(opponent.name)."
             encounterText3 = ""
             encounterText4 = "Your opponent attacks."
-        } else if type == EncounterType.policeInspection {
-            
+            encounterText5 = ""
+            encounterText6 = ""
         }
+        
+        // outline this next:
+        // policeInspection
+        // postMariePoliceEncounter
+        // all flee scenarios
+        // all attack scenarios
+        // all ignore scenarios
+        // pirate and trader surrender scenarios
+        // marieCelesteEncounter
+        // famous encounter
         
 
     }

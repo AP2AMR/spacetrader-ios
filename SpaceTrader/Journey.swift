@@ -113,17 +113,71 @@ class Journey {
         }
         
         // create encounter
+        var encounterType = EncounterType.pirateAttack      // holder, will be updated
         if pirate {
             
             currentEncounter = Encounter(type: EncounterType.pirateAttack, clicks: clicks)
             currentEncounter!.beginEncounter()
-        } //else if police {
-//            currentEncounter = Encounter(type: IFFStatusType.Police, clicks: clicks)
-//            currentEncounter!.beginEncounter()
-//        } else if trader {
-//            currentEncounter = Encounter(type: IFFStatusType.Trader, clicks: clicks)
-//            currentEncounter!.beginEncounter()
-//        }
+        } else if police {                                                // BEGIN POLICE
+            encounterType = EncounterType.policeIgnore      // default
+            // if you are cloaked, they won't see you
+            if player.commanderShip.cloaked {
+                print("police are ignoring you because you're cloaked")
+                encounterType = EncounterType.policeIgnore
+            } else if player.policeRecord.rawValue < 4 {
+                print("you are a criminal. Entering that clause...")
+                // if you're a criminal, the police will tend to attack
+                
+                // if you are heavily armed, something
+                
+                // unless you're impressive, they'll attack
+                if player.reputation.rawValue < 3 {
+                    print("you are a criminal, and not impressive enough for the police to be scared")
+                    encounterType = EncounterType.policeAttack
+                } else if Int(arc4random_uniform(8)) > (player.reputation.rawValue) { // rep / (1 + opponent.type) ?
+                    print("you are moderately scary, but dice roll determined they will attack you anyway")
+                    encounterType = EncounterType.policeAttack
+                } else if player.commanderShip.cloaked {
+                    print("you are a criminal, but cloaked. Police ignoring.")
+                    encounterType = EncounterType.policeIgnore
+                } else {
+                    print("you are a scary criminal. Police fleeing")
+                    encounterType = EncounterType.policeFlee
+                }
+                // if dubious police will inspect you
+            } else if player.policeRecord.rawValue <= 4 {
+                print("your police record is dubious, so you are getting inspected")
+                encounterType = EncounterType.policeInspection
+                player.inspected = true
+                // if clean but not as high as lawful, 10% chance of inspection on normal
+            } else if player.policeRecord.rawValue < 5 {
+                if (Int(arc4random_uniform(UInt32(12 - player.getDifficultyInt()))) < 1) && !player.inspected {
+                    encounterType = EncounterType.policeInspection
+                    player.inspected = true
+                }
+            } else {
+                if (arc4random_uniform(40) == 1) && !player.inspected {
+                    print("your police record is great, but you're getting inspected anyway, on a 1 in 40 chance")
+                    encounterType = EncounterType.policeInspection
+                    player.inspected = true
+                }
+            }
+            // if you're impressive but suddenly stuck in a crappy ship, police won't flee even if your reputation if fearsome
+            // IMPLEMENT LATER, MUST INSTANTIATE OPPONENT SHIP HERE TO DO THAT
+            
+            if encounterType == EncounterType.policeIgnore && player.commanderShip.cloaked {
+                print("you are cloaked and the police are ignoring you. Encounter won't happen")
+                // SKIP ENCOUNTER
+            }
+            
+            // honor autoIgnore and autoFlee, both of which have yet to be implemented
+            
+            currentEncounter = Encounter(type: EncounterType.pirateAttack, clicks: clicks)
+            currentEncounter!.beginEncounter()
+        } else if trader {                                                // END POLICE
+            currentEncounter = Encounter(type: EncounterType.traderIgnore, clicks: clicks)
+            currentEncounter!.beginEncounter()
+        }
         
         // I think this has to terminate here, otherwise it will just keep running
         

@@ -45,29 +45,29 @@ enum StatusType: String {
     case employment = "lacking enough workers"
 }
 
-enum PoliceRecordType: String {
-    case psychopathScore = "Psyco"
-    case villainScore = "Villain"
-    case criminalScore = "Criminal"
-    case crookScore = "Crook"
-    case dubiousScore = "Dubious"
-    case cleanScore = "Clean"
-    case lawfulScore = "Lawful"
-    case trustedScore = "Trusted"
-    case likedScore = "Liked"
-    case heroScore = "Hero"
+enum PoliceRecordType: Int {
+    case psychopathScore = 0
+    case villainScore
+    case criminalScore
+    case crookScore
+    case dubiousScore
+    case cleanScore
+    case lawfulScore
+    case trustedScore
+    case likedScore
+    case heroScore
 }
 
-enum ReputationType: String {
-    case harmlessRep = "Harmless"
-    case mostlyHarmlessRep = "Mostly Harmless"
-    case poorRep = "Poor"
-    case averageRep = "Average"
-    case aboveAverageRep = "Above average"
-    case competentRep = "Competent"
-    case dangerousRep = "Dangerous"
-    case deadlyRep = "Deadly"
-    case eliteRep = "Elite"
+enum ReputationType: Int {
+    case harmlessRep = 0
+    case mostlyHarmlessRep
+    case poorRep
+    case averageRep
+    case aboveAverageRep
+    case competentRep
+    case dangerousRep
+    case deadlyRep
+    case eliteRep
 }
 
 enum DifficultyType: String {
@@ -316,9 +316,6 @@ enum SizeType: String {
 //    { "Experiment Failed",		QuestExperimentFailedString, 		0, 0, true },
 //    { "Wild Gets Out",          QuestWildGetsOutString,
 
-enum EncounterType2 {
-    
-}
 
 enum MonsterStatusType {
     

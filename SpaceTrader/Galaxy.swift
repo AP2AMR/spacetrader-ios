@@ -1112,6 +1112,7 @@ class Galaxy {
         // handle other checks, like on debt, set canWeWarp to false if they fail
         
         if canWeWarp {
+            player.inspected = false
             print("warp function signing off on warp and passing control to journey")
             currentJourney = Journey(origin: galaxy.currentSystem!, destination: galaxy.targetSystem!)
             currentJourney!.beginJourney()
