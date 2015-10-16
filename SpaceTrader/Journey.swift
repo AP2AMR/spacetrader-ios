@@ -119,6 +119,7 @@ class Journey {
             currentEncounter = Encounter(type: EncounterType.pirateAttack, clicks: clicks)
             currentEncounter!.beginEncounter()
         } else if police {                                                // BEGIN POLICE
+            print("default police interaction is ignore")
             encounterType = EncounterType.policeIgnore      // default
             // if you are cloaked, they won't see you
             if player.commanderShip.cloaked {
@@ -150,7 +151,16 @@ class Journey {
                 encounterType = EncounterType.policeInspection
                 player.inspected = true
                 // if clean but not as high as lawful, 10% chance of inspection on normal
+            } else if player.policeRecord.rawValue == 5 {
+                // clean police record gets 50% chance of inspection
+                print("your police record is clean. 50% chance of inspection.")
+                if arc4random_uniform(10) < 5 {
+                    encounterType = EncounterType.policeInspection
+                    player.inspected = true
+                }
             } else if player.policeRecord.rawValue < 5 {
+
+                print("your police record is lawful. 10% chance of inspection")
                 if (Int(arc4random_uniform(UInt32(12 - player.getDifficultyInt()))) < 1) && !player.inspected {
                     encounterType = EncounterType.policeInspection
                     player.inspected = true
@@ -170,9 +180,15 @@ class Journey {
                 // SKIP ENCOUNTER
             }
             
+            // if the police are after you but your police record is less than criminal, they'll hail you to surrender instead of attacking
+            if encounterType == EncounterType.policeAttack && player.policeRecord.rawValue > 2 {
+                print("police not attacking you because you're only a small time crook")
+                encounterType = EncounterType.policeSurrenderDemand
+            }
+            
             // honor autoIgnore and autoFlee, both of which have yet to be implemented
             
-            currentEncounter = Encounter(type: EncounterType.pirateAttack, clicks: clicks)
+            currentEncounter = Encounter(type: encounterType, clicks: clicks)
             currentEncounter!.beginEncounter()
         } else if trader {                                                // END POLICE
             currentEncounter = Encounter(type: EncounterType.traderIgnore, clicks: clicks)

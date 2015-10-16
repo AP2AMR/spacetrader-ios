@@ -482,6 +482,7 @@ enum EncounterType {
     case pirateFlee
     case pirateAttack
     case policeAttack
+    case policeSurrenderDemand
     case scarabAttack
     case famousCapAttack
     case spaceMonsterAttack
