@@ -115,10 +115,29 @@ class Journey {
         // create encounter
         var encounterType = EncounterType.pirateAttack      // holder, will be updated
         if pirate {
-            print("standard issue pirate encounter. No optons yet.")
-            currentEncounter = Encounter(type: EncounterType.pirateAttack, clicks: clicks)
+            encounterType = EncounterType.pirateAttack      // default
+            print("pirate encounter. Default is attack.")
+            
+            // if you're cloaked, they ignore you
+            if player.commanderShip.cloaked {
+                encounterType = EncounterType.pirateIgnore
+            }
+            
+            // Pirates will mostly attack, but they are cowardly: if your rep is too high, they tend to flee
+            // how to store pirate commander info?
+            
+            // if pirates are in a better ship, they won't flee no matter how scary you are
+            // also need pirate ship instantiated to do this
+            
+            // If they ignore you or flee and you can't see them, the encounter doesn't take place
+            if encounterType == EncounterType.pirateIgnore && player.commanderShip.cloaked {
+                encounterType = EncounterType.nullEncounter
+            }
+            
+            
+            currentEncounter = Encounter(type: encounterType, clicks: clicks)
             currentEncounter!.beginEncounter()
-        } else if police {                                                // BEGIN POLICE
+        } else if police {
             print("default police interaction is ignore")
             encounterType = EncounterType.policeIgnore      // default
             // if you are cloaked, they won't see you
@@ -177,7 +196,7 @@ class Journey {
             
             if encounterType == EncounterType.policeIgnore && player.commanderShip.cloaked {
                 print("you are cloaked and the police are ignoring you. Encounter won't happen")
-                // SKIP ENCOUNTER
+                encounterType = EncounterType.nullEncounter
             }
             
             // if the police are after you but your police record is less than criminal, they'll hail you to surrender instead of attacking
@@ -190,7 +209,7 @@ class Journey {
             
             currentEncounter = Encounter(type: encounterType, clicks: clicks)
             currentEncounter!.beginEncounter()
-        } else if trader {                                                // END POLICE
+        } else if trader {
             currentEncounter = Encounter(type: EncounterType.traderIgnore, clicks: clicks)
             currentEncounter!.beginEncounter()
         }

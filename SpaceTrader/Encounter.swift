@@ -37,8 +37,11 @@ class Encounter {
     }
     
     func beginEncounter() {
-        // HandleEncounterType? What type will be given here? Presumably a specific one?
-        // DrawEncounterTextAndButtons
+        // if this is null, skip right to the end
+        if type == EncounterType.nullEncounter {
+            concludeEncounter()
+        }
+        
         setEncounterTextAndButtons()
         
         fireModal()

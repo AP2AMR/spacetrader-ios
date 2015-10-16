@@ -501,4 +501,5 @@ enum EncounterType {
     case bottleOldEncounter
     case traderSell
     case traderBuy
+    case nullEncounter
 }
