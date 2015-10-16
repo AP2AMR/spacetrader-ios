@@ -16,6 +16,10 @@ class EncounterVC: UIViewController {
         self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
         super.viewDidLoad()
 
+        playerShipType.text = player.commanderShip.name
+        playerHull.text = "Hull at \(player.commanderShip.hull)%"
+        playerShields.text = player.getShieldStrengthString()
+        
         firstTextBlock.text = "At \(galaxy.currentJourney!.clicks) clicks from \(galaxy.targetSystem!.name) you encounter a \(galaxy.currentJourney!.currentEncounter!.opponent.IFFStatus.rawValue) \(galaxy.currentJourney!.currentEncounter!.opponent.name)."
         
         //firstTextBlock.text = galaxy.currentJourney!.currentEncounter!.encounterText1
@@ -28,6 +32,14 @@ class EncounterVC: UIViewController {
         button4Text.setTitle("\(galaxy.currentJourney!.currentEncounter!.button4Text)", forState: controlState)
     }
 
+    
+    @IBOutlet weak var playerShipType: UILabel!
+    @IBOutlet weak var playerHull: UILabel!
+    @IBOutlet weak var playerShields: UILabel!
+    @IBOutlet weak var opponentShipType: UILabel!
+    @IBOutlet weak var opponentHull: UILabel!
+    @IBOutlet weak var opponentShields: UILabel!
+    
     
     @IBOutlet weak var firstTextBlock: UITextView!
     @IBOutlet weak var secondTextBlock: UITextView!

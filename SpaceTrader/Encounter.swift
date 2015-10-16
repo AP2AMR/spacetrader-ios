@@ -182,14 +182,45 @@ class Encounter {
             
             encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter the a trader ship, the Marie Celeste"
             encounterText2 = "The Marie Celeste appears to be completely abandoned."
+        } else if type == EncounterType.traderBuy {
+            button1Text = "Attack"
+            button2Text = "Ignore"
+            button3Text = "Trade"
+            button4Text = ""
+            
+            encounterText2 = "You are hailed with an offer to trade goods."
+            
+        } else if type == EncounterType.traderSell {
+            button1Text = "Attack"
+            button2Text = "Ignore"
+            button3Text = "Trade"
+            button4Text = ""
+            
+            encounterText2 = "You are hailed with an offer to trade goods."
+        } else if type == EncounterType.traderIgnore {
+            button1Text = "Attack"
+            button2Text = "Ignore"
+            button3Text = ""
+            button4Text = ""
+            
+            encounterText2 = "It ignores you."
+        } else if type == EncounterType.traderFlee {
+            button1Text = "Attack"
+            button2Text = "Ignore"
+            button3Text = ""
+            button4Text = ""
+            
+            encounterText2 = "Your opponent is fleeing."
+        } else if type == EncounterType.traderSurrender {
+            button1Text = "Attack"
+            button2Text = "Plunder"
+            button3Text = ""
+            button4Text = ""
+            
+            encounterText2 = "Your opponent hails that he surrenders to you."
         }
         
-        // UP NEXT
-        // traderBuy
-        // traderSell
-        // traderFlee
-        // traderIgnore
-        
+
 //        *case policeInspection
 //        *case postMariePoliceEncounter
 //        *case policeFlee

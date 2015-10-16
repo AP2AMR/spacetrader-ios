@@ -1143,13 +1143,8 @@
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="&lt;first block of text goes here&gt;" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="025-w4-7ew">
-                                        <rect key="frame" x="8" y="243" width="314" height="46"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="&lt;second block of text goes here&gt;" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coM-Pz-gC6">
-                                        <rect key="frame" x="8" y="297" width="314" height="46"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <rect key="frame" x="8" y="257" width="314" height="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xjs-Hc-FYY">
@@ -1192,12 +1187,6 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Opponent:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fms-Cj-lcI">
-                                        <rect key="frame" x="185" y="64" width="56" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bumblebee" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4KS-Jl-ZqA">
                                         <rect key="frame" x="185" y="173" width="100" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -1216,6 +1205,17 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Opponent:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fms-Cj-lcI">
+                                        <rect key="frame" x="185" y="64" width="56" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="&lt;second block of text goes here&gt;" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coM-Pz-gC6">
+                                        <rect key="frame" x="8" y="298" width="314" height="46"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1241,6 +1241,12 @@
                         <outlet property="button3Text" destination="ceD-pJ-zL5" id="mnY-Oc-RbQ"/>
                         <outlet property="button4Text" destination="gr9-HP-Nbr" id="fhh-BJ-Tpb"/>
                         <outlet property="firstTextBlock" destination="025-w4-7ew" id="QdC-bA-t6A"/>
+                        <outlet property="opponentHull" destination="rZm-bD-1mh" id="sdr-hn-tvy"/>
+                        <outlet property="opponentShields" destination="TGz-f7-6sa" id="2jF-CR-oe6"/>
+                        <outlet property="opponentShipType" destination="4KS-Jl-ZqA" id="kFt-51-FeR"/>
+                        <outlet property="playerHull" destination="lgr-6r-qDm" id="TIL-I1-bX1"/>
+                        <outlet property="playerShields" destination="vIL-mv-aVJ" id="bwC-O5-LBN"/>
+                        <outlet property="playerShipType" destination="Ida-9E-6Do" id="9K5-Do-sfW"/>
                         <outlet property="secondTextBlock" destination="coM-Pz-gC6" id="owf-bd-czb"/>
                     </connections>
                 </viewController>

@@ -43,7 +43,7 @@ class SpaceShip {
     var cargo: [TradeItem] = []     // initializing everything empty. Override this if needed.
     var weapon: [Weapon] = []
     var shield: [Shield] = []
-    var shieldStrength: [Int] = []  // these arrays are getting scary
+    //var shieldStrength: [Int] = []  // these arrays are getting scary
     var gadget: [Gadget] = []
     var crew: [CrewMember] = []
     var fuel: Int
