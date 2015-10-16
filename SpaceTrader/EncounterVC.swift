@@ -15,10 +15,13 @@ class EncounterVC: UIViewController {
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
         super.viewDidLoad()
-
+        
         playerShipType.text = player.commanderShip.name
-        playerHull.text = "Hull at \(player.commanderShip.hull)%"
-        playerShields.text = player.getShieldStrengthString()
+        playerHull.text = "Hull at \(player.commanderShip.hullPercentage)%"
+        playerShields.text = player.getShieldStrengthString(player.commanderShip)
+        playerShipType.text = galaxy.currentJourney!.currentEncounter!.opponent.name
+        playerHull.text = "Hull at \(galaxy.currentJourney!.currentEncounter!.opponent.hullPercentage)%"
+        playerShields.text = player.getShieldStrengthString(galaxy.currentJourney!.currentEncounter!.opponent)
         
         firstTextBlock.text = "At \(galaxy.currentJourney!.clicks) clicks from \(galaxy.targetSystem!.name) you encounter a \(galaxy.currentJourney!.currentEncounter!.opponent.IFFStatus.rawValue) \(galaxy.currentJourney!.currentEncounter!.opponent.name)."
         

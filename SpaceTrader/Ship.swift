@@ -50,6 +50,12 @@ class SpaceShip {
     var hull: Int
     var tribbles: Int = 0
     
+    var hullPercentage: Int {
+        get {
+            return ((hull / hullStrength) * 100)
+        }
+    }
+    
     var totalCargo: Int {
         get {
             var totalItems: Int = 0
@@ -94,7 +100,7 @@ class SpaceShip {
         //self.cargo = []
         self.weapon = []
         self.shield = []
-        self.shieldStrength = []
+        //self.shieldStrength = []
         self.gadget = []
         self.crew = []
         switch type {

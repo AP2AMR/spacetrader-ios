@@ -685,19 +685,18 @@ class Commander {
         return getReputationString(player.reputation)
     }
     
-    func getShieldStrengthString() -> String {
+    func getShieldStrengthString(ship: SpaceShip) -> String {
         var shieldMaxTotal: Int = 0
         var shieldActualTotal: Int = 0
-        for shield in player.commanderShip.shield {
+        for shield in ship.shield {
             shieldMaxTotal += shield.power
             shieldActualTotal += shield.currentStrength
         }
-        let percentage = (shieldActualTotal / shieldMaxTotal) * 100
         
         if shieldMaxTotal == 0 {
             return "No Shields"
         } else {
-            return "Shields at \(percentage)%"
+            return "Shields at \((shieldActualTotal / shieldMaxTotal) * 100)%"
         }
         
     }
