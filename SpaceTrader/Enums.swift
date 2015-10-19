@@ -395,6 +395,7 @@ enum IFFStatusType: String {
     case MarieCeleste = "Marie Celeste"
     case FamousCaptain = "famous captain"
     case Bottle = "bottle"
+    case Null = "null"
 }
 
 enum GadgetType {
@@ -503,23 +504,39 @@ enum EncounterType {
     case traderSurrender
     case pirateSurrender
     case marieCelesteEncounter
-    case HWAttack
     case bottleGoodEncounter
     case bottleOldEncounter
     case traderSell
     case traderBuy
+    case mantisAttack
     case nullEncounter
 }
 
-//enum OpponentType {
-//    case pirate
-//    case police
-//    case trader
-//    case mantis
-//    case dragonfly
-//    case spaceMonster
-//    case scarab
-//    case marieCeleste
-//    case famousCaptain
-//    case bottle
-//}
+func getIFFStatusTypeforEncounterType(encounterType: EncounterType) -> IFFStatusType {
+    if (encounterType == EncounterType.policeAttack) || (encounterType == EncounterType.policeFlee) || (encounterType == EncounterType.policeIgnore) || (encounterType == EncounterType.policeInspection) || (encounterType == EncounterType.policeSurrenderDemand) {
+        return IFFStatusType.Police
+    } else if (encounterType == EncounterType.pirateAttack) || (encounterType == EncounterType.pirateFlee) || (encounterType == EncounterType.pirateIgnore) || (encounterType == EncounterType.pirateSurrender) {
+        return IFFStatusType.Pirate
+    } else if (encounterType == EncounterType.traderBuy) || (encounterType == EncounterType.traderFlee) || (encounterType == EncounterType.traderIgnore) || (encounterType == EncounterType.traderSell) || (encounterType == EncounterType.traderSurrender) {
+        return IFFStatusType.Trader
+    } else if (encounterType == EncounterType.mantisAttack) {
+        return IFFStatusType.Mantis
+    } else if (encounterType == EncounterType.dragonflyAttack) || (encounterType == EncounterType.dragonflyIgnore) {
+        return IFFStatusType.Dragonfly
+    } else if (encounterType == EncounterType.spaceMonsterAttack) || (encounterType == EncounterType.spaceMonsterIgnore) {
+        return IFFStatusType.SpaceMonster
+    } else if (encounterType == EncounterType.dragonflyAttack) || (encounterType == EncounterType.dragonflyIgnore) {
+        return IFFStatusType.Dragonfly
+    } else if (encounterType == EncounterType.scarabAttack) || (encounterType == EncounterType.scarabIgnore) {
+        return IFFStatusType.Scarab
+    } else if (encounterType == EncounterType.marieCelesteEncounter) {
+        return IFFStatusType.MarieCeleste
+    } else if (encounterType == EncounterType.famousCapAttack) { // really all?
+        return IFFStatusType.FamousCaptain
+    } else if (encounterType == EncounterType.bottleGoodEncounter) || (encounterType == EncounterType.bottleOldEncounter) {
+        return IFFStatusType.Bottle
+    } else {
+        return IFFStatusType.Null
+    }
+}
+

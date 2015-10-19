@@ -19,11 +19,11 @@ class EncounterVC: UIViewController {
         playerShipType.text = player.commanderShip.name
         playerHull.text = "Hull at \(player.commanderShip.hullPercentage)%"
         playerShields.text = player.getShieldStrengthString(player.commanderShip)
-        opponentShipType.text = galaxy.currentJourney!.currentEncounter!.opponent.name
-        opponentHull.text = "Hull at \(galaxy.currentJourney!.currentEncounter!.opponent.hullPercentage)%"
-        opponentShields.text = player.getShieldStrengthString(galaxy.currentJourney!.currentEncounter!.opponent)
+        opponentShipType.text = galaxy.currentJourney!.currentEncounter!.opponent.ship.name
+        opponentHull.text = "Hull at \(galaxy.currentJourney!.currentEncounter!.opponent.ship.hullPercentage)%"
+        opponentShields.text = player.getShieldStrengthString(galaxy.currentJourney!.currentEncounter!.opponent.ship)
         
-        firstTextBlock.text = "At \(galaxy.currentJourney!.clicks) clicks from \(galaxy.targetSystem!.name) you encounter a \(galaxy.currentJourney!.currentEncounter!.opponent.IFFStatus.rawValue) \(galaxy.currentJourney!.currentEncounter!.opponent.name)."
+        firstTextBlock.text = "At \(galaxy.currentJourney!.clicks) clicks from \(galaxy.targetSystem!.name) you encounter a \(galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus.rawValue) \(galaxy.currentJourney!.currentEncounter!.opponent.ship.name)."
         
         //firstTextBlock.text = galaxy.currentJourney!.currentEncounter!.encounterText1
         secondTextBlock.text = galaxy.currentJourney!.currentEncounter!.encounterText2

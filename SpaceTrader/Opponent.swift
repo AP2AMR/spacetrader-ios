@@ -14,6 +14,7 @@ class Opponent {
     var type: IFFStatusType
     
     init(type: IFFStatusType) {
+        print("initializing opponent...")
 
         self.type = type
         
@@ -23,6 +24,7 @@ class Opponent {
     }
     
     func generateOpponent() {
+        print("generateOpponent called")
         var tries = 1
         let name = "NAME"                           // not sure whether he properly needs a name...
         
@@ -57,7 +59,8 @@ class Opponent {
         }
         
         // set shiptype
-        // how to use occurance?
+        let shipType = pickShipRandomlyBasedOnOccurance()
+        ship = SpaceShip(type: shipType, IFFStatus: type)
         
         
         // determine gadgets
@@ -91,27 +94,32 @@ class Opponent {
         let chancePerShip: [Int] = [2, 28, 20, 20, 15, 3, 6, 2, 2, 2]
         var resultRandom: [Int] = []
         
-        for number in chancePerShip {
-            let result = Int(arc4random_uniform(UInt32(number)))
-            resultRandom.append(result)
+
+        // maxIndex created outside loop, logs the best ship of all the times the loop runs
+        var maxIndex: Int = 0
+        for i in 0...100 {
+            resultRandom = []
+            for number in chancePerShip {
+                let result = Int(arc4random_uniform(UInt32(number)))
+                resultRandom.append(result)
+            }
+            print(resultRandom)
+            
+            var max: Int = 0
+
+            for result in resultRandom {
+                if result >= max {
+                    max = result
+                    maxIndex = i
+                }
+
+            }
+            print("winner is \(ships[maxIndex])")
+            max = 0
+            maxIndex = 0
         }
         
-        print(resultRandom)
+        return ships[maxIndex]
         
-        
-        let chanceFlea = Int(arc4random_uniform(2))
-        print("chanceFlea: \(chanceFlea)")
-        let chanceGnat = Int(arc4random_uniform(28))
-        
-//        case Flea 2
-//        case Gnat 28
-//        case Firefly 20
-//        case Mosquito 20
-//        case Bumblebee 15
-//        case Beetle 3
-//        case Hornet 6
-//        case Grasshopper 2
-//        case Termite 2
-//        case Wasp 2
     }
 }

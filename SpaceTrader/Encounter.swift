@@ -10,7 +10,7 @@ import Foundation
 
 class Encounter {
     let type: EncounterType
-    let opponent: SpaceShip
+    let opponent: Opponent
     let clicks: Int
     var encounterText1 = "null"
     var encounterText2 = "null"
@@ -27,13 +27,12 @@ class Encounter {
         self.type = type
         self.clicks = clicks
         
-        // generate opponent--original function GenerateOpponent in traveler.c
-        // set opponent ShipType
-        var opponentShipType = ShipType.Gnat
+        let IFF = getIFFStatusTypeforEncounterType(type)
         
-        // obviously just a test
-        let testIFF = IFFStatusType.Pirate
-        self.opponent = SpaceShip(type: ShipType.Beetle, IFFStatus: testIFF)
+        // generate opponent
+        opponent = Opponent(type: IFF)
+        opponent.generateOpponent()
+        
     }
     
     func beginEncounter() {
@@ -59,7 +58,7 @@ class Encounter {
     }
     
     func getBounty() -> Int {
-        var bounty = opponent.price / 200
+        var bounty = opponent.ship.price / 200
         if bounty <= 0 {
             bounty = 25
         } else if bounty > 2500 {
@@ -75,7 +74,7 @@ class Encounter {
             button3Text = "Surrender"
             button4Text = ""
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a pirate \(opponent.name)."
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a pirate \(opponent.ship.name)."
             encounterText2 = "Your opponent attacks."
 
         } else if type == EncounterType.pirateSurrender {
@@ -84,7 +83,7 @@ class Encounter {
             button3Text = ""
             button4Text = ""
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a pirate \(opponent.name)."
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a pirate \(opponent.ship.name)."
             encounterText2 = "Your opponent hails that he surrenders to you."
 
         } else if type == EncounterType.pirateIgnore {
@@ -93,7 +92,7 @@ class Encounter {
             button3Text = ""
             button4Text = ""
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a pirate \(opponent.name)."
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a pirate \(opponent.ship.name)."
             encounterText2 = "It ignores you."
 
         } else if type == EncounterType.pirateFlee {
@@ -102,7 +101,7 @@ class Encounter {
             button3Text = ""
             button4Text = ""
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a pirate \(opponent.name)."
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a pirate \(opponent.ship.name)."
             encounterText2 = "Your opponent is fleeing."
 
         } else if type == EncounterType.policeInspection {
@@ -111,7 +110,7 @@ class Encounter {
             button3Text = "Submit"
             button4Text = "Bribe"
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a police \(opponent.name)."
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a police \(opponent.ship.name)."
             encounterText2 = "The police summon you to submit to an inspection"
 
         } else if type == EncounterType.policeFlee {
@@ -120,7 +119,7 @@ class Encounter {
             button3Text = ""
             button4Text = ""
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a police \(opponent.name)."
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a police \(opponent.ship.name)."
             encounterText2 = "Your opponent is fleeing."
 
         } else if type == EncounterType.policeAttack {
@@ -129,7 +128,7 @@ class Encounter {
             button3Text = "Surrender"
             button4Text = ""
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a police \(opponent.name)."
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a police \(opponent.ship.name)."
             encounterText2 = "Your opponent attacks."
 
         } else if type == EncounterType.policeIgnore {
@@ -138,7 +137,7 @@ class Encounter {
             button3Text = ""
             button4Text = ""
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a police \(opponent.name)."
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a police \(opponent.ship.name)."
             encounterText2 = "It ignores you."
 
         } else if type == EncounterType.policeSurrenderDemand {
@@ -147,7 +146,7 @@ class Encounter {
             button3Text = "Surrender"
             button4Text = ""
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a police \(opponent.name)."
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a police \(opponent.ship.name)."
             encounterText2 = "The police hail that they want you to surrender."
 
         } else if type == EncounterType.postMariePoliceEncounter {
@@ -156,7 +155,7 @@ class Encounter {
             button3Text = "Yield"
             button4Text = "Bribe"
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a police \(opponent.name)."
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a police \(opponent.ship.name)."
             encounterText2 = "We know you removed illegal goods from the Marie Celeste. You must give them up at once!"
 
         } else if type == EncounterType.pirateIgnore {
@@ -165,7 +164,7 @@ class Encounter {
             button3Text = ""
             button4Text = ""
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a pirate \(opponent.name)."
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a pirate \(opponent.ship.name)."
             encounterText2 = "It ignores you."
 
         } else if type == EncounterType.pirateFlee {
@@ -174,7 +173,7 @@ class Encounter {
             button3Text = ""
             button4Text = ""
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a pirate \(opponent.name)."
+            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a pirate \(opponent.ship.name)."
             encounterText2 = "Your opponent is fleeing."
 
         } else if type == EncounterType.marieCelesteEncounter {
