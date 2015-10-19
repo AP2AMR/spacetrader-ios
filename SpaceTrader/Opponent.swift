@@ -13,9 +13,19 @@ class Opponent {
     let commander: Commander
     let type: OpponentType
     let tries: Int                      // WTF is this?
+    let typeInt: Int
+    
+    
     
     init(type: OpponentType) {
-        // figure out what information we actually need to instantiate an opponent, and generate the rest here
+        var d: Int = 0
+        var i: Int = 0
+        var j: Int = 0
+        var k: Int = 0
+        var sum: Int = 0
+        let shipTypeForOccurance: [Int] = [2, 28, 20, 20, ]
+        
+        
         self.type = type
         
         if type == OpponentType.famousCaptain {
@@ -47,9 +57,34 @@ class Opponent {
             
         } else if type == OpponentType.pirate {
             // pirates get better as you get richer
-            
+            tries = 1 + (player.netWorth / 100000)
+            tries = max(1, tries + (player.getDifficultyInt() - 2) )
+            print("how good pirate will be based on wealth--tries: \(tries)")
             
         } else if type == OpponentType.trader {
+            typeInt = 0
+        }
+        
+        if type != OpponentType.trader {
+            typeInt = 1
+        }
+        
+        if player.getDifficultyInt() >= 2 {
+            k = 1
+        } else {
+            k = 0
+        }
+        
+        
+        var redo = true
+        while j < tries {
+            redo = true
+            while(redo) {
+                d = Int(arc4random_uniform(100))
+                i = 0
+                sum = 2         // gnat occurance? Is this what we want?
+                
+            }
             
         }
 }

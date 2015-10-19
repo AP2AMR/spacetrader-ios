@@ -33,6 +33,12 @@ class Commander {
     var inspected = false
     var wildStatus = false
     
+    var netWorth: Int {                                         // OBVIOUSLY THIS NEEDS TO BE IMPLEMENTED
+        get {
+            return credits
+        }
+    }
+    
     
     init(commanderName: String, difficulty: DifficultyType, pilotSkill: Int, fighterSkill: Int, traderSkill: Int, engineerSkill: Int) {
         self.commanderName = commanderName
