@@ -39,6 +39,15 @@ class Commander {
         }
     }
     
+    var difficultyInt: Int {
+        get { return getDifficultyInt() }
+    }
+    
+    var policeRecordInt: Int {
+        get { return policeRecord.rawValue }
+    }
+    
+    
     
     init(commanderName: String, difficulty: DifficultyType, pilotSkill: Int, fighterSkill: Int, traderSkill: Int, engineerSkill: Int) {
         self.commanderName = commanderName

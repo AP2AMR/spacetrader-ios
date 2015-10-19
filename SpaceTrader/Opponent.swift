@@ -9,82 +9,71 @@
 import UIKit
 
 class Opponent {
-    let ship: SpaceShip
-    let commander: Commander
-    let type: OpponentType
-    let tries: Int                      // WTF is this?
-    let typeInt: Int
+    var ship: SpaceShip
+    var commander: Commander
+    var type: IFFStatusType
     
-    
-    
-    init(type: OpponentType) {
-        var d: Int = 0
-        var i: Int = 0
-        var j: Int = 0
-        var k: Int = 0
-        var sum: Int = 0
-        let shipTypeForOccurance: [Int] = [2, 28, 20, 20, ]
-        
-        
+    init(type: IFFStatusType) {
+
         self.type = type
         
-        if type == OpponentType.famousCaptain {
-            // do famous captain things
-        } else if type == OpponentType.mantis {
-            // mantis things
-        } else if type == OpponentType.dragonfly {
-            // dragonfly
-        } else if type == OpponentType.spaceMonster {
-            // spaceMonster
-        } else if type == OpponentType.scarab {
-            // scarab
-        } else if type == OpponentType.marieCeleste {
-            // marie celeste
-        } else if type == OpponentType.bottle {
-            // bottle
+        // these are placeholders only, because I want to be able to do the instantiating function in multiple pieces
+        self.commander = Commander(commanderName: "Opponent", difficulty: DifficultyType.easy, pilotSkill: 1, fighterSkill: 1, traderSkill: 1, engineerSkill: 1)
+        self.ship = SpaceShip(type: ShipType.Gnat, IFFStatus: type)
+    }
+    
+    func generateOpponent() {
+        var tries = 1
+        let name = "NAME"                           // not sure whether he properly needs a name...
+        
+        if type == IFFStatusType.FamousCaptain {
+            ship = SpaceShip(type: ShipType.Wasp, IFFStatus: IFFStatusType.FamousCaptain)
+            commander = Commander(commanderName: name, difficulty: DifficultyType.easy, pilotSkill: 9, fighterSkill: 9, traderSkill: 9, engineerSkill: 9)
+            
+            // max crew
+            
+            // max shields
+            
+            // max weapons
+            
+            // return
         }
         
-        if type == OpponentType.police {
-            // The police will try to hunt you down with better ships if you are a villain, and they will try even harder when you are considered to be a psychopath (or are transporting Jonathan Wild)
-            if (commander.policeRecord.rawValue <= 1) && !player.wildStatus {
-                print("you are a villain, police will be trying hard")
+        if type == .Mantis {
+            tries = 1 + player.getDifficultyInt()
+        }
+        
+        if type == IFFStatusType.Police {
+            if player.policeRecordInt <= 1 && player.wildStatus {
                 tries = 3
-            } else if commander.policeRecord.rawValue == 0 || player.wildStatus {
-                print("you are a psycho and or have Wild on board. Police will be trying REALLY hard")
+            } else if player.policeRecordInt == 0 || player.wildStatus {
                 tries = 5
             }
-            
-            
-        } else if type == OpponentType.pirate {
-            // pirates get better as you get richer
+        }
+        
+        // pirates get better as you get richer
+        if type ==  .Pirate {
             tries = 1 + (player.netWorth / 100000)
-            tries = max(1, tries + (player.getDifficultyInt() - 2) )
-            print("how good pirate will be based on wealth--tries: \(tries)")
-            
-        } else if type == OpponentType.trader {
-            typeInt = 0
         }
         
-        if type != OpponentType.trader {
-            typeInt = 1
-        }
+        // determine gadgets
         
-        if player.getDifficultyInt() >= 2 {
-            k = 1
-        } else {
-            k = 0
-        }
+        // fill cargo bays
+        
+        // fill tanks, set no tribbles
+        
+        // fill weapon slots
+        
+        // fill shield slots
+        
+        // set shield & hull strength
+        
+        // set crew
         
         
-        var redo = true
-        while j < tries {
-            redo = true
-            while(redo) {
-                d = Int(arc4random_uniform(100))
-                i = 0
-                sum = 2         // gnat occurance? Is this what we want?
-                
-            }
-            
-        }
+    }
+    
+    func displayResults() {
+        
+    }
 }

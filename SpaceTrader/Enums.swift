@@ -388,6 +388,13 @@ enum IFFStatusType: String {
     case Police = "police"
     case Pirate = "pirate"
     case Trader = "trader"
+    case Mantis = "mantis"
+    case Dragonfly = "dragonfly"
+    case SpaceMonster = "space monster"
+    case Scarab = "scarab"
+    case MarieCeleste = "Marie Celeste"
+    case FamousCaptain = "famous captain"
+    case Bottle = "bottle"
 }
 
 enum GadgetType {
@@ -504,15 +511,15 @@ enum EncounterType {
     case nullEncounter
 }
 
-enum OpponentType {
-    case pirate
-    case police
-    case trader
-    case mantis
-    case dragonfly
-    case spaceMonster
-    case scarab
-    case marieCeleste
-    case famousCaptain
-    case bottle
-}
+//enum OpponentType {
+//    case pirate
+//    case police
+//    case trader
+//    case mantis
+//    case dragonfly
+//    case spaceMonster
+//    case scarab
+//    case marieCeleste
+//    case famousCaptain
+//    case bottle
+//}
