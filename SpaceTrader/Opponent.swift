@@ -56,6 +56,10 @@ class Opponent {
             tries = 1 + (player.netWorth / 100000)
         }
         
+        // set shiptype
+        // how to use occurance?
+        
+        
         // determine gadgets
         
         // fill cargo bays
@@ -74,6 +78,40 @@ class Opponent {
     }
     
     func displayResults() {
+        print("*****************Results of generateOpponent()********************")
+        print("ship type: \(ship.type)")
+    }
+    
+    
+    
+    
+    
+    func pickShipRandomlyBasedOnOccurance() -> ShipType {
+        let ships: [ShipType] = [ShipType.Flea, ShipType.Gnat, ShipType.Firefly, ShipType.Mosquito, ShipType.Bumblebee, ShipType.Beetle, ShipType.Hornet, ShipType.Grasshopper, ShipType.Termite, ShipType.Wasp]
+        let chancePerShip: [Int] = [2, 28, 20, 20, 15, 3, 6, 2, 2, 2]
+        var resultRandom: [Int] = []
         
+        for number in chancePerShip {
+            let result = Int(arc4random_uniform(UInt32(number)))
+            resultRandom.append(result)
+        }
+        
+        print(resultRandom)
+        
+        
+        let chanceFlea = Int(arc4random_uniform(2))
+        print("chanceFlea: \(chanceFlea)")
+        let chanceGnat = Int(arc4random_uniform(28))
+        
+//        case Flea 2
+//        case Gnat 28
+//        case Firefly 20
+//        case Mosquito 20
+//        case Bumblebee 15
+//        case Beetle 3
+//        case Hornet 6
+//        case Grasshopper 2
+//        case Termite 2
+//        case Wasp 2
     }
 }
