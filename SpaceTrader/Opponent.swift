@@ -59,7 +59,7 @@ class Opponent {
         }
         
         // set shiptype
-        let shipType = pickShipRandomlyBasedOnOccurance()
+        let shipType = pickShipRandomlyBasedOnOccurance(tries)
         ship = SpaceShip(type: shipType, IFFStatus: type)
         
         
@@ -89,18 +89,20 @@ class Opponent {
     
     
     
-    func pickShipRandomlyBasedOnOccurance() -> ShipType {
+    func pickShipRandomlyBasedOnOccurance(tries: Int) -> ShipType {
         let ships: [ShipType] = [ShipType.Flea, ShipType.Gnat, ShipType.Firefly, ShipType.Mosquito, ShipType.Bumblebee, ShipType.Beetle, ShipType.Hornet, ShipType.Grasshopper, ShipType.Termite, ShipType.Wasp]
-        let chancePerShip: [Int] = [2, 28, 20, 20, 15, 3, 6, 2, 2, 2]
+        let chancePerShip: [Int] = [2, 28, 20, 20, 15, 3, 6, 2, 2, 2]       // CHANCES SETTABLE HERE
         var resultRandom: [Int] = []
         
 
         // maxIndex created outside loop, logs the best ship of all the times the loop runs
         
         // maxIndex should log the index of chancePerShip representing the best so far
-        var maxIndex: Int = 0
-        var max: Int = 0
-        for _ in 0...100 {
+        
+        var runningBestShipIndex: Int = 0
+        for _ in 0...tries {
+            var maxIndex: Int = 0
+            var max: Int = 0
             resultRandom = []
             for number in chancePerShip {
                 let result = Int(arc4random_uniform(UInt32(number)))
@@ -117,12 +119,16 @@ class Opponent {
                     maxIndex = j
                 }
                 j += 1
+                //print("inside loop, j is \(j), max is \(max), result is \(result), maxIndex is: \(maxIndex)")
             }
-            print("winner is \(ships[maxIndex])")
-            //max = 0
+            //print("winner is \(ships[maxIndex])")
+            if maxIndex > runningBestShipIndex {
+                runningBestShipIndex = maxIndex
+            }
         }
-        print("overall winner is \(ships[maxIndex])")
-        return ships[maxIndex]
+        //print("executed \(tries) tries")
+        //print("overall winner is \(ships[runningBestShipIndex])")
+        return ships[runningBestShipIndex]
         
     }
 }
