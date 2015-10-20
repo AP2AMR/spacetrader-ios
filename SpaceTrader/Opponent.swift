@@ -83,6 +83,62 @@ class Opponent {
         }
         
         // fill cargo bays
+        var cargoBays: Int = ship.cargoBays
+        for gadget in ship.gadget {
+            if gadget.type == GadgetType.CargoBays {
+                cargoBays += 5
+            }
+        }
+        //print("cargo bays: \(cargoBays)")
+
+        
+        let m = 3 + rand(cargoBays - 5)
+        //print("m = \(m)")
+        var sum = min(m, 15)
+        //print("first result for sum: \(sum)")
+        if player.difficultyInt <= 2 {
+            cargoBays = sum
+        }
+        
+        //print("sum before pirate adjustment: \(sum)")
+        if ship.IFFStatus == IFFStatusType.Pirate {
+            if player.difficultyInt < 2 {
+                sum = (sum * 4) / 5
+            } else {
+                sum = sum / player.difficultyInt
+            }
+        }
+        
+        if sum < 1 {
+            sum = 1
+        }
+        
+        if ship.IFFStatus == IFFStatusType.Police {
+            sum = 0
+        }
+        
+        // populate commodities
+        let commodities: [TradeItemType] = [TradeItemType.Water, TradeItemType.Furs, TradeItemType.Food, TradeItemType.Ore, TradeItemType.Games, TradeItemType.Firearms, TradeItemType.Medicine, TradeItemType.Machines, TradeItemType.Narcotics, TradeItemType.Robots]
+        
+        var i = 0
+        //print("initial sum = \(sum)")
+        while i < sum {
+            let randomIndex = rand(10)
+            let randomCommodity = commodities[randomIndex]
+            var numberToAdd = 1 + rand(10 - randomIndex)
+            if (randomIndex + numberToAdd) > sum {
+                numberToAdd = sum - i
+            }
+            //print("add \(numberToAdd) of commodity \(randomCommodity.rawValue)")
+            i += numberToAdd
+            //print("i = \(i), sum = \(sum)")
+            
+            let cargo = TradeItem(item: randomCommodity, quantity: numberToAdd, pricePaid: 0)
+            ship.cargo.append(cargo)
+        }
+        
+        
+        
         
         // fill tanks, set no tribbles
         
@@ -105,6 +161,10 @@ class Opponent {
         for gadget in ship.gadget {
             print("slot \(slot): \(gadget.name)")
             slot += 1
+        }
+        print("CARGO:")
+        for item in ship.cargo {
+            print("item: \(item.name), quantity: \(item.quantity)")
         }
     }
     

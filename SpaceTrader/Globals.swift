@@ -63,3 +63,15 @@ let REGULASSYSTEM = 82
 let SOLSYSTEM = 92
 let UTOPIASYSTEM = 109
 let ZALKONSYSTEM = 118
+
+// utilities
+// arc4rand sucks
+func rand(max: Int) -> Int {
+    return Int(arc4random_uniform(UInt32(max)))
+}
+
+func rand(max: Int, min: Int) -> Int {
+    let maxUInt = UInt32(max)
+    let minUInt = UInt32(min)
+    return Int(arc4random_uniform(maxUInt - minUInt) + minUInt)
+}
