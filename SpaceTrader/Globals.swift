@@ -65,7 +65,8 @@ let UTOPIASYSTEM = 109
 let ZALKONSYSTEM = 118
 
 // utilities
-// arc4rand sucks
+// arc4rand sucks. Let's fix it.
+// rand is inclusive on the lower bound, exclusive on the upper.
 func rand(max: Int) -> Int {
     return Int(arc4random_uniform(UInt32(max)))
 }

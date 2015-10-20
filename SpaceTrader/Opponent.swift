@@ -137,12 +137,31 @@ class Opponent {
             ship.cargo.append(cargo)
         }
         
-        
-        
-        
-        // fill tanks, set no tribbles
-        
         // fill weapon slots
+        let weaponSlots = ship.weaponSlots
+        var weaponsToAdd: Int = 0
+        if weaponSlots == 0 {
+            weaponsToAdd = 0
+        } else if weaponSlots == 1 {
+            weaponsToAdd = 1
+        } else if player.difficultyInt < 3 {        // if less than hard
+            weaponsToAdd = 1 + rand(weaponSlots)
+            if weaponsToAdd < weaponSlots {
+                if tries > 4 {
+                    weaponsToAdd += 1
+                }
+            }
+        } else {
+            weaponsToAdd = weaponSlots
+        }
+        
+        print("weapon slots: \(weaponSlots), weapons to add: \(weaponsToAdd)")
+        
+        for _ in 0..<weaponsToAdd {
+            addRandomlyChosenWeapon(tries)
+        }
+        
+        
         
         // fill shield slots
         
@@ -155,6 +174,7 @@ class Opponent {
     
     func displayResults() {
         print("*****************Results of generateOpponent()********************")
+        print("encounter with \(ship.IFFStatus) \(ship.name)")
         print("ship type: \(ship.type)")
         print("GADGETS:")
         var slot = 0
@@ -162,10 +182,24 @@ class Opponent {
             print("slot \(slot): \(gadget.name)")
             slot += 1
         }
-        print("CARGO:")
+        if ship.cargo.count == 0 {
+            print("no cargo.")
+        } else {
+            print("CARGO:")
+        }
         for item in ship.cargo {
             print("item: \(item.name), quantity: \(item.quantity)")
         }
+        
+        //print("fuel: \(ship.fuel)")
+        //print("tribbles: \(ship.tribbles)")
+        
+        print("WEAPONS: \(ship.weaponSlots) weapon slots")
+        for weapon in ship.weapon {
+            print("weapon: \(weapon.name)")
+        }
+        
+
     }
     
     
@@ -240,5 +274,33 @@ class Opponent {
         print("result: \(gadgets[runningBestGadgetIndex])")
         let newGadget = Gadget(type: gadgets[runningBestGadgetIndex])
         ship.gadget.append(newGadget)
+    }
+    
+    func addRandomlyChosenWeapon(tries: Int) {
+        let weapons: [WeaponType] = [WeaponType.pulseLaser, WeaponType.beamLaser, WeaponType.militaryLaser]
+        let chances: [Int] = [50, 35, 15]
+        
+        var runningBestWeaponIndex: Int = 0
+        for _ in 0...tries {
+            var max: Int = 0
+            var maxIndex: Int = 0
+            var randomResults: [Int] = []
+            var j = 0
+            for chance in chances {
+                let result = rand(chance)
+                randomResults.append(result)
+                if result >= max {
+                    max = result
+                    maxIndex = j
+                }
+                j += 1
+            }
+            if maxIndex > runningBestWeaponIndex {
+                runningBestWeaponIndex = maxIndex
+            }
+        }
+        //print("weapon result: \(weapons[runningBestWeaponIndex]) ")
+        let newWeapon = Weapon(type: weapons[runningBestWeaponIndex])
+        ship.weapon.append(newWeapon)
     }
 }
