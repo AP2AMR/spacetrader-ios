@@ -64,6 +64,23 @@ class Opponent {
         
         
         // determine gadgets
+        let gadgetSlots = ship.gadgetSlots
+        var numberOfGadgets: Int = 0
+        
+        if player.difficultyInt >= 3 {
+            numberOfGadgets = gadgetSlots
+        } else {
+            numberOfGadgets = Int(arc4random_uniform(UInt32(gadgetSlots + 1)))
+            if (numberOfGadgets < gadgetSlots) && tries > 3 {
+                numberOfGadgets += 1
+            }
+        }
+        
+        print("gadgets: \(gadgetSlots) slots, \(numberOfGadgets) actual gadgets")
+        
+        for _ in 0..<numberOfGadgets {
+            addRandomlyChosenGadget(tries)
+        }
         
         // fill cargo bays
         
@@ -77,12 +94,18 @@ class Opponent {
         
         // set crew
         
-        
+        displayResults()
     }
     
     func displayResults() {
         print("*****************Results of generateOpponent()********************")
         print("ship type: \(ship.type)")
+        print("GADGETS:")
+        var slot = 0
+        for gadget in ship.gadget {
+            print("slot \(slot): \(gadget.name)")
+            slot += 1
+        }
     }
     
     
@@ -127,8 +150,35 @@ class Opponent {
             }
         }
         //print("executed \(tries) tries")
-        //print("overall winner is \(ships[runningBestShipIndex])")
+        print("overall winner is \(ships[runningBestShipIndex])")
         return ships[runningBestShipIndex]
+    }
+    
+    func addRandomlyChosenGadget(tries: Int) {
+        let gadgets: [GadgetType] = [GadgetType.CargoBays, GadgetType.AutoRepair, GadgetType.Navigation, GadgetType.Targeting]
+        let chances: [Int] = [35, 20, 20, 20, 5]
         
+        var runningBestGadgetIndex: Int = 0
+        for _ in 0...tries {
+            var max: Int = 0
+            var maxIndex: Int = 0
+            var randomResults: [Int] = []
+            var j = 0
+            for chance in chances {
+                let result = Int(arc4random_uniform(UInt32(chance)))
+                randomResults.append(result)
+                if result >= max {
+                    max = result
+                    maxIndex = j
+                }
+                j += 1
+            }
+            if maxIndex > runningBestGadgetIndex {
+                runningBestGadgetIndex = maxIndex
+            }
+        }
+        print("result: \(gadgets[runningBestGadgetIndex])")
+        let newGadget = Gadget(type: gadgets[runningBestGadgetIndex])
+        ship.gadget.append(newGadget)
     }
 }
