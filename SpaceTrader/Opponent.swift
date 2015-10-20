@@ -96,8 +96,11 @@ class Opponent {
         
 
         // maxIndex created outside loop, logs the best ship of all the times the loop runs
+        
+        // maxIndex should log the index of chancePerShip representing the best so far
         var maxIndex: Int = 0
-        for i in 0...100 {
+        var max: Int = 0
+        for _ in 0...100 {
             resultRandom = []
             for number in chancePerShip {
                 let result = Int(arc4random_uniform(UInt32(number)))
@@ -105,20 +108,20 @@ class Opponent {
             }
             print(resultRandom)
             
-            var max: Int = 0
+            //var max: Int = 0
 
+            var j: Int = 0
             for result in resultRandom {
                 if result >= max {
                     max = result
-                    maxIndex = i
+                    maxIndex = j
                 }
-
+                j += 1
             }
             print("winner is \(ships[maxIndex])")
-            max = 0
-            maxIndex = 0
+            //max = 0
         }
-        
+        print("overall winner is \(ships[maxIndex])")
         return ships[maxIndex]
         
     }
