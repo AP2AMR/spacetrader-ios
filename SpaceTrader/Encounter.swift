@@ -290,6 +290,25 @@ class Encounter {
     
     func attack() {
         print("attack function called")
+        
+        // determine if target is damamged
+            // maybe use damage function, which will automatically deplete first shields and then hull
+        
+        // determine if player is damaged
+        
+        // determine if target will flee
+        
+        // possible outcomes:
+            // encounter carries on
+            // opponent flees
+            // opponent gets away
+            // opponent surrenders
+            // opponent is destroyed
+            // player is destroyed, game over
+            // player is destroyed, escapes in pod
+        
+        // TEST ONLY
+        damagePlayer(25)
     }
     
     func flee() {
@@ -327,5 +346,48 @@ class Encounter {
     
     func yield() {
         print("yield called")
+    }
+    
+    func damagePlayer(amountOfDamage: Int) {
+        
+        print("PLAYER TAKING DAMAGE")
+        // assigns damage appropriately to player.
+        var remainingDamage = amountOfDamage
+        if player.commanderShip.shield.count != 0 {
+            print("player has shields. They will be damaged first")
+            var i = 0
+            for shield in player.commanderShip.shield {
+                print("shield \(i) is initially at \(shield.percentStrength)%")
+                shield.currentStrength -= remainingDamage
+                remainingDamage = 0
+                if shield.currentStrength < 0 {
+                    remainingDamage = abs(shield.currentStrength)
+                    shield.currentStrength = 0
+                }
+                print("after attack, shield \(i) is at \(shield.percentStrength)%. \(remainingDamage) points of damage remain to be assigned")
+                i += 1
+            }
+            
+            print("after shield damage, \(remainingDamage) points of damage remain to be assigned to the hull")
+        } else {
+            remainingDamage = amountOfDamage
+            print("player has no shields. All \(remainingDamage) points of damage will be assigned to the hull.")
+        }
+        
+        print("hull is initially at \(player.commanderShip.hull) points")
+        player.commanderShip.hull -= remainingDamage
+        print("after damage, hull is at \(player.commanderShip.hull) points")
+
+        
+        if player.commanderShip.hull <= 0 {
+            print("PLAYER SHIP IS DESTROYED")                   // WIRE THIS UP TO SOMETHING
+        } else {
+            print("after damage, the player's hull is at \(player.commanderShip.hullPercentage)%")
+        }
+        
+    }
+    
+    func damageOpponent(amountOfDamage: Int) {
+        // assigns damage to opponent. If opponent is destroyed, WHAT THEN?
     }
 }
