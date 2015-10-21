@@ -19,7 +19,7 @@ class Opponent {
         self.type = type
         
         // these are placeholders only, because I want to be able to do the instantiating function in multiple pieces
-        self.commander = Commander(commanderName: "Opponent", difficulty: DifficultyType.easy, pilotSkill: 1, fighterSkill: 1, traderSkill: 1, engineerSkill: 1)
+        self.commander = Commander(commanderName: "Opponent", difficulty: DifficultyType.easy, pilotSkill: rand(10), fighterSkill: rand(10), traderSkill: rand(10), engineerSkill: rand(10))
         self.ship = SpaceShip(type: ShipType.Gnat, IFFStatus: type)
     }
     
@@ -155,52 +155,76 @@ class Opponent {
             weaponsToAdd = weaponSlots
         }
         
-        print("weapon slots: \(weaponSlots), weapons to add: \(weaponsToAdd)")
-        
         for _ in 0..<weaponsToAdd {
             addRandomlyChosenWeapon(tries)
         }
         
-        
-        
         // fill shield slots
+        let shieldSlots = ship.shieldSlots
+        var shieldsToAdd: Int = 0
+        if shieldSlots == 0 {
+            shieldsToAdd = 0
+        } else if player.difficultyInt < 3 {        // if less than hard
+            shieldsToAdd = 1 + rand(shieldSlots)
+            if shieldsToAdd < shieldSlots {
+                if tries > 4 {
+                    shieldsToAdd += 1
+                }
+            }
+        } else {
+            shieldsToAdd = shieldSlots
+        }
+        
+        for _ in 0..<shieldsToAdd {
+            addRandomlyChosenShield(tries)
+        }
         
         // set shield & hull strength
+//        if ship.shield.count != 0 {
+//            // if there are shields, hull will likely be in better shape
+//            if rand(10) <= 7 {
+//                print("shields present, setting hull accordingly")
+//                ship.hullPercentage = 100
+//            } else {
+//                print("no shields, hull more likely to be damaged")
+//                var maxPercentage: Int = 0
+//                for _ in 0..<5 {
+//                    let random = 1 + rand(100)
+//                    if random > maxPercentage {
+//                        maxPercentage = random
+//                    }
+//                }
+//                ship.hullPercentage = maxPercentage
+//            }
+//        }
+        
+        
         
         // set crew
+        let crewCount = ship.crewQuarters
+        
+        print("\(crewCount) crewmembers")
+        for _ in 0..<crewCount {
+            let pilot = rand(10)
+            let fighter = rand(10)
+            let trader = rand(10)
+            let engineer = rand(10)
+            let newCrewMember = CrewMember(name: "", pilot: pilot, fighter: fighter, trader: trader, engineer: engineer, currentSystem: StarSystemID.Acamar)    // name and SSID don't matter
+            ship.crew.append(newCrewMember)
+        }
+        
+        if (galaxy.targetSystem!.name) == "Kravat" && player.wildStatus && (rand(10) < (player.difficultyInt + 1)) {
+            print("wild status option used")
+            ship.crew[0].engineer = 9
+        }
+        
+        // NOTE THAT THIS IS NOT QUITE WHAT THE ORIGINAL WAS
+        
         
         displayResults()
     }
     
-    func displayResults() {
-        print("*****************Results of generateOpponent()********************")
-        print("encounter with \(ship.IFFStatus) \(ship.name)")
-        print("ship type: \(ship.type)")
-        print("GADGETS:")
-        var slot = 0
-        for gadget in ship.gadget {
-            print("slot \(slot): \(gadget.name)")
-            slot += 1
-        }
-        if ship.cargo.count == 0 {
-            print("no cargo.")
-        } else {
-            print("CARGO:")
-        }
-        for item in ship.cargo {
-            print("item: \(item.name), quantity: \(item.quantity)")
-        }
-        
-        //print("fuel: \(ship.fuel)")
-        //print("tribbles: \(ship.tribbles)")
-        
-        print("WEAPONS: \(ship.weaponSlots) weapon slots")
-        for weapon in ship.weapon {
-            print("weapon: \(weapon.name)")
-        }
-        
 
-    }
     
     
     
@@ -302,5 +326,75 @@ class Opponent {
         //print("weapon result: \(weapons[runningBestWeaponIndex]) ")
         let newWeapon = Weapon(type: weapons[runningBestWeaponIndex])
         ship.weapon.append(newWeapon)
+    }
+    
+    func addRandomlyChosenShield(tries: Int) {
+        let shields: [ShieldType] = [ShieldType.energyShield, ShieldType.reflectiveShield]
+        let chances: [Int] = [70, 30]
+        
+        var runningBestShieldIndex: Int = 0
+        for _ in 0...tries {
+            var max: Int = 0
+            var maxIndex: Int = 0
+            var randomResults: [Int] = []
+            var j = 0
+            for chance in chances {
+                let result = rand(chance)
+                randomResults.append(result)
+                if result >= max {
+                    max = result
+                    maxIndex = j
+                }
+                j += 1
+            }
+            if maxIndex > runningBestShieldIndex {
+                runningBestShieldIndex = maxIndex
+            }
+        }
+        let newShield = Shield(type: shields[runningBestShieldIndex])
+        newShield.currentStrength = newShield.power
+        ship.shield.append(newShield)
+    }
+    
+    func displayResults() {
+        print("*****************Results of generateOpponent()********************")
+        print("encounter with \(ship.IFFStatus) \(ship.name)")
+        print("ship type: \(ship.type)")
+        print("GADGETS:")
+        var slot = 0
+        for gadget in ship.gadget {
+            print("slot \(slot): \(gadget.name)")
+            slot += 1
+        }
+        if ship.cargo.count == 0 {
+            print("no cargo.")
+        } else {
+            print("CARGO:")
+        }
+        for item in ship.cargo {
+            print("item: \(item.name), quantity: \(item.quantity)")
+        }
+        
+        //print("fuel: \(ship.fuel)")
+        //print("tribbles: \(ship.tribbles)")
+        
+        print("WEAPONS: \(ship.weaponSlots) weapon slots")
+        for weapon in ship.weapon {
+            print("weapon: \(weapon.name)")
+        }
+        
+        print("SHIELDS: \(ship.shieldSlots) shield slots")
+        for shield in ship.shield {
+            print("shield: \(shield.name)")
+        }
+        
+        print("CREW: \(ship.crewQuarters) members")
+        var j = 0
+        print("commander--pilot: \(commander.pilotSkill), fighter: \(commander.fighterSkill), trader: \(commander.traderSkill), engineer: \(commander.engineerSkill)")
+        for person in ship.crew {
+            print("crew member \(j)--pilot: \(person.pilot), fighter: \(person.fighter), trader: \(person.trader), engineer: \(person.engineer)")
+            j += 1
+        }
+        
     }
 }

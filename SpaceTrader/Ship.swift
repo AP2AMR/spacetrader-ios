@@ -54,6 +54,9 @@ class SpaceShip {
         get {
             return ((hull / hullStrength) * 100)
         }
+        set {
+            hull = newValue * (hullStrength / 100)
+        }
     }
     
     var totalCargo: Int {

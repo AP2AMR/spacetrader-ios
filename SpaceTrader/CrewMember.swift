@@ -9,12 +9,12 @@
 import Foundation
 
 class CrewMember {
-    let name: String            // MercenaryType exists
-    let pilot: Int
-    let fighter: Int
-    let trader: Int
-    let engineer: Int
-    let currentSystem: StarSystemID
+    var name: String            // MercenaryType exists
+    var pilot: Int
+    var fighter: Int
+    var trader: Int
+    var engineer: Int
+    var currentSystem: StarSystemID
     
     
     
