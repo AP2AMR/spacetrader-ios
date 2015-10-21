@@ -50,6 +50,36 @@ class Encounter {
     
     func resumeEncounter(buttonPressed: Int) {
         print("button pressed: \(buttonPressed)")
+        
+        if buttonPressed == 1 {
+            if button1Text == "Attack" {
+                attack()
+            } else if button1Text == "Board" {
+                board()
+            }
+        } else if buttonPressed == 2 {
+            if button2Text == "Flee" {
+                flee()
+            } else if button2Text == "Plunder" {
+                plunder()
+            } else if button2Text == "Ignore" {
+                ignore()
+            }
+        } else if buttonPressed == 3 {
+            if button3Text == "Surrender" {
+                surrender()
+            } else if button3Text == "Submit" {
+                submit()
+            } else if button3Text == "Yield" {
+                yield()
+            } else if button3Text == "Trade" {
+                trade()
+            }
+        } else if buttonPressed == 4 {
+            if button4Text == "Bribe" {
+                bribe()
+            }
+        }
     }
     
     func concludeEncounter() {
@@ -268,8 +298,34 @@ class Encounter {
     
     func ignore() {
         print("ignore function called")
-        concludeEncounter()
+        //concludeEncounter()
     }
     
-    // also need surrender, submit, bribe, trade, plunder, board, yield
+    func plunder() {
+        print("plunder called")
+    }
+    
+    func surrender() {
+        print("surrender called")
+    }
+    
+    func submit() {
+        print("submit called")
+    }
+    
+    func bribe() {
+        print("bribe called")
+    }
+    
+    func trade() {
+        print("trade called")
+    }
+    
+    func board() {
+        print("board called")
+    }
+    
+    func yield() {
+        print("yield called")
+    }
 }

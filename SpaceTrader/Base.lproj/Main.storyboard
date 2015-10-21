@@ -1132,7 +1132,7 @@
                                         <rect key="frame" x="8" y="362" width="46" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <action selector="button1:" destination="Z73-QX-bwt" eventType="touchUpInside" id="v0B-LD-uh9"/>
+                                            <action selector="button1:" destination="Z73-QX-bwt" eventType="touchUpInside" id="6iP-7r-MNR"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCz-bE-197">
