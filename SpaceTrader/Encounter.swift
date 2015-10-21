@@ -388,6 +388,23 @@ class Encounter {
     }
     
     func damageOpponent(amountOfDamage: Int) {
-        // assigns damage to opponent. If opponent is destroyed, WHAT THEN?
+        var remainingDamage = amountOfDamage
+        if opponent.ship.shield.count != 0 {
+            for shield in opponent.ship.shield {
+                shield.currentStrength -= remainingDamage
+                remainingDamage = 0
+                if shield.currentStrength < 0 {
+                    remainingDamage = abs(shield.currentStrength)
+                    shield.currentStrength = 0
+                }
+            }
+        } else {
+            remainingDamage = amountOfDamage
+        }
+        opponent.ship.hull -= remainingDamage
+        
+        if opponent.ship.hull <= 0 {
+            print("OPPONENT IS DESTROYED")                   // WIRE THIS UP TO SOMETHING
+        }
     }
 }
