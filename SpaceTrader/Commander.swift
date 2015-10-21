@@ -712,7 +712,7 @@ class Commander {
         if shieldMaxTotal == 0 {
             return "No Shields"
         } else {
-            return "Shields at \((shieldActualTotal / shieldMaxTotal) * 100)%"
+            return "Shields at \(Int((Double(shieldActualTotal) / Double(shieldMaxTotal)) * 100))%"
         }
         
     }

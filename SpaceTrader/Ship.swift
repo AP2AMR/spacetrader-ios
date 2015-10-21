@@ -52,10 +52,10 @@ class SpaceShip {
     
     var hullPercentage: Int {
         get {
-            return ((hull / hullStrength) * 100)
+            return Int(((Double(hull) / Double(hullStrength)) * 100))
         }
-        set {
-            hull = newValue * (hullStrength / 100)
+        set(newPercentage) {
+            hull = newPercentage * (hullStrength / 100)
         }
     }
     

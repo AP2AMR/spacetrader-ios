@@ -180,25 +180,31 @@ class Opponent {
         }
         
         // set shield & hull strength
-//        if ship.shield.count != 0 {
-//            // if there are shields, hull will likely be in better shape
-//            if rand(10) <= 7 {
-//                print("shields present, setting hull accordingly")
-//                ship.hullPercentage = 100
-//            } else {
-//                print("no shields, hull more likely to be damaged")
-//                var maxPercentage: Int = 0
-//                for _ in 0..<5 {
-//                    let random = 1 + rand(100)
-//                    if random > maxPercentage {
-//                        maxPercentage = random
-//                    }
-//                }
-//                ship.hullPercentage = maxPercentage
-//            }
-//        }
+        if ship.shield.count != 0 {
+            // if there are shields, hull will likely be in better shape
+            if rand(10) <= 7 {
+                print("shields present, setting hull accordingly")
+                ship.hullPercentage = 100
+            } else {
+                print("no shields, hull more likely to be damaged")
+                var maxPercentage: Int = 0
+                for _ in 0..<5 {
+                    let random = 1 + rand(100)
+                    if random > maxPercentage {
+                        maxPercentage = random
+                    }
+                }
+                ship.hullPercentage = maxPercentage
+            }
+        }
         
-        
+        for shield in ship.shield {
+            // set strength randomly 
+            if rand(10) < 7 {
+                shield.currentStrength = rand(shield.power)
+            }
+        }
+
         
         // set crew
         let crewCount = ship.crewQuarters
@@ -396,5 +402,6 @@ class Opponent {
             j += 1
         }
         
+        print("hull situation. hullStrength is \(ship.hullStrength), hull is \(ship.hull), hullPercentage is \(ship.hullPercentage)")
     }
 }

@@ -17,6 +17,15 @@ class Shield {
     let techLevel: TechLevelType
     let chance: Int                 // percent chance that this is fitted in a slot
     
+    var percentStrength: Int {
+        get {
+            return Int((Double(currentStrength) / Double(power)) * 100)
+        }
+        set(newPercentage) {
+            currentStrength = newPercentage * (currentStrength / 100)
+        }
+    }
+    
     init(type: ShieldType) {
         self.type = type
         
