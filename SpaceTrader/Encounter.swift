@@ -257,4 +257,19 @@ class Encounter {
         let passedText = NSString(string: "nothing needed here")
         NSNotificationCenter.defaultCenter().postNotificationName("encounterModalFireNotification", object: passedText)
     }
+    
+    func attack() {
+        print("attack function called")
+    }
+    
+    func flee() {
+        print("flee function called")
+    }
+    
+    func ignore() {
+        print("ignore function called")
+        concludeEncounter()
+    }
+    
+    // also need surrender, submit, bribe, trade, plunder, board, yield
 }
