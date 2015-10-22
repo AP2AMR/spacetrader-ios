@@ -1266,8 +1266,45 @@
                     <view key="view" contentMode="scaleToFill" id="9YL-zf-6mt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iMR-yn-TxG">
+                                <rect key="frame" x="180" y="120" width="240" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOA-JZ-N3L">
+                                        <rect key="frame" x="84" y="13" width="73" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="text goes here" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nU-6d-JAD">
+                                        <rect key="frame" x="8" y="33" width="224" height="61"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uei-xU-Pse">
+                                        <rect key="frame" x="105" y="90" width="30" height="30"/>
+                                        <state key="normal" title="OK"/>
+                                        <connections>
+                                            <action selector="button1Action:" destination="vM3-rp-6y0" eventType="touchUpInside" id="d4X-xR-PgW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="sOA-JZ-N3L" firstAttribute="centerX" secondItem="iMR-yn-TxG" secondAttribute="centerX" id="6JU-Zq-hnI"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iMR-yn-TxG" firstAttribute="centerX" secondItem="9YL-zf-6mt" secondAttribute="centerX" id="307-1l-QaF"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="button1Label" destination="uei-xU-Pse" id="H4Y-Cp-lz3"/>
+                        <outlet property="textLabel" destination="0nU-6d-JAD" id="4S4-SC-egC"/>
+                        <outlet property="titleLabel" destination="sOA-JZ-N3L" id="XpW-e1-fFh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eex-xb-kYD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
