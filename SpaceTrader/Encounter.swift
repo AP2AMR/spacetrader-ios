@@ -355,10 +355,22 @@ class Encounter {
             }
         }
         
-        
-        print("attack function called")
-        
-        encounterText1 = "attack happened. This not implemented yet."
+
+        // report who hit whom
+        var opposingVessel = "pirate ship"          // this can be different things
+        var reportString1 = ""
+        var reportString2 = ""
+        if youHitThem {
+            reportString1 = "You hit the \(opposingVessel).\n"
+        } else {
+            reportString1 = "You missed the \(opposingVessel).\n"
+        }
+        if theyHitYou {
+            reportString2 = "The pirate ship hits you."
+        } else {
+            reportString2 = "The pirate ship misses you."
+        }
+        encounterText1 = reportString1 + reportString2
         //encounterText1 = "You hit the pirate ship. \n The pirate ship hits you."
         type = EncounterType.pirateAttack               // ultimately, this will have to match current type
 
@@ -421,34 +433,23 @@ class Encounter {
     }
     
     func damagePlayer(amountOfDamage: Int) {
-        print("PLAYER TAKING DAMAGE")
         // assigns damage appropriately to player.
         var remainingDamage = amountOfDamage
         if player.commanderShip.shield.count != 0 {
-            print("player has shields. They will be damaged first")
             var i = 0
             for shield in player.commanderShip.shield {
-                print("shield \(i) is initially at \(shield.percentStrength)%")
                 shield.currentStrength -= remainingDamage
                 remainingDamage = 0
                 if shield.currentStrength < 0 {
                     remainingDamage = abs(shield.currentStrength)
                     shield.currentStrength = 0
                 }
-                print("after attack, shield \(i) is at \(shield.percentStrength)%. \(remainingDamage) points of damage remain to be assigned")
                 i += 1
             }
-            
-            print("after shield damage, \(remainingDamage) points of damage remain to be assigned to the hull")
         } else {
             remainingDamage = amountOfDamage
-            print("player has no shields. All \(remainingDamage) points of damage will be assigned to the hull.")
         }
-        
-        print("hull is initially at \(player.commanderShip.hull) points")
         player.commanderShip.hull -= remainingDamage
-        print("after damage, hull is at \(player.commanderShip.hull) points")
-
         
         if player.commanderShip.hull <= 0 {
             print("PLAYER SHIP IS DESTROYED")                   // WIRE THIS UP TO SOMETHING
