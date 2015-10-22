@@ -53,8 +53,17 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     }
     
     func messageHandler(notification: NSNotification) {             // THIS FIRES WHEN THE MODEL SAYS TO
-        //print("receiving notification: \(notification.object)")
-        performSegueWithIdentifier("encounterModal", sender: nil)
+        print("receiving notification: \(notification.object!)")
+        let receivedMessage: String = notification.object! as! String
+        
+        if receivedMessage == "main" {
+            print("acknowledge main")
+            performSegueWithIdentifier("encounterModal", sender: nil)
+        } else if receivedMessage == "notification" {
+            print("acknowledge notification")
+            performSegueWithIdentifier("notificationSegue", sender: nil)
+        }
+        
     }
     
     func updateView() {

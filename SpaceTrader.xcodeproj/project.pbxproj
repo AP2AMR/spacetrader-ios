@@ -17,6 +17,7 @@
 		5A0265C21BA329670079F6DE /* Commander.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0265C11BA329670079F6DE /* Commander.swift */; };
 		5A078ABF1BB1CBD20005155D /* SellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A078ABE1BB1CBD20005155D /* SellVC.swift */; settings = {ASSET_TAGS = (); }; };
 		5A078AC11BB33C100005155D /* BuyModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A078AC01BB33C100005155D /* BuyModalVC.swift */; settings = {ASSET_TAGS = (); }; };
+		5A0BE1B81BD980B400D65BE0 /* EncounterNotificationModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0BE1B71BD980B400D65BE0 /* EncounterNotificationModalVC.swift */; settings = {ASSET_TAGS = (); }; };
 		5A518FB01BC0ACC400021B13 /* WarpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A518FAF1BC0ACC400021B13 /* WarpVC.swift */; settings = {ASSET_TAGS = (); }; };
 		5A518FB21BC18C0B00021B13 /* DockVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A518FB11BC18C0B00021B13 /* DockVC.swift */; settings = {ASSET_TAGS = (); }; };
 		5A518FB41BC31E9200021B13 /* ShortRangeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A518FB31BC31E9200021B13 /* ShortRangeChartView.swift */; settings = {ASSET_TAGS = (); }; };
@@ -65,6 +66,7 @@
 		5A0265C11BA329670079F6DE /* Commander.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Commander.swift; sourceTree = "<group>"; };
 		5A078ABE1BB1CBD20005155D /* SellVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellVC.swift; sourceTree = "<group>"; };
 		5A078AC01BB33C100005155D /* BuyModalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyModalVC.swift; sourceTree = "<group>"; };
+		5A0BE1B71BD980B400D65BE0 /* EncounterNotificationModalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncounterNotificationModalVC.swift; sourceTree = "<group>"; };
 		5A518FAF1BC0ACC400021B13 /* WarpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarpVC.swift; sourceTree = "<group>"; };
 		5A518FB11BC18C0B00021B13 /* DockVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DockVC.swift; sourceTree = "<group>"; };
 		5A518FB31BC31E9200021B13 /* ShortRangeChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortRangeChartView.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				5A518FB31BC31E9200021B13 /* ShortRangeChartView.swift */,
 				5A518FAF1BC0ACC400021B13 /* WarpVC.swift */,
 				5A01212D1BCA1190009DBAA2 /* EncounterVC.swift */,
+				5A0BE1B71BD980B400D65BE0 /* EncounterNotificationModalVC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				5AF1CA2D1BA36C2300643C5F /* NewCommanderVC.swift in Sources */,
 				5AEC942C1BC84B2900C68F7F /* NewGameVC.swift in Sources */,
 				5A723F401BCC531B006FFB13 /* Journey.swift in Sources */,
+				5A0BE1B81BD980B400D65BE0 /* EncounterNotificationModalVC.swift in Sources */,
 				5AF1CA2F1BAB3E7A00643C5F /* BuyVC.swift in Sources */,
 				5A0265B81B9FCD170079F6DE /* Weapon.swift in Sources */,
 				5AD5F8C21B9FB54E00154B21 /* Galaxy.swift in Sources */,

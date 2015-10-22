@@ -18,6 +18,10 @@ class Encounter {
     var button2Text = "button2"
     var button3Text = "button3"
     var button4Text = "button4"
+    var notificationTitle = "Notification"
+    var notificationText = "This is the notification text"
+    var notificationButton1Text = "Ok"
+    var notificationButton2Text = "Something"
     
     var opponentFleeing = false
     var playerFleeing = false
@@ -30,6 +34,8 @@ class Encounter {
     var youHitThem = false
     var theyHitYou = false
     var opposingVessel = "pirate ship"
+    
+    var modalToCall = "notification"        // RESET TO "MAIN"
     
     init(type: EncounterType, clicks: Int) {
         self.type = type
@@ -313,7 +319,13 @@ class Encounter {
     }
     
     func fireModal() {
-        let passedText = NSString(string: "nothing needed here")
+        var passedText = NSString(string: "")
+        if modalToCall == "main" {
+            passedText = NSString(string: "main")
+        } else if modalToCall == "notification" {
+            passedText = NSString(string: "notification")
+        }
+        
         NSNotificationCenter.defaultCenter().postNotificationName("encounterModalFireNotification", object: passedText)
     }
     
