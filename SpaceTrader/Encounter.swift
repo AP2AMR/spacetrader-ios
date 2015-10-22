@@ -9,19 +9,22 @@
 import Foundation
 
 class Encounter {
-    let type: EncounterType
+    var type: EncounterType
     let opponent: Opponent
     let clicks: Int
-    var encounterText1 = "null"
-    var encounterText2 = "null"
-    var encounterText3 = "null"
-    var encounterText4 = "null"
-    var encounterText5 = "null"
-    var encounterText6 = "null"
+    var encounterText1 = ""
+    var encounterText2 = ""
     var button1Text = "button1"
     var button2Text = "button2"
     var button3Text = "button3"
     var button4Text = "button4"
+    
+    var opponentFleeing = false
+    
+    var pilotSkillOpponent: Int = 0
+    var fighterSkillOpponent: Int = 0
+    var traderSkillOpponent: Int = 0
+    var engineerSkillOpponent: Int = 0
     
     init(type: EncounterType, clicks: Int) {
         self.type = type
@@ -32,6 +35,28 @@ class Encounter {
         // generate opponent
         opponent = Opponent(type: IFF)
         opponent.generateOpponent()
+        
+        pilotSkillOpponent = opponent.commander.pilotSkill
+        fighterSkillOpponent = opponent.commander.fighterSkill
+        traderSkillOpponent = opponent.commander.traderSkill
+        engineerSkillOpponent = opponent.commander.engineerSkill
+        
+        for crewMember in opponent.ship.crew {
+            if crewMember.pilot > pilotSkillOpponent {
+                pilotSkillOpponent = crewMember.pilot
+            }
+            if crewMember.fighter > fighterSkillOpponent {
+                fighterSkillOpponent = crewMember.fighter
+            }
+            if crewMember.trader > traderSkillOpponent {
+                traderSkillOpponent = crewMember.trader
+            }
+            if crewMember.engineer > engineerSkillOpponent {
+                engineerSkillOpponent = crewMember.engineer
+            }
+        }
+        
+        print("opposing ship--pilot: \(pilotSkillOpponent), fighter: \(fighterSkillOpponent), trader: \(traderSkillOpponent), engineer: \(engineerSkillOpponent)")
         
     }
     
@@ -104,8 +129,7 @@ class Encounter {
             button3Text = "Surrender"
             button4Text = ""
             
-            encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a pirate \(opponent.ship.name)."
-            encounterText2 = "Your opponent attacks."
+            encounterText2 = "The pirate ship attacks."
 
         } else if type == EncounterType.pirateSurrender {
             button1Text = "Attack"
@@ -288,31 +312,63 @@ class Encounter {
         NSNotificationCenter.defaultCenter().postNotificationName("encounterModalFireNotification", object: passedText)
     }
     
-    func attack() {
-        print("attack function called")
+    func attack() {     // old VC should no longer be presenting when this is called
+        opponentFleeing = true  // TEST
         
-        // determine if target is damamged
-            // maybe use damage function, which will automatically deplete first shields and then hull
+        var youHitThem = false
+        var theyHitYou = false
+        
+        // if opponent is fleeing, harder to hit them
+        var opponentFleeingMarksmanshipPenalty = 0
+        if opponentFleeing {
+            opponentFleeingMarksmanshipPenalty = 2
+        }
+        
+        // player shoots at target. Determine outcome
+        if rand(player.fighterSkill) + opponent.ship.probabilityOfHit > rand(pilotSkillOpponent) + opponentFleeingMarksmanshipPenalty {
+            damageOpponent(25)
+            youHitThem = true
+            print("player hits target")
+        } else {
+            print("player misses target")
+            youHitThem = false
+        }
         
         // determine if player is damaged
+        if !opponentFleeing {
+            
+        }
+        
+        
+        print("attack function called")
+        
+        encounterText1 = "attack happened. This not implemented yet."
+        //encounterText1 = "You hit the pirate ship. \n The pirate ship hits you."
+        type = EncounterType.pirateAttack               // ultimately, this will have to match current type
+
+        
+        
+        
+        setEncounterTextAndButtons()
+        fireModal()
+        
+
         
         // determine if target will flee
         
         // possible outcomes:
-            // encounter carries on
-            // opponent flees
-            // opponent gets away
-            // opponent surrenders
-            // opponent is destroyed
-            // player is destroyed, game over
-            // player is destroyed, escapes in pod
-        
-        // TEST ONLY
-        damagePlayer(25)
+            // encounter carries on (pirateAttacks)
+            // opponent flees (pirateFlees)
+            // opponent gets away (end and notification)
+            // opponent surrenders (pirateSurrenders)
+            // opponent is destroyed ()
+            // player is destroyed, game over ()
+            // player is destroyed, escapes in pod ()
     }
     
     func flee() {
         print("flee function called")
+        //fireModal()
     }
     
     func ignore() {
@@ -349,7 +405,6 @@ class Encounter {
     }
     
     func damagePlayer(amountOfDamage: Int) {
-        
         print("PLAYER TAKING DAMAGE")
         // assigns damage appropriately to player.
         var remainingDamage = amountOfDamage

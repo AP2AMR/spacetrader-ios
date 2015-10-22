@@ -23,7 +23,17 @@ class EncounterVC: UIViewController {
         opponentHull.text = "Hull at \(galaxy.currentJourney!.currentEncounter!.opponent.ship.hullPercentage)%"
         opponentShields.text = player.getShieldStrengthString(galaxy.currentJourney!.currentEncounter!.opponent.ship)
         
-        firstTextBlock.text = "At \(galaxy.currentJourney!.clicks) clicks from \(galaxy.targetSystem!.name) you encounter a \(galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus.rawValue) \(galaxy.currentJourney!.currentEncounter!.opponent.ship.name)."
+        // if encounterText1 not otherwise set, display first context information. Else, display it
+        if galaxy.currentJourney!.currentEncounter!.encounterText1 == "" {
+            firstTextBlock.text = "At \(galaxy.currentJourney!.clicks) clicks from \(galaxy.targetSystem!.name) you encounter a \(galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus.rawValue) \(galaxy.currentJourney!.currentEncounter!.opponent.ship.name)."
+        } else {
+            firstTextBlock.text = galaxy.currentJourney!.currentEncounter!.encounterText1
+        }
+        
+        
+        
+        
+        
         
         //firstTextBlock.text = galaxy.currentJourney!.currentEncounter!.encounterText1
         secondTextBlock.text = galaxy.currentJourney!.currentEncounter!.encounterText2
@@ -54,23 +64,24 @@ class EncounterVC: UIViewController {
     @IBOutlet weak var button4Text: UIButton!
     
     @IBAction func button1(sender: AnyObject) {
-        galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
         self.dismissViewControllerAnimated(false, completion: nil)
+        galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
+        
     }
 
     @IBAction func button2(sender: AnyObject) {
-        galaxy.currentJourney!.currentEncounter!.resumeEncounter(2)
         self.dismissViewControllerAnimated(false, completion: nil)
+        galaxy.currentJourney!.currentEncounter!.resumeEncounter(2)
     }
 
     @IBAction func button3(sender: AnyObject) {
-        galaxy.currentJourney!.currentEncounter!.resumeEncounter(3)
         self.dismissViewControllerAnimated(false, completion: nil)
+        galaxy.currentJourney!.currentEncounter!.resumeEncounter(3)
     }
     
     @IBAction func button4(sender: AnyObject) {
-        galaxy.currentJourney!.currentEncounter!.resumeEncounter(4)
         self.dismissViewControllerAnimated(false, completion: nil)
+        galaxy.currentJourney!.currentEncounter!.resumeEncounter(4)
     }
     
     // FOR TESTING PURPOSES ONLY
