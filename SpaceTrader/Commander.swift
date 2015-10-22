@@ -29,9 +29,14 @@ class Commander {
     
     var policeRecord = PoliceRecordType.cleanScore
     var reputation = ReputationType.harmlessRep
+    var escapePod = false
     
     var inspected = false
     var wildStatus = false
+    
+    var pirateKills: Int = 0
+    var policeKills: Int = 0
+    var traderKills: Int = 0
     
     var netWorth: Int {                                         // OBVIOUSLY THIS NEEDS TO BE IMPLEMENTED
         get {

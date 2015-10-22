@@ -27,6 +27,10 @@ class Encounter {
     var traderSkillOpponent: Int = 0
     var engineerSkillOpponent: Int = 0
     
+    var youHitThem = false
+    var theyHitYou = false
+    var opposingVessel = "pirate ship"
+    
     init(type: EncounterType, clicks: Int) {
         self.type = type
         self.clicks = clicks
@@ -314,9 +318,7 @@ class Encounter {
     }
     
     func attack() {     // old VC should no longer be presenting when this is called
-        
-        var youHitThem = false
-        var theyHitYou = false
+        var outcome = ""
         
         // if opponent is fleeing, harder to hit them
         var opponentFleeingMarksmanshipPenalty = 0
@@ -355,30 +357,75 @@ class Encounter {
             }
         }
         
-
-        // report who hit whom
-        var opposingVessel = "pirate ship"          // this can be different things
-        var reportString1 = ""
-        var reportString2 = ""
-        if youHitThem {
-            reportString1 = "You hit the \(opposingVessel).\n"
-        } else {
-            reportString1 = "You missed the \(opposingVessel).\n"
+        // determine outcome
+        // default
+        outcome = "fightContinues"
+        
+        
+        if outcome == "fightContinues" {
+            // if opponent is already fleeing, determine if he gets away
+            if opponentFleeing {
+                if rand(10) < pilotSkillOpponent + 1 {
+                    outcome = "opponentGetsAway"
+                }
+            }
         }
-        if theyHitYou {
-            reportString2 = "The pirate ship hits you."
-        } else {
-            reportString2 = "The pirate ship misses you."
+        
+        if outcome == "fightContinues" {
+            // determine if opponent will flee--maybe do this by opponent type?
+            if opponent.ship.hullPercentage < 10 {
+                print("opponent heavily damaged")
+                if rand(10) > 3 {
+                    opponentFleeing = true
+                    print("opponent is fleeing")
+                    outcome = "opponentFlees"
+                }
+            }
         }
-        encounterText1 = reportString1 + reportString2
-        //encounterText1 = "You hit the pirate ship. \n The pirate ship hits you."
-        type = EncounterType.pirateAttack               // ultimately, this will have to match current type
+        
+        
+        // if player is destroyed
+        if player.commanderShip.hullPercentage <= 0 {
+            print("player is destroyed")
+            if player.escapePod {
+                outcome = "playerDestroyedEscapes"
+            } else {
+                outcome = "playerDestroyedKilled"
+            }
+        }
+        
+        // if opponent is destroyed
+        if opponent.ship.hullPercentage <= 0 {
+            print("opponent is destroyed")
+            outcome = "opponentDestroyed"
+        }
+        
+        
+        // is there any chance of a pirate surrendering outright?
+        
+        
+        
+        print("OUTCOME: \(outcome)")
+        
+        // handle outcome
+        switch outcome {
+            case "opponentFlees":
+                outcomeOpponentFlees()
+            case "playerDestroyedEscapes":
+                outcomePlayerDestroyedEscapes()
+            case "playerDestroyedKilled":
+                outcomePlayerDestroyedKilled()
+            case "opponentDestroyed":
+                outcomeOpponentDestroyed()
+            case "opponentGetsAway":
+                outcomeOpponentGetsAway()
+            case "opponentSurrenders":
+                outcomeOpponentSurrenders()
+            default:
+                outcomeFightContinues()
+        }
 
-        
-        
-        
-        setEncounterTextAndButtons()
-        fireModal()
+
         
 
         
@@ -386,12 +433,12 @@ class Encounter {
         
         // possible outcomes:
             // - encounter carries on (pirateAttacks)
-            // opponent flees (pirateFlees)
+            // - opponent flees (pirateFlees)
             // opponent gets away (end and notification)
             // opponent surrenders (pirateSurrenders)
-            // opponent is destroyed ()
-            // player is destroyed, game over ()
-            // player is destroyed, escapes in pod ()
+            // - opponent is destroyed ()
+            // - player is destroyed, game over ()
+            // - player is destroyed, escapes in pod ()
     }
     
     func flee() {
@@ -476,5 +523,53 @@ class Encounter {
         if opponent.ship.hull <= 0 {
             print("OPPONENT IS DESTROYED")                   // WIRE THIS UP TO SOMETHING
         }
+    }
+    
+    // OUTCOME FUNCTIONS
+    
+    func outcomeFightContinues() {
+        // report who hit whom
+        var reportString1 = ""
+        var reportString2 = ""
+        if youHitThem {
+            reportString1 = "You hit the \(opposingVessel).\n"
+        } else {
+            reportString1 = "You missed the \(opposingVessel).\n"
+        }
+        if theyHitYou {
+            reportString2 = "The pirate ship hits you."
+        } else {
+            reportString2 = "The pirate ship misses you."
+        }
+        encounterText1 = reportString1 + reportString2
+        //encounterText1 = "You hit the pirate ship. \n The pirate ship hits you."
+        type = EncounterType.pirateAttack               // ultimately, this will have to match current type
+        
+        setEncounterTextAndButtons()
+        fireModal()
+    }
+    
+    func outcomeOpponentGetsAway() {
+        
+    }
+    
+    func outcomeOpponentFlees() {
+        
+    }
+    
+    func outcomePlayerDestroyedEscapes() {
+        
+    }
+    
+    func outcomePlayerDestroyedKilled() {
+        
+    }
+    
+    func outcomeOpponentDestroyed() {
+        
+    }
+    
+    func outcomeOpponentSurrenders() {
+        
     }
 }
