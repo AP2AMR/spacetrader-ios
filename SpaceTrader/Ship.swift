@@ -28,6 +28,15 @@ class SpaceShip {
     var traders: Int
     var repairCosts: Int            // cost per one point of damage
     var probabilityOfHit: Int         // scale of 0 to 4, 4 is easiest to hit
+    var totalWeapons: Int {
+        get {
+            var total: Int = 0
+            for entry in weapon {
+                total += entry.power
+            }
+            return total
+        }
+    }
     
     var raided = false
     var artifactOnBoard = false

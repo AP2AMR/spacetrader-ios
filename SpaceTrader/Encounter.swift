@@ -20,6 +20,7 @@ class Encounter {
     var button4Text = "button4"
     
     var opponentFleeing = false
+    var playerFleeing = false
     
     var pilotSkillOpponent: Int = 0
     var fighterSkillOpponent: Int = 0
@@ -313,7 +314,6 @@ class Encounter {
     }
     
     func attack() {     // old VC should no longer be presenting when this is called
-        opponentFleeing = true  // TEST
         
         var youHitThem = false
         var theyHitYou = false
@@ -328,7 +328,9 @@ class Encounter {
         if rand(player.fighterSkill) + opponent.ship.probabilityOfHit > rand(pilotSkillOpponent) + opponentFleeingMarksmanshipPenalty {
             damageOpponent(25)
             youHitThem = true
-            print("player hits target")
+            let damageToOpponent = rand((player.commanderShip.totalWeapons) * (100 + (2 * engineerSkillOpponent)) / 100)
+            damageOpponent(damageToOpponent)
+            print("player hits target. Damage: \(damageToOpponent)")
         } else {
             print("player misses target")
             youHitThem = false
@@ -336,7 +338,21 @@ class Encounter {
         
         // determine if player is damaged
         if !opponentFleeing {
+            var playerFleeingMarksmanshipPenalty = 0
             
+            if playerFleeing {
+                playerFleeingMarksmanshipPenalty = 2
+            }
+            
+            if rand(fighterSkillOpponent) + player.commanderShip.probabilityOfHit > rand(player.pilotSkill) + playerFleeingMarksmanshipPenalty {
+                theyHitYou = true
+                let damageToPlayer = rand((opponent.ship.totalWeapons) * (100 + (2 * player.engineerSkill)) / 100)
+                damagePlayer(damageToPlayer)
+                print("player is hit. Damage: \(damageToPlayer)")
+            } else {
+                print("player is not hit")
+                theyHitYou = false
+            }
         }
         
         
@@ -357,7 +373,7 @@ class Encounter {
         // determine if target will flee
         
         // possible outcomes:
-            // encounter carries on (pirateAttacks)
+            // - encounter carries on (pirateAttacks)
             // opponent flees (pirateFlees)
             // opponent gets away (end and notification)
             // opponent surrenders (pirateSurrenders)
@@ -436,8 +452,6 @@ class Encounter {
         
         if player.commanderShip.hull <= 0 {
             print("PLAYER SHIP IS DESTROYED")                   // WIRE THIS UP TO SOMETHING
-        } else {
-            print("after damage, the player's hull is at \(player.commanderShip.hullPercentage)%")
         }
         
     }
