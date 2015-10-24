@@ -1268,7 +1268,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iMR-yn-TxG">
-                                <rect key="frame" x="180" y="120" width="240" height="128"/>
+                                <rect key="frame" x="180" y="170" width="240" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOA-JZ-N3L">
                                         <rect key="frame" x="84" y="13" width="73" height="21"/>
@@ -1298,6 +1298,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="iMR-yn-TxG" firstAttribute="centerX" secondItem="9YL-zf-6mt" secondAttribute="centerX" id="307-1l-QaF"/>
+                            <constraint firstItem="iMR-yn-TxG" firstAttribute="top" secondItem="0Yr-Sl-EpL" secondAttribute="bottom" constant="150" id="gE3-Hq-fnx"/>
                         </constraints>
                     </view>
                     <connections>

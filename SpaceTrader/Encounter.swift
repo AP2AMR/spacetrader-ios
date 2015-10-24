@@ -33,9 +33,33 @@ class Encounter {
     
     var youHitThem = false
     var theyHitYou = false
-    var opposingVessel = "pirate ship"
     
-    var modalToCall = "notification"        // RESET TO "MAIN"
+    // thing to call opposing vessel, settable by IFF
+    // options:
+    var opposingVessel: String {
+        get {
+            switch opponent.ship.IFFStatus {
+                case IFFStatusType.Pirate:
+                    return "pirate ship"
+                case IFFStatusType.Police:
+                    return "police ship"
+                case IFFStatusType.Trader:
+                    return "trader ship"
+                case IFFStatusType.Dragonfly:
+                    return "Dragonfly"
+                case IFFStatusType.Mantis:
+                    return "Mantis"
+                case IFFStatusType.Scarab:
+                    return "Scarab"
+                case IFFStatusType.SpaceMonster:
+                    return "space monster"
+                default:
+                    return ""
+            }
+        }
+    }
+    
+    var modalToCall = "main"
     
     init(type: EncounterType, clicks: Int) {
         self.type = type
@@ -194,7 +218,7 @@ class Encounter {
             button4Text = ""
             
             encounterText1 = "At \(clicks) clicks from \(galaxy.targetSystem!.name) you encounter a police \(opponent.ship.name)."
-            encounterText2 = "Your opponent attacks."
+            encounterText2 = "The police ship attacks."
 
         } else if type == EncounterType.policeIgnore {
             button1Text = "Attack"
@@ -285,6 +309,13 @@ class Encounter {
             button4Text = ""
             
             encounterText2 = "Your opponent hails that he surrenders to you."
+        } else if type == EncounterType.traderAttack {
+            button1Text = "Attack"
+            button2Text = "Flee"
+            button3Text = ""
+            button4Text = ""
+            
+            encounterText2 = "The trader ship attacks."
         }
         
 
@@ -329,7 +360,7 @@ class Encounter {
         NSNotificationCenter.defaultCenter().postNotificationName("encounterModalFireNotification", object: passedText)
     }
     
-    func attack() {     // old VC should no longer be presenting when this is called
+    func attack() {
         var outcome = ""
         
         // if opponent is fleeing, harder to hit them
@@ -549,13 +580,31 @@ class Encounter {
             reportString1 = "You missed the \(opposingVessel).\n"
         }
         if theyHitYou {
-            reportString2 = "The pirate ship hits you."
+            reportString2 = "The \(opposingVessel) hits you."
         } else {
-            reportString2 = "The pirate ship misses you."
+            reportString2 = "The \(opposingVessel) misses you."
         }
         encounterText1 = reportString1 + reportString2
-        //encounterText1 = "You hit the pirate ship. \n The pirate ship hits you."
-        type = EncounterType.pirateAttack               // ultimately, this will have to match current type
+
+        switch opponent.ship.IFFStatus {
+            case IFFStatusType.Pirate:
+                type = EncounterType.pirateAttack
+            case IFFStatusType.Police:
+                type = EncounterType.policeAttack
+            case IFFStatusType.Trader:
+                type = EncounterType.policeAttack
+            case IFFStatusType.Dragonfly:
+                type = EncounterType.dragonflyAttack
+            case IFFStatusType.Mantis:
+                type = EncounterType.mantisAttack
+            case IFFStatusType.Scarab:
+                type = EncounterType.scarabAttack
+            case IFFStatusType.SpaceMonster:
+                type = EncounterType.spaceMonsterAttack
+            default:
+                type = EncounterType.pirateAttack   // this is a failure mode
+        }
+        
         
         setEncounterTextAndButtons()
         fireModal()

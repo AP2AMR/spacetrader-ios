@@ -496,6 +496,7 @@ enum EncounterType {
     case spaceMonsterAttack
     case dragonflyAttack
     case traderIgnore
+    case traderAttack
     case policeIgnore
     case pirateIgnore
     case spaceMonsterIgnore

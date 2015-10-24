@@ -23,7 +23,8 @@ class EncounterNotificationModalVC: UIViewController {
     }
 
     @IBAction func button1Action(sender: AnyObject) {
-        
+        self.dismissViewControllerAnimated(false, completion: nil)
+        galaxy.currentJourney!.currentEncounter!.concludeEncounter()
     }
     
 }
