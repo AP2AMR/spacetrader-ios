@@ -12,8 +12,8 @@ class WarpViewVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "messageHandler:", name: "encounterModalFireNotification", object: nil)
 
-        // Do any additional setup after loading the view.
     }
 
 

@@ -39,7 +39,12 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     }
     
     @IBAction func warpButton() {
-        galaxy.warp()
+        if galaxy.warp() {
+            print("warp is permitted. Firing segue.")
+            performSegueWithIdentifier("warpScreenSegue", sender: nil)
+        } else {
+            print("warp not permitted. Not firing segue.")
+        }
         updateView()
         shortRangeChart.redrawSelf()
     }
@@ -49,7 +54,7 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
         updateView()
         
         //let encounterNotification =
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "messageHandler:", name: "encounterModalFireNotification", object: nil)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "messageHandler:", name: "encounterModalFireNotification", object: nil)
     }
     
     // REPLACE THIS WITH MESSAGEHANDLER TO TRIGGER SEGUE TO WARP VIEW
