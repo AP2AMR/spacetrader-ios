@@ -361,6 +361,15 @@ class Encounter {
     }
     
     func attack() {
+        // this part should be handled in the modal VC
+//        if opponent.ship.IFFStatus == IFFStatusType.Police {
+//            // if you police record is better than criminal
+//            print("YOU ARE ATTACKING THE POLICE")
+//        } else if opponent.ship.IFFStatus == IFFStatusType.Trader {
+//            // if your police record is better than dubious
+//            print("YOU ARE ATTACKING A TRADER")
+//        }
+        
         var outcome = ""
         
         // if opponent is fleeing, harder to hit them
@@ -491,6 +500,9 @@ class Encounter {
     
     func ignore() {
         print("ignore function called")
+        // using this to test launching an alert
+        
+        
         //concludeEncounter()
     }
     
