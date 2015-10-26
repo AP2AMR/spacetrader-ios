@@ -52,19 +52,20 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "messageHandler:", name: "encounterModalFireNotification", object: nil)
     }
     
-    func messageHandler(notification: NSNotification) {             // THIS FIRES WHEN THE MODEL SAYS TO
-        print("receiving notification: \(notification.object!)")
-        let receivedMessage: String = notification.object! as! String
-        
-        if receivedMessage == "main" {
-            print("acknowledge main")
-            performSegueWithIdentifier("encounterModal", sender: nil)
-        } else if receivedMessage == "notification" {
-            print("acknowledge notification")
-            performSegueWithIdentifier("notificationSegue", sender: nil)
-        }
-        
-    }
+    // REPLACE THIS WITH MESSAGEHANDLER TO TRIGGER SEGUE TO WARP VIEW
+//    func messageHandler(notification: NSNotification) {             // THIS FIRES WHEN THE MODEL SAYS TO
+//        print("receiving notification: \(notification.object!)")
+//        let receivedMessage: String = notification.object! as! String
+//        
+//        if receivedMessage == "main" {
+//            print("acknowledge main")
+//            performSegueWithIdentifier("encounterModal", sender: nil)
+//        } else if receivedMessage == "notification" {
+//            print("acknowledge notification")
+//            performSegueWithIdentifier("notificationSegue", sender: nil)
+//        }
+//        
+//    }
     
     func updateView() {
         let politics = Politics(type: galaxy.targetSystem!.politics)

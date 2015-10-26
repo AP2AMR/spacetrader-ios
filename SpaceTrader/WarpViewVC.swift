@@ -1,0 +1,36 @@
+//
+//  WarpViewVC.swift
+//  SpaceTrader
+//
+//  Created by Marc Auger on 10/26/15.
+//  Copyright © 2015 Marc Auger. All rights reserved.
+//
+
+import UIKit
+
+class WarpViewVC: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+    }
+
+
+    // FIRE ALERT MODALS
+    // (maybe this should only fire the first? Let additional ones be sequential?)
+    func messageHandler(notification: NSNotification) {
+        print("receiving notification: \(notification.object!)")
+        let receivedMessage: String = notification.object! as! String
+
+        if receivedMessage == "main" {
+            print("acknowledge main")
+            performSegueWithIdentifier("encounterModal", sender: nil)
+        } else if receivedMessage == "notification" {
+            print("acknowledge notification")
+            performSegueWithIdentifier("notificationSegue", sender: nil)
+        }
+        
+    }
+
+}
