@@ -29,11 +29,6 @@ class EncounterVC: UIViewController {
             firstTextBlock.text = galaxy.currentJourney!.currentEncounter!.encounterText1
         }
         
-        
-        
-        
-        
-        
         //firstTextBlock.text = galaxy.currentJourney!.currentEncounter!.encounterText1
         secondTextBlock.text = galaxy.currentJourney!.currentEncounter!.encounterText2
         
@@ -42,6 +37,11 @@ class EncounterVC: UIViewController {
         button2Text.setTitle("\(galaxy.currentJourney!.currentEncounter!.button2Text)", forState: controlState)
         button3Text.setTitle("\(galaxy.currentJourney!.currentEncounter!.button3Text)", forState: controlState)
         button4Text.setTitle("\(galaxy.currentJourney!.currentEncounter!.button4Text)", forState: controlState)
+        
+        // deal with text size issue
+        
+        //let font = firstTextBlock.font?.fontName
+        //firstTextBlock.font = UIFont(name: font!, size: 18)
     }
 
     

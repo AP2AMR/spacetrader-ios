@@ -204,6 +204,7 @@
 				5A078AC01BB33C100005155D /* BuyModalVC.swift */,
 				5AF1CA2E1BAB3E7A00643C5F /* BuyVC.swift */,
 				5A518FB11BC18C0B00021B13 /* DockVC.swift */,
+				5A01212D1BCA1190009DBAA2 /* EncounterVC.swift */,
 				5A518FB51BC80CF800021B13 /* FuelRepairModalVC.swift */,
 				5AEC942D1BC8594F00C68F7F /* GalacticChartVC.swift */,
 				5AEC942F1BC85CF100C68F7F /* GalacticChartView.swift */,
@@ -212,7 +213,6 @@
 				5A078ABE1BB1CBD20005155D /* SellVC.swift */,
 				5A518FB31BC31E9200021B13 /* ShortRangeChartView.swift */,
 				5A518FAF1BC0ACC400021B13 /* WarpVC.swift */,
-				5A01212D1BCA1190009DBAA2 /* EncounterVC.swift */,
 				5A83DF531BDECF0400C31AC5 /* WarpViewVC.swift */,
 			);
 			name = ViewControllers;
