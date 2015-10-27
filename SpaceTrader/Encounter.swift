@@ -350,6 +350,7 @@ class Encounter {
     }
     
     func fireModal() {
+        print("trying to fire modal")
         var passedText = NSString(string: "")
         if modalToCall == "main" {
             passedText = NSString(string: "main")

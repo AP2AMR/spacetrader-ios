@@ -46,7 +46,9 @@ class Journey {
         print("**************************************************************")
         print("WARP SEQUENCE INITIATED")
         
-        // I don't think there's actually anything to do here?
+        // go to WarpViewVC, pause momentarily
+        let passedText = NSString(string: "notification")
+        NSNotificationCenter.defaultCenter().postNotificationName("fireWarpViewSegueNotification", object: passedText)
         
         resumeJourney()
         

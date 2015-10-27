@@ -21,15 +21,17 @@ class WarpViewVC: UIViewController {
     // (maybe this should only fire the first? Let additional ones be sequential?)
     func messageHandler(notification: NSNotification) {
         print("receiving notification: \(notification.object!)")
-        let receivedMessage: String = notification.object! as! String
-
-        if receivedMessage == "main" {
-            print("acknowledge main")
-            performSegueWithIdentifier("encounterModal", sender: nil)
-        } else if receivedMessage == "notification" {
-            print("acknowledge notification")
-            performSegueWithIdentifier("notificationSegue", sender: nil)
-        }
+        print("notification received")
+        
+//        let receivedMessage: String = notification.object! as! String
+//
+//        if receivedMessage == "main" {
+//            print("acknowledge main")
+//            performSegueWithIdentifier("encounterModal", sender: nil)
+//        } else if receivedMessage == "notification" {
+//            print("acknowledge notification")
+//            performSegueWithIdentifier("notificationSegue", sender: nil)
+//        }
         
     }
 

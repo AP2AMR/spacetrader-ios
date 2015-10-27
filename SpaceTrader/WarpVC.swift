@@ -39,12 +39,13 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     }
     
     @IBAction func warpButton() {
-        if galaxy.warp() {
-            print("warp is permitted. Firing segue.")
-            performSegueWithIdentifier("warpScreenSegue", sender: nil)
-        } else {
-            print("warp not permitted. Not firing segue.")
-        }
+        galaxy.warp()
+//        if galaxy.warp() {
+//            print("warp is permitted. Firing segue.")
+//            performSegueWithIdentifier("warpScreenSegue", sender: nil)
+//        } else {
+//            print("warp not permitted. Not firing segue.")
+//        }
         updateView()
         shortRangeChart.redrawSelf()
     }
@@ -53,24 +54,12 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
         
         updateView()
         
-        //let encounterNotification =
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "messageHandler:", name: "encounterModalFireNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "messageHandler:", name: "fireWarpViewSegueNotification", object: nil)
     }
     
-    // REPLACE THIS WITH MESSAGEHANDLER TO TRIGGER SEGUE TO WARP VIEW
-//    func messageHandler(notification: NSNotification) {             // THIS FIRES WHEN THE MODEL SAYS TO
-//        print("receiving notification: \(notification.object!)")
-//        let receivedMessage: String = notification.object! as! String
-//        
-//        if receivedMessage == "main" {
-//            print("acknowledge main")
-//            performSegueWithIdentifier("encounterModal", sender: nil)
-//        } else if receivedMessage == "notification" {
-//            print("acknowledge notification")
-//            performSegueWithIdentifier("notificationSegue", sender: nil)
-//        }
-//        
-//    }
+    func messageHandler(notification: NSNotification) {
+        performSegueWithIdentifier("warpScreenSegue", sender: nil)
+    }
     
     func updateView() {
         let politics = Politics(type: galaxy.targetSystem!.politics)
