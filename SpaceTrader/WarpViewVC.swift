@@ -20,17 +20,23 @@ class WarpViewVC: UIViewController {
     // FIRE ALERT MODALS
     // (maybe this should only fire the first? Let additional ones be sequential?)
     func messageHandler(notification: NSNotification) {
-        print("WARPVIEW HERE. TIME TO LAUNCH FIRST MODAL")
-        performSegueWithIdentifier("encounterModal", sender: nil)
+        let receivedMessage: String = notification.object! as! String
         
-//        let receivedMessage: String = notification.object! as! String
+        if receivedMessage == "main" {
+            performSegueWithIdentifier("encounterModal", sender: nil)
+        } else if receivedMessage == "done" {
+            performSegueWithIdentifier("encounterModal", sender: nil)
+        }
+        
+        
+//
 //
 //        if receivedMessage == "main" {
 //            print("acknowledge main")
 //            performSegueWithIdentifier("encounterModal", sender: nil)
 //        } else if receivedMessage == "notification" {
 //            print("acknowledge notification")
-//            performSegueWithIdentifier("notificationSegue", sender: nil) 
+//            performSegueWithIdentifier("notificationSegue", sender: nil)
 //        }
         
     }
