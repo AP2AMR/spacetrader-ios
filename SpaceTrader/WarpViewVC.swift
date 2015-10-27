@@ -22,10 +22,13 @@ class WarpViewVC: UIViewController {
     func messageHandler(notification: NSNotification) {
         let receivedMessage: String = notification.object! as! String
         
+        print("WarpViewVC messageHandler: \(receivedMessage)")
+        
         if receivedMessage == "main" {
             performSegueWithIdentifier("encounterModal", sender: nil)
         } else if receivedMessage == "done" {
-            performSegueWithIdentifier("encounterModal", sender: nil)
+            print("firing return segue")
+            performSegueWithIdentifier("returnToTabBar", sender: nil)
         }
         
         

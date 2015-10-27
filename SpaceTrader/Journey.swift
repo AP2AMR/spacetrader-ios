@@ -270,6 +270,10 @@ class Journey {
         }
         
         galaxy.getSystemsInRange()
+        
+        // fire segue back to sell (or something else later)
+        var passedText = NSString(string: "done")
+        NSNotificationCenter.defaultCenter().postNotificationName("encounterModalFireNotification", object: passedText)
     }
     
 //    func generateEncounters() {         // OLD, but with useful code

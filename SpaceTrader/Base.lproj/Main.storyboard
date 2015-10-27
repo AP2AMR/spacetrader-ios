@@ -1242,11 +1242,13 @@
                     </view>
                     <connections>
                         <segue destination="Z73-QX-bwt" kind="presentation" identifier="encounterModal" id="iFt-eH-dU2"/>
+                        <segue destination="jzz-KE-2cI" kind="presentation" identifier="returnAfterWarp" id="LND-dr-SJk"/>
+                        <segue destination="Zyg-E7-QYl" kind="presentation" identifier="returnToTabBar" id="Uo9-dh-8wS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k2d-8K-FmT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2286" y="1883"/>
+            <point key="canvasLocation" x="2285" y="1860"/>
         </scene>
         <!--EncounterVC-->
         <scene sceneID="VX2-xJ-PLV">
@@ -2406,6 +2408,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="Uo9-dh-8wS"/>
+        <segue reference="LND-dr-SJk"/>
         <segue reference="1Ij-RU-wnj"/>
     </inferredMetricsTieBreakers>
 </document>
