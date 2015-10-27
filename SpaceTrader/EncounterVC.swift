@@ -13,7 +13,6 @@ class EncounterVC: UIViewController {
     
     
     override func viewDidLoad() {
-        self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
         super.viewDidLoad()
         
         playerShipType.text = player.commanderShip.name
