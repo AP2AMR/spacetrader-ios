@@ -30,7 +30,7 @@ class WarpViewVC: UIViewController {
 //            performSegueWithIdentifier("encounterModal", sender: nil)
 //        } else if receivedMessage == "notification" {
 //            print("acknowledge notification")
-//            performSegueWithIdentifier("notificationSegue", sender: nil)
+//            performSegueWithIdentifier("notificationSegue", sender: nil) 
 //        }
         
     }
