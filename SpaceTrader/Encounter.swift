@@ -103,6 +103,7 @@ class Encounter {
         
         setEncounterTextAndButtons()
         
+        print("ABOUT TO CALL FIREMODAL")
         fireModal()
         
         // set data for first modal, fire it, and return
@@ -350,7 +351,6 @@ class Encounter {
     }
     
     func fireModal() {
-        print("trying to fire modal")
         var passedText = NSString(string: "")
         if modalToCall == "main" {
             passedText = NSString(string: "main")
@@ -358,6 +358,7 @@ class Encounter {
             passedText = NSString(string: "notification")
         }
         
+        print("in encounter.fireModal(). Next line posts notification to encounterModalFireNotification")
         NSNotificationCenter.defaultCenter().postNotificationName("encounterModalFireNotification", object: passedText)
     }
     

@@ -1217,10 +1217,10 @@
             </objects>
             <point key="canvasLocation" x="2990" y="1045"/>
         </scene>
-        <!--View Controller-->
+        <!--Warp ViewVC-->
         <scene sceneID="CtC-x3-d1F">
             <objects>
-                <viewController id="ELE-CK-FDY" sceneMemberID="viewController">
+                <viewController id="ELE-CK-FDY" customClass="WarpViewVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZxR-W7-pGg"/>
                         <viewControllerLayoutGuide type="bottom" id="lKv-pM-DN6"/>
