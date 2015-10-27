@@ -1309,12 +1309,6 @@
                                     <action selector="closeButton:" destination="Z73-QX-bwt" eventType="touchUpInside" id="tSf-zQ-Dq9"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="&lt;first block of text goes here&gt;" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="025-w4-7ew">
-                                <rect key="frame" x="18" y="305" width="562" height="50"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xjs-Hc-FYY">
                                 <rect key="frame" x="55" y="115" width="102" height="82"/>
                                 <subviews>
@@ -1376,12 +1370,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="&lt;second block of text goes here&gt;" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coM-Pz-gC6">
-                                <rect key="frame" x="20" y="363" width="560" height="50"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NkD-u2-h5w">
                                 <rect key="frame" x="218" y="115" width="102" height="82"/>
                                 <subviews>
@@ -1401,21 +1389,32 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8dU-fY-PdN">
-                                <rect key="frame" x="20" y="414" width="560" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8dU-fY-PdN">
+                                <rect key="frame" x="20" y="375" width="560" height="128"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut e</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="C77-70-Gd6">
+                                <rect key="frame" x="20" y="304" width="560" height="45"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="C77-70-Gd6" secondAttribute="trailing" id="1PY-Jt-HAY"/>
                             <constraint firstItem="Xjs-Hc-FYY" firstAttribute="top" secondItem="8wb-cF-FJj" secondAttribute="bottom" constant="95" id="5lI-Nl-B9D"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="C77-70-Gd6" secondAttribute="leading" id="Gvb-iH-WQg"/>
                             <constraint firstItem="Xjs-Hc-FYY" firstAttribute="leading" secondItem="79J-SY-Ayx" secondAttribute="leadingMargin" constant="35" id="J68-Ea-8Ua"/>
                             <constraint firstItem="aeB-UH-qOp" firstAttribute="leading" secondItem="upg-we-otD" secondAttribute="leading" id="O04-wF-sM9"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="C77-70-Gd6" secondAttribute="leading" id="XdE-6F-8bb"/>
                             <constraint firstItem="aLr-xF-vYF" firstAttribute="centerX" secondItem="79J-SY-Ayx" secondAttribute="centerX" id="a91-pj-s6I"/>
                             <constraint firstItem="fms-Cj-lcI" firstAttribute="leading" secondItem="NkD-u2-h5w" secondAttribute="leading" id="dtQ-1v-0Pb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LCz-bE-197" secondAttribute="trailing" id="h9z-zo-UET"/>
@@ -1428,7 +1427,7 @@
                         <outlet property="button2Text" destination="rbt-Vb-pAF" id="YDR-m2-49N"/>
                         <outlet property="button3Text" destination="ceD-pJ-zL5" id="mnY-Oc-RbQ"/>
                         <outlet property="button4Text" destination="gr9-HP-Nbr" id="fhh-BJ-Tpb"/>
-                        <outlet property="firstTextBlock" destination="025-w4-7ew" id="QdC-bA-t6A"/>
+                        <outlet property="firstTextBlock" destination="C77-70-Gd6" id="Dzr-ri-IPn"/>
                         <outlet property="opponentHull" destination="rZm-bD-1mh" id="sdr-hn-tvy"/>
                         <outlet property="opponentShields" destination="TGz-f7-6sa" id="2jF-CR-oe6"/>
                         <outlet property="opponentShipType" destination="4KS-Jl-ZqA" id="kFt-51-FeR"/>

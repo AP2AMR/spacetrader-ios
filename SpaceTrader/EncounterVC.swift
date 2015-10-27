@@ -77,6 +77,7 @@ class EncounterVC: UIViewController {
                             print("carrying on with attack!")
                     }))
                     alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel,handler: nil))
+                    //self.presentViewController(alertController, animated: true, completion: nil)
                     self.presentViewController(alertController, animated: true, completion: nil)
                 } else {
                     // you're a criminal anyway. Carry on.
