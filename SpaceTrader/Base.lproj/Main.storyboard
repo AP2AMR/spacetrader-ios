@@ -1436,7 +1436,7 @@
                         <outlet property="playerShields" destination="vIL-mv-aVJ" id="bwC-O5-LBN"/>
                         <outlet property="playerShipType" destination="Ida-9E-6Do" id="9K5-Do-sfW"/>
                         <outlet property="secondTextBlock" destination="8dU-fY-PdN" id="vsK-CY-URg"/>
-                        <segue destination="D9y-jd-91M" kind="show" identifier="gameOver" id="Zhh-Pf-9hC"/>
+                        <segue destination="D9y-jd-91M" kind="show" identifier="gameOver" animates="NO" id="Zhh-Pf-9hC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RHb-zr-ix5" userLabel="First Responder" sceneMemberID="firstResponder"/>

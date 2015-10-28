@@ -622,7 +622,8 @@ class Encounter {
                 type = EncounterType.pirateAttack   // this is a failure mode
         }
         
-        
+        let stringToPass = NSString(string: "dismissViewController")
+        NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
         setEncounterTextAndButtons()
         fireModal()
     }

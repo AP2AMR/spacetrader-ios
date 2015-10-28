@@ -66,7 +66,13 @@ class EncounterVC: UIViewController {
         
         if receivedMessage == "playerKilled" {
             gameOverModal()
+        } else if receivedMessage == "dismissViewController" {
+            dismissViewController()
         }
+    }
+    
+    func dismissViewController() {
+        self.dismissViewControllerAnimated(false, completion: nil)
     }
     
     @IBAction func button1(sender: AnyObject) {
@@ -78,11 +84,11 @@ class EncounterVC: UIViewController {
             } else if (galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Trader) && (player.policeRecordInt > 4) {
                 fireAttackWarningModal("trader")
             } else {
-                self.dismissViewControllerAnimated(false, completion: nil)
+                //self.dismissViewControllerAnimated(false, completion: nil)
                 galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
             }
         } else {
-            self.dismissViewControllerAnimated(false, completion: nil)
+            //self.dismissViewControllerAnimated(false, completion: nil)
             galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
         }
     }
@@ -118,8 +124,7 @@ class EncounterVC: UIViewController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
             (alert: UIAlertAction!) -> Void in
-            // go ahead with it
-            print("segue to game over screen")
+            self.performSegueWithIdentifier("gameOver", sender: nil)
         }))
         self.presentViewController(alertController, animated: true, completion: nil)
     }
