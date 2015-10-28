@@ -62,7 +62,6 @@ class EncounterVC: UIViewController {
     
     func messageHandler(notification: NSNotification) {
         let receivedMessage: String = notification.object! as! String
-        print("MESSAGE RECEIVED: \(receivedMessage)")
         
         if receivedMessage == "playerKilled" {
             gameOverModal()
@@ -152,7 +151,6 @@ class EncounterVC: UIViewController {
     @IBAction func closeButton(sender: AnyObject) {
         self.dismissViewControllerAnimated(false, completion: nil)
         galaxy.currentJourney!.currentEncounter!.concludeEncounter()
-        print("test encounter escape button used. Concluding encounter...")
     }
     
     // use this when it is a notification with an OK button that does NOTHING but end the encounter

@@ -89,9 +89,6 @@ class Encounter {
                 engineerSkillOpponent = crewMember.engineer
             }
         }
-        
-        print("opposing ship--pilot: \(pilotSkillOpponent), fighter: \(fighterSkillOpponent), trader: \(traderSkillOpponent), engineer: \(engineerSkillOpponent)")
-        
     }
     
     func beginEncounter() {
@@ -101,15 +98,12 @@ class Encounter {
         }
         
         setEncounterTextAndButtons()
-        
-        print("ABOUT TO CALL FIREMODAL")
         fireModal()
         
         // set data for first modal, fire it, and return
     }
     
     func resumeEncounter(buttonPressed: Int) {
-        print("button pressed: \(buttonPressed)")
         
         if buttonPressed == 1 {
             if button1Text == "Attack" {
@@ -356,20 +350,11 @@ class Encounter {
         } else if modalToCall == "notification" {
             passedText = NSString(string: "notification")
         }
-        
-        print("in encounter.fireModal(). Next line posts notification to encounterModalFireNotification")
+
         NSNotificationCenter.defaultCenter().postNotificationName("encounterModalFireNotification", object: passedText)
     }
     
     func attack() {
-        // this part should be handled in the modal VC
-//        if opponent.ship.IFFStatus == IFFStatusType.Police {
-//            // if you police record is better than criminal
-//            print("YOU ARE ATTACKING THE POLICE")
-//        } else if opponent.ship.IFFStatus == IFFStatusType.Trader {
-//            // if your police record is better than dubious
-//            print("YOU ARE ATTACKING A TRADER")
-//        }
         
         var outcome = ""
         
@@ -385,9 +370,9 @@ class Encounter {
             youHitThem = true
             let damageToOpponent = rand((player.commanderShip.totalWeapons) * (100 + (2 * engineerSkillOpponent)) / 100)
             damageOpponent(damageToOpponent)
-            print("player hits target. Damage: \(damageToOpponent)")
+            //print("player hits target. Damage: \(damageToOpponent)")
         } else {
-            print("player misses target")
+            //print("player misses target")
             youHitThem = false
         }
         
@@ -403,9 +388,7 @@ class Encounter {
                 theyHitYou = true
                 let damageToPlayer = rand((opponent.ship.totalWeapons) * (100 + (2 * player.engineerSkill)) / 100)
                 damagePlayer(damageToPlayer)
-                print("player is hit. Damage: \(damageToPlayer)")
             } else {
-                print("player is not hit")
                 theyHitYou = false
             }
         }
@@ -427,10 +410,8 @@ class Encounter {
         if outcome == "fightContinues" {
             // determine if opponent will flee--maybe do this by opponent type?
             if opponent.ship.hullPercentage < 10 {
-                print("opponent heavily damaged")
                 if rand(10) > 3 {
                     opponentFleeing = true
-                    print("opponent is fleeing")
                     outcome = "opponentFlees"
                 }
             }
@@ -439,7 +420,6 @@ class Encounter {
         
         // if player is destroyed
         if player.commanderShip.hullPercentage <= 0 {
-            print("player is destroyed")
             if player.escapePod {
                 outcome = "playerDestroyedEscapes"
             } else {
@@ -449,16 +429,12 @@ class Encounter {
         
         // if opponent is destroyed
         if opponent.ship.hullPercentage <= 0 {
-            print("opponent is destroyed")
             outcome = "opponentDestroyed"
         }
         
         
-        // is there any chance of a pirate surrendering outright?
-        
-        
-        
-        print("OUTCOME: \(outcome)")
+        // PIRATE SURRENDERING OUTRIGHT
+
         
         // handle outcome
         switch outcome {
@@ -643,7 +619,6 @@ class Encounter {
     }
     
     func outcomePlayerDestroyedKilled() {
-        print("outcomePlayerDestroyedKilled() IS FIRING")
         alertTitle = "You Lose"
         alertText = "Your ship has been destroyed by your opponent."
         
