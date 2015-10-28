@@ -183,11 +183,36 @@ class EncounterVC: UIViewController {
             //self.dismissViewControllerAnimated(false, completion: nil)
             if rand(10) > 5 {
                 // scoop
-                print("scoop should happen. Alert should go away, encounter remain")
+                print("scooping...")
+                self.scoop()
             } else {
                 print("no scoop. Concluding encounter.")
                 galaxy.currentJourney!.currentEncounter!.concludeEncounter()
             }
+        }))
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func scoop() {
+        // figure out what floated by
+        // launch alert to pick it up
+        let title = "Scoop"
+        let message = "A canister from the destroyed ship, labeled Firearms, drifts within range of your scoops."
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Pick It Up", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // dismiss and resume, for now
+            print("you picked it up")
+            self.dismissViewControllerAnimated(false, completion: nil)
+            galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+        }))
+        alertController.addAction(UIAlertAction(title: "Let It Go", style: UIAlertActionStyle.Cancel ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // dismiss and resume, for now
+            print("you let it go")
+            self.dismissViewControllerAnimated(false, completion: nil)
+            galaxy.currentJourney!.currentEncounter!.concludeEncounter()
         }))
         self.presentViewController(alertController, animated: true, completion: nil)
     }

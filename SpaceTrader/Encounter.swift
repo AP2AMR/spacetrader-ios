@@ -555,10 +555,6 @@ class Encounter {
             remainingDamage = amountOfDamage
         }
         opponent.ship.hull -= remainingDamage
-        
-        if opponent.ship.hull <= 0 {
-            print("OPPONENT IS DESTROYED")                   // WIRE THIS UP TO SOMETHING
-        }
     }
     
     // OUTCOME FUNCTIONS
@@ -628,17 +624,21 @@ class Encounter {
     
     func outcomeOpponentDestroyed() {
         if opponent.ship.IFFStatus == IFFStatusType.Pirate {
+            // pirate ships get their own special function, as there is the possibility of scoop
             let stringToPass = NSString(string: "pirateDestroyed")
             NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
+            
         } else {
+            // use the standard modal function if not a pirate
             alertTitle = "Opponent Destroyed"
             alertText = "Your opponent has been destroyed."
+            let stringToPass = NSString(string: "simple")
+            NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
         }
         
         // handle situation with scoop
         
-        let stringToPass = NSString(string: "simple")
-        NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
+        
     }
     
     func outcomeOpponentSurrenders() {
