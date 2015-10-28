@@ -18,10 +18,9 @@ class Encounter {
     var button2Text = "button2"
     var button3Text = "button3"
     var button4Text = "button4"
-    var notificationTitle = "Notification"
-    var notificationText = "This is the notification text"
-    var notificationButton1Text = "Ok"
-    var notificationButton2Text = "Something"
+
+    var alertTitle = ""
+    var alertText = ""
     
     var opponentFleeing = false
     var playerFleeing = false
@@ -556,7 +555,11 @@ class Encounter {
         player.commanderShip.hull -= remainingDamage
         
         if player.commanderShip.hull <= 0 {
-            print("PLAYER SHIP IS DESTROYED")                   // WIRE THIS UP TO SOMETHING
+            if player.escapePod {
+                outcomePlayerDestroyedEscapes()
+            } else {
+                outcomePlayerDestroyedKilled()
+            }
         }
         
     }
@@ -625,7 +628,9 @@ class Encounter {
     }
     
     func outcomeOpponentGetsAway() {
-        
+        // use notification center to fire modal
+        let stringToPass = NSString(string: "simple")
+        NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
     }
     
     func outcomeOpponentFlees() {
@@ -637,7 +642,12 @@ class Encounter {
     }
     
     func outcomePlayerDestroyedKilled() {
+        print("outcomePlayerDestroyedKilled() IS FIRING")
+        alertTitle = "You Lose"
+        alertText = "Your ship has been destroyed by your opponent."
         
+        let stringToPass = NSString(string: "simple")
+        NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
     }
     
     func outcomeOpponentDestroyed() {

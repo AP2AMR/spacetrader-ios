@@ -38,10 +38,8 @@ class EncounterVC: UIViewController {
         button3Text.setTitle("\(galaxy.currentJourney!.currentEncounter!.button3Text)", forState: controlState)
         button4Text.setTitle("\(galaxy.currentJourney!.currentEncounter!.button4Text)", forState: controlState)
         
-        // deal with text size issue
         
-        //let font = firstTextBlock.font?.fontName
-        //firstTextBlock.font = UIFont(name: font!, size: 18)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "messageHandler:", name: "encounterNotification", object: nil)
     }
 
     
@@ -61,6 +59,12 @@ class EncounterVC: UIViewController {
     @IBOutlet weak var button2Text: UIButton!
     @IBOutlet weak var button3Text: UIButton!
     @IBOutlet weak var button4Text: UIButton!
+    
+    func messageHandler(notification: NSNotification) {
+        print("MESSAGE!!!")
+        let receivedMessage: String = notification.object! as! String
+        print("MESSAGE RECEIVED: \(receivedMessage)")
+    }
     
     @IBAction func button1(sender: AnyObject) {
         // ask if you really want to attack police/trader if your criminal record isn't bad
@@ -124,21 +128,6 @@ class EncounterVC: UIViewController {
         self.dismissViewControllerAnimated(false, completion: nil)
         galaxy.currentJourney!.currentEncounter!.concludeEncounter()
         print("test encounter escape button used. Concluding encounter...")
-    }
-    
-    
-    // TESTING ONLY
-    override func viewDidAppear(animated: Bool) {
-        // modal!
-//        let alertController = UIAlertController(title: "Attack Police?", message:
-//            "Are you sure you want to attack the police! Your police record will be set to criminal!", preferredStyle: UIAlertControllerStyle.Alert)
-//        alertController.addAction(UIAlertAction(title: "Attack", style: UIAlertActionStyle.Destructive,handler: {
-//            (alert: UIAlertAction!) -> Void in
-//            print("carrying on with attack!")
-//        }))
-//        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel,handler: nil))
-//        self.presentViewController(alertController, animated: true, completion: nil)
-
     }
     
     
