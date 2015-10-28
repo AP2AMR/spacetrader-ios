@@ -65,42 +65,41 @@ class EncounterVC: UIViewController {
     @IBAction func button1(sender: AnyObject) {
         // ask if you really want to attack police/trader if your criminal record isn't bad
         if galaxy.currentJourney!.currentEncounter!.button1Text == "Attack" {
-            // we only make a fuss if this is an encounter with police or trader
             if galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Police {
-                print("you are firing on the police!")
                 if player.policeRecordInt > 2 {
-                    // modal!
-                    let alertController = UIAlertController(title: "Attack Police?", message:
-                        "Are you sure you want to attack the police! Your police record will be set to criminal!", preferredStyle: UIAlertControllerStyle.Alert)
-                    alertController.addAction(UIAlertAction(title: "Attack", style: UIAlertActionStyle.Destructive,handler: {
-                            (alert: UIAlertAction!) -> Void in
-                            print("carrying on with attack!")
-                    }))
-                    alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel,handler: nil))
-                    //self.presentViewController(alertController, animated: true, completion: nil)
-                    self.presentViewController(alertController, animated: true, completion: nil)
-                } else {
-                    // you're a criminal anyway. Carry on.
-                    self.dismissViewControllerAnimated(false, completion: nil)
-                    galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
+                    fireAttackWarningModal("police")
                 }
+                
             } else if galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Trader {
-                print("you are attacking a trader!")
                 if player.policeRecordInt > 4 {
-                    print("and you are not a hardened criminal. Time to fire the modal.")
-                } else {
-                    // police record bad enough not to make a fuss
-                    self.dismissViewControllerAnimated(false, completion: nil)
-                    galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
+                    fireAttackWarningModal("trader")
                 }
+            } else {
+                self.dismissViewControllerAnimated(false, completion: nil)
+                galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
             }
         } else {
-            
+            self.dismissViewControllerAnimated(false, completion: nil)
+            galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
+
+        }
+    }
+    
+    func fireAttackWarningModal(type: String) {
+        var title: String = "Attack Police?"
+        var message: String = "Are you sure you want to attack the police? Your police record will be set to criminal!"
+        if type == "trader" {
+            title = "Attack Trader?"
+            message = "Are you sure you want to attack a trader? Your police record will be set to dubious!"
         }
         
-        self.dismissViewControllerAnimated(false, completion: nil)
-        galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
-        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Attack", style: UIAlertActionStyle.Destructive,handler: {
+            (alert: UIAlertAction!) -> Void in
+            print("carrying on with attack!")
+        }))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel,handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
 
     @IBAction func button2(sender: AnyObject) {
@@ -123,6 +122,21 @@ class EncounterVC: UIViewController {
         self.dismissViewControllerAnimated(false, completion: nil)
         galaxy.currentJourney!.currentEncounter!.concludeEncounter()
         print("test encounter escape button used. Concluding encounter...")
+    }
+    
+    
+    // TESTING ONLY
+    override func viewDidAppear(animated: Bool) {
+        // modal!
+//        let alertController = UIAlertController(title: "Attack Police?", message:
+//            "Are you sure you want to attack the police! Your police record will be set to criminal!", preferredStyle: UIAlertControllerStyle.Alert)
+//        alertController.addAction(UIAlertAction(title: "Attack", style: UIAlertActionStyle.Destructive,handler: {
+//            (alert: UIAlertAction!) -> Void in
+//            print("carrying on with attack!")
+//        }))
+//        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel,handler: nil))
+//        self.presentViewController(alertController, animated: true, completion: nil)
+
     }
     
     
