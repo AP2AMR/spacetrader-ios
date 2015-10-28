@@ -646,7 +646,7 @@ class Encounter {
         alertTitle = "You Lose"
         alertText = "Your ship has been destroyed by your opponent."
         
-        let stringToPass = NSString(string: "simple")
+        let stringToPass = NSString(string: "playerKilled")
         NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
     }
     

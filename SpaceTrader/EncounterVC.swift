@@ -61,9 +61,12 @@ class EncounterVC: UIViewController {
     @IBOutlet weak var button4Text: UIButton!
     
     func messageHandler(notification: NSNotification) {
-        print("MESSAGE!!!")
         let receivedMessage: String = notification.object! as! String
         print("MESSAGE RECEIVED: \(receivedMessage)")
+        
+        if receivedMessage == "playerKilled" {
+            gameOverModal()
+        }
     }
     
     @IBAction func button1(sender: AnyObject) {
@@ -105,6 +108,19 @@ class EncounterVC: UIViewController {
             galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
         }))
         alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel,handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func gameOverModal() {
+        let title: String = "You Lose"
+        let message: String = "You ship has been destroyed by your opponent."
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // go ahead with it
+            print("segue to game over screen")
+        }))
         self.presentViewController(alertController, animated: true, completion: nil)
     }
 
