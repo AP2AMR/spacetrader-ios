@@ -143,7 +143,7 @@ class Encounter {
     }
     
     func concludeEncounter() {
-        print("concluding encounter and carrying on")
+        
         galaxy.currentJourney!.resumeJourney()
     }
     
@@ -652,10 +652,22 @@ class Encounter {
     }
     
     func outcomeOpponentDestroyed() {
+        if opponent.ship.IFFStatus == IFFStatusType.Pirate {
+            let stringToPass = NSString(string: "pirateDestroyed")
+            NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
+        } else {
+            alertTitle = "Opponent Destroyed"
+            alertText = "Your opponent has been destroyed."
+        }
         
+        // handle situation with scoop
+        
+        let stringToPass = NSString(string: "simple")
+        NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
     }
     
     func outcomeOpponentSurrenders() {
         
     }
+
 }

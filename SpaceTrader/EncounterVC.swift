@@ -68,6 +68,10 @@ class EncounterVC: UIViewController {
             gameOverModal()
         } else if receivedMessage == "dismissViewController" {
             dismissViewController()
+        } else if receivedMessage == "simple" {
+            launchGenericSimpleModal()
+        } else if receivedMessage == "pirateDestroyed" {
+            pirateDestroyedAlert()
         }
     }
     
@@ -151,6 +155,43 @@ class EncounterVC: UIViewController {
         print("test encounter escape button used. Concluding encounter...")
     }
     
+    // use this when it is a notification with an OK button that does NOTHING but end the encounter
+    func launchGenericSimpleModal() {
+        let title = galaxy.currentJourney!.currentEncounter!.alertTitle
+        let message = galaxy.currentJourney!.currentEncounter!.alertText
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // dismiss encounter dialog
+            self.dismissViewControllerAnimated(false, completion: nil)
+            // how to resume?
+            galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+        }))
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
     
+    func pirateDestroyedAlert() {
+        let bounty = galaxy.currentJourney!.currentEncounter!.opponent.ship.bounty
+        player.credits += bounty
+        
+        let title = "Opponent Destroyed"
+        let message = "You have destroyed your opponent, earning a bounty of \(bounty) credits."
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // dismiss encounter dialog
+            //self.dismissViewControllerAnimated(false, completion: nil)
+            if rand(10) > 5 {
+                // scoop
+                print("scoop should happen. Alert should go away, encounter remain")
+            } else {
+                print("no scoop. Concluding encounter.")
+                galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+            }
+        }))
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
     
 }
