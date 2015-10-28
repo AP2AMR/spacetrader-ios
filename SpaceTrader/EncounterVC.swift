@@ -65,15 +65,11 @@ class EncounterVC: UIViewController {
     @IBAction func button1(sender: AnyObject) {
         // ask if you really want to attack police/trader if your criminal record isn't bad
         if galaxy.currentJourney!.currentEncounter!.button1Text == "Attack" {
-            if galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Police {
-                if player.policeRecordInt > 2 {
-                    fireAttackWarningModal("police")
-                }
+            if (galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Police) && (player.policeRecordInt > 2) {
+                fireAttackWarningModal("police")
                 
-            } else if galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Trader {
-                if player.policeRecordInt > 4 {
-                    fireAttackWarningModal("trader")
-                }
+            } else if (galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Trader) && (player.policeRecordInt > 4) {
+                fireAttackWarningModal("trader")
             } else {
                 self.dismissViewControllerAnimated(false, completion: nil)
                 galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
@@ -81,7 +77,6 @@ class EncounterVC: UIViewController {
         } else {
             self.dismissViewControllerAnimated(false, completion: nil)
             galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
-
         }
     }
     
@@ -96,7 +91,14 @@ class EncounterVC: UIViewController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Attack", style: UIAlertActionStyle.Destructive,handler: {
             (alert: UIAlertAction!) -> Void in
-            print("carrying on with attack!")
+            // go ahead with it
+            if type == "police" {
+                player.policeRecord = PoliceRecordType.criminalScore
+            } else if type == "trader" {
+                player.policeRecord = PoliceRecordType.dubiousScore
+            }
+            self.dismissViewControllerAnimated(false, completion: nil)
+            galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
         }))
         alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel,handler: nil))
         self.presentViewController(alertController, animated: true, completion: nil)
