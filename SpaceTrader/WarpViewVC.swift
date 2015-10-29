@@ -27,19 +27,45 @@ class WarpViewVC: UIViewController {
         } else if receivedMessage == "done" {
             print("firing return segue")
             performSegueWithIdentifier("returnToTabBar", sender: nil)
+        } else if receivedMessage == "playerDestroyedEscapes" {
+            playerDestroyedEscapesSequence()
         }
+    }
+    
+    func playerDestroyedEscapesSequence() {
+        let title = "Escape Pod Activated"
+        let message = "Just before the final demise of your ship, your escape pod gets activated and ejects you. After a few days, the Space Corps picks you up and drops you off at a nearby space port."
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.fleaBuilt()
+        }))
+
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func fleaBuilt() {
+        // give player a flea with no cargo
+        if player.credits > 500 {
+            player.credits -= 500
+        } else {
+            print("too poor. FIGURE OUT WHAT TO DO")
+        }
+        player.commanderShip = SpaceShip(type: ShipType.Flea, IFFStatus: IFFStatusType.Player)
         
         
-//
-//
-//        if receivedMessage == "main" {
-//            print("acknowledge main")
-//            performSegueWithIdentifier("encounterModal", sender: nil)
-//        } else if receivedMessage == "notification" {
-//            print("acknowledge notification")
-//            performSegueWithIdentifier("notificationSegue", sender: nil)
-//        }
+        // alert
+        let title = "Flea Built"
+        let message = "In 3 days and with 500 credits, you manage to convert your pod into a Flea."
         
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            galaxy.currentJourney!.completeJourney()
+        }))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
 
 }

@@ -421,8 +421,10 @@ class Encounter {
         // if player is destroyed
         if player.commanderShip.hullPercentage <= 0 {
             if player.escapePod {
+                print("selecting escape pod")
                 outcome = "playerDestroyedEscapes"
             } else {
+                print("selecting no escape pod")
                 outcome = "playerDestroyedKilled"
             }
         }
@@ -548,8 +550,10 @@ class Encounter {
         
         if player.commanderShip.hull <= 0 {
             if player.escapePod {
+                print("ship destroyed. PLAYER HAS ESCAPE POD")
                 outcomePlayerDestroyedEscapes()
             } else {
+                print("ship destroyed. NO ESCAPE POD")
                 outcomePlayerDestroyedKilled()
             }
         }
@@ -617,7 +621,8 @@ class Encounter {
     }
     
     func outcomeOpponentGetsAway() {
-        // use notification center to fire modal
+        alertTitle = "Opponent Escapes"
+        alertText = "Your opponent has gotten away."
         let stringToPass = NSString(string: "simple")
         NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
     }
@@ -627,7 +632,13 @@ class Encounter {
     }
     
     func outcomePlayerDestroyedEscapes() {
+        // dismiss encounter without triggering the next
+        let stringToPass = NSString(string: "dismiss")
+        NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
         
+        // launch call playerDestroyedEscapes sequence in WarpViewVC
+        let string = NSString(string: "playerDestroyedEscapes")
+        NSNotificationCenter.defaultCenter().postNotificationName("encounterModalFireNotification", object: string)
     }
     
     func outcomePlayerDestroyedKilled() {
@@ -660,10 +671,6 @@ class Encounter {
             let stringToPass = NSString(string: "simple")
             NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
         }
-        
-        // handle situation with scoop
-        
-        
     }
     
     func outcomeOpponentSurrenders() {
@@ -694,4 +701,5 @@ class Encounter {
         setEncounterTextAndButtons()
         fireModal()
     }
+    
 }

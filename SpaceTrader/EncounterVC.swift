@@ -72,6 +72,8 @@ class EncounterVC: UIViewController {
         } else if receivedMessage == "pirateDestroyed" {
             let statusType: IFFStatusType = galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus
             pirateOrTraderDestroyedAlert(statusType)
+        } else if receivedMessage == "dismiss" {
+            dismissViewController()
         }
     }
     
