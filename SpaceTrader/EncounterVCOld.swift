@@ -93,11 +93,11 @@ class EncounterVCOld: UIViewController {
                 fireAttackWarningModal("trader")
             } else {
                 //self.dismissViewControllerAnimated(false, completion: nil)
-                galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
+                //galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
             }
         } else {
             //self.dismissViewControllerAnimated(false, completion: nil)
-            galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
+            //galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
         }
     }
     
@@ -119,7 +119,7 @@ class EncounterVCOld: UIViewController {
                 player.policeRecord = PoliceRecordType.dubiousScore
             }
             self.dismissViewControllerAnimated(false, completion: nil)
-            galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
+            //galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
         }))
         alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel,handler: nil))
         self.presentViewController(alertController, animated: true, completion: nil)
@@ -162,7 +162,7 @@ class EncounterVCOld: UIViewController {
                     if player.policeRecordInt > 4 {
                         player.policeRecord = PoliceRecordType.dubiousScore
                     }
-                    galaxy.currentJourney!.currentEncounter!.resumeEncounter(2)
+                    //galaxy.currentJourney!.currentEncounter!.resumeEncounter(2)
                 }))
                 alertController.addAction(UIAlertAction(title: "OK, I won't", style: UIAlertActionStyle.Default ,handler: {
                     (alert: UIAlertAction!) -> Void in
@@ -172,23 +172,23 @@ class EncounterVCOld: UIViewController {
             } else {
                 // player has contraband; let him flee
                 print("player has contraband, let him flee")
-                galaxy.currentJourney!.currentEncounter!.resumeEncounter(2)
+                //galaxy.currentJourney!.currentEncounter!.resumeEncounter(2)
             }
         } else {
             // otherwise, do the thing
-            galaxy.currentJourney!.currentEncounter!.resumeEncounter(2)
+            //galaxy.currentJourney!.currentEncounter!.resumeEncounter(2)
         }
         
     }
     
     @IBAction func button3(sender: AnyObject) {
         //self.dismissViewControllerAnimated(false, completion: nil)
-        galaxy.currentJourney!.currentEncounter!.resumeEncounter(3)
+        //galaxy.currentJourney!.currentEncounter!.resumeEncounter(3)
     }
     
     @IBAction func button4(sender: AnyObject) {
         //self.dismissViewControllerAnimated(false, completion: nil)
-        galaxy.currentJourney!.currentEncounter!.resumeEncounter(4)
+        //galaxy.currentJourney!.currentEncounter!.resumeEncounter(4)
     }
     
     // FOR TESTING PURPOSES ONLY

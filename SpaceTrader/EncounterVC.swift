@@ -65,8 +65,10 @@ class EncounterVC: UIViewController {
         let button1Text = galaxy.currentJourney!.currentEncounter!.button1Text
         if button1Text == "Attack" {
             print("attack pressed")
+            attack()
         } else if button1Text == "Board" {
             print("board pressed")
+            board()
         }
     }
     
@@ -74,10 +76,13 @@ class EncounterVC: UIViewController {
         let button2Text = galaxy.currentJourney!.currentEncounter!.button2Text
         if button2Text == "Flee" {
             print("flee pressed")
+            flee()
         } else if button2Text == "Plunder" {
             print("plunder pressed")
+            plunder()
         } else if button2Text == "Ignore" {
             print("ignore pressed")
+            ignore()
         }
     }
     
@@ -85,12 +90,16 @@ class EncounterVC: UIViewController {
         let button3Text = galaxy.currentJourney!.currentEncounter!.button3Text
         if button3Text == "Surrender" {
             print("surrender pressed")
+            surrender()
         } else if button3Text == "Submit" {
             print("submit pressed")
+            submit()
         } else if button3Text == "Yield" {
             print("yield pressed")
+            yield()
         } else if button3Text == "Trade" {
             print("trade pressed")
+            trade()
         } else if button3Text == "" {
             // Not a button. Do nothing.
         }
@@ -100,12 +109,19 @@ class EncounterVC: UIViewController {
         let button4Text = galaxy.currentJourney!.currentEncounter!.button4Text
         if button4Text == "Bribe" {
             print("bribe pressed")
+            bribe()
         } else if button4Text == "" {
             // do nothing
         }
     }
-    // END BUTTON FUNCTIONS***********************************************************************
     
+    // FOR TESTING PURPOSES ONLY
+    @IBAction func closeButton(sender: AnyObject) {
+        self.dismissViewControllerAnimated(false, completion: nil)
+        galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+    }
+    // END BUTTON FUNCTIONS***********************************************************************
+    // UTILITIES**********************************************************************************
     func messageHandler(notification: NSNotification) {
         let receivedMessage: String = notification.object! as! String
         
@@ -129,6 +145,53 @@ class EncounterVC: UIViewController {
         self.dismissViewControllerAnimated(false, completion: nil)
     }
     
+    // END UTILITIES******************************************************************************
+    // BUTTON ACTIONS*****************************************************************************
+    func attack() {
+        
+    }
+    
+    func board() {
+        
+    }
+    
+    func flee() {
+        
+    }
+    
+    func plunder() {
+        
+    }
+    
+    func ignore() {
+        dismissViewController()
+        galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+    }
+    
+    func surrender() {
+        
+    }
+    
+    func submit() {
+        
+    }
+    
+    func yield() {
+        
+    }
+    
+    func trade() {
+        
+    }
+    
+    func bribe() {
+        
+    }
+    
+    // END BUTTON ACTIONS*************************************************************************
+    
+    // ONLY OLD THINGS BENEATH HERE***************************************************************
+    
     
     func fireAttackWarningModal(type: String) {
         var title: String = "Attack Police?"
@@ -148,7 +211,7 @@ class EncounterVC: UIViewController {
                 player.policeRecord = PoliceRecordType.dubiousScore
             }
             self.dismissViewControllerAnimated(false, completion: nil)
-            galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
+            //galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
         }))
         alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel,handler: nil))
         self.presentViewController(alertController, animated: true, completion: nil)
@@ -157,11 +220,7 @@ class EncounterVC: UIViewController {
 
 
     
-    // FOR TESTING PURPOSES ONLY
-    @IBAction func closeButton(sender: AnyObject) {
-        self.dismissViewControllerAnimated(false, completion: nil)
-        galaxy.currentJourney!.currentEncounter!.concludeEncounter()
-    }
+    
     
     // use this when it is a notification with an OK button that does NOTHING but end the encounter
     func launchGenericSimpleModal() {
@@ -255,7 +314,7 @@ class EncounterVC: UIViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
-    func submit() {
+    func submitOld() {
         var contraband = false
         for item in player.commanderShip.cargo {
             if (item.item == TradeItemType.Firearms) || (item.item == TradeItemType.Narcotics) {

@@ -436,20 +436,6 @@ class Encounter {
                 outcomeFightContinues()
         }
 
-
-        
-
-        
-        // determine if target will flee
-        
-        // possible outcomes:
-            // - encounter carries on (pirateAttacks)
-            // - opponent flees (pirateFlees)
-            // opponent gets away (end and notification)
-            // opponent surrenders (pirateSurrenders)
-            // - opponent is destroyed ()
-            // - player is destroyed, game over ()
-            // - player is destroyed, escapes in pod ()
     }
     
     func flee() {
