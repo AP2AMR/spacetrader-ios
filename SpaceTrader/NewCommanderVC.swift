@@ -144,8 +144,8 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         
         // THIS IS THE PLACE TO SET THINGS DIFFERENTLY FOR TESTING*******************************
         
-        let firearms = TradeItem(item: TradeItemType.Firearms, quantity: 1, pricePaid: 0)
-        player.commanderShip.cargo.append(firearms)
+        //let firearms = TradeItem(item: TradeItemType.Firearms, quantity: 1, pricePaid: 0)
+        //player.commanderShip.cargo.append(firearms)
         
         
         

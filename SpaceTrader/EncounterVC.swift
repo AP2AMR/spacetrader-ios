@@ -148,7 +148,47 @@ class EncounterVC: UIViewController {
     // END UTILITIES******************************************************************************
     // BUTTON ACTIONS*****************************************************************************
     func attack() {
+        var actuallyAttack = true
+        // warn if attacking police
+        if (galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Police) && (player.policeRecordInt > 2) {
+            
+            let title: String = "Attack Police?"
+            let message: String = "Are you sure you want to attack the police? Your police record will be set to criminal!"
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Attack", style: UIAlertActionStyle.Destructive,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // go ahead with it
+                player.policeRecord = PoliceRecordType.criminalScore
+                actuallyAttack = true
+            }))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel,handler: nil))
+                // do nothing, dismiss modal
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
+        } else if (galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Trader) && (player.policeRecordInt > 4) {
+            
+            // warn about attacking trader
+            let title: String = "Attack Trader?"
+            let message: String = "Are you sure you want to attack the police? Your police record will be set to dubious!"
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Attack", style: UIAlertActionStyle.Destructive,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // go ahead with it
+                player.policeRecord = PoliceRecordType.dubiousScore
+                actuallyAttack = true
+            }))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel,handler: nil))
+            // do nothing, dismiss modal
+            self.presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            actuallyAttack = true
+        }
         
+        if actuallyAttack {
+            print("TODO: IMPLEMENT ATTACK")
+        }
     }
     
     func board() {
@@ -156,7 +196,36 @@ class EncounterVC: UIViewController {
     }
     
     func flee() {
+        var actuallyFlee = true
         
+        // see if unnecessarily running from the police
+        let contraband = getContrabandStatus()
+        if !contraband && (galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Police) {
+            
+            let title: String = "You Have Nothing Illegal"
+            let message: String = "Are you sure you want to do that? You are not carrying illegal goods, so you have nothing to fear!"
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Yes, I still want to", style: UIAlertActionStyle.Destructive ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // set police record to dubious if better, flee
+                if player.policeRecordInt > 4 {
+                    player.policeRecord = PoliceRecordType.dubiousScore
+                }
+                actuallyFlee = true
+            }))
+            alertController.addAction(UIAlertAction(title: "OK, I won't", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // nothing, just close the modal
+                actuallyFlee = false
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+        
+        // the part of it where you actually flee
+        if actuallyFlee {
+            print("TODO: IMPLEMENT FLEEING")
+        }
     }
     
     func plunder() {
@@ -173,7 +242,41 @@ class EncounterVC: UIViewController {
     }
     
     func submit() {
+        // see if you have anything to worry about
+        let contraband = getContrabandStatus()
         
+        // if not, apologise
+        if !contraband {
+            let title = "Nothing Found"
+            let message = "The police find nothing illegal in your cargo holds, and apologise for the inconvenience."
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // dismiss and conclude encounter
+                self.dismissViewController()
+                galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            // if so, ask if you really want to submit to an inspection
+            let title = "You Have Illegal Goods"
+            let message = "Are you sure you want to let the police search you? You are carrying illegal goods!"
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Yes, let them", style: UIAlertActionStyle.Destructive ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // arrest. SHOULD WE DISMISS THIS VIEW AND DO THIS FROM THE PARENT?
+                self.arrest()
+            }))
+            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // nothing, dismiss alert
+                
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+
     }
     
     func yield() {
@@ -189,7 +292,29 @@ class EncounterVC: UIViewController {
     }
     
     // END BUTTON ACTIONS*************************************************************************
+    // CONSEQUENT ACTIONS*************************************************************************
+    func arrest() {
+        print("ARREST!")
+        // Figure out punishment
+        // close journey
+        // mete out punishment
+        // display appropriate modal
+        // conclude journey
+        
+    }
     
+    func getContrabandStatus() -> Bool {
+        var contraband = false
+        for item in player.commanderShip.cargo {
+            if (item.item == TradeItemType.Firearms) || (item.item == TradeItemType.Narcotics) {
+                contraband = true
+            }
+        }
+        return contraband
+    }
+    
+    
+    // END CONSEQUENT ACTIONS*********************************************************************
     // ONLY OLD THINGS BENEATH HERE***************************************************************
     
     
@@ -313,57 +438,7 @@ class EncounterVC: UIViewController {
         }))
         self.presentViewController(alertController, animated: true, completion: nil)
     }
-    
-    func submitOld() {
-        var contraband = false
-        for item in player.commanderShip.cargo {
-            if (item.item == TradeItemType.Firearms) || (item.item == TradeItemType.Narcotics) {
-                contraband = true
-            }
-        }
-        
-        // if not, apologise
-        if !contraband {
-            let title = "Nothing Found"
-            let message = "The police find nothing illegal in your cargo holds, and apologise for the inconvenience."
-            
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
-                (alert: UIAlertAction!) -> Void in
-                // dismiss and conclude encounter
-                self.dismissViewControllerAnimated(false, completion: nil)
-                galaxy.currentJourney!.currentEncounter!.concludeEncounter()
-            }))
-            self.presentViewController(alertController, animated: true, completion: nil)
-        } else {
-            // if so, ask if you really want to submit to an inspection
-            let title = "You Have Illegal Goods"
-            let message = "Are you sure you want to let the police search you? You are carrying illegal goods!"
-            
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Yes, let them", style: UIAlertActionStyle.Destructive ,handler: {
-                (alert: UIAlertAction!) -> Void in
-                // arrest
-                self.arrest()
-            }))
-            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
-                (alert: UIAlertAction!) -> Void in
-                // dismiss alert
-                
-            }))
-            self.presentViewController(alertController, animated: true, completion: nil)
-        }
-    }
-    
-    func arrest() {
-        print("ARREST!")
-        // Figure out punishment
-        // close journey
-        // mete out punishment
-        // display appropriate modal
-        // conclude journey
-        
-    }
+
     
     func gameOverModal() {
         let title: String = "You Lose"
