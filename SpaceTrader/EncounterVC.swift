@@ -337,6 +337,7 @@ class EncounterVC: UIViewController {
         // mete out punishment
         // display appropriate modal
         // conclude journey
+        
     }
     
 }
