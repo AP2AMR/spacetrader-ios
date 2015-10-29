@@ -8,8 +8,8 @@
 
 import UIKit
 
-class EncounterVC: UIViewController {
-
+class EncounterVCOld: UIViewController {
+    
     
     
     override func viewDidLoad() {
@@ -41,7 +41,7 @@ class EncounterVC: UIViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "messageHandler:", name: "encounterNotification", object: nil)
     }
-
+    
     
     @IBOutlet weak var playerShipType: UILabel!
     @IBOutlet weak var playerHull: UILabel!
@@ -53,61 +53,12 @@ class EncounterVC: UIViewController {
     
     @IBOutlet weak var firstTextBlock: UITextView!
     @IBOutlet weak var secondTextBlock: UITextView!
-
-
+    
+    
     @IBOutlet weak var button1Text: UIButton!
     @IBOutlet weak var button2Text: UIButton!
     @IBOutlet weak var button3Text: UIButton!
     @IBOutlet weak var button4Text: UIButton!
-    
-    // BUTTON FUNCTIONS***************************************************************************
-    @IBAction func button1(sender: AnyObject) {
-        let button1Text = galaxy.currentJourney!.currentEncounter!.button1Text
-        if button1Text == "Attack" {
-            print("attack pressed")
-        } else if button1Text == "Board" {
-            print("board pressed")
-        }
-    }
-    
-    @IBAction func button2(sender: AnyObject) {
-        let button2Text = galaxy.currentJourney!.currentEncounter!.button2Text
-        if button2Text == "Flee" {
-            print("flee pressed")
-        } else if button2Text == "Plunder" {
-            print("plunder pressed")
-        } else if button2Text == "Ignore" {
-            print("ignore pressed")
-        }
-    }
-    
-    @IBAction func button3(sender: AnyObject) {
-        let button3Text = galaxy.currentJourney!.currentEncounter!.button3Text
-        if button3Text == "Surrender" {
-            print("surrender pressed")
-        } else if button3Text == "Submit" {
-            print("submit pressed")
-        } else if button3Text == "Yield" {
-            print("yield pressed")
-        } else if button3Text == "Trade" {
-            print("trade pressed")
-        } else if button3Text == "" {
-            // Not a button. Do nothing.
-        }
-    }
-    
-    @IBAction func button4(sender: AnyObject) {
-        let button4Text = galaxy.currentJourney!.currentEncounter!.button4Text
-        if button4Text == "Bribe" {
-            print("bribe pressed")
-        } else if button4Text == "" {
-            // do nothing
-        }
-    }
-
-
-    
-    // END BUTTON FUNCTIONS***********************************************************************
     
     func messageHandler(notification: NSNotification) {
         let receivedMessage: String = notification.object! as! String
@@ -132,6 +83,23 @@ class EncounterVC: UIViewController {
         self.dismissViewControllerAnimated(false, completion: nil)
     }
     
+    @IBAction func button1(sender: AnyObject) {
+        // ask if you really want to attack police/trader if your criminal record isn't bad
+        if galaxy.currentJourney!.currentEncounter!.button1Text == "Attack" {
+            if (galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Police) && (player.policeRecordInt > 2) {
+                fireAttackWarningModal("police")
+                
+            } else if (galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Trader) && (player.policeRecordInt > 4) {
+                fireAttackWarningModal("trader")
+            } else {
+                //self.dismissViewControllerAnimated(false, completion: nil)
+                galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
+            }
+        } else {
+            //self.dismissViewControllerAnimated(false, completion: nil)
+            galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
+        }
+    }
     
     func fireAttackWarningModal(type: String) {
         var title: String = "Attack Police?"
@@ -157,8 +125,71 @@ class EncounterVC: UIViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
-
-
+    func gameOverModal() {
+        let title: String = "You Lose"
+        let message: String = "You ship has been destroyed by your opponent."
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.performSegueWithIdentifier("gameOver", sender: nil)
+        }))
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    @IBAction func button2(sender: AnyObject) {
+        print("button2 pressed. Button2 text is \(galaxy.currentJourney!.currentEncounter!.button2Text)")
+        
+        // see if player is unnecessarily fleeing police
+        if (galaxy.currentJourney!.currentEncounter!.button2Text == "Flee") && (galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Police) {
+            
+            var contraband = false
+            for item in player.commanderShip.cargo {
+                if (item.item == TradeItemType.Firearms) || (item.item == TradeItemType.Narcotics) {
+                    contraband = true
+                }
+            }
+            
+            if !contraband {
+                // launch warning dialog
+                let title: String = "You Have Nothing Illegal"
+                let message: String = "Are you sure you want to do that? You are not carrying illegal goods, so you have nothing to fear!"
+                
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Yes, I still want to", style: UIAlertActionStyle.Default ,handler: {
+                    (alert: UIAlertAction!) -> Void in
+                    // set police record to dubious if better, flee
+                    if player.policeRecordInt > 4 {
+                        player.policeRecord = PoliceRecordType.dubiousScore
+                    }
+                    galaxy.currentJourney!.currentEncounter!.resumeEncounter(2)
+                }))
+                alertController.addAction(UIAlertAction(title: "OK, I won't", style: UIAlertActionStyle.Default ,handler: {
+                    (alert: UIAlertAction!) -> Void in
+                    // nothing, just close the modal
+                }))
+                self.presentViewController(alertController, animated: true, completion: nil)
+            } else {
+                // player has contraband; let him flee
+                print("player has contraband, let him flee")
+                galaxy.currentJourney!.currentEncounter!.resumeEncounter(2)
+            }
+        } else {
+            // otherwise, do the thing
+            galaxy.currentJourney!.currentEncounter!.resumeEncounter(2)
+        }
+        
+    }
+    
+    @IBAction func button3(sender: AnyObject) {
+        //self.dismissViewControllerAnimated(false, completion: nil)
+        galaxy.currentJourney!.currentEncounter!.resumeEncounter(3)
+    }
+    
+    @IBAction func button4(sender: AnyObject) {
+        //self.dismissViewControllerAnimated(false, completion: nil)
+        galaxy.currentJourney!.currentEncounter!.resumeEncounter(4)
+    }
     
     // FOR TESTING PURPOSES ONLY
     @IBAction func closeButton(sender: AnyObject) {
@@ -205,16 +236,16 @@ class EncounterVC: UIViewController {
             //self.dismissViewControllerAnimated(false, completion: nil)
             var number = 0
             switch player.difficulty {
-                case DifficultyType.beginner:
-                    number = 0
-                case DifficultyType.easy:
-                    number = 0
-                case DifficultyType.normal:
-                    number = 50
-                case DifficultyType.hard:
-                    number = 66
-                case DifficultyType.impossible:
-                    number = 75
+            case DifficultyType.beginner:
+                number = 0
+            case DifficultyType.easy:
+                number = 0
+            case DifficultyType.normal:
+                number = 50
+            case DifficultyType.hard:
+                number = 66
+            case DifficultyType.impossible:
+                number = 75
             }
             
             if rand(100) > number {
@@ -307,18 +338,6 @@ class EncounterVC: UIViewController {
         // display appropriate modal
         // conclude journey
         
-    }
-    
-    func gameOverModal() {
-        let title: String = "You Lose"
-        let message: String = "You ship has been destroyed by your opponent."
-        
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
-            (alert: UIAlertAction!) -> Void in
-            self.performSegueWithIdentifier("gameOver", sender: nil)
-        }))
-        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
 }
