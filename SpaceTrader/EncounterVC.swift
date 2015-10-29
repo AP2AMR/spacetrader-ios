@@ -70,7 +70,8 @@ class EncounterVC: UIViewController {
         } else if receivedMessage == "simple" {
             launchGenericSimpleModal()
         } else if receivedMessage == "pirateDestroyed" {
-            pirateDestroyedAlert()
+            let statusType: IFFStatusType = galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus
+            pirateOrTraderDestroyedAlert(statusType)
         }
     }
     
@@ -168,19 +169,42 @@ class EncounterVC: UIViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
-    func pirateDestroyedAlert() {
-        let bounty = galaxy.currentJourney!.currentEncounter!.opponent.ship.bounty
-        player.credits += bounty
-        
-        let title = "Opponent Destroyed"
-        let message = "You have destroyed your opponent, earning a bounty of \(bounty) credits."
+    func pirateOrTraderDestroyedAlert(type: IFFStatusType) {
+        var title = ""
+        var message = ""
+        if type == IFFStatusType.Pirate {
+            let bounty = galaxy.currentJourney!.currentEncounter!.opponent.ship.bounty
+            player.credits += bounty
+            title = "Opponent Destroyed"
+            message = "You have destroyed your opponent, earning a bounty of \(bounty) credits."
+        } else {
+            let bounty = galaxy.currentJourney!.currentEncounter!.opponent.ship.bounty
+            player.credits += bounty
+            
+            title = "Opponent Destroyed"
+            message = "You have destroyed your opponent."
+        }
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
             (alert: UIAlertAction!) -> Void in
             // dismiss encounter dialog
             //self.dismissViewControllerAnimated(false, completion: nil)
-            if rand(10) > 3 {
+            var number = 0
+            switch player.difficulty {
+                case DifficultyType.beginner:
+                    number = 0
+                case DifficultyType.easy:
+                    number = 0
+                case DifficultyType.normal:
+                    number = 50
+                case DifficultyType.hard:
+                    number = 66
+                case DifficultyType.impossible:
+                    number = 75
+            }
+            
+            if rand(100) > number {
                 // scoop
                 print("scooping...")
                 self.scoop()

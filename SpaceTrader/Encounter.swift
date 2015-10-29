@@ -471,11 +471,28 @@ class Encounter {
     }
     
     func flee() {
+        // determine whether you'll escape
+        var escape = false
+        if player.difficulty == DifficultyType.beginner {
+            escape = true
+        } else {
+            if ((rand(7) + player.pilotSkill)/3 * 2) >= (rand(opponent.commander.pilotSkill) * (2 + player.difficultyInt)) {
+                escape = true
+            } else {
+                escape = false
+            }
+        }
+        
+        
         // display escaped alert
-        alertTitle = "Escaped"
-        alertText = "You have managed to escape your opponent."
-        let stringToPass = NSString(string: "simple")
-        NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
+        if escape {
+            alertTitle = "Escaped"
+            alertText = "You have managed to escape your opponent."
+            let stringToPass = NSString(string: "simple")
+            NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
+        } else {
+            outcomeOpponentPursues()
+        }
     }
     
     func ignore() {
@@ -623,12 +640,21 @@ class Encounter {
     
     func outcomeOpponentDestroyed() {
         if opponent.ship.IFFStatus == IFFStatusType.Pirate {
+            player.pirateKills += 1
             // pirate ships get their own special function, as there is the possibility of scoop
             let stringToPass = NSString(string: "pirateDestroyed")
             NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
             
+        } else if opponent.ship.IFFStatus == IFFStatusType.Trader {
+            player.traderKills += 1
+            let stringToPass = NSString(string: "pirateDestroyed")
+            NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
         } else {
-            // use the standard modal function if not a pirate
+            if opponent.ship.IFFStatus == IFFStatusType.Police {
+                player.policeKills += 1
+            }
+            
+            // use the standard modal function if not a pirate or trader
             alertTitle = "Opponent Destroyed"
             alertText = "Your opponent has been destroyed."
             let stringToPass = NSString(string: "simple")
@@ -643,5 +669,29 @@ class Encounter {
     func outcomeOpponentSurrenders() {
         
     }
-
+    
+    func outcomeOpponentPursues() {
+        print("opponent in pursuit")
+        encounterText1 = "The \(opponent.ship.IFFStatus.rawValue) \(opponent.ship.name) is still following you."
+        switch opponent.ship.IFFStatus {
+            case IFFStatusType.Pirate:
+                type = EncounterType.pirateAttack
+            case IFFStatusType.Police:
+                type = EncounterType.policeAttack
+            case IFFStatusType.Trader:
+                type = EncounterType.policeAttack
+            case IFFStatusType.Dragonfly:
+                type = EncounterType.dragonflyAttack
+            case IFFStatusType.Mantis:
+                type = EncounterType.mantisAttack
+            case IFFStatusType.Scarab:
+                type = EncounterType.scarabAttack
+            case IFFStatusType.SpaceMonster:
+                type = EncounterType.spaceMonsterAttack
+            default:
+                type = EncounterType.pirateAttack   // this is a failure mode
+        }
+        setEncounterTextAndButtons()
+        fireModal()
+    }
 }
