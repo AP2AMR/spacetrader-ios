@@ -498,6 +498,7 @@ class Encounter {
     }
     
     func ignore() {
+        print("IGNORE BUTTON PRESSED")
         concludeEncounter()
     }
     

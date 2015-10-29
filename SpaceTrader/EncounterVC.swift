@@ -138,7 +138,47 @@ class EncounterVC: UIViewController {
     }
 
     @IBAction func button2(sender: AnyObject) {
-        galaxy.currentJourney!.currentEncounter!.resumeEncounter(2)
+        print("button2 pressed. Button2 text is \(galaxy.currentJourney!.currentEncounter!.button2Text)")
+        
+        // see if player is unnecessarily fleeing police
+        if (galaxy.currentJourney!.currentEncounter!.button2Text == "Flee") && (galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Police) {
+            
+            var contraband = false
+            for item in player.commanderShip.cargo {
+                if (item.item == TradeItemType.Firearms) || (item.item == TradeItemType.Narcotics) {
+                    contraband = true
+                }
+            }
+            
+            if !contraband {
+                // launch warning dialog
+                let title: String = "You Have Nothing Illegal"
+                let message: String = "Are you sure you want to do that? You are not carrying illegal goods, so you have nothing to fear!"
+                
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Yes, I still want to", style: UIAlertActionStyle.Default ,handler: {
+                    (alert: UIAlertAction!) -> Void in
+                    // set police record to dubious if better, flee
+                    if player.policeRecordInt > 4 {
+                        player.policeRecord = PoliceRecordType.dubiousScore
+                    }
+                    galaxy.currentJourney!.currentEncounter!.resumeEncounter(2)
+                }))
+                alertController.addAction(UIAlertAction(title: "OK, I won't", style: UIAlertActionStyle.Default ,handler: {
+                    (alert: UIAlertAction!) -> Void in
+                    // nothing, just close the modal
+                }))
+                self.presentViewController(alertController, animated: true, completion: nil)
+            } else {
+                // player has contraband; let him flee
+                print("player has contraband, let him flee")
+                galaxy.currentJourney!.currentEncounter!.resumeEncounter(2)
+            }
+        } else {
+            // otherwise, do the thing
+            galaxy.currentJourney!.currentEncounter!.resumeEncounter(2)
+        }
+
     }
 
     @IBAction func button3(sender: AnyObject) {
@@ -278,8 +318,8 @@ class EncounterVC: UIViewController {
             let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "Yes, let them", style: UIAlertActionStyle.Destructive ,handler: {
                 (alert: UIAlertAction!) -> Void in
-                // undergo inspection
-                
+                // arrest
+                self.arrest()
             }))
             alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
                 (alert: UIAlertAction!) -> Void in
@@ -288,6 +328,15 @@ class EncounterVC: UIViewController {
             }))
             self.presentViewController(alertController, animated: true, completion: nil)
         }
+    }
+    
+    func arrest() {
+        print("ARREST!")
+        // Figure out punishment
+        // close journey
+        // mete out punishment
+        // display appropriate modal
+        // conclude journey
     }
     
 }

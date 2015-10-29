@@ -142,9 +142,14 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         player = Commander(commanderName: "name", difficulty: kludgeDifficulty, pilotSkill: pilot, fighterSkill: fighter, traderSkill: trader, engineerSkill: engineer)
         galaxy.createGalaxy()
         
-        // THIS IS THE PLACE TO SET THINGS DIFFERENTLY FOR TESTING
+        // THIS IS THE PLACE TO SET THINGS DIFFERENTLY FOR TESTING*******************************
+        
         let firearms = TradeItem(item: TradeItemType.Firearms, quantity: 1, pricePaid: 0)
         player.commanderShip.cargo.append(firearms)
+        
+        
+        
+        // END TESTING STUFF ********************************************************************
         
         
         
