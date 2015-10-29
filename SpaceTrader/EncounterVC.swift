@@ -74,6 +74,8 @@ class EncounterVC: UIViewController {
             pirateOrTraderDestroyedAlert(statusType)
         } else if receivedMessage == "dismiss" {
             dismissViewController()
+        } else if receivedMessage == "submit" {
+            submit()
         }
     }
     
@@ -245,6 +247,47 @@ class EncounterVC: UIViewController {
             galaxy.currentJourney!.currentEncounter!.concludeEncounter()
         }))
         self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func submit() {
+        var contraband = false
+        for item in player.commanderShip.cargo {
+            if (item.item == TradeItemType.Firearms) || (item.item == TradeItemType.Narcotics) {
+                contraband = true
+            }
+        }
+        
+        // if not, apologise
+        if !contraband {
+            let title = "Nothing Found"
+            let message = "The police find nothing illegal in your cargo holds, and apologise for the inconvenience."
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // dismiss and conclude encounter
+                self.dismissViewControllerAnimated(false, completion: nil)
+                galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            // if so, ask if you really want to submit to an inspection
+            let title = "You Have Illegal Goods"
+            let message = "Are you sure you want to let the police search you? You are carrying illegal goods!"
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Yes, let them", style: UIAlertActionStyle.Destructive ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // undergo inspection
+                
+            }))
+            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // dismiss alert
+                
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
     }
     
 }

@@ -407,12 +407,14 @@ class Encounter {
             }
         }
         
-        if outcome == "fightContinues" {
+        if outcome == "fightContinues" {        // ADD SURRENDER HERE
             // determine if opponent will flee--maybe do this by opponent type?
             if opponent.ship.hullPercentage < 10 {
                 if rand(10) > 3 {
                     opponentFleeing = true
                     outcome = "opponentFlees"
+                } else if rand(10) > 3 {
+                    outcome = "opponentSurrenders"
                 }
             }
         }
@@ -434,10 +436,6 @@ class Encounter {
             outcome = "opponentDestroyed"
         }
         
-        
-        // PIRATE SURRENDERING OUTRIGHT
-
-        
         // handle outcome
         switch outcome {
             case "opponentFlees":
@@ -452,6 +450,8 @@ class Encounter {
                 outcomeOpponentGetsAway()
             case "opponentSurrenders":
                 outcomeOpponentSurrenders()
+            case "opponentDisabled":
+                outcomeOpponentDisabled()
             default:
                 outcomeFightContinues()
         }
@@ -510,7 +510,9 @@ class Encounter {
     }
     
     func submit() {
-        print("submit called")
+        let stringToPass = NSString(string: "submit")
+        NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
+        
     }
     
     func bribe() {
@@ -674,7 +676,12 @@ class Encounter {
     }
     
     func outcomeOpponentSurrenders() {
-        
+        // STILL UNTESTED
+        type = EncounterType.pirateSurrender     // just need this for the buttons. Setting text seperately
+            
+        encounterText2 = "The \(opponent.ship.IFFStatus.rawValue) ship hails that they wish to surrender to you."
+        setEncounterTextAndButtons()
+        fireModal()
     }
     
     func outcomeOpponentPursues() {
@@ -700,6 +707,10 @@ class Encounter {
         }
         setEncounterTextAndButtons()
         fireModal()
+    }
+    
+    func outcomeOpponentDisabled() {
+        print("opponent is disabled")
     }
     
 }

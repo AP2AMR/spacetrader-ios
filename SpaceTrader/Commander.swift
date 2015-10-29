@@ -29,7 +29,7 @@ class Commander {
     
     var policeRecord = PoliceRecordType.cleanScore
     var reputation = ReputationType.harmlessRep
-    var escapePod = true                                // TESTING ONLY. RETURN TO FALSE
+    var escapePod = false
     
     var inspected = false
     var wildStatus = false
