@@ -133,7 +133,6 @@ class EncounterVC: UIViewController {
     }
 
     @IBAction func button2(sender: AnyObject) {
-        self.dismissViewControllerAnimated(false, completion: nil)
         galaxy.currentJourney!.currentEncounter!.resumeEncounter(2)
     }
 

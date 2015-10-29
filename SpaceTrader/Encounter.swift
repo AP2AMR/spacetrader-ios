@@ -471,8 +471,11 @@ class Encounter {
     }
     
     func flee() {
-        print("flee function called")
-        //fireModal()
+        // display escaped alert
+        alertTitle = "Escaped"
+        alertText = "You have managed to escape your opponent."
+        let stringToPass = NSString(string: "simple")
+        NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
     }
     
     func ignore() {
