@@ -172,7 +172,7 @@ class EncounterVC: UIViewController {
     func pirateOrTraderDestroyedAlert(type: IFFStatusType) {
         var title = ""
         var message = ""
-        if type == IFFStatusType.Pirate {
+        if type == IFFStatusType.Pirate && (player.policeRecordInt > 2) {
             let bounty = galaxy.currentJourney!.currentEncounter!.opponent.ship.bounty
             player.credits += bounty
             title = "Opponent Destroyed"
