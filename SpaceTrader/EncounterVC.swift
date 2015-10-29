@@ -142,12 +142,12 @@ class EncounterVC: UIViewController {
     }
 
     @IBAction func button3(sender: AnyObject) {
-        self.dismissViewControllerAnimated(false, completion: nil)
+        //self.dismissViewControllerAnimated(false, completion: nil)
         galaxy.currentJourney!.currentEncounter!.resumeEncounter(3)
     }
     
     @IBAction func button4(sender: AnyObject) {
-        self.dismissViewControllerAnimated(false, completion: nil)
+        //self.dismissViewControllerAnimated(false, completion: nil)
         galaxy.currentJourney!.currentEncounter!.resumeEncounter(4)
     }
     
