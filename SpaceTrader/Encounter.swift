@@ -99,45 +99,10 @@ class Encounter {
         
         setEncounterTextAndButtons()
         fireModal()
-        
-        // set data for first modal, fire it, and return
     }
     
-    func resumeEncounter(buttonPressed: Int) {
-        
-        if buttonPressed == 1 {
-            if button1Text == "Attack" {
-                attack()
-            } else if button1Text == "Board" {
-                board()
-            }
-        } else if buttonPressed == 2 {
-            if button2Text == "Flee" {
-                flee()
-            } else if button2Text == "Plunder" {
-                plunder()
-            } else if button2Text == "Ignore" {
-                ignore()
-            }
-        } else if buttonPressed == 3 {
-            if button3Text == "Surrender" {
-                surrender()
-            } else if button3Text == "Submit" {
-                submit()
-            } else if button3Text == "Yield" {
-                yield()
-            } else if button3Text == "Trade" {
-                trade()
-            }
-        } else if buttonPressed == 4 {
-            if button4Text == "Bribe" {
-                bribe()
-            }
-        }
-    }
     
     func concludeEncounter() {
-        
         galaxy.currentJourney!.resumeJourney()
     }
     
@@ -151,7 +116,7 @@ class Encounter {
         return bounty
     }
     
-    func setEncounterTextAndButtons() {
+    func setEncounterTextAndButtons() {                 // should only be used initially
         if type == EncounterType.pirateAttack {
             button1Text = "Attack"
             button2Text = "Flee"
@@ -311,39 +276,54 @@ class Encounter {
             
             encounterText2 = "The trader ship attacks."
         }
-        
-
-//        *case policeInspection
-//        *case postMariePoliceEncounter
-//        *case policeFlee
-//        -case traderFlee
-//        *case pirateFlee
-//        *case pirateAttack
-//        *case policeAttack
-//        *case policeSurrenderDemand
-//        case scarabAttack
-//        case famousCapAttack
-//        case spaceMonsterAttack
-//        case dragonflyAttack
-//        -case traderIgnore
-//        *case policeIgnore
-//        *case pirateIgnore
-//        case spaceMonsterIgnore
-//        case dragonflyIgnore
-//        case scarabIgnore
-//        case traderSurrender
-//        -case pirateSurrender
-//        -case marieCelesteEncounter
-//        case HWAttack
-//        case bottleGoodEncounter
-//        case bottleOldEncounter
-//        -case traderSell
-//        -case traderBuy
-        
-
     }
     
-    func fireModal() {
+    func setButtons(buttonSet: String) {
+        // used for follow up screens, not initially
+        // possible strings are: Attack, IgnoreFlee, Surrender, Inspection, PostMarieInspection, MarieCeleste, Trader, AttackNoSurrender
+        if buttonSet == "Attack" {
+            
+        } else if buttonSet == "IgnoreFlee" {
+            button1Text = "Attack"
+            button2Text = "Ignore"
+            button3Text = ""
+            button4Text = ""
+        } else if buttonSet == "Surrender" {
+            button1Text = "Attack"
+            button2Text = "Flee"
+            button3Text = "Surrender"
+            button4Text = ""
+        } else if buttonSet == "Inspection" {
+            button1Text = "Attack"
+            button2Text = "Flee"
+            button3Text = "Yield"
+            button4Text = "Bribe"
+        } else if buttonSet == "PostMarieInspection" {
+            button1Text = "Attack"
+            button2Text = "Flee"
+            button3Text = "Yield"
+            button4Text = "Bribe"
+        } else if buttonSet == "MarieCeleste" {
+            button1Text = "Board"
+            button2Text = "Ignore"
+            button3Text = ""
+            button4Text = ""
+        } else if buttonSet == "Trader" {
+            button1Text = "Attack"
+            button2Text = "Ignore"
+            button3Text = "Trade"
+            button4Text = ""
+        } else if buttonSet == "AttackNoSurrender" {
+            button1Text = "Attack"
+            button2Text = "Flee"
+            button3Text = ""
+            button4Text = ""
+        } else {
+            print("buttonSet not recognized")
+        }
+    }
+    
+    func fireModal() {          // LAUNCHES AN ENCOUNTER VIEW
         var passedText = NSString(string: "")
         if modalToCall == "main" {
             passedText = NSString(string: "main")

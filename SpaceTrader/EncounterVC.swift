@@ -104,9 +104,6 @@ class EncounterVC: UIViewController {
             // do nothing
         }
     }
-
-
-    
     // END BUTTON FUNCTIONS***********************************************************************
     
     func messageHandler(notification: NSNotification) {
