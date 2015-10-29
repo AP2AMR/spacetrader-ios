@@ -181,7 +181,7 @@ class EncounterVC: UIViewController {
             (alert: UIAlertAction!) -> Void in
             // dismiss encounter dialog
             //self.dismissViewControllerAnimated(false, completion: nil)
-            if rand(10) > 5 {
+            if rand(10) > 3 {
                 // scoop
                 print("scooping...")
                 self.scoop()
@@ -195,19 +195,24 @@ class EncounterVC: UIViewController {
     
     func scoop() {
         // figure out what floated by
+        let random = rand(galaxy.currentJourney!.currentEncounter!.opponent.ship.cargo.count)
+        let itemType = galaxy.currentJourney!.currentEncounter!.opponent.ship.cargo[random].item
+        let item = TradeItem(item: itemType, quantity: 1, pricePaid: 0)
+        
         // launch alert to pick it up
         let title = "Scoop"
-        let message = "A canister from the destroyed ship, labeled Firearms, drifts within range of your scoops."
+        let message = "A canister from the destroyed ship, labeled \(item.name), drifts within range of your scoops."
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Pick It Up", style: UIAlertActionStyle.Default ,handler: {
             (alert: UIAlertAction!) -> Void in
             // dismiss and resume, for now
             print("you picked it up")
+            player.commanderShip.cargo.append(item)
             self.dismissViewControllerAnimated(false, completion: nil)
             galaxy.currentJourney!.currentEncounter!.concludeEncounter()
         }))
-        alertController.addAction(UIAlertAction(title: "Let It Go", style: UIAlertActionStyle.Cancel ,handler: {
+        alertController.addAction(UIAlertAction(title: "Let It Go", style: UIAlertActionStyle.Default ,handler: {
             (alert: UIAlertAction!) -> Void in
             // dismiss and resume, for now
             print("you let it go")

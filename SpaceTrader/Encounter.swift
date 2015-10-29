@@ -476,11 +476,7 @@ class Encounter {
     }
     
     func ignore() {
-        print("ignore function called")
-        // using this to test launching an alert
-        
-        
-        //concludeEncounter()
+        concludeEncounter()
     }
     
     func plunder() {

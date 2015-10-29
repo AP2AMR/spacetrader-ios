@@ -1278,7 +1278,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceD-pJ-zL5">
-                                <rect key="frame" x="190" y="550" width="60" height="30"/>
+                                <rect key="frame" x="180" y="550" width="75" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
                                 <connections>
@@ -1286,7 +1286,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbt-Vb-pAF">
-                                <rect key="frame" x="100" y="550" width="60" height="30"/>
+                                <rect key="frame" x="95" y="550" width="72" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
                                 <connections>
