@@ -238,8 +238,82 @@ class EncounterVC: UIViewController {
     }
     
     func surrender() {
-        
-    }
+        if galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Pirate {
+            // plunder
+            // see if player has cargo
+            var noCargo = false
+            if player.commanderShip.cargo.count == 0 {
+                noCargo = true
+            }
+            if noCargo {
+                // take your money
+                let moneyToTake = max(Int((Double(player.netWorth) * 0.05)), 500)
+                player.credits -= moneyToTake
+                if player.credits < 0 {
+                    player.credits = 0
+                }
+                
+                // alert
+                let title = "Pirates Find No Cargo"
+                let message = "The pirates are very angry that they find no cargo on your ship. To stop them from destroying you, you have no choice but to pay them an amount equal to 5% of your current worth - \(moneyToTake) credits."
+                
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                    (alert: UIAlertAction!) -> Void in
+                    // dismiss and conclude encounter
+                    self.dismissViewController()
+                    galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+                }))
+                self.presentViewController(alertController, animated: true, completion: nil)
+            } else {
+                // regular looting
+                let baysOnPirateShip = galaxy.currentJourney!.currentEncounter!.opponent.ship.baysAvailable
+                
+                while baysOnPirateShip > 0 {
+                    
+                    // find most valuable cargo
+                    var currentHighestIndex = 0
+                    var currentHighestPrice = 0
+                    
+                    for i in 0...player.commanderShip.cargo.count {
+                        let item = player.commanderShip.cargo[i]
+                        let price = galaxy.getLocalSellPrice(item.item)
+                        if price > currentHighestPrice {
+                            currentHighestPrice = price
+                            currentHighestIndex = i
+                        }
+                        
+                        // remove it
+                        let highestValueItem = player.commanderShip.cargo[currentHighestIndex]
+                        player.commanderShip.cargo.removeAtIndex(currentHighestIndex)
+                        
+                        // take what will fit, return any remaining
+                        if highestValueItem.quantity > baysOnPirateShip {
+                            highestValueItem.quantity -= baysOnPirateShip
+                            player.commanderShip.cargo.append(item)
+                        }
+                    }
+                    
+                    
+                    // alert
+                    let title = "Looting"
+                    let message = "The pirates board your ship and transfer as much of your cargo to their own ship as their cargo bays can hold."
+                    
+                    let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                        (alert: UIAlertAction!) -> Void in
+                        // dismiss and conclude encounter
+                        self.dismissViewController()
+                        galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+                    }))
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                }
+                
+                
+            }
+            
+        }
+
     
     func submit() {
         // see if you have anything to worry about
