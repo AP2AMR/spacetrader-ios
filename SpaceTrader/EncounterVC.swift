@@ -189,7 +189,22 @@ class EncounterVC: UIViewController {
     }
     
     func board() {
+        let title = "Engage Marie Celeste"
+        let message = "The ship is empty: there is nothing in the ship’s log, but the crew has vanished, leaving food on the tables and cargo in the holds. Do you wish to offload the cargo into your own holds?"
         
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Yes, Take Cargo", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // PLUNDER. Marie celeste should have 5 narcotics
+            self.plunder()
+        }))
+        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // dismiss and conclude encounter
+            self.dismissViewController()
+            galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+        }))
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     func flee() {
@@ -373,7 +388,44 @@ class EncounterVC: UIViewController {
     }
     
     func bribe() {
-        
+        // if system's bribe level is 0, display can't be bribed dialog
+        let politics = Politics(type: galaxy.targetSystem!.politics)
+        if politics.bribeLevel <= 0 {                                       // || Marie Celeste?
+            let title = "No Bribe"
+            let message = "These police officers can't be bribed."
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Destructive ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // dismiss alert
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            // calculate bribe
+            var bribe = player.netWorth / (15 * (5 - player.getDifficultyInt()) * politics.bribeLevel)
+            if bribe % 100 != 0 {
+                bribe += (100 - (bribe % 100))
+            }
+            bribe = max(100, min(bribe, 10000))
+            
+            // display bribe modal
+            let title = "Bribe"
+            let message = "These police officers are willing to forego inspection for the amount of 100 credits."
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Offer Bribe", style: UIAlertActionStyle.Destructive ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                player.credits -= bribe
+                
+                // do we need to display another modal here?
+            }))
+            alertController.addAction(UIAlertAction(title: "Forget It", style: UIAlertActionStyle.Destructive ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // dismiss alert
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
+        }
     }
     
     // END BUTTON ACTIONS*************************************************************************
