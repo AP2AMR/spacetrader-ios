@@ -142,6 +142,10 @@ class EncounterVC: UIViewController {
         self.dismissViewControllerAnimated(false, completion: nil)
     }
     
+    func redrawViewController() {
+        self.viewDidLoad()
+    }
+    
     // END UTILITIES******************************************************************************
     // BUTTON ACTIONS*****************************************************************************
     func attack() {
@@ -288,8 +292,8 @@ class EncounterVC: UIViewController {
                 print("opponent is disabled")
                 //outcomeOpponentDisabled()
             default:
+                outcomeFightContinues()
                 print("fight continues")
-                //outcomeFightContinues()
             }
 
         }
@@ -569,6 +573,40 @@ class EncounterVC: UIViewController {
             }
         }
         return contraband
+    }
+    
+    func outcomeFightContinues() {
+        // report who hit whom
+        var reportString1 = ""
+        var reportString2 = ""
+        if galaxy.currentJourney!.currentEncounter!.youHitThem {
+            reportString1 = "You hit the \(galaxy.currentJourney!.currentEncounter!.opposingVessel).\n"
+        } else {
+            reportString1 = "You missed the \(galaxy.currentJourney!.currentEncounter!.opposingVessel).\n"
+        }
+        if galaxy.currentJourney!.currentEncounter!.theyHitYou {
+            reportString2 = "The \(galaxy.currentJourney!.currentEncounter!.opposingVessel) hits you."
+        } else {
+            reportString2 = "The \(galaxy.currentJourney!.currentEncounter!.opposingVessel) misses you."
+        }
+        galaxy.currentJourney!.currentEncounter!.encounterText1 = reportString1 + reportString2
+        
+        // redraw view
+        redrawViewController()
+    }
+    
+    func outcomeOpponentGetsAway() {
+        let title = "Opponent Escapes"
+        let message = "Your opponent has gotten away."
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // dismiss and conclude encounter
+            self.dismissViewController()
+            galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+        }))
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     
