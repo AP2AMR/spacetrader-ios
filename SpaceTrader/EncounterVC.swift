@@ -415,9 +415,23 @@ class EncounterVC: UIViewController {
             let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "Offer Bribe", style: UIAlertActionStyle.Destructive ,handler: {
                 (alert: UIAlertAction!) -> Void in
-                player.credits -= bribe
+                if player.credits >= bribe {
+                    player.credits -= bribe
+                    self.dismissViewController()
+                    galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+                } else {
+                    let title = "Not Enough Cash"
+                    let message = "You don't have enough cash for a bribe."
+                    
+                    let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Destructive ,handler: {
+                        (alert: UIAlertAction!) -> Void in
+                        // dismiss alert
+                    }))
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                }
                 
-                // do we need to display another modal here?
+                
             }))
             alertController.addAction(UIAlertAction(title: "Forget It", style: UIAlertActionStyle.Destructive ,handler: {
                 (alert: UIAlertAction!) -> Void in
