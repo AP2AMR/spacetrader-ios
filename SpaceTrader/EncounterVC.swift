@@ -119,23 +119,23 @@ class EncounterVC: UIViewController {
     }
     // END BUTTON FUNCTIONS***********************************************************************
     // UTILITIES**********************************************************************************
-    func messageHandler(notification: NSNotification) {
-        let receivedMessage: String = notification.object! as! String
+    func messageHandler(notification: NSNotification) {      // I THINK THIS IS (MOSTLY) DELETABLE
+        //let receivedMessage: String = notification.object! as! String
         
-        if receivedMessage == "playerKilled" {
-            gameOverModal()
-        } else if receivedMessage == "dismissViewController" {
-            dismissViewController()
-        } else if receivedMessage == "simple" {
-            launchGenericSimpleModal()
-        } else if receivedMessage == "pirateDestroyed" {
-            let statusType: IFFStatusType = galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus
-            pirateOrTraderDestroyedAlert(statusType)
-        } else if receivedMessage == "dismiss" {
-            dismissViewController()
-        } else if receivedMessage == "submit" {
-            submit()
-        }
+//        if receivedMessage == "playerKilled" {
+//            gameOverModal()
+//        } else if receivedMessage == "dismissViewController" {
+//            dismissViewController()
+//        } else if receivedMessage == "simple" {
+//            launchGenericSimpleModal()
+//        } else if receivedMessage == "pirateDestroyed" {
+//            let statusType: IFFStatusType = galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus
+//            pirateOrTraderDestroyedAlert(statusType)
+//        } else if receivedMessage == "dismiss" {
+//            dismissViewController()
+//        } else if receivedMessage == "submit" {
+//            submit()
+//        }
     }
     
     func dismissViewController() {
@@ -662,7 +662,7 @@ class EncounterVC: UIViewController {
             
             // call scoop if indicated, else dismiss and end encounter
             if scoop {
-                self.runScoop()
+                self.Scoop()
             } else {
                 self.dismissViewController()
                 galaxy.currentJourney!.currentEncounter!.concludeEncounter()
@@ -671,9 +671,60 @@ class EncounterVC: UIViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
-    func runScoop() {
-        print("scoop method firing")
+    func Scoop() {
+        // figure out what floated by
+        let random = rand(galaxy.currentJourney!.currentEncounter!.opponent.ship.cargo.count)
+        let itemType = galaxy.currentJourney!.currentEncounter!.opponent.ship.cargo[random].item
+        let item = TradeItem(item: itemType, quantity: 1, pricePaid: 0)
+        
+        // launch alert to pick it up
+        let title = "Scoop"
+        let message = "A canister from the destroyed ship, labeled \(item.name), drifts within range of your scoops."
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Pick It Up", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            if player.commanderShip.baysAvailable == 0 {
+                print("NO ROOM TO SCOOP! HOW TO HANDLE THIS?")
+                galaxy.currentJourney!.currentEncounter!.scoopableItem = item
+            }
+            
+            // dismiss and resume, for now
+            print("you picked it up")
+            player.commanderShip.cargo.append(item)
+            self.dismissViewControllerAnimated(false, completion: nil)
+            galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+        }))
+        alertController.addAction(UIAlertAction(title: "Let It Go", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // dismiss and resume, for now
+            print("you let it go")
+            self.dismissViewControllerAnimated(false, completion: nil)
+            galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+        }))
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
+    
+    func outcomeOpponentFlees() {                   // CHECK IF THIS DOES THE RIGHT THING
+        // report who hit whom
+        var reportString1 = ""
+        var reportString2 = ""
+        if galaxy.currentJourney!.currentEncounter!.youHitThem {
+            reportString1 = "You hit the \(galaxy.currentJourney!.currentEncounter!.opposingVessel).\n"
+        } else {
+            reportString1 = "You missed the \(galaxy.currentJourney!.currentEncounter!.opposingVessel).\n"
+        }
+        if galaxy.currentJourney!.currentEncounter!.theyHitYou {
+            reportString2 = "The \(galaxy.currentJourney!.currentEncounter!.opposingVessel) hits you."
+        } else {
+            reportString2 = "The \(galaxy.currentJourney!.currentEncounter!.opposingVessel) misses you."
+        }
+        galaxy.currentJourney!.currentEncounter!.encounterText1 = reportString1 + reportString2
+        galaxy.currentJourney!.currentEncounter!.encounterText2 = "Your opponent is fleeing."
+        
+        redrawViewController()
+    }
+    
     
     
     // END CONSEQUENT ACTIONS*********************************************************************
@@ -725,81 +776,7 @@ class EncounterVC: UIViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
-    func pirateOrTraderDestroyedAlert(type: IFFStatusType) {
-        var title = ""
-        var message = ""
-        if type == IFFStatusType.Pirate && (player.policeRecordInt > 2) {
-            let bounty = galaxy.currentJourney!.currentEncounter!.opponent.ship.bounty
-            player.credits += bounty
-            title = "Opponent Destroyed"
-            message = "You have destroyed your opponent, earning a bounty of \(bounty) credits."
-        } else {
-            let bounty = galaxy.currentJourney!.currentEncounter!.opponent.ship.bounty
-            player.credits += bounty
-            
-            title = "Opponent Destroyed"
-            message = "You have destroyed your opponent."
-        }
-        
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
-            (alert: UIAlertAction!) -> Void in
-            // dismiss encounter dialog
-            //self.dismissViewControllerAnimated(false, completion: nil)
-            var number = 0
-            switch player.difficulty {
-            case DifficultyType.beginner:
-                number = 0
-            case DifficultyType.easy:
-                number = 0
-            case DifficultyType.normal:
-                number = 50
-            case DifficultyType.hard:
-                number = 66
-            case DifficultyType.impossible:
-                number = 75
-            }
-            
-            if rand(100) > number {
-                // scoop
-                print("scooping...")
-                self.scoop()
-            } else {
-                print("no scoop. Concluding encounter.")
-                galaxy.currentJourney!.currentEncounter!.concludeEncounter()
-            }
-        }))
-        self.presentViewController(alertController, animated: true, completion: nil)
-    }
     
-    func scoop() {
-        // figure out what floated by
-        let random = rand(galaxy.currentJourney!.currentEncounter!.opponent.ship.cargo.count)
-        let itemType = galaxy.currentJourney!.currentEncounter!.opponent.ship.cargo[random].item
-        let item = TradeItem(item: itemType, quantity: 1, pricePaid: 0)
-        
-        // launch alert to pick it up
-        let title = "Scoop"
-        let message = "A canister from the destroyed ship, labeled \(item.name), drifts within range of your scoops."
-        
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Pick It Up", style: UIAlertActionStyle.Default ,handler: {
-            (alert: UIAlertAction!) -> Void in
-            // dismiss and resume, for now
-            print("you picked it up")
-            player.commanderShip.cargo.append(item)
-            self.dismissViewControllerAnimated(false, completion: nil)
-            galaxy.currentJourney!.currentEncounter!.concludeEncounter()
-        }))
-        alertController.addAction(UIAlertAction(title: "Let It Go", style: UIAlertActionStyle.Default ,handler: {
-            (alert: UIAlertAction!) -> Void in
-            // dismiss and resume, for now
-            print("you let it go")
-            self.dismissViewControllerAnimated(false, completion: nil)
-            galaxy.currentJourney!.currentEncounter!.concludeEncounter()
-        }))
-        self.presentViewController(alertController, animated: true, completion: nil)
-    }
     
     
     func gameOverModal() {

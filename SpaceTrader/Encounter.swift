@@ -33,6 +33,8 @@ class Encounter {
     var youHitThem = false
     var theyHitYou = false
     
+    var scoopableItem: TradeItem?
+    
     // thing to call opposing vessel, settable by IFF
     // options:
     var opposingVessel: String {
