@@ -1125,6 +1125,40 @@ class Galaxy {
         }
     }
     
+    func getAverageSalePrice(commodity: TradeItemType) -> Int {
+        var runningSum = 0
+        var count = 0
+        
+        for planet in planets {
+            switch commodity {
+                case TradeItemType.Water:
+                    runningSum += planet.waterSell
+                case TradeItemType.Furs:
+                    runningSum += planet.fursSell
+                case TradeItemType.Food:
+                    runningSum += planet.foodSell
+                case TradeItemType.Ore:
+                    runningSum += planet.oreSell
+                case TradeItemType.Games:
+                    runningSum += planet.gamesSell
+                case TradeItemType.Firearms:
+                    runningSum += planet.firearmsSell
+                case TradeItemType.Medicine:
+                    runningSum += planet.medicineSell
+                case TradeItemType.Machines:
+                    runningSum += planet.machinesSell
+                case TradeItemType.Narcotics:
+                    runningSum += planet.narcoticsSell
+                case TradeItemType.Robots:
+                    runningSum += planet.robotsSell
+            default:
+                runningSum += 0
+            }
+            count += 1
+        }
+        return Int(Double(runningSum) / Double(count))
+    }
+    
     func warp() -> Bool {
         // let journeyDistance = getDistance(currentSystem!, system2: targetSystem!)
         // print("pre-warp fuel: \(player.commanderShip.fuel)")

@@ -265,47 +265,61 @@ class EncounterVC: UIViewController {
             } else {
                 // regular looting
                 let baysOnPirateShip = galaxy.currentJourney!.currentEncounter!.opponent.ship.baysAvailable
+                //print("pirate ship has \(baysOnPirateShip) bays available")
                 
-                while baysOnPirateShip > 0 {
-                    
-                    // find most valuable cargo
-                    var currentHighestIndex = 0
-                    var currentHighestPrice = 0
-                    
-                    for i in 0...player.commanderShip.cargo.count {
-                        let item = player.commanderShip.cargo[i]
-                        let price = galaxy.getLocalSellPrice(item.item)
-                        if price > currentHighestPrice {
-                            currentHighestPrice = price
-                            currentHighestIndex = i
+                
+                for i in 0..<baysOnPirateShip {
+                    // take the most valuable piece of cargo
+                    if player.commanderShip.cargo.count != 0 {
+                        // find most valuable thing you have
+                        var currentHighestItem: TradeItemType? = nil
+                        var currentHighestPrice = 0
+                        for item in player.commanderShip.cargo {
+                            let price = galaxy.getAverageSalePrice(item.item)
+                            if price > currentHighestPrice {
+                                currentHighestPrice = price
+                                currentHighestItem = item.item
+                            }
                         }
                         
-                        // remove it
-                        let highestValueItem = player.commanderShip.cargo[currentHighestIndex]
-                        player.commanderShip.cargo.removeAtIndex(currentHighestIndex)
+                        //print("item is being stolen: \(currentHighestItem)")
                         
-                        // take what will fit, return any remaining
-                        if highestValueItem.quantity > baysOnPirateShip {
-                            //highestValueItem.quantity -= baysOnPirateShip
-                            //player.commanderShip.cargo.append(item)
+                        // remove one of these items, delete if empty
+                        var i = 0
+                        var indexToDelete = 0
+                        var flag = false
+                        for item in player.commanderShip.cargo {
+                            if item.item == currentHighestItem! {
+                                item.quantity -= 1
+                                
+                                if item.quantity <= 0 {
+                                    indexToDelete = i
+                                    flag = true
+                                }
+                            }
+                            i += 1
                         }
+                        if flag {
+                            player.commanderShip.cargo.removeAtIndex(indexToDelete)
+                        }
+                        
                     }
-                    
-                    
-                    // alert
-                    let title = "Looting"
-                    let message = "The pirates board your ship and transfer as much of your cargo to their own ship as their cargo bays can hold."
-                    
-                    let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-                    alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
-                        (alert: UIAlertAction!) -> Void in
-                        // dismiss and conclude encounter
-                        self.dismissViewController()
-                        galaxy.currentJourney!.currentEncounter!.concludeEncounter()
-                    }))
-                    self.presentViewController(alertController, animated: true, completion: nil)
                 }
                 
+                
+                // alert
+                let title = "Looting"
+                let message = "The pirates board your ship and transfer as much of your cargo to their own ship as their cargo bays can hold."
+                
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                    (alert: UIAlertAction!) -> Void in
+                    // dismiss and conclude encounter
+                    self.dismissViewController()
+                    galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+                }))
+                self.presentViewController(alertController, animated: true, completion: nil)
+            
                 
             }
             
