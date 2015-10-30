@@ -1098,6 +1098,33 @@ class Galaxy {
         }
     }
     
+    func getLocalSellPrice(commodity: TradeItemType) -> Int {
+        switch commodity {
+            case TradeItemType.Water:
+                return galaxy.targetSystem!.waterSell
+            case TradeItemType.Furs:
+                return galaxy.targetSystem!.fursSell
+            case TradeItemType.Food:
+                return galaxy.targetSystem!.foodSell
+            case TradeItemType.Ore:
+                return galaxy.targetSystem!.oreSell
+            case TradeItemType.Games:
+                return galaxy.targetSystem!.gamesSell
+            case TradeItemType.Firearms:
+                return galaxy.targetSystem!.firearmsSell
+            case TradeItemType.Medicine:
+                return galaxy.targetSystem!.medicineSell
+            case TradeItemType.Machines:
+                return galaxy.targetSystem!.machinesSell
+            case TradeItemType.Narcotics:
+                return galaxy.targetSystem!.narcoticsSell
+            case TradeItemType.Robots:
+                return galaxy.targetSystem!.robotsSell
+            default:
+                return 0
+        }
+    }
+    
     func warp() -> Bool {
         // let journeyDistance = getDistance(currentSystem!, system2: targetSystem!)
         // print("pre-warp fuel: \(player.commanderShip.fuel)")

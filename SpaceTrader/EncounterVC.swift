@@ -527,3 +527,4 @@ class EncounterVC: UIViewController {
     }
     
 }
+
