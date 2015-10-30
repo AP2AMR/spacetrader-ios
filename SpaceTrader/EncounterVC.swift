@@ -395,7 +395,7 @@ class EncounterVC: UIViewController {
             let message = "These police officers can't be bribed."
             
             let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Destructive ,handler: {
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // dismiss alert
             }))
@@ -413,7 +413,7 @@ class EncounterVC: UIViewController {
             let message = "These police officers are willing to forego inspection for the amount of 100 credits."
             
             let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Offer Bribe", style: UIAlertActionStyle.Destructive ,handler: {
+            alertController.addAction(UIAlertAction(title: "Offer Bribe", style: UIAlertActionStyle.Default ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 if player.credits >= bribe {
                     player.credits -= bribe
@@ -424,7 +424,7 @@ class EncounterVC: UIViewController {
                     let message = "You don't have enough cash for a bribe."
                     
                     let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-                    alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Destructive ,handler: {
+                    alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
                         (alert: UIAlertAction!) -> Void in
                         // dismiss alert
                     }))
@@ -433,7 +433,7 @@ class EncounterVC: UIViewController {
                 
                 
             }))
-            alertController.addAction(UIAlertAction(title: "Forget It", style: UIAlertActionStyle.Destructive ,handler: {
+            alertController.addAction(UIAlertAction(title: "Forget It", style: UIAlertActionStyle.Default ,handler: {
                 (alert: UIAlertAction!) -> Void in
                 // dismiss alert
             }))
