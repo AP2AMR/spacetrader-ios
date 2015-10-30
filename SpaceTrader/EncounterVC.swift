@@ -184,7 +184,114 @@ class EncounterVC: UIViewController {
         }
         
         if actuallyAttack {
-            print("TODO: IMPLEMENT ATTACK")
+            var outcome = ""
+            
+            // if opponent is fleeing, harder to hit them
+            var opponentFleeingMarksmanshipPenalty = 0
+            if galaxy.currentJourney!.currentEncounter!.opponentFleeing {
+                opponentFleeingMarksmanshipPenalty = 2
+            }
+            
+            // player shoots at target. Determine outcome
+            if rand(player.fighterSkill) + galaxy.currentJourney!.currentEncounter!.opponent.ship.probabilityOfHit > rand(galaxy.currentJourney!.currentEncounter!.pilotSkillOpponent) + opponentFleeingMarksmanshipPenalty {
+                galaxy.currentJourney!.currentEncounter!.damageOpponent(25)
+                galaxy.currentJourney!.currentEncounter!.youHitThem = true
+                let damageToOpponent = rand((player.commanderShip.totalWeapons) * (100 + (2 * galaxy.currentJourney!.currentEncounter!.engineerSkillOpponent)) / 100)
+                galaxy.currentJourney!.currentEncounter!.damageOpponent(damageToOpponent)
+                //print("player hits target. Damage: \(damageToOpponent)")
+            } else {
+                //print("player misses target")
+                galaxy.currentJourney!.currentEncounter!.youHitThem = false
+            }
+            
+            // determine if player is damaged
+            if !galaxy.currentJourney!.currentEncounter!.opponentFleeing {
+                var playerFleeingMarksmanshipPenalty = 0
+                
+                if galaxy.currentJourney!.currentEncounter!.playerFleeing {
+                    playerFleeingMarksmanshipPenalty = 2
+                }
+                
+                if rand(galaxy.currentJourney!.currentEncounter!.fighterSkillOpponent) + player.commanderShip.probabilityOfHit > rand(player.pilotSkill) + playerFleeingMarksmanshipPenalty {
+                    galaxy.currentJourney!.currentEncounter!.theyHitYou = true
+                    let damageToPlayer = rand((galaxy.currentJourney!.currentEncounter!.opponent.ship.totalWeapons) * (100 + (2 * player.engineerSkill)) / 100)
+                    galaxy.currentJourney!.currentEncounter!.damagePlayer(damageToPlayer)
+                } else {
+                    galaxy.currentJourney!.currentEncounter!.theyHitYou = false
+                }
+            }
+            
+            // determine outcome
+            // default
+            outcome = "fightContinues"
+            
+            
+            if outcome == "fightContinues" {
+                // if opponent is already fleeing, determine if he gets away
+                if galaxy.currentJourney!.currentEncounter!.opponentFleeing {
+                    if rand(10) < galaxy.currentJourney!.currentEncounter!.pilotSkillOpponent + 1 {
+                        outcome = "opponentGetsAway"
+                    }
+                }
+            }
+            
+            if outcome == "fightContinues" {        // ADD SURRENDER HERE
+                // determine if opponent will flee--maybe do this by opponent type?
+                if galaxy.currentJourney!.currentEncounter!.opponent.ship.hullPercentage < 10 {
+                    if rand(10) > 3 {
+                        galaxy.currentJourney!.currentEncounter!.opponentFleeing = true
+                        outcome = "opponentFlees"
+                    } else if rand(10) > 3 {
+                        outcome = "opponentSurrenders"
+                    }
+                }
+            }
+            
+            
+            // if player is destroyed
+            if player.commanderShip.hullPercentage <= 0 {
+                if player.escapePod {
+                    print("selecting escape pod")
+                    outcome = "playerDestroyedEscapes"
+                } else {
+                    print("selecting no escape pod")
+                    outcome = "playerDestroyedKilled"
+                }
+            }
+            
+            // if opponent is destroyed
+            if galaxy.currentJourney!.currentEncounter!.opponent.ship.hullPercentage <= 0 {
+                outcome = "opponentDestroyed"
+            }
+            
+            // handle outcome
+            switch outcome {
+            case "opponentFlees":
+                print("opponent flees")
+                //outcomeOpponentFlees()
+            case "playerDestroyedEscapes":
+                print("player is destroyed but escapes")
+                //outcomePlayerDestroyedEscapes()
+            case "playerDestroyedKilled":
+                print("player is killed, game over")
+                //outcomePlayerDestroyedKilled()
+            case "opponentDestroyed":
+                print("opponent is destroyed")
+                //outcomeOpponentDestroyed()
+            case "opponentGetsAway":
+                print("opponent gets away")
+                //outcomeOpponentGetsAway()
+            case "opponentSurrenders":
+                print("opponent surrenders")
+                //outcomeOpponentSurrenders()
+            case "opponentDisabled":
+                print("opponent is disabled")
+                //outcomeOpponentDisabled()
+            default:
+                print("fight continues")
+                //outcomeFightContinues()
+            }
+
         }
     }
     
@@ -283,7 +390,7 @@ class EncounterVC: UIViewController {
                 //print("pirate ship has \(baysOnPirateShip) bays available")
                 
                 
-                for i in 0..<baysOnPirateShip {
+                for _ in 0..<baysOnPirateShip {
                     // take the most valuable piece of cargo
                     if player.commanderShip.cargo.count != 0 {
                         // find most valuable thing you have
