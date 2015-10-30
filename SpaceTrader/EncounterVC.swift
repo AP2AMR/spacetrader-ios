@@ -9,9 +9,6 @@
 import UIKit
 
 class EncounterVC: UIViewController {
-
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,7 +38,7 @@ class EncounterVC: UIViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "messageHandler:", name: "encounterNotification", object: nil)
     }
-
+    
     
     @IBOutlet weak var playerShipType: UILabel!
     @IBOutlet weak var playerHull: UILabel!
@@ -53,8 +50,8 @@ class EncounterVC: UIViewController {
     
     @IBOutlet weak var firstTextBlock: UITextView!
     @IBOutlet weak var secondTextBlock: UITextView!
-
-
+    
+    
     @IBOutlet weak var button1Text: UIButton!
     @IBOutlet weak var button2Text: UIButton!
     @IBOutlet weak var button3Text: UIButton!
@@ -163,7 +160,7 @@ class EncounterVC: UIViewController {
                 actuallyAttack = true
             }))
             alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel,handler: nil))
-                // do nothing, dismiss modal
+            // do nothing, dismiss modal
             self.presentViewController(alertController, animated: true, completion: nil)
             
         } else if (galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Trader) && (player.policeRecordInt > 4) {
@@ -289,8 +286,8 @@ class EncounterVC: UIViewController {
                         
                         // take what will fit, return any remaining
                         if highestValueItem.quantity > baysOnPirateShip {
-                            highestValueItem.quantity -= baysOnPirateShip
-                            player.commanderShip.cargo.append(item)
+                            //highestValueItem.quantity -= baysOnPirateShip
+                            //player.commanderShip.cargo.append(item)
                         }
                     }
                     
@@ -313,7 +310,7 @@ class EncounterVC: UIViewController {
             }
             
         }
-
+    }
     
     func submit() {
         // see if you have anything to worry about
@@ -350,7 +347,7 @@ class EncounterVC: UIViewController {
             }))
             self.presentViewController(alertController, animated: true, completion: nil)
         }
-
+        
     }
     
     func yield() {
@@ -416,8 +413,8 @@ class EncounterVC: UIViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
-
-
+    
+    
     
     
     
@@ -460,16 +457,16 @@ class EncounterVC: UIViewController {
             //self.dismissViewControllerAnimated(false, completion: nil)
             var number = 0
             switch player.difficulty {
-                case DifficultyType.beginner:
-                    number = 0
-                case DifficultyType.easy:
-                    number = 0
-                case DifficultyType.normal:
-                    number = 50
-                case DifficultyType.hard:
-                    number = 66
-                case DifficultyType.impossible:
-                    number = 75
+            case DifficultyType.beginner:
+                number = 0
+            case DifficultyType.easy:
+                number = 0
+            case DifficultyType.normal:
+                number = 50
+            case DifficultyType.hard:
+                number = 66
+            case DifficultyType.impossible:
+                number = 75
             }
             
             if rand(100) > number {
@@ -512,7 +509,7 @@ class EncounterVC: UIViewController {
         }))
         self.presentViewController(alertController, animated: true, completion: nil)
     }
-
+    
     
     func gameOverModal() {
         let title: String = "You Lose"
@@ -526,5 +523,5 @@ class EncounterVC: UIViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
+    
 }
-
