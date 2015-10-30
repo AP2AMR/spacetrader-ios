@@ -419,21 +419,29 @@ class Encounter {
         // handle outcome
         switch outcome {
             case "opponentFlees":
-                outcomeOpponentFlees()
+                print("obsolete flee")
+                //outcomeOpponentFlees()
             case "playerDestroyedEscapes":
-                outcomePlayerDestroyedEscapes()
+                print("obsolete player destroyed escapes")
+                //outcomePlayerDestroyedEscapes()
             case "playerDestroyedKilled":
-                outcomePlayerDestroyedKilled()
+                print("obsolete player destroyed killed")
+                //outcomePlayerDestroyedKilled()
             case "opponentDestroyed":
-                outcomeOpponentDestroyed()
+                print("obsolete opponent destroyed")
+                //outcomeOpponentDestroyed()
             case "opponentGetsAway":
-                outcomeOpponentGetsAway()
+                print("obsolete opponent gets away")
+                //outcomeOpponentGetsAway()
             case "opponentSurrenders":
-                outcomeOpponentSurrenders()
+                print("obsolete opponent surrenders")
+                //outcomeOpponentSurrenders()
             case "opponentDisabled":
-                outcomeOpponentDisabled()
+                print("obsolete opponent disabled")
+                //outcomeOpponentDisabled()
             default:
-                outcomeFightContinues()
+                print("obsolete fight continues")
+                //outcomeFightContinues()
         }
 
     }
@@ -589,12 +597,12 @@ class Encounter {
         fireModal()
     }
     
-    func outcomeOpponentGetsAway() {
-        alertTitle = "Opponent Escapes"
-        alertText = "Your opponent has gotten away."
-        let stringToPass = NSString(string: "simple")
-        NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
-    }
+//    func outcomeOpponentGetsAway() {
+//        alertTitle = "Opponent Escapes"
+//        alertText = "Your opponent has gotten away."
+//        let stringToPass = NSString(string: "simple")
+//        NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
+//    }
     
     func outcomeOpponentFlees() {
         

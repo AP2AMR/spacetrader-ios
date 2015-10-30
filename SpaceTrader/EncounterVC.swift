@@ -281,10 +281,10 @@ class EncounterVC: UIViewController {
                 //outcomePlayerDestroyedKilled()
             case "opponentDestroyed":
                 print("opponent is destroyed")
-                //outcomeOpponentDestroyed()
+                outcomeOpponentDestroyed()
             case "opponentGetsAway":
                 print("opponent gets away")
-                //outcomeOpponentGetsAway()
+                outcomeOpponentGetsAway()
             case "opponentSurrenders":
                 print("opponent surrenders")
                 //outcomeOpponentSurrenders()
@@ -607,6 +607,72 @@ class EncounterVC: UIViewController {
             galaxy.currentJourney!.currentEncounter!.concludeEncounter()
         }))
         self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func outcomeOpponentDestroyed() {
+        var type = ""
+        if galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Pirate {
+            player.pirateKills += 1
+            type = "pirate"
+        } else if galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Trader {
+            player.traderKills += 1
+            type = "trader"
+        } else if galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus == IFFStatusType.Police {
+            player.policeKills += 1
+            type = "other"
+        }
+        
+        var title = ""
+        var message = ""
+        if type == "pirate" && (player.policeRecordInt > 2) {
+            let bounty = galaxy.currentJourney!.currentEncounter!.opponent.ship.bounty
+            player.credits += bounty
+            title = "Bounty"
+            message = "You destroyed the pirate ship and earned a bounty of \(bounty)"
+        } else {
+            title = "Opponent Destroyed"
+            message = "You have destroyed your opponent."
+        }
+        
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // determine whether scoop will happen
+            let random = rand(100)
+            var scoop = false
+            if type == "pirate" || type == "trader" {
+                if (player.difficulty == DifficultyType.beginner) || (player.difficulty == DifficultyType.easy ) {
+                    scoop = true
+                } else if player.difficulty == DifficultyType.normal {
+                    if random > 50 {
+                        scoop = true
+                    }
+                } else if player.difficulty == DifficultyType.hard {
+                    if random > 66 {
+                        scoop = true
+                    }
+                    
+                } else {
+                    if random > 75 {
+                        scoop = true
+                    }
+                }
+            }
+            
+            // call scoop if indicated, else dismiss and end encounter
+            if scoop {
+                self.runScoop()
+            } else {
+                self.dismissViewController()
+                galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+            }
+        }))
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func runScoop() {
+        print("scoop method firing")
     }
     
     
