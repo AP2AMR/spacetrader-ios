@@ -725,7 +725,49 @@ class EncounterVC: UIViewController {
         redrawViewController()
     }
     
+    func outcomeOpponentSurrenders() {
+        // report who hit whom
+        var reportString1 = ""
+        var reportString2 = ""
+        if galaxy.currentJourney!.currentEncounter!.youHitThem {
+            reportString1 = "You hit the \(galaxy.currentJourney!.currentEncounter!.opposingVessel).\n"
+        } else {
+            reportString1 = "You missed the \(galaxy.currentJourney!.currentEncounter!.opposingVessel).\n"
+        }
+        if galaxy.currentJourney!.currentEncounter!.theyHitYou {
+            reportString2 = "The \(galaxy.currentJourney!.currentEncounter!.opposingVessel) hits you."
+        } else {
+            reportString2 = "The \(galaxy.currentJourney!.currentEncounter!.opposingVessel) misses you."
+        }
+        galaxy.currentJourney!.currentEncounter!.encounterText1 = reportString1 + reportString2
+        galaxy.currentJourney!.currentEncounter!.encounterText2 = "Your opponent hails that he surrenders to you."
+        
+        galaxy.currentJourney!.currentEncounter!.setButtons("Surrender")
+        
+        redrawViewController()
+    }
     
+    func outcomeOpponentDisabled() {
+        // report who hit whom
+        var reportString1 = ""
+        var reportString2 = ""
+        if galaxy.currentJourney!.currentEncounter!.youHitThem {
+            reportString1 = "You hit the \(galaxy.currentJourney!.currentEncounter!.opposingVessel).\n"
+        } else {
+            reportString1 = "You missed the \(galaxy.currentJourney!.currentEncounter!.opposingVessel).\n"
+        }
+        if galaxy.currentJourney!.currentEncounter!.theyHitYou {
+            reportString2 = "The \(galaxy.currentJourney!.currentEncounter!.opposingVessel) hits you."
+        } else {
+            reportString2 = "The \(galaxy.currentJourney!.currentEncounter!.opposingVessel) misses you."
+        }
+        galaxy.currentJourney!.currentEncounter!.encounterText1 = reportString1 + reportString2
+        galaxy.currentJourney!.currentEncounter!.encounterText2 = "Your opponent has been disabled."
+        
+        galaxy.currentJourney!.currentEncounter!.setButtons("Surrender")
+        
+        redrawViewController()
+    }
     
     // END CONSEQUENT ACTIONS*********************************************************************
     // ONLY OLD THINGS BENEATH HERE***************************************************************
