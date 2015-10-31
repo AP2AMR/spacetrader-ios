@@ -146,8 +146,12 @@ class EncounterVC: UIViewController, PlunderDelegate {
     
     // delegate function
     func plunderDidFinish(controller: PlunderVC) {
-        dismissViewController()
-        galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+        
+        // the closure fixes the issue
+        self.dismissViewControllerAnimated(false, completion: {
+            galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+        })
+
     }
     
     func dismissViewController() {

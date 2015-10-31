@@ -87,7 +87,7 @@ class PlunderVC: UIViewController {
         // this works for encounters generally
         self.dismissViewControllerAnimated(false, completion: nil)
         
-        //delegate?.plunderDidFinish(self)
+        delegate?.plunderDidFinish(self)
     }
     
     @IBAction func waterAll(sender: AnyObject) {
