@@ -336,7 +336,7 @@ class Encounter {
         NSNotificationCenter.defaultCenter().postNotificationName("encounterModalFireNotification", object: passedText)
     }
     
-    func attack() {
+    func attack() -> String {
         
         var outcome = ""
         
@@ -418,36 +418,7 @@ class Encounter {
             outcome = "opponentDestroyed"
         }
         
-        // handle outcome
-        switch outcome {
-            case "opponentFlees":
-                print("obsolete flee")
-                //outcomeOpponentFlees()
-            case "playerDestroyedEscapes":
-                // NOT OBSOLETE
-                print("possibly obsolete destroyed escapes")
-                //outcomePlayerDestroyedEscapes()
-            case "playerDestroyedKilled":
-                // NOT OBSOLETE
-                print("possibly obsolete player killed")
-                //outcomePlayerDestroyedKilled()
-            case "opponentDestroyed":
-                print("obsolete opponent destroyed")
-                //outcomeOpponentDestroyed()
-            case "opponentGetsAway":
-                print("obsolete opponent gets away")
-                //outcomeOpponentGetsAway()
-            case "opponentSurrenders":
-                print("obsolete opponent surrenders")
-                //outcomeOpponentSurrenders()
-            case "opponentDisabled":
-                print("obsolete opponent disabled")
-                //outcomeOpponentDisabled()
-            default:
-                print("obsolete fight continues")
-                //outcomeFightContinues()
-        }
-
+        return outcome
     }
     
     func flee() {
