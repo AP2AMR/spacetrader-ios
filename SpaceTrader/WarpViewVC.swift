@@ -66,6 +66,8 @@ class WarpViewVC: UIViewController {
         }))
         
         self.presentViewController(alertController, animated: true, completion: nil)
+        
+        print("is the player's ship now a flea? It should be. Player ship:\(player.commanderShip.name)")
     }
 
 }

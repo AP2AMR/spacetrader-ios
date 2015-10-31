@@ -237,6 +237,8 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         robotsQuantity.setTitle("\(player.commanderShip.getQuantity(.Robots))", forState: controlState)
         
         cashLabel.text = "Cash: \(player.credits) cr."
+        
+        baysAvailableLabel.text = "Bays: \(player.commanderShip.baysAvailable)/\(player.commanderShip.cargoBays)"
     }
     
     func loadPrices() {
