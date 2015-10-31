@@ -198,7 +198,7 @@ class EncounterVC: UIViewController {
             
             // player shoots at target. Determine outcome
             if rand(player.fighterSkill) + galaxy.currentJourney!.currentEncounter!.opponent.ship.probabilityOfHit > rand(galaxy.currentJourney!.currentEncounter!.pilotSkillOpponent) + opponentFleeingMarksmanshipPenalty {
-                galaxy.currentJourney!.currentEncounter!.damageOpponent(25)
+                galaxy.currentJourney!.currentEncounter!.damageOpponent(25)         // USE ACTUAL AMOUNT
                 galaxy.currentJourney!.currentEncounter!.youHitThem = true
                 let damageToOpponent = rand((player.commanderShip.totalWeapons) * (100 + (2 * galaxy.currentJourney!.currentEncounter!.engineerSkillOpponent)) / 100)
                 galaxy.currentJourney!.currentEncounter!.damageOpponent(damageToOpponent)
@@ -270,7 +270,7 @@ class EncounterVC: UIViewController {
             switch outcome {
             case "opponentFlees":
                 print("opponent flees")
-                //outcomeOpponentFlees()
+                outcomeOpponentFlees()
             case "playerDestroyedEscapes":
                 print("TAG")
                 print("player is destroyed but escapes")
@@ -286,10 +286,10 @@ class EncounterVC: UIViewController {
                 outcomeOpponentGetsAway()
             case "opponentSurrenders":
                 print("opponent surrenders")
-                //outcomeOpponentSurrenders()
+                outcomeOpponentSurrenders()
             case "opponentDisabled":
                 print("opponent is disabled")
-                //outcomeOpponentDisabled()
+                outcomeOpponentDisabled()
             default:
                 outcomeFightContinues()
                 print("fight continues")
@@ -490,7 +490,7 @@ class EncounterVC: UIViewController {
     }
     
     func yield() {
-        
+        // ARREST?
     }
     
     func trade() {
@@ -786,43 +786,14 @@ class EncounterVC: UIViewController {
     func outcomePlayerDestroyedEscapes() {
         // close view
         self.dismissViewControllerAnimated(false, completion: nil)
+        
         // call function in parent
-        print("you escaped in your pod. This should have closed the encounter. Next it will launch an alert directly from the warp screen")
         let stringToPass = NSString(string: "playerDestroyedEscapes")
         NSNotificationCenter.defaultCenter().postNotificationName("encounterModalFireNotification", object: stringToPass)
     }
     
     // END CONSEQUENT ACTIONS*********************************************************************
     // ONLY OLD THINGS BENEATH HERE***************************************************************
-    
-    
-    func fireAttackWarningModal(type: String) {
-        var title: String = "Attack Police?"
-        var message: String = "Are you sure you want to attack the police? Your police record will be set to criminal!"
-        if type == "trader" {
-            title = "Attack Trader?"
-            message = "Are you sure you want to attack a trader? Your police record will be set to dubious!"
-        }
-        
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Attack", style: UIAlertActionStyle.Destructive,handler: {
-            (alert: UIAlertAction!) -> Void in
-            // go ahead with it
-            if type == "police" {
-                player.policeRecord = PoliceRecordType.criminalScore
-            } else if type == "trader" {
-                player.policeRecord = PoliceRecordType.dubiousScore
-            }
-            self.dismissViewControllerAnimated(false, completion: nil)
-            //galaxy.currentJourney!.currentEncounter!.resumeEncounter(1)
-        }))
-        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel,handler: nil))
-        self.presentViewController(alertController, animated: true, completion: nil)
-    }
-    
-    
-    
-    
     
     
     // use this when it is a notification with an OK button that does NOTHING but end the encounter

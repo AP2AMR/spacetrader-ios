@@ -51,6 +51,7 @@ class WarpViewVC: UIViewController {
             player.credits -= 500
         } else {
             print("too poor. FIGURE OUT WHAT TO DO")
+            // MUST GO INTO DEBT TO BUILD NEW SHIP. IMPLEMENT THIS WHEN THE BANK EXISTS
         }
         player.commanderShip = SpaceShip(type: ShipType.Flea, IFFStatus: IFFStatusType.Player)
         
