@@ -284,7 +284,10 @@ class Encounter {
         // used for follow up screens, not initially
         // possible strings are: Attack, IgnoreFlee, Surrender, Inspection, PostMarieInspection, MarieCeleste, Trader, AttackNoSurrender
         if buttonSet == "Attack" {
-            
+            button1Text = "Attack"
+            button2Text = "Flee"
+            button3Text = "Surrender"
+            button4Text = ""
         } else if buttonSet == "IgnoreFlee" {
             button1Text = "Attack"
             button2Text = "Ignore"
@@ -292,8 +295,8 @@ class Encounter {
             button4Text = ""
         } else if buttonSet == "Surrender" {
             button1Text = "Attack"
-            button2Text = "Flee"
-            button3Text = "Surrender"
+            button2Text = "Plunder"
+            button3Text = ""
             button4Text = ""
         } else if buttonSet == "Inspection" {
             button1Text = "Attack"
@@ -337,8 +340,8 @@ class Encounter {
     }
     
     func attack() -> String {
-        print("player's weapon power: \(player.commanderShip.totalWeapons)")
-        print("opponent's weapon power: \(opponent.ship.totalWeapons)")
+        //print("player's weapon power: \(player.commanderShip.totalWeapons)")
+        //print("opponent's weapon power: \(opponent.ship.totalWeapons)")
         
         var outcome = ""
         
@@ -348,10 +351,11 @@ class Encounter {
             opponentFleeingMarksmanshipPenalty = 2
         }
         
-        // player shoots at target. Determine outcome
-        print("player is taking a shot...")
+        // player shoots at target. Determine if hit...
         if rand(player.fighterSkill) + opponent.ship.probabilityOfHit > rand(pilotSkillOpponent) + opponentFleeingMarksmanshipPenalty {
             youHitThem = true
+            
+            // opponent is hit. Determine damage.    MAYBE IF OPPONENT DISABLED, DO SOMETHING DIFFERENT?
             let damageToOpponent = rand((player.commanderShip.totalWeapons) * (100 + (2 * engineerSkillOpponent)) / 100)
             damageOpponent(damageToOpponent)
             
@@ -359,16 +363,13 @@ class Encounter {
             if opponent.ship.totalShields == 0 && player.commanderShip.photonDisruptor {
                 opponent.ship.disabled = true
             }
-            print("OPPONENT SHIP HAS BEEN DISABLED")
-            
-            print("player hits target. Damage: \(damageToOpponent)")
         } else {
-            print("player misses target")
+            //print("player misses target")
             youHitThem = false
         }
         
-        // determine if player is damaged
-        if !opponentFleeing {
+        // opponent shoots at player. Determine if hit...
+        if !opponentFleeing && !opponent.ship.disabled {
             var playerFleeingMarksmanshipPenalty = 0
             
             if playerFleeing {
@@ -377,6 +378,8 @@ class Encounter {
             
             if rand(fighterSkillOpponent) + player.commanderShip.probabilityOfHit > rand(player.pilotSkill) + playerFleeingMarksmanshipPenalty {
                 theyHitYou = true
+                
+                // player is hit. Determine damage
                 let damageToPlayer = rand((opponent.ship.totalWeapons) * (100 + (2 * player.engineerSkill)) / 100)
                 damagePlayer(damageToPlayer)
             } else {
@@ -408,6 +411,10 @@ class Encounter {
                     outcome = "opponentSurrenders"
                 }
             }
+        }
+        
+        if opponent.ship.disabled {
+            outcome = "opponentDisabled"
         }
         
         
@@ -670,10 +677,6 @@ class Encounter {
         }
         setEncounterTextAndButtons()
         fireModal()
-    }
-    
-    func outcomeOpponentDisabled() {
-        print("opponent is disabled")
     }
     
 }
