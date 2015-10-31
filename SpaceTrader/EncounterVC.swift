@@ -255,10 +255,8 @@ class EncounterVC: UIViewController {
             // if player is destroyed
             if player.commanderShip.hullPercentage <= 0 {
                 if player.escapePod {
-                    print("selecting escape pod")
                     outcome = "playerDestroyedEscapes"
                 } else {
-                    print("selecting no escape pod")
                     outcome = "playerDestroyedKilled"
                 }
             }
@@ -274,11 +272,12 @@ class EncounterVC: UIViewController {
                 print("opponent flees")
                 //outcomeOpponentFlees()
             case "playerDestroyedEscapes":
+                print("TAG")
                 print("player is destroyed but escapes")
-                //outcomePlayerDestroyedEscapes()
+                outcomePlayerDestroyedEscapes()
             case "playerDestroyedKilled":
-                print("player is killed, game over")
-                //outcomePlayerDestroyedKilled()
+                print("TAG")
+                outcomePlayerDestroyedKilled()
             case "opponentDestroyed":
                 print("opponent is destroyed")
                 outcomeOpponentDestroyed()
@@ -769,6 +768,30 @@ class EncounterVC: UIViewController {
         redrawViewController()
     }
     
+    func outcomePlayerDestroyedKilled() {
+        print("running new player destroyed killed function")
+        
+        let title = "You Lose [new function]"
+        let message = "Your ship has been destroyed by your opponent."
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+        (alert: UIAlertAction!) -> Void in
+            // trigger segue to game over
+            self.performSegueWithIdentifier("gameOver", sender: nil)
+        }))
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func outcomePlayerDestroyedEscapes() {
+        // close view
+        self.dismissViewControllerAnimated(false, completion: nil)
+        // call function in parent
+        print("you escaped in your pod. This should have closed the encounter. Next it will launch an alert directly from the warp screen")
+        let stringToPass = NSString(string: "playerDestroyedEscapes")
+        NSNotificationCenter.defaultCenter().postNotificationName("encounterModalFireNotification", object: stringToPass)
+    }
+    
     // END CONSEQUENT ACTIONS*********************************************************************
     // ONLY OLD THINGS BENEATH HERE***************************************************************
     
@@ -818,20 +841,6 @@ class EncounterVC: UIViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
-    
-    
-    
-    func gameOverModal() {
-        let title: String = "You Lose"
-        let message: String = "You ship has been destroyed by your opponent."
-        
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
-            (alert: UIAlertAction!) -> Void in
-            self.performSegueWithIdentifier("gameOver", sender: nil)
-        }))
-        self.presentViewController(alertController, animated: true, completion: nil)
-    }
     
     
 }

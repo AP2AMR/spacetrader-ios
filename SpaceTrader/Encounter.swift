@@ -424,10 +424,12 @@ class Encounter {
                 print("obsolete flee")
                 //outcomeOpponentFlees()
             case "playerDestroyedEscapes":
-                print("obsolete player destroyed escapes")
+                // NOT OBSOLETE
+                print("possibly obsolete destroyed escapes")
                 //outcomePlayerDestroyedEscapes()
             case "playerDestroyedKilled":
-                print("obsolete player destroyed killed")
+                // NOT OBSOLETE
+                print("possibly obsolete player killed")
                 //outcomePlayerDestroyedKilled()
             case "opponentDestroyed":
                 print("obsolete opponent destroyed")
@@ -529,11 +531,13 @@ class Encounter {
         
         if player.commanderShip.hull <= 0 {
             if player.escapePod {
-                print("ship destroyed. PLAYER HAS ESCAPE POD")
-                outcomePlayerDestroyedEscapes()
+                print("redundant killed function")
+                //print("ship destroyed. PLAYER HAS ESCAPE POD")
+                //outcomePlayerDestroyedEscapes()
             } else {
-                print("ship destroyed. NO ESCAPE POD")
-                outcomePlayerDestroyedKilled()
+                print("redundant killed function")
+                //print("ship destroyed. NO ESCAPE POD")
+                //outcomePlayerDestroyedKilled()
             }
         }
         
@@ -610,7 +614,7 @@ class Encounter {
         
     }
     
-    func outcomePlayerDestroyedEscapes() {
+    func outcomePlayerDestroyedEscapes() {                  // THIS ISN'T OBSOLETE
         // dismiss encounter without triggering the next
         let stringToPass = NSString(string: "dismiss")
         NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
@@ -621,6 +625,8 @@ class Encounter {
     }
     
     func outcomePlayerDestroyedKilled() {
+        print("CALLING THE OLD PLAYERDESTROYEDKILLED FUNCTION")
+        
         alertTitle = "You Lose"
         alertText = "Your ship has been destroyed by your opponent."
         

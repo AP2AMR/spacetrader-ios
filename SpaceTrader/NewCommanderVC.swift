@@ -153,7 +153,9 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         let robots = TradeItem(item: TradeItemType.Robots, quantity: 5, pricePaid: 0)
         player.commanderShip.cargo.append(robots)
         
-        player.policeRecord = PoliceRecordType.dubiousScore
+        //player.policeRecord = PoliceRecordType.dubiousScore
+        
+        player.escapePod = true
         
         
         // END TESTING STUFF ********************************************************************
