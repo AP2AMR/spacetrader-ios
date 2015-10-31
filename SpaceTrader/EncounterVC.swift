@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EncounterVC: UIViewController {
+class EncounterVC: UIViewController, PlunderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -125,15 +125,7 @@ class EncounterVC: UIViewController {
         let receivedMessage: String = notification.object! as! String
         
         if receivedMessage == "close" {
-            print("RECEIVED CLOSE MESSAGE. Closed = \(closed)")
-            if !closed {
-                print("actually closing")
-                closed = true
-                print("closed now = \(closed)")
-                dismissViewController()
-                galaxy.currentJourney!.currentEncounter!.concludeEncounter()
-            }
-            
+            // doesn't seem to work correctly. Use delegate instead
         }
         
 //        if receivedMessage == "playerKilled" {
@@ -152,12 +144,25 @@ class EncounterVC: UIViewController {
 //        }
     }
     
+    // delegate function
+    func plunderDidFinish(controller: PlunderVC) {
+        dismissViewController()
+        galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+    }
+    
     func dismissViewController() {
         self.dismissViewControllerAnimated(false, completion: nil)
     }
     
     func redrawViewController() {
         self.viewDidLoad()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "plunderModal" {
+            let modalVC: PlunderVC = segue.destinationViewController as! PlunderVC
+            modalVC.delegate = self
+        }
     }
     
     // END UTILITIES******************************************************************************

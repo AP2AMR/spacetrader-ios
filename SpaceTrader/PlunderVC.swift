@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol PlunderDelegate: class {
+    func plunderDidFinish(controller: PlunderVC)
+}
+
 class PlunderVC: UIViewController {
 
     override func viewDidLoad() {
@@ -30,7 +34,7 @@ class PlunderVC: UIViewController {
 
     @IBOutlet weak var baysLabel: UILabel!
     
-    var closed = false
+    weak var delegate: PlunderDelegate?
     
     func updateUI() {
         let controlState = UIControlState()
@@ -80,19 +84,10 @@ class PlunderVC: UIViewController {
     @IBAction func doneButton(sender: AnyObject) {
         // CLUSTERFUCK
         
-        print("DONE BUTTON PRESSED********************************************************")
+        // this works for encounters generally
+        self.dismissViewControllerAnimated(false, completion: nil)
         
-        if !closed {
-            closed = true
-            self.dismissViewControllerAnimated(false, completion: nil)
-            
-            // dismiss parent view as well
-            let stringToPass = NSString(string: "close")
-            NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
-            
-            //galaxy.currentJourney!.currentEncounter!.concludeEncounter()
-        }
-       
+        //delegate?.plunderDidFinish(self)
     }
     
     @IBAction func waterAll(sender: AnyObject) {
