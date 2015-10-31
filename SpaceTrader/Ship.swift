@@ -42,6 +42,7 @@ class SpaceShip {
     var artifactOnBoard = false
     var justLootedMarieCeleste = false
     var cloaked = false
+    var disabled = false
     
     var IFFStatus: IFFStatusType    // player, police, pirate, trader
     // image

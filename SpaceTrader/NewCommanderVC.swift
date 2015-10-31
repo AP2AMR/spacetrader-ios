@@ -142,6 +142,10 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         player = Commander(commanderName: "name", difficulty: kludgeDifficulty, pilotSkill: pilot, fighterSkill: fighter, traderSkill: trader, engineerSkill: engineer)
         galaxy.createGalaxy()
         
+        // give player a pulse laser
+        let pulseLaser = Weapon(type: WeaponType.pulseLaser)
+        player.commanderShip.weapon.append(pulseLaser)
+        
         // THIS IS THE PLACE TO SET THINGS DIFFERENTLY FOR TESTING*******************************
         
         let firearms = TradeItem(item: TradeItemType.Firearms, quantity: 5, pricePaid: 0)

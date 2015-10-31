@@ -337,6 +337,8 @@ class Encounter {
     }
     
     func attack() -> String {
+        print("newly outsourced attack function running")
+        print("player.totalWeapons: \(player.commanderShip.totalWeapons), opponent.ship.totalWeapons: \(opponent.ship.totalWeapons)")
         
         var outcome = ""
         
@@ -347,14 +349,19 @@ class Encounter {
         }
         
         // player shoots at target. Determine outcome
+        print("player is taking a shot...")
         if rand(player.fighterSkill) + opponent.ship.probabilityOfHit > rand(pilotSkillOpponent) + opponentFleeingMarksmanshipPenalty {
-            damageOpponent(25)
+            let damageOpponentAmount = rand((player.commanderShip.totalWeapons) * (100 + (2 * opponent.commander.engineerSkill)) / 100)
+            print("player hits target")
+            print("AMOUNT TO DAMAGE OPPONENT BY: \(damageOpponentAmount)")
+            print("BREAKDOWN--totalWeapons: \(player.commanderShip.totalWeapons), opponent engineer skill: \(opponent.commander.engineerSkill)")
+            damageOpponent(damageOpponentAmount)                          // USE CORRECT WEAPONS AMOUNT
             youHitThem = true
             let damageToOpponent = rand((player.commanderShip.totalWeapons) * (100 + (2 * engineerSkillOpponent)) / 100)
             damageOpponent(damageToOpponent)
             //print("player hits target. Damage: \(damageToOpponent)")
         } else {
-            //print("player misses target")
+            print("player misses target")
             youHitThem = false
         }
         
