@@ -407,7 +407,8 @@ class Encounter {
                 if rand(10) > 3 {
                     opponentFleeing = true
                     outcome = "opponentFlees"
-                } else if rand(10) > 3 {
+                } else if (rand(10) > 3) && (opponent.ship.IFFStatus != IFFStatusType.Police) {
+                    // police shouldn't ever surrender, though they can be disabled
                     outcome = "opponentSurrenders"
                 }
             }

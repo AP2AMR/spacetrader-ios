@@ -276,7 +276,7 @@ class EncounterVC: UIViewController {
     }
     
     func plunder() {
-        
+        self.performSegueWithIdentifier("plunderModal", sender: nil)
     }
     
     func ignore() {
