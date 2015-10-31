@@ -13,7 +13,7 @@ class PlunderVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
-        // Do any additional setup after loading the view.
+        updateUI()
     }
     
     
@@ -30,11 +30,101 @@ class PlunderVC: UIViewController {
 
     @IBOutlet weak var baysLabel: UILabel!
     
+    var closed = false
+    
     func updateUI() {
         let controlState = UIControlState()
         
         // set quantities
-        waterQuantity.setTitle("\(galaxy.currentSystem!.water)", forState: controlState)
+        waterQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Water))", forState: controlState)
+        fursQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Furs))", forState: controlState)
+        foodQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Food))", forState: controlState)
+        oreQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Ore))", forState: controlState)
+        gamesQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Games))", forState: controlState)
+        firearmsQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Firearms))", forState: controlState)
+        medicineQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Medicine))", forState: controlState)
+        machinesQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Machines))", forState: controlState)
+        narcoticsQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Narcotics))", forState: controlState)
+        robotsQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Robots))", forState: controlState)
+        
+        baysLabel.text = "Bays: \(player.commanderShip.baysAvailable)/\(player.commanderShip.cargoBays)"
+    }
+    
+    func getMaxQuantity(commodity: TradeItemType) -> Int {
+        var quantityOnBoard = 0
+        for item in galaxy.currentJourney!.currentEncounter!.opponent.ship.cargo {
+            if item.item == commodity {
+                quantityOnBoard += item.quantity
+            }
+        }
+        let baysAvailable = player.commanderShip.baysAvailable
+        
+        return min(quantityOnBoard, baysAvailable)
+    }
+    
+    func plunder(commodity: TradeItemType, amount: Int) -> Bool {
+        // make sure space to go through
+        if amount > getMaxQuantity(commodity) {
+            return false
+        }
+        
+        // add to player
+        player.commanderShip.addCargo(commodity, quantity: amount, pricePaid: 0)
+        
+        // remove from opponent
+        galaxy.currentJourney!.currentEncounter!.opponent.ship.removeCargo(commodity, quantity: amount)
+        
+        return true
     }
 
+    @IBAction func doneButton(sender: AnyObject) {
+        // CLUSTERFUCK
+        
+        print("DONE BUTTON PRESSED********************************************************")
+        
+        if !closed {
+            closed = true
+            self.dismissViewControllerAnimated(false, completion: nil)
+            
+            // dismiss parent view as well
+            let stringToPass = NSString(string: "close")
+            NSNotificationCenter.defaultCenter().postNotificationName("encounterNotification", object: stringToPass)
+            
+            //galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+        }
+       
+    }
+    
+    @IBAction func waterAll(sender: AnyObject) {
+    }
+    
+    @IBAction func fursAll(sender: AnyObject) {
+    }
+    
+    @IBAction func foodAll(sender: AnyObject) {
+    }
+    
+    @IBAction func oreAll(sender: AnyObject) {
+    }
+    
+    @IBAction func gamesAll(sender: AnyObject) {
+    }
+    
+    @IBAction func firearmsAll(sender: AnyObject) {
+    }
+    
+    @IBAction func medicineAll(sender: AnyObject) {
+    }
+    
+    @IBAction func machinesAll(sender: AnyObject) {
+    }
+    
+    @IBAction func narcoticsAll(sender: AnyObject) {
+    }
+    
+    @IBAction func robotsAll(sender: AnyObject) {
+    }
+    
+    
+    
 }

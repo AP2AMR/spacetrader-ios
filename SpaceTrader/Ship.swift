@@ -448,5 +448,46 @@ class SpaceShip {
         // must presumably still populate weapons, shields, etc on non-player ships. See global.c for info
     }
     
+    // addCargo and removeCargo functions assume quantities have been checked
+    func addCargo(commodity: TradeItemType, quantity: Int, pricePaid: Int) {
+        let cargo = TradeItem(item: commodity, quantity: quantity, pricePaid: pricePaid)
+        self.cargo.append(cargo)
+    }
+    
+    func removeCargo(commodity: TradeItemType, quantity: Int) -> Bool {
+        var indices: [Int] = []
+        var averagePricePaid = 0
+        var total = 0
+        
+        // tabulate, calculate average price paid
+        var i = 0
+        for item in cargo {
+            if item.item == commodity {
+                total += item.quantity
+                indices.append(i)
+                averagePricePaid += (item.pricePaid * item.quantity)
+            }
+            i += 1
+        }
+        averagePricePaid = averagePricePaid / total
+        if total < quantity {
+            return false
+        }
+        
+        // remove all
+        for member in indices {
+            cargo.removeAtIndex(member)
+        }
+        
+        // add back remainder, if present, with average pricePaid
+        let numberToAddBack = total - quantity
+        
+        if numberToAddBack > 0 {
+            let newItem = TradeItem(item: commodity, quantity: numberToAddBack, pricePaid: averagePricePaid)
+            cargo.append(newItem)
+        }
+        
+        return true
+    }
 
 }

@@ -1601,54 +1601,81 @@
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="All"/>
+                                        <connections>
+                                            <action selector="fursAll:" destination="caS-If-549" eventType="touchUpInside" id="JGo-OM-UbL"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtY-13-nVV">
                                         <rect key="frame" x="138" y="119" width="30" height="33"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="All"/>
+                                        <connections>
+                                            <action selector="foodAll:" destination="caS-If-549" eventType="touchUpInside" id="zlL-GR-dOQ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Mm-42-r5j">
                                         <rect key="frame" x="138" y="152" width="30" height="33"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="All"/>
+                                        <connections>
+                                            <action selector="oreAll:" destination="caS-If-549" eventType="touchUpInside" id="tvz-lr-wRZ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i5P-JU-69L">
                                         <rect key="frame" x="138" y="185" width="30" height="33"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="All"/>
+                                        <connections>
+                                            <action selector="gamesAll:" destination="caS-If-549" eventType="touchUpInside" id="gtQ-TY-jdt"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faS-jk-6bl">
                                         <rect key="frame" x="138" y="218" width="30" height="33"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="All"/>
+                                        <connections>
+                                            <action selector="firearmsAll:" destination="caS-If-549" eventType="touchUpInside" id="rTb-yk-LOz"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xxo-lO-7yU">
                                         <rect key="frame" x="138" y="251" width="30" height="33"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="All"/>
+                                        <connections>
+                                            <action selector="medicineAll:" destination="caS-If-549" eventType="touchUpInside" id="Xs4-jU-DA1"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YYk-aX-xQf">
                                         <rect key="frame" x="138" y="284" width="30" height="33"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="All"/>
+                                        <connections>
+                                            <action selector="machinesAll:" destination="caS-If-549" eventType="touchUpInside" id="aqn-MC-8Db"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBw-Pe-h52">
                                         <rect key="frame" x="138" y="317" width="30" height="33"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="All"/>
+                                        <connections>
+                                            <action selector="narcoticsAll:" destination="caS-If-549" eventType="touchUpInside" id="EhF-Hs-W3n"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KuY-U0-yj7">
                                         <rect key="frame" x="138" y="350" width="30" height="33"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="All"/>
+                                        <connections>
+                                            <action selector="robotsAll:" destination="caS-If-549" eventType="touchUpInside" id="0Cc-7E-gXn"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Bays: 10/15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O74-zs-TmP">
                                         <rect key="frame" x="205" y="59" width="87" height="21"/>
@@ -1668,12 +1695,18 @@
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="All"/>
+                                        <connections>
+                                            <action selector="waterAll:" destination="caS-If-549" eventType="touchUpInside" id="JDL-ZU-9QW"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oUY-cX-kkg">
                                         <rect key="frame" x="127" y="417" width="46" height="33"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="doneButton:" destination="caS-If-549" eventType="touchUpInside" id="lAE-CR-hL8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>

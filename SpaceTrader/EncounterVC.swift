@@ -57,6 +57,8 @@ class EncounterVC: UIViewController {
     @IBOutlet weak var button3Text: UIButton!
     @IBOutlet weak var button4Text: UIButton!
     
+    var closed = false
+    
     // BUTTON FUNCTIONS***************************************************************************
     @IBAction func button1(sender: AnyObject) {
         let button1Text = galaxy.currentJourney!.currentEncounter!.button1Text
@@ -120,7 +122,19 @@ class EncounterVC: UIViewController {
     // END BUTTON FUNCTIONS***********************************************************************
     // UTILITIES**********************************************************************************
     func messageHandler(notification: NSNotification) {      // I THINK THIS IS (MOSTLY) DELETABLE
-        //let receivedMessage: String = notification.object! as! String
+        let receivedMessage: String = notification.object! as! String
+        
+        if receivedMessage == "close" {
+            print("RECEIVED CLOSE MESSAGE. Closed = \(closed)")
+            if !closed {
+                print("actually closing")
+                closed = true
+                print("closed now = \(closed)")
+                dismissViewController()
+                galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+            }
+            
+        }
         
 //        if receivedMessage == "playerKilled" {
 //            gameOverModal()
