@@ -37,6 +37,29 @@ class SpaceShip {
             return total
         }
     }
+    var photonDisruptor: Bool {
+        get {
+            var pd = false
+            for item in weapon {
+                if item.type == WeaponType.photonDisruptor {
+                    pd = true
+                }
+            }
+            return pd
+        }
+    }
+    
+    var totalShields: Int {
+        if shield.count == 0 {
+            return 0
+        } else {
+            var total = 0
+            for item in shield {
+                total += item.currentStrength
+            }
+            return total
+        }
+    }
     
     var raided = false
     var artifactOnBoard = false

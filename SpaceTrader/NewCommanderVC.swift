@@ -161,6 +161,9 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         
         player.escapePod = true
         
+        let photonDisruptor = Weapon(type: WeaponType.photonDisruptor)
+        player.commanderShip.weapon.append(photonDisruptor)
+        
         
         // END TESTING STUFF ********************************************************************
         
