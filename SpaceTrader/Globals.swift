@@ -76,3 +76,11 @@ func rand(max: Int, min: Int) -> Int {
     let minUInt = UInt32(min)
     return Int(arc4random_uniform(maxUInt - minUInt) + minUInt)
 }
+
+func randDouble(max: Double, min: Double) -> Double {
+    let maxUInt = UInt32(max * 100)
+    let minUInt = UInt32(min * 100)
+    let resultInt = Int(arc4random_uniform(maxUInt - minUInt) + minUInt)
+    let resultDouble = Double(resultInt)
+    return (resultDouble / 100)
+}

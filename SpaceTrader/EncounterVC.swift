@@ -122,11 +122,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
     // END BUTTON FUNCTIONS***********************************************************************
     // UTILITIES**********************************************************************************
     func messageHandler(notification: NSNotification) {      // I THINK THIS IS (MOSTLY) DELETABLE
-        let receivedMessage: String = notification.object! as! String
-        
-        if receivedMessage == "close" {
-            // doesn't seem to work correctly. Use delegate instead
-        }
+        //let receivedMessage: String = notification.object! as! String
         
 //        if receivedMessage == "playerKilled" {
 //            gameOverModal()

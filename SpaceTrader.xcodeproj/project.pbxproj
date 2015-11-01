@@ -190,6 +190,7 @@
 				5AD5F8C11B9FB54E00154B21 /* Galaxy.swift */,
 				5A81AD171BACFBCD001F2918 /* Globals.swift */,
 				5A723F3F1BCC531B006FFB13 /* Journey.swift */,
+				5AF0AAF61BD193B900BBE7CA /* Opponent.swift */,
 				5A0265BF1B9FDE1E0079F6DE /* PoliticsType.swift */,
 				5A0265B91B9FCD2D0079F6DE /* Shield.swift */,
 				5AD5F8BD1B9F3BE700154B21 /* Ship.swift */,
@@ -197,7 +198,6 @@
 				5AD5F8B11B9D160400154B21 /* StarSystem.swift */,
 				5AD5F8BF1B9F473E00154B21 /* TradeItem.swift */,
 				5A0265B71B9FCD170079F6DE /* Weapon.swift */,
-				5AF0AAF61BD193B900BBE7CA /* Opponent.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";

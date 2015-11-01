@@ -61,6 +61,16 @@ class SpaceShip {
         }
     }
     
+    var totalBays: Int {
+        var total = cargoBays
+        for item in gadget {
+            if item.type == GadgetType.CargoBays {
+                total += 5
+            }
+        }
+        return total
+    }
+    
     var raided = false
     var artifactOnBoard = false
     var justLootedMarieCeleste = false
@@ -465,11 +475,14 @@ class SpaceShip {
             if item.item == commodity {
                 total += item.quantity
                 indices.append(i)
-                averagePricePaid += (item.pricePaid * item.quantity)
+                if item.quantity != 0 {
+                    averagePricePaid += (item.pricePaid * item.quantity)
+                }
             }
             i += 1
         }
-        averagePricePaid = averagePricePaid / total
+        print("averagePricePaid: \(averagePricePaid), total: \(total)")
+        //averagePricePaid = averagePricePaid / total
         if total < quantity {
             return false
         }

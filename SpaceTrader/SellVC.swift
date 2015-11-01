@@ -211,17 +211,11 @@ class SellVC: UIViewController, BuyModalVCDelegate {
 
     }
     
-    
-    
-    
-    
     override func viewDidLoad() {
         
         recurringUpdate()
         loadPrices()
-        buyAsOpposedToSell = false
-        
-        
+        buyAsOpposedToSell = false    
     }
     
     func recurringUpdate() {
@@ -238,7 +232,8 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         
         cashLabel.text = "Cash: \(player.credits) cr."
         
-        baysAvailableLabel.text = "Bays: \(player.commanderShip.baysAvailable)/\(player.commanderShip.cargoBays)"
+        let baysInUse = player.commanderShip.cargoBays - player.commanderShip.baysAvailable
+        baysAvailableLabel.text = "Bays: \(baysInUse)/\(player.commanderShip.cargoBays)"
     }
     
     func loadPrices() {

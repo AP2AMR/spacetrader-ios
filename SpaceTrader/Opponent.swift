@@ -24,7 +24,7 @@ class Opponent {
     }
     
     func generateOpponent() {
-        print("generateOpponent called")
+        //print("generateOpponent called")
         var tries = 1
         let name = "NAME"                           // not sure whether he properly needs a name...
         
@@ -76,7 +76,7 @@ class Opponent {
             }
         }
         
-        print("gadgets: \(gadgetSlots) slots, \(numberOfGadgets) actual gadgets")
+        //print("gadgets: \(gadgetSlots) slots, \(numberOfGadgets) actual gadgets")
         
         for _ in 0..<numberOfGadgets {
             addRandomlyChosenGadget(tries)
@@ -118,23 +118,8 @@ class Opponent {
         }
         
         // populate commodities
-        let commodities: [TradeItemType] = [TradeItemType.Water, TradeItemType.Furs, TradeItemType.Food, TradeItemType.Ore, TradeItemType.Games, TradeItemType.Firearms, TradeItemType.Medicine, TradeItemType.Machines, TradeItemType.Narcotics, TradeItemType.Robots]
-        
-        var i = 0
-        //print("initial sum = \(sum)")
-        while i < sum {
-            let randomIndex = rand(10)
-            let randomCommodity = commodities[randomIndex]
-            var numberToAdd = 1 + rand(10 - randomIndex)
-            if (randomIndex + numberToAdd) > sum {
-                numberToAdd = sum - i
-            }
-            //print("add \(numberToAdd) of commodity \(randomCommodity.rawValue)")
-            i += numberToAdd
-            //print("i = \(i), sum = \(sum)")
-            
-            let cargo = TradeItem(item: randomCommodity, quantity: numberToAdd, pricePaid: 0)
-            ship.cargo.append(cargo)
+        if ship.IFFStatus != IFFStatusType.Police {
+            fillCargoBays()
         }
         
         // fill weapon slots
@@ -183,10 +168,10 @@ class Opponent {
         if ship.shield.count != 0 {
             // if there are shields, hull will likely be in better shape
             if rand(10) <= 7 {
-                print("shields present, setting hull accordingly")
+                //print("shields present, setting hull accordingly")
                 ship.hullPercentage = 100
             } else {
-                print("no shields, hull more likely to be damaged")
+                //print("no shields, hull more likely to be damaged")
                 var maxPercentage: Int = 0
                 for _ in 0..<5 {
                     let random = 1 + rand(100)
@@ -209,7 +194,7 @@ class Opponent {
         // set crew
         let crewCount = ship.crewQuarters
         
-        print("\(crewCount) crewmembers")
+        //print("\(crewCount) crewmembers")
         for _ in 0..<crewCount {
             let pilot = rand(10)
             let fighter = rand(10)
@@ -220,14 +205,14 @@ class Opponent {
         }
         
         if (galaxy.targetSystem!.name) == "Kravat" && player.wildStatus && (rand(10) < (player.difficultyInt + 1)) {
-            print("wild status option used")
+            //print("wild status option used")
             ship.crew[0].engineer = 9
         }
         
         // NOTE THAT THIS IS NOT QUITE WHAT THE ORIGINAL WAS
         
         
-        displayResults()
+        //displayResults()
     }
     
 
@@ -360,6 +345,107 @@ class Opponent {
         let newShield = Shield(type: shields[runningBestShieldIndex])
         newShield.currentStrength = newShield.power
         ship.shield.append(newShield)
+    }
+    
+    func fillCargoBays() {
+        let commodities: [TradeItemType] = [TradeItemType.Water, TradeItemType.Furs, TradeItemType.Food, TradeItemType.Ore, TradeItemType.Games, TradeItemType.Firearms, TradeItemType.Medicine, TradeItemType.Machines, TradeItemType.Narcotics, TradeItemType.Robots]
+        
+        // choose how many bays will be filled
+        var baysToBeFilled = 0
+        let totalBays = ship.totalBays
+        
+        if player.difficulty == DifficultyType.beginner {           // about 80%
+            baysToBeFilled = rand(totalBays, min: ((totalBays / 5) * 3))
+        } else if player.difficulty == DifficultyType.easy {        // about 60%
+            baysToBeFilled = rand(((totalBays / 5) * 4), min: ((totalBays / 5) * 2))
+        } else if player.difficulty == DifficultyType.normal {      // 40%
+            baysToBeFilled = rand(((totalBays / 5) * 3), min: ((totalBays / 5) * 1))
+        } else if player.difficulty == DifficultyType.hard {        // 20%
+            baysToBeFilled = rand(((totalBays / 5) * 2), min: 0)
+        } else {                                                    // 10%
+            baysToBeFilled = rand(((totalBays / 5) * 2), min: 0)
+        }
+        
+        baysToBeFilled + rand(10)
+        baysToBeFilled - rand(10)
+        if baysToBeFilled > ship.totalBays {
+            baysToBeFilled = ship.totalBays
+        } else if baysToBeFilled < 0 {
+            baysToBeFilled = 0
+        }
+        
+        print("bays filled: \(baysToBeFilled)/\(totalBays)")
+        
+        // *POPULATE*
+        // decide how many different items to have
+        var uniques = 0
+        switch baysToBeFilled {
+        case 0..<3:
+            uniques = 1
+        case 3..<4:
+            uniques = 2
+        case 4..<9:
+            uniques = 3
+        case 9..<12:
+            uniques = 4
+        case 12..<16:
+            uniques = 5
+        case 16..<20:
+            uniques = 6
+        case 20..<30:
+            uniques = 7
+        default:
+            uniques = 8
+        }
+        uniques = uniques + rand(4) - rand(3)
+        if baysToBeFilled < 3 {
+            uniques = 1
+        } else {
+            uniques = min(uniques, 8)
+            uniques = max(uniques, 2)
+        }
+        print("uniques: \(uniques)")
+        
+        // randomly choose that many commodities
+        var commoditiesInUse: [TradeItemType] = []
+        for _ in 0..<uniques {
+            let i = rand(10)
+            let commodity = commodities[i]
+            commoditiesInUse.append(commodity)
+        }
+        print("commodities: \(commoditiesInUse)")
+        
+        // for each item, randomly assign it to one of these categories, add it
+        for _ in 0 ..< baysToBeFilled {
+            let index = rand(uniques)
+            let item = commoditiesInUse[index]
+            ship.addCargo(item, quantity: 1, pricePaid: 0)
+        }
+        
+        // print results
+        print("**********************************************************************")
+        for commodity in commodities {
+            print("\(commodity.rawValue): \(ship.getQuantity(commodity))")
+        }
+    
+        
+        
+//        var i = 0
+//        //print("initial sum = \(sum)")
+//        while i < sum {
+//            let randomIndex = rand(10)
+//            let randomCommodity = commodities[randomIndex]
+//            var numberToAdd = 1 + rand(10 - randomIndex)
+//            if (randomIndex + numberToAdd) > sum {
+//                numberToAdd = sum - i
+//            }
+//            //print("add \(numberToAdd) of commodity \(randomCommodity.rawValue)")
+//            i += numberToAdd
+//            //print("i = \(i), sum = \(sum)")
+//            
+//            let cargo = TradeItem(item: randomCommodity, quantity: numberToAdd, pricePaid: 0)
+//            ship.cargo.append(cargo)
+//        }
     }
     
     func displayResults() {

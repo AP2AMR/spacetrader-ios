@@ -148,14 +148,14 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         
         // THIS IS THE PLACE TO SET THINGS DIFFERENTLY FOR TESTING*******************************
         
-        let firearms = TradeItem(item: TradeItemType.Firearms, quantity: 5, pricePaid: 0)
-        player.commanderShip.cargo.append(firearms)
+        //let firearms = TradeItem(item: TradeItemType.Firearms, quantity: 5, pricePaid: 0)
+        //player.commanderShip.cargo.append(firearms)
         
-        let games = TradeItem(item: TradeItemType.Games, quantity: 5, pricePaid: 0)
-        player.commanderShip.cargo.append(games)
+        //let games = TradeItem(item: TradeItemType.Games, quantity: 5, pricePaid: 0)
+        //player.commanderShip.cargo.append(games)
         
-        let robots = TradeItem(item: TradeItemType.Robots, quantity: 5, pricePaid: 0)
-        player.commanderShip.cargo.append(robots)
+        //let robots = TradeItem(item: TradeItemType.Robots, quantity: 5, pricePaid: 0)
+        //player.commanderShip.cargo.append(robots)
         
         //player.policeRecord = PoliceRecordType.dubiousScore
         

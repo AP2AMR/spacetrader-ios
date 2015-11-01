@@ -51,7 +51,8 @@ class PlunderVC: UIViewController {
         narcoticsQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Narcotics))", forState: controlState)
         robotsQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Robots))", forState: controlState)
         
-        baysLabel.text = "Bays: \(player.commanderShip.baysAvailable)/\(player.commanderShip.cargoBays)"
+        let baysInUse = player.commanderShip.cargoBays - player.commanderShip.baysAvailable
+        baysLabel.text = "Bays: \(baysInUse)/\(player.commanderShip.cargoBays)"
     }
     
     func getMaxQuantity(commodity: TradeItemType) -> Int {
@@ -82,42 +83,68 @@ class PlunderVC: UIViewController {
     }
 
     @IBAction func doneButton(sender: AnyObject) {
-        // CLUSTERFUCK
-        
-        // this works for encounters generally
         self.dismissViewControllerAnimated(false, completion: nil)
-        
         delegate?.plunderDidFinish(self)
     }
     
     @IBAction func waterAll(sender: AnyObject) {
+        let quantity = getMaxQuantity(TradeItemType.Water)
+        plunder(TradeItemType.Water, amount: quantity)
+        updateUI()
     }
     
     @IBAction func fursAll(sender: AnyObject) {
+        let quantity = getMaxQuantity(TradeItemType.Water)
+        plunder(TradeItemType.Water, amount: quantity)
+        updateUI()
     }
     
     @IBAction func foodAll(sender: AnyObject) {
+        let quantity = getMaxQuantity(TradeItemType.Food)
+        plunder(TradeItemType.Food, amount: quantity)
+        updateUI()
     }
     
     @IBAction func oreAll(sender: AnyObject) {
+        let quantity = getMaxQuantity(TradeItemType.Ore)
+        plunder(TradeItemType.Ore, amount: quantity)
+        updateUI()
     }
     
     @IBAction func gamesAll(sender: AnyObject) {
+        let quantity = getMaxQuantity(TradeItemType.Games)
+        plunder(TradeItemType.Games, amount: quantity)
+        updateUI()
     }
     
     @IBAction func firearmsAll(sender: AnyObject) {
+        let quantity = getMaxQuantity(TradeItemType.Firearms)
+        plunder(TradeItemType.Firearms, amount: quantity)
+        updateUI()
     }
     
     @IBAction func medicineAll(sender: AnyObject) {
+        let quantity = getMaxQuantity(TradeItemType.Medicine)
+        plunder(TradeItemType.Medicine, amount: quantity)
+        updateUI()
     }
     
     @IBAction func machinesAll(sender: AnyObject) {
+        let quantity = getMaxQuantity(TradeItemType.Machines)
+        plunder(TradeItemType.Machines, amount: quantity)
+        updateUI()
     }
     
     @IBAction func narcoticsAll(sender: AnyObject) {
+        let quantity = getMaxQuantity(TradeItemType.Narcotics)
+        plunder(TradeItemType.Narcotics, amount: quantity)
+        updateUI()
     }
     
     @IBAction func robotsAll(sender: AnyObject) {
+        let quantity = getMaxQuantity(TradeItemType.Robots)
+        plunder(TradeItemType.Robots, amount: quantity)
+        updateUI()
     }
     
     
