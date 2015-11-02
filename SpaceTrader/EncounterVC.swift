@@ -320,6 +320,8 @@ class EncounterVC: UIViewController, PlunderDelegate {
                 self.presentViewController(alertController, animated: true, completion: nil)
                 
             } else {
+                // opponent gets a shot at you      ************************************************
+                galaxy.currentJourney!.currentEncounter!.fleeAttack()
                 outcomeOpponentPursues()
             }
         }
@@ -768,17 +770,17 @@ class EncounterVC: UIViewController, PlunderDelegate {
     }
     
     func outcomeOpponentPursues() {
-        // opponent gets a shot at you
-        
+        // opponent has taken shot at you. Damage is done, youHitThem business set
+
         // display situation
         // report who hit whom
-        let reportString1 = "The \(galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus.rawValue) \(galaxy.currentJourney!.currentEncounter!.opponent.ship.name) is still following you."
+        let reportString1 = "The \(galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus.rawValue) \(galaxy.currentJourney!.currentEncounter!.opponent.ship.name) is still following you.\n"
         var reportString2 = ""
 
         if galaxy.currentJourney!.currentEncounter!.theyHitYou {
-            reportString2 = "The \(galaxy.currentJourney!.currentEncounter!.opposingVessel) hits you."
+            reportString2 = "The \(galaxy.currentJourney!.currentEncounter!.opposingVessel) hits you.\n"
         } else {
-            reportString2 = "The \(galaxy.currentJourney!.currentEncounter!.opposingVessel) misses you."
+            reportString2 = "The \(galaxy.currentJourney!.currentEncounter!.opposingVessel) misses you.\n"
         }
         galaxy.currentJourney!.currentEncounter!.encounterText1 = reportString1 + reportString2
         galaxy.currentJourney!.currentEncounter!.encounterText2 = "The \(galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus.rawValue) ship attacks."

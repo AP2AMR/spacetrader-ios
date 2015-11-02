@@ -438,6 +438,22 @@ class Encounter {
         return outcome
     }
     
+    func fleeAttack() {
+        // opponent gets a shot at you while you're fleeing
+        
+        let playerFleeingMarksmanshipPenalty = 2
+        
+        if rand(fighterSkillOpponent) + player.commanderShip.probabilityOfHit > rand(player.pilotSkill) + playerFleeingMarksmanshipPenalty {
+            theyHitYou = true
+            
+            // player is hit. Determine damage
+            let damageToPlayer = rand((opponent.ship.totalWeapons) * (100 + (2 * player.engineerSkill)) / 100)
+            damagePlayer(damageToPlayer)
+        } else {
+            theyHitYou = false
+        }
+    }
+    
     func flee() {
         // determine whether you'll escape
         var escape = false
