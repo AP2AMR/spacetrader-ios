@@ -72,4 +72,70 @@ class StarSystem {
         self.countdown = Int(arc4random_uniform(6))
         self.visited = false
     }
+    
+    // GETBUYPRICE, GETSELLPRICE, GETQUANTITYAVAILABLE**************************************************
+    
+    func getBuyPrice(commodity: TradeItemType) -> Int {
+        var buyPrice = 0
+        
+        switch commodity {
+            case TradeItemType.Water:
+                buyPrice = waterBuy
+            case TradeItemType.Furs:
+                buyPrice = fursBuy
+            case TradeItemType.Food:
+                buyPrice = foodBuy
+            case TradeItemType.Ore:
+                buyPrice = oreBuy
+            case TradeItemType.Games:
+                buyPrice = gamesBuy
+            case TradeItemType.Firearms:
+                buyPrice = firearmsBuy
+            case TradeItemType.Medicine:
+                buyPrice = medicineBuy
+            case TradeItemType.Machines:
+                buyPrice = machinesBuy
+            case TradeItemType.Narcotics:
+                buyPrice = narcoticsBuy
+            case TradeItemType.Robots:
+                buyPrice = robotsBuy
+            default:
+                buyPrice = 0
+        }
+        
+        return buyPrice
+    }
+    
+    func getSellPrice(commodity: TradeItemType) -> Int {
+        var sellPrice = 0
+        
+        switch commodity {
+        case TradeItemType.Water:
+            sellPrice = waterSell
+        case TradeItemType.Furs:
+            sellPrice = fursSell
+        case TradeItemType.Food:
+            sellPrice = foodSell
+        case TradeItemType.Ore:
+            sellPrice = oreSell
+        case TradeItemType.Games:
+            sellPrice = gamesSell
+        case TradeItemType.Firearms:
+            sellPrice = firearmsSell
+        case TradeItemType.Medicine:
+            sellPrice = medicineSell
+        case TradeItemType.Machines:
+            sellPrice = machinesSell
+        case TradeItemType.Narcotics:
+            sellPrice = narcoticsSell
+        case TradeItemType.Robots:
+            sellPrice = robotsSell
+        default:
+            sellPrice = 0
+        }
+        
+        return sellPrice
+    }
+    
+    // END PRICE/AVAILABILITY METHODS*******************************************************************
 }

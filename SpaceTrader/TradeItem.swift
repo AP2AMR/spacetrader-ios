@@ -25,7 +25,7 @@ class TradeItem {
     let roundOff: Int                       // Roundoff price for trade in orbit
     
     var quantity: Int
-    let pricePaid: Int
+    var pricePaid: Int
     
     init(item: TradeItemType, quantity: Int, pricePaid: Int) {
         self.item = item

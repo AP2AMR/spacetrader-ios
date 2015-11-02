@@ -112,16 +112,6 @@ class SpaceShip {
         }
     }
     
-    func getQuantity(commodity: TradeItemType) -> Int {
-        var quantity: Int = 0
-        for entry in cargo {
-            if entry.item == commodity {
-                quantity += entry.quantity
-            }
-        }
-        return quantity
-    }
-    
     var baysAvailable: Int {
         get {
             return cargoBays - totalCargo
@@ -149,6 +139,19 @@ class SpaceShip {
         //self.shieldStrength = []
         self.gadget = []
         self.crew = []
+        
+        // cargo
+        let commodities: [TradeItemType] = [TradeItemType.Water, TradeItemType.Furs, TradeItemType.Food, TradeItemType.Ore, TradeItemType.Games, TradeItemType.Firearms, TradeItemType.Medicine, TradeItemType.Machines, TradeItemType.Narcotics, TradeItemType.Robots]
+        for item in commodities {
+            let newItem = TradeItem(item: item, quantity: 0, pricePaid: 0)
+            self.cargo.append(newItem)
+        }
+
+        print("NEW CARGO INIT**********************************************************************")
+        for item in cargo {
+            print("item: \(item.name), quantity: \(item.quantity)")
+        }
+        
         switch type {
             case ShipType.Flea:
                 self.type = ShipType.Flea
@@ -458,81 +461,73 @@ class SpaceShip {
         // must presumably still populate weapons, shields, etc on non-player ships. See global.c for info
     }
     
-    // addCargo and removeCargo functions assume quantities have been checked
-    func addCargo(commodity: TradeItemType, quantity: Int, pricePaid: Int) {
-        let cargo = TradeItem(item: commodity, quantity: quantity, pricePaid: pricePaid)
-        self.cargo.append(cargo)
-    }
+    // THESE ARE THE ONLY METHODS THAT SHOULD DIRECTLY ADD, REMOVE, OR MEASURE AMOUNT OF CARGO************
     
-    func removeCargo(commodity: TradeItemType, quantity: Int) -> Bool {
-        print("REMOVE CARGO")
-        // instead, remove all, see how many removed, add back
-        //var prices: [Int] = []
-        var index: Int?
-        var removed = 0
-        var done = false
-        print("complete cargo array: \(cargo)")
-        while !done {
-            index = nil
-            var i = 0
-            for item in cargo {
-                // get the last
-                done = true
-                if item.item == commodity {
-                    index = i
-                    done = false
-                }
-                i += 1
-            }
-            
-            // remove it, add to removed
-            if index != nil {
-                removed += cargo[index!].quantity
-                cargo.removeAtIndex(index!)
-            }
-            
+    // addCargo and removeCargo functions assume quantities have been checked, but return false if not
+    func addCargo(commodity: TradeItemType, quantity: Int, pricePaid: Int) -> Bool {
+        // fail if not enough space
+        if baysAvailable < quantity {
+            return false
         }
-        print("complete cargo array, after removal: \(cargo)")
         
-        
-        
-        
-        // tabulate, calculate average price paid
-//        var i = 0
-//        for item in cargo {
-//            if item.item == commodity {
-//                print("item \(i) contains \(commodity.rawValue)")
-//                total += item.quantity
-//                indices.append(i)
-//                if item.quantity != 0 {
-//                    averagePricePaid += (item.pricePaid * item.quantity)
-//                }
-//            }
-//            i += 1
-//        }
-//        print("averagePricePaid: \(averagePricePaid), total: \(total)")
-//        //averagePricePaid = averagePricePaid / total
-//        if total < quantity {
-//            return false
-//        }
-//        
-//        // remove all
-//        for member in indices {
-//            print("about to remove at \(i)")
-//            cargo.removeAtIndex(member)
-//        }
-//        
-//        // add back remainder, if present, with average pricePaid
-//        let numberToAddBack = total - quantity
-//        
-//        if numberToAddBack > 0 {
-//            let newItem = TradeItem(item: commodity, quantity: numberToAddBack, pricePaid: averagePricePaid)
-//            cargo.append(newItem)
-//        }
-        
-        print("END REMOVE CARGO")
+        // get present quantity and pricePaid
+        //var presentQuantity = 0
+        //var oldPricePaid = 0
+        for item in cargo {
+            if item.item == commodity {
+                let presentQuantity = item.quantity
+                let oldPricePaid = item.pricePaid
+                let newAverage = ((presentQuantity * oldPricePaid) + (quantity * pricePaid)) / (presentQuantity + quantity)
+                print("added \(quantity) new \(commodity.rawValue)")
+                print("new average price paid: \(newAverage)")
+                
+                item.quantity += quantity
+                item.pricePaid = newAverage
+            }
+        }
         
         return true
     }
+    
+    func removeCargo(commodity: TradeItemType, quantity: Int) -> Bool {
+        // returns false if not that many on ship
+        for item in cargo {
+            if item.item == commodity {
+                if item.quantity < quantity {
+                    return false
+                } else {
+                    item.quantity -= quantity
+                    // not really necessary
+                    if item.quantity == 0 {
+                        item.pricePaid = 0
+                    }
+                }
+            }
+        }
+        
+        return true
+    }
+    
+    func getQuantity(commodity: TradeItemType) -> Int {
+        var quantity = 0
+        for item in cargo {
+            if item.item == commodity {
+                quantity = item.quantity
+            }
+        }
+        return quantity
+    }
+    
+    func getPricePaid(commodity: TradeItemType) -> Int {
+        var pricePaid = 0
+        for item in cargo {
+            if item.item == commodity {
+                pricePaid = item.pricePaid
+            }
+        }
+        return pricePaid
+    }
+    
+    // END CARGO METHODS********************************************************************************
 
 }
