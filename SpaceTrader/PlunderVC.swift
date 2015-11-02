@@ -34,10 +34,13 @@ class PlunderVC: UIViewController {
 
     @IBOutlet weak var baysLabel: UILabel!
     
+    var jettisonMode = false
+    
     weak var delegate: PlunderDelegate?
     
     func updateUI() {
         let controlState = UIControlState()
+        // set title to "Plunder Cargo"
         
         // set quantities
         waterQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Water))", forState: controlState)
@@ -55,13 +58,31 @@ class PlunderVC: UIViewController {
         baysLabel.text = "Bays: \(baysInUse)/\(player.commanderShip.cargoBays)"
     }
     
+    func updateUIJettisonMode() {
+        let controlState = UIControlState()
+        // set title to "Jettison Cargo"
+        
+        // set quantities on commander ship
+        waterQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Water)))", forState: controlState)
+        fursQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Furs)))", forState: controlState)
+        foodQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Food)))", forState: controlState)
+        oreQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Ore)))", forState: controlState)
+        gamesQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Games)))", forState: controlState)
+        firearmsQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Firearms)))", forState: controlState)
+        medicineQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Medicine)))", forState: controlState)
+        machinesQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Machines)))", forState: controlState)
+        narcoticsQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Narcotics)))", forState: controlState)
+        robotsQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Robots)))", forState: controlState)
+        
+        
+        let baysInUse = player.commanderShip.cargoBays - player.commanderShip.baysAvailable
+        baysLabel.text = "Bays: \(baysInUse)/\(player.commanderShip.cargoBays)"
+    }
+    
     func getMaxQuantity(commodity: TradeItemType) -> Int {
-        var quantityOnBoard = 0
-        for item in galaxy.currentJourney!.currentEncounter!.opponent.ship.cargo {
-            if item.item == commodity {
-                quantityOnBoard += item.quantity
-            }
-        }
+        // max available to plunder
+        
+        let quantityOnBoard = galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(commodity)
         let baysAvailable = player.commanderShip.baysAvailable
         
         return min(quantityOnBoard, baysAvailable)
@@ -83,8 +104,13 @@ class PlunderVC: UIViewController {
     }
 
     @IBAction func doneButton(sender: AnyObject) {
-        self.dismissViewControllerAnimated(false, completion: nil)
-        delegate?.plunderDidFinish(self)
+        if jettisonMode {
+            jettisonMode = false
+            updateUI()
+        } else {
+            self.dismissViewControllerAnimated(false, completion: nil)
+            delegate?.plunderDidFinish(self)
+        }
     }
     
     @IBAction func waterAll(sender: AnyObject) {
