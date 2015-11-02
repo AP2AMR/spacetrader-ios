@@ -99,8 +99,8 @@ class BuyModalVC: UIViewController  {       // the one that calls the function i
             headerField.text = "Buy \(tradeItemName)"
             textField.text = "At \(tradeItemPrice) cr. each, you can buy up to \(max). How many do you want to buy?"
         } else {
-            let returnTuple = player.getCargoOnBoard(buySellCommodity!)
-            let (quantityAvailableToSell, averagePricePaid) = returnTuple
+            let quantityAvailableToSell = player.commanderShip.getQuantity(buySellCommodity!)
+            let averagePricePaid = player.commanderShip.getPricePaid(buySellCommodity!)
             print("quantity: \(quantityAvailableToSell), average price paid: \(averagePricePaid)")
             
             let profitLoss = tradeItemSellPrice - averagePricePaid

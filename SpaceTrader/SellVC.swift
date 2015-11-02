@@ -67,80 +67,65 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     @IBOutlet weak var baysAvailableLabel: UILabel!
     @IBOutlet weak var cashLabel: UILabel!
 
-    
+    func sellAll(commodity: TradeItemType) {
+        let quantity = player.commanderShip.getQuantity(commodity)
+        player.sell(commodity, quantity: quantity)
+        recurringUpdate()
+        loadPrices()
+    }
     
     // "All" buttons
     @IBAction func waterAll() {
-        player.sellAll(.Water)
-        recurringUpdate()
-        loadPrices()
+        sellAll(TradeItemType.Water)
     }
     
     @IBAction func fursAll() {
-        player.sellAll(.Furs)
-        recurringUpdate()
-        loadPrices()
+        sellAll(TradeItemType.Furs)
     }
     
     @IBAction func foodAll() {
-        player.sellAll(.Food)
-        recurringUpdate()
-        loadPrices()
+        sellAll(TradeItemType.Food)
     }
     
     @IBAction func oreAll() {
-        player.sellAll(.Ore)
-        recurringUpdate()
-        loadPrices()
+        sellAll(TradeItemType.Ore)
     }
 
     @IBAction func gamesAll() {
-        player.sellAll(.Games)
-        recurringUpdate()
-        loadPrices()
+        sellAll(TradeItemType.Games)
     }
     
     @IBAction func firearmsAll() {
-        player.sellAll(.Firearms)
-        recurringUpdate()
-        loadPrices()
+        sellAll(TradeItemType.Firearms)
     }
     
     @IBAction func medicineAll() {
-        player.sellAll(.Medicine)
-        recurringUpdate()
-        loadPrices()
+        sellAll(TradeItemType.Medicine)
     }
     
     @IBAction func machinesAll() {
-        player.sellAll(.Machines)
-        recurringUpdate()
-        loadPrices()
+        sellAll(TradeItemType.Machines)
     }
     
     @IBAction func narcoticsAll() {
-        player.sellAll(.Narcotics)
-        recurringUpdate()
-        loadPrices()
+        sellAll(TradeItemType.Narcotics)
     }
     
     @IBAction func robotsAll() {
-        player.sellAll(.Robots)
-        recurringUpdate()
-        loadPrices()
+        sellAll(TradeItemType.Robots)
     }
     
     // sell buttons--need sender, unfortunately
     
     @IBAction func sellWater(sender: AnyObject) {
-        if player.getCargoQuantity(.Water) != 0 {
+        if player.commanderShip.getQuantity(TradeItemType.Water) != 0 {
             buySellCommodity = TradeItemType.Water
             performSegueWithIdentifier("sellModal", sender: sender)
         }
     }
     
     @IBAction func sellFurs(sender: AnyObject) {
-        if player.getCargoQuantity(.Furs) != 0 {
+        if player.commanderShip.getQuantity(TradeItemType.Furs) != 0 {
             buySellCommodity = TradeItemType.Furs
             performSegueWithIdentifier("sellModal", sender: sender)
         }
@@ -148,7 +133,7 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     }
     
     @IBAction func sellFood(sender: AnyObject) {
-        if player.getCargoQuantity(.Food) != 0 {
+        if player.commanderShip.getQuantity(TradeItemType.Food) != 0 {
             buySellCommodity = TradeItemType.Food
             performSegueWithIdentifier("sellModal", sender: sender)
         }
@@ -156,7 +141,7 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     }
     
     @IBAction func sellOre(sender: AnyObject) {
-        if player.getCargoQuantity(.Ore) != 0 {
+        if player.commanderShip.getQuantity(TradeItemType.Ore) != 0 {
             buySellCommodity = TradeItemType.Ore
             performSegueWithIdentifier("sellModal", sender: sender)
         }
@@ -164,7 +149,7 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     }
     
     @IBAction func sellGames(sender: AnyObject) {
-        if player.getCargoQuantity(.Games) != 0 {
+        if player.commanderShip.getQuantity(TradeItemType.Games) != 0 {
             buySellCommodity = TradeItemType.Games
             performSegueWithIdentifier("sellModal", sender: sender)
         }
@@ -172,7 +157,7 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     }
     
     @IBAction func sellFirearms(sender: AnyObject) {
-        if player.getCargoQuantity(.Firearms) != 0 {
+        if player.commanderShip.getQuantity(TradeItemType.Firearms) != 0 {
             buySellCommodity = TradeItemType.Firearms
             performSegueWithIdentifier("sellModal", sender: sender)
         }
@@ -180,7 +165,7 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     }
 
     @IBAction func sellMedicine(sender: AnyObject) {
-        if player.getCargoQuantity(.Medicine) != 0 {
+        if player.commanderShip.getQuantity(TradeItemType.Medicine) != 0 {
             buySellCommodity = TradeItemType.Medicine
             performSegueWithIdentifier("sellModal", sender: sender)
         }
@@ -188,7 +173,7 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     }
 
     @IBAction func sellMachines(sender: AnyObject) {
-        if player.getCargoQuantity(.Machines) != 0 {
+        if player.commanderShip.getQuantity(TradeItemType.Machines) != 0 {
             buySellCommodity = TradeItemType.Machines
             performSegueWithIdentifier("sellModal", sender: sender)
         }
@@ -196,7 +181,7 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     }
     
     @IBAction func sellNarcotics(sender: AnyObject) {
-        if player.getCargoQuantity(.Narcotics) != 0 {
+        if player.commanderShip.getQuantity(TradeItemType.Narcotics) != 0 {
             buySellCommodity = TradeItemType.Narcotics
             performSegueWithIdentifier("sellModal", sender: sender)
         }
@@ -204,7 +189,7 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     }
     
     @IBAction func sellRobots(sender: AnyObject) {
-        if player.getCargoQuantity(.Robots) != 0 {
+        if player.commanderShip.getQuantity(TradeItemType.Robots) != 0 {
             buySellCommodity = TradeItemType.Robots
             performSegueWithIdentifier("sellModal", sender: sender)
         }

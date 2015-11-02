@@ -137,5 +137,38 @@ class StarSystem {
         return sellPrice
     }
     
+    func getQuantityAvailable(commodity: TradeItemType) -> Int {
+        var quantity = 0
+        
+        switch commodity {
+        case TradeItemType.Water:
+            quantity = water
+        case TradeItemType.Furs:
+            quantity = furs
+        case TradeItemType.Food:
+            quantity = food
+        case TradeItemType.Ore:
+            quantity = ore
+        case TradeItemType.Games:
+            quantity = games
+        case TradeItemType.Firearms:
+            quantity = firearms
+        case TradeItemType.Medicine:
+            quantity = medicine
+        case TradeItemType.Machines:
+            quantity = machines
+        case TradeItemType.Narcotics:
+            quantity = narcotics
+        case TradeItemType.Robots:
+            quantity = robots
+        default:
+            quantity = 0
+        }
+        
+        return quantity
+    }
+    
+    
+    
     // END PRICE/AVAILABILITY METHODS*******************************************************************
 }

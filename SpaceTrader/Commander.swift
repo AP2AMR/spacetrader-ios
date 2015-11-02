@@ -276,85 +276,57 @@ class Commander {
         return false
     }
     
-    func getMax(commodity: TradeItemType) -> Int {
-        var availableQuantity: Int {
-            switch commodity {
-                case .Water: return galaxy.currentSystem!.water
-                case .Furs: return galaxy.currentSystem!.furs
-                case .Food: return galaxy.currentSystem!.food
-                case .Ore: return galaxy.currentSystem!.ore
-                case .Games: return galaxy.currentSystem!.games
-                case .Firearms: return galaxy.currentSystem!.firearms
-                case .Medicine: return galaxy.currentSystem!.medicine
-                case .Machines: return galaxy.currentSystem!.machines
-                case .Narcotics: return galaxy.currentSystem!.narcotics
-                case .Robots: return galaxy.currentSystem!.robots
-                default: return 0
-            }
-        }
-        var pricePerUnit: Int {
-            switch commodity {
-                case .Water: return galaxy.currentSystem!.waterBuy
-                case .Furs: return galaxy.currentSystem!.fursBuy
-                case .Food: return galaxy.currentSystem!.foodBuy
-                case .Ore: return galaxy.currentSystem!.oreBuy
-                case .Games: return galaxy.currentSystem!.gamesBuy
-                case .Firearms: return galaxy.currentSystem!.firearmsBuy
-                case .Medicine: return galaxy.currentSystem!.medicineBuy
-                case .Machines: return galaxy.currentSystem!.machinesBuy
-                case .Narcotics: return galaxy.currentSystem!.narcoticsBuy
-                case .Robots: return galaxy.currentSystem!.robotsBuy
-                default: return 0
-            }
-        }
-        let maxMoney = player.credits / pricePerUnit
-        return min(maxMoney, player.commanderShip.baysAvailable, availableQuantity)
-    }
-    
-    func getCargoOnBoard(commodity: TradeItemType) -> (Int, Int) {
-        var total: Int = 0
-        var average: Int = 0
-        for entry in player.commanderShip.cargo {
-            if entry.item == commodity {
-                total += entry.quantity
-                average += (entry.pricePaid * entry.quantity)
-            }
-        }
-        average = average / total
-        return (total, average)
-    }
-    
-    func getCargoQuantity(commodity: TradeItemType) -> Int {
-        var total: Int = 0
-        for entry in player.commanderShip.cargo {
-            if entry.item == commodity {
-                total += entry.quantity
-            }
-        }
-        return total
-    }
-    
-    func getPricePaid(commodity: TradeItemType) -> Int? {
-        var total: Int = 0
-        var average: Int = 0
-        for entry in player.commanderShip.cargo {
-            if entry.item == commodity {
-                total += entry.quantity
-                average += (entry.pricePaid * entry.quantity)
-            }
-        }
-        if average > 0 {
-            average = average / total
-            return average
-        } else {
-            return nil
-        }
-    }
+
+//    func getCargoOnBoard(commodity: TradeItemType) -> (Int, Int) {
+//        var total: Int = 0
+//        var average: Int = 0
+//        for entry in player.commanderShip.cargo {
+//            if entry.item == commodity {
+//                total += entry.quantity
+//                average += (entry.pricePaid * entry.quantity)
+//            }
+//        }
+//        average = average / total
+//        return (total, average)
+//    }
+//    
+//    func getCargoQuantity(commodity: TradeItemType) -> Int {
+//        var total: Int = 0
+//        for entry in player.commanderShip.cargo {
+//            if entry.item == commodity {
+//                total += entry.quantity
+//            }
+//        }
+//        return total
+//    }
+//    
+//    func getPricePaid(commodity: TradeItemType) -> Int? {
+//        var total: Int = 0
+//        var average: Int = 0
+//        for entry in player.commanderShip.cargo {
+//            if entry.item == commodity {
+//                total += entry.quantity
+//                average += (entry.pricePaid * entry.quantity)
+//            }
+//        }
+//        if average > 0 {
+//            average = average / total
+//            return average
+//        } else {
+//            return nil
+//        }
+//    }
     
     func getPLString(commodity: TradeItemType) -> String {
-        let pricePaid = getPricePaid(commodity)
-        if pricePaid != nil {
-            let PL = getLocalSellPriceOf(commodity) - pricePaid!
+        let pricePaid = player.commanderShip.getPricePaid(commodity)
+        var commodityOnBoard = false
+        if player.commanderShip.getQuantity(commodity) != 0 {
+            commodityOnBoard = true
+        }
+        
+        if commodityOnBoard {
+            let localSellPrice = galaxy.currentSystem!.getSellPrice(commodity)
+            let PL = localSellPrice - pricePaid
             if PL >= 0 {
                 return "+\(PL)"
             } else {
@@ -362,60 +334,6 @@ class Commander {
             }
         } else {
             return "---"
-        }
-    }
-    
-    func getLocalSellPriceOf(commodity: TradeItemType) -> Int {
-        switch commodity {
-        case .Water:
-            return galaxy.currentSystem!.waterSell
-        case .Furs:
-            return galaxy.currentSystem!.fursSell
-        case .Food:
-            return galaxy.currentSystem!.foodSell
-        case .Ore:
-            return galaxy.currentSystem!.oreSell
-        case .Games:
-            return galaxy.currentSystem!.gamesSell
-        case .Firearms:
-            return galaxy.currentSystem!.firearmsSell
-        case .Medicine:
-            return galaxy.currentSystem!.medicineSell
-        case .Machines:
-            return galaxy.currentSystem!.machinesSell
-        case .Narcotics:
-            return galaxy.currentSystem!.narcoticsSell
-        case .Robots:
-            return galaxy.currentSystem!.robotsSell
-        default:
-            return 0
-        }
-    }
-    
-    func getLocalBuyPriceOf(commodity: TradeItemType) -> Int {
-        switch commodity {
-        case .Water:
-            return galaxy.currentSystem!.waterBuy
-        case .Furs:
-            return galaxy.currentSystem!.fursBuy
-        case .Food:
-            return galaxy.currentSystem!.foodBuy
-        case .Ore:
-            return galaxy.currentSystem!.oreBuy
-        case .Games:
-            return galaxy.currentSystem!.gamesBuy
-        case .Firearms:
-            return galaxy.currentSystem!.firearmsBuy
-        case .Medicine:
-            return galaxy.currentSystem!.medicineBuy
-        case .Machines:
-            return galaxy.currentSystem!.machinesBuy
-        case .Narcotics:
-            return galaxy.currentSystem!.narcoticsBuy
-        case .Robots:
-            return galaxy.currentSystem!.robotsBuy
-        default:
-            return 0
         }
     }
     
@@ -490,15 +408,45 @@ class Commander {
     // NEW BUY/SELL FUNCTIONS. ALL BUYING AND SELLING SHOULD USE THESE*********************************
     
     func buy(commodity: TradeItemType, quantity: Int) -> Bool {
-        let buyPrice = quantity
+        let unitPrice = galaxy.currentSystem!.getBuyPrice(commodity)
+        let buyPrice = quantity * unitPrice
         // see if transaction can go through
-        if (player.commanderShip.baysAvailable < quantity) || (player.credits < buyPrice) || () {
+        if (player.commanderShip.baysAvailable < quantity) || (player.credits < buyPrice) || (player.credits < buyPrice) {
             
+            return false
         }
         
+        // add cargo, take money
+        player.commanderShip.addCargo(commodity, quantity: quantity, pricePaid: unitPrice)
+        player.credits -= buyPrice
+        
+        return true
     }
     
+    func sell(commodity: TradeItemType, quantity: Int) -> Bool {
+        // see if enough available
+        if (player.commanderShip.getQuantity(commodity) < quantity) {
+            return false
+        }
+        
+        // remove cargo, add money
+        player.commanderShip.removeCargo(commodity, quantity: quantity)
+        let unitPrice = galaxy.currentSystem!.getSellPrice(commodity)
+        player.credits += (unitPrice * quantity)
+        
+        return true
+    }
     
+    func getMax(commodity: TradeItemType) -> Int {
+        let credits = player.credits
+        let unitCost = galaxy.currentSystem!.getBuyPrice(commodity)
+        
+        let maxCanAfford: Int = credits / unitCost
+        let baysAvailable = player.commanderShip.baysAvailable
+        let amountForSale = galaxy.currentSystem!.getQuantityAvailable(commodity)
+
+        return min(maxCanAfford, baysAvailable, amountForSale)
+    }
     
     // END BUY/SELL FUNCTIONS**************************************************************************
 }

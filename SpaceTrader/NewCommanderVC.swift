@@ -155,6 +155,8 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         let photonDisruptor = Weapon(type: WeaponType.photonDisruptor)
         player.commanderShip.weapon.append(photonDisruptor)
         
+        print("testing getMax: ore")
+        print(player.getMax(TradeItemType.Ore))
         
         // END TESTING STUFF ********************************************************************
         
