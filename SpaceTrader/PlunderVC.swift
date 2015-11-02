@@ -32,7 +32,9 @@ class PlunderVC: UIViewController {
     @IBOutlet weak var narcoticsQuantity: UIButton!
     @IBOutlet weak var robotsQuantity: UIButton!
 
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var baysLabel: UILabel!
+    @IBOutlet weak var jettisonButton: UIButton!
     
     var jettisonMode = false
     
@@ -40,7 +42,9 @@ class PlunderVC: UIViewController {
     
     func updateUI() {
         let controlState = UIControlState()
-        // set title to "Plunder Cargo"
+        // set title to "Plunder Cargo", jettison button text to present
+        titleLabel.text = "Plunder Cargo"
+        jettisonButton.setTitle("Jettison", forState: controlState)
         
         // set quantities
         waterQuantity.setTitle("\(galaxy.currentJourney!.currentEncounter!.opponent.ship.getQuantity(TradeItemType.Water))", forState: controlState)
@@ -60,19 +64,21 @@ class PlunderVC: UIViewController {
     
     func updateUIJettisonMode() {
         let controlState = UIControlState()
-        // set title to "Jettison Cargo"
+        // set title to "Jettison Cargo", make jettison button vanish
+        titleLabel.text = "Jettison Cargo"
+        jettisonButton.setTitle("", forState: controlState)
         
         // set quantities on commander ship
-        waterQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Water)))", forState: controlState)
-        fursQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Furs)))", forState: controlState)
-        foodQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Food)))", forState: controlState)
-        oreQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Ore)))", forState: controlState)
-        gamesQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Games)))", forState: controlState)
-        firearmsQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Firearms)))", forState: controlState)
-        medicineQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Medicine)))", forState: controlState)
-        machinesQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Machines)))", forState: controlState)
-        narcoticsQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Narcotics)))", forState: controlState)
-        robotsQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Robots)))", forState: controlState)
+        waterQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Water))", forState: controlState)
+        fursQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Furs))", forState: controlState)
+        foodQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Food))", forState: controlState)
+        oreQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Ore))", forState: controlState)
+        gamesQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Games))", forState: controlState)
+        firearmsQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Firearms))", forState: controlState)
+        medicineQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Medicine))", forState: controlState)
+        machinesQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Machines))", forState: controlState)
+        narcoticsQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Narcotics))", forState: controlState)
+        robotsQuantity.setTitle("\(player.commanderShip.getQuantity(TradeItemType.Robots))", forState: controlState)
         
         
         let baysInUse = player.commanderShip.cargoBays - player.commanderShip.baysAvailable
@@ -113,66 +119,66 @@ class PlunderVC: UIViewController {
         }
     }
     
+    func plunderOrJettisonAll(commodity: TradeItemType) {
+        if jettisonMode {
+            let quantity = player.commanderShip.getQuantity(commodity)
+            player.commanderShip.removeCargo(commodity, quantity: quantity)
+            updateUIJettisonMode()
+        } else {
+            let quantity = getMaxQuantity(commodity)
+            plunder(commodity, amount: quantity)
+            updateUI()
+        }
+    }
+    
     @IBAction func waterAll(sender: AnyObject) {
-        let quantity = getMaxQuantity(TradeItemType.Water)
-        plunder(TradeItemType.Water, amount: quantity)
-        updateUI()
+        plunderOrJettisonAll(TradeItemType.Water)
     }
     
     @IBAction func fursAll(sender: AnyObject) {
-        let quantity = getMaxQuantity(TradeItemType.Water)
-        plunder(TradeItemType.Water, amount: quantity)
-        updateUI()
+        plunderOrJettisonAll(TradeItemType.Furs)
     }
     
     @IBAction func foodAll(sender: AnyObject) {
-        let quantity = getMaxQuantity(TradeItemType.Food)
-        plunder(TradeItemType.Food, amount: quantity)
-        updateUI()
+        plunderOrJettisonAll(TradeItemType.Food)
     }
     
     @IBAction func oreAll(sender: AnyObject) {
-        let quantity = getMaxQuantity(TradeItemType.Ore)
-        plunder(TradeItemType.Ore, amount: quantity)
-        updateUI()
+        plunderOrJettisonAll(TradeItemType.Ore)
     }
     
     @IBAction func gamesAll(sender: AnyObject) {
-        let quantity = getMaxQuantity(TradeItemType.Games)
-        plunder(TradeItemType.Games, amount: quantity)
-        updateUI()
+        plunderOrJettisonAll(TradeItemType.Games)
     }
     
     @IBAction func firearmsAll(sender: AnyObject) {
-        let quantity = getMaxQuantity(TradeItemType.Firearms)
-        plunder(TradeItemType.Firearms, amount: quantity)
-        updateUI()
+        plunderOrJettisonAll(TradeItemType.Firearms)
     }
     
     @IBAction func medicineAll(sender: AnyObject) {
-        let quantity = getMaxQuantity(TradeItemType.Medicine)
-        plunder(TradeItemType.Medicine, amount: quantity)
-        updateUI()
+        plunderOrJettisonAll(TradeItemType.Medicine)
     }
     
     @IBAction func machinesAll(sender: AnyObject) {
-        let quantity = getMaxQuantity(TradeItemType.Machines)
-        plunder(TradeItemType.Machines, amount: quantity)
-        updateUI()
+        plunderOrJettisonAll(TradeItemType.Machines)
     }
     
     @IBAction func narcoticsAll(sender: AnyObject) {
-        let quantity = getMaxQuantity(TradeItemType.Narcotics)
-        plunder(TradeItemType.Narcotics, amount: quantity)
-        updateUI()
+        plunderOrJettisonAll(TradeItemType.Narcotics)
     }
     
     @IBAction func robotsAll(sender: AnyObject) {
-        let quantity = getMaxQuantity(TradeItemType.Robots)
-        plunder(TradeItemType.Robots, amount: quantity)
-        updateUI()
+        plunderOrJettisonAll(TradeItemType.Robots)
     }
     
+    @IBAction func jettisonButton(sender: AnyObject) {
+        if jettisonMode {
+            // do nothing
+        } else {
+            jettisonMode = true
+            updateUIJettisonMode()
+        }
+    }
     
     
 }

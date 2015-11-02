@@ -441,7 +441,11 @@ class Commander {
         let credits = player.credits
         let unitCost = galaxy.currentSystem!.getBuyPrice(commodity)
         
-        let maxCanAfford: Int = credits / unitCost
+        var maxCanAfford: Int = 0
+        // make sure item is for sale, else we're diving by zero
+        if unitCost != 0 {
+            maxCanAfford = credits / unitCost
+        }
         let baysAvailable = player.commanderShip.baysAvailable
         let amountForSale = galaxy.currentSystem!.getQuantityAvailable(commodity)
 

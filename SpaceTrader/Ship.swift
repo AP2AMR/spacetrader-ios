@@ -477,7 +477,14 @@ class SpaceShip {
             if item.item == commodity {
                 let presentQuantity = item.quantity
                 let oldPricePaid = item.pricePaid
-                let newAverage = ((presentQuantity * oldPricePaid) + (quantity * pricePaid)) / (presentQuantity + quantity)
+                
+                var newAverage = 0
+                if presentQuantity != 0 {
+                    newAverage = ((presentQuantity * oldPricePaid) + (quantity * pricePaid)) / (presentQuantity + quantity)
+                } else {
+                    newAverage = pricePaid
+                }
+                
                 print("added \(quantity) new \(commodity.rawValue)")
                 print("new average price paid: \(newAverage)")
                 

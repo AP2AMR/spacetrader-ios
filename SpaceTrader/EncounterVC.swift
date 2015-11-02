@@ -290,7 +290,38 @@ class EncounterVC: UIViewController, PlunderDelegate {
         
         // the part of it where you actually flee
         if actuallyFlee {
-            print("TODO: IMPLEMENT FLEEING")
+            galaxy.currentJourney!.currentEncounter!.playerFleeing = true
+            
+            // determine whether you'll escape
+            var escape = false
+            if player.difficulty == DifficultyType.beginner {
+                escape = true
+            } else {
+                if ((rand(7) + player.pilotSkill)/3 * 2) >= (rand(galaxy.currentJourney!.currentEncounter!.opponent.commander.pilotSkill) * (2 + player.difficultyInt)) {
+                    escape = true
+                } else {
+                    escape = false
+                }
+            }
+            
+            
+            // display escaped alert
+            if escape {
+                let title = "Escaped"
+                let message = "You have managed to escape your opponent."
+                
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                    (alert: UIAlertAction!) -> Void in
+                    // dismiss and conclude encounter
+                    self.dismissViewController()
+                    galaxy.currentJourney!.currentEncounter!.concludeEncounter()
+                }))
+                self.presentViewController(alertController, animated: true, completion: nil)
+                
+            } else {
+                outcomeOpponentPursues()
+            }
         }
     }
     
@@ -734,6 +765,25 @@ class EncounterVC: UIViewController, PlunderDelegate {
         // call function in parent
         let stringToPass = NSString(string: "playerDestroyedEscapes")
         NSNotificationCenter.defaultCenter().postNotificationName("encounterModalFireNotification", object: stringToPass)
+    }
+    
+    func outcomeOpponentPursues() {
+        // opponent gets a shot at you
+        
+        // display situation
+        // report who hit whom
+        let reportString1 = "The \(galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus.rawValue) \(galaxy.currentJourney!.currentEncounter!.opponent.ship.name) is still following you."
+        var reportString2 = ""
+
+        if galaxy.currentJourney!.currentEncounter!.theyHitYou {
+            reportString2 = "The \(galaxy.currentJourney!.currentEncounter!.opposingVessel) hits you."
+        } else {
+            reportString2 = "The \(galaxy.currentJourney!.currentEncounter!.opposingVessel) misses you."
+        }
+        galaxy.currentJourney!.currentEncounter!.encounterText1 = reportString1 + reportString2
+        galaxy.currentJourney!.currentEncounter!.encounterText2 = "The \(galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus.rawValue) ship attacks."
+        
+        redrawViewController()
     }
     
     // END CONSEQUENT ACTIONS*********************************************************************
