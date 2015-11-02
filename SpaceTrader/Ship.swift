@@ -465,40 +465,72 @@ class SpaceShip {
     }
     
     func removeCargo(commodity: TradeItemType, quantity: Int) -> Bool {
-        var indices: [Int] = []
-        var averagePricePaid = 0
-        var total = 0
+        print("REMOVE CARGO")
+        // instead, remove all, see how many removed, add back
+        //var prices: [Int] = []
+        var index: Int?
+        var removed = 0
+        var done = false
+        print("complete cargo array: \(cargo)")
+        while !done {
+            index = nil
+            var i = 0
+            for item in cargo {
+                // get the last
+                done = true
+                if item.item == commodity {
+                    index = i
+                    done = false
+                }
+                i += 1
+            }
+            
+            // remove it, add to removed
+            if index != nil {
+                removed += cargo[index!].quantity
+                cargo.removeAtIndex(index!)
+            }
+            
+        }
+        print("complete cargo array, after removal: \(cargo)")
+        
+        
+        
         
         // tabulate, calculate average price paid
-        var i = 0
-        for item in cargo {
-            if item.item == commodity {
-                total += item.quantity
-                indices.append(i)
-                if item.quantity != 0 {
-                    averagePricePaid += (item.pricePaid * item.quantity)
-                }
-            }
-            i += 1
-        }
-        print("averagePricePaid: \(averagePricePaid), total: \(total)")
-        //averagePricePaid = averagePricePaid / total
-        if total < quantity {
-            return false
-        }
+//        var i = 0
+//        for item in cargo {
+//            if item.item == commodity {
+//                print("item \(i) contains \(commodity.rawValue)")
+//                total += item.quantity
+//                indices.append(i)
+//                if item.quantity != 0 {
+//                    averagePricePaid += (item.pricePaid * item.quantity)
+//                }
+//            }
+//            i += 1
+//        }
+//        print("averagePricePaid: \(averagePricePaid), total: \(total)")
+//        //averagePricePaid = averagePricePaid / total
+//        if total < quantity {
+//            return false
+//        }
+//        
+//        // remove all
+//        for member in indices {
+//            print("about to remove at \(i)")
+//            cargo.removeAtIndex(member)
+//        }
+//        
+//        // add back remainder, if present, with average pricePaid
+//        let numberToAddBack = total - quantity
+//        
+//        if numberToAddBack > 0 {
+//            let newItem = TradeItem(item: commodity, quantity: numberToAddBack, pricePaid: averagePricePaid)
+//            cargo.append(newItem)
+//        }
         
-        // remove all
-        for member in indices {
-            cargo.removeAtIndex(member)
-        }
-        
-        // add back remainder, if present, with average pricePaid
-        let numberToAddBack = total - quantity
-        
-        if numberToAddBack > 0 {
-            let newItem = TradeItem(item: commodity, quantity: numberToAddBack, pricePaid: averagePricePaid)
-            cargo.append(newItem)
-        }
+        print("END REMOVE CARGO")
         
         return true
     }

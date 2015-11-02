@@ -116,7 +116,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         // fill out info at the bottom
         
         targetSystemLabel.text = "Target system: \(galaxy.targetSystem!.name)"
-        baysLabel.text = "Bays: 0/\(player.commanderShip.cargoBays)"    // FIX
+        //baysLabel.text = "Bays: 0/\(player.commanderShip.cargoBays)"    // FIX
         cashLabel.text = "Cash: \(player.credits) cr."
         
         
