@@ -45,6 +45,27 @@ class SystemInfoVC: UIViewController {
         policeLabel.text = galaxy.getActivityForInt(localPolitics.activityPolice)
         piratesLabel.text = galaxy.getActivityForInt(localPolitics.activityPirates)
         
+        let fuelNeeded = player.commanderShip.fuelTanks - player.commanderShip.fuel
+        let fullTankCost = fuelNeeded * player.commanderShip.costOfFuel
+        if fuelNeeded == 0 {
+            fuelText.text = "You have enough fuel to fly \(player.commanderShip.fuel) parsecs. \nYour tank is full."
+            // disappear fuel button
+        } else {
+            fuelText.text = "You have enough fuel to fly \(player.commanderShip.fuel) parsecs. \nA full tank costs \(fullTankCost) cr."
+            // make fuel button visible
+        }
+
+        
+        let repairsNeeded = player.commanderShip.hullStrength - player.commanderShip.hull 
+        let repairsCost = repairsNeeded * player.commanderShip.repairCosts
+        if repairsNeeded == 0 {
+            hullText.text = "Your hull strength is at 100%. \nNo repairs are needed"
+            // disappear repairs button
+        } else {
+            hullText.text = "Your hull strength is at \(player.commanderShip.hullStrength)%. \nFull repairs will cost \(repairsCost) cr."
+            // make repairs button visible
+        }
+        
     }
     
     @IBAction func maxFuel(sender: AnyObject) {
@@ -57,6 +78,7 @@ class SystemInfoVC: UIViewController {
             player.credits -= costOfFuel
             player.commanderShip.fuel = player.commanderShip.fuelTanks
         }
+        updateUI()
     }
     
     @IBAction func maxRepairs(sender: AnyObject) {
@@ -67,6 +89,7 @@ class SystemInfoVC: UIViewController {
             player.credits -= costOfRepairs
             player.commanderShip.hull = player.commanderShip.hullStrength
         }
+        updateUI()
         
     }
     
