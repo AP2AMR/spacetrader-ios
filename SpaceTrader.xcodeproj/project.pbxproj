@@ -39,6 +39,11 @@
 		5AD5F8BE1B9F3BE700154B21 /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8BD1B9F3BE700154B21 /* Ship.swift */; };
 		5AD5F8C01B9F473E00154B21 /* TradeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8BF1B9F473E00154B21 /* TradeItem.swift */; };
 		5AD5F8C21B9FB54E00154B21 /* Galaxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8C11B9FB54E00154B21 /* Galaxy.swift */; };
+		5AEB37871BE95225004B195A /* buy.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AEB37821BE95225004B195A /* buy.png */; };
+		5AEB37881BE95225004B195A /* planet.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AEB37831BE95225004B195A /* planet.png */; };
+		5AEB37891BE95225004B195A /* sell.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AEB37841BE95225004B195A /* sell.png */; };
+		5AEB378A1BE95225004B195A /* tempShipyard.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AEB37851BE95225004B195A /* tempShipyard.png */; };
+		5AEB378B1BE95225004B195A /* warp.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AEB37861BE95225004B195A /* warp.png */; };
 		5AEC942C1BC84B2900C68F7F /* NewGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEC942B1BC84B2900C68F7F /* NewGameVC.swift */; };
 		5AEC942E1BC8594F00C68F7F /* GalacticChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEC942D1BC8594F00C68F7F /* GalacticChartVC.swift */; };
 		5AEC94301BC85CF100C68F7F /* GalacticChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEC942F1BC85CF100C68F7F /* GalacticChartView.swift */; };
@@ -94,6 +99,11 @@
 		5AD5F8BD1B9F3BE700154B21 /* Ship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
 		5AD5F8BF1B9F473E00154B21 /* TradeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeItem.swift; sourceTree = "<group>"; };
 		5AD5F8C11B9FB54E00154B21 /* Galaxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Galaxy.swift; sourceTree = "<group>"; };
+		5AEB37821BE95225004B195A /* buy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buy.png; sourceTree = "<group>"; };
+		5AEB37831BE95225004B195A /* planet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planet.png; sourceTree = "<group>"; };
+		5AEB37841BE95225004B195A /* sell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sell.png; sourceTree = "<group>"; };
+		5AEB37851BE95225004B195A /* tempShipyard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tempShipyard.png; sourceTree = "<group>"; };
+		5AEB37861BE95225004B195A /* warp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warp.png; sourceTree = "<group>"; };
 		5AEC942B1BC84B2900C68F7F /* NewGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameVC.swift; sourceTree = "<group>"; };
 		5AEC942D1BC8594F00C68F7F /* GalacticChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalacticChartVC.swift; sourceTree = "<group>"; };
 		5AEC942F1BC85CF100C68F7F /* GalacticChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalacticChartView.swift; sourceTree = "<group>"; };
@@ -141,6 +151,7 @@
 		5AD5F88E1B9A122200154B21 /* SpaceTrader */ = {
 			isa = PBXGroup;
 			children = (
+				5AEB37811BE95225004B195A /* Icons */,
 				5AD5F8911B9A122200154B21 /* AppDelegate.swift */,
 				5AD5F8931B9A122200154B21 /* ViewController.swift */,
 				5AD5F8951B9A122200154B21 /* Main.storyboard */,
@@ -200,6 +211,19 @@
 				5A0265B71B9FCD170079F6DE /* Weapon.swift */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		5AEB37811BE95225004B195A /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				5AEB37821BE95225004B195A /* buy.png */,
+				5AEB37831BE95225004B195A /* planet.png */,
+				5AEB37841BE95225004B195A /* sell.png */,
+				5AEB37851BE95225004B195A /* tempShipyard.png */,
+				5AEB37861BE95225004B195A /* warp.png */,
+			);
+			name = Icons;
+			path = "Space Trader Icons";
 			sourceTree = "<group>";
 		};
 		5AF1CA2B1BA365DC00643C5F /* ViewControllers */ = {
@@ -311,8 +335,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AD5F8971B9A122200154B21 /* Main.storyboard in Resources */,
+				5AEB37881BE95225004B195A /* planet.png in Resources */,
 				5AD5F89C1B9A122200154B21 /* LaunchScreen.xib in Resources */,
+				5AEB37871BE95225004B195A /* buy.png in Resources */,
 				5AD5F8991B9A122200154B21 /* Images.xcassets in Resources */,
+				5AEB378B1BE95225004B195A /* warp.png in Resources */,
+				5AEB37891BE95225004B195A /* sell.png in Resources */,
+				5AEB378A1BE95225004B195A /* tempShipyard.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
