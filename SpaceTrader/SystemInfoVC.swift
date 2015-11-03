@@ -60,6 +60,14 @@ class SystemInfoVC: UIViewController {
     }
     
     @IBAction func maxRepairs(sender: AnyObject) {
+        let repairsNeeded = player.commanderShip.hullStrength - player.commanderShip.hull
+        let costOfRepairs = repairsNeeded * player.commanderShip.repairCosts
+        
+        if player.credits >= costOfRepairs {
+            player.credits -= costOfRepairs
+            player.commanderShip.hull = player.commanderShip.hullStrength
+        }
+        
     }
     
 }
