@@ -320,7 +320,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
                 self.presentViewController(alertController, animated: true, completion: nil)
                 
             } else {
-                // opponent gets a shot at you      ************************************************
+                // opponent gets a shot at you
                 galaxy.currentJourney!.currentEncounter!.fleeAttack()
                 outcomeOpponentPursues()
             }

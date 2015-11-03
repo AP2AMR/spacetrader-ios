@@ -128,7 +128,7 @@ enum MercenaryName: String {
     case mystyc = "Mystyc"
     case nandi = "Nandi"
     case orestes = "Orestes"
-    case panco = "Pancho"
+    case pancho = "Pancho"
     case ps37 = "PS37"
     case quarck = "Quarck"
     case sosumi = "Sosumi"
