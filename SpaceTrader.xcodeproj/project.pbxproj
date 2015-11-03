@@ -44,6 +44,7 @@
 		5AEB37891BE95225004B195A /* sell.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AEB37841BE95225004B195A /* sell.png */; };
 		5AEB378A1BE95225004B195A /* tempShipyard.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AEB37851BE95225004B195A /* tempShipyard.png */; };
 		5AEB378B1BE95225004B195A /* warp.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AEB37861BE95225004B195A /* warp.png */; };
+		5AEB378D1BE95E5B004B195A /* SystemInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB378C1BE95E5B004B195A /* SystemInfoVC.swift */; };
 		5AEC942C1BC84B2900C68F7F /* NewGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEC942B1BC84B2900C68F7F /* NewGameVC.swift */; };
 		5AEC942E1BC8594F00C68F7F /* GalacticChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEC942D1BC8594F00C68F7F /* GalacticChartVC.swift */; };
 		5AEC94301BC85CF100C68F7F /* GalacticChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEC942F1BC85CF100C68F7F /* GalacticChartView.swift */; };
@@ -104,6 +105,7 @@
 		5AEB37841BE95225004B195A /* sell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sell.png; sourceTree = "<group>"; };
 		5AEB37851BE95225004B195A /* tempShipyard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tempShipyard.png; sourceTree = "<group>"; };
 		5AEB37861BE95225004B195A /* warp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warp.png; sourceTree = "<group>"; };
+		5AEB378C1BE95E5B004B195A /* SystemInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemInfoVC.swift; sourceTree = "<group>"; };
 		5AEC942B1BC84B2900C68F7F /* NewGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameVC.swift; sourceTree = "<group>"; };
 		5AEC942D1BC8594F00C68F7F /* GalacticChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalacticChartVC.swift; sourceTree = "<group>"; };
 		5AEC942F1BC85CF100C68F7F /* GalacticChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalacticChartView.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				5A518FB31BC31E9200021B13 /* ShortRangeChartView.swift */,
 				5A518FAF1BC0ACC400021B13 /* WarpVC.swift */,
 				5A83DF531BDECF0400C31AC5 /* WarpViewVC.swift */,
+				5AEB378C1BE95E5B004B195A /* SystemInfoVC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				5A0265BA1B9FCD2D0079F6DE /* Shield.swift in Sources */,
 				5AD5F8B21B9D160400154B21 /* StarSystem.swift in Sources */,
 				5A81AD181BACFBCD001F2918 /* Globals.swift in Sources */,
+				5AEB378D1BE95E5B004B195A /* SystemInfoVC.swift in Sources */,
 				5A518FB21BC18C0B00021B13 /* DockVC.swift in Sources */,
 				5A078AC11BB33C100005155D /* BuyModalVC.swift in Sources */,
 				5AF1CA2D1BA36C2300643C5F /* NewCommanderVC.swift in Sources */,

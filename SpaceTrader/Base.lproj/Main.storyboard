@@ -2645,7 +2645,7 @@
         <!--System Info-->
         <scene sceneID="Tfu-cW-O4m">
             <objects>
-                <viewController id="I0c-F9-5oA" sceneMemberID="viewController">
+                <viewController id="I0c-F9-5oA" customClass="SystemInfoVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YnQ-6e-uT2"/>
                         <viewControllerLayoutGuide type="bottom" id="Gmq-yl-qzZ"/>
@@ -2790,11 +2790,17 @@
                                 <rect key="frame" x="542" y="388" width="30" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Fuel"/>
+                                <connections>
+                                    <action selector="maxFuel:" destination="I0c-F9-5oA" eventType="touchUpInside" id="F4N-rh-7cr"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkq-eB-n1C">
                                 <rect key="frame" x="531" y="458" width="52" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Repairs"/>
+                                <connections>
+                                    <action selector="maxRepairs:" destination="I0c-F9-5oA" eventType="touchUpInside" id="cDG-bt-JJo"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
@@ -2808,6 +2814,22 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="System Info" id="Osi-Yw-eUB"/>
+                    <connections>
+                        <outlet property="fuelButton" destination="qQh-d9-BXr" id="GbX-JY-SSs"/>
+                        <outlet property="fuelText" destination="bCy-lg-x8y" id="zMb-mR-8MQ"/>
+                        <outlet property="governmentLabel" destination="BHJ-Ke-8wE" id="nMe-wO-TEU"/>
+                        <outlet property="hullText" destination="EU9-Bt-pYF" id="nP0-Y4-xZy"/>
+                        <outlet property="mercenariesButton" destination="03q-aU-AAj" id="pi3-SI-6Zm"/>
+                        <outlet property="nameLabel" destination="bXv-hM-SfR" id="Acb-Gr-6RX"/>
+                        <outlet property="newsButton" destination="I9e-Fy-kfO" id="hJj-Nk-h6J"/>
+                        <outlet property="piratesLabel" destination="6Wc-8r-1F1" id="Nvd-Ds-OKX"/>
+                        <outlet property="policeLabel" destination="FF3-Bm-Ngz" id="Vbd-7w-lcY"/>
+                        <outlet property="repairsButton" destination="fkq-eB-n1C" id="oE3-xM-iNn"/>
+                        <outlet property="resourceLabel" destination="gNU-Ob-One" id="Zd6-Hj-un3"/>
+                        <outlet property="sizeLabel" destination="e8b-YQ-1aB" id="DXj-21-SzD"/>
+                        <outlet property="specialButton" destination="ncZ-RC-d20" id="GE9-vP-dhf"/>
+                        <outlet property="techLabel" destination="LGB-TR-Bm3" id="nQR-ss-aSv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PUg-CG-Qk9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
