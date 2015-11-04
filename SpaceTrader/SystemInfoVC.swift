@@ -33,6 +33,8 @@ class SystemInfoVC: UIViewController {
     
     @IBOutlet weak var fuelText: UITextView!
     @IBOutlet weak var hullText: UITextView!
+    @IBOutlet weak var baysLabel: UILabel!
+    @IBOutlet weak var cashLabel: UILabel!
     
     func updateUI() {
         let localPolitics = Politics(type: galaxy.currentSystem!.politics)
@@ -45,6 +47,10 @@ class SystemInfoVC: UIViewController {
         policeLabel.text = galaxy.getActivityForInt(localPolitics.activityPolice)
         piratesLabel.text = galaxy.getActivityForInt(localPolitics.activityPirates)
         
+        baysLabel.text = "Bays: \(player.commanderShip.getTotalCargo())/\(player.commanderShip.totalBays)"
+        cashLabel.text = "Cash: \(player.credits) cr."
+        
+        
         let fuelNeeded = player.commanderShip.fuelTanks - player.commanderShip.fuel
         let fullTankCost = fuelNeeded * player.commanderShip.costOfFuel
         if fuelNeeded == 0 {
@@ -56,7 +62,7 @@ class SystemInfoVC: UIViewController {
         }
 
         
-        let repairsNeeded = player.commanderShip.hullStrength - player.commanderShip.hull 
+        let repairsNeeded = player.commanderShip.hullStrength - player.commanderShip.hull
         let repairsCost = repairsNeeded * player.commanderShip.repairCosts
         if repairsNeeded == 0 {
             hullText.text = "Your hull strength is at 100%. \nNo repairs are needed"

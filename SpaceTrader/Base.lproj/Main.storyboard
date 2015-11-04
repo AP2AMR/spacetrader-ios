@@ -2661,6 +2661,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Dock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tD8-hI-pUo">
+                                <rect key="frame" x="20" y="337" width="50" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Khefka" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXv-hM-SfR">
                                 <rect key="frame" x="136" y="73" width="150" height="21"/>
                                 <animations/>
@@ -2767,13 +2774,6 @@
                                 <animations/>
                                 <state key="normal" title="Mercenaries For Hire"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Dock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tD8-hI-pUo">
-                                <rect key="frame" x="20" y="337" width="50" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="You have enough fuel to fly xx parsecs. A full tank costs xx credits." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bCy-lg-x8y">
                                 <rect key="frame" x="20" y="366" width="266" height="74"/>
                                 <animations/>
@@ -2802,11 +2802,26 @@
                                     <action selector="maxRepairs:" destination="I0c-F9-5oA" eventType="touchUpInside" id="cDG-bt-JJo"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Cash: xxx cr." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqf-O2-jlG">
+                                <rect key="frame" x="440" y="522" width="143" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bays: x/15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GTF-aT-ml1">
+                                <rect key="frame" x="20" y="522" width="105" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tD8-hI-pUo" firstAttribute="top" secondItem="8TQ-o0-WKi" secondAttribute="bottom" constant="70" id="FEg-sW-U2A"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aqf-O2-jlG" secondAttribute="trailing" constant="-3" id="FFa-y7-yJs"/>
                             <constraint firstItem="ncZ-RC-d20" firstAttribute="leading" secondItem="I9e-Fy-kfO" secondAttribute="trailing" id="ZfH-tq-clI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qQh-d9-BXr" secondAttribute="trailing" constant="8" id="cDR-DI-SUK"/>
                             <constraint firstItem="I9e-Fy-kfO" firstAttribute="leading" secondItem="gJ0-u5-8q6" secondAttribute="leadingMargin" constant="-8" id="dcq-ob-V5Y"/>
@@ -2815,6 +2830,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="System Info" id="Osi-Yw-eUB"/>
                     <connections>
+                        <outlet property="baysLabel" destination="GTF-aT-ml1" id="3Pa-YG-ThD"/>
+                        <outlet property="cashLabel" destination="aqf-O2-jlG" id="70G-0W-7ie"/>
                         <outlet property="fuelButton" destination="qQh-d9-BXr" id="GbX-JY-SSs"/>
                         <outlet property="fuelText" destination="bCy-lg-x8y" id="zMb-mR-8MQ"/>
                         <outlet property="governmentLabel" destination="BHJ-Ke-8wE" id="nMe-wO-TEU"/>

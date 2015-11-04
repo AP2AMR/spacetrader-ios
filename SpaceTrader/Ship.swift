@@ -535,6 +535,14 @@ class SpaceShip {
         return pricePaid
     }
     
+    func getTotalCargo() -> Int {
+        var total = 0
+        for item in cargo {
+            total += item.quantity
+        }
+        return total
+    }
+    
     // END CARGO METHODS********************************************************************************
 
 }
