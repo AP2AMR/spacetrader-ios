@@ -50,6 +50,24 @@ class SystemInfoVC: UIViewController {
         baysLabel.text = "Bays: \(player.commanderShip.getTotalCargo())/\(player.commanderShip.totalBays)"
         cashLabel.text = "Cash: \(player.credits) cr."
         
+//        fuelButton.backgroundColor = UIColor.clearColor()
+//        fuelButton.layer.cornerRadius = 5
+//        fuelButton.layer.borderWidth = 1
+//        fuelButton.layer.borderColor = UIColor.blackColor().CGColor
+//        fuelButton.titleEdgeInsets.left = 35
+//        fuelButton.titleEdgeInsets.right = 35
+        
+        let borderAlpha : CGFloat = 0.7
+        let cornerRadius : CGFloat = 5.0
+        
+        //fuelButton.frame = CGRectMake(100, 100, 200, 40)
+        //fuelButton.setTitle("Get Started", forState: UIControlState.Normal)
+//        fuelButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+//        fuelButton.backgroundColor = UIColor.clearColor()
+//        fuelButton.layer.borderWidth = 1.0
+//        fuelButton.layer.borderColor = UIColor.blackColor().CGColor         //UIColor(white: 0.0, alpha: borderAlpha).CGColor
+//        fuelButton.layer.cornerRadius = cornerRadius
+        
         
         let fuelNeeded = player.commanderShip.fuelTanks - player.commanderShip.fuel
         let fullTankCost = fuelNeeded * player.commanderShip.costOfFuel
