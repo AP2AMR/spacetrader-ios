@@ -31,8 +31,11 @@ class SystemInfoVC: UIViewController {
     @IBOutlet weak var fuelButton: UIButton!
     @IBOutlet weak var repairsButton: UIButton!
     
-    @IBOutlet weak var fuelText: UITextView!
-    @IBOutlet weak var hullText: UITextView!
+    @IBOutlet weak var fuelText1: UILabel!
+    @IBOutlet weak var fuelText2: UILabel!
+    @IBOutlet weak var hullText1: UILabel!
+    @IBOutlet weak var hullText2: UILabel!
+
     @IBOutlet weak var baysLabel: UILabel!
     @IBOutlet weak var cashLabel: UILabel!
     
@@ -47,8 +50,8 @@ class SystemInfoVC: UIViewController {
         policeLabel.text = galaxy.getActivityForInt(localPolitics.activityPolice)
         piratesLabel.text = galaxy.getActivityForInt(localPolitics.activityPirates)
         
-        //baysLabel.text = "Bays: \(player.commanderShip.getTotalCargo())/\(player.commanderShip.totalBays)"
-        //cashLabel.text = "Cash: \(player.credits) cr."
+        baysLabel.text = "Bays: \(player.commanderShip.getTotalCargo())/\(player.commanderShip.totalBays)"
+        cashLabel.text = "Cash: \(player.credits) cr."
         
 //        fuelButton.backgroundColor = UIColor.clearColor()
 //        fuelButton.layer.cornerRadius = 5
@@ -71,22 +74,24 @@ class SystemInfoVC: UIViewController {
         
         let fuelNeeded = player.commanderShip.fuelTanks - player.commanderShip.fuel
         let fullTankCost = fuelNeeded * player.commanderShip.costOfFuel
+        fuelText1.text = "You have enough fuel to fly \(player.commanderShip.fuel) parsecs."
         if fuelNeeded == 0 {
-            //fuelText.text = "You have enough fuel to fly \(player.commanderShip.fuel) parsecs. \nYour tank is full."
+            fuelText2.text = "Your tank is full."
             // disappear fuel button
         } else {
-            //fuelText.text = "You have enough fuel to fly \(player.commanderShip.fuel) parsecs. \nA full tank costs \(fullTankCost) cr."
+            fuelText2.text = "A full tank costs \(fullTankCost) cr."
             // make fuel button visible
         }
 
         
         let repairsNeeded = player.commanderShip.hullStrength - player.commanderShip.hull
         let repairsCost = repairsNeeded * player.commanderShip.repairCosts
+        hullText1.text = "Your hull strength is at 100%."
         if repairsNeeded == 0 {
-            //hullText.text = "Your hull strength is at 100%. \nNo repairs are needed"
+            hullText2.text = "No repairs are needed"
             // disappear repairs button
         } else {
-            //hullText.text = "Your hull strength is at \(player.commanderShip.hullStrength)%. \nFull repairs will cost \(repairsCost) cr."
+            hullText2.text = "Full repairs will cost \(repairsCost) cr."
             // make repairs button visible
         }
         
