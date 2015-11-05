@@ -47,8 +47,8 @@ class SystemInfoVC: UIViewController {
         policeLabel.text = galaxy.getActivityForInt(localPolitics.activityPolice)
         piratesLabel.text = galaxy.getActivityForInt(localPolitics.activityPirates)
         
-        baysLabel.text = "Bays: \(player.commanderShip.getTotalCargo())/\(player.commanderShip.totalBays)"
-        cashLabel.text = "Cash: \(player.credits) cr."
+        //baysLabel.text = "Bays: \(player.commanderShip.getTotalCargo())/\(player.commanderShip.totalBays)"
+        //cashLabel.text = "Cash: \(player.credits) cr."
         
 //        fuelButton.backgroundColor = UIColor.clearColor()
 //        fuelButton.layer.cornerRadius = 5
@@ -72,10 +72,10 @@ class SystemInfoVC: UIViewController {
         let fuelNeeded = player.commanderShip.fuelTanks - player.commanderShip.fuel
         let fullTankCost = fuelNeeded * player.commanderShip.costOfFuel
         if fuelNeeded == 0 {
-            fuelText.text = "You have enough fuel to fly \(player.commanderShip.fuel) parsecs. \nYour tank is full."
+            //fuelText.text = "You have enough fuel to fly \(player.commanderShip.fuel) parsecs. \nYour tank is full."
             // disappear fuel button
         } else {
-            fuelText.text = "You have enough fuel to fly \(player.commanderShip.fuel) parsecs. \nA full tank costs \(fullTankCost) cr."
+            //fuelText.text = "You have enough fuel to fly \(player.commanderShip.fuel) parsecs. \nA full tank costs \(fullTankCost) cr."
             // make fuel button visible
         }
 
@@ -83,10 +83,10 @@ class SystemInfoVC: UIViewController {
         let repairsNeeded = player.commanderShip.hullStrength - player.commanderShip.hull
         let repairsCost = repairsNeeded * player.commanderShip.repairCosts
         if repairsNeeded == 0 {
-            hullText.text = "Your hull strength is at 100%. \nNo repairs are needed"
+            //hullText.text = "Your hull strength is at 100%. \nNo repairs are needed"
             // disappear repairs button
         } else {
-            hullText.text = "Your hull strength is at \(player.commanderShip.hullStrength)%. \nFull repairs will cost \(repairsCost) cr."
+            //hullText.text = "Your hull strength is at \(player.commanderShip.hullStrength)%. \nFull repairs will cost \(repairsCost) cr."
             // make repairs button visible
         }
         

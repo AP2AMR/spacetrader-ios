@@ -2741,6 +2741,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dock" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G89-ZH-jAI">
+                                <rect key="frame" x="20" y="324" width="40" height="20"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swarms" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FhP-4c-fPl">
                                 <rect key="frame" x="137" y="212" width="58" height="20"/>
                                 <animations/>
@@ -2755,43 +2762,159 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bays: xx/xx" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANw-6j-pgd">
+                                <rect key="frame" x="20" y="528" width="81" height="20"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cash: xxxx cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CvJ-AS-vSJ">
+                                <rect key="frame" x="480" y="528" width="100" height="20"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CEE-Kl-32M" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
+                                <rect key="frame" x="24" y="275" width="59" height="34"/>
+                                <animations/>
+                                <inset key="contentEdgeInsets" minX="10" minY="8" maxX="10" maxY="8"/>
+                                <state key="normal" title="News"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dO-Oc-kEO" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
+                                <rect key="frame" x="443" y="275" width="137" height="34"/>
+                                <animations/>
+                                <inset key="contentEdgeInsets" minX="10" minY="8" maxX="10" maxY="8"/>
+                                <state key="normal" title="Hire Mercenaries"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mS5-BZ-YEa" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
+                                <rect key="frame" x="228" y="275" width="70" height="34"/>
+                                <animations/>
+                                <inset key="contentEdgeInsets" minX="10" minY="8" maxX="10" maxY="8"/>
+                                <state key="normal" title="Special"/>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aeL-nk-qOb">
+                                <rect key="frame" x="91" y="275" width="129" height="34"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="faS-c6-zP3">
+                                <rect key="frame" x="306" y="275" width="129" height="34"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" scrollEnabled="NO" editable="NO" text="You have fuel to fly 14 parsecs. Your tank is full." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBP-bS-aPI">
+                                <rect key="frame" x="15" y="352" width="299" height="32"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" scrollEnabled="NO" editable="NO" text="Your hull strength is at 100%. No repairs are needed." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0l-Fw-CfE">
+                                <rect key="frame" x="15" y="392" width="328" height="32"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ude-Mb-K2s" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
+                                <rect key="frame" x="322" y="349" width="258" height="38"/>
+                                <animations/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="Fuel"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="av4-Ze-Idy" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
+                                <rect key="frame" x="351" y="389" width="229" height="38"/>
+                                <animations/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="Repairs"/>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="IuB-MZ-694" firstAttribute="baseline" secondItem="B1a-vR-rY1" secondAttribute="baseline" id="0xM-If-pzi"/>
                             <constraint firstItem="cSo-qZ-PNU" firstAttribute="baseline" secondItem="2FL-Cy-UEj" secondAttribute="baseline" id="2cm-We-qG7"/>
+                            <constraint firstItem="Z0l-Fw-CfE" firstAttribute="top" secondItem="eBP-bS-aPI" secondAttribute="bottom" constant="8" id="2hO-c3-rNr"/>
+                            <constraint firstItem="2dO-Oc-kEO" firstAttribute="leading" secondItem="faS-c6-zP3" secondAttribute="trailing" constant="8" symbolic="YES" id="2t8-88-Lx9"/>
                             <constraint firstAttribute="leadingMargin" secondItem="SIX-PF-Put" secondAttribute="leading" id="3U4-2t-DP0"/>
                             <constraint firstItem="IuB-MZ-694" firstAttribute="leading" secondItem="deI-Wv-tfU" secondAttribute="leading" id="4pQ-fb-269"/>
                             <constraint firstAttribute="leadingMargin" secondItem="DGH-Pf-C1B" secondAttribute="leading" id="6lT-d7-D67"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ude-Mb-K2s" secondAttribute="trailing" id="7rn-bp-uBZ"/>
                             <constraint firstAttribute="leadingMargin" secondItem="3hH-TH-dVz" secondAttribute="leading" id="8BO-nU-hVn"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="eBP-bS-aPI" secondAttribute="leading" constant="5" id="96h-LA-exs"/>
                             <constraint firstItem="2FL-Cy-UEj" firstAttribute="top" secondItem="KZO-5P-rSW" secondAttribute="bottom" constant="8" id="Ary-rJ-HXe"/>
                             <constraint firstItem="FhP-4c-fPl" firstAttribute="leading" secondItem="cSo-qZ-PNU" secondAttribute="leading" id="Ast-6Y-KvT"/>
+                            <constraint firstItem="av4-Ze-Idy" firstAttribute="leading" secondItem="Z0l-Fw-CfE" secondAttribute="trailing" constant="8" symbolic="YES" id="BPQ-uC-491"/>
                             <constraint firstItem="M1Z-G2-ben" firstAttribute="baseline" secondItem="bXv-hM-SfR" secondAttribute="baseline" id="Cbw-Gy-mSK"/>
+                            <constraint firstItem="CEE-Kl-32M" firstAttribute="top" secondItem="SIX-PF-Put" secondAttribute="bottom" constant="15" id="DQR-gC-Xyb"/>
+                            <constraint firstItem="G89-ZH-jAI" firstAttribute="top" secondItem="CEE-Kl-32M" secondAttribute="bottom" constant="15" id="DUO-hn-uvU"/>
+                            <constraint firstItem="eBP-bS-aPI" firstAttribute="top" secondItem="G89-ZH-jAI" secondAttribute="bottom" constant="8" id="GTn-26-gFm"/>
+                            <constraint firstItem="mS5-BZ-YEa" firstAttribute="baseline" secondItem="CEE-Kl-32M" secondAttribute="baseline" id="Gm4-0E-6f0"/>
+                            <constraint firstItem="aeL-nk-qOb" firstAttribute="leading" secondItem="CEE-Kl-32M" secondAttribute="trailing" constant="8" symbolic="YES" id="HCA-0u-qam"/>
                             <constraint firstItem="KZO-5P-rSW" firstAttribute="top" secondItem="B1a-vR-rY1" secondAttribute="bottom" constant="8" id="IQy-M0-Ahp"/>
                             <constraint firstItem="deI-Wv-tfU" firstAttribute="leading" secondItem="bXv-hM-SfR" secondAttribute="leading" id="J0J-dh-kbj"/>
                             <constraint firstItem="cSo-qZ-PNU" firstAttribute="leading" secondItem="w9v-Pk-Xci" secondAttribute="leading" id="JXW-XT-a9H"/>
+                            <constraint firstItem="av4-Ze-Idy" firstAttribute="centerY" secondItem="Z0l-Fw-CfE" secondAttribute="centerY" id="NoO-zY-AWo"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="G89-ZH-jAI" secondAttribute="leading" id="Nye-CG-oHM"/>
+                            <constraint firstItem="Gmq-yl-qzZ" firstAttribute="top" secondItem="CvJ-AS-vSJ" secondAttribute="bottom" constant="8" id="Ovf-Fc-wLN"/>
                             <constraint firstAttribute="leadingMargin" secondItem="2FL-Cy-UEj" secondAttribute="leading" id="PhS-OD-B8N"/>
+                            <constraint firstItem="aeL-nk-qOb" firstAttribute="width" secondItem="faS-c6-zP3" secondAttribute="width" id="PuF-VV-H3J"/>
                             <constraint firstItem="efH-nl-XBF" firstAttribute="leading" secondItem="FhP-4c-fPl" secondAttribute="leading" id="SB6-qE-6Ek"/>
+                            <constraint firstItem="aeL-nk-qOb" firstAttribute="bottom" secondItem="CEE-Kl-32M" secondAttribute="bottom" id="TU7-zQ-Ix3"/>
                             <constraint firstItem="SIX-PF-Put" firstAttribute="top" secondItem="DGH-Pf-C1B" secondAttribute="bottom" constant="8" id="UUf-bn-IG1"/>
                             <constraint firstAttribute="leadingMargin" secondItem="B1a-vR-rY1" secondAttribute="leading" id="UmM-IS-AtR"/>
+                            <constraint firstItem="faS-c6-zP3" firstAttribute="bottom" secondItem="mS5-BZ-YEa" secondAttribute="bottom" id="V4u-cl-HJD"/>
+                            <constraint firstItem="Z0l-Fw-CfE" firstAttribute="leading" secondItem="gJ0-u5-8q6" secondAttribute="leadingMargin" constant="5" id="VnT-6D-y8r"/>
                             <constraint firstItem="DGH-Pf-C1B" firstAttribute="top" secondItem="2FL-Cy-UEj" secondAttribute="bottom" constant="8" id="WN4-28-Tfw"/>
                             <constraint firstItem="DGH-Pf-C1B" firstAttribute="baseline" secondItem="FhP-4c-fPl" secondAttribute="baseline" id="XYe-EE-fMd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CvJ-AS-vSJ" secondAttribute="trailing" id="ZOI-ei-sFq"/>
+                            <constraint firstItem="CEE-Kl-32M" firstAttribute="leading" secondItem="gJ0-u5-8q6" secondAttribute="leadingMargin" constant="4" id="aI1-yh-RF8"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="ANw-6j-pgd" secondAttribute="leading" id="brU-Sf-FhC"/>
+                            <constraint firstItem="Z0l-Fw-CfE" firstAttribute="leading" secondItem="gJ0-u5-8q6" secondAttribute="leadingMargin" constant="-5" id="c8S-ti-Wuw"/>
                             <constraint firstItem="SIX-PF-Put" firstAttribute="baseline" secondItem="efH-nl-XBF" secondAttribute="baseline" id="eSQ-dC-2u8"/>
                             <constraint firstAttribute="leadingMargin" secondItem="M1Z-G2-ben" secondAttribute="leading" id="f7t-Fw-ym1"/>
+                            <constraint firstItem="aeL-nk-qOb" firstAttribute="top" secondItem="CEE-Kl-32M" secondAttribute="top" id="ggN-9o-tyK"/>
                             <constraint firstItem="bXv-hM-SfR" firstAttribute="leading" secondItem="M1Z-G2-ben" secondAttribute="trailing" constant="70" id="hdp-Fa-uSF"/>
+                            <constraint firstItem="Z0l-Fw-CfE" firstAttribute="leading" secondItem="eBP-bS-aPI" secondAttribute="trailing" constant="8" symbolic="YES" id="jp3-ra-6jM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2dO-Oc-kEO" secondAttribute="trailing" id="jty-bp-0nu"/>
+                            <constraint firstItem="Gmq-yl-qzZ" firstAttribute="top" secondItem="ANw-6j-pgd" secondAttribute="bottom" constant="8" id="oQp-CZ-j3N"/>
+                            <constraint firstItem="faS-c6-zP3" firstAttribute="top" secondItem="mS5-BZ-YEa" secondAttribute="top" id="onz-dJ-C4U"/>
                             <constraint firstItem="w9v-Pk-Xci" firstAttribute="baseline" secondItem="KZO-5P-rSW" secondAttribute="baseline" id="pDB-66-wWW"/>
                             <constraint firstAttribute="leadingMargin" secondItem="KZO-5P-rSW" secondAttribute="leading" id="qLh-qp-xmd"/>
+                            <constraint firstItem="mS5-BZ-YEa" firstAttribute="leading" secondItem="aeL-nk-qOb" secondAttribute="trailing" constant="8" symbolic="YES" id="qzR-zD-8tV"/>
                             <constraint firstItem="3hH-TH-dVz" firstAttribute="top" secondItem="M1Z-G2-ben" secondAttribute="bottom" constant="8" id="rRS-64-u2E"/>
                             <constraint firstItem="B1a-vR-rY1" firstAttribute="top" secondItem="3hH-TH-dVz" secondAttribute="bottom" constant="8" id="sNL-dJ-YCj"/>
+                            <constraint firstItem="Ude-Mb-K2s" firstAttribute="centerY" secondItem="eBP-bS-aPI" secondAttribute="centerY" id="sQb-l7-BQC"/>
+                            <constraint firstItem="2dO-Oc-kEO" firstAttribute="baseline" secondItem="CEE-Kl-32M" secondAttribute="baseline" id="tSX-vp-epg"/>
                             <constraint firstItem="M1Z-G2-ben" firstAttribute="top" secondItem="YnQ-6e-uT2" secondAttribute="bottom" constant="8" id="u4w-uF-6tL"/>
                             <constraint firstItem="w9v-Pk-Xci" firstAttribute="leading" secondItem="IuB-MZ-694" secondAttribute="leading" id="uou-as-3C5"/>
+                            <constraint firstItem="Ude-Mb-K2s" firstAttribute="leading" secondItem="eBP-bS-aPI" secondAttribute="trailing" constant="8" symbolic="YES" id="vFf-aY-f2w"/>
+                            <constraint firstItem="faS-c6-zP3" firstAttribute="leading" secondItem="mS5-BZ-YEa" secondAttribute="trailing" constant="8" symbolic="YES" id="wVs-yM-i0s"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="av4-Ze-Idy" secondAttribute="trailing" id="yak-MK-0Bt"/>
                             <constraint firstItem="3hH-TH-dVz" firstAttribute="baseline" secondItem="deI-Wv-tfU" secondAttribute="baseline" id="zb1-0g-cEZ"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="VnT-6D-y8r"/>
+                                <exclude reference="jp3-ra-6jM"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="Zj7-LN-fAQ"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="System Info" id="Osi-Yw-eUB"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="governmentLabel" destination="w9v-Pk-Xci" id="2iR-g8-r1H"/>
                         <outlet property="nameLabel" destination="bXv-hM-SfR" id="Acb-Gr-6RX"/>
+                        <outlet property="piratesLabel" destination="efH-nl-XBF" id="7tl-71-aDJ"/>
+                        <outlet property="policeLabel" destination="FhP-4c-fPl" id="gKG-zw-L5s"/>
+                        <outlet property="resourceLabel" destination="cSo-qZ-PNU" id="aqI-Xe-Q8s"/>
+                        <outlet property="sizeLabel" destination="deI-Wv-tfU" id="fag-H4-8d7"/>
+                        <outlet property="techLabel" destination="IuB-MZ-694" id="KZg-cy-Xj1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PUg-CG-Qk9" userLabel="First Responder" sceneMemberID="firstResponder"/>
