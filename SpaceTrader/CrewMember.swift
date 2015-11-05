@@ -25,7 +25,10 @@ class CrewMember {
         self.trader = trader
         self.engineer = engineer
         self.currentSystem = currentSystem
+        
     }
+    
+    
     
     // I believe this is randomly initialized. Need a method to do this. Need to figure out special cases that are always the same, and method for assigning things to others
 }

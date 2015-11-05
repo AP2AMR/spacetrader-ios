@@ -11,6 +11,7 @@ import UIKit
 
 //@IBDesignable
 class CustomButton: UIButton {
+    // use inset 10 for top and bottom, 20 for left and right as a default
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -21,9 +22,14 @@ class CustomButton: UIButton {
         self.backgroundColor = UIColor.whiteColor()
         self.tintColor = UIColor.blackColor()
         
+        
+        
         // downstate
         //self.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Highlighted)
-        //self.setBackgroundColor(UIColor.blackColor(), forState: UIControlState.Highlighted)
+        
+        // gray out option?
+        self.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Disabled)
+
         
     }
     
@@ -43,19 +49,11 @@ class CustomButton: UIButton {
         }
     }
     
+    override func prepareForInterfaceBuilder() {
+        //self.isInterfaceBuilder = true
+    }
+
+    
     // maybe make a "grayed out" state in which the button is invisible?
 
-}
-
-// works, but doesn't take into account corners. Must enable clip subviews on individual button, even then messy.
-extension UIButton {
-    func setBackgroundColor(color: UIColor, forState: UIControlState) {
-        UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
-        CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), color.CGColor)
-        CGContextFillRect(UIGraphicsGetCurrentContext(), CGRect(x: 0, y: 0, width: 1, height: 1))
-        let colorImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        self.setBackgroundImage(colorImage, forState: forState)
-    }
 }
