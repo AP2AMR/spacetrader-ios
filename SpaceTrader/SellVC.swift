@@ -63,7 +63,8 @@ class SellVC: UIViewController, BuyModalVCDelegate {
     @IBOutlet weak var robotsAllLabel: UIButton!
     
     // things at the bottom
-    @IBOutlet weak var targetSystemLabel: UILabel!
+    
+
     @IBOutlet weak var baysAvailableLabel: UILabel!
     @IBOutlet weak var cashLabel: UILabel!
 
