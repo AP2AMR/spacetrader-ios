@@ -415,10 +415,17 @@ class Commander {
             
             return false
         }
+        // verify there is enough on hand at current system
+        if galaxy.currentSystem?.getQuantityAvailable(commodity) < quantity {
+            return false
+        }
         
-        // add cargo, take money
+        // add cargo, take money, remove from local system amount
         player.commanderShip.addCargo(commodity, quantity: quantity, pricePaid: unitPrice)
         player.credits -= buyPrice
+        
+        // decrement system
+        galaxy.currentSystem!.modifyQuantities(commodity, quantity: quantity, addAsOpposedToRemove: false)
         
         return true
     }
@@ -433,6 +440,8 @@ class Commander {
         player.commanderShip.removeCargo(commodity, quantity: quantity)
         let unitPrice = galaxy.currentSystem!.getSellPrice(commodity)
         player.credits += (unitPrice * quantity)
+        
+        // DOES SELLING ADD THIS QUANTITY TO THE LOCAL TRADE ECONOMY?
         
         return true
     }

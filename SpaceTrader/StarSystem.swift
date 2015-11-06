@@ -171,4 +171,36 @@ class StarSystem {
     
     
     // END PRICE/AVAILABILITY METHODS*******************************************************************
+    // MODIFY QUANTITY AMOUNT
+    func modifyQuantities(commodity: TradeItemType, var quantity: Int, addAsOpposedToRemove: Bool) {
+        
+        if !addAsOpposedToRemove {
+            quantity = quantity * -1
+        }
+        
+        switch commodity {
+        case TradeItemType.Water:
+            galaxy.currentSystem!.water += quantity
+        case TradeItemType.Furs:
+            galaxy.currentSystem!.furs += quantity
+        case TradeItemType.Food:
+            galaxy.currentSystem!.food += quantity
+        case TradeItemType.Ore:
+            galaxy.currentSystem!.ore += quantity
+        case TradeItemType.Games:
+            galaxy.currentSystem!.games += quantity
+        case TradeItemType.Firearms:
+            galaxy.currentSystem!.firearms += quantity
+        case TradeItemType.Medicine:
+            galaxy.currentSystem!.medicine += quantity
+        case TradeItemType.Machines:
+            galaxy.currentSystem!.machines += quantity
+        case TradeItemType.Narcotics:
+            galaxy.currentSystem!.narcotics += quantity
+        case TradeItemType.Robots:
+            galaxy.currentSystem!.robots += quantity
+        default:
+            galaxy.currentSystem!.water += 0
+        }
+    }
 }

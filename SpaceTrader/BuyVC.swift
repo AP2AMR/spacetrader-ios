@@ -51,6 +51,18 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     @IBOutlet weak var baysLabel: UILabel!
     @IBOutlet weak var cashLabel: UILabel!
     
+    @IBOutlet weak var waterMaxButton: CustomButton!
+    @IBOutlet weak var fursMaxButton: CustomButton!
+    @IBOutlet weak var foodMaxButton: CustomButton!
+    @IBOutlet weak var oreMaxButton: CustomButton!
+    @IBOutlet weak var gamesMaxButton: CustomButton!
+    @IBOutlet weak var firearmsMaxButton: CustomButton!
+    @IBOutlet weak var medicineMaxButton: CustomButton!
+    @IBOutlet weak var machinesMaxButton: CustomButton!
+    @IBOutlet weak var narcoticsMaxButton: CustomButton!
+    @IBOutlet weak var robotsMaxButton: CustomButton!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,7 +115,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
             size: SizeType.Tiny))
         // END DUMMY DATA
         
-        updateUIInitial()
+        updateUI()
 
 
         
@@ -263,25 +275,26 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     
     @IBAction func systemCycleBack() {
         galaxy.cycleBackward()
-        updateUIInitial()
+        //updateUIInitial()
         updateUI()
         
     }
     
     @IBAction func systemCycleForward(sender: AnyObject) {
         galaxy.cycleForward()
-        updateUIInitial()
+        //updateUIInitial()
         updateUI()
     }
     
     
     
     func buyModalDidFinish(controller: BuyModalVC) {                    // DELEGATE FUNCTION
-        updateUIInitial()
+        //updateUIInitial()
         updateUI()
     }
     
-    func updateUI() {   // called initially, also when transaction completed
+    
+    func updateUI2() {   // called initially, also when transaction completed
         // ISSUE: should display positive P/L numbers in smaller font. Need to learn how to change font size of label programmatically
         
         targetSystemLabel.text = "Target system: \(galaxy.targetSystem!.name)"
@@ -292,6 +305,10 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         
         // set quantities
         waterQty.setTitle("\(galaxy.currentSystem!.water)", forState: controlState)
+        //waterQty.frame = CGRectMake(0.0,0.0,100,100)
+        //self.view.addSubview(waterQty)
+        
+        
         fursQty.setTitle("\(galaxy.currentSystem!.furs)", forState: controlState)
         foodQty.setTitle("\(galaxy.currentSystem!.food)", forState: controlState)
         oreQty.setTitle("\(galaxy.currentSystem!.ore)", forState: controlState)
@@ -302,76 +319,15 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         narcoticsQty.setTitle("\(galaxy.currentSystem!.narcotics)", forState: controlState)
         robotsQty.setTitle("\(galaxy.currentSystem!.robots)", forState: controlState)
         
-        // handle things not traded. Do so if buy price is zero.
-        if galaxy.currentSystem!.waterBuy == 0 {
-            
-            //waterQty.setTitle("", forState: controlState)
-            waterQty.enabled = false
-            waterPrice.text = "not sold"
-            waterProjectedPL.text = "---"
-        }
-        if galaxy.currentSystem!.fursBuy == 0 {
-            //fursQty.setTitle("", forState: controlState)
-            fursQty.enabled = false
-            fursPrice.text = "not sold"
-            fursProjectedPL.text = "---"
-        }
-        if galaxy.currentSystem!.foodBuy == 0 {
-            //foodQty.setTitle("", forState: controlState)
-            foodQty.enabled = false
-            foodPrice.text = "not sold"
-            foodProjectedPL.text = "---"
-        }
-        if galaxy.currentSystem!.oreBuy == 0 {
-            //oreQty.setTitle("", forState: controlState)
-            oreQty.enabled = false
-            orePrice.text = "not sold"
-            oreProjectedPL.text = "---"
-        }
-        if galaxy.currentSystem!.gamesBuy == 0 {
-            //gamesQty.setTitle("", forState: controlState)
-            gamesQty.enabled = false
-            gamesPrice.text = "not sold"
-            gamesProjectedPL.text = "---"
-        }
-        if galaxy.currentSystem!.firearmsBuy == 0 {
-            //firearmsQty.setTitle("", forState: controlState)
-            firearmsQty.enabled = false
-            firearmsPrice.text = "not sold"
-            firearmsProjectedPL.text = "---"
-        }
-        if galaxy.currentSystem!.medicineBuy == 0 {
-            //medicineQty.setTitle("", forState: controlState)
-            medicineQty.enabled = false
-            medicinePrice.text = "not sold"
-            medicineProjectedPL.text = "---"
-        }
-        if galaxy.currentSystem!.machinesBuy == 0 {
-            //machinesQty.setTitle("", forState: controlState)
-            machinesQty.enabled = false
-            machinesPrice.text = "not sold"
-            machinesProjectedPL.text = "---"
-        }
-        if galaxy.currentSystem!.narcoticsBuy == 0 {
-            //narcoticsQty.setTitle("", forState: controlState)
-            narcoticsQty.enabled = false
-            narcoticsPrice.text = "not sold"
-            narcoticsProjectedPL.text = "---"
-        }
-        if galaxy.currentSystem!.robotsBuy == 0 {
-            //robotsQty.setTitle("", forState: controlState)
-            narcoticsQty.enabled = false
-            robotsPrice.text = "not sold"
-            robotsProjectedPL.text = "---"
-        }
+      
         
         // set description string
         targetSystemDescriptionLabel.text = galaxy.getShortDescriptorString(galaxy.targetSystem!)
         
     }
     
-    func updateUIInitial() {    // things that don't change with buying and selling; only called once
-        updateUI()
+    func updateUI() {    // things that don't change with buying and selling; only called once
+        updateUI2()
         
         // set prices
         waterPrice.text = "\(galaxy.currentSystem!.waterBuy) cr."
@@ -400,36 +356,111 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         // P/L: handle commodities not traded in target system
         if galaxy.targetSystem!.waterSell == 0 {
             
-            waterProjectedPL.text = "---"
+            waterProjectedPL.text = "--"
         }
         if galaxy.targetSystem!.fursSell == 0 {
-            fursProjectedPL.text = "---"
+            fursProjectedPL.text = "--"
         }
         if galaxy.targetSystem!.foodSell == 0 {
-            foodProjectedPL.text = "---"
+            foodProjectedPL.text = "--"
         }
         if galaxy.targetSystem!.oreSell == 0 {
-            oreProjectedPL.text = "---"
+            oreProjectedPL.text = "--"
         }
         if galaxy.targetSystem!.gamesSell == 0 {
-            gamesProjectedPL.text = "---"
+            gamesProjectedPL.text = "--"
         }
         if galaxy.targetSystem!.firearmsSell == 0 {
-            firearmsProjectedPL.text = "---"
+            firearmsProjectedPL.text = "--"
         }
         if galaxy.targetSystem!.medicineSell == 0 {
-            medicineProjectedPL.text = "---"
+            medicineProjectedPL.text = "--"
         }
         if galaxy.targetSystem!.machinesSell == 0 {
-            machinesProjectedPL.text = "---"
+            machinesProjectedPL.text = "--"
         }
         if galaxy.targetSystem!.narcoticsSell == 0 {
-            narcoticsProjectedPL.text = "---"
+            narcoticsProjectedPL.text = "--"
         }
         if galaxy.targetSystem!.robotsSell == 0 {
-            robotsProjectedPL.text = "---"
+            robotsProjectedPL.text = "--"
         }
 
+        // handle things not traded. Do so if buy price is zero.
+        if galaxy.currentSystem!.waterBuy == 0 {
+            
+            //waterQty.setTitle("", forState: controlState)
+            waterQty.enabled = false
+            waterMaxButton.enabled = false
+            waterPrice.text = "not sold"
+            waterProjectedPL.text = "--"
+            
+        }
+        if galaxy.currentSystem!.fursBuy == 0 {
+            //fursQty.setTitle("", forState: controlState)
+            fursQty.enabled = false
+            fursMaxButton.enabled = false
+            fursPrice.text = "not sold"
+            fursProjectedPL.text = "--"
+        }
+        if galaxy.currentSystem!.foodBuy == 0 {
+            //foodQty.setTitle("", forState: controlState)
+            foodQty.enabled = false
+            foodMaxButton.enabled = false
+            foodPrice.text = "not sold"
+            foodProjectedPL.text = "--"
+        }
+        if galaxy.currentSystem!.oreBuy == 0 {
+            //oreQty.setTitle("", forState: controlState)
+            oreQty.enabled = false
+            oreMaxButton.enabled = false
+            orePrice.text = "not sold"
+            oreProjectedPL.text = "--"
+        }
+        if galaxy.currentSystem!.gamesBuy == 0 {
+            //gamesQty.setTitle("", forState: controlState)
+            gamesQty.enabled = false
+            gamesMaxButton.enabled = false
+            gamesPrice.text = "not sold"
+            gamesProjectedPL.text = "--"
+        }
+        if galaxy.currentSystem!.firearmsBuy == 0 {
+            //firearmsQty.setTitle("", forState: controlState)
+            firearmsQty.enabled = false
+            firearmsMaxButton.enabled = false
+            firearmsPrice.text = "not sold"
+            firearmsProjectedPL.text = "--"
+        }
+        if galaxy.currentSystem!.medicineBuy == 0 {
+            //medicineQty.setTitle("", forState: controlState)
+            medicineQty.enabled = false
+            medicineMaxButton.enabled = false
+            medicinePrice.text = "not sold"
+            medicineProjectedPL.text = "--"
+        }
+        if galaxy.currentSystem!.machinesBuy == 0 {
+            //machinesQty.setTitle("", forState: controlState)
+            machinesQty.enabled = false
+            machinesMaxButton.enabled = false
+            machinesPrice.text = "not sold"
+            machinesProjectedPL.text = "--"
+        }
+        if galaxy.currentSystem!.narcoticsBuy == 0 {
+            //narcoticsQty.setTitle("", forState: controlState)
+            narcoticsQty.enabled = false
+            narcoticsMaxButton.enabled = false
+            narcoticsPrice.text = "not sold"
+            narcoticsProjectedPL.text = "--"
+        }
+        if galaxy.currentSystem!.robotsBuy == 0 {
+            //robotsQty.setTitle("", forState: controlState)
+            robotsQty.enabled = false
+            robotsMaxButton.enabled = false
+            robotsPrice.text = "not sold"
+            robotsProjectedPL.text = "--"
+        }
+        
+        highlightProfitOpportunities()
     }
     
     
@@ -442,9 +473,71 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
-        updateUIInitial()
+        //updateUIInitial()
         updateUI()
         buyAsOpposedToSell = true
+    }
+   
+    // PROBABLY USE DIFFERENT HIGHLIGHTING SCHEME
+    func highlightProfitOpportunities() {
+        if getPPL(TradeItemType.Water) > 0 {
+            waterProjectedPL.textColor = UIColor.redColor()
+        } else {
+            waterProjectedPL.textColor = UIColor.blackColor()
+        }
+        if getPPL(TradeItemType.Furs) > 0 {
+            fursProjectedPL.textColor = UIColor.redColor()
+        } else {
+            fursProjectedPL.textColor = UIColor.blackColor()
+        }
+        if getPPL(TradeItemType.Food) > 0 {
+            foodProjectedPL.textColor = UIColor.redColor()
+        } else {
+            foodProjectedPL.textColor = UIColor.blackColor()
+        }
+        if getPPL(TradeItemType.Ore) > 0 {
+            oreProjectedPL.textColor = UIColor.redColor()
+        } else {
+            oreProjectedPL.textColor = UIColor.blackColor()
+        }
+        if getPPL(TradeItemType.Games) > 0 {
+            gamesProjectedPL.textColor = UIColor.redColor()
+        } else {
+            gamesProjectedPL.textColor = UIColor.blackColor()
+        }
+        if getPPL(TradeItemType.Firearms) > 0 {
+            firearmsProjectedPL.textColor = UIColor.redColor()
+        } else {
+            firearmsProjectedPL.textColor = UIColor.blackColor()
+        }
+        if getPPL(TradeItemType.Medicine) > 0 {
+            medicineProjectedPL.textColor = UIColor.redColor()
+        } else {
+            medicineProjectedPL.textColor = UIColor.blackColor()
+        }
+        if getPPL(TradeItemType.Machines) > 0 {
+            machinesProjectedPL.textColor = UIColor.redColor()
+        } else {
+            machinesProjectedPL.textColor = UIColor.blackColor()
+        }
+        if getPPL(TradeItemType.Narcotics) > 0 {
+            narcoticsProjectedPL.textColor = UIColor.redColor()
+        } else {
+            narcoticsProjectedPL.textColor = UIColor.blackColor()
+        }
+        if getPPL(TradeItemType.Robots) > 0 {
+            robotsProjectedPL.textColor = UIColor.redColor()
+        } else {
+            robotsProjectedPL.textColor = UIColor.blackColor()
+        }
+    }
+    
+    func getPPL(commodity: TradeItemType) -> Int {
+        // avoid red "--"
+        if galaxy.currentSystem!.getBuyPrice(commodity) == 0 {
+            return 0
+        }
+        return galaxy.targetSystem!.getSellPrice(commodity) - galaxy.currentSystem!.getBuyPrice(commodity)
     }
     
 }

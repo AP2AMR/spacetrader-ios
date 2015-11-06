@@ -22,6 +22,8 @@ class CustomButton: UIButton {
         self.backgroundColor = UIColor.whiteColor()
         self.tintColor = UIColor.blackColor()
         
+        //self.frame = CGRectMake(100, 100, 200, 40)
+        
         
         
         // downstate
