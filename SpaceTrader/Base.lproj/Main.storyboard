@@ -18,527 +18,386 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Water" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esp-8q-Vt4">
-                                <rect key="frame" x="48" y="72" width="60" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rN9-sX-eIB">
+                                <rect key="frame" x="20" y="72" width="33" height="22"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Water" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DdD-JL-sLL">
+                                <rect key="frame" x="20" y="104" width="41" height="18"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bays: 0/15" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPE-Mh-LoY">
-                                <rect key="frame" x="16" y="522" width="115" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cash: 997 cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upo-Fl-rUI">
-                                <rect key="frame" x="200" y="522" width="113" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Target system: Daled" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhB-eS-HHC">
-                                <rect key="frame" x="16" y="469" width="195" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1I7-wN-8H3">
-                                <rect key="frame" x="0.0" y="72" width="40" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="20">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buyWaterTapped:" destination="jzz-KE-2cI" eventType="touchUpInside" id="vlh-Xt-rFW"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="37 cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iU5-Sm-Hjh">
-                                <rect key="frame" x="164" y="72" width="65" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Furs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHh-Y6-bI4">
+                                <rect key="frame" x="20" y="132" width="30" height="18"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+ 3 cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eqm-K6-X1F">
-                                <rect key="frame" x="237" y="72" width="55" height="21"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y2y-8N-5oF">
+                                <rect key="frame" x="20" y="493" width="560" height="50"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.79571445159999998" green="1" blue="0.88367627329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="gwE-q4-4XI"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o7S-ot-BAI">
+                                <rect key="frame" x="20" y="122" width="30" height="10"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="FyX-ef-ZIM"/>
+                                    <constraint firstAttribute="height" constant="10" id="iUu-Lk-YiS"/>
+                                    <constraint firstAttribute="height" constant="50" id="zuz-Ey-Y1B"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="zuz-Ey-Y1B"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ga-7v-PPF">
+                                <rect key="frame" x="20" y="94" width="30" height="10"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="6nu-6p-fLL"/>
+                                    <constraint firstAttribute="height" constant="10" id="VfA-4a-izW"/>
+                                    <constraint firstAttribute="height" constant="50" id="t0t-t7-nw5"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="t0t-t7-nw5"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ΔP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggs-nC-q9j">
+                                <rect key="frame" x="559" y="76" width="21" height="18"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iHg-o3-Jze">
+                                <rect key="frame" x="103" y="72" width="103" height="18"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="7XJ-Rt-O9I"/>
+                                    <constraint firstAttribute="width" constant="30" id="ILW-yE-eU8"/>
+                                    <constraint firstAttribute="height" constant="18" id="X5u-Zj-eN8"/>
+                                    <constraint firstAttribute="width" constant="50" id="kwB-oc-teJ"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7XJ-Rt-O9I"/>
+                                        <exclude reference="ILW-yE-eU8"/>
+                                        <exclude reference="kwB-oc-teJ"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qty" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXV-7Y-G6e">
+                                <rect key="frame" x="214" y="76" width="27" height="18"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAF-RQ-PF4">
+                                <rect key="frame" x="291" y="72" width="103" height="18"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="KZO-9O-9zg"/>
+                                    <constraint firstAttribute="width" constant="30" id="UoD-eM-c8T"/>
+                                    <constraint firstAttribute="height" constant="18" id="lqK-Rf-b63"/>
+                                    <constraint firstAttribute="height" constant="50" id="oOm-DD-7jR"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="oOm-DD-7jR"/>
+                                        <exclude reference="UoD-eM-c8T"/>
+                                        <exclude reference="KZO-9O-9zg"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIZ-8x-7sj">
+                                <rect key="frame" x="402" y="76" width="38" height="18"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yu-xn-zgi">
+                                <rect key="frame" x="448" y="72" width="103" height="18"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="2lz-0a-e49"/>
+                                    <constraint firstAttribute="height" constant="18" id="RB2-X0-zji"/>
+                                    <constraint firstAttribute="width" constant="50" id="elp-1j-JIH"/>
+                                    <constraint firstAttribute="height" constant="50" id="j7n-DK-1eB"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="j7n-DK-1eB"/>
+                                        <exclude reference="2lz-0a-e49"/>
+                                        <exclude reference="elp-1j-JIH"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u9M-Sq-Lus">
+                                <rect key="frame" x="20" y="150" width="30" height="10"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="3ol-9j-GOS"/>
+                                    <constraint firstAttribute="width" constant="30" id="S2h-GM-Ysn"/>
+                                    <constraint firstAttribute="height" constant="10" id="To0-J8-Ru3"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="3ol-9j-GOS"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Z6-4G-yfc">
+                                <rect key="frame" x="20" y="160" width="35" height="18"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EwJ-du-t2T">
-                                <rect key="frame" x="116" y="72" width="40" height="21"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hrn-NN-jmF">
+                                <rect key="frame" x="20" y="178" width="30" height="10"/>
                                 <animations/>
-                                <state key="normal" title="Max">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="waterMax" destination="jzz-KE-2cI" eventType="touchUpInside" id="1nB-Mo-sf7"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Furs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsZ-6J-n1i">
-                                <rect key="frame" x="48" y="101" width="60" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Xp-qo-8k4">
-                                <rect key="frame" x="0.0" y="96" width="40" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="0">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buyFursTapped:" destination="jzz-KE-2cI" eventType="touchUpInside" id="XFe-EK-AcE"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="xx cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3V-aZ-Feb">
-                                <rect key="frame" x="164" y="101" width="65" height="21"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="25Z-vI-TEj"/>
+                                    <constraint firstAttribute="width" constant="30" id="JlD-5X-piI"/>
+                                    <constraint firstAttribute="height" constant="10" id="ZIZ-TY-fzO"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="25Z-vI-TEj"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ore" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rox-XH-g7m">
+                                <rect key="frame" x="20" y="188" width="25" height="18"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="- xx cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZM-JU-Lx1">
-                                <rect key="frame" x="237" y="101" width="55" height="21"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahH-JD-Ztb">
+                                <rect key="frame" x="20" y="206" width="30" height="10"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="Qnt-8z-yrS"/>
+                                    <constraint firstAttribute="height" constant="50" id="T6i-Vm-prr"/>
+                                    <constraint firstAttribute="width" constant="30" id="sP7-y7-uPF"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="T6i-Vm-prr"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Games" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIB-r3-M42">
+                                <rect key="frame" x="20" y="216" width="48" height="18"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IcF-hK-Lyq">
-                                <rect key="frame" x="116" y="101" width="40" height="21"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5P-u0-r2O">
+                                <rect key="frame" x="20" y="234" width="30" height="10"/>
                                 <animations/>
-                                <state key="normal" title="Max">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="fursMax" destination="jzz-KE-2cI" eventType="touchUpInside" id="nIZ-bE-709"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Food" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgH-z8-tZu">
-                                <rect key="frame" x="48" y="135" width="60" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fd4-LH-2cF">
-                                <rect key="frame" x="0.0" y="130" width="40" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="0">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buyFoodTapped:" destination="jzz-KE-2cI" eventType="touchUpInside" id="tDs-w0-4lB"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="xx cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpU-dk-f7K">
-                                <rect key="frame" x="164" y="135" width="65" height="21"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="Omh-vY-MWb"/>
+                                    <constraint firstAttribute="width" constant="30" id="Pj0-yd-He5"/>
+                                    <constraint firstAttribute="height" constant="50" id="wij-6H-Alp"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="wij-6H-Alp"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firearms" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ou6-33-xZA">
+                                <rect key="frame" x="20" y="244" width="60" height="18"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="- xx cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbW-ZJ-zIn">
-                                <rect key="frame" x="237" y="135" width="55" height="21"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IR5-Ev-w8E">
+                                <rect key="frame" x="20" y="262" width="30" height="10"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="9lt-WM-wUR"/>
+                                    <constraint firstAttribute="height" constant="10" id="TB6-Eu-ArY"/>
+                                    <constraint firstAttribute="width" constant="30" id="nK4-IA-hZE"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="9lt-WM-wUR"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medicine" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYx-V7-SWc">
+                                <rect key="frame" x="20" y="272" width="63" height="18"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fj4-f8-jx3">
-                                <rect key="frame" x="116" y="135" width="40" height="21"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6dT-GG-z77">
+                                <rect key="frame" x="20" y="290" width="30" height="10"/>
                                 <animations/>
-                                <state key="normal" title="Max">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="foodMax" destination="jzz-KE-2cI" eventType="touchUpInside" id="iKY-SK-mv3"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ore" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9A-bg-685">
-                                <rect key="frame" x="48" y="169" width="60" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2M-MG-dpU">
-                                <rect key="frame" x="0.0" y="164" width="40" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="0">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buyOreTapped:" destination="jzz-KE-2cI" eventType="touchUpInside" id="3UX-SN-GHw"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="xx cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1HS-nd-ByZ">
-                                <rect key="frame" x="164" y="169" width="65" height="21"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="7XH-vm-oaA"/>
+                                    <constraint firstAttribute="width" constant="30" id="DL9-Im-uyb"/>
+                                    <constraint firstAttribute="height" constant="10" id="kjv-Nb-t54"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7XH-vm-oaA"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Machines" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLN-Vk-i9h">
+                                <rect key="frame" x="20" y="300" width="66" height="18"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="- xx cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c23-9d-cZJ">
-                                <rect key="frame" x="237" y="169" width="55" height="21"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kO4-0r-vqs">
+                                <rect key="frame" x="20" y="318" width="30" height="10"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="Pex-JL-bBn"/>
+                                    <constraint firstAttribute="height" constant="50" id="oBw-O5-qWy"/>
+                                    <constraint firstAttribute="height" constant="10" id="zw2-t3-3av"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="oBw-O5-qWy"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Narcotics" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88s-KT-xe2">
+                                <rect key="frame" x="20" y="328" width="66" height="18"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ah-Li-nq4">
-                                <rect key="frame" x="116" y="169" width="40" height="21"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ro-ls-fcN">
+                                <rect key="frame" x="20" y="346" width="30" height="10"/>
                                 <animations/>
-                                <state key="normal" title="Max">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="oreMax" destination="jzz-KE-2cI" eventType="touchUpInside" id="RUr-6o-LFC"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Games" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="whY-8Y-3by">
-                                <rect key="frame" x="48" y="203" width="60" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9M2-2J-Fub">
-                                <rect key="frame" x="0.0" y="198" width="40" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="0">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buyGamesTapped:" destination="jzz-KE-2cI" eventType="touchUpInside" id="ifm-eb-f7d"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="xx cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARO-Ae-OrT">
-                                <rect key="frame" x="164" y="203" width="65" height="21"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="gSh-Dl-d5b"/>
+                                    <constraint firstAttribute="height" constant="50" id="oI0-QF-FtM"/>
+                                    <constraint firstAttribute="height" constant="10" id="s7Z-LO-e1X"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="oI0-QF-FtM"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Robots" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsB-A1-JfO">
+                                <rect key="frame" x="20" y="356" width="49" height="18"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="- xx cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWt-Hz-ZX7">
-                                <rect key="frame" x="237" y="203" width="55" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3n-TV-6Te">
-                                <rect key="frame" x="116" y="203" width="40" height="21"/>
-                                <animations/>
-                                <state key="normal" title="Max">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="gamesMax" destination="jzz-KE-2cI" eventType="touchUpInside" id="573-l5-3F3"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Firearms" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PR8-37-h5N">
-                                <rect key="frame" x="48" y="237" width="60" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bs-ce-KnU">
-                                <rect key="frame" x="0.0" y="232" width="40" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="0">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buyFirearmsTapped:" destination="jzz-KE-2cI" eventType="touchUpInside" id="xx2-8p-NVy"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="xx cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7f-vP-p8y">
-                                <rect key="frame" x="164" y="237" width="65" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="- xx cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5F-9N-0qN">
-                                <rect key="frame" x="237" y="237" width="55" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upk-Fk-Mzr">
-                                <rect key="frame" x="116" y="237" width="40" height="21"/>
-                                <animations/>
-                                <state key="normal" title="Max">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="firearmsMax" destination="jzz-KE-2cI" eventType="touchUpInside" id="fKD-ks-dT3"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Medicine" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6j-GB-a1d">
-                                <rect key="frame" x="48" y="271" width="63" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMc-K3-ljs">
-                                <rect key="frame" x="0.0" y="266" width="40" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="0">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buyMedicineTapped:" destination="jzz-KE-2cI" eventType="touchUpInside" id="jtB-nh-hxR"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="xx cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nof-BO-nk7">
-                                <rect key="frame" x="164" y="271" width="65" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="- xx cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5h-8K-dN5">
-                                <rect key="frame" x="237" y="271" width="55" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2g-Jb-JOS">
-                                <rect key="frame" x="116" y="271" width="40" height="21"/>
-                                <animations/>
-                                <state key="normal" title="Max">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="medicineMax" destination="jzz-KE-2cI" eventType="touchUpInside" id="4Rk-0r-J36"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Machines" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpI-kv-Jis">
-                                <rect key="frame" x="48" y="305" width="66" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDd-2X-yGb">
-                                <rect key="frame" x="0.0" y="300" width="40" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="0">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buyMachinesTapped:" destination="jzz-KE-2cI" eventType="touchUpInside" id="LAa-xW-rOv"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="xx cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbw-UK-P1Y">
-                                <rect key="frame" x="164" y="305" width="65" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="- xx cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHu-VG-A5F">
-                                <rect key="frame" x="237" y="305" width="55" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVf-7b-W1d">
-                                <rect key="frame" x="116" y="305" width="40" height="21"/>
-                                <animations/>
-                                <state key="normal" title="Max">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="machinesMax" destination="jzz-KE-2cI" eventType="touchUpInside" id="0rr-jz-Ha0"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Narcotics" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ad-OT-YJj">
-                                <rect key="frame" x="48" y="339" width="66" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcL-Og-Ppn">
-                                <rect key="frame" x="0.0" y="334" width="40" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="0">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="xx cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQb-1e-hYS">
-                                <rect key="frame" x="164" y="339" width="65" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="- xx cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMf-IK-iy0">
-                                <rect key="frame" x="237" y="339" width="55" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Wl-kX-QOX">
-                                <rect key="frame" x="116" y="339" width="40" height="21"/>
-                                <animations/>
-                                <state key="normal" title="Max">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="narcoticsMax" destination="jzz-KE-2cI" eventType="touchUpInside" id="UMb-OC-r1b"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Robots" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G96-ry-RLa">
-                                <rect key="frame" x="48" y="373" width="60" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWn-ne-IqM">
-                                <rect key="frame" x="0.0" y="368" width="40" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="0">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buyRobotsTapped:" destination="jzz-KE-2cI" eventType="touchUpInside" id="7lj-51-7fY"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="xx cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vom-N8-djY">
-                                <rect key="frame" x="164" y="373" width="65" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="- xx cr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRt-eR-uIE">
-                                <rect key="frame" x="237" y="373" width="55" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9P-MZ-x9M">
-                                <rect key="frame" x="116" y="373" width="40" height="21"/>
-                                <animations/>
-                                <state key="normal" title="Max">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="robotsMax" destination="jzz-KE-2cI" eventType="touchUpInside" id="tFF-tQ-yfL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEk-zr-5OK">
-                                <rect key="frame" x="199" y="465" width="30" height="30"/>
-                                <animations/>
-                                <state key="normal" title="&lt;"/>
-                                <connections>
-                                    <action selector="systemCycleBack" destination="jzz-KE-2cI" eventType="touchUpInside" id="9ow-vV-uSl"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="System description goes here." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dza-Ed-Gie">
-                                <rect key="frame" x="16" y="498" width="564" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nUc-je-sPa">
-                                <rect key="frame" x="237" y="465" width="30" height="30"/>
-                                <animations/>
-                                <state key="normal" title="&gt;"/>
-                                <connections>
-                                    <action selector="systemCycleForward:" destination="jzz-KE-2cI" eventType="touchUpInside" id="Xdu-fN-dbX"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hrn-NN-jmF" firstAttribute="top" secondItem="0Z6-4G-yfc" secondAttribute="bottom" id="1SO-hy-Drj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="y2y-8N-5oF" secondAttribute="trailing" id="1hK-Qg-mKN"/>
+                            <constraint firstItem="X5P-u0-r2O" firstAttribute="leading" secondItem="iIB-r3-M42" secondAttribute="leading" id="2gL-f9-q9b"/>
+                            <constraint firstItem="iHg-o3-Jze" firstAttribute="baseline" secondItem="rN9-sX-eIB" secondAttribute="baseline" id="3pV-OD-Z0Y"/>
+                            <constraint firstItem="WAF-RQ-PF4" firstAttribute="leading" secondItem="tXV-7Y-G6e" secondAttribute="trailing" constant="50" id="4Ck-FG-bBi"/>
+                            <constraint firstItem="0yu-xn-zgi" firstAttribute="leading" secondItem="KIZ-8x-7sj" secondAttribute="trailing" constant="8" id="7EY-L3-ZLB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ggs-nC-q9j" secondAttribute="trailing" id="7nB-hG-VNE"/>
+                            <constraint firstItem="8ga-7v-PPF" firstAttribute="top" secondItem="rN9-sX-eIB" secondAttribute="bottom" id="7ov-00-1xv"/>
+                            <constraint firstItem="u9M-Sq-Lus" firstAttribute="leading" secondItem="lHh-Y6-bI4" secondAttribute="leading" id="7xe-b2-j86"/>
+                            <constraint firstItem="IR5-Ev-w8E" firstAttribute="top" secondItem="ou6-33-xZA" secondAttribute="bottom" id="8bq-ir-iFm"/>
+                            <constraint firstItem="CYx-V7-SWc" firstAttribute="leading" secondItem="ou6-33-xZA" secondAttribute="leading" id="BvM-6w-dmz"/>
+                            <constraint firstItem="0yu-xn-zgi" firstAttribute="baseline" secondItem="KIZ-8x-7sj" secondAttribute="baseline" id="CNY-HB-pnx"/>
+                            <constraint firstItem="ou6-33-xZA" firstAttribute="leading" secondItem="iIB-r3-M42" secondAttribute="leading" id="Cib-ec-DV5"/>
+                            <constraint firstItem="6dT-GG-z77" firstAttribute="top" secondItem="CYx-V7-SWc" secondAttribute="bottom" id="DIP-hT-vH8"/>
+                            <constraint firstItem="kO4-0r-vqs" firstAttribute="leading" secondItem="WLN-Vk-i9h" secondAttribute="leading" id="DJq-cn-CaP"/>
+                            <constraint firstItem="88s-KT-xe2" firstAttribute="top" secondItem="kO4-0r-vqs" secondAttribute="bottom" id="EGX-cn-n8k"/>
+                            <constraint firstItem="qsB-A1-JfO" firstAttribute="leading" secondItem="88s-KT-xe2" secondAttribute="leading" id="F7j-B5-OkB"/>
+                            <constraint firstItem="y2y-8N-5oF" firstAttribute="top" secondItem="qsB-A1-JfO" secondAttribute="bottom" constant="119" id="FvV-cI-q8t"/>
+                            <constraint firstItem="X5P-u0-r2O" firstAttribute="top" secondItem="iIB-r3-M42" secondAttribute="bottom" id="GLV-YR-qLh"/>
+                            <constraint firstItem="0Z6-4G-yfc" firstAttribute="top" secondItem="u9M-Sq-Lus" secondAttribute="bottom" id="GPf-O1-MG3"/>
+                            <constraint firstItem="lHh-Y6-bI4" firstAttribute="top" secondItem="o7S-ot-BAI" secondAttribute="bottom" id="GZd-ZW-L4O"/>
+                            <constraint firstItem="iIB-r3-M42" firstAttribute="leading" secondItem="rox-XH-g7m" secondAttribute="leading" id="GrW-PY-UaG"/>
+                            <constraint firstItem="KIZ-8x-7sj" firstAttribute="baseline" secondItem="tXV-7Y-G6e" secondAttribute="baseline" id="It2-Tv-iTa"/>
+                            <constraint firstItem="iHg-o3-Jze" firstAttribute="width" secondItem="0yu-xn-zgi" secondAttribute="width" id="Lce-Yp-U9D"/>
+                            <constraint firstItem="ggs-nC-q9j" firstAttribute="baseline" secondItem="KIZ-8x-7sj" secondAttribute="baseline" id="LjF-2l-5pw"/>
+                            <constraint firstItem="9JT-E7-S4R" firstAttribute="top" secondItem="y2y-8N-5oF" secondAttribute="bottom" constant="8" symbolic="YES" id="Nwc-7g-gL3"/>
+                            <constraint firstItem="CYx-V7-SWc" firstAttribute="top" secondItem="IR5-Ev-w8E" secondAttribute="bottom" id="Nx5-YK-Joy"/>
+                            <constraint firstItem="iIB-r3-M42" firstAttribute="top" secondItem="ahH-JD-Ztb" secondAttribute="bottom" id="Nxl-W9-TKX"/>
+                            <constraint firstItem="u9M-Sq-Lus" firstAttribute="top" secondItem="lHh-Y6-bI4" secondAttribute="bottom" id="PDR-6a-Tdv"/>
+                            <constraint firstItem="iHg-o3-Jze" firstAttribute="top" secondItem="YId-Ao-zYI" secondAttribute="bottom" constant="8" id="Pat-yY-66c"/>
+                            <constraint firstItem="ou6-33-xZA" firstAttribute="top" secondItem="X5P-u0-r2O" secondAttribute="bottom" id="QJj-7D-Biw"/>
+                            <constraint firstItem="WAF-RQ-PF4" firstAttribute="baseline" secondItem="rN9-sX-eIB" secondAttribute="baseline" id="T4k-5j-uWb"/>
+                            <constraint firstItem="hrn-NN-jmF" firstAttribute="leading" secondItem="0Z6-4G-yfc" secondAttribute="leading" id="TTs-qk-pyt"/>
+                            <constraint firstItem="DdD-JL-sLL" firstAttribute="top" secondItem="8ga-7v-PPF" secondAttribute="bottom" id="TuT-Q7-dze"/>
+                            <constraint firstItem="tXV-7Y-G6e" firstAttribute="baseline" secondItem="rN9-sX-eIB" secondAttribute="baseline" id="WyK-Ve-JyZ"/>
+                            <constraint firstItem="iHg-o3-Jze" firstAttribute="width" secondItem="WAF-RQ-PF4" secondAttribute="width" id="XJv-kv-pgC"/>
+                            <constraint firstItem="rox-XH-g7m" firstAttribute="top" secondItem="hrn-NN-jmF" secondAttribute="bottom" id="XvB-zR-f24"/>
+                            <constraint firstItem="KIZ-8x-7sj" firstAttribute="leading" secondItem="WAF-RQ-PF4" secondAttribute="trailing" constant="8" id="anL-NO-xCv"/>
+                            <constraint firstItem="lHh-Y6-bI4" firstAttribute="leading" secondItem="DdD-JL-sLL" secondAttribute="leading" id="c3V-Yz-g7V"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="rN9-sX-eIB" secondAttribute="leading" id="ckw-Uf-q0f"/>
+                            <constraint firstItem="o7S-ot-BAI" firstAttribute="leading" secondItem="DdD-JL-sLL" secondAttribute="leading" id="d02-NW-DLd"/>
+                            <constraint firstItem="88s-KT-xe2" firstAttribute="leading" secondItem="WLN-Vk-i9h" secondAttribute="leading" id="dTv-ex-g1c"/>
+                            <constraint firstItem="WLN-Vk-i9h" firstAttribute="leading" secondItem="CYx-V7-SWc" secondAttribute="leading" id="dlT-R9-GQJ"/>
+                            <constraint firstItem="WLN-Vk-i9h" firstAttribute="top" secondItem="6dT-GG-z77" secondAttribute="bottom" id="eGj-qE-AUw"/>
+                            <constraint firstItem="rN9-sX-eIB" firstAttribute="top" secondItem="YId-Ao-zYI" secondAttribute="bottom" constant="8" id="eNX-tP-vnO"/>
+                            <constraint firstItem="0Z6-4G-yfc" firstAttribute="leading" secondItem="lHh-Y6-bI4" secondAttribute="leading" id="esF-rF-fyL"/>
+                            <constraint firstItem="4Ro-ls-fcN" firstAttribute="top" secondItem="88s-KT-xe2" secondAttribute="bottom" id="fSN-Fi-vqQ"/>
+                            <constraint firstItem="ahH-JD-Ztb" firstAttribute="leading" secondItem="rox-XH-g7m" secondAttribute="leading" id="fkW-Qq-z9a"/>
+                            <constraint firstItem="qsB-A1-JfO" firstAttribute="top" secondItem="4Ro-ls-fcN" secondAttribute="bottom" id="hsM-vX-n8d"/>
+                            <constraint firstItem="DdD-JL-sLL" firstAttribute="leading" secondItem="rN9-sX-eIB" secondAttribute="leading" id="hxg-DY-3K8"/>
+                            <constraint firstItem="4Ro-ls-fcN" firstAttribute="leading" secondItem="88s-KT-xe2" secondAttribute="leading" id="jXR-4y-nO2"/>
+                            <constraint firstItem="6dT-GG-z77" firstAttribute="leading" secondItem="CYx-V7-SWc" secondAttribute="leading" id="k4v-HE-TY4"/>
+                            <constraint firstItem="rox-XH-g7m" firstAttribute="leading" secondItem="hrn-NN-jmF" secondAttribute="leading" id="nd8-dl-F71"/>
+                            <constraint firstItem="IR5-Ev-w8E" firstAttribute="leading" secondItem="ou6-33-xZA" secondAttribute="leading" id="o6u-n8-iBu"/>
+                            <constraint firstItem="iHg-o3-Jze" firstAttribute="leading" secondItem="rN9-sX-eIB" secondAttribute="trailing" constant="50" id="pK0-xt-acG"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="y2y-8N-5oF" secondAttribute="leading" id="ruo-Ft-blk"/>
+                            <constraint firstItem="o7S-ot-BAI" firstAttribute="top" secondItem="DdD-JL-sLL" secondAttribute="bottom" id="tvj-Cd-jvx"/>
+                            <constraint firstItem="kO4-0r-vqs" firstAttribute="top" secondItem="WLN-Vk-i9h" secondAttribute="bottom" id="u7O-gb-Ces"/>
+                            <constraint firstItem="ggs-nC-q9j" firstAttribute="leading" secondItem="0yu-xn-zgi" secondAttribute="trailing" constant="8" symbolic="YES" id="vem-hW-uPz"/>
+                            <constraint firstItem="tXV-7Y-G6e" firstAttribute="leading" secondItem="iHg-o3-Jze" secondAttribute="trailing" constant="8" symbolic="YES" id="w1Z-mn-ISr"/>
+                            <constraint firstItem="ahH-JD-Ztb" firstAttribute="top" secondItem="rox-XH-g7m" secondAttribute="bottom" id="wU1-wH-cF5"/>
+                            <constraint firstItem="8ga-7v-PPF" firstAttribute="leading" secondItem="rN9-sX-eIB" secondAttribute="leading" id="zSP-6d-h6r"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Buy Cargo" id="frR-GY-IBc"/>
                     <connections>
-                        <outlet property="baysLabel" destination="sPE-Mh-LoY" id="dfJ-Jc-Nbi"/>
-                        <outlet property="cashLabel" destination="upo-Fl-rUI" id="fRb-xH-3Ri"/>
-                        <outlet property="firearmsPrice" destination="Z7f-vP-p8y" id="4js-kV-a7m"/>
-                        <outlet property="firearmsProjectedPL" destination="e5F-9N-0qN" id="OC9-xS-gHT"/>
-                        <outlet property="firearmsQty" destination="9bs-ce-KnU" id="LzZ-li-Eru"/>
-                        <outlet property="foodPrice" destination="gpU-dk-f7K" id="JJk-tH-NJJ"/>
-                        <outlet property="foodProjectedPL" destination="LbW-ZJ-zIn" id="sfh-9n-V2p"/>
-                        <outlet property="foodQty" destination="Fd4-LH-2cF" id="6V5-k5-PiA"/>
-                        <outlet property="fursPrice" destination="o3V-aZ-Feb" id="rO6-kM-Huh"/>
-                        <outlet property="fursProjectedPL" destination="eZM-JU-Lx1" id="Fzv-MG-UbS"/>
-                        <outlet property="fursQty" destination="5Xp-qo-8k4" id="5wu-mP-u7D"/>
-                        <outlet property="gamesPrice" destination="ARO-Ae-OrT" id="6Di-O9-140"/>
-                        <outlet property="gamesProjectedPL" destination="CWt-Hz-ZX7" id="kHN-gH-DAD"/>
-                        <outlet property="gamesQty" destination="9M2-2J-Fub" id="d58-I7-2oh"/>
-                        <outlet property="machinesPrice" destination="zbw-UK-P1Y" id="syW-g7-aW4"/>
-                        <outlet property="machinesProjectedPL" destination="NHu-VG-A5F" id="nnv-Ux-TJT"/>
-                        <outlet property="machinesQty" destination="qDd-2X-yGb" id="d3y-9k-bDi"/>
-                        <outlet property="medicinePrice" destination="nof-BO-nk7" id="RB9-cr-c54"/>
-                        <outlet property="medicineProjectedPL" destination="U5h-8K-dN5" id="AHy-c5-iox"/>
-                        <outlet property="medicineQty" destination="LMc-K3-ljs" id="DhD-vp-EJA"/>
-                        <outlet property="narcoticsPrice" destination="eQb-1e-hYS" id="Pc1-OF-lAF"/>
-                        <outlet property="narcoticsProjectedPL" destination="YMf-IK-iy0" id="TJt-BO-rvE"/>
-                        <outlet property="narcoticsQty" destination="vcL-Og-Ppn" id="nFU-6l-h7i"/>
-                        <outlet property="orePrice" destination="1HS-nd-ByZ" id="UO5-H1-mrs"/>
-                        <outlet property="oreProjectedPL" destination="c23-9d-cZJ" id="sES-ib-FS0"/>
-                        <outlet property="oreQty" destination="N2M-MG-dpU" id="NtJ-AK-31s"/>
-                        <outlet property="robotsPrice" destination="Vom-N8-djY" id="rsW-YJ-mXo"/>
-                        <outlet property="robotsProjectedPL" destination="LRt-eR-uIE" id="AmT-vG-jN7"/>
-                        <outlet property="robotsQty" destination="DWn-ne-IqM" id="UED-Uq-rLG"/>
-                        <outlet property="targetSystemDescriptionLabel" destination="dza-Ed-Gie" id="pNM-z3-BFy"/>
-                        <outlet property="targetSystemLabel" destination="IhB-eS-HHC" id="pur-Ks-MPB"/>
-                        <outlet property="waterPrice" destination="iU5-Sm-Hjh" id="x4p-Wg-kbO"/>
-                        <outlet property="waterProjectedPL" destination="Eqm-K6-X1F" id="N46-vS-obT"/>
-                        <outlet property="waterQty" destination="1I7-wN-8H3" id="WWN-t4-Kj8"/>
                         <segue destination="LPm-1O-B39" kind="presentation" identifier="buyModal" modalPresentationStyle="overCurrentContext" id="1Ij-RU-wnj"/>
                     </connections>
                 </viewController>
@@ -3112,7 +2971,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="REb-7Y-v0a"/>
         <segue reference="LdK-j7-SWM"/>
-        <segue reference="LND-dr-SJk"/>
     </inferredMetricsTieBreakers>
 </document>
