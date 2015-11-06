@@ -304,52 +304,63 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         
         // handle things not traded. Do so if buy price is zero.
         if galaxy.currentSystem!.waterBuy == 0 {
-            waterQty.setTitle("", forState: controlState)
+            
+            //waterQty.setTitle("", forState: controlState)
+            waterQty.enabled = false
             waterPrice.text = "not sold"
             waterProjectedPL.text = "---"
         }
         if galaxy.currentSystem!.fursBuy == 0 {
-            fursQty.setTitle("", forState: controlState)
+            //fursQty.setTitle("", forState: controlState)
+            fursQty.enabled = false
             fursPrice.text = "not sold"
             fursProjectedPL.text = "---"
         }
         if galaxy.currentSystem!.foodBuy == 0 {
-            foodQty.setTitle("", forState: controlState)
+            //foodQty.setTitle("", forState: controlState)
+            foodQty.enabled = false
             foodPrice.text = "not sold"
             foodProjectedPL.text = "---"
         }
         if galaxy.currentSystem!.oreBuy == 0 {
-            oreQty.setTitle("", forState: controlState)
+            //oreQty.setTitle("", forState: controlState)
+            oreQty.enabled = false
             orePrice.text = "not sold"
             oreProjectedPL.text = "---"
         }
         if galaxy.currentSystem!.gamesBuy == 0 {
-            gamesQty.setTitle("", forState: controlState)
+            //gamesQty.setTitle("", forState: controlState)
+            gamesQty.enabled = false
             gamesPrice.text = "not sold"
             gamesProjectedPL.text = "---"
         }
         if galaxy.currentSystem!.firearmsBuy == 0 {
-            firearmsQty.setTitle("", forState: controlState)
+            //firearmsQty.setTitle("", forState: controlState)
+            firearmsQty.enabled = false
             firearmsPrice.text = "not sold"
             firearmsProjectedPL.text = "---"
         }
         if galaxy.currentSystem!.medicineBuy == 0 {
-            medicineQty.setTitle("", forState: controlState)
+            //medicineQty.setTitle("", forState: controlState)
+            medicineQty.enabled = false
             medicinePrice.text = "not sold"
             medicineProjectedPL.text = "---"
         }
         if galaxy.currentSystem!.machinesBuy == 0 {
-            machinesQty.setTitle("", forState: controlState)
+            //machinesQty.setTitle("", forState: controlState)
+            machinesQty.enabled = false
             machinesPrice.text = "not sold"
             machinesProjectedPL.text = "---"
         }
         if galaxy.currentSystem!.narcoticsBuy == 0 {
-            narcoticsQty.setTitle("", forState: controlState)
+            //narcoticsQty.setTitle("", forState: controlState)
+            narcoticsQty.enabled = false
             narcoticsPrice.text = "not sold"
             narcoticsProjectedPL.text = "---"
         }
         if galaxy.currentSystem!.robotsBuy == 0 {
-            robotsQty.setTitle("", forState: controlState)
+            //robotsQty.setTitle("", forState: controlState)
+            narcoticsQty.enabled = false
             robotsPrice.text = "not sold"
             robotsProjectedPL.text = "---"
         }
@@ -388,6 +399,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
  
         // P/L: handle commodities not traded in target system
         if galaxy.targetSystem!.waterSell == 0 {
+            
             waterProjectedPL.text = "---"
         }
         if galaxy.targetSystem!.fursSell == 0 {

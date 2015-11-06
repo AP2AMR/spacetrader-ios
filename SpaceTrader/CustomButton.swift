@@ -29,6 +29,7 @@ class CustomButton: UIButton {
         
         // gray out option?
         self.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Disabled)
+        
 
         
     }
@@ -46,6 +47,16 @@ class CustomButton: UIButton {
                 //self.tintColor = UIColor.blackColor()
             }
             
+        }
+    }
+    
+    override var enabled: Bool {
+        didSet {
+            if (enabled) {
+                self.layer.borderColor = UIColor.blackColor().CGColor
+            } else {
+                self.layer.borderColor = UIColor.whiteColor().CGColor
+            }
         }
     }
     
