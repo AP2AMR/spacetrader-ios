@@ -247,9 +247,9 @@
 				5A278EAF1BE5632B00679276 /* PlunderVC.swift */,
 				5A078ABE1BB1CBD20005155D /* SellVC.swift */,
 				5A518FB31BC31E9200021B13 /* ShortRangeChartView.swift */,
+				5AEB378C1BE95E5B004B195A /* SystemInfoVC.swift */,
 				5A518FAF1BC0ACC400021B13 /* WarpVC.swift */,
 				5A83DF531BDECF0400C31AC5 /* WarpViewVC.swift */,
-				5AEB378C1BE95E5B004B195A /* SystemInfoVC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";

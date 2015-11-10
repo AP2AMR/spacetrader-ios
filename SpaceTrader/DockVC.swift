@@ -8,29 +8,19 @@
 
 import UIKit
 
-class DockVC: UIViewController, FuelRepairModalDelegate {
+class DockVC: UIViewController {
 
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var sizeLabel: UILabel!
-    @IBOutlet weak var techLevelLabel: UILabel!
-    @IBOutlet weak var governmentLabel: UILabel!
-    @IBOutlet weak var resourceLabel: UILabel!
-    @IBOutlet weak var policeLabel: UILabel!
-    @IBOutlet weak var piratesLabel: UILabel!
-    @IBOutlet weak var fuelMessage: UITextView!
-    @IBOutlet weak var repairsMessage: UITextView!
-    @IBOutlet weak var shipsMessage: UITextView!
-    @IBOutlet weak var equipmentMessage: UITextView!
-    @IBOutlet weak var escapePodMessage: UITextView!
     
-    @IBOutlet weak var fuelButtonAccess: UIButton!
-    @IBOutlet weak var repairButtonAccess: UIButton!
-    @IBOutlet weak var shipInfoAccess: UIButton!
-    @IBOutlet weak var buySellEquipmentAccess: UIButton!
-    @IBOutlet weak var buyEscapePodAccess: UIButton!
+    @IBOutlet weak var shipMessage1: UILabel!
+    @IBOutlet weak var shipMessage2: UILabel!
+    @IBOutlet weak var equipmentMessage1: UILabel!
+    @IBOutlet weak var equipmentMessage2: UILabel!
+    @IBOutlet weak var podMessage1: UILabel!
+    @IBOutlet weak var podMessage2: UILabel!
     
-    var fuelAsOpposedToRepair = true
-    
+    @IBOutlet weak var shipButton: CustomButton!
+    @IBOutlet weak var equipmentButton: CustomButton!
+    @IBOutlet weak var podButton: CustomButton!
     
     
     override func viewDidLoad() {
@@ -38,46 +28,33 @@ class DockVC: UIViewController, FuelRepairModalDelegate {
     }
     
     func updateUI() {
-        let localPolitics = Politics(type: galaxy.currentSystem!.politics)
-        
-        nameLabel.text = galaxy.currentSystem!.name
-        sizeLabel.text = galaxy.currentSystem!.size.rawValue
-        techLevelLabel.text = galaxy.currentSystem!.techLevel.rawValue
-        governmentLabel.text = galaxy.currentSystem!.politics.rawValue
-        resourceLabel.text = galaxy.currentSystem!.specialResources.rawValue
-        policeLabel.text = galaxy.getActivityForInt(localPolitics.activityPolice)
-        piratesLabel.text = galaxy.getActivityForInt(localPolitics.activityPirates)
-        
-        let fuelNeeded = player.commanderShip.fuelTanks - player.commanderShip.fuel
-        let fullTankCost = fuelNeeded * player.commanderShip.costOfFuel
-        if fuelNeeded == 0 {
-            fuelMessage.text = "You have enough fuel to fly \(player.commanderShip.fuel) parsecs. Your tank is full."
-            // disappear fuel button
-        } else {
-            fuelMessage.text = "You have enough fuel to fly \(player.commanderShip.fuel) parsecs. A full tank costs \(fullTankCost) cr."
-            // make fuel button visible
-        }
-        
-        let repairsNeeded = player.commanderShip.hull - player.commanderShip.hullStrength
-        let repairsCost = repairsNeeded * player.commanderShip.repairCosts
-        if repairsNeeded == 0 {
-            repairsMessage.text = "Your hull strength is at 100%. No repairs are needed"
-            // disappear repairs button
-        } else {
-            repairsMessage.text = "Your hull strength is at \(player.commanderShip.hullStrength)%. Full repairs will cost \(repairsCost) cr."
-            // make repairs button visible
-        }
+        // how to determine whether there are ships for sale?
         
         // display ships for sale message if ships are for sale
+        shipMessage1.text = "There are ships for sale."
+        shipMessage2.text = ""
         
         // display equipment for sale message if equipment is for sale
+        equipmentMessage1.text = "There is equipment for sale."
+        equipmentMessage2.text = ""
         
-        if player.credits < 2000 {
-            escapePodMessage.text = "You need at least 2,000 cr. to buy an escape pod."
-            // make button available
+        if player.escapePod {
+            podMessage1.text = "You have an escape pod installed."
+            podMessage2.text = ""
+            podButton.enabled = false
+        } else if galaxy.getTechLevelValue(galaxy.currentSystem!.techLevel) <= 2 {
+            podMessage1.text = "No escape pods for sale."
+            podMessage2.text = ""
+            podButton.enabled = false
+        } else if player.credits < 2000 {
+            podMessage1.text = "You need at least 2,000 cr. to buy an escape pod."
+            podMessage2.text = ""
+            podButton.enabled = false
         } else {
             // if current system is advanced enough to sell escape pods, make available
-            // if not, don't
+            podMessage1.text = "You can buy an escape pod for 2,000 cr."
+            podMessage2.text = ""
+            podButton.enabled = true
         }
     }
     
@@ -85,39 +62,28 @@ class DockVC: UIViewController, FuelRepairModalDelegate {
         updateUI()
     }
 
-    
-    @IBAction func fuelButtonTapped() {
-        fuelAsOpposedToRepair = true
-        performSegueWithIdentifier("fuelRepairModal", sender: self)
-    }
-    
-    @IBAction func repairButtonTapped() {
-        fuelAsOpposedToRepair = false
-        performSegueWithIdentifier("fuelRepairModal", sender: self)
-    }
-    
-    @IBAction func viewShipInfoTapped() {
-    }
-    
-    @IBAction func buySellEquipmentTapped() {
-    }
-
-    @IBAction func buyEscapePodTapped() {
-    }
-    
-    func modalDidFinish() {
-        updateUI()
-    }
-    
-    func getFuelAsOpposedToRepair() -> Bool {
-        return fuelAsOpposedToRepair
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "fuelRepairModal" {
-            let modalVC: FuelRepairModalVC = segue.destinationViewController as! FuelRepairModalVC
-            modalVC.delegate = self
-        }
+    @IBAction func buyPod(sender: AnyObject) {
+        // assumes vetted that player doesn't already have pod, has enough cash
+        // launch modal
+        let title: String = "Escape Pod"
+        let message: String = "Do you want to buy an escape pod for 2,000 credits?"
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // buy pod
+            player.credits -= 2000
+            player.escapePod = true
+            self.updateUI()
+        }))
+        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // nothing, just close the modal
+        }))
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+        
+        
     }
     
 }

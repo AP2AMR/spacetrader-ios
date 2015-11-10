@@ -150,13 +150,11 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         
         //player.policeRecord = PoliceRecordType.dubiousScore
         
-        player.escapePod = true
+        //player.escapePod = true
         
         let photonDisruptor = Weapon(type: WeaponType.photonDisruptor)
         player.commanderShip.weapon.append(photonDisruptor)
-        
-        print("testing getMax: ore")
-        print(player.getMax(TradeItemType.Ore))
+
         
         // END TESTING STUFF ********************************************************************
         

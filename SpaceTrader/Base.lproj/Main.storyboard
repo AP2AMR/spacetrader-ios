@@ -1193,218 +1193,105 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="System Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWc-pa-tOm">
-                                <rect key="frame" x="20" y="72" width="126" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YcH-6Y-fMA" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
+                                <rect key="frame" x="20" y="270" width="163" height="34"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ls-vS-QCx">
-                                <rect key="frame" x="20" y="262" width="126" height="25"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shipyard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeU-sE-h3A">
-                                <rect key="frame" x="20" y="408" width="126" height="25"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L67-st-6BW">
-                                <rect key="frame" x="20" y="101" width="50" height="15"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Size:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eM-gO-pOS">
-                                <rect key="frame" x="20" y="124" width="37" height="15"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tech Level:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXc-Wb-wTq">
-                                <rect key="frame" x="20" y="147" width="86" height="15"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Government:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z3R-pW-gYG">
-                                <rect key="frame" x="20" y="170" width="99" height="15"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Resource:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8I-ya-2ro">
-                                <rect key="frame" x="20" y="193" width="77" height="15"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Police:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vv6-fi-1VQ">
-                                <rect key="frame" x="20" y="216" width="51" height="15"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pirates:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhZ-Z7-Hmy">
-                                <rect key="frame" x="20" y="239" width="58" height="15"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeK-G5-P6a">
-                                <rect key="frame" x="145" y="124" width="140" height="15"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQe-Or-bdi">
-                                <rect key="frame" x="145" y="147" width="140" height="15"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mw-bd-eos">
-                                <rect key="frame" x="145" y="170" width="140" height="15"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDf-3y-Fo7">
-                                <rect key="frame" x="145" y="193" width="140" height="15"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdz-Hy-s0k">
-                                <rect key="frame" x="145" y="216" width="140" height="15"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ra-wZ-k21">
-                                <rect key="frame" x="145" y="239" width="140" height="15"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="You have enough fuel to fly xx parsecs. A full tank costs xx cr." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="f8Z-YC-Brf">
-                                <rect key="frame" x="20" y="297" width="265" height="45"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="There are ships for sale." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ofh-Z5-cdh">
-                                <rect key="frame" x="20" y="441" width="175" height="27"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="There is equipment for sale." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vmi-iH-tuP">
-                                <rect key="frame" x="20" y="476" width="175" height="50"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="You need at least 2,000 cr. to buy an escape pod." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ug2-RM-GDb">
-                                <rect key="frame" x="20" y="521" width="175" height="50"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ClN-cV-FtP">
-                                <rect key="frame" x="293" y="305" width="30" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Fuel"/>
-                                <connections>
-                                    <action selector="fuelButtonTapped" destination="iag-H1-Vfg" eventType="touchUpInside" id="gPc-Ca-NDe"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQj-NM-992">
-                                <rect key="frame" x="293" y="356" width="44" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Repair"/>
-                                <connections>
-                                    <action selector="repairButtonTapped" destination="iag-H1-Vfg" eventType="touchUpInside" id="YNR-Q3-vuc"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Your hull strength is at 100%. No repairs are needed." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TWt-WD-TBN">
-                                <rect key="frame" x="20" y="350" width="224" height="50"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Y2-4F-sPr">
-                                <rect key="frame" x="203" y="441" width="98" height="30"/>
-                                <animations/>
-                                <state key="normal" title="View Ship Info"/>
-                                <connections>
-                                    <action selector="viewShipInfoTapped" destination="iag-H1-Vfg" eventType="touchUpInside" id="Hy0-k4-Z1v"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQy-Mu-XiN">
-                                <rect key="frame" x="203" y="476" width="133" height="30"/>
-                                <animations/>
+                                <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                 <state key="normal" title="Buy/Sell Equipment"/>
-                                <connections>
-                                    <action selector="buySellEquipmentTapped" destination="iag-H1-Vfg" eventType="touchUpInside" id="CUG-ch-Yru"/>
-                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GIL-9B-T0Q">
-                                <rect key="frame" x="203" y="521" width="111" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8Z-lD-QRt">
+                                <rect key="frame" x="20" y="72" width="38" height="18"/>
                                 <animations/>
-                                <state key="normal" title="Buy Escape Pod"/>
-                                <connections>
-                                    <action selector="buyEscapePodTapped" destination="iag-H1-Vfg" eventType="touchUpInside" id="Ydy-R9-unz"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjH-Oc-qAY">
-                                <rect key="frame" x="145" y="101" width="140" height="15"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GzS-zm-LgP">
+                                <rect key="frame" x="20" y="98" width="38" height="18"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="geC-fs-cOP" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
+                                <rect key="frame" x="20" y="124" width="128" height="34"/>
+                                <animations/>
+                                <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
+                                <state key="normal" title="View Ship Info"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i87-3L-ZYH">
+                                <rect key="frame" x="20" y="218" width="38" height="18"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCQ-id-E6Y">
+                                <rect key="frame" x="20" y="244" width="38" height="18"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1V-1K-aRr">
+                                <rect key="frame" x="20" y="364" width="38" height="18"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CBn-hS-aSs">
+                                <rect key="frame" x="20" y="390" width="38" height="18"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljN-uN-Pyc" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
+                                <rect key="frame" x="20" y="416" width="87" height="34"/>
+                                <animations/>
+                                <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
+                                <state key="normal" title="Buy Pod"/>
+                                <connections>
+                                    <action selector="buyPod:" destination="iag-H1-Vfg" eventType="touchUpInside" id="AP6-av-GqV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="YcH-6Y-fMA" secondAttribute="leading" id="294-Ww-llh"/>
+                            <constraint firstItem="YcH-6Y-fMA" firstAttribute="top" secondItem="gCQ-id-E6Y" secondAttribute="bottom" constant="8" id="5uk-y0-jmy"/>
+                            <constraint firstItem="CBn-hS-aSs" firstAttribute="top" secondItem="f1V-1K-aRr" secondAttribute="bottom" constant="8" id="GUd-an-OTa"/>
+                            <constraint firstItem="gCQ-id-E6Y" firstAttribute="top" secondItem="i87-3L-ZYH" secondAttribute="bottom" constant="8" id="IIA-j9-1qb"/>
+                            <constraint firstItem="i87-3L-ZYH" firstAttribute="top" secondItem="geC-fs-cOP" secondAttribute="bottom" constant="60" id="KyL-gK-ajk"/>
+                            <constraint firstItem="geC-fs-cOP" firstAttribute="top" secondItem="GzS-zm-LgP" secondAttribute="bottom" constant="8" id="OtN-ru-YkU"/>
+                            <constraint firstItem="GzS-zm-LgP" firstAttribute="leading" secondItem="T8Z-lD-QRt" secondAttribute="leading" id="U8A-qz-jbN"/>
+                            <constraint firstItem="f1V-1K-aRr" firstAttribute="top" secondItem="YcH-6Y-fMA" secondAttribute="bottom" constant="60" id="alc-sU-Awd"/>
+                            <constraint firstItem="T8Z-lD-QRt" firstAttribute="top" secondItem="lc9-2Z-tYw" secondAttribute="bottom" constant="8" id="bQ4-hw-SO3"/>
+                            <constraint firstItem="GzS-zm-LgP" firstAttribute="top" secondItem="T8Z-lD-QRt" secondAttribute="bottom" constant="8" id="dvn-md-1P7"/>
+                            <constraint firstItem="ljN-uN-Pyc" firstAttribute="leading" secondItem="CBn-hS-aSs" secondAttribute="leading" id="fuw-YI-Z8C"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="geC-fs-cOP" secondAttribute="leading" id="g4C-Ce-X5x"/>
+                            <constraint firstItem="geC-fs-cOP" firstAttribute="leading" secondItem="GzS-zm-LgP" secondAttribute="leading" id="hn8-iJ-Sh3"/>
+                            <constraint firstItem="f1V-1K-aRr" firstAttribute="leading" secondItem="gCQ-id-E6Y" secondAttribute="leading" id="iHE-Bp-HXG"/>
+                            <constraint firstItem="gCQ-id-E6Y" firstAttribute="leading" secondItem="i87-3L-ZYH" secondAttribute="leading" id="nBU-FB-9so"/>
+                            <constraint firstItem="ljN-uN-Pyc" firstAttribute="top" secondItem="CBn-hS-aSs" secondAttribute="bottom" constant="8" id="pGp-a7-MZM"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="T8Z-lD-QRt" secondAttribute="leading" id="r7l-cX-rWL"/>
+                            <constraint firstItem="i87-3L-ZYH" firstAttribute="leading" secondItem="GzS-zm-LgP" secondAttribute="leading" id="rpN-Ah-gQO"/>
+                            <constraint firstItem="CBn-hS-aSs" firstAttribute="leading" secondItem="f1V-1K-aRr" secondAttribute="leading" id="we5-kV-XIL"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Shipyard" id="6Bd-Ka-PzO"/>
                     <connections>
-                        <outlet property="buyEscapePodAccess" destination="GIL-9B-T0Q" id="1Qx-Z4-jum"/>
-                        <outlet property="buySellEquipmentAccess" destination="xQy-Mu-XiN" id="3I8-4Z-f1n"/>
-                        <outlet property="equipmentMessage" destination="vmi-iH-tuP" id="TIe-pg-6Tu"/>
-                        <outlet property="escapePodMessage" destination="ug2-RM-GDb" id="4z5-c4-EDv"/>
-                        <outlet property="fuelButtonAccess" destination="ClN-cV-FtP" id="O7g-ez-Lqk"/>
-                        <outlet property="fuelMessage" destination="f8Z-YC-Brf" id="czO-pa-df8"/>
-                        <outlet property="governmentLabel" destination="6mw-bd-eos" id="NQV-rJ-vZA"/>
-                        <outlet property="nameLabel" destination="kjH-Oc-qAY" id="jdO-nn-le3"/>
-                        <outlet property="piratesLabel" destination="8ra-wZ-k21" id="8K3-BF-pcq"/>
-                        <outlet property="policeLabel" destination="jdz-Hy-s0k" id="Bnd-Ms-TEX"/>
-                        <outlet property="repairButtonAccess" destination="BQj-NM-992" id="Xwz-nQ-Hqo"/>
-                        <outlet property="repairsMessage" destination="TWt-WD-TBN" id="IWi-g3-grU"/>
-                        <outlet property="resourceLabel" destination="KDf-3y-Fo7" id="ojG-Ol-NrN"/>
-                        <outlet property="shipInfoAccess" destination="2Y2-4F-sPr" id="AG5-0R-2R9"/>
-                        <outlet property="shipsMessage" destination="ofh-Z5-cdh" id="Jcp-ay-eAQ"/>
-                        <outlet property="sizeLabel" destination="SeK-G5-P6a" id="oL8-SE-m84"/>
-                        <outlet property="techLevelLabel" destination="DQe-Or-bdi" id="SRt-Ri-dzX"/>
+                        <outlet property="equipmentButton" destination="YcH-6Y-fMA" id="MVK-ow-gZM"/>
+                        <outlet property="equipmentMessage1" destination="i87-3L-ZYH" id="oSA-c3-ZE6"/>
+                        <outlet property="equipmentMessage2" destination="gCQ-id-E6Y" id="6TX-er-kwO"/>
+                        <outlet property="podButton" destination="ljN-uN-Pyc" id="69t-CI-PPZ"/>
+                        <outlet property="podMessage1" destination="f1V-1K-aRr" id="hVl-II-oDo"/>
+                        <outlet property="podMessage2" destination="CBn-hS-aSs" id="IUA-CW-NP5"/>
+                        <outlet property="shipButton" destination="geC-fs-cOP" id="Esg-UJ-dnK"/>
+                        <outlet property="shipMessage1" destination="T8Z-lD-QRt" id="l8g-eg-YeT"/>
+                        <outlet property="shipMessage2" destination="GzS-zm-LgP" id="lxp-N1-aIy"/>
                         <segue destination="Z1D-po-ACl" kind="presentation" identifier="fuelRepairModal" modalPresentationStyle="overCurrentContext" id="CM3-cv-FPS"/>
                     </connections>
                 </viewController>
@@ -3589,6 +3476,9 @@
                                 <animations/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <state key="normal" title="Fuel"/>
+                                <connections>
+                                    <action selector="maxFuel:" destination="I0c-F9-5oA" eventType="touchUpInside" id="pYK-NQ-0Gj"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your tank is full." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="eXT-5v-FK0">
                                 <rect key="frame" x="20" y="392" width="115" height="20"/>
@@ -3616,6 +3506,9 @@
                                 <animations/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <state key="normal" title="Repairs"/>
+                                <connections>
+                                    <action selector="maxRepairs:" destination="I0c-F9-5oA" eventType="touchUpInside" id="t0u-FI-FSP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
