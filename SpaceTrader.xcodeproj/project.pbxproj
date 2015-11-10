@@ -28,6 +28,9 @@
 		5A81B96D1BE2B3B700BDC351 /* EncounterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81B96C1BE2B3B700BDC351 /* EncounterVC.swift */; };
 		5A83DF541BDECF0400C31AC5 /* WarpViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A83DF531BDECF0400C31AC5 /* WarpViewVC.swift */; };
 		5A9830511BE3224100378EB3 /* EncounterVCBad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9830501BE3224100378EB3 /* EncounterVCBad.swift */; };
+		5AB36E8F1BF18B5200941CF6 /* ShipListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB36E8E1BF18B5200941CF6 /* ShipListVC.swift */; };
+		5AB36E911BF18B6600941CF6 /* EquipmentListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB36E901BF18B6600941CF6 /* EquipmentListVC.swift */; };
+		5AB36E931BF1926D00941CF6 /* MercenariesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB36E921BF1926D00941CF6 /* MercenariesVC.swift */; };
 		5AD5F8921B9A122200154B21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8911B9A122200154B21 /* AppDelegate.swift */; };
 		5AD5F8941B9A122200154B21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8931B9A122200154B21 /* ViewController.swift */; };
 		5AD5F8971B9A122200154B21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD5F8951B9A122200154B21 /* Main.storyboard */; };
@@ -86,6 +89,9 @@
 		5A81B96C1BE2B3B700BDC351 /* EncounterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncounterVC.swift; sourceTree = "<group>"; };
 		5A83DF531BDECF0400C31AC5 /* WarpViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarpViewVC.swift; sourceTree = "<group>"; };
 		5A9830501BE3224100378EB3 /* EncounterVCBad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncounterVCBad.swift; sourceTree = "<group>"; };
+		5AB36E8E1BF18B5200941CF6 /* ShipListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipListVC.swift; sourceTree = "<group>"; };
+		5AB36E901BF18B6600941CF6 /* EquipmentListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmentListVC.swift; sourceTree = "<group>"; };
+		5AB36E921BF1926D00941CF6 /* MercenariesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MercenariesVC.swift; sourceTree = "<group>"; };
 		5AD5F88C1B9A122200154B21 /* SpaceTrader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceTrader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD5F8901B9A122200154B21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AD5F8911B9A122200154B21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +140,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5AB36E8D1BF18B3600941CF6 /* Menus */ = {
+			isa = PBXGroup;
+			children = (
+				5AB36E8E1BF18B5200941CF6 /* ShipListVC.swift */,
+				5AB36E901BF18B6600941CF6 /* EquipmentListVC.swift */,
+				5AB36E921BF1926D00941CF6 /* MercenariesVC.swift */,
+			);
+			name = Menus;
+			sourceTree = "<group>";
+		};
 		5AD5F8831B9A122200154B21 = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +250,7 @@
 		5AF1CA2B1BA365DC00643C5F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5AB36E8D1BF18B3600941CF6 /* Menus */,
 				5A078AC01BB33C100005155D /* BuyModalVC.swift */,
 				5AF1CA2E1BAB3E7A00643C5F /* BuyVC.swift */,
 				5A518FB11BC18C0B00021B13 /* DockVC.swift */,
@@ -370,7 +387,9 @@
 				5AEC942E1BC8594F00C68F7F /* GalacticChartVC.swift in Sources */,
 				5AD5F8941B9A122200154B21 /* ViewController.swift in Sources */,
 				5AD5F8C01B9F473E00154B21 /* TradeItem.swift in Sources */,
+				5AB36E8F1BF18B5200941CF6 /* ShipListVC.swift in Sources */,
 				5AD5F8BE1B9F3BE700154B21 /* Ship.swift in Sources */,
+				5AB36E931BF1926D00941CF6 /* MercenariesVC.swift in Sources */,
 				5A81B96D1BE2B3B700BDC351 /* EncounterVC.swift in Sources */,
 				5AD5F8B41B9DEB5300154B21 /* DataTypes.swift in Sources */,
 				5A723F421BCD5EA5006FFB13 /* Encounter.swift in Sources */,
@@ -389,6 +408,7 @@
 				5A723F401BCC531B006FFB13 /* Journey.swift in Sources */,
 				5AF1CA2F1BAB3E7A00643C5F /* BuyVC.swift in Sources */,
 				5A0265B81B9FCD170079F6DE /* Weapon.swift in Sources */,
+				5AB36E911BF18B6600941CF6 /* EquipmentListVC.swift in Sources */,
 				5AD5F8C21B9FB54E00154B21 /* Galaxy.swift in Sources */,
 				5A0265C21BA329670079F6DE /* Commander.swift in Sources */,
 				5A0265C01B9FDE1E0079F6DE /* PoliticsType.swift in Sources */,

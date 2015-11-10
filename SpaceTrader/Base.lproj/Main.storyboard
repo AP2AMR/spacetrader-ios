@@ -1096,6 +1096,32 @@
             </objects>
             <point key="canvasLocation" x="3802" y="-319"/>
         </scene>
+        <!--Ship List-->
+        <scene sceneID="FdH-zj-imv">
+            <objects>
+                <viewController id="pWu-eW-mLr" customClass="ShipListVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HIK-BI-VpE"/>
+                        <viewControllerLayoutGuide type="bottom" id="gBP-RH-sR4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tZM-Gk-E9E">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Ship List" id="1pQ-cE-yZR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="3TF-Ma-4re">
+                            <connections>
+                                <action selector="done:" destination="pWu-eW-mLr" id="omv-ZB-eU4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GKq-iS-c2T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4947" y="372"/>
+        </scene>
         <!--Fuel Repair ModalVC-->
         <scene sceneID="TVu-z4-4cO">
             <objects>
@@ -1181,6 +1207,32 @@
             </objects>
             <point key="canvasLocation" x="2990" y="342"/>
         </scene>
+        <!--Buy/Sell Equipment-->
+        <scene sceneID="fRD-wF-VFL">
+            <objects>
+                <viewController id="toB-3f-y7D" customClass="EquipmentListVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="evR-Ev-4B2"/>
+                        <viewControllerLayoutGuide type="bottom" id="I7v-Ix-7nL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="W4X-Sg-5Vt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Buy/Sell Equipment" id="ooj-PP-OJb">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="X5p-WG-Qmy">
+                            <connections>
+                                <action selector="done:" destination="toB-3f-y7D" id="XtL-N1-cB7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ync-ve-mtu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4938" y="1097"/>
+        </scene>
         <!--Shipyard-->
         <scene sceneID="ttq-Ff-k7u">
             <objects>
@@ -1198,6 +1250,9 @@
                                 <animations/>
                                 <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                 <state key="normal" title="Buy/Sell Equipment"/>
+                                <connections>
+                                    <segue destination="zMc-Wk-QNY" kind="presentation" id="tbh-Dl-L6d"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8Z-lD-QRt">
                                 <rect key="frame" x="20" y="72" width="38" height="18"/>
@@ -1218,6 +1273,9 @@
                                 <animations/>
                                 <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                 <state key="normal" title="View Ship Info"/>
+                                <connections>
+                                    <segue destination="QjL-dC-cov" kind="presentation" id="hBg-e5-IML"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i87-3L-ZYH">
                                 <rect key="frame" x="20" y="218" width="38" height="18"/>
@@ -3305,6 +3363,30 @@
             </objects>
             <point key="canvasLocation" x="-49" y="150"/>
         </scene>
+        <!--Mercenaries for Hire-->
+        <scene sceneID="MDS-LH-Raf">
+            <objects>
+                <viewController id="1s8-qu-jkZ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VHf-0g-dRN"/>
+                        <viewControllerLayoutGuide type="bottom" id="w0H-uY-Pkl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vdh-Ct-Fej">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Mercenaries for Hire" id="44w-6W-9Hq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="7Ix-dJ-O5w"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eD8-rQ-Lrc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1324" y="-1967"/>
+        </scene>
         <!--System Info-->
         <scene sceneID="Tfu-cW-O4m">
             <objects>
@@ -3454,6 +3536,9 @@
                                 <animations/>
                                 <inset key="contentEdgeInsets" minX="10" minY="8" maxX="10" maxY="8"/>
                                 <state key="normal" title="Hire Mercenaries"/>
+                                <connections>
+                                    <segue destination="6xM-0L-v7u" kind="presentation" id="Hlw-51-ahH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mS5-BZ-YEa" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="228" y="285" width="70" height="34"/>
@@ -3730,9 +3815,66 @@
             </objects>
             <point key="canvasLocation" x="620" y="-562"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zEy-3l-JNt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QjL-dC-cov" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hJx-mk-PKS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pWu-eW-mLr" kind="relationship" relationship="rootViewController" id="NfT-7W-ezE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QYw-wq-q17" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4135" y="372"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="uzE-dv-rr4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zMc-Wk-QNY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lKt-ur-Rc9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="toB-3f-y7D" kind="relationship" relationship="rootViewController" id="d2e-DZ-Q9h"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A0F-c1-DjE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4126" y="1097"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tin-7o-XWx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6xM-0L-v7u" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="92n-Ms-TsF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1s8-qu-jkZ" kind="relationship" relationship="rootViewController" id="c3w-zS-mG3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B38-gd-3f4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="620" y="-1999"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="REb-7Y-v0a"/>
         <segue reference="LdK-j7-SWM"/>
+        <segue reference="REb-7Y-v0a"/>
     </inferredMetricsTieBreakers>
 </document>
