@@ -49,6 +49,11 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
         updateView()
         shortRangeChart.redrawSelf()
     }
+    
+    @IBAction func galacticChartButton(sender: AnyObject) {
+    }
+
+    
 
     override func viewDidLoad() {
         
