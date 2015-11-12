@@ -51,6 +51,7 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     }
     
     @IBAction func galacticChartButton(sender: AnyObject) {
+        
     }
 
     
