@@ -10,6 +10,13 @@ import UIKit
 
 class GalacticChartVC: UIViewController, ShortRangeChartDelegate {
     
+    @IBOutlet weak var targetSystemLabel: UILabel!
+    
+    override func viewDidAppear(animated: Bool) {
+        targetSystemDidChange()
+    }
+    
+    
     @IBOutlet weak var galacticChart: GalacticChartView! {
         didSet {
             galacticChart.delegate = self
@@ -24,7 +31,7 @@ class GalacticChartVC: UIViewController, ShortRangeChartDelegate {
     
     
     override func viewDidLoad() {
-        self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
+
     }
     
     @IBAction func closeButton() {
@@ -34,6 +41,7 @@ class GalacticChartVC: UIViewController, ShortRangeChartDelegate {
     func targetSystemDidChange() {
         galacticChart.redrawSelf()
         shortRangeChart.redrawSelf()
+        targetSystemLabel.text = "Target System: \(galaxy.targetSystem!.name)"
     }
     
 }
