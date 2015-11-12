@@ -35,6 +35,15 @@ class EncounterVC: UIViewController, PlunderDelegate {
         button3Text.setTitle("\(galaxy.currentJourney!.currentEncounter!.button3Text)", forState: controlState)
         button4Text.setTitle("\(galaxy.currentJourney!.currentEncounter!.button4Text)", forState: controlState)
         
+        // turn buttons off if disabled
+        if galaxy.currentJourney!.currentEncounter!.button3Text == "" {
+            button3Text.enabled = false
+        }
+        
+        if galaxy.currentJourney!.currentEncounter!.button4Text == "" {
+            button4Text.enabled = false
+        }
+        
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "messageHandler:", name: "encounterNotification", object: nil)
     }
