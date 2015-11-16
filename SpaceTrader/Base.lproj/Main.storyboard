@@ -1815,23 +1815,22 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTL-fO-GUv">
                                 <rect key="frame" x="136" y="145" width="102" height="82"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qud-8j-yHQ">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z3c-VC-Vjq">
                                         <rect key="frame" x="1" y="1" width="100" height="80"/>
                                         <animations/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="1LM-AD-AGe"/>
-                                            <constraint firstAttribute="width" constant="100" id="hXa-lR-7r1"/>
+                                            <constraint firstAttribute="width" constant="100" id="IRd-FF-jU6"/>
+                                            <constraint firstAttribute="height" constant="80" id="cpz-26-Se4"/>
                                         </constraints>
-                                    </view>
+                                    </imageView>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="102" id="4iU-ff-C3Q"/>
-                                    <constraint firstItem="qud-8j-yHQ" firstAttribute="leading" secondItem="oTL-fO-GUv" secondAttribute="leading" constant="1" id="7QE-fm-Uhc"/>
-                                    <constraint firstItem="qud-8j-yHQ" firstAttribute="top" secondItem="oTL-fO-GUv" secondAttribute="top" constant="1" id="O9p-O1-xfT"/>
+                                    <constraint firstItem="z3c-VC-Vjq" firstAttribute="leading" secondItem="oTL-fO-GUv" secondAttribute="leading" constant="1" id="aEg-yS-6Wm"/>
                                     <constraint firstAttribute="height" constant="82" id="b67-0c-Js4"/>
+                                    <constraint firstItem="z3c-VC-Vjq" firstAttribute="top" secondItem="oTL-fO-GUv" secondAttribute="top" constant="1" id="hLO-BN-HFk"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1m-MM-iuo">
@@ -1898,15 +1897,15 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbD-qK-gGo">
-                                <rect key="frame" x="136" y="115" width="29" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="You:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbD-qK-gGo">
+                                <rect key="frame" x="136" y="0.0" width="29" height="17"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opponent:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCA-yX-O8m">
-                                <rect key="frame" x="362" y="115" width="69" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Opponent:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCA-yX-O8m">
+                                <rect key="frame" x="362" y="0.0" width="69" height="17"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1955,21 +1954,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="[first line of text]" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tfX-8e-nV6">
-                                <rect key="frame" x="20" y="379" width="560" height="45"/>
+                                <rect key="frame" x="20" y="364" width="560" height="60"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="mJ2-ZY-VzK"/>
+                                    <constraint firstAttribute="height" constant="60" id="mJ2-ZY-VzK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="[second line of text]" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LBF-vL-aik">
-                                <rect key="frame" x="20" y="436" width="560" height="45"/>
+                                <rect key="frame" x="20" y="436" width="560" height="60"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="l9O-3g-DYg"/>
+                                    <constraint firstAttribute="height" constant="60" id="l9O-3g-DYg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -2067,7 +2066,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQc-Of-lmo">
-                                <rect key="frame" x="180" y="489" width="240" height="49"/>
+                                <rect key="frame" x="180" y="504" width="240" height="34"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -2075,7 +2074,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mhO-Pe-AA3">
-                                <rect key="frame" x="180" y="322" width="240" height="49"/>
+                                <rect key="frame" x="180" y="322" width="240" height="34"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -2133,7 +2132,6 @@
                             <constraint firstItem="1Sp-Cn-eNY" firstAttribute="width" secondItem="Did-Ca-O6u" secondAttribute="width" id="loD-DJ-xOr"/>
                             <constraint firstItem="8iA-FL-PCu" firstAttribute="top" secondItem="aQc-Of-lmo" secondAttribute="bottom" constant="8" symbolic="YES" id="mUM-KL-QzV"/>
                             <constraint firstItem="1Sp-Cn-eNY" firstAttribute="baseline" secondItem="jF8-Ip-n9X" secondAttribute="baseline" id="mZu-8C-tZk"/>
-                            <constraint firstItem="qud-8j-yHQ" firstAttribute="top" secondItem="zbD-qK-gGo" secondAttribute="bottom" constant="14" id="n3T-1l-VOr"/>
                             <constraint firstItem="akI-hL-wga" firstAttribute="baseline" secondItem="vna-JK-gpb" secondAttribute="baseline" id="nxJ-v4-daW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LBF-vL-aik" secondAttribute="trailing" id="oFc-gm-NSZ"/>
                             <constraint firstItem="vna-JK-gpb" firstAttribute="baseline" secondItem="HPo-By-NeI" secondAttribute="baseline" id="qI8-dC-dhA"/>
@@ -2161,6 +2159,7 @@
                         <outlet property="opponentShipType" destination="DlB-Cz-ljz" id="JIw-bd-BMy"/>
                         <outlet property="playerHull" destination="P7x-3d-tPB" id="Nqe-GD-GVE"/>
                         <outlet property="playerShields" destination="ErH-Ka-Fun" id="2zJ-hd-x9L"/>
+                        <outlet property="playerShipImage" destination="z3c-VC-Vjq" id="lag-Vy-MkQ"/>
                         <outlet property="playerShipType" destination="PoC-GG-vf1" id="OYB-QF-UbS"/>
                         <outlet property="secondTextBlock" destination="LBF-vL-aik" id="PT7-sv-O1O"/>
                         <segue destination="D9y-jd-91M" kind="show" identifier="gameOver" animates="NO" id="Zhh-Pf-9hC"/>
@@ -2169,7 +2168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RHb-zr-ix5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3038" y="1883"/>
+            <point key="canvasLocation" x="3031" y="1888"/>
         </scene>
         <!--PlunderVC-->
         <scene sceneID="yJC-KA-Gi1">

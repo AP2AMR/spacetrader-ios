@@ -46,6 +46,10 @@ class EncounterVC: UIViewController, PlunderDelegate {
         
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "messageHandler:", name: "encounterNotification", object: nil)
+        
+        // images
+        
+        displayImages()
     }
     
     
@@ -67,6 +71,9 @@ class EncounterVC: UIViewController, PlunderDelegate {
     @IBOutlet weak var button4Text: UIButton!
     
     var closed = false
+    
+    @IBOutlet var playerShipImage: UIImageView!
+    
     
     // BUTTON FUNCTIONS***************************************************************************
     @IBAction func button1(sender: AnyObject) {
@@ -798,6 +805,15 @@ class EncounterVC: UIViewController, PlunderDelegate {
     }
     
     // END CONSEQUENT ACTIONS*********************************************************************
+    // IMAGE STUFF********************************************************************************
+    func displayImages() {
+        self.playerShipImage.image = UIImage(named: "ship0")
+    }
+    
+    
+    
+    // END IMAGE STUFF****************************************************************************
+    
     // ONLY OLD THINGS BENEATH HERE***************************************************************
     
     
