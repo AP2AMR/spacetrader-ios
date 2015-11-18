@@ -71,8 +71,17 @@ class EncounterVC: UIViewController, PlunderDelegate {
     @IBOutlet weak var button4Text: UIButton!
     
     var closed = false
+
+    @IBOutlet weak var playerShipImage: UIView!
+    @IBOutlet weak var opponentShipImage: UIView!
     
-    @IBOutlet var playerShipImage: UIImageView!
+    var playerLayer1: CALayer {
+        return playerShipImage.layer
+    }
+    
+    var opponentLayer1: CALayer {
+        return opponentShipImage.layer
+    }
     
     
     // BUTTON FUNCTIONS***************************************************************************
@@ -807,7 +816,18 @@ class EncounterVC: UIViewController, PlunderDelegate {
     // END CONSEQUENT ACTIONS*********************************************************************
     // IMAGE STUFF********************************************************************************
     func displayImages() {
-        self.playerShipImage.image = UIImage(named: "ship0")
+        let amountToReduceFrameBy: CGFloat = 5
+        
+        
+        playerLayer1.contents = UIImage(named: "ship0")?.CGImage
+        playerLayer1.contentsGravity = kCAGravityCenter
+        
+        let oldFrame = playerLayer1.frame
+        let oldOrigin = oldFrame.origin
+        let newSize = CGSize(width: oldFrame.width - amountToReduceFrameBy, height: oldFrame.height)
+        let newFrame = CGRect(origin: oldOrigin, size: newSize)
+        
+        playerLayer1.frame = newFrame
     }
     
     

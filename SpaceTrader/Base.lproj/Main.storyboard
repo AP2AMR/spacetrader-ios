@@ -1815,22 +1815,23 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTL-fO-GUv">
                                 <rect key="frame" x="136" y="145" width="102" height="82"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z3c-VC-Vjq">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F0M-ju-dyA">
                                         <rect key="frame" x="1" y="1" width="100" height="80"/>
                                         <animations/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="IRd-FF-jU6"/>
-                                            <constraint firstAttribute="height" constant="80" id="cpz-26-Se4"/>
+                                            <constraint firstAttribute="width" constant="100" id="SCK-fY-47E"/>
+                                            <constraint firstAttribute="height" constant="80" id="UPk-jQ-3h6"/>
                                         </constraints>
-                                    </imageView>
+                                    </view>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="102" id="4iU-ff-C3Q"/>
-                                    <constraint firstItem="z3c-VC-Vjq" firstAttribute="leading" secondItem="oTL-fO-GUv" secondAttribute="leading" constant="1" id="aEg-yS-6Wm"/>
+                                    <constraint firstItem="F0M-ju-dyA" firstAttribute="leading" secondItem="oTL-fO-GUv" secondAttribute="leading" constant="1" id="BsI-3I-72U"/>
+                                    <constraint firstItem="F0M-ju-dyA" firstAttribute="top" secondItem="oTL-fO-GUv" secondAttribute="top" constant="1" id="Ciu-b4-ETi"/>
                                     <constraint firstAttribute="height" constant="82" id="b67-0c-Js4"/>
-                                    <constraint firstItem="z3c-VC-Vjq" firstAttribute="top" secondItem="oTL-fO-GUv" secondAttribute="top" constant="1" id="hLO-BN-HFk"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1m-MM-iuo">
@@ -1953,16 +1954,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="[first line of text]" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tfX-8e-nV6">
-                                <rect key="frame" x="20" y="364" width="560" height="60"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="mJ2-ZY-VzK"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="[second line of text]" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LBF-vL-aik">
                                 <rect key="frame" x="20" y="436" width="560" height="60"/>
                                 <animations/>
@@ -2081,6 +2072,16 @@
                                     <constraint firstAttribute="width" constant="240" id="CQg-0S-gAu"/>
                                 </constraints>
                             </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="[first line of text]" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tfX-8e-nV6">
+                                <rect key="frame" x="20" y="364" width="560" height="60"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="mJ2-ZY-VzK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2156,10 +2157,11 @@
                         <outlet property="firstTextBlock" destination="tfX-8e-nV6" id="KSb-As-lKo"/>
                         <outlet property="opponentHull" destination="koD-aw-qW2" id="Rss-sZ-Cw0"/>
                         <outlet property="opponentShields" destination="jNF-SD-sgk" id="laC-hm-njK"/>
+                        <outlet property="opponentShipImage" destination="jr3-uo-HVY" id="68c-cn-LJT"/>
                         <outlet property="opponentShipType" destination="DlB-Cz-ljz" id="JIw-bd-BMy"/>
                         <outlet property="playerHull" destination="P7x-3d-tPB" id="Nqe-GD-GVE"/>
                         <outlet property="playerShields" destination="ErH-Ka-Fun" id="2zJ-hd-x9L"/>
-                        <outlet property="playerShipImage" destination="z3c-VC-Vjq" id="lag-Vy-MkQ"/>
+                        <outlet property="playerShipImage" destination="F0M-ju-dyA" id="dTy-M0-aw5"/>
                         <outlet property="playerShipType" destination="PoC-GG-vf1" id="OYB-QF-UbS"/>
                         <outlet property="secondTextBlock" destination="LBF-vL-aik" id="PT7-sv-O1O"/>
                         <segue destination="D9y-jd-91M" kind="show" identifier="gameOver" animates="NO" id="Zhh-Pf-9hC"/>
