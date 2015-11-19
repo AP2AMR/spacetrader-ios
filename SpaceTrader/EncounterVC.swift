@@ -815,8 +815,8 @@ class EncounterVC: UIViewController, PlunderDelegate {
     // IMAGE STUFF********************************************************************************
     func displayImages() {
         
-        var playerUnderlayImage = UIImage(named: "ship-1a")
-        var playerOverlayImage = UIImage(named: "ship-1da")
+        var playerUnderlayImage = UIImage(named: "ship2")
+        var playerOverlayImage = UIImage(named: "ship2d")
         
         // set hull of player correctly
         let playerOverlayWidth = getOverlayWidthForDamage(true, shieldNotHull: false)
@@ -861,13 +861,70 @@ class EncounterVC: UIViewController, PlunderDelegate {
         if shieldNotHull {
             print("not written yet")
             percentage = Double(shieldStrengthPercent)
-        } else {
-            percentage = Double(hullIntegrityPercent)
             if ship == ShipType.Flea {
-                
+                healthy = 0
+                empty = 0
             } else if ship == ShipType.Gnat {
                 healthy = 55
                 empty = 140
+            } else if ship == ShipType.Firefly {
+                healthy = 0
+                empty = 0
+            } else if ship == ShipType.Mosquito {
+                healthy = 0
+                empty = 0
+            } else if ship == ShipType.Bumblebee {
+                healthy = 0
+                empty = 0
+            } else if ship == ShipType.Beetle {
+                healthy = 0
+                empty = 0
+            } else if ship == ShipType.Hornet {
+                healthy = 0
+                empty = 0
+            } else if ship == ShipType.Grasshopper {
+                healthy = 0
+                empty = 0
+            } else if ship == ShipType.Termite {
+                healthy = 0
+                empty = 0
+            } else if ship == ShipType.Wasp {
+                healthy = 0
+                empty = 0
+            }
+
+        } else {
+            percentage = Double(hullIntegrityPercent)
+            if ship == ShipType.Flea {
+                healthy = 0
+                empty = 0
+            } else if ship == ShipType.Gnat {
+                healthy = 55
+                empty = 140
+            } else if ship == ShipType.Firefly {
+                healthy = 0
+                empty = 0
+            } else if ship == ShipType.Mosquito {
+                healthy = 0
+                empty = 0
+            } else if ship == ShipType.Bumblebee {
+                healthy = 0
+                empty = 0
+            } else if ship == ShipType.Beetle {
+                healthy = 0
+                empty = 0
+            } else if ship == ShipType.Hornet {
+                healthy = 0
+                empty = 0
+            } else if ship == ShipType.Grasshopper {
+                healthy = 0
+                empty = 0
+            } else if ship == ShipType.Termite {
+                healthy = 0
+                empty = 0
+            } else if ship == ShipType.Wasp {
+                healthy = 0
+                empty = 0
             }
         }
         
