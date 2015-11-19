@@ -72,9 +72,11 @@ class EncounterVC: UIViewController, PlunderDelegate {
     
     var closed = false
 
+    @IBOutlet weak var playerImageBackground: UIImageView!
     @IBOutlet weak var playerImageUnderlay: UIImageView!
     @IBOutlet weak var playerImageOverlay: UIImageView!
     
+    @IBOutlet weak var opponentImageBackground: UIImageView!
     @IBOutlet weak var opponentImageUnderlay: UIImageView!
     @IBOutlet weak var opponentImageOverlay: UIImageView!
     
@@ -836,7 +838,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
     }
     
     func getOverlayWidthForDamage(playerNotOpponent: Bool, shieldNotHull: Bool) -> Double {
-        // determine if the overlay is shield or hull
+        // determine if the overlay is shield or hull, get initial values
         var ship: ShipType
         var hullIntegrityPercent: Int
         var shieldStrengthPercent: Int
@@ -852,6 +854,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
             shieldStrengthPercent = galaxy.currentJourney!.currentEncounter!.opponent.ship.shieldPercentage
         }
         
+        // lookup range values
         var healthy: Int = 0      // zero damage
         var empty: Int = 0        // full damage
         
@@ -868,20 +871,11 @@ class EncounterVC: UIViewController, PlunderDelegate {
             }
         }
         
-        // calculate overlay width
-        print("hull is at \(percentage)%")
-        
+        // calculate & return overlay width
         let range: Double = Double(empty - healthy)
-        
-        print("range is \(range)")
-        
         let percentageDamage: Double = 100 - percentage
         var width: Double = ((percentageDamage * range) / 100)
-        
-        print("meaning the overlay will be \(width) + 55")
-        
         width += Double(healthy)
-        
         return width
     }
     

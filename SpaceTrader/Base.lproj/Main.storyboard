@@ -1818,12 +1818,16 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F0M-ju-dyA">
                                         <rect key="frame" x="1" y="1" width="100" height="80"/>
                                         <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oZF-Vf-ALe">
+                                                <rect key="frame" x="0.0" y="0.0" width="68" height="78"/>
+                                                <animations/>
+                                            </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c3X-S7-MZR">
-                                                <rect key="frame" x="0.0" y="0.0" width="68" height="31"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="26" height="94"/>
                                                 <animations/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bgm-z0-IBj">
-                                                <rect key="frame" x="0.0" y="0.0" width="78" height="61"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="48" height="65"/>
                                                 <animations/>
                                             </imageView>
                                         </subviews>
@@ -1831,11 +1835,13 @@
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                         <constraints>
                                             <constraint firstItem="bgm-z0-IBj" firstAttribute="top" secondItem="F0M-ju-dyA" secondAttribute="top" id="0eP-DT-x3n"/>
+                                            <constraint firstItem="oZF-Vf-ALe" firstAttribute="leading" secondItem="F0M-ju-dyA" secondAttribute="leading" id="4B3-aB-AUs"/>
                                             <constraint firstItem="bgm-z0-IBj" firstAttribute="leading" secondItem="F0M-ju-dyA" secondAttribute="leading" id="HIH-uM-dO1"/>
                                             <constraint firstAttribute="width" constant="100" id="SCK-fY-47E"/>
                                             <constraint firstAttribute="height" constant="80" id="UPk-jQ-3h6"/>
                                             <constraint firstItem="c3X-S7-MZR" firstAttribute="leading" secondItem="F0M-ju-dyA" secondAttribute="leading" id="ndN-wY-rIw"/>
                                             <constraint firstItem="c3X-S7-MZR" firstAttribute="top" secondItem="F0M-ju-dyA" secondAttribute="top" id="tlq-XT-4qA"/>
+                                            <constraint firstItem="oZF-Vf-ALe" firstAttribute="top" secondItem="F0M-ju-dyA" secondAttribute="top" id="zAf-Bh-09B"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1882,23 +1888,29 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jr3-uo-HVY">
                                         <rect key="frame" x="1" y="1" width="100" height="80"/>
                                         <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L5l-Ze-hsR">
+                                                <rect key="frame" x="0.0" y="0.0" width="36" height="63"/>
+                                                <animations/>
+                                            </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OhD-G5-bpo">
-                                                <rect key="frame" x="0.0" y="0.0" width="69" height="43"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="60"/>
                                                 <animations/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kbe-yd-Rlk">
-                                                <rect key="frame" x="0.0" y="0.0" width="1" height="80"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="72" height="68"/>
                                                 <animations/>
                                             </imageView>
                                         </subviews>
                                         <animations/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                         <constraints>
+                                            <constraint firstItem="L5l-Ze-hsR" firstAttribute="top" secondItem="jr3-uo-HVY" secondAttribute="top" id="49T-Ny-6cE"/>
                                             <constraint firstAttribute="height" constant="80" id="B1i-ZG-Kdf"/>
                                             <constraint firstAttribute="width" constant="100" id="CFs-lx-V82"/>
                                             <constraint firstItem="kbe-yd-Rlk" firstAttribute="leading" secondItem="jr3-uo-HVY" secondAttribute="leading" id="OaO-CE-1eQ"/>
                                             <constraint firstItem="kbe-yd-Rlk" firstAttribute="top" secondItem="jr3-uo-HVY" secondAttribute="top" id="U7C-1S-M7K"/>
                                             <constraint firstItem="OhD-G5-bpo" firstAttribute="top" secondItem="jr3-uo-HVY" secondAttribute="top" id="hPK-PQ-Uul"/>
+                                            <constraint firstItem="L5l-Ze-hsR" firstAttribute="leading" secondItem="jr3-uo-HVY" secondAttribute="leading" id="nnV-OD-vgQ"/>
                                             <constraint firstItem="OhD-G5-bpo" firstAttribute="leading" secondItem="jr3-uo-HVY" secondAttribute="leading" id="yO0-jm-2Qd"/>
                                         </constraints>
                                     </view>
@@ -2185,11 +2197,13 @@
                         <outlet property="button4Text" destination="l8m-1h-I1B" id="yU2-QS-ZD8"/>
                         <outlet property="firstTextBlock" destination="tfX-8e-nV6" id="KSb-As-lKo"/>
                         <outlet property="opponentHull" destination="koD-aw-qW2" id="Rss-sZ-Cw0"/>
+                        <outlet property="opponentImageBackground" destination="L5l-Ze-hsR" id="Frd-GZ-kHI"/>
                         <outlet property="opponentImageOverlay" destination="kbe-yd-Rlk" id="ubY-6M-nEn"/>
                         <outlet property="opponentImageUnderlay" destination="OhD-G5-bpo" id="BXi-Wg-Hkq"/>
                         <outlet property="opponentShields" destination="jNF-SD-sgk" id="laC-hm-njK"/>
                         <outlet property="opponentShipType" destination="DlB-Cz-ljz" id="JIw-bd-BMy"/>
                         <outlet property="playerHull" destination="P7x-3d-tPB" id="Nqe-GD-GVE"/>
+                        <outlet property="playerImageBackground" destination="oZF-Vf-ALe" id="Flb-36-5Vk"/>
                         <outlet property="playerImageOverlay" destination="bgm-z0-IBj" id="faR-c2-9iH"/>
                         <outlet property="playerImageUnderlay" destination="c3X-S7-MZR" id="d0O-sU-Vk1"/>
                         <outlet property="playerShields" destination="ErH-Ka-Fun" id="2zJ-hd-x9L"/>
