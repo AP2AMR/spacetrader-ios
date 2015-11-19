@@ -112,8 +112,12 @@ class SpaceShip {
                 totalShield += Double(entry.currentStrength)
             }
             
-            let percentage = (totalShield / totalPossible) * 100
-            return Int(percentage)
+            if totalPossible != 0 {
+                let percentage = (totalShield / totalPossible) * 100
+                return Int(percentage)
+            } else {
+                return 0
+            }
         }
     }
     

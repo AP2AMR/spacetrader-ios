@@ -816,7 +816,12 @@ class EncounterVC: UIViewController, PlunderDelegate {
         var playerUnderlayImage = UIImage(named: "ship-1a")
         var playerOverlayImage = UIImage(named: "ship-1da")
         
-        playerOverlayImage = cropToWidth(playerOverlayImage!, width: 100)
+        // set hull of player correctly
+        let playerOverlayWidth = getOverlayWidthForDamage(true, shieldNotHull: false)
+        
+        print("player's hull is at \(player.commanderShip.hullPercentage)%, overlay width computed to be \(playerOverlayWidth)")
+        
+        playerOverlayImage = cropToWidth(playerOverlayImage!, width: playerOverlayWidth)
         
         // complete damage is 140
         // damage begins at 60
@@ -830,7 +835,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
         
     }
     
-    func getOverlayWidthForDamage(playerNotOpponent: Bool, shieldNotHull: Bool) -> Int {
+    func getOverlayWidthForDamage(playerNotOpponent: Bool, shieldNotHull: Bool) -> Double {
         // determine if the overlay is shield or hull
         var ship: ShipType
         var hullIntegrityPercent: Int
@@ -847,8 +852,8 @@ class EncounterVC: UIViewController, PlunderDelegate {
             shieldStrengthPercent = galaxy.currentJourney!.currentEncounter!.opponent.ship.shieldPercentage
         }
         
-        var healthy: Int       // zero damage
-        var empty: Int       // full damage
+        var healthy: Int = 0      // zero damage
+        var empty: Int = 0        // full damage
         
         if shieldNotHull {
             print("not written yet")
@@ -864,11 +869,20 @@ class EncounterVC: UIViewController, PlunderDelegate {
         }
         
         // calculate overlay width
+        print("hull is at \(percentage)%")
+        
         let range: Double = Double(empty - healthy)
-        var width: Double = ((percentage * range) / 100)
+        
+        print("range is \(range)")
+        
+        let percentageDamage: Double = 100 - percentage
+        var width: Double = ((percentageDamage * range) / 100)
+        
+        print("meaning the overlay will be \(width) + 55")
+        
         width += Double(healthy)
         
-        return Int(width)
+        return width
     }
     
     
