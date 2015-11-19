@@ -72,16 +72,12 @@ class EncounterVC: UIViewController, PlunderDelegate {
     
     var closed = false
 
-    @IBOutlet weak var playerShipImage: UIView!
-    @IBOutlet weak var opponentShipImage: UIView!
+    @IBOutlet weak var playerImageUnderlay: UIImageView!
+    @IBOutlet weak var playerImageOverlay: UIImageView!
     
-    var playerLayer1: CALayer {
-        return playerShipImage.layer
-    }
+    @IBOutlet weak var opponentImageUnderlay: UIImageView!
+    @IBOutlet weak var opponentImageOverlay: UIImageView!
     
-    var opponentLayer1: CALayer {
-        return opponentShipImage.layer
-    }
     
     
     // BUTTON FUNCTIONS***************************************************************************
@@ -816,18 +812,86 @@ class EncounterVC: UIViewController, PlunderDelegate {
     // END CONSEQUENT ACTIONS*********************************************************************
     // IMAGE STUFF********************************************************************************
     func displayImages() {
-        let amountToReduceFrameBy: CGFloat = 5
+        
+        var playerUnderlayImage = UIImage(named: "ship-1a")
+        var playerOverlayImage = UIImage(named: "ship-1da")
+        
+        playerOverlayImage = cropToWidth(playerOverlayImage!, width: 100)
+        
+        // complete damage is 140
+        // damage begins at 60
+        playerImageUnderlay.image = playerUnderlayImage
+        playerImageOverlay.image = playerOverlayImage
         
         
-        playerLayer1.contents = UIImage(named: "ship0")?.CGImage
-        playerLayer1.contentsGravity = kCAGravityCenter
+        //*******
+        //opponentImageUnderlay.image = UIImage(named: "preppo")
+
         
-        let oldFrame = playerLayer1.frame
-        let oldOrigin = oldFrame.origin
-        let newSize = CGSize(width: oldFrame.width - amountToReduceFrameBy, height: oldFrame.height)
-        let newFrame = CGRect(origin: oldOrigin, size: newSize)
+    }
+    
+    func getOverlayWidthForDamage(playerNotOpponent: Bool, shieldNotHull: Bool) -> Int {
+        // determine if the overlay is shield or hull
+        var ship: ShipType
+        var hullIntegrityPercent: Int
+        var shieldStrengthPercent: Int
+        var percentage: Double
         
-        playerLayer1.frame = newFrame
+        if playerNotOpponent {
+            ship = player.commanderShip.type
+            hullIntegrityPercent = player.commanderShip.hullPercentage
+            shieldStrengthPercent = player.commanderShip.shieldPercentage
+        } else {
+            ship = galaxy.currentJourney!.currentEncounter!.opponent.ship.type
+            hullIntegrityPercent = galaxy.currentJourney!.currentEncounter!.opponent.ship.hullPercentage
+            shieldStrengthPercent = galaxy.currentJourney!.currentEncounter!.opponent.ship.shieldPercentage
+        }
+        
+        var healthy: Int       // zero damage
+        var empty: Int       // full damage
+        
+        if shieldNotHull {
+            print("not written yet")
+            percentage = Double(shieldStrengthPercent)
+        } else {
+            percentage = Double(hullIntegrityPercent)
+            if ship == ShipType.Flea {
+                
+            } else if ship == ShipType.Gnat {
+                healthy = 55
+                empty = 140
+            }
+        }
+        
+        // calculate overlay width
+        let range: Double = Double(empty - healthy)
+        var width: Double = ((percentage * range) / 100)
+        width += Double(healthy)
+        
+        return Int(width)
+    }
+    
+    
+    func cropToWidth(image: UIImage, width: Double) -> UIImage {
+        
+        let contextImage: UIImage = UIImage(CGImage: image.CGImage!)
+        
+        let contextSize: CGSize = contextImage.size
+        
+        let posX: CGFloat = 0.0
+        let posY: CGFloat = 0.0
+        
+        let cgheight: CGFloat = contextSize.height
+        
+        let rect: CGRect = CGRectMake(posX, posY, CGFloat(width), cgheight)
+        
+        // Create bitmap image from context using the rect
+        let imageRef: CGImageRef = CGImageCreateWithImageInRect(contextImage.CGImage, rect)!
+        
+        // Create a new image based on the imageRef and rotate back to the original orientation
+        let image: UIImage = UIImage(CGImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
+        
+        return image
     }
     
     

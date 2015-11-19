@@ -102,6 +102,21 @@ class SpaceShip {
         }
     }
     
+    var shieldPercentage: Int {
+        get {
+            var totalPossible: Double = 0
+            var totalShield: Double = 0
+            
+            for entry in shield {
+                totalPossible += Double(entry.power)
+                totalShield += Double(entry.currentStrength)
+            }
+            
+            let percentage = (totalShield / totalPossible) * 100
+            return Int(percentage)
+        }
+    }
+    
     var totalCargo: Int {
         get {
             var totalItems: Int = 0
