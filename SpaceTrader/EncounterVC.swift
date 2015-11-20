@@ -815,13 +815,16 @@ class EncounterVC: UIViewController, PlunderDelegate {
     // IMAGE STUFF********************************************************************************
     func displayImages() {
         
-        var playerUnderlayImage = UIImage(named: "ship2")
-        var playerOverlayImage = UIImage(named: "ship2d")
+        var playerUnderlayImage = UIImage(named: "ship2s")
+        var playerOverlayImage = UIImage(named: "ship2")
         
         // set hull of player correctly
-        let playerOverlayWidth = getOverlayWidthForDamage(true, shieldNotHull: false)
+        //let playerOverlayWidth = getOverlayWidthForDamage(true, shieldNotHull: false)
         
-        print("player's hull is at \(player.commanderShip.hullPercentage)%, overlay width computed to be \(playerOverlayWidth)")
+        //print("player's hull is at \(player.commanderShip.hullPercentage)%, overlay width computed to be \(playerOverlayWidth)")
+        
+        // FOR TESTING
+        let playerOverlayWidth: Double = 80
         
         playerOverlayImage = cropToWidth(playerOverlayImage!, width: playerOverlayWidth)
         
@@ -859,72 +862,75 @@ class EncounterVC: UIViewController, PlunderDelegate {
         var empty: Int = 0        // full damage
         
         if shieldNotHull {
-            print("not written yet")
+            // shields
             percentage = Double(shieldStrengthPercent)
             if ship == ShipType.Flea {
-                healthy = 0
-                empty = 0
+                // no shields
+                //healthy = 70
+                //empty = 126
             } else if ship == ShipType.Gnat {
+                // no shields
+                //healthy = 55
+                //empty = 140
+            } else if ship == ShipType.Firefly {
                 healthy = 55
                 empty = 140
-            } else if ship == ShipType.Firefly {
-                healthy = 0
-                empty = 0
             } else if ship == ShipType.Mosquito {
-                healthy = 0
-                empty = 0
+                healthy = 60
+                empty = 140
             } else if ship == ShipType.Bumblebee {
-                healthy = 0
-                empty = 0
+                healthy = 40
+                empty = 162
             } else if ship == ShipType.Beetle {
-                healthy = 0
-                empty = 0
+                healthy = 40
+                empty = 155
             } else if ship == ShipType.Hornet {
-                healthy = 0
-                empty = 0
+                healthy = 30
+                empty = 175
             } else if ship == ShipType.Grasshopper {
-                healthy = 0
-                empty = 0
+                healthy = 25
+                empty = 180
             } else if ship == ShipType.Termite {
-                healthy = 0
-                empty = 0
+                healthy = 10
+                empty = 190
             } else if ship == ShipType.Wasp {
-                healthy = 0
-                empty = 0
+                healthy = 10
+                empty = 190
             }
 
         } else {
+            // hull damage
             percentage = Double(hullIntegrityPercent)
             if ship == ShipType.Flea {
-                healthy = 0
-                empty = 0
+                healthy = 70
+                empty = 126
             } else if ship == ShipType.Gnat {
                 healthy = 55
                 empty = 140
             } else if ship == ShipType.Firefly {
-                healthy = 0
-                empty = 0
+                healthy = 55
+                empty = 140
             } else if ship == ShipType.Mosquito {
-                healthy = 0
-                empty = 0
+                healthy = 60
+                empty = 140
             } else if ship == ShipType.Bumblebee {
-                healthy = 0
-                empty = 0
+                healthy = 40
+                empty = 162
             } else if ship == ShipType.Beetle {
-                healthy = 0
-                empty = 0
+                healthy = 40
+                empty = 155
             } else if ship == ShipType.Hornet {
-                healthy = 0
-                empty = 0
+                healthy = 30
+                empty = 175
             } else if ship == ShipType.Grasshopper {
-                healthy = 0
-                empty = 0
+                healthy = 25
+                empty = 180
             } else if ship == ShipType.Termite {
-                healthy = 0
-                empty = 0
+                healthy = 10
+                empty = 190
             } else if ship == ShipType.Wasp {
-                healthy = 0
-                empty = 0
+                healthy = 10
+                empty = 190
             }
         }
         
