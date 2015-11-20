@@ -153,7 +153,8 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         //player.escapePod = true
         
         let photonDisruptor = Weapon(type: WeaponType.photonDisruptor)
-        player.commanderShip.weapon.append(photonDisruptor)
+        let militaryLaser = Weapon(type: WeaponType.militaryLaser)
+        player.commanderShip.weapon.append(militaryLaser)
 
         
         // END TESTING STUFF ********************************************************************

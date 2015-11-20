@@ -1096,6 +1096,8 @@ class EncounterVC: UIViewController, PlunderDelegate {
         // if partly damaged and no shields, damage
         // if damaged and shielded but shields > damage, shielded
         
+        var shieldNotHull = true
+        
         if disabled {
             state = "n"
         } else if (hullPercentage == 100) && (shieldPercentage == 0) {
@@ -1104,15 +1106,29 @@ class EncounterVC: UIViewController, PlunderDelegate {
             state = "n"
         } else if (shieldPercentage == 0) && (hullPercentage < 100) {
             state = "d"
+            shieldNotHull = false
+        } else if (hullPercentage == 100) && (shieldPercentage < 100) {
+            // full hull, partial shield
+            state = "s"
+            shieldNotHull = true
         } else if (shieldPercentage > hullPercentage) {
             state = "s"
+            shieldNotHull = true
         } else {
             print("you messed something up in the second layer")
+            print("hull: \(hullPercentage), shield: \(shieldPercentage)")
         }
-         
+        
         if state != "n" {
             print("state: \(state)")
-            let image = getImageForShipAndState(ship, state: state)
+            print("this is player: \(playerNotOpponent)")
+            print("shield: \(shieldPercentage), hull: \(hullPercentage)")
+            var image = getImageForShipAndState(ship, state: state)
+            // set width
+            let width = getOverlayWidthForDamage(playerNotOpponent, shieldNotHull: shieldNotHull)
+            print("specified width to crop to: \(width)")
+            image = cropToWidth(image, width: width)
+            
             return image
         } else {
             print("second layer empty")
