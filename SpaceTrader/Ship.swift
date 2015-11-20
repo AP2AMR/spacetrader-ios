@@ -372,6 +372,27 @@ class SpaceShip {
                 self.traders = 4
                 self.repairCosts = 5
                 self.probabilityOfHit = 4
+            case ShipType.Custom:
+                // THIS DATA LIFTED FROM WASP. FIX.
+                self.type = ShipType.Wasp
+                self.name = "Wasp"
+                self.cargoBays = 35
+                self.weaponSlots = 3
+                self.shieldSlots = 2
+                self.gadgetSlots = 2
+                self.crewQuarters = 3
+                self.fuelTanks = 14
+                self.minTechLevel = TechLevelType.techLevel7
+                self.costOfFuel = 20
+                self.price = 300000
+                self.bounty = 500
+                self.occurance = 2
+                self.hullStrength = 200
+                self.police = 5
+                self.pirates = 6
+                self.traders = 4
+                self.repairCosts = 5
+                self.probabilityOfHit = 4
             case ShipType.SpaceMonster:
                 self.type = ShipType.SpaceMonster
                 self.name = "Space Monster"
@@ -452,6 +473,27 @@ class SpaceShip {
                 self.traders = 8
                 self.repairCosts = 1
                 self.probabilityOfHit = 3
+            case ShipType.Scorpion:
+                // THIS DATA LIFTED FROM SCARAB. FIX THIS.
+                self.type = ShipType.Scarab
+                self.name = "Scarab"
+                self.cargoBays = 20
+                self.weaponSlots = 2
+                self.shieldSlots = 0
+                self.gadgetSlots = 0
+                self.crewQuarters = 2
+                self.fuelTanks = 1
+                self.minTechLevel = TechLevelType.techLevel8
+                self.costOfFuel = 1
+                self.price = 500000
+                self.bounty = 0
+                self.occurance = 0
+                self.hullStrength = 400
+                self.police = 8
+                self.pirates = 8
+                self.traders = 8
+                self.repairCosts = 1
+                self.probabilityOfHit = 3
             case ShipType.Bottle:
                 self.type = ShipType.Bottle
                 self.name = "Bottle"
@@ -472,6 +514,8 @@ class SpaceShip {
                 self.traders = 8
                 self.repairCosts = 1
                 self.probabilityOfHit = 1
+            default:
+                print("SCORPION AND CUSTOM NOT IMPLEMENTED YET. FIX IN SHIP.")
         }
         
         self.IFFStatus = IFFStatus

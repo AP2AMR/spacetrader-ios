@@ -815,14 +815,32 @@ class EncounterVC: UIViewController, PlunderDelegate {
     // IMAGE STUFF********************************************************************************
     func displayImages() {
         
-        // get background image -> UIImage
-        var playerImageBackground = 
+
+        // set images
+        var playerLayer1 = getBackgroundImage(true)
+        var playerLayer2 = getLayer2(true)
+        
+        var opponentLayer1 = getBackgroundImage(false)
+        var opponentLayer2 = getLayer2(false)
+        
+        // set overlay widths
+        //let playerLayer2Width = getOverlayWidthForDamage(true, shieldNotHull: <#T##Bool#>)
+        
+        // modify images with overlay widths
+        
+        // write images
+        playerImageBackground.image = playerLayer1
+        playerImageUnderlay.image = playerLayer2
+        
+        opponentImageBackground.image = opponentLayer1
+        opponentImageUnderlay.image = opponentLayer2
         
         
+        // ALL BELOW HERE IS OLD
         
         //var playerImageBackground = UIImage(named: "")
-        var playerUnderlayImage = UIImage(named: "ship7s")
-        var playerOverlayImage = UIImage(named: "ship7")
+        //var playerUnderlayImage = UIImage(named: "ship7s")
+        //var playerOverlayImage = UIImage(named: "ship7")
         
         // set hull of player correctly
         //let playerOverlayWidth = getOverlayWidthForDamage(true, shieldNotHull: false)
@@ -832,12 +850,13 @@ class EncounterVC: UIViewController, PlunderDelegate {
         // FOR TESTING
         let playerOverlayWidth: Double = 50
         
-        playerOverlayImage = cropToWidth(playerOverlayImage!, width: playerOverlayWidth)
+        //playerOverlayImage = cropToWidth(playerOverlayImage!, width: playerOverlayWidth)
         
         // complete damage is 140
         // damage begins at 60
-        playerImageUnderlay.image = playerUnderlayImage
-        playerImageOverlay.image = playerOverlayImage
+       
+        //playerImageUnderlay.image = playerUnderlayImage
+        //playerImageOverlay.image = playerOverlayImage
         
         
         //*******
@@ -997,21 +1016,32 @@ class EncounterVC: UIViewController, PlunderDelegate {
         var hullPercentage: Int
         var shieldPercentage: Int
         var state: String
+        var disabled: Bool
         
         if playerNotOpponent {
             ship = player.commanderShip.type
             hullPercentage = player.commanderShip.hullPercentage
             shieldPercentage = player.commanderShip.shieldPercentage
+            if player.commanderShip.disabled {
+                disabled = true
+            } else {
+                disabled = false
+            }
         } else {
             ship = galaxy.currentJourney!.currentEncounter!.opponent.ship.type
             hullPercentage = galaxy.currentJourney!.currentEncounter!.opponent.ship.hullPercentage
             shieldPercentage = galaxy.currentJourney!.currentEncounter!.opponent.ship.shieldPercentage
+            if galaxy.currentJourney!.currentEncounter!.opponent.ship.disabled {
+                disabled = true
+            } else {
+                disabled = false
+            }
         }
         
         // this can be: shielded, healthy, sd, or d (only d if disabled) - [h, d, s, sd]
         // cases:
         
-        if ship.disabled {
+        if disabled {
             state = "d"
         } else if shieldPercentage == 0 {
             state = "h"
@@ -1021,18 +1051,83 @@ class EncounterVC: UIViewController, PlunderDelegate {
             state = "sd"
         }
         
-        let image = getImageForShipAndState(ship: ship, state: state)
+        let image = getImageForShipAndState(ship, state: state)
+
         return image
     }
     
+    func getLayer2(playerNotOpponent: Bool) -> UIImage? {
+        if playerNotOpponent {
+            print("****LAYER 2 FOR PLAYER")
+        } else {
+            print("****LAYER 2 FOR OPPONENT")
+        }
+        
+        var ship: ShipType
+        var hullPercentage: Int
+        var shieldPercentage: Int
+        var state: String = ""
+        var disabled: Bool
+        
+        if playerNotOpponent {
+            ship = player.commanderShip.type
+            hullPercentage = player.commanderShip.hullPercentage
+            shieldPercentage = player.commanderShip.shieldPercentage
+            if player.commanderShip.disabled {
+                disabled = true
+            } else {
+                disabled = false
+            }
+        } else {
+            ship = galaxy.currentJourney!.currentEncounter!.opponent.ship.type
+            hullPercentage = galaxy.currentJourney!.currentEncounter!.opponent.ship.hullPercentage
+            shieldPercentage = galaxy.currentJourney!.currentEncounter!.opponent.ship.shieldPercentage
+            if galaxy.currentJourney!.currentEncounter!.opponent.ship.disabled {
+                disabled = true
+            } else {
+                disabled = false
+            }
+        }
+        
+        // cases:
+        // if disabled, nothing
+        // if fully healthy, no sheilds, or fully shielded, no damage, nothing
+        // if partly shielded, shields
+        // if partly damaged and no shields, damage
+        // if damaged and shielded but shields > damage, shielded
+        
+        if disabled {
+            state = "n"
+        } else if (hullPercentage == 100) && (shieldPercentage == 0) {
+            state = "n"
+        } else if (shieldPercentage == 100) && (hullPercentage == 100) {
+            state = "n"
+        } else if (shieldPercentage == 0) && (hullPercentage < 100) {
+            state = "d"
+        } else if (shieldPercentage > hullPercentage) {
+            state = "s"
+        } else {
+            print("you messed something up in the second layer")
+        }
+         
+        if state != "n" {
+            print("state: \(state)")
+            let image = getImageForShipAndState(ship, state: state)
+            return image
+        } else {
+            print("second layer empty")
+            return nil
+        }
+    }
+    
     func getImageForShipAndState(ship: ShipType, state: String) -> UIImage {
-        var image: UIImage
+        var image: UIImage = UIImage(named: "ship0")!   // default, so the compiler doesn't get upset
         
         if ship == ShipType.Flea {
             if state == "h" {
-                image = UIImage(named: "ship0")
+                image = UIImage(named: "ship0")!
             } else if state == "d" {
-                image = UIImage(named: "ship0d")
+                image = UIImage(named: "ship0d")!
             } else if state == "s" {
                 //image = UIImage(named: "ship0s")
             } else {
@@ -1041,9 +1136,9 @@ class EncounterVC: UIViewController, PlunderDelegate {
             }
         } else if ship == ShipType.Gnat {
             if state == "h" {
-                image = UIImage(named: "ship1")
+                image = UIImage(named: "ship1")!
             } else if state == "d" {
-                image = UIImage(named: "ship1d")
+                image = UIImage(named: "ship1d")!
             } else if state == "s" {
                 //image = UIImage(named: "ship0s")
             } else {
@@ -1052,164 +1147,164 @@ class EncounterVC: UIViewController, PlunderDelegate {
             }
         } else if ship == ShipType.Firefly {
             if state == "h" {
-                image = UIImage(named: "ship2")
+                image = UIImage(named: "ship2")!
             } else if state == "d" {
-                image = UIImage(named: "ship2d")
+                image = UIImage(named: "ship2d")!
             } else if state == "s" {
-                image = UIImage(named: "ship2s")
+                image = UIImage(named: "ship2s")!
             } else {
                 // state == "sd"
-                image = UIImage(named: "ship2sd")
+                image = UIImage(named: "ship2sd")!
             }
         } else if ship == ShipType.Mosquito {
             if state == "h" {
-                image = UIImage(named: "ship3")
+                image = UIImage(named: "ship3")!
             } else if state == "d" {
-                image = UIImage(named: "ship3d")
+                image = UIImage(named: "ship3d")!
             } else if state == "s" {
-                image = UIImage(named: "ship3s")
+                image = UIImage(named: "ship3s")!
             } else {
                 // state == "sd"
-                image = UIImage(named: "ship3sd")
+                image = UIImage(named: "ship3sd")!
             }
         } else if ship == ShipType.Bumblebee {
             if state == "h" {
-                image = UIImage(named: "ship4")
+                image = UIImage(named: "ship4")!
             } else if state == "d" {
-                image = UIImage(named: "ship4d")
+                image = UIImage(named: "ship4d")!
             } else if state == "s" {
-                image = UIImage(named: "ship4s")
+                image = UIImage(named: "ship4s")!
             } else {
                 // state == "sd"
-                image = UIImage(named: "ship4sd")
+                image = UIImage(named: "ship4sd")!
             }
         } else if ship == ShipType.Beetle {
             if state == "h" {
-                image = UIImage(named: "ship5")
+                image = UIImage(named: "ship5")!
             } else if state == "d" {
-                image = UIImage(named: "ship5d")
+                image = UIImage(named: "ship5d")!
             } else if state == "s" {
-                image = UIImage(named: "ship5s")
+                image = UIImage(named: "ship5s")!
             } else {
                 // state == "sd"
-                image = UIImage(named: "ship5sd")
+                image = UIImage(named: "ship5sd")!
             }
         } else if ship == ShipType.Hornet {
             if state == "h" {
-                image = UIImage(named: "ship6")
+                image = UIImage(named: "ship6")!
             } else if state == "d" {
-                image = UIImage(named: "ship6d")
+                image = UIImage(named: "ship6d")!
             } else if state == "s" {
-                image = UIImage(named: "ship6s")
+                image = UIImage(named: "ship6s")!
             } else {
                 // state == "sd"
-                image = UIImage(named: "ship6sd")
+                image = UIImage(named: "ship6sd")!
             }
         } else if ship == ShipType.Grasshopper {
             if state == "h" {
-                image = UIImage(named: "ship7")
+                image = UIImage(named: "ship7")!
             } else if state == "d" {
-                image = UIImage(named: "ship7d")
+                image = UIImage(named: "ship7d")!
             } else if state == "s" {
-                image = UIImage(named: "ship7s")
+                image = UIImage(named: "ship7s")!
             } else {
                 // state == "sd"
-                image = UIImage(named: "ship7sd")
+                image = UIImage(named: "ship7sd")!
             }
         } else if ship == ShipType.Termite {
             if state == "h" {
-                image = UIImage(named: "ship8")
+                image = UIImage(named: "ship8")!
             } else if state == "d" {
-                image = UIImage(named: "ship8d")
+                image = UIImage(named: "ship8d")!
             } else if state == "s" {
-                image = UIImage(named: "ship8s")
+                image = UIImage(named: "ship8s")!
             } else {
                 // state == "sd"
-                image = UIImage(named: "ship8sd")
+                image = UIImage(named: "ship8sd")!
             }
         } else if ship == ShipType.Wasp {
             if state == "h" {
-                image = UIImage(named: "ship9")
+                image = UIImage(named: "ship9")!
             } else if state == "d" {
-                image = UIImage(named: "ship9d")
+                image = UIImage(named: "ship9d")!
             } else if state == "s" {
-                image = UIImage(named: "ship9s")
+                image = UIImage(named: "ship9s")!
             } else {
                 // state == "sd"
-                image = UIImage(named: "ship9sd")
+                image = UIImage(named: "ship9sd")!
             }
         } else if ship == ShipType.Custom {
             if state == "h" {
-                image = UIImage(named: "ship10")
+                image = UIImage(named: "ship10")!
             } else if state == "d" {
-                image = UIImage(named: "ship10d")
+                image = UIImage(named: "ship10d")!
             } else if state == "s" {
-                image = UIImage(named: "ship10s")
+                image = UIImage(named: "ship10s")!
             } else {
                 // state == "sd"
-                image = UIImage(named: "ship10sd")
+                image = UIImage(named: "ship10sd")!
             }
         } else if ship == ShipType.SpaceMonster {
             if state == "h" {
-                image = UIImage(named: "spaceMonster")
+                image = UIImage(named: "spaceMonster")!
             } else if state == "d" {
-                image = UIImage(named: "spaceMonsterd")
+                image = UIImage(named: "spaceMonsterd")!
             } else if state == "s" {
-                image = UIImage(named: "spaceMonsters")
+                image = UIImage(named: "spaceMonsters")!
             } else {
                 // state == "sd"
-                image = UIImage(named: "spaceMonstersd")
+                image = UIImage(named: "spaceMonstersd")!
             }
         } else if ship == ShipType.Dragonfly {
             if state == "h" {
-                image = UIImage(named: "dragonfly")
+                image = UIImage(named: "dragonfly")!
             } else if state == "d" {
-                image = UIImage(named: "dragonflyd")
+                image = UIImage(named: "dragonflyd")!
             } else if state == "s" {
-                image = UIImage(named: "dragonflys")
+                image = UIImage(named: "dragonflys")!
             } else {
                 // state == "sd"
-                image = UIImage(named: "dragonflysd")
+                image = UIImage(named: "dragonflysd")!
             }
         } else if ship == ShipType.Mantis {
             if state == "h" {
-                image = UIImage(named: "mantis")
+                image = UIImage(named: "mantis")!
             } else if state == "d" {
-                image = UIImage(named: "mantisd")
+                image = UIImage(named: "mantisd")!
             } else if state == "s" {
-                image = UIImage(named: "mantiss")
+                image = UIImage(named: "mantiss")!
             } else {
                 // state == "sd"
-                image = UIImage(named: "mantissd")
+                image = UIImage(named: "mantissd")!
             }
         } else if ship == ShipType.Scarab {
             if state == "h" {
-                image = UIImage(named: "scarab")
+                image = UIImage(named: "scarab")!
             } else if state == "d" {
-                image = UIImage(named: "scarabd")
+                image = UIImage(named: "scarabd")!
             } else if state == "s" {
-                image = UIImage(named: "scarabs")
+                image = UIImage(named: "scarabs")!
             } else {
                 // state == "sd"
-                image = UIImage(named: "scarabsd")
+                image = UIImage(named: "scarabsd")!
             }
         } else if ship == ShipType.Scorpion {
             if state == "h" {
-                image = UIImage(named: "scorpion")
+                image = UIImage(named: "scorpion")!
             } else if state == "d" {
-                image = UIImage(named: "scorpiond")
+                image = UIImage(named: "scorpiond")!
             } else if state == "s" {
-                image = UIImage(named: "scorpions")
+                image = UIImage(named: "scorpions")!
             } else {
                 // state == "sd"
-                image = UIImage(named: "scorpionsd")
+                image = UIImage(named: "scorpionsd")!
             }
         } else {
             // ship == ShipType.Bottle
             if state == "h" {
-                image = UIImage(named: "bottle")
+                image = UIImage(named: "bottle")!
             } else if state == "d" {
-                image = UIImage(named: "bottled")
+                image = UIImage(named: "bottled")!
             } else if state == "s" {
                 //image = UIImage(named: "ship0s")
             } else {
