@@ -815,8 +815,14 @@ class EncounterVC: UIViewController, PlunderDelegate {
     // IMAGE STUFF********************************************************************************
     func displayImages() {
         
-        var playerUnderlayImage = UIImage(named: "ship2s")
-        var playerOverlayImage = UIImage(named: "ship2")
+        // get background image -> UIImage
+        var playerImageBackground = 
+        
+        
+        
+        //var playerImageBackground = UIImage(named: "")
+        var playerUnderlayImage = UIImage(named: "ship7s")
+        var playerOverlayImage = UIImage(named: "ship7")
         
         // set hull of player correctly
         //let playerOverlayWidth = getOverlayWidthForDamage(true, shieldNotHull: false)
@@ -824,7 +830,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
         //print("player's hull is at \(player.commanderShip.hullPercentage)%, overlay width computed to be \(playerOverlayWidth)")
         
         // FOR TESTING
-        let playerOverlayWidth: Double = 80
+        let playerOverlayWidth: Double = 50
         
         playerOverlayImage = cropToWidth(playerOverlayImage!, width: playerOverlayWidth)
         
@@ -873,29 +879,51 @@ class EncounterVC: UIViewController, PlunderDelegate {
                 //healthy = 55
                 //empty = 140
             } else if ship == ShipType.Firefly {
-                healthy = 55
-                empty = 140
+                healthy = 53
+                empty = 145
             } else if ship == ShipType.Mosquito {
-                healthy = 60
-                empty = 140
+                healthy = 55
+                empty = 145
             } else if ship == ShipType.Bumblebee {
-                healthy = 40
-                empty = 162
+                healthy = 35
+                empty = 167
             } else if ship == ShipType.Beetle {
-                healthy = 40
-                empty = 155
+                healthy = 35
+                empty = 165
             } else if ship == ShipType.Hornet {
-                healthy = 30
-                empty = 175
-            } else if ship == ShipType.Grasshopper {
                 healthy = 25
                 empty = 180
+            } else if ship == ShipType.Grasshopper {
+                healthy = 20
+                empty = 183
             } else if ship == ShipType.Termite {
-                healthy = 10
-                empty = 190
+                healthy = 0
+                empty = 200
             } else if ship == ShipType.Wasp {
+                healthy = 0
+                empty = 200
+            } else if ship == ShipType.Custom {
                 healthy = 10
                 empty = 190
+            } else if ship == ShipType.SpaceMonster {
+                healthy = 0
+                empty = 0
+            } else if ship == ShipType.Dragonfly {
+                healthy = 0
+                empty = 0
+            } else if ship == ShipType.Mantis {
+                healthy = 0
+                empty = 0
+            } else if ship == ShipType.Scarab {
+                healthy = 0
+                empty = 0
+            } else if ship == ShipType.Scorpion {
+                healthy = 0
+                empty = 0
+            } else {
+                // ship == ShipType.Bottle
+                healthy = 0
+                empty = 0
             }
 
         } else {
@@ -931,6 +959,28 @@ class EncounterVC: UIViewController, PlunderDelegate {
             } else if ship == ShipType.Wasp {
                 healthy = 10
                 empty = 190
+            } else if ship == ShipType.Custom {
+                healthy = 10
+                empty = 190
+            } else if ship == ShipType.SpaceMonster {
+                healthy = 0
+                empty = 0
+            } else if ship == ShipType.Dragonfly {
+                healthy = 0
+                empty = 0
+            } else if ship == ShipType.Mantis {
+                healthy = 0
+                empty = 0
+            } else if ship == ShipType.Scarab {
+                healthy = 0
+                empty = 0
+            } else if ship == ShipType.Scorpion {
+                healthy = 0
+                empty = 0
+            } else {
+                // ship == ShipType.Bottle
+                healthy = 0
+                empty = 0
             }
         }
         
@@ -942,6 +992,234 @@ class EncounterVC: UIViewController, PlunderDelegate {
         return width
     }
     
+    func getBackgroundImage(playerNotOpponent: Bool) -> UIImage {
+        var ship: ShipType
+        var hullPercentage: Int
+        var shieldPercentage: Int
+        var state: String
+        
+        if playerNotOpponent {
+            ship = player.commanderShip.type
+            hullPercentage = player.commanderShip.hullPercentage
+            shieldPercentage = player.commanderShip.shieldPercentage
+        } else {
+            ship = galaxy.currentJourney!.currentEncounter!.opponent.ship.type
+            hullPercentage = galaxy.currentJourney!.currentEncounter!.opponent.ship.hullPercentage
+            shieldPercentage = galaxy.currentJourney!.currentEncounter!.opponent.ship.shieldPercentage
+        }
+        
+        // this can be: shielded, healthy, sd, or d (only d if disabled) - [h, d, s, sd]
+        // cases:
+        
+        if ship.disabled {
+            state = "d"
+        } else if shieldPercentage == 0 {
+            state = "h"
+        } else if shieldPercentage > 0 && hullPercentage > shieldPercentage {
+            state = "s"
+        } else {
+            state = "sd"
+        }
+        
+        let image = getImageForShipAndState(ship: ship, state: state)
+        return image
+    }
+    
+    func getImageForShipAndState(ship: ShipType, state: String) -> UIImage {
+        var image: UIImage
+        
+        if ship == ShipType.Flea {
+            if state == "h" {
+                image = UIImage(named: "ship0")
+            } else if state == "d" {
+                image = UIImage(named: "ship0d")
+            } else if state == "s" {
+                //image = UIImage(named: "ship0s")
+            } else {
+                // state == "sd"
+                //image = UIImage(named: "ship0sd")
+            }
+        } else if ship == ShipType.Gnat {
+            if state == "h" {
+                image = UIImage(named: "ship1")
+            } else if state == "d" {
+                image = UIImage(named: "ship1d")
+            } else if state == "s" {
+                //image = UIImage(named: "ship0s")
+            } else {
+                // state == "sd"
+                //image = UIImage(named: "ship0sd")
+            }
+        } else if ship == ShipType.Firefly {
+            if state == "h" {
+                image = UIImage(named: "ship2")
+            } else if state == "d" {
+                image = UIImage(named: "ship2d")
+            } else if state == "s" {
+                image = UIImage(named: "ship2s")
+            } else {
+                // state == "sd"
+                image = UIImage(named: "ship2sd")
+            }
+        } else if ship == ShipType.Mosquito {
+            if state == "h" {
+                image = UIImage(named: "ship3")
+            } else if state == "d" {
+                image = UIImage(named: "ship3d")
+            } else if state == "s" {
+                image = UIImage(named: "ship3s")
+            } else {
+                // state == "sd"
+                image = UIImage(named: "ship3sd")
+            }
+        } else if ship == ShipType.Bumblebee {
+            if state == "h" {
+                image = UIImage(named: "ship4")
+            } else if state == "d" {
+                image = UIImage(named: "ship4d")
+            } else if state == "s" {
+                image = UIImage(named: "ship4s")
+            } else {
+                // state == "sd"
+                image = UIImage(named: "ship4sd")
+            }
+        } else if ship == ShipType.Beetle {
+            if state == "h" {
+                image = UIImage(named: "ship5")
+            } else if state == "d" {
+                image = UIImage(named: "ship5d")
+            } else if state == "s" {
+                image = UIImage(named: "ship5s")
+            } else {
+                // state == "sd"
+                image = UIImage(named: "ship5sd")
+            }
+        } else if ship == ShipType.Hornet {
+            if state == "h" {
+                image = UIImage(named: "ship6")
+            } else if state == "d" {
+                image = UIImage(named: "ship6d")
+            } else if state == "s" {
+                image = UIImage(named: "ship6s")
+            } else {
+                // state == "sd"
+                image = UIImage(named: "ship6sd")
+            }
+        } else if ship == ShipType.Grasshopper {
+            if state == "h" {
+                image = UIImage(named: "ship7")
+            } else if state == "d" {
+                image = UIImage(named: "ship7d")
+            } else if state == "s" {
+                image = UIImage(named: "ship7s")
+            } else {
+                // state == "sd"
+                image = UIImage(named: "ship7sd")
+            }
+        } else if ship == ShipType.Termite {
+            if state == "h" {
+                image = UIImage(named: "ship8")
+            } else if state == "d" {
+                image = UIImage(named: "ship8d")
+            } else if state == "s" {
+                image = UIImage(named: "ship8s")
+            } else {
+                // state == "sd"
+                image = UIImage(named: "ship8sd")
+            }
+        } else if ship == ShipType.Wasp {
+            if state == "h" {
+                image = UIImage(named: "ship9")
+            } else if state == "d" {
+                image = UIImage(named: "ship9d")
+            } else if state == "s" {
+                image = UIImage(named: "ship9s")
+            } else {
+                // state == "sd"
+                image = UIImage(named: "ship9sd")
+            }
+        } else if ship == ShipType.Custom {
+            if state == "h" {
+                image = UIImage(named: "ship10")
+            } else if state == "d" {
+                image = UIImage(named: "ship10d")
+            } else if state == "s" {
+                image = UIImage(named: "ship10s")
+            } else {
+                // state == "sd"
+                image = UIImage(named: "ship10sd")
+            }
+        } else if ship == ShipType.SpaceMonster {
+            if state == "h" {
+                image = UIImage(named: "spaceMonster")
+            } else if state == "d" {
+                image = UIImage(named: "spaceMonsterd")
+            } else if state == "s" {
+                image = UIImage(named: "spaceMonsters")
+            } else {
+                // state == "sd"
+                image = UIImage(named: "spaceMonstersd")
+            }
+        } else if ship == ShipType.Dragonfly {
+            if state == "h" {
+                image = UIImage(named: "dragonfly")
+            } else if state == "d" {
+                image = UIImage(named: "dragonflyd")
+            } else if state == "s" {
+                image = UIImage(named: "dragonflys")
+            } else {
+                // state == "sd"
+                image = UIImage(named: "dragonflysd")
+            }
+        } else if ship == ShipType.Mantis {
+            if state == "h" {
+                image = UIImage(named: "mantis")
+            } else if state == "d" {
+                image = UIImage(named: "mantisd")
+            } else if state == "s" {
+                image = UIImage(named: "mantiss")
+            } else {
+                // state == "sd"
+                image = UIImage(named: "mantissd")
+            }
+        } else if ship == ShipType.Scarab {
+            if state == "h" {
+                image = UIImage(named: "scarab")
+            } else if state == "d" {
+                image = UIImage(named: "scarabd")
+            } else if state == "s" {
+                image = UIImage(named: "scarabs")
+            } else {
+                // state == "sd"
+                image = UIImage(named: "scarabsd")
+            }
+        } else if ship == ShipType.Scorpion {
+            if state == "h" {
+                image = UIImage(named: "scorpion")
+            } else if state == "d" {
+                image = UIImage(named: "scorpiond")
+            } else if state == "s" {
+                image = UIImage(named: "scorpions")
+            } else {
+                // state == "sd"
+                image = UIImage(named: "scorpionsd")
+            }
+        } else {
+            // ship == ShipType.Bottle
+            if state == "h" {
+                image = UIImage(named: "bottle")
+            } else if state == "d" {
+                image = UIImage(named: "bottled")
+            } else if state == "s" {
+                //image = UIImage(named: "ship0s")
+            } else {
+                // state == "sd"
+                //image = UIImage(named: "ship0sd")
+            }
+        }
+        
+        return image
+    }
     
     func cropToWidth(image: UIImage, width: Double) -> UIImage {
         

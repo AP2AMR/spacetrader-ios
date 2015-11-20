@@ -368,11 +368,13 @@ enum ShipType {
     case Grasshopper
     case Termite
     case Wasp
+    case Custom
     // non-player ships
     case SpaceMonster
     case Dragonfly
     case Mantis
     case Scarab
+    case Scorpion
     case Bottle
 }
 
