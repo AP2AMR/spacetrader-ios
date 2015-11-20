@@ -835,6 +835,13 @@ class EncounterVC: UIViewController, PlunderDelegate {
         opponentImageBackground.image = opponentLayer1
         opponentImageUnderlay.image = opponentLayer2
         
+        // test structure
+//        var overlay = UIImage(named: "ship3s")
+//        overlay = cropToWidth(overlay!, width: 70)
+//        opponentImageUnderlay.image = overlay
+        
+        
+        
         
         // ALL BELOW HERE IS OLD
         
@@ -848,7 +855,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
         //print("player's hull is at \(player.commanderShip.hullPercentage)%, overlay width computed to be \(playerOverlayWidth)")
         
         // FOR TESTING
-        let playerOverlayWidth: Double = 50
+        //let playerOverlayWidth: Double = 50
         
         //playerOverlayImage = cropToWidth(playerOverlayImage!, width: playerOverlayWidth)
         
@@ -865,7 +872,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
         
     }
     
-    func getOverlayWidthForDamage(playerNotOpponent: Bool, shieldNotHull: Bool) -> Double {
+    func getOverlayWidthForDamage(playerNotOpponent: Bool, croppingShield: Bool, readingShield: Bool) -> Double {
         // determine if the overlay is shield or hull, get initial values
         var ship: ShipType
         var hullIntegrityPercent: Int
@@ -886,9 +893,15 @@ class EncounterVC: UIViewController, PlunderDelegate {
         var healthy: Int = 0      // zero damage
         var empty: Int = 0        // full damage
         
-        if shieldNotHull {
-            // shields
+        if readingShield {
             percentage = Double(shieldStrengthPercent)
+        } else {
+            percentage = Double(hullIntegrityPercent)
+        }
+        
+        if croppingShield {
+            // shields
+            
             if ship == ShipType.Flea {
                 // no shields
                 //healthy = 70
@@ -947,7 +960,6 @@ class EncounterVC: UIViewController, PlunderDelegate {
 
         } else {
             // hull damage
-            percentage = Double(hullIntegrityPercent)
             if ship == ShipType.Flea {
                 healthy = 70
                 empty = 126
@@ -1004,8 +1016,11 @@ class EncounterVC: UIViewController, PlunderDelegate {
         }
         
         // calculate & return overlay width
+        print("croppingShield: \(croppingShield), readingShield: \(readingShield)")
+        print("percentage: \(percentage)")
         let range: Double = Double(empty - healthy)
         let percentageDamage: Double = 100 - percentage
+        print("percentageDamage: \(percentageDamage)")
         var width: Double = ((percentageDamage * range) / 100)
         width += Double(healthy)
         return width
@@ -1043,11 +1058,17 @@ class EncounterVC: UIViewController, PlunderDelegate {
         
         if disabled {
             state = "d"
+        } else if (shieldPercentage == 100) && (hullPercentage == 100) {
+            state = "s"
+        } else if (shieldPercentage > 0) {
+            state = "s"
+            print("background: some shields, displaying shield. Layer2 should display hull over this")
         } else if shieldPercentage == 0 {
             state = "h"
         } else if shieldPercentage > 0 && hullPercentage > shieldPercentage {
             state = "s"
         } else {
+            print("first layer specifying sd. shield: \(shieldPercentage), hull: \(hullPercentage)")
             state = "sd"
         }
         
@@ -1096,7 +1117,8 @@ class EncounterVC: UIViewController, PlunderDelegate {
         // if partly damaged and no shields, damage
         // if damaged and shielded but shields > damage, shielded
         
-        var shieldNotHull = true
+        var croppingShield = true
+        var readingShield = true
         
         if disabled {
             state = "n"
@@ -1106,14 +1128,18 @@ class EncounterVC: UIViewController, PlunderDelegate {
             state = "n"
         } else if (shieldPercentage == 0) && (hullPercentage < 100) {
             state = "d"
-            shieldNotHull = false
+            readingShield = false
+            croppingShield = false
         } else if (hullPercentage == 100) && (shieldPercentage < 100) {
             // full hull, partial shield
-            state = "s"
-            shieldNotHull = true
+            state = "h"
+            readingShield = true
+            croppingShield = false
         } else if (shieldPercentage > hullPercentage) {
             state = "s"
-            shieldNotHull = true
+            readingShield = true
+            croppingShield = true
+            print("second layer set to shield. Shield percentage: \(shieldPercentage)")
         } else {
             print("you messed something up in the second layer")
             print("hull: \(hullPercentage), shield: \(shieldPercentage)")
@@ -1125,7 +1151,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
             print("shield: \(shieldPercentage), hull: \(hullPercentage)")
             var image = getImageForShipAndState(ship, state: state)
             // set width
-            let width = getOverlayWidthForDamage(playerNotOpponent, shieldNotHull: shieldNotHull)
+            let width = getOverlayWidthForDamage(playerNotOpponent, croppingShield: croppingShield, readingShield: readingShield)
             print("specified width to crop to: \(width)")
             image = cropToWidth(image, width: width)
             
@@ -1357,26 +1383,5 @@ class EncounterVC: UIViewController, PlunderDelegate {
     
     
     // END IMAGE STUFF****************************************************************************
-    
-    // ONLY OLD THINGS BENEATH HERE***************************************************************
-    
-    
-    // use this when it is a notification with an OK button that does NOTHING but end the encounter
-    func launchGenericSimpleModal() {
-        let title = galaxy.currentJourney!.currentEncounter!.alertTitle
-        let message = galaxy.currentJourney!.currentEncounter!.alertText
-        
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
-            (alert: UIAlertAction!) -> Void in
-            // dismiss encounter dialog
-            self.dismissViewControllerAnimated(false, completion: nil)
-            // how to resume?
-            galaxy.currentJourney!.currentEncounter!.concludeEncounter()
-        }))
-        self.presentViewController(alertController, animated: true, completion: nil)
-    }
-    
-    
-    
+
 }
