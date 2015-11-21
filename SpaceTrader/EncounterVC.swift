@@ -819,11 +819,11 @@ class EncounterVC: UIViewController, PlunderDelegate {
         // set images
         let playerLayer1 = getBackgroundImage(true)
         let playerLayer2 = getLayer2(true)
-        let playerLayer3 = getLayer3(true)
+        //let playerLayer3 = getLayer3(true)
         
         let opponentLayer1 = getBackgroundImage(false)
         let opponentLayer2 = getLayer2(false)
-        let opponentLayer3 = getLayer3(false)
+        //let opponentLayer3 = getLayer3(false)
         
         // set overlay widths
         //let playerLayer2Width = getOverlayWidthForDamage(true, shieldNotHull: <#T##Bool#>)
@@ -1020,11 +1020,8 @@ class EncounterVC: UIViewController, PlunderDelegate {
         }
         
         // calculate & return overlay width
-        print("croppingShield: \(croppingShield), readingShield: \(readingShield)")
-        print("percentage: \(percentage)")
         let range: Double = Double(empty - healthy)
         let percentageDamage: Double = 100 - percentage
-        print("percentageDamage: \(percentageDamage)")
         var width: Double = ((percentageDamage * range) / 100)
         width += Double(healthy)
         return width
@@ -1063,22 +1060,27 @@ class EncounterVC: UIViewController, PlunderDelegate {
         // NEXT, MAKE FIRST ONE D IF BOTH ARE DAMAGED
         
         if disabled {
+            print ("player? \(playerNotOpponent) layer 1: disabled, d")
             state = "d"
         } else if (shieldPercentage == 100) && (hullPercentage == 100) {
+            print ("player? \(playerNotOpponent) layer 1: full shield and hull, s")
             state = "s"
         } else if (shieldPercentage > 0) && (hullPercentage == 100) {
+            print ("player? \(playerNotOpponent) layer 1: full hull, some shield, s -- good")
             state = "s"
-            print("background: some shields, no hull damage, displaying shield. Layer2 should display hull over this")
         } else if shieldPercentage == 0 {
+            print ("player? \(playerNotOpponent) layer 1: no shield, s")
             state = "h"
         } else if (hullPercentage < 100) && (shieldPercentage < 100) {
-            state = "d"
+            print ("player? \(playerNotOpponent) layer 1: both shield and hull damaged, s (portion that is fine)")
+            state = "s"
         } else if (hullPercentage < 100) && (shieldPercentage > hullPercentage) {
+            print ("player? \(playerNotOpponent) layer 1: shield in better shape than hull, sd")
             state = "sd"
         } else if shieldPercentage > 0 && (hullPercentage > shieldPercentage) {
+            print ("player? \(playerNotOpponent) layer 1: hull in better shape than shield, s")
             state = "s"
         } else {
-            print("first layer specifying sd. shield: \(shieldPercentage), hull: \(hullPercentage)")
             state = "sd"
         }
         
@@ -1088,11 +1090,6 @@ class EncounterVC: UIViewController, PlunderDelegate {
     }
     
     func getLayer2(playerNotOpponent: Bool) -> UIImage? {
-        if playerNotOpponent {
-            print("****LAYER 2 FOR PLAYER")
-        } else {
-            print("****LAYER 2 FOR OPPONENT")
-        }
         
         var ship: ShipType
         var hullPercentage: Int
@@ -1159,38 +1156,36 @@ class EncounterVC: UIViewController, PlunderDelegate {
             state = "s"
             print("player? \(playerNotOpponent)")
             print("2: shield, shield stronger than hull")
+            readingShield = false                                // I THINK TROUBLE IS HERE
+            croppingShield = fals
+        } else if hullPercentage > shieldPercentage {
+            state = "h"
+            croppingShield = false
             readingShield = true
-            croppingShield = true
-            print("second layer set to shield. Shield percentage: \(shieldPercentage)")
+            print("player? \(playerNotOpponent)")
+            print("2: hull, hull stronger than shield")
         } else {
             print("player? \(playerNotOpponent)")
             print("2: faulure mode")
             print("hull: \(hullPercentage), shield: \(shieldPercentage)")
+            state = "n"
         }
         
+        print("SECOND LAYER DONE. STATE CHOSEN IS \(state). readingShield = \(readingShield), croppingShield = \(croppingShield)")
+        
         if state != "n" {
-            print("state: \(state)")
-            print("this is player: \(playerNotOpponent)")
-            print("shield: \(shieldPercentage), hull: \(hullPercentage)")
             var image = getImageForShipAndState(ship, state: state)
             // set width
             let width = getOverlayWidthForDamage(playerNotOpponent, croppingShield: croppingShield, readingShield: readingShield)
-            print("specified width to crop to: \(width)")
-            image = cropToWidth(image, width: width)
+            image = cropToWidth(image, width: width)       // should be width: width. FIX
             
             return image
         } else {
-            print("second layer empty")
             return nil
         }
     }
     
     func getLayer3(playerNotOpponent: Bool) -> UIImage? {
-        if playerNotOpponent {
-            print("****LAYER 3 FOR PLAYER")
-        } else {
-            print("****LAYER 3 FOR OPPONENT")
-        }
         
         var ship: ShipType
         var hullPercentage: Int
