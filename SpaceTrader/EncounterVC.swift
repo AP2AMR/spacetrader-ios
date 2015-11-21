@@ -817,11 +817,13 @@ class EncounterVC: UIViewController, PlunderDelegate {
         
 
         // set images
-        var playerLayer1 = getBackgroundImage(true)
-        var playerLayer2 = getLayer2(true)
+        let playerLayer1 = getBackgroundImage(true)
+        let playerLayer2 = getLayer2(true)
+        let playerLayer3 = getLayer3(true)
         
-        var opponentLayer1 = getBackgroundImage(false)
-        var opponentLayer2 = getLayer2(false)
+        let opponentLayer1 = getBackgroundImage(false)
+        let opponentLayer2 = getLayer2(false)
+        let opponentLayer3 = getLayer3(false)
         
         // set overlay widths
         //let playerLayer2Width = getOverlayWidthForDamage(true, shieldNotHull: <#T##Bool#>)
@@ -831,9 +833,11 @@ class EncounterVC: UIViewController, PlunderDelegate {
         // write images
         playerImageBackground.image = playerLayer1
         playerImageUnderlay.image = playerLayer2
+        //playerImageOverlay.image = playerLayer3
         
         opponentImageBackground.image = opponentLayer1
         opponentImageUnderlay.image = opponentLayer2
+        //opponentImageOverlay.image = opponentLayer3
         
         // test structure
 //        var overlay = UIImage(named: "ship3s")
@@ -1056,16 +1060,22 @@ class EncounterVC: UIViewController, PlunderDelegate {
         // this can be: shielded, healthy, sd, or d (only d if disabled) - [h, d, s, sd]
         // cases:
         
+        // NEXT, MAKE FIRST ONE D IF BOTH ARE DAMAGED
+        
         if disabled {
             state = "d"
         } else if (shieldPercentage == 100) && (hullPercentage == 100) {
             state = "s"
-        } else if (shieldPercentage > 0) {
+        } else if (shieldPercentage > 0) && (hullPercentage == 100) {
             state = "s"
-            print("background: some shields, displaying shield. Layer2 should display hull over this")
+            print("background: some shields, no hull damage, displaying shield. Layer2 should display hull over this")
         } else if shieldPercentage == 0 {
             state = "h"
-        } else if shieldPercentage > 0 && hullPercentage > shieldPercentage {
+        } else if (hullPercentage < 100) && (shieldPercentage < 100) {
+            state = "d"
+        } else if (hullPercentage < 100) && (shieldPercentage > hullPercentage) {
+            state = "sd"
+        } else if shieldPercentage > 0 && (hullPercentage > shieldPercentage) {
             state = "s"
         } else {
             print("first layer specifying sd. shield: \(shieldPercentage), hull: \(hullPercentage)")
@@ -1122,26 +1132,39 @@ class EncounterVC: UIViewController, PlunderDelegate {
         
         if disabled {
             state = "n"
+            print("player? \(playerNotOpponent)")
+            print("2: nothing, disabled")
         } else if (hullPercentage == 100) && (shieldPercentage == 0) {
             state = "n"
+            print("player? \(playerNotOpponent)")
+            print("2: nothing, full hull no shield")
         } else if (shieldPercentage == 100) && (hullPercentage == 100) {
             state = "n"
+            print("player? \(playerNotOpponent)")
+            print("2: nothing, full shield")
         } else if (shieldPercentage == 0) && (hullPercentage < 100) {
+            print("player? \(playerNotOpponent)")
+            print("2: damage, no shield and damaged hull")
             state = "d"
             readingShield = false
             croppingShield = false
         } else if (hullPercentage == 100) && (shieldPercentage < 100) {
             // full hull, partial shield
+            print("player? \(playerNotOpponent)")
+            print("2: 'h', full hull and damaged shield")
             state = "h"
             readingShield = true
             croppingShield = false
         } else if (shieldPercentage > hullPercentage) {
             state = "s"
+            print("player? \(playerNotOpponent)")
+            print("2: shield, shield stronger than hull")
             readingShield = true
             croppingShield = true
             print("second layer set to shield. Shield percentage: \(shieldPercentage)")
         } else {
-            print("you messed something up in the second layer")
+            print("player? \(playerNotOpponent)")
+            print("2: faulure mode")
             print("hull: \(hullPercentage), shield: \(shieldPercentage)")
         }
         
@@ -1161,6 +1184,56 @@ class EncounterVC: UIViewController, PlunderDelegate {
             return nil
         }
     }
+    
+    func getLayer3(playerNotOpponent: Bool) -> UIImage? {
+        if playerNotOpponent {
+            print("****LAYER 3 FOR PLAYER")
+        } else {
+            print("****LAYER 3 FOR OPPONENT")
+        }
+        
+        var ship: ShipType
+        var hullPercentage: Int
+        var shieldPercentage: Int
+        var state: String = ""
+        
+        if playerNotOpponent {
+            ship = player.commanderShip.type
+            hullPercentage = player.commanderShip.hullPercentage
+            shieldPercentage = player.commanderShip.shieldPercentage
+        } else {
+            ship = galaxy.currentJourney!.currentEncounter!.opponent.ship.type
+            hullPercentage = galaxy.currentJourney!.currentEncounter!.opponent.ship.hullPercentage
+            shieldPercentage = galaxy.currentJourney!.currentEncounter!.opponent.ship.shieldPercentage
+        }
+        
+        // cases:
+        // if both hull and shield are at partial damage, add last bit of healthy hull
+        //
+        
+        let croppingShield = false
+        let readingShield = false
+        
+        if (shieldPercentage < 100) && (hullPercentage < 100) {
+            print("third layer in use")
+            state = "h"
+        } else {
+            print("third layer unnecessary")
+            state = "n"
+        }
+        
+        if state != "n" {
+            var image = getImageForShipAndState(ship, state: state)
+            // set width
+            let width = getOverlayWidthForDamage(playerNotOpponent, croppingShield: croppingShield, readingShield: readingShield)
+            image = cropToWidth(image, width: width)
+            
+            return image
+        } else {
+            return nil
+        }
+    }
+
     
     func getImageForShipAndState(ship: ShipType, state: String) -> UIImage {
         var image: UIImage = UIImage(named: "ship0")!   // default, so the compiler doesn't get upset
