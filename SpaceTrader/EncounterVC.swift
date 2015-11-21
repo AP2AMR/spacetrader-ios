@@ -50,6 +50,8 @@ class EncounterVC: UIViewController, PlunderDelegate {
         // images
         
         displayImages()
+        
+        setBadgeImage()
     }
     
     
@@ -80,6 +82,7 @@ class EncounterVC: UIViewController, PlunderDelegate {
     @IBOutlet weak var opponentImageUnderlay: UIImageView!
     @IBOutlet weak var opponentImageOverlay: UIImageView!
     
+    @IBOutlet weak var badge: UIImageView!
     
     
     // BUTTON FUNCTIONS***************************************************************************
@@ -1466,6 +1469,25 @@ class EncounterVC: UIViewController, PlunderDelegate {
         let image: UIImage = UIImage(CGImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
         
         return image
+    }
+    
+    func setBadgeImage() {
+        var image = UIImage(named: "badge_bang")
+        
+        switch galaxy.currentJourney!.currentEncounter!.opponent.ship.IFFStatus {
+            case IFFStatusType.Pirate:
+                image = UIImage(named: "badge_pirate")
+            case IFFStatusType.Police:
+                image = UIImage(named: "badge_police")
+            case IFFStatusType.Trader:
+                image = UIImage(named: "badge_trader")
+            case IFFStatusType.Mantis:
+                image = UIImage(named: "badge_alien")
+            default:
+                image = UIImage(named: "badge_bang")
+        }
+        
+        badge.image = image
     }
     
     

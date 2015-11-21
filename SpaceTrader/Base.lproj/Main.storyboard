@@ -1804,14 +1804,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCz-bE-197">
-                                <rect key="frame" x="550" y="20" width="30" height="30"/>
-                                <animations/>
-                                <state key="normal" title="x"/>
-                                <connections>
-                                    <action selector="closeButton:" destination="Z73-QX-bwt" eventType="touchUpInside" id="tSf-zQ-Dq9"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTL-fO-GUv">
                                 <rect key="frame" x="136" y="145" width="102" height="82"/>
                                 <subviews>
@@ -1819,15 +1811,15 @@
                                         <rect key="frame" x="1" y="1" width="100" height="80"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oZF-Vf-ALe">
-                                                <rect key="frame" x="0.0" y="0.0" width="68" height="78"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="77" height="41"/>
                                                 <animations/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c3X-S7-MZR">
-                                                <rect key="frame" x="0.0" y="0.0" width="26" height="94"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="95" height="73"/>
                                                 <animations/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bgm-z0-IBj">
-                                                <rect key="frame" x="0.0" y="0.0" width="48" height="65"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="59" height="76"/>
                                                 <animations/>
                                             </imageView>
                                         </subviews>
@@ -1889,15 +1881,15 @@
                                         <rect key="frame" x="1" y="1" width="100" height="80"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L5l-Ze-hsR">
-                                                <rect key="frame" x="0.0" y="0.0" width="36" height="63"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="55" height="100"/>
                                                 <animations/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OhD-G5-bpo">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="17" height="63"/>
                                                 <animations/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kbe-yd-Rlk">
-                                                <rect key="frame" x="0.0" y="0.0" width="72" height="68"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="18" height="89"/>
                                                 <animations/>
                                             </imageView>
                                         </subviews>
@@ -2122,6 +2114,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="badge_bang" translatesAutoresizingMaskIntoConstraints="NO" id="LuO-V9-BUL">
+                                <rect key="frame" x="540" y="20" width="40" height="40"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="960-QW-S18"/>
+                                    <constraint firstAttribute="height" constant="40" id="FCS-9A-oSw"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCz-bE-197">
+                                <rect key="frame" x="550" y="60" width="30" height="30"/>
+                                <animations/>
+                                <state key="normal" title="x"/>
+                                <connections>
+                                    <action selector="closeButton:" destination="Z73-QX-bwt" eventType="touchUpInside" id="tSf-zQ-Dq9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2145,6 +2153,7 @@
                             <constraint firstItem="jF8-Ip-n9X" firstAttribute="baseline" secondItem="8iA-FL-PCu" secondAttribute="baseline" id="OVm-8d-ctX"/>
                             <constraint firstItem="oTL-fO-GUv" firstAttribute="leading" secondItem="m1m-MM-iuo" secondAttribute="trailing" constant="8" symbolic="YES" id="Oxt-4O-yOP"/>
                             <constraint firstItem="HPo-By-NeI" firstAttribute="baseline" secondItem="oTL-fO-GUv" secondAttribute="baseline" id="QTA-Zy-MFU"/>
+                            <constraint firstItem="LuO-V9-BUL" firstAttribute="top" secondItem="8wb-cF-FJj" secondAttribute="bottom" id="Qw9-jD-2jK"/>
                             <constraint firstItem="koD-aw-qW2" firstAttribute="top" secondItem="DlB-Cz-ljz" secondAttribute="bottom" constant="8" id="Qys-lj-2t8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="akI-hL-wga" secondAttribute="trailing" id="T3R-H3-tYz"/>
                             <constraint firstItem="oTL-fO-GUv" firstAttribute="top" secondItem="8wb-cF-FJj" secondAttribute="bottom" constant="125" id="VaS-t7-F0n"/>
@@ -2166,6 +2175,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="8gm-sF-IvJ" secondAttribute="leading" id="jIq-EQ-ZNo"/>
                             <constraint firstItem="8iA-FL-PCu" firstAttribute="baseline" secondItem="8gm-sF-IvJ" secondAttribute="baseline" id="ji2-hr-z1Y"/>
                             <constraint firstItem="P7x-3d-tPB" firstAttribute="top" secondItem="PoC-GG-vf1" secondAttribute="bottom" constant="8" id="kDh-sZ-8p1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LuO-V9-BUL" secondAttribute="trailing" id="kHr-hH-R5Q"/>
                             <constraint firstAttribute="trailingMargin" secondItem="l8m-1h-I1B" secondAttribute="trailing" id="kOf-au-MN6"/>
                             <constraint firstItem="jF8-Ip-n9X" firstAttribute="leading" secondItem="Did-Ca-O6u" secondAttribute="trailing" constant="8" symbolic="YES" id="lTI-Ov-1nc"/>
                             <constraint firstItem="Iod-j8-EQc" firstAttribute="top" secondItem="8gm-sF-IvJ" secondAttribute="bottom" constant="20" id="lnh-o6-JuV"/>
@@ -2178,6 +2188,7 @@
                             <constraint firstItem="vna-JK-gpb" firstAttribute="baseline" secondItem="HPo-By-NeI" secondAttribute="baseline" id="qI8-dC-dhA"/>
                             <constraint firstItem="HPo-By-NeI" firstAttribute="leading" secondItem="oTL-fO-GUv" secondAttribute="trailing" constant="8" id="r3C-IP-SMf"/>
                             <constraint firstItem="DlB-Cz-ljz" firstAttribute="baseline" secondItem="PoC-GG-vf1" secondAttribute="baseline" id="rmX-bv-tQU"/>
+                            <constraint firstItem="LCz-bE-197" firstAttribute="top" secondItem="LuO-V9-BUL" secondAttribute="bottom" id="rzE-BN-j82"/>
                             <constraint firstItem="LCz-bE-197" firstAttribute="top" secondItem="8wb-cF-FJj" secondAttribute="bottom" id="sf5-do-epR"/>
                             <constraint firstItem="DlB-Cz-ljz" firstAttribute="leading" secondItem="vna-JK-gpb" secondAttribute="leading" id="tQn-Hx-Tif"/>
                             <constraint firstItem="koD-aw-qW2" firstAttribute="leading" secondItem="DlB-Cz-ljz" secondAttribute="leading" id="uV7-cV-Vdu"/>
@@ -2189,8 +2200,14 @@
                             <constraint firstItem="zbD-qK-gGo" firstAttribute="leading" secondItem="F0M-ju-dyA" secondAttribute="leading" id="zMq-z7-Gt3"/>
                             <constraint firstItem="aQc-Of-lmo" firstAttribute="centerX" secondItem="79J-SY-Ayx" secondAttribute="centerX" id="zV6-m8-T8c"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="sf5-do-epR"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="badge" destination="LuO-V9-BUL" id="eao-Pj-o7O"/>
                         <outlet property="button1Text" destination="8gm-sF-IvJ" id="OIF-6z-STy"/>
                         <outlet property="button2Text" destination="8iA-FL-PCu" id="QtZ-sE-7rL"/>
                         <outlet property="button3Text" destination="jF8-Ip-n9X" id="rQC-8b-zmV"/>
@@ -4260,6 +4277,9 @@
             <point key="canvasLocation" x="3120" y="1071"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="badge_bang" width="40" height="40"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LdK-j7-SWM"/>
         <segue reference="REb-7Y-v0a"/>
