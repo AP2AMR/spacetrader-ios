@@ -152,6 +152,17 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         
         //player.escapePod = true
         
+        
+        
+        let bigShip = SpaceShip(type: ShipType.Grasshopper, IFFStatus: IFFStatusType.Player)
+        player.commanderShip = bigShip
+        
+        let reflectiveShield = Shield(type: ShieldType.reflectiveShield)
+        reflectiveShield.currentStrength = reflectiveShield.power // / 2
+        player.commanderShip.shield.append(reflectiveShield)
+        
+        //player.commanderShip.hull = 50
+        
         let photonDisruptor = Weapon(type: WeaponType.photonDisruptor)
         let militaryLaser = Weapon(type: WeaponType.militaryLaser)
         player.commanderShip.weapon.append(militaryLaser)

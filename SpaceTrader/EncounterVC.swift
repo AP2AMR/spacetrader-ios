@@ -819,11 +819,11 @@ class EncounterVC: UIViewController, PlunderDelegate {
         // set images
         let playerLayer1 = getBackgroundImage(true)
         let playerLayer2 = getLayer2(true)
-        //let playerLayer3 = getLayer3(true)
+        let playerLayer3 = getLayer3(true)
         
         let opponentLayer1 = getBackgroundImage(false)
         let opponentLayer2 = getLayer2(false)
-        //let opponentLayer3 = getLayer3(false)
+        let opponentLayer3 = getLayer3(false)
         
         // set overlay widths
         //let playerLayer2Width = getOverlayWidthForDamage(true, shieldNotHull: <#T##Bool#>)
@@ -833,11 +833,11 @@ class EncounterVC: UIViewController, PlunderDelegate {
         // write images
         playerImageBackground.image = playerLayer1
         playerImageUnderlay.image = playerLayer2
-        //playerImageOverlay.image = playerLayer3
+        playerImageOverlay.image = playerLayer3
         
         opponentImageBackground.image = opponentLayer1
         opponentImageUnderlay.image = opponentLayer2
-        //opponentImageOverlay.image = opponentLayer3
+        opponentImageOverlay.image = opponentLayer3
         
         // test structure
 //        var overlay = UIImage(named: "ship3s")
@@ -1075,8 +1075,10 @@ class EncounterVC: UIViewController, PlunderDelegate {
             print ("player? \(playerNotOpponent) layer 1: both shield and hull damaged, s (portion that is fine)")
             state = "s"
         } else if (hullPercentage < 100) && (shieldPercentage > hullPercentage) {
-            print ("player? \(playerNotOpponent) layer 1: shield in better shape than hull, sd")
-            state = "sd"
+            //print ("player? \(playerNotOpponent) layer 1: shield in better shape than hull, sd")
+            //state = "sd"
+            state = "s"
+            // THIS IS WRONG AND BACKWARDS. CAN BE REMOVED, BUT JUST IN CASE I DISABLED IT
         } else if shieldPercentage > 0 && (hullPercentage > shieldPercentage) {
             print ("player? \(playerNotOpponent) layer 1: hull in better shape than shield, s")
             state = "s"
@@ -1152,13 +1154,20 @@ class EncounterVC: UIViewController, PlunderDelegate {
             state = "h"
             readingShield = true
             croppingShield = false
-        } else if (shieldPercentage > hullPercentage) {
-            state = "s"
+        } else if (shieldPercentage > hullPercentage) && (shieldPercentage < 100) {
+            state = "sd"                                        // check this
             print("player? \(playerNotOpponent)")
-            print("2: shield, shield stronger than hull")
-            readingShield = false                                // I THINK TROUBLE IS HERE
-            croppingShield = fals
-        } else if hullPercentage > shieldPercentage {
+            print("2: sd, shield stronger than hull. SD cuz shield is less than 100, s portion done in layer one")
+            readingShield = false
+            croppingShield = false
+        } else if (shieldPercentage > hullPercentage) && (shieldPercentage == 100){
+            state = "sd"                                        // check this
+            print("player? \(playerNotOpponent)")
+            print("2: shield, shield stronger than hull. S, cuz s is 100 and sd is done")
+            readingShield = false       // THIS IS TROUBLE. SAYS IT'S DOING THIS, BUT JUST SHOWS SD
+            croppingShield = true
+        }
+        else if hullPercentage > shieldPercentage {
             state = "h"
             croppingShield = false
             readingShield = true
@@ -1187,6 +1196,8 @@ class EncounterVC: UIViewController, PlunderDelegate {
     
     func getLayer3(playerNotOpponent: Bool) -> UIImage? {
         
+        print("layer 3 function firing")
+        
         var ship: ShipType
         var hullPercentage: Int
         var shieldPercentage: Int
@@ -1203,18 +1214,27 @@ class EncounterVC: UIViewController, PlunderDelegate {
         }
         
         // cases:
-        // if both hull and shield are at partial damage, add last bit of healthy hull
+        // if both hull and shield are at partial damage, add last bit of damaged hull
         //
         
-        let croppingShield = false
-        let readingShield = false
+        var croppingShield = false
+        var readingShield = false
         
-        if (shieldPercentage < 100) && (hullPercentage < 100) {
-            print("third layer in use")
-            state = "h"
+        if (shieldPercentage < 100) && (hullPercentage < 100) && (shieldPercentage > 0) && (shieldPercentage > hullPercentage) {
+            print("third layer in use. More shields, cropping to shields")
+            state = "d"
+            readingShield = true
+            croppingShield = false
+        } else if (shieldPercentage < 100) && (hullPercentage < 100) && (shieldPercentage > 0) && (hullPercentage > shieldPercentage) {
+            print("more hull, cropping to hull")
+            state = "d"
+            readingShield = false
+            croppingShield = false
         } else {
             print("third layer unnecessary")
             state = "n"
+            croppingShield = false
+            readingShield = true
         }
         
         if state != "n" {
