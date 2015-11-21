@@ -24,6 +24,7 @@
 		5A518FB61BC80CF800021B13 /* FuelRepairModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A518FB51BC80CF800021B13 /* FuelRepairModalVC.swift */; };
 		5A723F401BCC531B006FFB13 /* Journey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A723F3F1BCC531B006FFB13 /* Journey.swift */; };
 		5A723F421BCD5EA5006FFB13 /* Encounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A723F411BCD5EA5006FFB13 /* Encounter.swift */; };
+		5A7A52DA1C011ED100FFBF72 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A7A52D91C011ED100FFBF72 /* Images.xcassets */; };
 		5A81AD181BACFBCD001F2918 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81AD171BACFBCD001F2918 /* Globals.swift */; };
 		5A81B96D1BE2B3B700BDC351 /* EncounterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81B96C1BE2B3B700BDC351 /* EncounterVC.swift */; };
 		5A83DF541BDECF0400C31AC5 /* WarpViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A83DF531BDECF0400C31AC5 /* WarpViewVC.swift */; };
@@ -34,7 +35,6 @@
 		5AD5F8921B9A122200154B21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8911B9A122200154B21 /* AppDelegate.swift */; };
 		5AD5F8941B9A122200154B21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8931B9A122200154B21 /* ViewController.swift */; };
 		5AD5F8971B9A122200154B21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD5F8951B9A122200154B21 /* Main.storyboard */; };
-		5AD5F8991B9A122200154B21 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD5F8981B9A122200154B21 /* Images.xcassets */; };
 		5AD5F89C1B9A122200154B21 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AD5F89A1B9A122200154B21 /* LaunchScreen.xib */; };
 		5AD5F8A81B9A122200154B21 /* SpaceTraderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8A71B9A122200154B21 /* SpaceTraderTests.swift */; };
 		5AD5F8B21B9D160400154B21 /* StarSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8B11B9D160400154B21 /* StarSystem.swift */; };
@@ -85,6 +85,7 @@
 		5A518FB51BC80CF800021B13 /* FuelRepairModalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelRepairModalVC.swift; sourceTree = "<group>"; };
 		5A723F3F1BCC531B006FFB13 /* Journey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Journey.swift; sourceTree = "<group>"; };
 		5A723F411BCD5EA5006FFB13 /* Encounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encounter.swift; sourceTree = "<group>"; };
+		5A7A52D91C011ED100FFBF72 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
 		5A81AD171BACFBCD001F2918 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		5A81B96C1BE2B3B700BDC351 /* EncounterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncounterVC.swift; sourceTree = "<group>"; };
 		5A83DF531BDECF0400C31AC5 /* WarpViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarpViewVC.swift; sourceTree = "<group>"; };
@@ -97,7 +98,6 @@
 		5AD5F8911B9A122200154B21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AD5F8931B9A122200154B21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5AD5F8961B9A122200154B21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5AD5F8981B9A122200154B21 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5AD5F89B1B9A122200154B21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		5AD5F8A11B9A122200154B21 /* SpaceTraderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceTraderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD5F8A61B9A122200154B21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -175,8 +175,8 @@
 				5AD5F8911B9A122200154B21 /* AppDelegate.swift */,
 				5AD5F8931B9A122200154B21 /* ViewController.swift */,
 				5AD5F8951B9A122200154B21 /* Main.storyboard */,
-				5AD5F8981B9A122200154B21 /* Images.xcassets */,
 				5AD5F89A1B9A122200154B21 /* LaunchScreen.xib */,
+				5A7A52D91C011ED100FFBF72 /* Images.xcassets */,
 				5AD5F88F1B9A122200154B21 /* Supporting Files */,
 				5AF1CA2B1BA365DC00643C5F /* ViewControllers */,
 				5AD5F8BC1B9E948F00154B21 /* Classes */,
@@ -358,10 +358,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AD5F8971B9A122200154B21 /* Main.storyboard in Resources */,
+				5A7A52DA1C011ED100FFBF72 /* Images.xcassets in Resources */,
 				5AEB37881BE95225004B195A /* planet.png in Resources */,
 				5AD5F89C1B9A122200154B21 /* LaunchScreen.xib in Resources */,
 				5AEB37871BE95225004B195A /* buy.png in Resources */,
-				5AD5F8991B9A122200154B21 /* Images.xcassets in Resources */,
 				5AEB378B1BE95225004B195A /* warp.png in Resources */,
 				5AEB37891BE95225004B195A /* sell.png in Resources */,
 				5AEB378A1BE95225004B195A /* tempShipyard.png in Resources */,
