@@ -8,8 +8,13 @@
 
 import UIKit
 
+
 class ShipDetailVC: UIViewController {
 
+    var ship: String!
+    var typeOfShip: ShipType!
+    var prototypeShip: SpaceShip!
+    
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var sizeLabel: UILabel!
@@ -25,8 +30,44 @@ class ShipDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        initializeVars()
+        
+        setData()
+    }
+    
+    func setData() {
+        
+    }
+    
+    func initializeVars() {
+        
+        switch ship {
+            case "Flea":
+                typeOfShip = ShipType.Flea
+            case "Gnat":
+                typeOfShip = ShipType.Gnat
+            case "Firefly":
+                typeOfShip = ShipType.Firefly
+            case "Mosquito":
+                typeOfShip = ShipType.Mosquito
+            case "Bumblebee":
+                typeOfShip = ShipType.Bumblebee
+            case "Beetle":
+                typeOfShip = ShipType.Beetle
+            case "Hornet":
+                typeOfShip = ShipType.Hornet
+            case "Grasshopper":
+                typeOfShip = ShipType.Grasshopper
+            case "Termite":
+                typeOfShip = ShipType.Termite
+            case "Wasp":
+                typeOfShip = ShipType.Wasp
+            default:
+                print("unrecognized ship type")
+        }
+        
+        prototypeShip = SpaceShip(type: typeOfShip, IFFStatus: IFFStatusType.Player)
     }
 
 }

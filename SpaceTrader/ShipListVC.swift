@@ -8,7 +8,10 @@
 
 import UIKit
 
+
 class ShipListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var chosenShip: String!
     
     @IBOutlet var tableView: UITableView!
     
@@ -41,9 +44,19 @@ class ShipListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //print("You selected cell #\(indexPath.row)!")
-        let ship = items[indexPath.row]
-        print("You selected \(ship)")
-        performSegueWithIdentifier("shipDetail", sender: nil)
+        chosenShip = items[indexPath.row]
+        print("You selected \(chosenShip)")
+        performSegueWithIdentifier("shipDetail", sender: chosenShip)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if(segue.identifier == "shipDetail") {
+            
+            let vc = (segue.destinationViewController as! ShipDetailVC)
+            vc.ship = chosenShip
+        }
+        
     }
 
 }
