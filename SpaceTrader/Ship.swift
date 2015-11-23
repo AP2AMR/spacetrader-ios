@@ -17,6 +17,7 @@ class SpaceShip {
     var gadgetSlots: Int
     var crewQuarters: Int
     var fuelTanks: Int
+    var size: String = ""
     var minTechLevel: TechLevelType
     var costOfFuel: Int
     var price: Int
@@ -67,6 +68,20 @@ class SpaceShip {
             if item.type == GadgetType.CargoBays {
                 total += 5
             }
+        }
+        return total
+    }
+    
+    var value: Int {
+        var total = self.price
+        for item in weapon {
+            total += Int((Double(item.price) * 0.75))
+        }
+        for item in shield {
+            total += Int((Double(item.price) * 0.75))
+        }
+        for item in gadget {
+            total += Int((Double(item.price) * 0.75))
         }
         return total
     }
@@ -192,6 +207,7 @@ class SpaceShip {
                 self.traders = 0
                 self.repairCosts = 1
                 self.probabilityOfHit = 0
+                self.size = "Tiny"
             case ShipType.Gnat:
                 self.type = ShipType.Gnat
                 self.name = "Gnat"
@@ -212,6 +228,7 @@ class SpaceShip {
                 self.traders = 0
                 self.repairCosts = 1
                 self.probabilityOfHit = 1
+                self.size = "Small"
             case ShipType.Firefly:
                 self.type = ShipType.Firefly
                 self.name = "Firefly"
@@ -232,6 +249,7 @@ class SpaceShip {
                 self.traders = 0
                 self.repairCosts = 1
                 self.probabilityOfHit = 1
+                self.size = "Small"
             case ShipType.Mosquito:
                 self.type = ShipType.Mosquito
                 self.name = "Mosquito"
@@ -252,6 +270,7 @@ class SpaceShip {
                 self.traders = 0
                 self.repairCosts = 1
                 self.probabilityOfHit = 1
+                self.size = "Small"
             case ShipType.Bumblebee:
                 self.type = ShipType.Bumblebee
                 self.name = "Bumblebee"
@@ -272,6 +291,7 @@ class SpaceShip {
                 self.traders = 0
                 self.repairCosts = 1
                 self.probabilityOfHit = 2
+                self.size = "Medium"
             case ShipType.Beetle:
                 self.type = ShipType.Beetle
                 self.name = "Beetle"
@@ -292,6 +312,7 @@ class SpaceShip {
                 self.traders = 0
                 self.repairCosts = 1
                 self.probabilityOfHit = 2
+                self.size = "Medium"
             case ShipType.Hornet:
                 self.type = ShipType.Hornet
                 self.name = "Hornet"
@@ -312,6 +333,7 @@ class SpaceShip {
                 self.traders = 1
                 self.repairCosts = 2
                 self.probabilityOfHit = 3
+                self.size = "Large"
             case ShipType.Grasshopper:
                 self.type = ShipType.Grasshopper
                 self.name = "Grasshopper"
@@ -332,6 +354,7 @@ class SpaceShip {
                 self.traders = 2
                 self.repairCosts = 3
                 self.probabilityOfHit = 3
+                self.size = "Large"
             case ShipType.Termite:
                 self.type = ShipType.Termite
                 self.name = "Termite"
@@ -352,6 +375,7 @@ class SpaceShip {
                 self.traders = 3
                 self.repairCosts = 4
                 self.probabilityOfHit = 4
+                self.size = "Huge"
             case ShipType.Wasp:
                 self.type = ShipType.Wasp
                 self.name = "Wasp"
@@ -372,6 +396,7 @@ class SpaceShip {
                 self.traders = 4
                 self.repairCosts = 5
                 self.probabilityOfHit = 4
+                self.size = "Huge"
             case ShipType.Custom:
                 // THIS DATA LIFTED FROM WASP. FIX.
                 self.type = ShipType.Wasp

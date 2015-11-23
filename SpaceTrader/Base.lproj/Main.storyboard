@@ -1410,6 +1410,9 @@
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="12" minY="8" maxX="12" maxY="8"/>
                                 <state key="normal" title="Buy &lt;ship&gt;"/>
+                                <connections>
+                                    <action selector="buy:" destination="dWX-LN-jdr" eventType="touchUpInside" id="I1F-oX-eOK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
@@ -1472,6 +1475,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="buyButton" destination="0ka-cd-gIb" id="S1Q-9v-aqa"/>
                         <outlet property="cargoLabel" destination="amG-jn-TRI" id="edd-3F-qf9"/>
                         <outlet property="crewLabel" destination="Skl-f0-35j" id="eTR-iH-Zhg"/>
                         <outlet property="gadgetLabel" destination="q1F-BH-lQE" id="7el-zn-N5E"/>
