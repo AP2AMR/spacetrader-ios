@@ -43,6 +43,7 @@
 		5AD5F8BE1B9F3BE700154B21 /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8BD1B9F3BE700154B21 /* Ship.swift */; };
 		5AD5F8C01B9F473E00154B21 /* TradeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8BF1B9F473E00154B21 /* TradeItem.swift */; };
 		5AD5F8C21B9FB54E00154B21 /* Galaxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8C11B9FB54E00154B21 /* Galaxy.swift */; };
+		5AE71F8F1C0399F1004378BD /* ShipDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE71F8E1C0399F1004378BD /* ShipDetailVC.swift */; };
 		5AEB37871BE95225004B195A /* buy.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AEB37821BE95225004B195A /* buy.png */; };
 		5AEB37881BE95225004B195A /* planet.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AEB37831BE95225004B195A /* planet.png */; };
 		5AEB37891BE95225004B195A /* sell.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AEB37841BE95225004B195A /* sell.png */; };
@@ -108,6 +109,7 @@
 		5AD5F8BD1B9F3BE700154B21 /* Ship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
 		5AD5F8BF1B9F473E00154B21 /* TradeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeItem.swift; sourceTree = "<group>"; };
 		5AD5F8C11B9FB54E00154B21 /* Galaxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Galaxy.swift; sourceTree = "<group>"; };
+		5AE71F8E1C0399F1004378BD /* ShipDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipDetailVC.swift; sourceTree = "<group>"; };
 		5AEB37821BE95225004B195A /* buy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buy.png; sourceTree = "<group>"; };
 		5AEB37831BE95225004B195A /* planet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planet.png; sourceTree = "<group>"; };
 		5AEB37841BE95225004B195A /* sell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sell.png; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				5AB36E8E1BF18B5200941CF6 /* ShipListVC.swift */,
 				5AB36E901BF18B6600941CF6 /* EquipmentListVC.swift */,
 				5AB36E921BF1926D00941CF6 /* MercenariesVC.swift */,
+				5AE71F8E1C0399F1004378BD /* ShipDetailVC.swift */,
 			);
 			name = Menus;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				5AEC942E1BC8594F00C68F7F /* GalacticChartVC.swift in Sources */,
 				5AD5F8941B9A122200154B21 /* ViewController.swift in Sources */,
 				5AD5F8C01B9F473E00154B21 /* TradeItem.swift in Sources */,
+				5AE71F8F1C0399F1004378BD /* ShipDetailVC.swift in Sources */,
 				5AB36E8F1BF18B5200941CF6 /* ShipListVC.swift in Sources */,
 				5AD5F8BE1B9F3BE700154B21 /* Ship.swift in Sources */,
 				5AB36E931BF1926D00941CF6 /* MercenariesVC.swift in Sources */,

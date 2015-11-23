@@ -40,7 +40,10 @@ class ShipListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("You selected cell #\(indexPath.row)!")
+        //print("You selected cell #\(indexPath.row)!")
+        let ship = items[indexPath.row]
+        print("You selected \(ship)")
+        performSegueWithIdentifier("shipDetail", sender: nil)
     }
 
 }
