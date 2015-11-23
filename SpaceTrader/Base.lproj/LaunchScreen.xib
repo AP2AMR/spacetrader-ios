@@ -26,7 +26,7 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="splashtest" translatesAutoresizingMaskIntoConstraints="NO" id="XaM-Pn-CO2">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="XaM-Pn-CO2">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <animations/>
                 </imageView>
@@ -47,6 +47,6 @@
         </view>
     </objects>
     <resources>
-        <image name="splashtest" width="414" height="736"/>
+        <image name="splash" width="414" height="414"/>
     </resources>
 </document>
