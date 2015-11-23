@@ -9,27 +9,17 @@
 import UIKit
 
 class ShipListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet var tableView: UITableView!
     
     var items: [String] = ["Flea", "Gnat", "Firefly", "Mosquito", "Bumblebee", "Beetle", "Hornet", "Grasshopper", "Termite", "Wasp"]
     
-//    case Flea
-//    case Gnat
-//    case Firefly
-//    case Mosquito
-//    case Bumblebee
-//    case Beetle
-//    case Hornet
-//    case Grasshopper
-//    case Termite
-//    case Wasp
-//    case Custom
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.registerClass(UITableViewCell.self, forHeaderFooterViewReuseIdentifier: "cell")
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        //self.tableView.registerClass(UITableViewCell.self, forHeaderFooterViewReuseIdentifier: "cell")
     }
     
     @IBAction func done(sender: AnyObject) {
