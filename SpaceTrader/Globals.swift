@@ -84,3 +84,26 @@ func randDouble(max: Double, min: Double) -> Double {
     let resultDouble = Double(resultInt)
     return (resultDouble / 100)
 }
+
+func getTechLevelInt(techLevel: TechLevelType) -> Int {
+    switch techLevel {
+        case .techLevel0:
+            return 0
+        case .techLevel1:
+            return 1
+        case .techLevel2:
+            return 2
+        case .techLevel3:
+            return 3
+        case .techLevel4:
+            return 4
+        case .techLevel5:
+            return 5
+        case .techLevel6:
+            return 6
+        case .techLevel7:
+            return 7
+        case .techLevel8:
+            return 8
+    }
+}

@@ -44,6 +44,7 @@
 		5AD5F8C01B9F473E00154B21 /* TradeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8BF1B9F473E00154B21 /* TradeItem.swift */; };
 		5AD5F8C21B9FB54E00154B21 /* Galaxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8C11B9FB54E00154B21 /* Galaxy.swift */; };
 		5AE71F8F1C0399F1004378BD /* ShipDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE71F8E1C0399F1004378BD /* ShipDetailVC.swift */; };
+		5AE71F911C054B96004378BD /* BuyShipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE71F901C054B96004378BD /* BuyShipCell.swift */; };
 		5AEB37871BE95225004B195A /* buy.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AEB37821BE95225004B195A /* buy.png */; };
 		5AEB37881BE95225004B195A /* planet.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AEB37831BE95225004B195A /* planet.png */; };
 		5AEB37891BE95225004B195A /* sell.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AEB37841BE95225004B195A /* sell.png */; };
@@ -110,6 +111,7 @@
 		5AD5F8BF1B9F473E00154B21 /* TradeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeItem.swift; sourceTree = "<group>"; };
 		5AD5F8C11B9FB54E00154B21 /* Galaxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Galaxy.swift; sourceTree = "<group>"; };
 		5AE71F8E1C0399F1004378BD /* ShipDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipDetailVC.swift; sourceTree = "<group>"; };
+		5AE71F901C054B96004378BD /* BuyShipCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyShipCell.swift; sourceTree = "<group>"; };
 		5AEB37821BE95225004B195A /* buy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buy.png; sourceTree = "<group>"; };
 		5AEB37831BE95225004B195A /* planet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planet.png; sourceTree = "<group>"; };
 		5AEB37841BE95225004B195A /* sell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sell.png; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				5AB36E901BF18B6600941CF6 /* EquipmentListVC.swift */,
 				5AB36E921BF1926D00941CF6 /* MercenariesVC.swift */,
 				5AE71F8E1C0399F1004378BD /* ShipDetailVC.swift */,
+				5AE71F901C054B96004378BD /* BuyShipCell.swift */,
 			);
 			name = Menus;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A9830511BE3224100378EB3 /* EncounterVCBad.swift in Sources */,
+				5AE71F911C054B96004378BD /* BuyShipCell.swift in Sources */,
 				5A0265BE1B9FD2660079F6DE /* CrewMember.swift in Sources */,
 				5AEC942E1BC8594F00C68F7F /* GalacticChartVC.swift in Sources */,
 				5AD5F8941B9A122200154B21 /* ViewController.swift in Sources */,

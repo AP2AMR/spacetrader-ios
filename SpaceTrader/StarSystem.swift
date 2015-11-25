@@ -60,6 +60,31 @@ class StarSystem {
     var narcoticsSell: Int = 0
     var robotsSell: Int = 0
     
+    var techLevelInt: Int {
+        get {
+            switch self.techLevel {
+            case .techLevel0:
+                return 0
+            case .techLevel1:
+                return 1
+            case .techLevel2:
+                return 2
+            case .techLevel3:
+                return 3
+            case .techLevel4:
+                return 4
+            case .techLevel5:
+                return 5
+            case .techLevel6:
+                return 6
+            case .techLevel7:
+                return 7
+            case .techLevel8:
+                return 8
+            }
+        }
+    }
+    
     init(name: String, techLevel: TechLevelType, politics: PoliticsType, status: StatusType, xCoord: Int, yCoord: Int, specialResources: SpecialResourcesType, size: SizeType) {
         self.name = name
         self.techLevel = techLevel

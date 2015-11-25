@@ -1108,10 +1108,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zAi-9R-sjZ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zAi-9R-sjZ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCell" rowHeight="60" id="ted-5S-IqY" customClass="BuyShipCell" customModule="SpaceTrader" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ted-5S-IqY" id="wFM-Qm-lv3">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Beetle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOi-Bt-nvC">
+                                                    <rect key="frame" x="100" y="8" width="62" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PFR-K7-T2d">
+                                                    <rect key="frame" x="18" y="8" width="74" height="43"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="6MK-0Y-Ksb"/>
+                                                        <constraint firstAttribute="width" constant="74" id="jvU-6l-mEm"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="72,500 cr." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6j-Pe-3o3">
+                                                    <rect key="frame" x="100" y="30" width="77" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="ZOi-Bt-nvC" firstAttribute="leading" secondItem="PFR-K7-T2d" secondAttribute="trailing" constant="8" id="2u9-bT-G1N"/>
+                                                <constraint firstItem="O6j-Pe-3o3" firstAttribute="leading" secondItem="ZOi-Bt-nvC" secondAttribute="leading" id="FFn-5Q-77p"/>
+                                                <constraint firstAttribute="topMargin" secondItem="PFR-K7-T2d" secondAttribute="top" id="NVB-VD-wGg"/>
+                                                <constraint firstItem="PFR-K7-T2d" firstAttribute="leading" secondItem="wFM-Qm-lv3" secondAttribute="leadingMargin" constant="10" id="QNN-aw-ku6"/>
+                                                <constraint firstAttribute="topMargin" secondItem="ZOi-Bt-nvC" secondAttribute="top" id="Soa-xW-ehx"/>
+                                                <constraint firstItem="O6j-Pe-3o3" firstAttribute="top" secondItem="ZOi-Bt-nvC" secondAttribute="bottom" constant="1" id="t5H-xy-Lzh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <connections>
+                                            <outlet property="priceField" destination="O6j-Pe-3o3" id="joC-B4-VNk"/>
+                                            <outlet property="shipImage" destination="PFR-K7-T2d" id="ier-cp-BMR"/>
+                                            <outlet property="shipName" destination="ZOi-Bt-nvC" id="WBX-22-SP8"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="pWu-eW-mLr" id="LV3-CB-o0i"/>
                                     <outlet property="delegate" destination="pWu-eW-mLr" id="Ewt-pk-4mI"/>
