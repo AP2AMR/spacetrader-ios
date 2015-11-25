@@ -83,6 +83,10 @@ class SpaceShip {
         for item in gadget {
             total += Int((Double(item.price) * 0.75))
         }
+        
+        let valueOfCargoOnBoard = getTotalWorthOfCargo()
+        total += valueOfCargoOnBoard
+    
         return total
     }
     
@@ -632,5 +636,76 @@ class SpaceShip {
     }
     
     // END CARGO METHODS********************************************************************************
+    
+//    func sellAllCargo() {
+//        let commodities: [TradeItemType] = [TradeItemType.Water, TradeItemType.Furs, TradeItemType.Food, TradeItemType.Ore, TradeItemType.Games, TradeItemType.Firearms, TradeItemType.Medicine, TradeItemType.Machines, TradeItemType.Narcotics, TradeItemType.Robots]
+//        
+//        for commodity in commodities {
+//            let quantity = player.commanderShip.getQuantity(commodity)
+//            player.sell(commodity, quantity: quantity)
+//        }
+//    }
+    
+    func getTotalWorthOfCargo() -> Int {
+        var total = 0
+        
+        let commodities: [TradeItemType] = [TradeItemType.Water, TradeItemType.Furs, TradeItemType.Food, TradeItemType.Ore, TradeItemType.Games, TradeItemType.Firearms, TradeItemType.Medicine, TradeItemType.Machines, TradeItemType.Narcotics, TradeItemType.Robots]
+        
+        for commodity in commodities {
+            let quantity = player.commanderShip.getQuantity(commodity)
+            let salePrice = galaxy.currentSystem!.getSellPrice(commodity)
+            let totalSalePrice = salePrice * quantity
+            total += totalSalePrice
+        }
+        
+        return total
+    }
+    
+    func getMorgansLaserStatus() -> Bool {
+        var status = false
+        for item in weapon {
+            if item.type == WeaponType.morgansLaser {
+                status = true
+            }
+        }
+        return status
+    }
+    
+    func getFuelCompactorStatus() -> Bool {
+        var status = false
+        for item in gadget {
+            if item.type == GadgetType.FuelCompactor {
+                status = true
+            }
+        }
+        return status
+    }
+    
+    func getLightningShieldStatus() -> Bool {
+        var status = false
+        for item in shield {
+            if item.type == ShieldType.lightningShield {
+                status = true
+            }
+        }
+        return status
+    }
+    
+    func resetSpecialEquipment(morgansLaser: Bool, fuelCompactor: Bool, lightningShield: Bool) {
+        // HANDLE POSSIBILITY OF NOT ALL STUFF BEING TRANSFERRABLE?
+
+        if morgansLaser && (weaponSlots >= 1) {
+            let laser = Weapon(type: WeaponType.morgansLaser)
+            self.weapon.append(laser)
+        }
+        if fuelCompactor && (cargoBays >= 1) {
+            let compactor = Gadget(type: GadgetType.FuelCompactor)
+            self.gadget.append(compactor)
+        }
+        if lightningShield && (shieldSlots >= 1) {
+            let lightning = Shield(type: ShieldType.lightningShield)
+            self.shield.append(lightning)
+        }
+    }
 
 }

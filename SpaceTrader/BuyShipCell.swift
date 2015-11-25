@@ -80,13 +80,7 @@ class BuyShipCell: UITableViewCell {
             priceField.text = "got one"
         }
         
-        // do something about enabling/disabling on the basis of this
-        
-        
-        
-        // get current system tech level
-        // if matches, print price, else "not sold"
-        // overwrite if "got one"
+        // enabling/disabling will be done separately in ShipDetailVC
     }
 
 }

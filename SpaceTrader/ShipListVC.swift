@@ -12,10 +12,12 @@ import UIKit
 class ShipListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var chosenShip: String!
+    var chosenShipType: ShipType!
     
     @IBOutlet var tableView: UITableView!
     
     var items: [String] = ["Flea", "Gnat", "Firefly", "Mosquito", "Bumblebee", "Beetle", "Hornet", "Grasshopper", "Termite", "Wasp"]
+    var ships: [ShipType] = [ShipType.Flea, ShipType.Gnat, ShipType.Firefly, ShipType.Mosquito, ShipType.Bumblebee, ShipType.Beetle, ShipType.Hornet, ShipType.Grasshopper, ShipType.Termite, ShipType.Wasp]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,16 +37,24 @@ class ShipListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
-        
-        cell.textLabel?.text = self.items[indexPath.row]
+        let cell: BuyShipCell = self.tableView.dequeueReusableCellWithIdentifier("CustomCell")! as! BuyShipCell
+        let ship = self.ships[indexPath.row]
+        cell.setCell(ship)
         
         return cell
+        
+        
+//        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+//        
+//        cell.textLabel?.text = self.items[indexPath.row]
+//        
+//        return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //print("You selected cell #\(indexPath.row)!")
         chosenShip = items[indexPath.row]
+        chosenShipType = ships[indexPath.row]
         print("You selected \(chosenShip)")
         performSegueWithIdentifier("shipDetail", sender: chosenShip)
     }
@@ -55,6 +65,7 @@ class ShipListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             let vc = (segue.destinationViewController as! ShipDetailVC)
             vc.ship = chosenShip
+            vc.typeOfShip = chosenShipType
         }
         
     }
