@@ -14,6 +14,7 @@ class Weapon {
     let power: Int
     let disruptivePower: Int
     let price: Int
+    let sellPrice: Int
     let techLevel: TechLevelType
     let chance: Int                 // percent chance it is fitted in given a slot
     // images
@@ -26,21 +27,24 @@ class Weapon {
             self.name = "Pulse laser"
             self.power = 15
             self.disruptivePower = 0
-            self.price = 2000
+            self.price = 1980
+            self.sellPrice = 1500
             self.techLevel = TechLevelType.techLevel5
             self.chance = 50
         case WeaponType.beamLaser:
             self.name = "Beam laser"
             self.power = 25
             self.disruptivePower = 0
-            self.price = 12500
+            self.price = 12370
+            self.sellPrice = 9375
             self.techLevel = TechLevelType.techLevel6
             self.chance = 35
         case WeaponType.militaryLaser:
             self.name = "Military laser"
             self.power = 35
             self.disruptivePower = 0
-            self.price = 35000
+            self.price = 34650
+            self.sellPrice = 26250
             self.techLevel = TechLevelType.techLevel7
             self.chance = 15
         case WeaponType.morgansLaser:
@@ -48,13 +52,15 @@ class Weapon {
             self.power = 85
             self.disruptivePower = 0
             self.price = 50000
+            self.sellPrice = 0                        // WHAT ACTUALLY IS THE SELL PRICE OF SPECIAL ITEMS?
             self.techLevel = TechLevelType.techLevel8
             self.chance = 0
         case WeaponType.photonDisruptor:
             self.name = "Photon Disruptor"
             self.power = 35                             // ALL THESE VALUES WRONG
             self.disruptivePower = 1
-            self.price = 14700
+            self.price = 14850
+            self.sellPrice = 11250
             self.techLevel = TechLevelType.techLevel8
             self.chance = 0
         }

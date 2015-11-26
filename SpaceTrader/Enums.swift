@@ -425,6 +425,24 @@ enum ShieldType {
     case lightningShield
 }
 
+// Hi! I'm a kludge!
+enum UniversalGadgetType {
+    case pulseLaser
+    case beamLaser
+    case militaryLaser
+    case morgansLaser       // not for sale
+    case photonDisruptor
+    case CargoBays
+    case AutoRepair
+    case Navigation
+    case Targeting
+    case Cloaking
+    case FuelCompactor      // not for sale
+    case energyShield
+    case reflectiveShield
+    case lightningShield    // not for sale
+}
+
 enum QuestIDType {
     case dragonflyDestroyed
     case weirdShip
