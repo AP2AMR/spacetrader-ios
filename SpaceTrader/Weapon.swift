@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Weapon {
     let type: WeaponType
@@ -17,7 +18,7 @@ class Weapon {
     let sellPrice: Int
     let techLevel: TechLevelType
     let chance: Int                 // percent chance it is fitted in given a slot
-    // images
+    let image: UIImage
     
     init(type: WeaponType) {
         self.type = type
@@ -31,6 +32,7 @@ class Weapon {
             self.sellPrice = 1500
             self.techLevel = TechLevelType.techLevel5
             self.chance = 50
+            self.image = UIImage(named: "pulse")!
         case WeaponType.beamLaser:
             self.name = "Beam laser"
             self.power = 25
@@ -39,6 +41,7 @@ class Weapon {
             self.sellPrice = 9375
             self.techLevel = TechLevelType.techLevel6
             self.chance = 35
+            self.image = UIImage(named: "beam")!
         case WeaponType.militaryLaser:
             self.name = "Military laser"
             self.power = 35
@@ -47,6 +50,7 @@ class Weapon {
             self.sellPrice = 26250
             self.techLevel = TechLevelType.techLevel7
             self.chance = 15
+            self.image = UIImage(named: "military")!
         case WeaponType.morgansLaser:
             self.name = "Morgan's laser"
             self.power = 85
@@ -55,6 +59,7 @@ class Weapon {
             self.sellPrice = 0                        // WHAT ACTUALLY IS THE SELL PRICE OF SPECIAL ITEMS?
             self.techLevel = TechLevelType.techLevel8
             self.chance = 0
+            self.image = UIImage(named: "morgan")!
         case WeaponType.photonDisruptor:
             self.name = "Photon Disruptor"
             self.power = 35                             // ALL THESE VALUES WRONG
@@ -63,6 +68,7 @@ class Weapon {
             self.sellPrice = 11250
             self.techLevel = TechLevelType.techLevel8
             self.chance = 0
+            self.image = UIImage(named: "photon")!
         }
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Shield {
     let type: ShieldType
@@ -17,6 +18,7 @@ class Shield {
     let sellPrice: Int
     let techLevel: TechLevelType
     let chance: Int                 // percent chance that this is fitted in a slot
+    let image: UIImage
     
     var percentStrength: Int {
         get {
@@ -38,6 +40,7 @@ class Shield {
             self.sellPrice = 3750
             self.techLevel = TechLevelType.techLevel5
             self.chance = 70
+            self.image = UIImage(named: "energy")!
         case ShieldType.reflectiveShield:
             self.name = "Reflective shield"
             self.power = 200
@@ -45,6 +48,7 @@ class Shield {
             self.sellPrice = 15000
             self.techLevel = TechLevelType.techLevel6
             self.chance = 30
+            self.image = UIImage(named: "reflective")!
         case ShieldType.lightningShield:
             self.name = "Lightning shield"
             self.power = 350
@@ -52,6 +56,7 @@ class Shield {
             self.sellPrice = 0              // *****
             self.techLevel = TechLevelType.techLevel8
             self.chance = 0
+            self.image = UIImage(named: "lightning")!
         }
     }
 

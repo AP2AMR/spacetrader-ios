@@ -51,3 +51,27 @@ func getTechLevelInt(techLevel: TechLevelType) -> Int {
         return 8
     }
 }
+
+func getUniversalGadgetType(device: UniversalGadgetType) -> Int {
+    // returns 0 if device is weapon, 1 if shield, 2 if gadget
+    switch device {
+        case UniversalGadgetType.pulseLaser:
+            return 0
+        case UniversalGadgetType.beamLaser:
+            return 0
+        case UniversalGadgetType.militaryLaser:
+            return 0
+        case UniversalGadgetType.photonDisruptor:
+            return 0
+        case UniversalGadgetType.morgansLaser:
+            return 0
+        case UniversalGadgetType.energyShield:
+            return 1
+        case UniversalGadgetType.reflectiveShield:
+            return 1
+        case UniversalGadgetType.lightningShield:
+            return 1
+        default:
+            return 2
+    }
+}
