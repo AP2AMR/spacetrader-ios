@@ -46,6 +46,7 @@
 		5AE71F8F1C0399F1004378BD /* ShipDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE71F8E1C0399F1004378BD /* ShipDetailVC.swift */; };
 		5AE71F911C054B96004378BD /* BuyShipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE71F901C054B96004378BD /* BuyShipCell.swift */; };
 		5AE71F971C0699C1004378BD /* BuyEquipmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE71F961C0699C1004378BD /* BuyEquipmentCell.swift */; };
+		5AE71F991C06BCB0004378BD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE71F981C06BCB0004378BD /* Utils.swift */; };
 		5AEB37871BE95225004B195A /* buy.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AEB37821BE95225004B195A /* buy.png */; };
 		5AEB37881BE95225004B195A /* planet.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AEB37831BE95225004B195A /* planet.png */; };
 		5AEB37891BE95225004B195A /* sell.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AEB37841BE95225004B195A /* sell.png */; };
@@ -114,6 +115,7 @@
 		5AE71F8E1C0399F1004378BD /* ShipDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipDetailVC.swift; sourceTree = "<group>"; };
 		5AE71F901C054B96004378BD /* BuyShipCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyShipCell.swift; sourceTree = "<group>"; };
 		5AE71F961C0699C1004378BD /* BuyEquipmentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyEquipmentCell.swift; sourceTree = "<group>"; };
+		5AE71F981C06BCB0004378BD /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		5AEB37821BE95225004B195A /* buy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buy.png; sourceTree = "<group>"; };
 		5AEB37831BE95225004B195A /* planet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planet.png; sourceTree = "<group>"; };
 		5AEB37841BE95225004B195A /* sell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sell.png; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				5A0265BB1B9FCD8B0079F6DE /* SpecialEvent.swift */,
 				5AD5F8B11B9D160400154B21 /* StarSystem.swift */,
 				5AD5F8BF1B9F473E00154B21 /* TradeItem.swift */,
+				5AE71F981C06BCB0004378BD /* Utils.swift */,
 				5A0265B71B9FCD170079F6DE /* Weapon.swift */,
 			);
 			name = Classes;
@@ -419,6 +422,7 @@
 				5A07695D1BEAA0A90007C746 /* CustomButton.swift in Sources */,
 				5A723F401BCC531B006FFB13 /* Journey.swift in Sources */,
 				5AF1CA2F1BAB3E7A00643C5F /* BuyVC.swift in Sources */,
+				5AE71F991C06BCB0004378BD /* Utils.swift in Sources */,
 				5A0265B81B9FCD170079F6DE /* Weapon.swift in Sources */,
 				5AB36E911BF18B6600941CF6 /* EquipmentListVC.swift in Sources */,
 				5AD5F8C21B9FB54E00154B21 /* Galaxy.swift in Sources */,
