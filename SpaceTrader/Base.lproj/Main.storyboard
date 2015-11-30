@@ -1565,6 +1565,9 @@
                                     <segment title="Shields"/>
                                     <segment title="Gadgets"/>
                                 </segments>
+                                <connections>
+                                    <action selector="indexChanged:" destination="toB-3f-y7D" eventType="valueChanged" id="55i-u6-5fe"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weapon Slots on Your Ship:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fW-cE-iN9">
                                 <rect key="frame" x="20" y="74" width="224" height="21"/>
@@ -1611,26 +1614,41 @@
                                 <rect key="frame" x="20" y="319" width="80" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Pulse Laser"/>
+                                <connections>
+                                    <action selector="item1Button:" destination="toB-3f-y7D" eventType="touchUpInside" id="oBE-Pe-sKs"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijg-s8-Qaa">
                                 <rect key="frame" x="20" y="357" width="81" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Beam Laser"/>
+                                <connections>
+                                    <action selector="item2Button:" destination="toB-3f-y7D" eventType="touchUpInside" id="oy1-dJ-iez"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10O-hM-bGV">
                                 <rect key="frame" x="20" y="395" width="92" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Military Laser"/>
+                                <connections>
+                                    <action selector="item3Button:" destination="toB-3f-y7D" eventType="touchUpInside" id="i0b-Px-6nA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyK-Q4-kWa">
                                 <rect key="frame" x="20" y="433" width="95" height="30"/>
                                 <animations/>
                                 <state key="normal" title="&lt;fourth item&gt;"/>
+                                <connections>
+                                    <action selector="item4Button:" destination="toB-3f-y7D" eventType="touchUpInside" id="Vgt-Do-WVx"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZY-eS-yAG">
                                 <rect key="frame" x="20" y="471" width="81" height="30"/>
                                 <animations/>
                                 <state key="normal" title="&lt;fifth item&gt;"/>
+                                <connections>
+                                    <action selector="item5Button:" destination="toB-3f-y7D" eventType="touchUpInside" id="rpa-Fc-mPc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
@@ -1675,10 +1693,43 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="item1" destination="It6-IU-Rey" id="nVi-bV-hLI"/>
+                        <outlet property="item2" destination="ijg-s8-Qaa" id="y3y-aQ-xIu"/>
+                        <outlet property="item3" destination="10O-hM-bGV" id="3Os-1i-1Fa"/>
+                        <outlet property="item4" destination="cyK-Q4-kWa" id="lSw-eX-9ms"/>
+                        <outlet property="item5" destination="FZY-eS-yAG" id="76r-FF-0zC"/>
+                        <outlet property="itemSlots" destination="0fW-cE-iN9" id="Qtk-sk-sJC"/>
+                        <outlet property="itemsAvalable" destination="NNg-TG-gfG" id="sw1-NA-lsC"/>
+                        <outlet property="segmentedControl" destination="qPQ-E8-xBR" id="uN8-lc-ss3"/>
+                        <outlet property="slot1" destination="v02-b8-0cT" id="8wh-zm-6Fh"/>
+                        <outlet property="slot2" destination="6C5-vU-n3C" id="isK-P3-rGz"/>
+                        <outlet property="slot3" destination="uIE-Mp-hyA" id="Kru-G4-fcK"/>
+                        <segue destination="Ibv-PY-xwS" kind="show" identifier="gadgetDetail" id="fc0-hX-FHZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ync-ve-mtu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6050" y="1071"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="q6a-Oq-6xf">
+            <objects>
+                <viewController id="Ibv-PY-xwS" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dJZ-6a-kd3"/>
+                        <viewControllerLayoutGuide type="bottom" id="9Zf-kM-bpy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kQ9-eg-4SB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4hS-Gx-i1T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6817" y="1071"/>
         </scene>
         <!--Shipyard-->
         <scene sceneID="ttq-Ff-k7u">
