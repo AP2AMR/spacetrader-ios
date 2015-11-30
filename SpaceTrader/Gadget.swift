@@ -39,7 +39,7 @@ class Gadget {
         case GadgetType.Navigation:
             self.name = "Navigating system"
             self.price = 14850
-            self.price = 11250
+            self.sellPrice = 11250
             self.techLevel = TechLevelType.techLevel6
             self.chance = 20
             self.image = UIImage(named: "navsys")!
@@ -60,6 +60,7 @@ class Gadget {
         case GadgetType.FuelCompactor:
             self.name = "Fuel compactor"
             self.price = 30000
+            self.sellPrice = 0                              // ****
             self.techLevel = TechLevelType.techLevel8
             self.chance = 0
             self.image = UIImage(named: "fuel")!

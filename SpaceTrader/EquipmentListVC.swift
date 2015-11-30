@@ -21,7 +21,7 @@ class EquipmentListVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.availableTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "CustomCell")
+        self.availableTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "equipmentCell")
     }
 
     @IBAction func done(sender: AnyObject) {
@@ -29,25 +29,26 @@ class EquipmentListVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return self.items.count
-        return 0
+        return self.universalArray.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: BuyEquipmentCell = self.availableTableView.dequeueReusableCellWithIdentifier("CustomCell")! as! BuyEquipmentCell
-        let item = self.universalArray[indexPath.row]
+        let cell: BuyEquipmentCell = self.availableTableView.dequeueReusableCellWithIdentifier("equipmentCell")! as! BuyEquipmentCell
+        //let cell: BuyShipCell = self.availableTableView.dequeueReusableCellWithIdentifier("equipmentCell")! as! BuyShipCell
+        let item = self.universalArray[indexPath.row]       // BUG LIVES HERE
         cell.setCell(item)
+        print("setting cell at row \(indexPath.row)")
         
         return cell
 
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //print("You selected cell #\(indexPath.row)!")
-        chosenShip = items[indexPath.row]
-        chosenShipType = ships[indexPath.row]
-        print("You selected \(chosenShip)")
-        performSegueWithIdentifier("shipDetail", sender: chosenShip)
+        print("You selected cell #\(indexPath.row)!")
+//        chosenShip = items[indexPath.row]
+//        chosenShipType = ships[indexPath.row]
+//        print("You selected \(chosenShip)")
+//        performSegueWithIdentifier("shipDetail", sender: chosenShip)
     }
     
 }

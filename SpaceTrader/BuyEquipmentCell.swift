@@ -66,11 +66,31 @@ class BuyEquipmentCell: UITableViewCell {
         
         if deviceTypeInt == 0 {
             equipmentTitleLabel.text = prototypeWeapon.name
-            equipmentPriceLabel =
+            imageLabel.image = prototypeWeapon.image
+            
+            let price = prototypeWeapon.price
+            let numberFormatter = NSNumberFormatter()
+            numberFormatter.numberStyle = .DecimalStyle
+            let priceFormatted = numberFormatter.stringFromNumber(price)
+            equipmentPriceLabel.text = "\(priceFormatted!) credits"
         } else if deviceTypeInt == 1 {
+            equipmentTitleLabel.text = prototypeShield.name
+            imageLabel.image = prototypeShield.image
             
+            let price = prototypeShield.price
+            let numberFormatter = NSNumberFormatter()
+            numberFormatter.numberStyle = .DecimalStyle
+            let priceFormatted = numberFormatter.stringFromNumber(price)
+            equipmentPriceLabel.text = "\(priceFormatted!) credits"
         } else {
+            equipmentTitleLabel.text = prototypeGadget.name
+            imageLabel.image = prototypeGadget.image
             
+            let price = prototypeGadget.price
+            let numberFormatter = NSNumberFormatter()
+            numberFormatter.numberStyle = .DecimalStyle
+            let priceFormatted = numberFormatter.stringFromNumber(price)
+            equipmentPriceLabel.text = "\(priceFormatted!) credits"
         }
         
     }
