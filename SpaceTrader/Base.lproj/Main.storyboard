@@ -1607,89 +1607,59 @@
                                 </constraints>
                                 <state key="normal" title="Slot 3: &lt;empty&gt;"/>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qls-YT-fZm">
-                                <rect key="frame" x="20" y="319" width="560" height="261"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="It6-IU-Rey">
+                                <rect key="frame" x="20" y="319" width="80" height="30"/>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="equipmentCell" rowHeight="60" id="FW9-dP-g2d" customClass="BuyEquipmentCell" customModule="SpaceTrader" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="560" height="60"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FW9-dP-g2d" id="esS-1Q-7ca">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="59"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pulse Laser" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMg-nT-vih">
-                                                    <rect key="frame" x="100" y="8" width="95" height="21"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2sQ-bv-sOM">
-                                                    <rect key="frame" x="18" y="8" width="74" height="43"/>
-                                                    <animations/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="43" id="7xy-aa-l4P"/>
-                                                        <constraint firstAttribute="width" constant="74" id="m0T-eB-Nd6"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,980 cr." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4v-Qd-843">
-                                                    <rect key="frame" x="100" y="30" width="56" height="17"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstItem="F4v-Qd-843" firstAttribute="top" secondItem="FMg-nT-vih" secondAttribute="bottom" constant="1" id="8r0-aZ-spo"/>
-                                                <constraint firstItem="FMg-nT-vih" firstAttribute="leading" secondItem="2sQ-bv-sOM" secondAttribute="trailing" constant="8" id="CFC-PU-Rvv"/>
-                                                <constraint firstItem="F4v-Qd-843" firstAttribute="leading" secondItem="FMg-nT-vih" secondAttribute="leading" id="T3j-lP-gIN"/>
-                                                <constraint firstAttribute="topMargin" secondItem="2sQ-bv-sOM" secondAttribute="top" id="TDy-sn-1vG"/>
-                                                <constraint firstAttribute="topMargin" secondItem="FMg-nT-vih" secondAttribute="top" id="fUo-7Y-evP"/>
-                                                <constraint firstItem="2sQ-bv-sOM" firstAttribute="leading" secondItem="esS-1Q-7ca" secondAttribute="leadingMargin" constant="10" id="njX-WQ-Udb"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                        <connections>
-                                            <outlet property="equipmentPriceLabel" destination="F4v-Qd-843" id="H8v-I8-vvK"/>
-                                            <outlet property="equipmentTitleLabel" destination="FMg-nT-vih" id="S2H-hj-imc"/>
-                                            <outlet property="imageLabel" destination="2sQ-bv-sOM" id="1qy-iu-KYF"/>
-                                            <outlet property="priceField" destination="F4v-Qd-843" id="CrR-wE-Q27"/>
-                                            <outlet property="shipImage" destination="2sQ-bv-sOM" id="cq3-eI-YMV"/>
-                                            <outlet property="shipName" destination="FMg-nT-vih" id="kNs-bm-gN8"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="toB-3f-y7D" id="22B-r2-jvt"/>
-                                    <outlet property="delegate" destination="toB-3f-y7D" id="Yyf-gP-7G6"/>
-                                </connections>
-                            </tableView>
+                                <state key="normal" title="Pulse Laser"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijg-s8-Qaa">
+                                <rect key="frame" x="20" y="357" width="81" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Beam Laser"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10O-hM-bGV">
+                                <rect key="frame" x="20" y="395" width="92" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Military Laser"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyK-Q4-kWa">
+                                <rect key="frame" x="20" y="433" width="95" height="30"/>
+                                <animations/>
+                                <state key="normal" title="&lt;fourth item&gt;"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZY-eS-yAG">
+                                <rect key="frame" x="20" y="471" width="81" height="30"/>
+                                <animations/>
+                                <state key="normal" title="&lt;fifth item&gt;"/>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ijg-s8-Qaa" firstAttribute="leading" secondItem="It6-IU-Rey" secondAttribute="leading" id="3PV-zg-iEX"/>
                             <constraint firstItem="qPQ-E8-xBR" firstAttribute="top" secondItem="evR-Ev-4B2" secondAttribute="bottom" constant="10" id="9kO-Kn-Gfr"/>
                             <constraint firstItem="0fW-cE-iN9" firstAttribute="top" secondItem="qPQ-E8-xBR" secondAttribute="bottom" constant="16" id="BRd-7b-yCg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qls-YT-fZm" secondAttribute="trailing" id="EcV-Rh-Vdr"/>
+                            <constraint firstItem="FZY-eS-yAG" firstAttribute="leading" secondItem="cyK-Q4-kWa" secondAttribute="leading" id="HYX-6N-Kc8"/>
                             <constraint firstAttribute="leadingMargin" secondItem="0fW-cE-iN9" secondAttribute="leading" id="IMF-n1-zAo"/>
-                            <constraint firstItem="qls-YT-fZm" firstAttribute="top" secondItem="NNg-TG-gfG" secondAttribute="bottom" constant="8" id="ImG-N4-KMT"/>
+                            <constraint firstItem="cyK-Q4-kWa" firstAttribute="leading" secondItem="10O-hM-bGV" secondAttribute="leading" id="IaO-BW-1Me"/>
+                            <constraint firstItem="FZY-eS-yAG" firstAttribute="top" secondItem="cyK-Q4-kWa" secondAttribute="bottom" constant="8" id="IuE-GC-QeK"/>
                             <constraint firstItem="6C5-vU-n3C" firstAttribute="centerX" secondItem="W4X-Sg-5Vt" secondAttribute="centerX" id="N8F-5H-u4g"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="qls-YT-fZm" secondAttribute="leading" id="QWN-ae-r1D"/>
+                            <constraint firstItem="It6-IU-Rey" firstAttribute="top" secondItem="NNg-TG-gfG" secondAttribute="bottom" constant="8" id="Nw2-az-SB0"/>
                             <constraint firstItem="v02-b8-0cT" firstAttribute="centerX" secondItem="W4X-Sg-5Vt" secondAttribute="centerX" id="Rfs-pt-wTb"/>
                             <constraint firstItem="v02-b8-0cT" firstAttribute="top" secondItem="0fW-cE-iN9" secondAttribute="bottom" constant="10" id="VwZ-ns-108"/>
                             <constraint firstItem="uIE-Mp-hyA" firstAttribute="centerX" secondItem="W4X-Sg-5Vt" secondAttribute="centerX" id="Wl0-TN-OYT"/>
                             <constraint firstItem="uIE-Mp-hyA" firstAttribute="centerY" secondItem="6C5-vU-n3C" secondAttribute="centerY" id="YkN-HQ-4hr"/>
                             <constraint firstItem="qPQ-E8-xBR" firstAttribute="centerX" secondItem="W4X-Sg-5Vt" secondAttribute="centerX" id="ZUD-ZI-lY0"/>
-                            <constraint firstItem="I7v-Ix-7nL" firstAttribute="top" secondItem="qls-YT-fZm" secondAttribute="bottom" constant="20" id="ZVX-09-UDf"/>
                             <constraint firstItem="6C5-vU-n3C" firstAttribute="top" secondItem="v02-b8-0cT" secondAttribute="bottom" constant="8" id="cj0-Q4-HS4"/>
                             <constraint firstItem="NNg-TG-gfG" firstAttribute="centerY" secondItem="W4X-Sg-5Vt" secondAttribute="centerY" id="g9Y-5D-N4U"/>
                             <constraint firstItem="NNg-TG-gfG" firstAttribute="leading" secondItem="0fW-cE-iN9" secondAttribute="leading" id="gk4-Zw-Qzn"/>
                             <constraint firstItem="uIE-Mp-hyA" firstAttribute="top" secondItem="6C5-vU-n3C" secondAttribute="bottom" constant="8" id="htT-NA-t57"/>
+                            <constraint firstItem="cyK-Q4-kWa" firstAttribute="top" secondItem="10O-hM-bGV" secondAttribute="bottom" constant="8" id="iMj-kV-YDy"/>
+                            <constraint firstItem="It6-IU-Rey" firstAttribute="leading" secondItem="NNg-TG-gfG" secondAttribute="leading" id="ocM-lM-2s3"/>
+                            <constraint firstItem="ijg-s8-Qaa" firstAttribute="top" secondItem="It6-IU-Rey" secondAttribute="bottom" constant="8" id="ocu-rL-7Q7"/>
+                            <constraint firstItem="10O-hM-bGV" firstAttribute="leading" secondItem="ijg-s8-Qaa" secondAttribute="leading" id="qHQ-bt-l1c"/>
                             <constraint firstItem="6C5-vU-n3C" firstAttribute="centerY" secondItem="v02-b8-0cT" secondAttribute="centerY" id="uC4-5f-7a9"/>
+                            <constraint firstItem="10O-hM-bGV" firstAttribute="top" secondItem="ijg-s8-Qaa" secondAttribute="bottom" constant="8" id="xSP-yv-IA5"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -1705,9 +1675,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="availableTableView" destination="qls-YT-fZm" id="Cqb-0B-YFp"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ync-ve-mtu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
