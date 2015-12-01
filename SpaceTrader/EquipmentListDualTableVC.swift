@@ -9,8 +9,6 @@
 import UIKit
 
 class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    //let universalArray: [UniversalGadgetType] = [UniversalGadgetType.pulseLaser, UniversalGadgetType.beamLaser, UniversalGadgetType.militaryLaser, UniversalGadgetType.photonDisruptor, UniversalGadgetType.energyShield, UniversalGadgetType.reflectiveShield, UniversalGadgetType.CargoBays, UniversalGadgetType.AutoRepair, UniversalGadgetType.Navigation, UniversalGadgetType.Targeting, UniversalGadgetType.Cloaking]
     
     var selectorIndex = 0
     
@@ -20,6 +18,7 @@ class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableVi
     
     var tableView1TextArray: [String] = []
     var tableView2TextArray: [String] = ["first available item", "second available item", "third available item"]
+    var availableItems: [UniversalGadget] = [UniversalGadget(typeIndex: 0, wType: WeaponType.militaryLaser, sType: nil, gType: nil), UniversalGadget(typeIndex: 0, wType: WeaponType.pulseLaser, sType: nil, gType: nil)]
     
     @IBOutlet weak var tableView1: UITableView!
     @IBOutlet weak var tableView2: UITableView!
@@ -86,8 +85,20 @@ class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableVi
             self.tableView1.reloadData()
  
             // populate available weapons
-            
+            availableItems = []
+            for item in weaponsArray {
+                // if available in this system
+                let weapon = Weapon(type: item)
+                let currentTechLevel = getTechLevelInt(galaxy.currentSystem!.techLevel)
+                let itemTechLevel = getTechLevelInt(weapon.techLevel)
+                if (currentTechLevel + 1) >= itemTechLevel {
+                    // add it to the array
+                    let newUniversalGadget = UniversalGadget(typeIndex: 0, wType: item, sType: nil, gType: nil)
+                    availableItems.append(newUniversalGadget)
+                }
+            }
             self.tableView2.reloadData()
+            
         } else if selectorIndex == 1 {
             slotsLabel.text = "Shield Slots on Your Ship:"
             availableLabel.text = "Shields Available:"
@@ -113,8 +124,20 @@ class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableVi
             self.tableView1.reloadData()
             
             // populate available shields
-            
+            availableItems = []
+            for item in shieldsArray {
+                // if available in this system
+                let shield = Shield(type: item)
+                let currentTechLevel = getTechLevelInt(galaxy.currentSystem!.techLevel)
+                let itemTechLevel = getTechLevelInt(shield.techLevel)
+                if (currentTechLevel + 1) >= itemTechLevel {
+                    // add it to the array
+                    let newUniversalGadget = UniversalGadget(typeIndex: 1, wType: nil, sType: item, gType: nil)
+                    availableItems.append(newUniversalGadget)
+                }
+            }
             self.tableView2.reloadData()
+
         } else {
             slotsLabel.text = "Gadget Slots on Your Ship:"
             availableLabel.text = "Gadgets Available:"
@@ -140,7 +163,18 @@ class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableVi
             self.tableView1.reloadData()
             
             // populate available gadgets
-            
+            availableItems = []
+            for item in gadgetsArray {
+                // if available in this system
+                let gadget = Gadget(type: item)
+                let currentTechLevel = getTechLevelInt(galaxy.currentSystem!.techLevel)
+                let itemTechLevel = getTechLevelInt(gadget.techLevel)
+                if (currentTechLevel + 1) >= itemTechLevel {
+                    // add it to the array
+                    let newUniversalGadget = UniversalGadget(typeIndex: 2, wType: nil, sType: nil, gType: item)
+                    availableItems.append(newUniversalGadget)
+                }
+            }
             self.tableView2.reloadData()
         }
 
@@ -152,7 +186,7 @@ class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableVi
         if tableView == tableView1 {
             return tableView1TextArray.count
         } else {
-            return tableView2TextArray.count
+            return availableItems.count
         }
     }
     
@@ -164,7 +198,7 @@ class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableVi
             return cell
         } else {
             let cell: UITableViewCell = self.tableView2.dequeueReusableCellWithIdentifier("bottomCell")!
-            cell.textLabel?.text = self.tableView2TextArray[indexPath.row]
+            cell.textLabel?.text = self.availableItems[indexPath.row].name
             return cell
         }
     }
