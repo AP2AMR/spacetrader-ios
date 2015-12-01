@@ -11,6 +11,39 @@ import UIKit
 class EquipmentListVC: UIViewController {
 
     var selectorIndex = 0
+    
+    var buyNotSell = true
+    var weaponSelected: Weapon?
+    var shieldSelected: Shield?
+    var gadgetSelected: Gadget?
+    
+    //slot1weapon, etc
+    var slot1Weapon: Weapon?
+    var slot2Weapon: Weapon?
+    var slot3Weapon: Weapon?
+    var slot1Shield: Shield?
+    var slot2Shield: Shield?
+    var slot3Shield: Shield?
+    var slot1Gadget: Gadget?
+    var slot2Gadget: Gadget?
+    var slot3Gadget: Gadget?
+    
+    var item1Weapon: Weapon?
+    var item2Weapon: Weapon?
+    var item3Weapon: Weapon?
+    var item4Weapon: Weapon?
+    var item5Weapon: Weapon?
+    var item1Shield: Shield?
+    var item2Shield: Shield?
+    var item3Shield: Shield?
+    var item4Shield: Shield?
+    var item5Shield: Shield?
+    var item1Gadget: Gadget?
+    var item2Gadget: Gadget?
+    var item3Gadget: Gadget?
+    var item4Gadget: Gadget?
+    var item5Gadget: Gadget?
+    
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
@@ -250,8 +283,30 @@ class EquipmentListVC: UIViewController {
                 slot3.setTitle("Slot 3: \(player.commanderShip.weapon[2].name)", forState: controlState)
             }
         } else if selectorIndex == 1 {
+            let controlState = UIControlState()
+            
+            if player.commanderShip.shield.count >= 1 {
+                slot1.setTitle("Slot 1: \(player.commanderShip.shield[0].name)", forState: controlState)
+            }
+            if player.commanderShip.shield.count >= 2 {
+                slot2.setTitle("Slot 2: \(player.commanderShip.shield[1].name)", forState: controlState)
+            }
+            if player.commanderShip.shield.count >= 3 {
+                slot3.setTitle("Slot 3: \(player.commanderShip.shield[2].name)", forState: controlState)
+            }
             
         } else if selectorIndex == 2 {
+            let controlState = UIControlState()
+            
+            if player.commanderShip.gadget.count >= 1 {
+                slot1.setTitle("Slot 1: \(player.commanderShip.gadget[0].name)", forState: controlState)
+            }
+            if player.commanderShip.gadget.count >= 2 {
+                slot2.setTitle("Slot 2: \(player.commanderShip.gadget[1].name)", forState: controlState)
+            }
+            if player.commanderShip.gadget.count >= 3 {
+                slot3.setTitle("Slot 3: \(player.commanderShip.gadget[2].name)", forState: controlState)
+            }
             
         }
     }
@@ -283,6 +338,10 @@ class EquipmentListVC: UIViewController {
 //            let vc = (segue.destinationViewController as! ShipDetailVC)
 //            vc.ship = chosenShip
 //            vc.typeOfShip = chosenShipType
+            // vc.buyNotSell = buyNotSell
+            // vc.weaponSelected = weaponSelected
+            // vc.shieldSeelcted = shieldSelected
+            // vc.gadgetSelected = gadgetSelected
         }
         
     }
