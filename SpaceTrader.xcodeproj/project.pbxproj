@@ -155,13 +155,13 @@
 		5AB36E8D1BF18B3600941CF6 /* Menus */ = {
 			isa = PBXGroup;
 			children = (
-				5AB36E8E1BF18B5200941CF6 /* ShipListVC.swift */,
+				5AE71F961C0699C1004378BD /* BuyEquipmentCell.swift */,
+				5AE71F901C054B96004378BD /* BuyShipCell.swift */,
+				5A1DBBC41C0E2F3E009E8D0C /* EquipmentListDualTableVC.swift */,
 				5AB36E901BF18B6600941CF6 /* EquipmentListVC.swift */,
 				5AB36E921BF1926D00941CF6 /* MercenariesVC.swift */,
 				5AE71F8E1C0399F1004378BD /* ShipDetailVC.swift */,
-				5AE71F901C054B96004378BD /* BuyShipCell.swift */,
-				5AE71F961C0699C1004378BD /* BuyEquipmentCell.swift */,
-				5A1DBBC41C0E2F3E009E8D0C /* EquipmentListDualTableVC.swift */,
+				5AB36E8E1BF18B5200941CF6 /* ShipListVC.swift */,
 			);
 			name = Menus;
 			sourceTree = "<group>";

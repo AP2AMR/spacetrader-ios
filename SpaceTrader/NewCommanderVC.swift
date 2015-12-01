@@ -164,8 +164,9 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         //player.commanderShip.hull = 50
         
         let photonDisruptor = Weapon(type: WeaponType.photonDisruptor)
-//        let militaryLaser = Weapon(type: WeaponType.militaryLaser)
+        let militaryLaser = Weapon(type: WeaponType.militaryLaser)
         player.commanderShip.weapon.append(photonDisruptor)
+        //player.commanderShip.weapon.append(militaryLaser)
         
         let reflectiveShield = Shield(type: ShieldType.reflectiveShield)
         reflectiveShield.currentStrength = reflectiveShield.power
