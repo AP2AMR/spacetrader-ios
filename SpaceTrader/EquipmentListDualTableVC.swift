@@ -41,6 +41,12 @@ class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableVi
         refreshView()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        refreshView()
+        self.tableView1.reloadData()
+        self.tableView2.reloadData()
+    }
+    
     @IBAction func SCIndexChanged(sender: AnyObject) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:

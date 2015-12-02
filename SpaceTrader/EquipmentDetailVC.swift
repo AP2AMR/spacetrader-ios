@@ -59,7 +59,7 @@ class EquipmentDetailVC: UIViewController {
                     
                     // ask and do transaction
                     let title = "Buy \(chosenItem!.name)"
-                    let message = "Do you wish to buy this item for \(buyPriceFormatted)?"
+                    let message = "Do you wish to buy this item for \(buyPriceFormatted!) credits?"
                     
                     let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
                     alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default ,handler: {
@@ -154,6 +154,8 @@ class EquipmentDetailVC: UIViewController {
         } else if chosenItem!.typeIndex == 2 {
             player.commanderShip.gadget.append(chosenItem!.gadgetItem!)
         }
+        
+        navigationController?.popToRootViewControllerAnimated(true)
     }
     
     func sellItem() {
@@ -197,6 +199,7 @@ class EquipmentDetailVC: UIViewController {
                 player.commanderShip.gadget.removeAtIndex(removeAtIndex!)
             }
         }
+        navigationController?.popToRootViewControllerAnimated(true)
     }
 
 }
