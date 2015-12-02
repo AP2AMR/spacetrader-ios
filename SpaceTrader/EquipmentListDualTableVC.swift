@@ -18,7 +18,7 @@ class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableVi
     
     var tableView1TextArray: [String] = []
     var tableView2TextArray: [String] = ["first available item", "second available item", "third available item"]
-    var shipItems: [UniversalGadget] = [UniversalGadget(typeIndex: 0, wType: WeaponType.militaryLaser, sType: nil, gType: nil), UniversalGadget(typeIndex: 0, wType: WeaponType.pulseLaser, sType: nil, gType: nil)]
+    var shipItems: [UniversalGadget] = []
     var availableItems: [UniversalGadget] = []
     var shipItemsCount = 0
     
@@ -138,11 +138,12 @@ class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableVi
                     slotNumber += 1
                 }
             }
+            
             self.tableView1.reloadData()
             
             // populate available shields
             availableItems = []
-            shipItems = []
+            //shipItems = []
             for item in shieldsArray {
                 // if available in this system
                 let shield = Shield(type: item)
@@ -155,6 +156,7 @@ class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableVi
                 }
             }
             self.tableView2.reloadData()
+            
 
         } else {
             slotsLabel.text = "Gadget Slots on Your Ship:"
@@ -225,7 +227,11 @@ class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if tableView == tableView1 {
-            print("indexPath.row: \(indexPath.row), shipItems.count: \(shipItems.count)")
+            //print("indexPath.row: \(indexPath.row), shipItems.count: \(shipItems.count)")
+            for item in shipItems {
+                print("\(item.name)")
+            }
+            
             if indexPath.row <= (shipItems.count - 1) {
                 chosenItem = shipItems[indexPath.row]
                 buyNotSell = false
