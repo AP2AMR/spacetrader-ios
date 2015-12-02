@@ -6,6 +6,8 @@
 //  Copyright © 2015 Marc Auger. All rights reserved.
 //
 
+// THIS FILE IS NOW DEFUNCT AND UNUSED. CAN BE DELETED
+
 import UIKit
 
 class EquipmentListVC: UIViewController {
