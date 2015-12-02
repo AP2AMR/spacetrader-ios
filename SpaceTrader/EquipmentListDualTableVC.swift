@@ -18,7 +18,12 @@ class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableVi
     
     var tableView1TextArray: [String] = []
     var tableView2TextArray: [String] = ["first available item", "second available item", "third available item"]
-    var availableItems: [UniversalGadget] = [UniversalGadget(typeIndex: 0, wType: WeaponType.militaryLaser, sType: nil, gType: nil), UniversalGadget(typeIndex: 0, wType: WeaponType.pulseLaser, sType: nil, gType: nil)]
+    var shipItems: [UniversalGadget] = [UniversalGadget(typeIndex: 0, wType: WeaponType.militaryLaser, sType: nil, gType: nil), UniversalGadget(typeIndex: 0, wType: WeaponType.pulseLaser, sType: nil, gType: nil)]
+    var availableItems: [UniversalGadget] = []
+    var shipItemsCount = 0
+    
+    var chosenItem: UniversalGadget?
+    var buyNotSell = true
     
     @IBOutlet weak var tableView1: UITableView!
     @IBOutlet weak var tableView2: UITableView!
@@ -66,6 +71,7 @@ class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableVi
             
             // populate current weapons
             tableView1TextArray = []
+            shipItems = []
             let weaponSlotCount = player.commanderShip.weaponSlots
             if weaponSlotCount == 0 {
                 tableView1TextArray.append("<Your Ship Has No Weapon Slots>")
@@ -74,8 +80,10 @@ class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableVi
                 var slotNumber = 1
                 for item in player.commanderShip.weapon {
                     tableView1TextArray.append("Slot \(slotNumber): \(item.name)")
+                    shipItems.append(UniversalGadget(typeIndex: 0, wType: item.type, sType: nil, gType: nil))
                     slotNumber += 1
                 }
+                shipItemsCount = shipItems.count
                 // add empty slots
                 while (weaponSlotCount + 1) > slotNumber {
                     tableView1TextArray.append("Slot \(slotNumber): <empty>")
@@ -105,6 +113,7 @@ class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableVi
             
             // populate current shields
             tableView1TextArray = []
+            shipItems = []
             let shieldSlotCount = player.commanderShip.shieldSlots
             if shieldSlotCount == 0 {
                 tableView1TextArray.append("<Your Ship Has No Shield Slots>")
@@ -113,8 +122,10 @@ class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableVi
                 var slotNumber = 1
                 for item in player.commanderShip.shield {
                     tableView1TextArray.append("Slot \(slotNumber): \(item.name)")
+                    shipItems.append(UniversalGadget(typeIndex: 1, wType: nil, sType: item.type, gType: nil))
                     slotNumber += 1
                 }
+                shipItemsCount = shipItems.count
                 // add empty slots
                 while (shieldSlotCount + 1) > slotNumber {
                     tableView1TextArray.append("Slot \(slotNumber): <empty>")
@@ -125,6 +136,7 @@ class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableVi
             
             // populate available shields
             availableItems = []
+            shipItems = []
             for item in shieldsArray {
                 // if available in this system
                 let shield = Shield(type: item)
@@ -152,8 +164,10 @@ class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableVi
                 var slotNumber = 1
                 for item in player.commanderShip.gadget {
                     tableView1TextArray.append("Slot \(slotNumber): \(item.name)")
+                    shipItems.append(UniversalGadget(typeIndex: 2, wType: nil, sType: nil, gType: item.type))
                     slotNumber += 1
                 }
+                shipItemsCount = shipItems.count
                 // add empty slots
                 while (gadgetSlotCount + 1) > slotNumber {
                     tableView1TextArray.append("Slot \(slotNumber): <empty>")
@@ -203,12 +217,30 @@ class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if tableView == tableView1 {
-            
+            print("indexPath.row: \(indexPath.row), shipItems.count: \(shipItems.count)")
+            if indexPath.row <= (shipItems.count - 1) {
+                chosenItem = shipItems[indexPath.row]
+                buyNotSell = false
+                performSegueWithIdentifier("gadgetDetail", sender: chosenItem)
+            }
         } else {
-            
+            chosenItem = availableItems[indexPath.row]
+            buyNotSell = true
+            performSegueWithIdentifier("gadgetDetail", sender: chosenItem)
         }
+    }
+    
+    // SEGUE
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if(segue.identifier == "gadgetDetail") {
+            let vc = (segue.destinationViewController as! EquipmentDetailVC)
+            vc.chosenItem = chosenItem
+            vc.buyNotSell = buyNotSell
+        }
+        
     }
     
 }

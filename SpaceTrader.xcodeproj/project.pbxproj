@@ -34,6 +34,7 @@
 		5AB36E8F1BF18B5200941CF6 /* ShipListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB36E8E1BF18B5200941CF6 /* ShipListVC.swift */; };
 		5AB36E911BF18B6600941CF6 /* EquipmentListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB36E901BF18B6600941CF6 /* EquipmentListVC.swift */; };
 		5AB36E931BF1926D00941CF6 /* MercenariesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB36E921BF1926D00941CF6 /* MercenariesVC.swift */; };
+		5ABB697D1C0E86C000ABEB9E /* EquipmentDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABB697C1C0E86C000ABEB9E /* EquipmentDetailVC.swift */; };
 		5AD5F8921B9A122200154B21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8911B9A122200154B21 /* AppDelegate.swift */; };
 		5AD5F8941B9A122200154B21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8931B9A122200154B21 /* ViewController.swift */; };
 		5AD5F8971B9A122200154B21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD5F8951B9A122200154B21 /* Main.storyboard */; };
@@ -101,6 +102,7 @@
 		5AB36E8E1BF18B5200941CF6 /* ShipListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipListVC.swift; sourceTree = "<group>"; };
 		5AB36E901BF18B6600941CF6 /* EquipmentListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmentListVC.swift; sourceTree = "<group>"; };
 		5AB36E921BF1926D00941CF6 /* MercenariesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MercenariesVC.swift; sourceTree = "<group>"; };
+		5ABB697C1C0E86C000ABEB9E /* EquipmentDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmentDetailVC.swift; sourceTree = "<group>"; };
 		5AD5F88C1B9A122200154B21 /* SpaceTrader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceTrader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD5F8901B9A122200154B21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AD5F8911B9A122200154B21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				5AB36E921BF1926D00941CF6 /* MercenariesVC.swift */,
 				5AE71F8E1C0399F1004378BD /* ShipDetailVC.swift */,
 				5AB36E8E1BF18B5200941CF6 /* ShipListVC.swift */,
+				5ABB697C1C0E86C000ABEB9E /* EquipmentDetailVC.swift */,
 			);
 			name = Menus;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				5A0265B61B9FC8FC0079F6DE /* Gadget.swift in Sources */,
 				5A518FB41BC31E9200021B13 /* ShortRangeChartView.swift in Sources */,
 				5AF0AAF71BD193B900BBE7CA /* Opponent.swift in Sources */,
+				5ABB697D1C0E86C000ABEB9E /* EquipmentDetailVC.swift in Sources */,
 				5A518FB61BC80CF800021B13 /* FuelRepairModalVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
