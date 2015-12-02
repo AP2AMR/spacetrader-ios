@@ -137,6 +137,7 @@ enum MercenaryName: String {
     case wonton = "Wonton"
     case yorvick = "Yorvick"
     case zeethibal = "Zeethibal"
+    case null = "Null"
 }
 
 enum StarSystemID {

@@ -200,7 +200,8 @@ class Opponent {
             let fighter = rand(10)
             let trader = rand(10)
             let engineer = rand(10)
-            let newCrewMember = CrewMember(name: "", pilot: pilot, fighter: fighter, trader: trader, engineer: engineer, currentSystem: StarSystemID.Acamar)    // name and SSID don't matter
+            //let newCrewMember = CrewMember(name: "", pilot: pilot, fighter: fighter, trader: trader, engineer: engineer, currentSystem: StarSystemID.Acamar)    // name and SSID don't matter
+            let newCrewMember = CrewMember(ID: MercenaryName.null, pilot: pilot, fighter: fighter, trader: trader, engineer: engineer)
             ship.crew.append(newCrewMember)
         }
         
