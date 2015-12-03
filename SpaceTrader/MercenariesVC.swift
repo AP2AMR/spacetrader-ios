@@ -32,6 +32,12 @@ class MercenariesVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+        initializeArrays()
+        self.tableView1.reloadData()
+        self.tableView2.reloadData()
+    }
+    
     @IBAction func done(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }

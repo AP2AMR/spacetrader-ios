@@ -16,6 +16,10 @@ class SystemInfoVC: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        updateUI()
+    }
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var sizeLabel: UILabel!
@@ -94,6 +98,15 @@ class SystemInfoVC: UIViewController {
             hullText2.text = "Full repairs will cost \(repairsCost) cr."
             // make repairs button visible
         }
+        
+        // make buttons appear as needed
+        print("MERCENARIES COUNT: \(galaxy.currentSystem!.mercenaries.count)")
+        if galaxy.currentSystem!.mercenaries.count > 0 {
+            mercenariesButton.enabled = true
+        } else {
+            mercenariesButton.enabled = false
+        }
+        
         
     }
     

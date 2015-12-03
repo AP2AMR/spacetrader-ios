@@ -192,6 +192,13 @@ class ShipDetailVC: UIViewController {
             player.escapePod = false
         }
         
+        // transfer crew
+        for crewMember in player.commanderShip.crew {
+            if prototypeShip.crewQuarters >= prototypeShip.crew.count {
+                prototypeShip.crew.append(crewMember)
+            }
+        }
+        
         player.credits -= price
         
         // get special stuff status
