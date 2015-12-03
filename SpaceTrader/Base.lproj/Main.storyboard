@@ -4028,7 +4028,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EtW-Km-5oq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3098" y="-1056"/>
+            <point key="canvasLocation" x="3910" y="-1056"/>
         </scene>
         <!--New GameVC-->
         <scene sceneID="CMX-NT-M3M">
@@ -4557,6 +4557,33 @@
             </objects>
             <point key="canvasLocation" x="2031" y="-1970"/>
         </scene>
+        <!--NewspaperVC-->
+        <scene sceneID="AYU-Aq-6fA">
+            <objects>
+                <viewController id="gXa-ZK-SwJ" customClass="NewspaperVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ExE-Hz-k8S"/>
+                        <viewControllerLayoutGuide type="bottom" id="WNk-Mu-enu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2Cu-Np-pKN">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="OyQ-K3-aQA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="66b-0E-qOB">
+                            <connections>
+                                <action selector="doneButton:" destination="gXa-ZK-SwJ" id="ZnH-aK-dV0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v3o-nl-Mfi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-58" y="-1290"/>
+        </scene>
         <!--System Info-->
         <scene sceneID="Tfu-cW-O4m">
             <objects>
@@ -4700,6 +4727,9 @@
                                 <animations/>
                                 <inset key="contentEdgeInsets" minX="10" minY="8" maxX="10" maxY="8"/>
                                 <state key="normal" title="News"/>
+                                <connections>
+                                    <action selector="buyNewspaper:" destination="I0c-F9-5oA" eventType="touchUpInside" id="k6b-9P-oPD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dO-Oc-kEO" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="443" y="285" width="137" height="34"/>
@@ -4858,11 +4888,12 @@
                         <outlet property="sizeLabel" destination="deI-Wv-tfU" id="fag-H4-8d7"/>
                         <outlet property="specialButton" destination="mS5-BZ-YEa" id="Zd6-SY-XHO"/>
                         <outlet property="techLabel" destination="IuB-MZ-694" id="KZg-cy-Xj1"/>
+                        <segue destination="Uo3-IQ-w9q" kind="presentation" identifier="newspaperModal" id="CtV-1i-Ntc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PUg-CG-Qk9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="620" y="-1242"/>
+            <point key="canvasLocation" x="646" y="-1282"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="vdJ-Vu-z9d">
@@ -4906,7 +4937,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cab-Yu-jDs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2286" y="-1023"/>
+            <point key="canvasLocation" x="3098" y="-1023"/>
         </scene>
         <!--Buy-->
         <scene sceneID="Hyc-zn-b2c">
@@ -5064,6 +5095,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bEC-kb-CiA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3120" y="1071"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hIY-GC-uz0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Uo3-IQ-w9q" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5dF-Ko-g9e">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gXa-ZK-SwJ" kind="relationship" relationship="rootViewController" id="b8N-GB-R1K"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yQD-54-dsw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-712" y="-1290"/>
         </scene>
     </scenes>
     <resources>

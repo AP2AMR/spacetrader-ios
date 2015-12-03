@@ -100,7 +100,6 @@ class SystemInfoVC: UIViewController {
         }
         
         // make buttons appear as needed
-        print("MERCENARIES COUNT: \(galaxy.currentSystem!.mercenaries.count)")
         if galaxy.currentSystem!.mercenaries.count > 0 {
             mercenariesButton.enabled = true
         } else {
@@ -134,5 +133,35 @@ class SystemInfoVC: UIViewController {
         updateUI()
         
     }
+    
+    @IBAction func buyNewspaper(sender: AnyObject) {
+        if !player.alreadyPaidForNewspaper {
+            var priceOfNewspaper: Int {
+                get {
+                    return (player.difficultyInt + 1)
+                }
+            }
+            
+            let title = "Buy Newspaper?"
+            let message = "The local newspaper costs \(priceOfNewspaper) credits. Do you wish to buy a copy?"
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Buy Newspaper", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                if player.credits > priceOfNewspaper {
+                    player.credits -= priceOfNewspaper
+                }
+                self.performSegueWithIdentifier("newspaperModal", sender: nil)
+            }))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // do nothing
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            self.performSegueWithIdentifier("newspaperModal", sender: nil)
+        }
+    }
+    
     
 }

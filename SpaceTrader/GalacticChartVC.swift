@@ -35,7 +35,7 @@ class GalacticChartVC: UIViewController, ShortRangeChartDelegate {
     }
     
     @IBAction func closeButton() {
-        self.dismissViewControllerAnimated(false, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
     func targetSystemDidChange() {

@@ -20,6 +20,7 @@ class Commander {
     var remindLoans = false
     var autoFuel = false
     var autoRepair = false
+    var alreadyPaidForNewspaper = false
     
     // skills
     var pilotSkill: Int {
