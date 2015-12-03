@@ -53,6 +53,7 @@
 		5AE9755F1C0FD481005D78E1 /* MercenaryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9755E1C0FD481005D78E1 /* MercenaryDetailVC.swift */; };
 		5AE975611C0FEEFA005D78E1 /* NewspaperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE975601C0FEEFA005D78E1 /* NewspaperVC.swift */; };
 		5AE975631C10CA2A005D78E1 /* SpecialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE975621C10CA2A005D78E1 /* SpecialVC.swift */; };
+		5AE975651C10DE24005D78E1 /* Newspaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE975641C10DE24005D78E1 /* Newspaper.swift */; };
 		5AEB378D1BE95E5B004B195A /* SystemInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB378C1BE95E5B004B195A /* SystemInfoVC.swift */; };
 		5AEC942C1BC84B2900C68F7F /* NewGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEC942B1BC84B2900C68F7F /* NewGameVC.swift */; };
 		5AEC942E1BC8594F00C68F7F /* GalacticChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEC942D1BC8594F00C68F7F /* GalacticChartVC.swift */; };
@@ -123,6 +124,7 @@
 		5AE9755E1C0FD481005D78E1 /* MercenaryDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MercenaryDetailVC.swift; sourceTree = "<group>"; };
 		5AE975601C0FEEFA005D78E1 /* NewspaperVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewspaperVC.swift; sourceTree = "<group>"; };
 		5AE975621C10CA2A005D78E1 /* SpecialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialVC.swift; sourceTree = "<group>"; };
+		5AE975641C10DE24005D78E1 /* Newspaper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Newspaper.swift; sourceTree = "<group>"; };
 		5AEB378C1BE95E5B004B195A /* SystemInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemInfoVC.swift; sourceTree = "<group>"; };
 		5AEC942B1BC84B2900C68F7F /* NewGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameVC.swift; sourceTree = "<group>"; };
 		5AEC942D1BC8594F00C68F7F /* GalacticChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalacticChartVC.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				5AD5F8C11B9FB54E00154B21 /* Galaxy.swift */,
 				5A81AD171BACFBCD001F2918 /* Globals.swift */,
 				5A723F3F1BCC531B006FFB13 /* Journey.swift */,
+				5AE975641C10DE24005D78E1 /* Newspaper.swift */,
 				5AF0AAF61BD193B900BBE7CA /* Opponent.swift */,
 				5A0265BF1B9FDE1E0079F6DE /* PoliticsType.swift */,
 				5A0265B91B9FCD2D0079F6DE /* Shield.swift */,
@@ -246,9 +249,9 @@
 				5A0265BB1B9FCD8B0079F6DE /* SpecialEvent.swift */,
 				5AD5F8B11B9D160400154B21 /* StarSystem.swift */,
 				5AD5F8BF1B9F473E00154B21 /* TradeItem.swift */,
+				5A1DBBC61C0E3509009E8D0C /* UniversalGadget.swift */,
 				5AE71F981C06BCB0004378BD /* Utils.swift */,
 				5A0265B71B9FCD170079F6DE /* Weapon.swift */,
-				5A1DBBC61C0E3509009E8D0C /* UniversalGadget.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				5AB36E931BF1926D00941CF6 /* MercenariesVC.swift in Sources */,
 				5A81B96D1BE2B3B700BDC351 /* EncounterVC.swift in Sources */,
 				5AD5F8B41B9DEB5300154B21 /* DataTypes.swift in Sources */,
+				5AE975651C10DE24005D78E1 /* Newspaper.swift in Sources */,
 				5A1DBBC51C0E2F3E009E8D0C /* EquipmentListDualTableVC.swift in Sources */,
 				5A723F421BCD5EA5006FFB13 /* Encounter.swift in Sources */,
 				5AE71F971C0699C1004378BD /* BuyEquipmentCell.swift in Sources */,
