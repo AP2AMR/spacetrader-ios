@@ -171,6 +171,9 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         let reflectiveShield = Shield(type: ShieldType.reflectiveShield)
         reflectiveShield.currentStrength = reflectiveShield.power
         player.commanderShip.shield.append(reflectiveShield)
+        
+        let zeethibal = CrewMember(ID: MercenaryName.zeethibal, pilot: 9, fighter: 9, trader: 9, engineer: 9)
+        player.commanderShip.crew.append(zeethibal)
 
         
         // END TESTING STUFF ********************************************************************

@@ -1044,7 +1044,7 @@ class Galaxy {
             let randomPlanetIndex = rand(self.planets.count)
             
             self.planets[randomPlanetIndex].mercenaries.append(newMercenary)
-            //print("MERCENARY - name: \(newMercenary.name), p: \(newMercenary.pilot), f: \(newMercenary.fighter), t: \(newMercenary.trader), e: \(newMercenary.engineer), system: \(self.planets[randomPlanetIndex].name), costPerDay: \(newMercenary.costPerDay)")
+            print("MERCENARY - name: \(newMercenary.name), p: \(newMercenary.pilot), f: \(newMercenary.fighter), t: \(newMercenary.trader), e: \(newMercenary.engineer), system: \(self.planets[randomPlanetIndex].name), costPerDay: \(newMercenary.costPerDay)")
         }
         
         
