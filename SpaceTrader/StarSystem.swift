@@ -90,45 +90,129 @@ class StarSystem {
         get {
             switch self.politics {
             case PoliticsType.anarchy:
-                return "Default Newspaper Title"
+                switch newspaperOption {
+                case 0: return "The \(self.name) Arsenal"
+                case 1: return "The Grassroot"
+                case 2: return "Kick it!"
+                default: return ""
+                }
             case PoliticsType.capitalist:
-                return "Default Newspaper Title"
+                switch newspaperOption {
+                case 0: return "The Objectivist"
+                case 1: return "The \(self.name) Market"
+                case 2: return "The Invisible Hand"
+                default: return ""
+                }
             case PoliticsType.communist:
-                return "Default Newspaper Title"
+                switch newspaperOption {
+                case 0: return "The Daily Worker"
+                case 1: return "The People's Voice"
+                case 2: return "The \(self.name) Proletariat"
+                default: return ""
+                }
             case PoliticsType.confederacy:
-                return "Default Newspaper Title"
+                switch newspaperOption {
+                case 0: return "Planet News"
+                case 1: return "The \(self.name) Times"
+                case 2: return "Interstate Update"
+                default: return ""
+                }
             case PoliticsType.corporate:
-                return "Default Newspaper Title"
+                switch newspaperOption {
+                case 0: return "\(self.name) Memo"
+                case 1: return "News From the Board"
+                case 2: return "Status Report"
+                default: return ""
+                }
             case PoliticsType.cybernetic:
-                return "Default Newspaper Title"
+                switch newspaperOption {
+                case 0: return "Pulses"
+                case 1: return "Binary Stream"
+                case 2: return "The System Clock"
+                default: return ""
+                }
             case PoliticsType.democracy:
-                return "Default Newspaper Title"
+                switch newspaperOption {
+                case 0: return "The Daily Planet"
+                case 1: return "The \(self.name) Majority"
+                case 2: return "Unanimity"
+                default: return ""
+                }
             case PoliticsType.dictatorship:
-                return "Default Newspaper Title"
+                switch newspaperOption {
+                case 0: return "The Command"
+                case 1: return "Leader's Voice"
+                case 2: return "The \(self.name) Mandate"
+                default: return ""
+                }
             case PoliticsType.fascist:
-                return "Default Newspaper Title"
+                switch newspaperOption {
+                case 0: return "State Tribune"
+                case 1: return "Motherland News"
+                case 2: return "Homeland Report"
+                default: return ""
+                }
             case PoliticsType.feudal:
-                return "Default Newspaper Title"
+                switch newspaperOption {
+                case 0: return "News from the Keep"
+                case 1: return "The Town Crier"
+                case 2: return "The \(self.name) Herald"
+                default: return ""
+                }
             case PoliticsType.military:
-                return "Default Newspaper Title"
+                switch newspaperOption {
+                case 0: return "General Report"
+                case 1: return "\(self.name) Dispatch"
+                case 2: return "The \(self.name) Sentry"
+                default: return ""
+                }
             case PoliticsType.monarchy:
-                return "Default Newspaper Title"
+                switch newspaperOption {
+                case 0: return "Royal Times"
+                case 1: return "The Loyal Subject"
+                case 2: return "The Fanfare"
+                default: return ""
+                }
             case PoliticsType.pacifist:
-                return "Default Newspaper Title"
+                switch newspaperOption {
+                case 0: return "Pax Humani"
+                case 1: return "Principle"
+                case 2: return "The \(self.name) Chorus"
+                default: return ""
+                }
             case PoliticsType.satori:
-                return "Default Newspaper Title"
+                switch newspaperOption {
+                case 0: return "All for One"
+                case 1: return "Brotherhood"
+                case 2: return "The People's Syndicate"
+                default: return ""
+                }
             case PoliticsType.socialist:
-                return "Default Newspaper Title"
+                switch newspaperOption {
+                case 0: return "The Daily Worker"
+                case 1: return "Justice"
+                case 2: return "The People's Daily"
+                default: return ""
+                }
             case PoliticsType.technocracy:
-                return "Default Newspaper Title"
+                switch newspaperOption {
+                case 0: return "The Future"
+                case 1: return "Hardware Dispatch"
+                case 2: return "TechNews"
+                default: return ""
+                }
             case PoliticsType.theocracy:
-                return "Default Newspaper Title"
-            default:
-                return "Default Newspaper Title"
+                switch newspaperOption {
+                case 0: return "The Spiritual Advisor"
+                case 1: return "Church Tidings"
+                case 2: return "The Temple Tribune"
+                default: return ""
+                }
             }
             
         }
     }
+    var newspaperOption: Int = rand(3)
     
     init(name: String, techLevel: TechLevelType, politics: PoliticsType, status: StatusType, xCoord: Int, yCoord: Int, specialResources: SpecialResourcesType, size: SizeType) {
         self.name = name
