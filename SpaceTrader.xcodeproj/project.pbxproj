@@ -52,6 +52,7 @@
 		5AE71F991C06BCB0004378BD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE71F981C06BCB0004378BD /* Utils.swift */; };
 		5AE9755F1C0FD481005D78E1 /* MercenaryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9755E1C0FD481005D78E1 /* MercenaryDetailVC.swift */; };
 		5AE975611C0FEEFA005D78E1 /* NewspaperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE975601C0FEEFA005D78E1 /* NewspaperVC.swift */; };
+		5AE975631C10CA2A005D78E1 /* SpecialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE975621C10CA2A005D78E1 /* SpecialVC.swift */; };
 		5AEB378D1BE95E5B004B195A /* SystemInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB378C1BE95E5B004B195A /* SystemInfoVC.swift */; };
 		5AEC942C1BC84B2900C68F7F /* NewGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEC942B1BC84B2900C68F7F /* NewGameVC.swift */; };
 		5AEC942E1BC8594F00C68F7F /* GalacticChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEC942D1BC8594F00C68F7F /* GalacticChartVC.swift */; };
@@ -121,6 +122,7 @@
 		5AE71F981C06BCB0004378BD /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		5AE9755E1C0FD481005D78E1 /* MercenaryDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MercenaryDetailVC.swift; sourceTree = "<group>"; };
 		5AE975601C0FEEFA005D78E1 /* NewspaperVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewspaperVC.swift; sourceTree = "<group>"; };
+		5AE975621C10CA2A005D78E1 /* SpecialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialVC.swift; sourceTree = "<group>"; };
 		5AEB378C1BE95E5B004B195A /* SystemInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemInfoVC.swift; sourceTree = "<group>"; };
 		5AEC942B1BC84B2900C68F7F /* NewGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameVC.swift; sourceTree = "<group>"; };
 		5AEC942D1BC8594F00C68F7F /* GalacticChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalacticChartVC.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				5AE71F8E1C0399F1004378BD /* ShipDetailVC.swift */,
 				5AB36E8E1BF18B5200941CF6 /* ShipListVC.swift */,
 				5AE975601C0FEEFA005D78E1 /* NewspaperVC.swift */,
+				5AE975621C10CA2A005D78E1 /* SpecialVC.swift */,
 			);
 			name = Menus;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				5AE9755F1C0FD481005D78E1 /* MercenaryDetailVC.swift in Sources */,
 				5AD5F8C01B9F473E00154B21 /* TradeItem.swift in Sources */,
 				5AE71F8F1C0399F1004378BD /* ShipDetailVC.swift in Sources */,
+				5AE975631C10CA2A005D78E1 /* SpecialVC.swift in Sources */,
 				5AB36E8F1BF18B5200941CF6 /* ShipListVC.swift in Sources */,
 				5AD5F8BE1B9F3BE700154B21 /* Ship.swift in Sources */,
 				5AE975611C0FEEFA005D78E1 /* NewspaperVC.swift in Sources */,

@@ -151,6 +151,7 @@ class SystemInfoVC: UIViewController {
                 if player.credits > priceOfNewspaper {
                     player.credits -= priceOfNewspaper
                 }
+                player.alreadyPaidForNewspaper = true
                 self.performSegueWithIdentifier("newspaperModal", sender: nil)
             }))
             alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default ,handler: {

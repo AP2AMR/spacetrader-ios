@@ -86,6 +86,50 @@ class StarSystem {
         }
     }
     
+    var localNewspaperTitle: String {
+        get {
+            switch self.politics {
+            case PoliticsType.anarchy:
+                return "Default Newspaper Title"
+            case PoliticsType.capitalist:
+                return "Default Newspaper Title"
+            case PoliticsType.communist:
+                return "Default Newspaper Title"
+            case PoliticsType.confederacy:
+                return "Default Newspaper Title"
+            case PoliticsType.corporate:
+                return "Default Newspaper Title"
+            case PoliticsType.cybernetic:
+                return "Default Newspaper Title"
+            case PoliticsType.democracy:
+                return "Default Newspaper Title"
+            case PoliticsType.dictatorship:
+                return "Default Newspaper Title"
+            case PoliticsType.fascist:
+                return "Default Newspaper Title"
+            case PoliticsType.feudal:
+                return "Default Newspaper Title"
+            case PoliticsType.military:
+                return "Default Newspaper Title"
+            case PoliticsType.monarchy:
+                return "Default Newspaper Title"
+            case PoliticsType.pacifist:
+                return "Default Newspaper Title"
+            case PoliticsType.satori:
+                return "Default Newspaper Title"
+            case PoliticsType.socialist:
+                return "Default Newspaper Title"
+            case PoliticsType.technocracy:
+                return "Default Newspaper Title"
+            case PoliticsType.theocracy:
+                return "Default Newspaper Title"
+            default:
+                return "Default Newspaper Title"
+            }
+            
+        }
+    }
+    
     init(name: String, techLevel: TechLevelType, politics: PoliticsType, status: StatusType, xCoord: Int, yCoord: Int, specialResources: SpecialResourcesType, size: SizeType) {
         self.name = name
         self.techLevel = techLevel

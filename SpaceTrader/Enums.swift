@@ -535,6 +535,15 @@ enum EncounterType {
     case nullEncounter
 }
 
+enum ShipyardID: String {
+    case NA = "N/A"
+    case corellian = "Corellian Industries"
+    case incom = "Incom Corporation"
+    case kuat = "Kuat Drive Yards"
+    case sienar = "Sienar Fleet Systems"
+    case sorosuub = "Sorosuub Engineering"
+}
+
 func getIFFStatusTypeforEncounterType(encounterType: EncounterType) -> IFFStatusType {
     if (encounterType == EncounterType.policeAttack) || (encounterType == EncounterType.policeFlee) || (encounterType == EncounterType.policeIgnore) || (encounterType == EncounterType.policeInspection) || (encounterType == EncounterType.policeSurrenderDemand) {
         return IFFStatusType.Police
