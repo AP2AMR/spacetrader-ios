@@ -15,6 +15,11 @@ class CrewMember {
     var fighter: Int
     var trader: Int
     var engineer: Int
+    var costPerDay: Int {
+        get {
+            return ((pilot + fighter + trader + engineer) * 3)
+        }
+    }
     
     
     
@@ -26,6 +31,4 @@ class CrewMember {
         self.trader = trader
         self.engineer = engineer
     }
-    
-
 }

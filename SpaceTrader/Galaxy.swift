@@ -304,6 +304,7 @@ class Galaxy {
                     newStarSystem.status = StatusType.none
                 }
             }
+
             
             // initialize trade items
             //newStarSystem = initializeTradeItems(newStarSystem)
@@ -431,6 +432,9 @@ class Galaxy {
         currentSystem!.visited = true
         getSystemsInRange()
         targetSystem = systemsInRange[0]        // INITIAL VALUE THAT SHOULD ACTUALLY BE IN RANGE
+        
+        // mercenaries
+        initializeMercenaries()
         
         // DEBUGGING:
         // log output to console
@@ -1022,6 +1026,31 @@ class Galaxy {
         }
     }
     
+    func initializeMercenaries() {
+        // initial array--all mercenary names, less the reserved ones
+        var mercenariesAvailable = [MercenaryName.alyssa, MercenaryName.armatur, MercenaryName.bentos, MercenaryName.c2u2, MercenaryName.chiti, MercenaryName.crystal, MercenaryName.dane, MercenaryName.deirdre, MercenaryName.doc, MercenaryName.draco, MercenaryName.iranda, MercenaryName.jeremiah, MercenaryName.jujubal, MercenaryName.krydon, MercenaryName.luis, MercenaryName.mercedez, MercenaryName.milete, MercenaryName.muril, MercenaryName.mystyc, MercenaryName.nandi, MercenaryName.orestes, MercenaryName.pancho, MercenaryName.ps37, MercenaryName.quarck, MercenaryName.sosumi, MercenaryName.uma, MercenaryName.wesley, MercenaryName.wonton, MercenaryName.yorvick]
+        
+        // create mercenary, remove name from array
+        while mercenariesAvailable.count > 0 {
+            let randomIndex = rand(mercenariesAvailable.count)
+            let mercenaryID = mercenariesAvailable[randomIndex]
+            mercenariesAvailable.removeAtIndex(randomIndex)
+            
+            // set skills randomly (costPerDay is automatically calculated)
+            let newMercenary = CrewMember(ID: mercenaryID, pilot: rand(10, min: 1), fighter: rand(10, min: 1), trader: rand(10, min: 1), engineer: rand(10, min: 1))
+            
+            
+            // give to a randomly chosen planet, max 2 per planet
+            let randomPlanetIndex = rand(self.planets.count)
+            
+            self.planets[randomPlanetIndex].mercenaries.append(newMercenary)
+            //print("MERCENARY - name: \(newMercenary.name), p: \(newMercenary.pilot), f: \(newMercenary.fighter), t: \(newMercenary.trader), e: \(newMercenary.engineer), system: \(self.planets[randomPlanetIndex].name), costPerDay: \(newMercenary.costPerDay)")
+        }
+        
+        
+    }
+    
+    // initializeSpecial() ?
         
     
     func addToSystemCommodities(system: StarSystem, commodity: TradeItemType, amountToAdd: Int) {

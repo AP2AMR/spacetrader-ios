@@ -26,6 +26,7 @@ class StarSystem {
     var wormholeDestination: StarSystem? = nil
     var indexNumber: Int = 200
     //var special: SpecialEventType
+    var mercenaries: [CrewMember] = []
 
     // quantities and prices
     var water: Int = 0
