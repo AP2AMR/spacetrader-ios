@@ -22,10 +22,55 @@ class Commander {
     var autoRepair = false
     
     // skills
-    var pilotSkill: Int
-    var fighterSkill: Int
-    var traderSkill: Int
-    var engineerSkill: Int
+    var pilotSkill: Int {
+        get {
+            var max = initialPilotSkill
+            for member in player.commanderShip.crew {
+                if member.pilot > max {
+                    max = member.pilot
+                }
+            }
+            return max
+        }
+    }
+    var fighterSkill: Int {
+        get {
+            var max = initialFighterSkill
+            for member in player.commanderShip.crew {
+                if member.fighter > max {
+                    max = member.fighter
+                }
+            }
+            return max
+        }
+    }
+    var traderSkill: Int {
+        get {
+            var max = initialTraderSkill
+            for member in player.commanderShip.crew {
+                if member.trader > max {
+                    max = member.trader
+                }
+            }
+            return max
+        }
+    }
+    var engineerSkill: Int {
+        get {
+            var max = initialEngineerSkill
+            for member in player.commanderShip.crew {
+                if member.engineer > max {
+                    max = member.engineer
+                }
+            }
+            return max
+        }
+    }
+    
+    var initialPilotSkill: Int
+    var initialFighterSkill: Int
+    var initialTraderSkill: Int
+    var initialEngineerSkill: Int
     
     var policeRecord = PoliceRecordType.cleanScore
     var reputation = ReputationType.harmlessRep
@@ -57,10 +102,15 @@ class Commander {
     init(commanderName: String, difficulty: DifficultyType, pilotSkill: Int, fighterSkill: Int, traderSkill: Int, engineerSkill: Int) {
         self.commanderName = commanderName
         self.difficulty = difficulty
-        self.pilotSkill = pilotSkill
-        self.fighterSkill = fighterSkill
-        self.traderSkill = traderSkill
-        self.engineerSkill = engineerSkill
+//        self.pilotSkill = pilotSkill
+//        self.fighterSkill = fighterSkill
+//        self.traderSkill = traderSkill
+//        self.engineerSkill = engineerSkill
+        
+        self.initialPilotSkill = pilotSkill
+        self.initialFighterSkill = fighterSkill
+        self.initialTraderSkill = traderSkill
+        self.initialEngineerSkill = engineerSkill
         
         self.credits = 1000
         
