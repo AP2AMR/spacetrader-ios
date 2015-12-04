@@ -19,9 +19,7 @@ class Newspaper {
         self.stories = []
         
         // Special Events get to go first, crowding out other news
-        
-        // local system status information
-        
+        getSpecialEventHeadline()
         
         // character-specific news
         getCharacterSpecificNews()
@@ -41,12 +39,64 @@ class Newspaper {
         // add a canned headline
         getCannedHeadline()
         
-        if self.stories.count < 5 {
-            let emptyStringsNecessary = 5 - self.stories.count
-            for _ in 0..<emptyStringsNecessary {
-                self.stories.append("")
-            }
+        // in case fewer than 5, add more empties to avoid crash
+        for _ in 0..<5 {
+            self.stories.append("")
         }
+    }
+    
+    func getSpecialEventHeadline() {
+        let optionalSpecialEventID = galaxy.currentSystem!.newsItemDropBox  // RIGHT NOW JUST DOING ONE
+        galaxy.currentSystem!.newsItemDropBox = nil
+        
+        if optionalSpecialEventID != nil {
+            let specialEventID = optionalSpecialEventID!
+            var string = ""
+            
+            switch specialEventID {
+            case NewsItemID.artifactDelivery: string = "Scientist Adds Alien Artifact to Museum Collection."
+            case NewsItemID.caughtLittering: string = "Police Trace Orbiting Space Litter to \(player.commanderName)."
+            case NewsItemID.dragonfly: string = "Experimental Craft Stolen! Critics Demand Security Review."
+            case NewsItemID.dragonflyBaratas: string = "Investigators Report Strange Craft."
+            case NewsItemID.dragonflyDestroyed: string = "Spectacular Display as Stolen Ship Destroyed in Fierce Space Battle."
+            case NewsItemID.dragonflyMelina: string = "Rumors Continue: Melina Orbitted by Odd Starcraft."
+            case NewsItemID.dragonflyRegulas: string = "Strange Ship Observed in Regulas Orbit."
+            case NewsItemID.dragonflyZalkon: string = "Unidentified Ship: A Threat to Zalkon?"
+            case NewsItemID.experimentFailed: string = "Huge Explosion Reported at Research Facility."
+            case NewsItemID.experimentPerformed: string = "Travelers Report Spacetime Damage, Warp Problems!"
+            case NewsItemID.experimentStopped: string = "Scientists Cancel High-profile Test! Committee to Investigate Design."
+            case NewsItemID.experimentArrival: string = "Travelers Claim Sighting of Ship Materializing in Orbit!"
+            case NewsItemID.gemulon: string = "Editorial: Who Will Warn Gemulon?"
+            case NewsItemID.gemulonInvaded: string = "Alien Invasion Devastates Planet!"
+            case NewsItemID.gemulonRescued: string = "Invasion Imminent! Plans in Place to Repel Hostile Invaders."
+            case NewsItemID.captAhabAttacked: string = "Thug Assaults Captain Ahab!"
+            case NewsItemID.captAhabDestroyed: string = "Destruction of Captain Ahab's Ship Causes Anger!"
+            case NewsItemID.captConradAttacked: string = "Captain Conrad Comes Under Attack By Criminal!"
+            case NewsItemID.captConradDestroyed: string = "Captain Conrad's Ship Destroyed by Villain!"
+            case NewsItemID.captHuieAttacked: string = "Famed Captain Huie Attacked by Brigand!"
+            case NewsItemID.captHuieDestroyed: string = "Citizens Mourn Destruction of Captain Huie's Ship!"
+            case NewsItemID.japori: string = "Editorial: We Must Help Japori!"
+            case NewsItemID.japoriDelivery: string = "Disease Antidotes Arrive! Health Officials Optimistic."
+            case NewsItemID.jarekGetsOut: string = "Ambassador Jarek Returns from Crisis."
+            case NewsItemID.scarab: string = "Security Scandal: Test Craft Confirmed Stolen."
+            case NewsItemID.scarabDestroyed: string = "Wormhole Traffic Delayed as Stolen Craft Destroyed."
+            case NewsItemID.scarabHarass: string = "Wormhole Travelers Harassed by Unusual Ship!"
+            case NewsItemID.spaceMonster: string = "Space Monster Threatens Homeworld!"
+            case NewsItemID.spaceMonsterKilled: string = "Hero Slays Space Monster! Parade, Honors Planned for Today."
+            case NewsItemID.wildArrested: string = "Notorious Criminal Jonathan Wild Arrested!"
+            case NewsItemID.wildGetsOut: string = "Rumors Suggest Known Criminal J. Wild May Come to Kravat!"
+            case NewsItemID.sculptureStolen: string = "Priceless collector's item stolen from home of Geurge Locas!"
+            case NewsItemID.sculptureTracked: string = "Space Corps follows \(player.commanderName) with alleged stolen sculpture to \(galaxy.currentSystem!.name)."
+            case NewsItemID.princess: string = "Member of Royal Family kidnapped!"
+            case NewsItemID.princessCentauri: string = "Aggressive Ship Seen in Orbit Around Centauri"
+            case NewsItemID.princessInthara: string = "Dangerous Scorpion Damages Several Other Ships Near Inthara"
+            case NewsItemID.princessQuonos: string = "Kidnappers Holding Out at Qonos"
+            case NewsItemID.princessRescued: string = "Scorpion Defeated! Kidnapped Member of Galvon Royal Family Freed!"
+            case NewsItemID.princessReturned: string = "Beloved Royal Returns Home!"
+            }
+            
+            self.stories.append(string)
+        } 
     }
     
     func getCharacterSpecificNews() {
@@ -93,6 +143,9 @@ class Newspaper {
     
     func moonAndTribbles() {
         // TO DO***************************************************************************************
+        // for system in systemsInRange
+        // if system.special == one (next do the other)
+        // display line
     }
     
     func getUsefulNews() {
