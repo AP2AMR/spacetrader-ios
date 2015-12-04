@@ -38,15 +38,44 @@ class Newspaper {
         
         // add a canned headline
         getCannedHeadline()
+
+        // if slow news day, add another canned headline
+        if stories.count < 3 {
+            getCannedHeadline()
+            repeat {
+                print("executing")
+                stories.removeAtIndex(stories.count - 1)
+                getCannedHeadline()
+            } while stories[stories.count-1] == stories[stories.count-2]
+        }
         
-        // in case fewer than 5, add more empties to avoid crash
+        // shuffle?
+        shuffle()
+        
         for _ in 0..<5 {
-            self.stories.append("")
+            stories.append("")
         }
     }
     
+    func shuffle() {
+        var drawFrom: [String] = []
+        let top = min(stories.count, 5)
+        for i in 0..<top {
+            drawFrom.append(stories[i])
+        }
+        
+        var output: [String] = []
+        while drawFrom.count > 0 {
+            let index = rand(drawFrom.count)
+            output.append(drawFrom[index])
+            drawFrom.removeAtIndex(index)
+        }
+        stories = output
+    }
+    
+    
     func getSpecialEventHeadline() {
-        let optionalSpecialEventID = galaxy.currentSystem!.newsItemDropBox  // RIGHT NOW JUST DOING ONE
+        let optionalSpecialEventID = galaxy.currentSystem!.newsItemDropBox  // doing only one story
         galaxy.currentSystem!.newsItemDropBox = nil
         
         if optionalSpecialEventID != nil {
@@ -96,7 +125,7 @@ class Newspaper {
             }
             
             self.stories.append(string)
-        } 
+        }
     }
     
     func getCharacterSpecificNews() {
@@ -150,75 +179,72 @@ class Newspaper {
     
     func getUsefulNews() {
         // chance of a useful news story appearing is 50% + 10% per difficulty level less than impossible
-        let random = rand(100)
-        let upperBound = 50 + (40 - (player.difficultyInt * 10))
-        var systemName: String = ""
-        var systemStatus: StatusType = StatusType.none
-        var flag = false
         
-        if random < upperBound {
-            // find a system within range that has a condition
-            for system in galaxy.systemsInRange {
-                if system.status != StatusType.none {
-                    systemName = system.name
-                    systemStatus = system.status
+        // find systems with stuff going on
+        var systems: [StarSystem] = []
+        for system in galaxy.systemsInRange {
+            if system.status != StatusType.none {
+                systems.append(system)
+            }
+        }
+        
+        for system in systems {
+            let random = rand(100)
+            let upperBound = 50 + (40 - (player.difficultyInt * 10))
+            
+            if random < upperBound {
+                let systemName = system.name
+                let systemStatus = system.status
+                
+                var firstPart = ""
+                var secondPart = ""
+                var thirdPart = ""
+                
+                // set first part
+                let rand2 = rand(6)
+                switch rand2 {
+                case 0:
+                    firstPart = "Reports of "
+                case 1:
+                    firstPart = "News of  "
+                case 2:
+                    firstPart = "New Rumors of "
+                case 3:
+                    firstPart = "Sources say "
+                case 4:
+                    firstPart = "Notice: "
+                case 5:
+                    firstPart = "Evidence suggests "
+                default:
+                    firstPart = ""
                 }
-            }
-            if systemName != "" {
-                flag = true
+                
+                // set second part
+                switch systemStatus {
+                case StatusType.war:
+                    secondPart = "Strife and War "
+                case StatusType.plague:
+                    secondPart = "Plague Outbreaks "
+                case StatusType.drought:
+                    secondPart = "Severe Drought "
+                case StatusType.boredom:
+                    secondPart = "Terrible Boredom "
+                case StatusType.cold:
+                    secondPart = "Cold Weather "
+                case StatusType.cropFailure:
+                    secondPart = "Crop Failures "
+                case StatusType.employment:
+                    secondPart = "Labor Shortages "
+                default:
+                    print("error")
+                }
+                
+                // set third part, assemble, append headline
+                thirdPart = "in the \(systemName) system."
+                let string = firstPart + secondPart + thirdPart
+                self.stories.append(string)
             }
         }
-        
-        if flag {
-            var firstPart = ""
-            var secondPart = ""
-            var thirdPart = ""
-            
-            // set first part
-            let rand2 = rand(6)
-            switch rand2 {
-            case 0:
-                firstPart = "Reports of "
-            case 1:
-                firstPart = "News of  "
-            case 2:
-                firstPart = "New Rumors of "
-            case 3:
-                firstPart = "Sources say "
-            case 4:
-                firstPart = "Notice: "
-            case 5:
-                firstPart = "Evidence suggests "
-            default:
-                firstPart = ""
-            }
-            
-            // set second part
-            switch systemStatus {
-            case StatusType.war:
-                secondPart = "Strife and War "
-            case StatusType.plague:
-                secondPart = "Plague Outbreaks "
-            case StatusType.drought:
-                secondPart = "Severe Drought "
-            case StatusType.boredom:
-                secondPart = "Terrible Boredom "
-            case StatusType.cold:
-                secondPart = "Cold Weather "
-            case StatusType.cropFailure:
-                secondPart = "Crop Failures "
-            case StatusType.employment:
-                secondPart = "Labor Shortages "
-            default:
-                print("error")
-            }
-            
-            // set third part, assemble, append headline
-            thirdPart = "in the \(systemName) system."
-            let string = firstPart + secondPart + thirdPart
-            self.stories.append(string)
-        }
-
     }
     
     func getStatusHeadline() {
@@ -393,45 +419,45 @@ class Newspaper {
     }
 }
 
-enum NewsItemID: String {
-    case artifactDelivery = "Scientist Adds Alien Artifact to Museum Collection."
-    case caughtLittering = "Police Trace Orbiting Space Litter to <playerName>."
-    case dragonfly = "Experimental Craft Stolen! Critics Demand Security Review."
-    case dragonflyBaratas = "Investigators Report Strange Craft."
-    case dragonflyDestroyed = "Spectacular Display as Stolen Ship Destroyed in Fierce Space Battle."
-    case dragonflyMelina = "Rumors Continue: Melina Orbitted by Odd Starcraft."
-    case dragonflyRegulas = "Strange Ship Observed in Regulas Orbit."
-    case dragonflyZalkon = "Unidentified Ship: A Threat to Zalkon?"
-    case experimentFailed = "Huge Explosion Reported at Research Facility."
-    case experimentPerformed = "Travelers Report Spacetime Damage, Warp Problems!"
-    case experimentStopped = "Scientists Cancel High-profile Test! Committee to Investigate Design."
-    case experimentArrival = "Travelers Claim Sighting of Ship Materializing in Orbit!"
-    case gemulon = "Editorial: Who Will Warn Gemulon?"
-    case gemulonInvaded = "Alien Invasion Devastates Planet!"
-    case gemulonRescued = "Invasion Imminent! Plans in Place to Repel Hostile Invaders."
-    case captAhabAttacked = "Thug Assaults Captain Ahab!"
-    case captAhabDestroyed = "Destruction of Captain Ahab's Ship Causes Anger!"
-    case captConradAttacked = "Captain Conrad Comes Under Attack By Criminal!"
-    case captConradDestroyed = "Captain Conrad's Ship Destroyed by Villain!"
-    case captHuieAttacked = "Famed Captain Huie Attacked by Brigand!"
-    case captHuieDestroyed = "Citizens Mourn Destruction of Captain Huie's Ship!"
-    case japori = "Editorial: We Must Help Japori!"
-    case japoriDelivery = "Disease Antidotes Arrive! Health Officials Optimistic."
-    case jarekGetsOut = "Ambassador Jarek Returns from Crisis."
-    case scarab = "Security Scandal: Test Craft Confirmed Stolen."
-    case scarabDestroyed = "Wormhole Traffic Delayed as Stolen Craft Destroyed."
-    case scarabHarass = "Wormhole Travelers Harassed by Unusual Ship!"
-    case spaceMonster = "Space Monster Threatens Homeworld!"
-    case spaceMonsterKilled = "Hero Slays Space Monster! Parade, Honors Planned for Today."
-    case wildArrested = "Notorious Criminal Jonathan Wild Arrested!"
-    case wildGetsOut = "Rumors Suggest Known Criminal J. Wild May Come to Kravat!"
-    case sculptureStolen = "Priceless collector's item stolen from home of Geurge Locas!"
-    case sculptureTracked = "Space Corps follows **** with alleged stolen sculpture to ****."
-    case princess = "Member of Royal Family kidnapped!"
-    case princessCentauri = "Aggressive Ship Seen in Orbit Around Centauri"
-    case princessInthara = "Dangerous Scorpion Damages Several Other Ships Near Inthara"
-    case princessQuonos = "Kidnappers Holding Out at Qonos"
-    case princessRescued = "Scorpion Defeated! Kidnapped Member of Galvon Royal Family Freed!"
-    case princessReturned = "Beloved Royal Returns Home!"
+enum NewsItemID {
+    case artifactDelivery
+    case caughtLittering
+    case dragonfly
+    case dragonflyBaratas
+    case dragonflyDestroyed
+    case dragonflyMelina
+    case dragonflyRegulas
+    case dragonflyZalkon
+    case experimentFailed
+    case experimentPerformed
+    case experimentStopped
+    case experimentArrival
+    case gemulon
+    case gemulonInvaded
+    case gemulonRescued
+    case captAhabAttacked
+    case captAhabDestroyed
+    case captConradAttacked
+    case captConradDestroyed
+    case captHuieAttacked
+    case captHuieDestroyed
+    case japori
+    case japoriDelivery
+    case jarekGetsOut
+    case scarab
+    case scarabDestroyed
+    case scarabHarass
+    case spaceMonster
+    case spaceMonsterKilled
+    case wildArrested
+    case wildGetsOut
+    case sculptureStolen
+    case sculptureTracked
+    case princess
+    case princessCentauri
+    case princessInthara
+    case princessQuonos
+    case princessRescued
+    case princessReturned
     
 }

@@ -176,7 +176,6 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         player.commanderShip.crew.append(zeethibal)
         
         player.policeRecord = PoliceRecordType.heroScore
-        player.caughtLittering = true
 
         
         // END TESTING STUFF ********************************************************************
