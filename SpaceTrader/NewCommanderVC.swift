@@ -139,7 +139,7 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
             name = nameField.text!
         }
 
-        player = Commander(commanderName: "name", difficulty: kludgeDifficulty, pilotSkill: pilot, fighterSkill: fighter, traderSkill: trader, engineerSkill: engineer)
+        player = Commander(commanderName: name, difficulty: kludgeDifficulty, pilotSkill: pilot, fighterSkill: fighter, traderSkill: trader, engineerSkill: engineer)
         galaxy.createGalaxy()
         
         // give player a pulse laser
@@ -174,6 +174,9 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         
         let zeethibal = CrewMember(ID: MercenaryName.zeethibal, pilot: 9, fighter: 9, trader: 9, engineer: 9)
         player.commanderShip.crew.append(zeethibal)
+        
+        player.policeRecord = PoliceRecordType.heroScore
+        player.caughtLittering = true
 
         
         // END TESTING STUFF ********************************************************************

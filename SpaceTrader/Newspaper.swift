@@ -24,6 +24,7 @@ class Newspaper {
         
         
         // character-specific news
+        getCharacterSpecificNews()
         
         // status headline
         getStatusHeadline()
@@ -34,6 +35,8 @@ class Newspaper {
         
         // moon vendor and tribble collector always get shown
         // (where are these? This is presumably anywhere within range?)
+        moonAndTribbles()
+        
         
         // add a canned headline
         getCannedHeadline()
@@ -46,7 +49,51 @@ class Newspaper {
         }
     }
     
-
+    func getCharacterSpecificNews() {
+        if (player.policeRecord == PoliceRecordType.villainScore) || (player.policeRecord == PoliceRecordType.psychopathScore) {
+            var string = ""
+            let rand3 = rand(4)
+            switch rand3 {
+            case 0:
+                string = "Police Warning: \(player.commanderName) Will Dock At \(galaxy.currentSystem!.name)!"
+            case 1:
+                string = "Notorious Criminal \(player.commanderName) Sighted in \(galaxy.currentSystem!.name) System!"
+            case 2:
+                string = "Locals Rally to Deny Spaceport Access to \(player.commanderName)!"
+            case 3:
+                string = "Terror Strikes Locals on Arrival of \(player.commanderName)!"
+            default:
+                print("error")
+            }
+            self.stories.append(string)
+        }
+        
+        if player.policeRecord == PoliceRecordType.heroScore {
+            var string = ""
+            let rand4 = rand(3)
+            switch rand4 {
+            case 0:
+                string = "Locals Welcome Visiting Hero \(player.commanderName)!"
+            case 1:
+                string = "Famed Hero \(player.commanderName) to Visit System!"
+            case 2:
+                string = "Large Turnout At Spaceport to Welcome \(player.commanderName)!"
+            default:
+                print("error")
+            }
+            self.stories.append(string)
+        }
+        
+        // caught littering?
+        if player.caughtLittering {
+            let string = "Police Trace Orbiting Space Litter to \(player.commanderName)."
+            self.stories.append(string)
+        }
+    }
+    
+    func moonAndTribbles() {
+        // TO DO***************************************************************************************
+    }
     
     func getUsefulNews() {
         // chance of a useful news story appearing is 50% + 10% per difficulty level less than impossible

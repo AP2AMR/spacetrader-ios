@@ -21,6 +21,7 @@ class Commander {
     var autoFuel = false
     var autoRepair = false
     var alreadyPaidForNewspaper = false
+    var caughtLittering = false
     
     // skills
     var pilotSkill: Int {
