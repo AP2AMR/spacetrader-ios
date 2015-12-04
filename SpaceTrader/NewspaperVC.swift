@@ -27,6 +27,11 @@ class NewspaperVC: UIViewController {
     
     func loadData() {
         newspaperTitleLabel.text = galaxy.currentSystem!.localNewspaperTitle
+        story1TextView.text = galaxy.currentSystem!.newspaper.stories[0]
+        story2TextView.text = galaxy.currentSystem!.newspaper.stories[1]
+        story3TextView.text = galaxy.currentSystem!.newspaper.stories[2]
+        story4TextView.text = galaxy.currentSystem!.newspaper.stories[3]
+        story5TextView.text = galaxy.currentSystem!.newspaper.stories[4]
     }
 
     @IBAction func doneButton(sender: AnyObject) {

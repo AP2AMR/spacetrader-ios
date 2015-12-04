@@ -151,6 +151,7 @@ class SystemInfoVC: UIViewController {
                 if player.credits > priceOfNewspaper {
                     player.credits -= priceOfNewspaper
                 }
+                galaxy.currentSystem!.newspaper.generatePaper()     // actually generate the day's paper
                 player.alreadyPaidForNewspaper = true
                 self.performSegueWithIdentifier("newspaperModal", sender: nil)
             }))

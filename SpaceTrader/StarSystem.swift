@@ -27,6 +27,7 @@ class StarSystem {
     var indexNumber: Int = 200
     //var special: SpecialEventType
     var mercenaries: [CrewMember] = []
+    var newspaper: Newspaper = Newspaper()
 
     // quantities and prices
     var water: Int = 0
