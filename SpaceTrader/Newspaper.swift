@@ -18,8 +18,24 @@ class Newspaper {
     func generatePaper() {
         self.stories = []
         
+        // Special Events get to go first, crowding out other news
+        
+        // local system status information
         
         
+        // character-specific news
+        
+        // status headline
+        getStatusHeadline()
+        
+        // useful news. Chance of it appearing is 50% + 10% per difficulty level less than impossible
+        // shows special conditions of other systems in range
+        getUsefulNews()
+        
+        // moon vendor and tribble collector always get shown
+        // (where are these? This is presumably anywhere within range?)
+        
+        // add a canned headline
         getCannedHeadline()
         
         if self.stories.count < 5 {
@@ -30,19 +46,107 @@ class Newspaper {
         }
     }
     
-    // Special Events get to go first, crowding out other news
+
     
-    // local system status information
+    func getUsefulNews() {
+        // chance of a useful news story appearing is 50% + 10% per difficulty level less than impossible
+        let random = rand(100)
+        let upperBound = 50 + (40 - (player.difficultyInt * 10))
+        var systemName: String = ""
+        var systemStatus: StatusType = StatusType.none
+        var flag = false
+        
+        if random < upperBound {
+            // find a system within range that has a condition
+            for system in galaxy.systemsInRange {
+                if system.status != StatusType.none {
+                    systemName = system.name
+                    systemStatus = system.status
+                }
+            }
+            if systemName != "" {
+                flag = true
+            }
+        }
+        
+        if flag {
+            var firstPart = ""
+            var secondPart = ""
+            var thirdPart = ""
+            
+            // set first part
+            let rand2 = rand(6)
+            switch rand2 {
+            case 0:
+                firstPart = "Reports of "
+            case 1:
+                firstPart = "News of  "
+            case 2:
+                firstPart = "New Rumors of "
+            case 3:
+                firstPart = "Sources say "
+            case 4:
+                firstPart = "Notice: "
+            case 5:
+                firstPart = "Evidence suggests "
+            default:
+                firstPart = ""
+            }
+            
+            // set second part
+            switch systemStatus {
+            case StatusType.war:
+                secondPart = "Strife and War "
+            case StatusType.plague:
+                secondPart = "Plague Outbreaks "
+            case StatusType.drought:
+                secondPart = "Severe Drought "
+            case StatusType.boredom:
+                secondPart = "Terrible Boredom "
+            case StatusType.cold:
+                secondPart = "Cold Weather "
+            case StatusType.cropFailure:
+                secondPart = "Crop Failures "
+            case StatusType.employment:
+                secondPart = "Labor Shortages "
+            default:
+                print("error")
+            }
+            
+            // set third part, assemble, append headline
+            thirdPart = "in the \(systemName) system."
+            let string = firstPart + secondPart + thirdPart
+            self.stories.append(string)
+        }
+
+    }
     
-    // character-specific news
-    
-    // useful news. Chance of it appearing is 50% + 10% per difficulty level less than impossible
-    // shows special conditions of other systems in range
-    
-    // moon vendor and tribble collector always get shown
-    // (where are these? This is presumably anywhere within range?)
-    
-    // canned headlines--how many?
+    func getStatusHeadline() {
+        if galaxy.currentSystem!.status != StatusType.none {
+            var headline = ""
+            switch galaxy.currentSystem!.status
+            {
+            case StatusType.war:
+                headline = "War News: Offensives Continue!"
+            case StatusType.plague:
+                headline = "Plague Spreads! Outlook Grim."
+            case StatusType.drought:
+                headline = "No Rain in Sight!"
+            case StatusType.boredom:
+                headline = "Editors: Won't Someone Entertain Us?"
+            case StatusType.cold:
+                headline = "Cold Snap Continues!"
+            case StatusType.cropFailure:
+                headline = "Serious Crop Failure! Must We Ration?"
+            case StatusType.employment:
+                headline = "Jobless Rate at All-Time Low!"
+            default:
+                headline = ""
+            }
+            
+            self.stories.append(headline)
+        }
+    }
     
     func getCannedHeadline() {
         let random = rand(4)
