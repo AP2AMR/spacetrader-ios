@@ -21,11 +21,15 @@ class SpecialVC: UIViewController {
     }
     
     func loadData() {
-        
+        if player.specialEvents.special {
+            specialEventTitle.text = player.specialEvents.specialEventTitle
+            specialEventText.text = player.specialEvents.specialEventText
+        }
     }
 
     @IBAction func dismissButton(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
+        player.specialEvents.special = false
     }
 
 

@@ -1216,7 +1216,7 @@ class Galaxy {
             player.credits -= mercenarySalary
             player.alreadyPaidForNewspaper = false
             player.caughtLittering = false
-            player.specialEvents.setSpecialEvent()
+            //player.specialEvents.setSpecialEvent()
             
             // warp!
             print("warp function signing off on warp and passing control to journey")

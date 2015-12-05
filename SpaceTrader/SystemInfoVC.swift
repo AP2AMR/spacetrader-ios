@@ -106,6 +106,11 @@ class SystemInfoVC: UIViewController {
             mercenariesButton.enabled = false
         }
         
+        if player.specialEvents.special {
+            specialButton.enabled = true
+        } else {
+            specialButton.enabled = false
+        }
         
     }
     
@@ -164,6 +169,7 @@ class SystemInfoVC: UIViewController {
             self.performSegueWithIdentifier("newspaperModal", sender: nil)
         }
     }
+    
     
     
 }

@@ -271,6 +271,9 @@ class Journey {
         
         galaxy.getSystemsInRange()
         
+        // houskeeping things
+        player.specialEvents.setSpecialEvent()
+        
         // fire segue back to sell (or something else later)
         var passedText = NSString(string: "done")
         NSNotificationCenter.defaultCenter().postNotificationName("encounterModalFireNotification", object: passedText)

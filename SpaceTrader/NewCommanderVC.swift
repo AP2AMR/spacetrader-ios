@@ -146,6 +146,12 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         let pulseLaser = Weapon(type: WeaponType.pulseLaser)
         player.commanderShip.weapon.append(pulseLaser)
         
+        // if skill level is beginner, set the lottery special
+        if player.difficulty == DifficultyType.beginner {
+            galaxy.currentSystem!.specialEvent = SpecialEventID.lotteryWinner
+            player.specialEvents.setSpecialEvent()      // must do this since not warping to initial system
+        }
+        
         // THIS IS THE PLACE TO SET THINGS DIFFERENTLY FOR TESTING*******************************
         
         //player.policeRecord = PoliceRecordType.dubiousScore
