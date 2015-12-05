@@ -175,6 +175,9 @@ class Newspaper {
         // for system in systemsInRange
         // if system.special == one (next do the other)
         // display line
+        
+        // "Collector in \() Seeks to Purchase Tribbles."
+        // "Seller in \() System has Utopian Moon Available."
     }
     
     func getUsefulNews() {

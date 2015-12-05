@@ -444,46 +444,6 @@ enum UniversalGadgetType {
     case lightningShield    // not for sale
 }
 
-enum QuestIDType {
-    case dragonflyDestroyed
-    case weirdShip
-    case lightningShip
-    case strangeShip
-    case monsterKilled
-    case medicineDelivery
-    case retirement
-    case moonForSale
-    case skillIncrease
-    case merchantPrince
-    case eraseRecord
-    case tribbleBuyer
-    case spaceMonster
-    case dragonfly
-    case cargoForSale
-    case lightningShield
-    case japoriDisease
-    case lotteryWinner
-    case artifactDelivery
-    case alienArtifact
-    case ambassadorJarek
-    case alienInvasion
-    case gemulonInvaded
-    case fuelCompactor
-    case dangerousExperiment
-    case jonathanWild
-    case morgansReactor
-    case installMorgansLaser
-    case scarabStolen
-    case upgradeHull
-    case scarabDestroyed
-    case reactorDelivered
-    case jarekGetsOut
-    case gemulonRescued
-    case disasterAverted
-    case experimentFailed
-    case wildGetsOut
-}
-
 enum PoliticsType: String {
     case anarchy = "Anarchy"
     case capitalist = "Capitalist State"
