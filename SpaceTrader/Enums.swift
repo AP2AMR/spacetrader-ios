@@ -504,6 +504,19 @@ enum ShipyardID: String {
     case sorosuub = "Sorosuub Engineering"
 }
 
+enum SpecialCargo: String {
+    case artifact = "An alien artifact."
+    case experiment = "A portable singularity."
+    case japori = "10 bays of antidote."
+    case jarek = "A portable haggling computer."
+    case none = "No special items."
+    case reactor = "An unstable reactor taking up 5 bays."
+    case sculpture = "A stolen plastic sculpture of a man holding some kind of light sword."
+    case reactorBays = "**** bays of enriched fuel."
+    case tribblesInfestation = "An infestation of tribbles."
+    case tribblesCute = "cute, furry tribble"
+}
+
 func getIFFStatusTypeforEncounterType(encounterType: EncounterType) -> IFFStatusType {
     if (encounterType == EncounterType.policeAttack) || (encounterType == EncounterType.policeFlee) || (encounterType == EncounterType.policeIgnore) || (encounterType == EncounterType.policeInspection) || (encounterType == EncounterType.policeSurrenderDemand) {
         return IFFStatusType.Police
