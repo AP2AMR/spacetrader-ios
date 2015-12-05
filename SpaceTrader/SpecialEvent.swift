@@ -11,7 +11,27 @@ import Foundation
 // leaving off further work on this until the rest of this is further along and I understand better how it will be used
 
 class SpecialEvents {
+    // things referencable from VC
+    var special = false
+    var specialEventTitle = ""
+    var specialEventText = ""
+    // buttons text...
     
+    // internal
+    var currentSpecialEventID: SpecialEventID? = nil
+    
+    init() {
+        
+    }
+    
+    func setSpecialEvent() {
+        // this should initialize to the event of the TARGET system (called before warp actually happens)
+        // if nil, special is set to false, and the "Special" button is disabled
+        
+        special = true
+        specialEventTitle = "Test Event"
+        specialEventText = "Testing the special event system."
+    }
 }
 
 

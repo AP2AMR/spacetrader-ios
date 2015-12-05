@@ -16,6 +16,7 @@ class Commander {
     var credits: Int
     var debt: Int = 0
     var days: Int = 0
+    var specialEvents = SpecialEvents()
     
     var remindLoans = false
     var autoFuel = false

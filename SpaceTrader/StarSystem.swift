@@ -29,6 +29,7 @@ class StarSystem {
     var mercenaries: [CrewMember] = []
     var newspaper: Newspaper = Newspaper()
     var newsItemDropBox: NewsItemID?
+    var specialEvent: SpecialEventID?
 
     // quantities and prices
     var water: Int = 0

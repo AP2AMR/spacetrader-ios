@@ -1211,10 +1211,14 @@ class Galaxy {
         
         
         if canWeWarp {
+            // housekeeping things
             player.inspected = false
             player.credits -= mercenarySalary
             player.alreadyPaidForNewspaper = false
             player.caughtLittering = false
+            player.specialEvents.setSpecialEvent()
+            
+            // warp!
             print("warp function signing off on warp and passing control to journey")
             currentJourney = Journey(origin: galaxy.currentSystem!, destination: galaxy.targetSystem!)
             currentJourney!.beginJourney()
