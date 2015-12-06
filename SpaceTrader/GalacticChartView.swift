@@ -56,6 +56,15 @@ class GalacticChartView: UIView {
                 }
             }
             
+            // draw crosshairs on tracked system
+            if galaxy.trackedSystem != nil {
+                for mapPanet in planetsOnMap {
+                    if mapPlanet.system.name == galaxy.trackedSystem!.name {
+                        drawTrackedCrosshairs(mapPlanet)
+                    }
+                }
+            }
+            
             // range circle
             if mapPlanet.system.name == galaxy.currentSystem!.name {
                 drawRangeCircle(mapPlanet.mapLocation)
@@ -218,6 +227,39 @@ class GalacticChartView: UIView {
         leftTick.lineWidth = 2.0
         UIColor.blackColor().setStroke()
         leftTick.stroke()
+    }
+    
+    func drawTrackedCrosshairs(planetOnMap: mapPlanet) {
+        let planetZeroX = planetOnMap.mapLocation.x
+        let planetZeroY = planetOnMap.mapLocation.y
+        
+        let upperLTick = UIBezierPath()
+        upperLTick.moveToPoint(CGPoint(x: planetZeroX - 3, y: planetZeroY - 3))
+        upperLTick.addLineToPoint(CGPoint(x: planetZeroX - 7, y: planetZeroY - 7))
+        upperLTick.lineWidth = 2.0
+        UIColor.blackColor().setStroke()
+        upperLTick.stroke()
+        
+        let lowerLTick = UIBezierPath()
+        lowerLTick.moveToPoint(CGPoint(x: planetZeroX - 3, y: planetZeroY + 3))
+        lowerLTick.addLineToPoint(CGPoint(x: planetZeroX - 7, y: planetZeroY + 7))
+        lowerLTick.lineWidth = 2.0
+        UIColor.blackColor().setStroke()
+        lowerLTick.stroke()
+        
+        let lowerRTick = UIBezierPath()
+        lowerRTick.moveToPoint(CGPoint(x: planetZeroX + 3, y: planetZeroY + 3))
+        lowerRTick.addLineToPoint(CGPoint(x: planetZeroX + 7, y: planetZeroY + 7))
+        lowerRTick.lineWidth = 2.0
+        UIColor.blackColor().setStroke()
+        lowerRTick.stroke()
+        
+        let upperRTick = UIBezierPath()
+        upperRTick.moveToPoint(CGPoint(x: planetZeroX + 3, y: planetZeroY - 3))
+        upperRTick.addLineToPoint(CGPoint(x: planetZeroX + 7, y: planetZeroY - 7))
+        upperRTick.lineWidth = 2.0
+        UIColor.blackColor().setStroke()
+        upperRTick.stroke()
     }
     
     func redrawSelf() {
