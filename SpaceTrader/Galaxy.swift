@@ -42,6 +42,7 @@ class Galaxy {
         }
     }
     var targetSystemInRange = true                  // NEW ADDITION
+    var trackedSystem: StarSystem? = nil
     var currentJourney: Journey?
     
     func createGalaxy() {
