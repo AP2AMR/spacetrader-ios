@@ -33,6 +33,8 @@ class SpecialEvents {
     var experimentCountdown = -1
     var jarekElapsedTime = -1
     var gemulonInvasionCountdown = -1
+    var reactorElapsedTime = -1
+    var wildElapsedTime = -1
     
     
     // internal
@@ -429,27 +431,84 @@ class SpecialEvents {
             galaxy.setSpecial("Utopia", id: SpecialEventID.retirement)
 
         case SpecialEventID.morgansReactor:
-            
+            addQuestString("Deliver the unstable reactor to Nix for Henry Morgan.", ID: QuestID.reactor)
+            reactorElapsedTime = 0
+            galaxy.setSpecial("Nix", id: SpecialEventID.reactorDelivered)
             
         case SpecialEventID.scarabStolen:
-            print("not implemented yet")
+            addQuestString("Find and destroy the Scarab (which is hiding at the exit to a wormhole).", ID: QuestID.scarab)
+            // add scarab to some planet with a wormhole
+            for planet in galaxy.planets {
+                if (planet.wormhole == true) && (planet.specialEvent == nil) {
+                    planet.scarabIsHere = true
+                }
+            }
+            // **** UPON DESTRUCTION OF SCARAB, UPDATE QUESTSTRING AND ADD SCARABDESTROYED SPECIAL TO CURRENT SYSTEM
+            
+            
         case SpecialEventID.sculpture:
-            print("not implemented yet")
+            addQuestString("Deliver the stolen sculpture to Endor.", ID: QuestID.sculpture)
+            galaxy.setSpecial("Endor", id: SpecialEventID.sculptureDelivered)
+            // **** DO WE NEED ALIENS OR ANYTHING HERE?
+            
         case SpecialEventID.spaceMonster:
-            print("not implemented yet")
+            addQuestString("Kill the space monster at Acamar.", ID: QuestID.spaceMonster)
+            for planet in galaxy.planets {
+                if planet.name == "Acamar" {
+                    planet.spaceMonsterIsHere = true
+                }
+            }
+            
         case SpecialEventID.wild:
-            print("not implemented yet")
+            // **** MAKE SURE ENOUGH SPACE TO TAKE ON WILD
+            wildOnBoard = true
+            wildElapsedTime = 0
+            addQuestString("Smuggle Jonathan Wild to Kravat", ID: QuestID.wild)
+            galaxy.setSpecial("Kravat", id: SpecialEventID.wildGetsOut)
+            // **** ADD WILD TO CREW, TAKE HIS SKILLS INTO ACCOUNT
+            
         case SpecialEventID.merchantPrice:
-            print("not implemented yet")
+            player.commanderShip.tribbles = 1       // NEED UPDATETRIBBLE FUNCTION
+            addQuestString("Get rid of those pesky tribbles.", ID: QuestID.tribbles) // is it time for this yet?
+            // add tribble buyer somewhere. **** IS IT TIME FOR THIS YET?
+            for planet in galaxy.planets {
+                if planet.specialEvent == nil {
+                    planet.specialEvent = SpecialEventID.tribbleBuyer
+                }
+            }
+            
         case SpecialEventID.eraseRecord:
-            print("not implemented yet")
+            if player.credits >= 5000 {
+                player.policeRecord = PoliceRecordType.cleanScore
+                player.credits -= 5000
+            } else {
+                // **** YOU CAN'T AFFORD THIS ALERT
+                // **** REINSTATE SPECIAL EVENT, SINCE WE HAVEN'T USED IT AND DON'T WANT IT GONE
+            }
+            
+            
         case SpecialEventID.lotteryWinner:
             player.credits += 1000
             
         case SpecialEventID.skillIncrease:
-            print("not implemented yet")
+            if player.credits >= 3000 {
+                player.credits -= 3000
+                increaseRandomSkill()
+            } else {
+                // **** TOO POOR MESSAGE & REINSTATE SPECIAL
+            }
+            
         case SpecialEventID.cargoForSale:
-            print("not implemented yet")
+            if player.credits >= 1000 {
+                if player.commanderShip.cargoBays >= 3 {
+                    player.credits -= 1000
+                    addRandomCargo()
+                } else {
+                    // **** TOO FEW BAYS MESSAGE
+                }
+            } else {
+                // **** TOO POOR MESSAGE
+            }
             
             // subsequent
         case SpecialEventID.artifactDelivery:
@@ -543,6 +602,75 @@ class SpecialEvents {
         print("not implemented yet, but assume spacetime is now fucked up")
     }
     
+    func increaseRandomSkill() {
+        // **** SHOULD THIS INSTEAD LET YOU GO OVER 9?
+        var redo = true
+        while redo {
+            redo = false
+            let random = rand(4)
+            switch random {
+            case 0:
+                if player.initialPilotSkill > 7 {
+                    redo = true
+                } else {
+                    player.initialPilotSkill += 2   // **** 2? 1?
+                }
+            case 1:
+                if player.initialFighterSkill > 7 {
+                    redo = true
+                } else {
+                    player.initialFighterSkill += 2
+                }
+            case 2:
+                if player.initialTraderSkill > 7 {
+                    redo = true
+                } else {
+                    player.initialTraderSkill += 2
+                }
+            case 3:
+                if player.initialEngineerSkill > 7 {
+                    redo = true
+                } else {
+                    player.initialEngineerSkill += 2
+                }
+            default: print("error")
+            }
+            
+            if (player.initialPilotSkill > 7) && (player.initialFighterSkill > 7) && (player.initialTraderSkill > 7) && (player.initialEngineerSkill > 7) {
+                redo = false
+                player.initialPilotSkill = 9
+            }
+        }
+    }
+    
+    func addRandomCargo() {
+        let random = rand(10)
+        
+        switch random {
+        case 0:
+            player.commanderShip.addCargo(TradeItemType.Water, quantity: 3, pricePaid: 333)
+        case 1:
+            player.commanderShip.addCargo(TradeItemType.Furs, quantity: 3, pricePaid: 333)
+        case 2:
+            player.commanderShip.addCargo(TradeItemType.Food, quantity: 3, pricePaid: 333)
+        case 3:
+            player.commanderShip.addCargo(TradeItemType.Ore, quantity: 3, pricePaid: 333)
+        case 4:
+            player.commanderShip.addCargo(TradeItemType.Games, quantity: 3, pricePaid: 333)
+        case 5:
+            player.commanderShip.addCargo(TradeItemType.Firearms, quantity: 3, pricePaid: 333)
+        case 6:
+            player.commanderShip.addCargo(TradeItemType.Medicine, quantity: 3, pricePaid: 333)
+        case 7:
+            player.commanderShip.addCargo(TradeItemType.Machines, quantity: 3, pricePaid: 333)
+        case 8:
+            player.commanderShip.addCargo(TradeItemType.Narcotics, quantity: 3, pricePaid: 333)
+        case 9:
+            player.commanderShip.addCargo(TradeItemType.Robots, quantity: 3, pricePaid: 333)
+        default: print("error")
+        }
+    }
+    
     func incrementCountdown() {
         // is called every day on warp, decrements each countdown. Checks if they are zero, acts accordingly if so
         
@@ -584,6 +712,29 @@ class SpecialEvents {
                 gemulonInvasionCountdown == -1              // inactivate countdown
                 addQuestString("", ID: QuestID.gemulon)     // inactivate quest
                 galaxy.setSpecial("Gemulon", id: SpecialEventID.gemulonInvaded)
+                for planet in galaxy.planets {
+                    if planet.name == "Gemulon" {
+                        planet.swarmingWithAliens = true
+                    }
+                }
+            }
+        }
+        
+        // reactor
+        if reactorElapsedTime != -1 {
+            reactorElapsedTime += 1
+            
+            if reactorElapsedTime == 5 {
+                // **** FIGURE OUT EVERYTHING THAT HAPPENS WITH THE REACTOR, IMPLEMENT IT HERE
+            }
+        }
+        
+        // wild
+        if wildElapsedTime != -1 {
+            wildElapsedTime += 1
+            
+            if wildElapsedTime == 10 {
+                // **** AT SOME POINT HE MUST GET IMPATIENT, STOP HELPING, AND QUEST STRING MUST BE UPDATED
             }
         }
         
@@ -660,6 +811,7 @@ enum QuestID {
     case sculpture
     case spaceMonster
     case tribbles
+    case wild
 }
 
 class Quest {

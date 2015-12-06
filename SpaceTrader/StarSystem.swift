@@ -30,6 +30,11 @@ class StarSystem {
     var newspaper: Newspaper = Newspaper()
     var newsItemDropBox: NewsItemID?
     var specialEvent: SpecialEventID?
+    
+    var scarabIsHere = false
+    var dragonflyIsHere = false
+    var swarmingWithAliens = false
+    var spaceMonsterIsHere = false
 
     // quantities and prices
     var water: Int = 0
