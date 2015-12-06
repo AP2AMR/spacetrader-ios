@@ -20,6 +20,9 @@ class SpecialEvents {
     var yesDismissButtonEnabled = true  // assuming this won't be necessary, leaving it here
     var noButtonEnabled = false
     
+    // quest strings. One for each quest. addQuestString function takes string and QuestID, appends if it's the first one, replaces if not. Use "" for string to delete quest upon completion.
+    var quests: [(String, QuestID)] = []
+    
     // internal
     var currentSpecialEventID: SpecialEventID? = nil
     
@@ -46,7 +49,12 @@ class SpecialEvents {
             case SpecialEventID.gemulonInvasion:
                 print("not implemented yet")
             case SpecialEventID.japoriDisease:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                // quest string
             case SpecialEventID.ambassadorJarek:
                 print("not implemented yet")
             case SpecialEventID.princess:
@@ -341,6 +349,32 @@ class SpecialEvents {
             print("not implemented yet")
         }
     }
+    
+    func addQuestString(string: String, ID: QuestID) {
+        // empty string removes this quest
+        var index = 0
+        var indexOfThisQuestString: Int?
+        for quest in quests {
+            if quest.1 == ID {
+                indexOfThisQuestString = index
+            }
+            index += 1
+        }
+        if indexOfThisQuestString != nil {
+            if string == "" {
+                // delete this quest
+                quests.removeAtIndex(indexOfThisQuestString!)
+            } else {
+                // update this quest
+                quests[indexOfThisQuestString!] = (string, ID)
+            }
+            
+        } else {
+            // add quest if not already present
+            quests.append((string, ID))
+        }
+        
+    }
 }
 
 
@@ -395,4 +429,20 @@ enum SpecialEventID {
     case monsterKilled
     case wildGetsOut
     case tribbleBuyer
+}
+
+enum QuestID {
+    case artifact
+    case dragonfly
+    case experiment
+    case gemulon
+    case japori
+    case jarek
+    case princess
+    case moon
+    case reactor
+    case scarab
+    case sculpture
+    case spaceMonster
+    case tribbles
 }
