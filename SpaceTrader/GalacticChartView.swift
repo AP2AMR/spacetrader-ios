@@ -58,18 +58,17 @@ class GalacticChartView: UIView {
             
             // draw crosshairs on tracked system
             if galaxy.trackedSystem != nil {
-                // get mapPlanet for currentSystem
-                var currentSystem: mapPlanet?
+
                 for planet in planetsOnMap {
                     if planet.system.name == galaxy.currentSystem!.name {
-                        currentSystem = planet
+                        currentPlanet = planet
                     }
                 }
                 
                 for mapPanet in planetsOnMap {
                     if mapPlanet.system.name == galaxy.trackedSystem!.name {
                         drawTrackedCrosshairs(mapPlanet)
-                        drawTrackedArrow(currentSystem!, trackedSystem: mapPlanet)
+                        //drawTrackedArrow(currentSystem!, trackedSystem: mapPlanet)
                     }
                 }
             }
