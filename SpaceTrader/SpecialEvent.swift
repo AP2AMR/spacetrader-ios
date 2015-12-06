@@ -43,102 +43,102 @@ class SpecialEvents {
             switch galaxy.currentSystem!.specialEvent! {
             // initial
             case SpecialEventID.alienArtifact:
-                specialEventTitle = ""
-                specialEventText = ""
-                yesDismissButtonText = "Ok"
+                specialEventTitle = "Alien Artifact"
+                specialEventText = "This alien artifact should be delivered to professor Berger, who is currently traveling. You can probably find him at a hi-tech solar system. The alien race which produced this artifact seems keen on getting it back, however, and may hinder the carrier. Are you, for a price, willing to deliver it?"
+                yesDismissButtonText = "Yes"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.dragonfly:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Dragonfly"
+                specialEventText = "This is Colonel Jackson of the Space Corps. An experimental ship, code-named \"Dragonfly\", has been stolen. It is equipped with very special, almost indestructible shields. It shouldn't fall into the wrong hands and we will reward you if you destroy it. It has been last seen in the Baratas system."
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.dangerousExperiment:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Dangerous Experiment"
+                specialEventText = "While reviewing the plans for Dr. Fehler's new space-warping drive, Dr. Lowenstam discovered a critical error. If you don't go to Daled and stop the experiment within ten days, the time-space continuum itself could be damaged!"
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.gemulonInvasion:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Alien Invasion"
+                specialEventText = "We received word that aliens will invade Gemulon seven days from now. We know exactly at which coordinates they will arrive, but we can't warn Gemulon because an ion storm disturbs all forms of communication. We need someone, anyone, to deliver this info to Gemulon within six days."
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.japoriDisease:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Japori Disease"
+                specialEventText = "A strange disease has invaded the Japori system. We would like you to deliver these ten canisters of special antidote to Japori. Note that, if you accept, ten of your cargo bays will remain in use on your way to Japori. Do you accept this mission?"
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
 
             case SpecialEventID.ambassadorJarek:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Ambassador Jarek"
+                specialEventText = "A recent change in the political climate of this solar system has forced Ambassador Jarek to flee back to his home system, Devidia. Would you be willing to give him a lift?"
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.princess:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Kidnapped"
+                specialEventText = "A member of the Royal Family of Galvon has been kidnapped! Princess Ziyal was abducted by men while travelling across the planet. They escaped in a hi-tech ship called the Scorpion. Please rescue her! (You'll need to equip your ship with disruptors to be able to defeat the Scorpion without destroying it.) A ship bristling with weapons was blasting out of the system. It's trajectory before going to warp indicates that its destination was Centauri."
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.moonForSale:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Moon for Sale"
+                specialEventText = "There is a small but habitable moon for sale in the Utopia system, for the very reasonable sum of half a million credits. If you accept it, you can retire to it and live a peaceful, happy, and wealthy life. Do you wish to buy it?"
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.morgansReactor:
-                specialEventTitle = ""
-                specialEventText = ""
-                yesDismissButtonText = "Ok"
-                //noButtonText = ""
-                noButtonEnabled = false
+                specialEventTitle = "Morgan's Reactor"
+                specialEventText = "Galactic criminal Henry Morgan wants this illegal ion reactor delivered to Nix. It's a very dangerous mission! The reactor and its fuel are bulky, taking up 15 bays. Worse, it's not stable -- its resonant energy will weaken your shields and hull strength while it's aboard your ship. Are you willing to deliver it?"
+                yesDismissButtonText = "Yes"
+                noButtonText = "No"
+                noButtonEnabled = true
                 
             case SpecialEventID.scarabStolen:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Scarab Stolen"
+                specialEventText = "Captain Renwick developed a new organic hull material for his ship which cannot be damaged except by Pulse lasers. While he was celebrating this success, pirates boarded and stole the craft, which they have named the Scarab. Rumors suggest it's being hidden at the exit to a wormhole. Destroy the ship for a reward!"
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.sculpture:
-                specialEventTitle = ""
-                specialEventText = ""
-                yesDismissButtonText = "Ok"
-                //noButtonText = ""
-                noButtonEnabled = false
+                specialEventTitle = "Stolen Sculpture"
+                specialEventText = "A hooded figure approaches you and asks if you'd be willing to deliver some recently aquired merchandise to Endor. He's holding a small sculpture of a man holding some kind of light sword that you strongly suspect was stolen. It appears to be made of plastic and not very valuable. \"I'll pay you 2,000 credits now, plus 15,000 on delivery,\" the figure says. After seeing the look on your face he adds, \"It's a collector's item. Will you deliver it or not?\""
+                yesDismissButtonText = "Yes"
+                noButtonText = "No"
+                noButtonEnabled = true
                 
             case SpecialEventID.spaceMonster:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Space Monster"
+                specialEventText = "A space monster has invaded the Acamar system and is disturbing the trade routes. You'll be rewarded handsomely if you manage to destroy it."
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.wild:
-                specialEventTitle = ""
-                specialEventText = ""
-                yesDismissButtonText = "Ok"
-                //noButtonText = ""
-                noButtonEnabled = false
+                specialEventTitle = "Jonathan Wild"
+                specialEventText = "Law Enforcement is closing in on notorious criminal kingpin Jonathan Wild. He would reward you handsomely for smuggling him home to Kravat. You'd have to avoid capture by the Police on the way. Are you willing to give him a berth?"
+                yesDismissButtonText = "Yes"
+                noButtonText = "No"
+                noButtonEnabled = true
                 
             case SpecialEventID.merchantPrice:
-                specialEventTitle = ""
-                specialEventText = ""
-                yesDismissButtonText = "Ok"
-                //noButtonText = ""
-                noButtonEnabled = false
+                specialEventTitle = "Merchant Prince"
+                specialEventText = "A merchant prince offers you a very special and wondrous item for the sum of 1000 credits. Do you accept?"
+                yesDismissButtonText = "Yes"
+                noButtonText = "No"
+                noButtonEnabled = true
                 
             case SpecialEventID.eraseRecord:
                 specialEventTitle = ""
@@ -156,18 +156,18 @@ class SpecialEvents {
                 noButtonEnabled = false
                 
             case SpecialEventID.skillIncrease:
-                specialEventTitle = ""
-                specialEventText = ""
-                yesDismissButtonText = "Ok"
-                //noButtonText = ""
-                noButtonEnabled = false
+                specialEventTitle = "Skill Increase"
+                specialEventText = "An alien with a fast-learning machine offers to increase one of your skills for the reasonable sum of 3000 credits. You won't be able to pick that skill, though. Do you accept his offer?"
+                yesDismissButtonText = "Yes"
+                noButtonText = "No"
+                noButtonEnabled = true
                 
             case SpecialEventID.cargoForSale:
-                specialEventTitle = ""
-                specialEventText = ""
-                yesDismissButtonText = "Ok"
-                //noButtonText = ""
-                noButtonEnabled = false
+                specialEventTitle = "Cargo For Sale"
+                specialEventText = "A trader in second-hand goods offers you 3 sealed cargo canisters for the sum of 1000 credits. It could be a good deal: they could contain robots. Then again, it might just be water. Do you want the canisters?"
+                yesDismissButtonText = "Yes"
+                noButtonText = "No"
+                noButtonEnabled = true
                 
             // subsequent
             case SpecialEventID.artifactDelivery:
