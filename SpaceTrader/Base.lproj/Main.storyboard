@@ -4083,12 +4083,22 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arO-nM-UUz" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="262" y="532" width="77" height="38"/>
+                                <rect key="frame" x="410" y="532" width="140" height="38"/>
                                 <animations/>
                                 <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
-                                <state key="normal" title="Done"/>
+                                <state key="normal" title="DefaultAnswer"/>
                                 <connections>
                                     <action selector="dismissButton:" destination="W5e-MN-1Eu" eventType="touchUpInside" id="ljC-qM-Y4p"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IPm-ka-C1R" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
+                                <rect key="frame" x="50" y="532" width="60" height="38"/>
+                                <animations/>
+                                <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                <state key="normal" title="No"/>
+                                <connections>
+                                    <action selector="dismissButton:" destination="W5e-MN-1Eu" eventType="touchUpInside" id="85o-If-rRU"/>
+                                    <action selector="noButton:" destination="W5e-MN-1Eu" eventType="touchUpInside" id="XyR-r9-hzN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -4100,12 +4110,21 @@
                             <constraint firstAttribute="leadingMargin" secondItem="l27-Ka-OXa" secondAttribute="leading" id="9e8-Jf-NSd"/>
                             <constraint firstItem="nXX-2d-JDU" firstAttribute="top" secondItem="l27-Ka-OXa" secondAttribute="bottom" constant="30" id="Baq-dr-tpa"/>
                             <constraint firstItem="l27-Ka-OXa" firstAttribute="top" secondItem="7FH-7m-gwF" secondAttribute="bottom" constant="20" id="Ocj-bM-LTp"/>
+                            <constraint firstItem="IPm-ka-C1R" firstAttribute="leading" secondItem="EsW-or-HpZ" secondAttribute="leadingMargin" constant="30" id="lcT-it-gd6"/>
                             <constraint firstAttribute="leadingMargin" secondItem="nXX-2d-JDU" secondAttribute="leading" id="mxI-KM-E8O"/>
+                            <constraint firstItem="arO-nM-UUz" firstAttribute="baseline" secondItem="IPm-ka-C1R" secondAttribute="baseline" id="rP6-qK-eE5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="arO-nM-UUz" secondAttribute="trailing" constant="30" id="ryw-uP-LbM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nXX-2d-JDU" secondAttribute="trailing" id="wpq-Yj-kas"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2vE-ft-gCH"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="dismissButtonOutlet" destination="arO-nM-UUz" id="UmP-tw-HeK"/>
+                        <outlet property="noButtonOutlet" destination="IPm-ka-C1R" id="TFR-O4-Mks"/>
                         <outlet property="specialEventText" destination="nXX-2d-JDU" id="ey8-qy-aQl"/>
                         <outlet property="specialEventTitle" destination="l27-Ka-OXa" id="g2S-gP-03j"/>
                     </connections>

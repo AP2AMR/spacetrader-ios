@@ -15,7 +15,10 @@ class SpecialEvents {
     var special = false
     var specialEventTitle = ""
     var specialEventText = ""
-    // buttons text...
+    var yesDismissButtonText = ""
+    var noButtonText = ""
+    var yesDismissButtonEnabled = true  // assuming this won't be necessary, leaving it here
+    var noButtonEnabled = false
     
     // internal
     var currentSpecialEventID: SpecialEventID? = nil
@@ -32,7 +35,6 @@ class SpecialEvents {
         }
         
         if special {
-            // the hugeass switch statement
             switch galaxy.currentSystem!.specialEvent! {
             // initial
             case SpecialEventID.alienArtifact:
@@ -68,8 +70,10 @@ class SpecialEvents {
             case SpecialEventID.lotteryWinner:
                 specialEventTitle = "Lottery Winner"
                 specialEventText = "You are lucky! While docking on the space port, you receive a message that you won 1000 credits in a lottery. The prize has been added to your account."
-                // make done button give you $1000 & dismiss special
-                
+                // set button titles and enabled/disabled status
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
             case SpecialEventID.skillIncrease:
                 print("not implemented yet")
             case SpecialEventID.cargoForSale:
@@ -134,6 +138,208 @@ class SpecialEvents {
             }
         }
         
+    }
+    
+    func yesDismissButton() {
+        switch galaxy.currentSystem!.specialEvent! {
+            // initial
+        case SpecialEventID.alienArtifact:
+            print("not implemented yet")
+        case SpecialEventID.dragonfly:
+            print("not implemented yet")
+        case SpecialEventID.dangerousExperiment:
+            print("not implemented yet")
+        case SpecialEventID.gemulonInvasion:
+            print("not implemented yet")
+        case SpecialEventID.japoriDisease:
+            print("not implemented yet")
+        case SpecialEventID.ambassadorJarek:
+            print("not implemented yet")
+        case SpecialEventID.princess:
+            print("not implemented yet")
+        case SpecialEventID.moonForSale:
+            print("not implemented yet")
+        case SpecialEventID.morgansReactor:
+            print("not implemented yet")
+        case SpecialEventID.scarabStolen:
+            print("not implemented yet")
+        case SpecialEventID.sculpture:
+            print("not implemented yet")
+        case SpecialEventID.spaceMonster:
+            print("not implemented yet")
+        case SpecialEventID.wild:
+            print("not implemented yet")
+        case SpecialEventID.merchantPrice:
+            print("not implemented yet")
+        case SpecialEventID.eraseRecord:
+            print("not implemented yet")
+        case SpecialEventID.lotteryWinner:
+            player.credits += 1000
+            
+        case SpecialEventID.skillIncrease:
+            print("not implemented yet")
+        case SpecialEventID.cargoForSale:
+            print("not implemented yet")
+            
+            // subsequent
+        case SpecialEventID.artifactDelivery:
+            print("not implemented yet")
+        case SpecialEventID.dragonflyBaratas:
+            print("not implemented yet")
+        case SpecialEventID.dragonflyMelina:
+            print("not implemented yet")
+        case SpecialEventID.dragonflyRegulas:
+            print("not implemented yet")
+        case SpecialEventID.dragonflyDestroyed:
+            print("not implemented yet")
+        case SpecialEventID.lightningShield:
+            print("not implemented yet")
+        case SpecialEventID.disasterAverted:
+            print("not implemented yet")
+        case SpecialEventID.experimentFailed:
+            print("not implemented yet")
+        case SpecialEventID.gemulonInvaded:
+            print("not implemented yet")
+        case SpecialEventID.gemulonRescued:
+            print("not implemented yet")
+        case SpecialEventID.fuelCompactor:
+            print("not implemented yet")
+        case SpecialEventID.medicineDelivery:
+            print("not implemented yet")
+        case SpecialEventID.jarekGetsOut:
+            print("not implemented yet")
+        case SpecialEventID.princessCentauri:
+            print("not implemented yet")
+        case SpecialEventID.princessInthara:
+            print("not implemented yet")
+        case SpecialEventID.princessQonos:
+            print("not implemented yet")
+        case SpecialEventID.princessReturned:
+            print("not implemented yet")
+        case SpecialEventID.installQuantumDisruptor:
+            print("not implemented yet")
+        case SpecialEventID.retirement:
+            print("not implemented yet")
+        case SpecialEventID.reactorDelivered:
+            print("not implemented yet")
+        case SpecialEventID.installMorgansLaser:
+            print("not implemented yet")
+        case SpecialEventID.scarabDestroyed:
+            print("not implemented yet")
+        case SpecialEventID.upgradeHull:
+            print("not implemented yet")
+        case SpecialEventID.sculptureDelivered:
+            print("not implemented yet")
+        case SpecialEventID.installHiddenCompartments:
+            print("not implemented yet")
+        case SpecialEventID.monsterKilled:
+            print("not implemented yet")
+        case SpecialEventID.wildGetsOut:
+            print("not implemented yet")
+        case SpecialEventID.tribbleBuyer:
+            print("not implemented yet")
+        }
+
+    }
+    
+    func noButton() {
+        switch galaxy.currentSystem!.specialEvent! {
+            // initial
+        case SpecialEventID.alienArtifact:
+            print("not implemented yet")
+        case SpecialEventID.dragonfly:
+            print("not implemented yet")
+        case SpecialEventID.dangerousExperiment:
+            print("not implemented yet")
+        case SpecialEventID.gemulonInvasion:
+            print("not implemented yet")
+        case SpecialEventID.japoriDisease:
+            print("not implemented yet")
+        case SpecialEventID.ambassadorJarek:
+            print("not implemented yet")
+        case SpecialEventID.princess:
+            print("not implemented yet")
+        case SpecialEventID.moonForSale:
+            print("not implemented yet")
+        case SpecialEventID.morgansReactor:
+            print("not implemented yet")
+        case SpecialEventID.scarabStolen:
+            print("not implemented yet")
+        case SpecialEventID.sculpture:
+            print("not implemented yet")
+        case SpecialEventID.spaceMonster:
+            print("not implemented yet")
+        case SpecialEventID.wild:
+            print("not implemented yet")
+        case SpecialEventID.merchantPrice:
+            print("not implemented yet")
+        case SpecialEventID.eraseRecord:
+            print("not implemented yet")
+        case SpecialEventID.lotteryWinner:
+            print("not implemented yet")
+        case SpecialEventID.skillIncrease:
+            print("not implemented yet")
+        case SpecialEventID.cargoForSale:
+            print("not implemented yet")
+            
+            // subsequent
+        case SpecialEventID.artifactDelivery:
+            print("not implemented yet")
+        case SpecialEventID.dragonflyBaratas:
+            print("not implemented yet")
+        case SpecialEventID.dragonflyMelina:
+            print("not implemented yet")
+        case SpecialEventID.dragonflyRegulas:
+            print("not implemented yet")
+        case SpecialEventID.dragonflyDestroyed:
+            print("not implemented yet")
+        case SpecialEventID.lightningShield:
+            print("not implemented yet")
+        case SpecialEventID.disasterAverted:
+            print("not implemented yet")
+        case SpecialEventID.experimentFailed:
+            print("not implemented yet")
+        case SpecialEventID.gemulonInvaded:
+            print("not implemented yet")
+        case SpecialEventID.gemulonRescued:
+            print("not implemented yet")
+        case SpecialEventID.fuelCompactor:
+            print("not implemented yet")
+        case SpecialEventID.medicineDelivery:
+            print("not implemented yet")
+        case SpecialEventID.jarekGetsOut:
+            print("not implemented yet")
+        case SpecialEventID.princessCentauri:
+            print("not implemented yet")
+        case SpecialEventID.princessInthara:
+            print("not implemented yet")
+        case SpecialEventID.princessQonos:
+            print("not implemented yet")
+        case SpecialEventID.princessReturned:
+            print("not implemented yet")
+        case SpecialEventID.installQuantumDisruptor:
+            print("not implemented yet")
+        case SpecialEventID.retirement:
+            print("not implemented yet")
+        case SpecialEventID.reactorDelivered:
+            print("not implemented yet")
+        case SpecialEventID.installMorgansLaser:
+            print("not implemented yet")
+        case SpecialEventID.scarabDestroyed:
+            print("not implemented yet")
+        case SpecialEventID.upgradeHull:
+            print("not implemented yet")
+        case SpecialEventID.sculptureDelivered:
+            print("not implemented yet")
+        case SpecialEventID.installHiddenCompartments:
+            print("not implemented yet")
+        case SpecialEventID.monsterKilled:
+            print("not implemented yet")
+        case SpecialEventID.wildGetsOut:
+            print("not implemented yet")
+        case SpecialEventID.tribbleBuyer:
+            print("not implemented yet")
+        }
     }
 }
 
