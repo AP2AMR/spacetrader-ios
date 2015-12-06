@@ -170,6 +170,17 @@ class SystemInfoVC: UIViewController {
         }
     }
     
+    @IBAction func menuTapped(sender: AnyObject) {
+        // PROVISIONAL
+        print("OPEN QUESTS:")
+        for quest in player.specialEvents.quests {
+            if quest.completed == false {
+                print(quest.questString)
+            }
+        }
+    }
+    
+    
     
     
 }

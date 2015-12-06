@@ -24,12 +24,21 @@ class SpecialEvents {
     var quests: [Quest] = []
     
     // state variables (e.g. wildOnBoard, artifactOnBoard), counters (e.g. gemulonInvasionCountdown, experimentCountdown)
+    var artifactOnBoard = false
+    var wildOnBoard = false
+    var reactorOnBoard = false
+    var tribblesOnBoard = false
+    var tribbleCount = 0
+    
+    var experimentCountdown = -1
+    var jarekElapsedTime = -1
+    var gemulonInvasionCountdown = -1
+    
     
     // internal
     var currentSpecialEventID: SpecialEventID? = nil
     
     init() {
-        
     }
     
     func setSpecialEvent() {
@@ -283,88 +292,88 @@ class SpecialEvents {
                 noButtonEnabled = false
                 
             case SpecialEventID.princessReturned:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Royal Return"
+                specialEventText = "The King and Queen are extremely grateful to you for returning their daughter to them. The King says, \"Ziyal is priceless to us, but we feel we must offer you something as a reward. Visit my shipyard captain and he'll install one of our new Quantum Disruptors.\""
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.installQuantumDisruptor:
-                specialEventTitle = ""
-                specialEventText = ""
-                yesDismissButtonText = "Ok"
-                //noButtonText = ""
-                noButtonEnabled = false
+                specialEventTitle = "Quantum Disruptor"
+                specialEventText = "His Majesty's Shipyard: Do you want us to install a quantum disruptor on your current ship?"
+                yesDismissButtonText = "Yes"
+                noButtonText = "No"
+                noButtonEnabled = true
                 
             case SpecialEventID.retirement:
-                specialEventTitle = ""
-                specialEventText = ""
-                yesDismissButtonText = "Ok"
-                //noButtonText = ""
-                noButtonEnabled = false
+                specialEventTitle = "Retirement"
+                specialEventText = "Welcome to the Utopia system. Your own moon is available for you to retire to it, if you feel inclined to do that. Are you ready to retire and lead a happy, peaceful, and wealthy life?"
+                yesDismissButtonText = "Yes"
+                noButtonText = "No"
+                noButtonEnabled = true
                 
             case SpecialEventID.reactorDelivered:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Reactor Delivered"
+                specialEventText = "Henry Morgan takes delivery of the reactor with great glee. His men immediately set about stabilizing the fuel system. As a reward, Morgan offers you a special, high-powered laser that he designed. Return with an empty weapon slot when you want them to install it."
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.installMorgansLaser:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Install Morgan's Laser"
+                specialEventText = "Morgan's technicians are standing by with something that looks a lot like a military laser -- if you ignore the additional cooling vents and anodized ducts. Do you want them to install Morgan's special laser?"
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.scarabDestroyed:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Scarab Destroyed"
+                specialEventText = "Space Corps is indebted to you for destroying the Scarab and the pirates who stole it. As a reward, we can have Captain Renwick upgrade the hull of your ship. Note that his upgrades won't be transferable if you buy a new ship! Come back with the ship you wish to upgrade."
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.upgradeHull:
-                specialEventTitle = ""
-                specialEventText = ""
-                yesDismissButtonText = "Ok"
-                //noButtonText = ""
-                noButtonEnabled = false
+                specialEventTitle = "Upgrade Hull"
+                specialEventText = "The organic hull used in the Scarab is still not ready for day-to-day use. But Captain Renwick can certainly upgrade your hull with some of his retrofit technology. It's light stuff, and won't reduce your ship's range. Should he upgrade your ship?"
+                yesDismissButtonText = "Yes"
+                noButtonText = "No"
+                noButtonEnabled = true
                 
             case SpecialEventID.sculptureDelivered:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Sculpture Delivered"
+                specialEventText = "Yet another dark, hooded figure approaches. \"Do you have the action fig- umm, the sculpture?\" You hand it over and hear what sounds very much like a giggle from under the hood. \"I know you were promised 15,000 credits on delivery, but I'm strapped for cash right now. However, I have something better for you. I have an acquaintance who can install hidden compartments in your ship.\" Return with an empty gadget slot when you're ready to have it installed."
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.installHiddenCompartments:
-                specialEventTitle = ""
-                specialEventText = ""
-                yesDismissButtonText = "Ok"
-                //noButtonText = ""
-                noButtonEnabled = false
+                specialEventTitle = "Install Hidden Compartments"
+                specialEventText = "You're taken to a warehouse and whisked through the door. A grubby alien of some humanoid species - you're not sure which one - approaches. \"So you're the being who needs Hidden Compartments. Should I install them in your ship?\" (It requires a free gadget slot.)"
+                yesDismissButtonText = "Yes"
+                noButtonText = "No"
+                noButtonEnabled = true
                 
             case SpecialEventID.monsterKilled:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Monster Killed"
+                specialEventText = "We thank you for destroying the space monster that ircled our system for so long. Please accept 15000 credits as reward for your heroic deed."
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.wildGetsOut:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Wild Gets Out"
+                specialEventText = "Jonathan Wild is most grateful to you for spiriting him to safety. As a reward, he has one of his Cyber Criminals hack into the Police Database, and clean up your record. He also offers you the opportunity to take his talented nephew Zeethibal along as a Mercenary with no pay."
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.tribbleBuyer:
-                specialEventTitle = ""
-                specialEventText = ""
-                yesDismissButtonText = "Ok"
-                //noButtonText = ""
-                noButtonEnabled = false
+                specialEventTitle = "Tribble Buyer"
+                specialEventText = "An eccentric alien billionaire wants to buy your collection of tribbles and offers half a credit for each of them. Do you accept his offer?"
+                yesDismissButtonText = "Yes"
+                noButtonText = "No"
+                noButtonEnabled = true
                 
             }
         }
@@ -375,13 +384,29 @@ class SpecialEvents {
         switch galaxy.currentSystem!.specialEvent! {
             // initial
         case SpecialEventID.alienArtifact:
-            print("not implemented yet")
+            addQuestString("Deliver the alien artifact to Professor Berger at some hi-tech system.", ID: QuestID.artifact)
+            // add artifact delivery to some high tech system without a specialEvent set
+            for planet in galaxy.planets {
+                if planet.techLevel == TechLevelType.techLevel7 {
+                    if planet.specialEvent == nil {
+                        galaxy.setSpecial(planet.name, id: SpecialEventID.artifactDelivery)
+                    }
+                }
+            }
+            artifactOnBoard = true
+            
         case SpecialEventID.dragonfly:
-            print("not implemented yet")
+            addQuestString("Follow the Dragonfly to Melina.", ID: QuestID.dragonfly)
+            galaxy.setSpecial("Melina", id: SpecialEventID.dragonflyMelina)
+            
         case SpecialEventID.dangerousExperiment:
-            print("not implemented yet")
+            experimentCountdown = 10
+            addQuestString("Stop Dr. Fehler's experiment at Daled within \(experimentCountdown) days.", ID: QuestID.experiment)
         case SpecialEventID.gemulonInvasion:
-            print("not implemented yet")
+            gemulonInvasionCountdown = 7
+            addQuestString("Inform Gemulon about alien invasion within \(gemulonInvasionCountdown) days.", ID: QuestID.gemulon)
+            galaxy.setSpecial("Gemulon", id: SpecialEventID.gemulonRescued)
+            
         case SpecialEventID.japoriDisease:
             // quest
             addQuestString("Deliver antidote to Japori.", ID: QuestID.japori)
@@ -389,13 +414,23 @@ class SpecialEvents {
             galaxy.setSpecial("Japori", id: SpecialEventID.medicineDelivery)
             
         case SpecialEventID.ambassadorJarek:
-            print("not implemented yet")
+            jarekElapsedTime = 0
+            addQuestString("Take ambassador Jarek to Devidia.", ID: QuestID.jarek)
+            galaxy.setSpecial("Devidia", id: SpecialEventID.jarekGetsOut)
+            // **** MAKE SURE YOU CAN ADD JAREK TO THE CREW
+            // **** ADD JAREK TO CREW, MAKE HIS SKILLS COUNT (see how this works)
+            
         case SpecialEventID.princess:
-            print("not implemented yet")
+            addQuestString("Follow the Scorpion to Centauri.", ID: QuestID.princess)
+            galaxy.setSpecial("Centauri", id: SpecialEventID.princessCentauri)
+            
         case SpecialEventID.moonForSale:
-            print("not implemented yet")
+            addQuestString("Claim your moon at Utopia.", ID: QuestID.moon)
+            galaxy.setSpecial("Utopia", id: SpecialEventID.retirement)
+
         case SpecialEventID.morgansReactor:
-            print("not implemented yet")
+            
+            
         case SpecialEventID.scarabStolen:
             print("not implemented yet")
         case SpecialEventID.sculpture:
@@ -503,8 +538,55 @@ class SpecialEvents {
         }
     }
     
+    func messUpSpacetime() {
+        // called when/if the experiment fails. Sets warp wrinkle business
+        print("not implemented yet, but assume spacetime is now fucked up")
+    }
+    
     func incrementCountdown() {
         // is called every day on warp, decrements each countdown. Checks if they are zero, acts accordingly if so
+        
+        // experiment
+        if experimentCountdown != -1 {
+            experimentCountdown -= 1
+            
+            if experimentCountdown == 1 {
+                addQuestString("Stop Dr. Fehler's experiment at Daled by tomorrow.", ID: QuestID.experiment)
+            } else if experimentCountdown == 0 {
+                experimentCountdown = -1    // inactivate counter
+                addQuestString("", ID: QuestID.experiment)  // inactivate quest
+                messUpSpacetime()
+                galaxy.setSpecial("Daled", id: SpecialEventID.experimentFailed)
+            }
+        }
+        
+        // jarek
+        if jarekElapsedTime != -1 {
+            jarekElapsedTime += 1
+            
+            if jarekElapsedTime > 10 {
+                // jarek gets less helpful
+                addQuestString("Jarek is wondering why the journey is taking so long, and is no longer of much help in negotiating trades.", ID: QuestID.jarek)
+                // **** CREATE JAREK ALERT
+                // **** CHANGE JAREK STATUS TO BE LESS HELPFUL
+            }
+        }
+        
+        // gemulon
+        if gemulonInvasionCountdown != -1 {
+            gemulonInvasionCountdown -= 1
+            
+            if gemulonInvasionCountdown == 1 {
+                addQuestString("Inform Gemulon about alien invasion by tomorrow.", ID: QuestID.gemulon)
+            }
+            
+            if gemulonInvasionCountdown == 0 {
+                gemulonInvasionCountdown == -1              // inactivate countdown
+                addQuestString("", ID: QuestID.gemulon)     // inactivate quest
+                galaxy.setSpecial("Gemulon", id: SpecialEventID.gemulonInvaded)
+            }
+        }
+        
     }
     
     

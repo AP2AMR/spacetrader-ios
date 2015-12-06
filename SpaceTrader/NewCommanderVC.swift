@@ -152,6 +152,12 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
             player.specialEvents.setSpecialEvent()      // must do this since not warping to initial system
         }
         
+        // THIS IS PURELY FOR TESTING SPECIAL EVENTS
+        if player.difficulty == DifficultyType.normal {
+            galaxy.currentSystem!.specialEvent = SpecialEventID.dangerousExperiment
+            player.specialEvents.setSpecialEvent()
+        }
+        
         // THIS IS THE PLACE TO SET THINGS DIFFERENTLY FOR TESTING*******************************
         
         //player.policeRecord = PoliceRecordType.dubiousScore

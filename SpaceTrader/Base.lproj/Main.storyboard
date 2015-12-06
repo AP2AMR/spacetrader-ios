@@ -5035,7 +5035,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="System Info" id="Osi-Yw-eUB">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="hrk-Sg-Xzw"/>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="hrk-Sg-Xzw">
+                            <connections>
+                                <action selector="menuTapped:" destination="I0c-F9-5oA" id="HX3-C2-yy5"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
