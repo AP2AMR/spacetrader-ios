@@ -273,6 +273,7 @@ class Journey {
         
         // houskeeping things
         player.specialEvents.setSpecialEvent()
+        player.specialEvents.incrementCountdown()
         
         // fire segue back to sell (or something else later)
         var passedText = NSString(string: "done")

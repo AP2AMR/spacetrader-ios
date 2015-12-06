@@ -23,6 +23,8 @@ class SpecialEvents {
     // quest strings. One for each quest. addQuestString function takes string and QuestID, appends if it's the first one, replaces if not. Use "" for string to delete quest upon completion.
     var quests: [Quest] = []
     
+    // state variables (e.g. wildOnBoard, artifactOnBoard), counters (e.g. gemulonInvasionCountdown, experimentCountdown)
+    
     // internal
     var currentSpecialEventID: SpecialEventID? = nil
     
@@ -41,13 +43,33 @@ class SpecialEvents {
             switch galaxy.currentSystem!.specialEvent! {
             // initial
             case SpecialEventID.alienArtifact:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.dragonfly:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.dangerousExperiment:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.gemulonInvasion:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.japoriDisease:
                 specialEventTitle = ""
                 specialEventText = ""
@@ -56,25 +78,75 @@ class SpecialEvents {
                 noButtonEnabled = false
 
             case SpecialEventID.ambassadorJarek:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.princess:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.moonForSale:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.morgansReactor:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.scarabStolen:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.sculpture:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.spaceMonster:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.wild:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.merchantPrice:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.eraseRecord:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.lotteryWinner:
                 specialEventTitle = "Lottery Winner"
                 specialEventText = "You are lucky! While docking on the space port, you receive a message that you won 1000 credits in a lottery. The prize has been added to your account."
@@ -84,66 +156,216 @@ class SpecialEvents {
                 noButtonEnabled = false
                 
             case SpecialEventID.skillIncrease:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.cargoForSale:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             // subsequent
             case SpecialEventID.artifactDelivery:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.dragonflyBaratas:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.dragonflyMelina:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.dragonflyRegulas:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.dragonflyDestroyed:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.lightningShield:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.disasterAverted:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.experimentFailed:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.gemulonInvaded:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.gemulonRescued:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.fuelCompactor:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.medicineDelivery:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.jarekGetsOut:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.princessCentauri:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.princessInthara:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.princessQonos:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.princessReturned:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.installQuantumDisruptor:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.retirement:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.reactorDelivered:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.installMorgansLaser:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.scarabDestroyed:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.upgradeHull:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.sculptureDelivered:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.installHiddenCompartments:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.monsterKilled:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.wildGetsOut:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             case SpecialEventID.tribbleBuyer:
-                print("not implemented yet")
+                specialEventTitle = ""
+                specialEventText = ""
+                yesDismissButtonText = "Ok"
+                //noButtonText = ""
+                noButtonEnabled = false
+                
             }
         }
         
@@ -279,6 +501,10 @@ class SpecialEvents {
         if !found {
             quests.append(Quest(ID: ID, questString: string))
         }
+    }
+    
+    func incrementCountdown() {
+        // is called every day on warp, decrements each countdown. Checks if they are zero, acts accordingly if so
     }
     
     
