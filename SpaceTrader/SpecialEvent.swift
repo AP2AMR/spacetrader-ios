@@ -21,7 +21,7 @@ class SpecialEvents {
     var noButtonEnabled = false
     
     // quest strings. One for each quest. addQuestString function takes string and QuestID, appends if it's the first one, replaces if not. Use "" for string to delete quest upon completion.
-    var quests: [(String, QuestID)] = []
+    var quests: [Quest] = []
     
     // internal
     var currentSpecialEventID: SpecialEventID? = nil
@@ -54,7 +54,7 @@ class SpecialEvents {
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
-                // quest string
+
             case SpecialEventID.ambassadorJarek:
                 print("not implemented yet")
             case SpecialEventID.princess:
@@ -82,6 +82,7 @@ class SpecialEvents {
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
+                
             case SpecialEventID.skillIncrease:
                 print("not implemented yet")
             case SpecialEventID.cargoForSale:
@@ -160,7 +161,11 @@ class SpecialEvents {
         case SpecialEventID.gemulonInvasion:
             print("not implemented yet")
         case SpecialEventID.japoriDisease:
-            print("not implemented yet")
+            // quest
+            addQuestString("Deliver antidote to Japori.", ID: QuestID.japori)
+            // create new special in Japori--medicineDelivery
+            galaxy.setSpecial("Japori", id: SpecialEventID.medicineDelivery)
+            
         case SpecialEventID.ambassadorJarek:
             print("not implemented yet")
         case SpecialEventID.princess:
@@ -251,130 +256,32 @@ class SpecialEvents {
     }
     
     func noButton() {
-        switch galaxy.currentSystem!.specialEvent! {
-            // initial
-        case SpecialEventID.alienArtifact:
-            print("not implemented yet")
-        case SpecialEventID.dragonfly:
-            print("not implemented yet")
-        case SpecialEventID.dangerousExperiment:
-            print("not implemented yet")
-        case SpecialEventID.gemulonInvasion:
-            print("not implemented yet")
-        case SpecialEventID.japoriDisease:
-            print("not implemented yet")
-        case SpecialEventID.ambassadorJarek:
-            print("not implemented yet")
-        case SpecialEventID.princess:
-            print("not implemented yet")
-        case SpecialEventID.moonForSale:
-            print("not implemented yet")
-        case SpecialEventID.morgansReactor:
-            print("not implemented yet")
-        case SpecialEventID.scarabStolen:
-            print("not implemented yet")
-        case SpecialEventID.sculpture:
-            print("not implemented yet")
-        case SpecialEventID.spaceMonster:
-            print("not implemented yet")
-        case SpecialEventID.wild:
-            print("not implemented yet")
-        case SpecialEventID.merchantPrice:
-            print("not implemented yet")
-        case SpecialEventID.eraseRecord:
-            print("not implemented yet")
-        case SpecialEventID.lotteryWinner:
-            print("not implemented yet")
-        case SpecialEventID.skillIncrease:
-            print("not implemented yet")
-        case SpecialEventID.cargoForSale:
-            print("not implemented yet")
-            
-            // subsequent
-        case SpecialEventID.artifactDelivery:
-            print("not implemented yet")
-        case SpecialEventID.dragonflyBaratas:
-            print("not implemented yet")
-        case SpecialEventID.dragonflyMelina:
-            print("not implemented yet")
-        case SpecialEventID.dragonflyRegulas:
-            print("not implemented yet")
-        case SpecialEventID.dragonflyDestroyed:
-            print("not implemented yet")
-        case SpecialEventID.lightningShield:
-            print("not implemented yet")
-        case SpecialEventID.disasterAverted:
-            print("not implemented yet")
-        case SpecialEventID.experimentFailed:
-            print("not implemented yet")
-        case SpecialEventID.gemulonInvaded:
-            print("not implemented yet")
-        case SpecialEventID.gemulonRescued:
-            print("not implemented yet")
-        case SpecialEventID.fuelCompactor:
-            print("not implemented yet")
-        case SpecialEventID.medicineDelivery:
-            print("not implemented yet")
-        case SpecialEventID.jarekGetsOut:
-            print("not implemented yet")
-        case SpecialEventID.princessCentauri:
-            print("not implemented yet")
-        case SpecialEventID.princessInthara:
-            print("not implemented yet")
-        case SpecialEventID.princessQonos:
-            print("not implemented yet")
-        case SpecialEventID.princessReturned:
-            print("not implemented yet")
-        case SpecialEventID.installQuantumDisruptor:
-            print("not implemented yet")
-        case SpecialEventID.retirement:
-            print("not implemented yet")
-        case SpecialEventID.reactorDelivered:
-            print("not implemented yet")
-        case SpecialEventID.installMorgansLaser:
-            print("not implemented yet")
-        case SpecialEventID.scarabDestroyed:
-            print("not implemented yet")
-        case SpecialEventID.upgradeHull:
-            print("not implemented yet")
-        case SpecialEventID.sculptureDelivered:
-            print("not implemented yet")
-        case SpecialEventID.installHiddenCompartments:
-            print("not implemented yet")
-        case SpecialEventID.monsterKilled:
-            print("not implemented yet")
-        case SpecialEventID.wildGetsOut:
-            print("not implemented yet")
-        case SpecialEventID.tribbleBuyer:
-            print("not implemented yet")
-        }
+        // I think this function might be unnecessary. No might just need to dismiss the modal.
+        // Do declined quests ever need to go away?
     }
     
     func addQuestString(string: String, ID: QuestID) {
         // empty string removes this quest
-        var index = 0
-        var indexOfThisQuestString: Int?
+        var found = false
         for quest in quests {
-            if quest.1 == ID {
-                indexOfThisQuestString = index
+            if quest.ID == ID {
+                found = true
+                if string != "" {
+                    // update if string
+                    quest.questString = string
+                } else {
+                    // set as completed
+                    quest.questString = ""
+                    quest.completed = true
+                }
             }
-            index += 1
         }
-        if indexOfThisQuestString != nil {
-            if string == "" {
-                // delete this quest
-                quests.removeAtIndex(indexOfThisQuestString!)
-            } else {
-                // update this quest
-                quests[indexOfThisQuestString!] = (string, ID)
-            }
-            
-        } else {
-            // add quest if not already present
-            quests.append((string, ID))
+        if !found {
+            quests.append(Quest(ID: ID, questString: string))
         }
-        
     }
+    
+    
 }
 
 
@@ -446,3 +353,15 @@ enum QuestID {
     case spaceMonster
     case tribbles
 }
+
+class Quest {
+    let ID: QuestID
+    var questString: String
+    var completed = false
+    
+    init(ID: QuestID, questString: String) {
+        self.ID = ID
+        self.questString = questString
+    }
+}
+

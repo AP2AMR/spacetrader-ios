@@ -1188,6 +1188,14 @@ class Galaxy {
         return Int(Double(runningSum) / Double(count))
     }
     
+    func setSpecial(system: String, id: SpecialEventID) {
+        for planet in planets {
+            if planet.name == system {
+                planet.specialEvent = id
+            }
+        }
+    }
+    
     func warp() -> Bool {
         // let journeyDistance = getDistance(currentSystem!, system2: targetSystem!)
         // print("pre-warp fuel: \(player.commanderShip.fuel)")
