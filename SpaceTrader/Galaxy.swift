@@ -1197,6 +1197,18 @@ class Galaxy {
         }
     }
     
+    func setTracked(system: String) {
+        for planet in planets {
+            if planet.name == system {
+                self.trackedSystem = planet
+            }
+        }
+    }
+    
+    func unsetTracked() {
+        self.trackedSystem = nil
+    }
+    
     func warp() -> Bool {
         // let journeyDistance = getDistance(currentSystem!, system2: targetSystem!)
         // print("pre-warp fuel: \(player.commanderShip.fuel)")

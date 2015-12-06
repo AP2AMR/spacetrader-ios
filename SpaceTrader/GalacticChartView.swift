@@ -58,9 +58,18 @@ class GalacticChartView: UIView {
             
             // draw crosshairs on tracked system
             if galaxy.trackedSystem != nil {
+                // get mapPlanet for currentSystem
+                var currentSystem: mapPlanet?
+                for planet in planetsOnMap {
+                    if planet.system.name == galaxy.currentSystem!.name {
+                        currentSystem = planet
+                    }
+                }
+                
                 for mapPanet in planetsOnMap {
                     if mapPlanet.system.name == galaxy.trackedSystem!.name {
                         drawTrackedCrosshairs(mapPlanet)
+                        drawTrackedArrow(currentSystem!, trackedSystem: mapPlanet)
                     }
                 }
             }
@@ -260,6 +269,22 @@ class GalacticChartView: UIView {
         upperRTick.lineWidth = 2.0
         UIColor.blackColor().setStroke()
         upperRTick.stroke()
+    }
+    
+    func drawTrackedArrow(currentSystem: mapPlanet, trackedSystem: mapPlanet) {
+        if galaxy.trackedSystem != nil {
+            let startX: CGFloat = currentSystem.mapLocation.x
+            let startY: CGFloat = currentSystem.mapLocation.y
+            let endX: CGFloat = trackedSystem.mapLocation.x
+            let endY: CGFloat = trackedSystem.mapLocation.y
+            
+            let redArrow = UIBezierPath()
+            redArrow.moveToPoint(CGPoint(x: startX, y: startY))
+            redArrow.addLineToPoint(CGPoint(x: endX, y: endY))
+            redArrow.lineWidth = 1.0
+            UIColor.blackColor().setStroke()
+            redArrow.stroke()
+        }
     }
     
     func redrawSelf() {

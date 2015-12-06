@@ -2236,6 +2236,7 @@
                         <outlet property="shortRangeChart" destination="x85-0a-Xbg" id="ilg-oa-7Ea"/>
                         <outlet property="sizeLabel" destination="sRG-Mf-HKl" id="VoV-vi-WFW"/>
                         <outlet property="techLevelLabel" destination="tNS-lG-aPB" id="jju-o0-GSy"/>
+                        <outlet property="warpButtonLabel" destination="u44-xC-fcG" id="3vm-zr-Hqv"/>
                         <segue destination="ELE-CK-FDY" kind="presentation" identifier="warpScreenSegue" id="QJh-Dr-ysc"/>
                     </connections>
                 </viewController>
@@ -2286,7 +2287,7 @@
                                 <state key="normal" title="Find"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YRq-7A-BkP" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
-                                <rect key="frame" x="443" y="494" width="69" height="34"/>
+                                <rect key="frame" x="436" y="494" width="69" height="34"/>
                                 <animations/>
                                 <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                 <state key="normal" title="Jump"/>
@@ -2310,8 +2311,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="sLV-cC-4dn" secondAttribute="trailing" id="lmv-dL-szD"/>
                             <constraint firstItem="YRq-7A-BkP" firstAttribute="baseline" secondItem="SR0-e0-agc" secondAttribute="baseline" id="rkO-bE-AJ3"/>
                             <constraint firstItem="sLV-cC-4dn" firstAttribute="top" secondItem="ig7-TH-mrV" secondAttribute="bottom" constant="20" id="sN0-X6-BHI"/>
+                            <constraint firstItem="SR0-e0-agc" firstAttribute="leading" secondItem="YRq-7A-BkP" secondAttribute="trailing" constant="15" id="stL-II-0sw"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Baq-ZF-rjf" secondAttribute="leading" id="u6Q-UU-ZhN"/>
-                            <constraint firstItem="SR0-e0-agc" firstAttribute="leading" secondItem="YRq-7A-BkP" secondAttribute="trailing" constant="8" id="ujJ-OC-dgV"/>
+                            <constraint firstItem="SR0-e0-agc" firstAttribute="leading" secondItem="YRq-7A-BkP" secondAttribute="trailing" constant="8" symbolic="YES" id="ujJ-OC-dgV"/>
                             <constraint firstItem="sLV-cC-4dn" firstAttribute="centerX" secondItem="NDZ-KJ-XKV" secondAttribute="centerX" id="ysE-CI-i9Y"/>
                             <constraint firstItem="YRq-7A-BkP" firstAttribute="baseline" secondItem="SR0-e0-agc" secondAttribute="baseline" id="zaE-x3-8LR"/>
                         </constraints>
@@ -2319,6 +2321,7 @@
                             <mask key="constraints">
                                 <exclude reference="zaE-x3-8LR"/>
                                 <exclude reference="Kqa-c0-vFD"/>
+                                <exclude reference="ujJ-OC-dgV"/>
                             </mask>
                         </variation>
                     </view>

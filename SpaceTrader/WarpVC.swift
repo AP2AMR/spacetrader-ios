@@ -25,6 +25,7 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     @IBOutlet weak var policeLabel: UILabel!
     @IBOutlet weak var piratesLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var warpButtonLabel: CustomButton!
     
     @IBAction func cycleBackwards() {
         galaxy.cycleBackward()
@@ -39,15 +40,13 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
     }
     
     @IBAction func warpButton() {
-        galaxy.warp()
-//        if galaxy.warp() {
-//            print("warp is permitted. Firing segue.")
-//            performSegueWithIdentifier("warpScreenSegue", sender: nil)
-//        } else {
-//            print("warp not permitted. Not firing segue.")
-//        }
-        updateView()
-        shortRangeChart.redrawSelf()
+        if galaxy.targetSystemInRange {
+            galaxy.warp()
+            updateView()
+            shortRangeChart.redrawSelf()
+        } else {
+            galaxy.setTracked(galaxy.targetSystem!.name)
+        }
     }
     
     @IBAction func galacticChartButton(sender: AnyObject) {
@@ -78,6 +77,15 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
         policeLabel.text = galaxy.getActivityForInt(politics.activityPolice)
         piratesLabel.text = galaxy.getActivityForInt(politics.activityPirates)
         distanceLabel.text = "\(galaxy.getDistance(galaxy.currentSystem!, system2: galaxy.targetSystem!))"
+        
+        // turn "warp" button into "track" button if system is out of range
+        if galaxy.targetSystemInRange {
+            let controlState = UIControlState()
+            warpButtonLabel.setTitle("Warp", forState: controlState)
+        } else {
+            let controlState = UIControlState()
+            warpButtonLabel.setTitle("Track", forState: controlState)
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
