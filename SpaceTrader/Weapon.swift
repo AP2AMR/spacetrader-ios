@@ -69,6 +69,15 @@ class Weapon {
             self.techLevel = TechLevelType.techLevel8
             self.chance = 0
             self.image = UIImage(named: "photon")!
+        case WeaponType.quantumDisruptor:
+            self.name = "Quantum Disruptor"
+            self.power = 70
+            self.disruptivePower = 2
+            self.price = 0
+            self.sellPrice = 50000
+            self.techLevel = TechLevelType.techLevel8
+            self.chance = 0
+            self.image = UIImage(named: "quantum")!
         }
     }
 }

@@ -28,13 +28,13 @@ class SpecialEvents {
     var wildOnBoard = false
     var reactorOnBoard = false
     var tribblesOnBoard = false
-    var tribbleCount = 0
     
     var experimentCountdown = -1
     var jarekElapsedTime = -1
     var gemulonInvasionCountdown = -1
     var reactorElapsedTime = -1
     var wildElapsedTime = -1
+    var princessElapsedTime = -1
     
     
     // internal
@@ -512,61 +512,167 @@ class SpecialEvents {
             
             // subsequent
         case SpecialEventID.artifactDelivery:
-            print("not implemented yet")
+            artifactOnBoard = false
+            player.credits += 20000
+            addQuestString("", ID: QuestID.artifact)        // close quest
+            
         case SpecialEventID.dragonflyBaratas:
-            print("not implemented yet")
+            addQuestString("Follow the Dragonfly to Melina.", ID: QuestID.dragonfly)
+            galaxy.setSpecial("Melina", id: SpecialEventID.dragonflyMelina)
+            
         case SpecialEventID.dragonflyMelina:
-            print("not implemented yet")
+            addQuestString("Follow the Dragonfly to Regulas", ID: QuestID.dragonfly)
+            galaxy.setSpecial("Regulas", id: SpecialEventID.dragonflyRegulas)
+            
         case SpecialEventID.dragonflyRegulas:
-            print("not implemented yet")
+            addQuestString("Follow the Dragonfly to Zalkon.", ID: QuestID.dragonfly)
+            for planet in galaxy.planets {
+                if planet.name == "Zalkon" {
+                    planet.dragonflyIsHere = true
+                }
+            }
+            // no new special. Will be added at Zalkon when dragonfly is destroyed
+            
         case SpecialEventID.dragonflyDestroyed:
-            print("not implemented yet")
+            addQuestString("Get your lightning shield at Zalkon.", ID: QuestID.dragonfly)
+            galaxy.setSpecial("Zalkon", id: SpecialEventID.lightningShield)
+            
         case SpecialEventID.lightningShield:
-            print("not implemented yet")
+            if player.commanderShip.shield.count < player.commanderShip.shieldSlots {
+                // add shield
+                player.commanderShip.shield.append(Shield(type: ShieldType.lightningShield))
+                addQuestString("", ID: QuestID.dragonfly)
+            } else {
+                // **** NOT ENOUGH SHIELD SLOTS MESSAGE
+                galaxy.setSpecial("Zalkon", id: SpecialEventID.lightningShield)
+            }
+            
         case SpecialEventID.disasterAverted:
-            print("not implemented yet")
+            experimentCountdown = -1        // deactivate countdown
+            player.portableSingularity = true
+            addQuestString("", ID: QuestID.experiment)
+            
         case SpecialEventID.experimentFailed:
-            print("not implemented yet")
+            addQuestString("", ID: QuestID.experiment)
+            // spacetime was already messed up when the timer expired
+            
         case SpecialEventID.gemulonInvaded:
-            print("not implemented yet")
+            // aliens already appeared when timer expired
+            addQuestString("", ID: QuestID.gemulon)
+            
         case SpecialEventID.gemulonRescued:
-            print("not implemented yet")
+            gemulonInvasionCountdown = -1   // deactivate countdown
+            addQuestString("", ID: QuestID.gemulon)
+            galaxy.setSpecial("Gemulon", id: SpecialEventID.fuelCompactor)
+            
         case SpecialEventID.fuelCompactor:
-            print("not implemented yet")
+            if player.commanderShip.gadget.count < player.commanderShip.gadgetSlots {
+                // add gadget
+                player.commanderShip.gadget.append(Gadget(type: GadgetType.FuelCompactor))
+                addQuestString("", ID: QuestID.dragonfly)
+            } else {
+                // **** NOT ENOUGH GADGET SLOTS MESSAGE
+                galaxy.setSpecial("Gemulon", id: SpecialEventID.fuelCompactor)
+            }
+            
         case SpecialEventID.medicineDelivery:
-            print("not implemented yet")
+            addQuestString("", ID: QuestID.japori)
+            increaseRandomSkill()
+            
         case SpecialEventID.jarekGetsOut:
-            print("not implemented yet")
+            addQuestString("", ID: QuestID.jarek)
+            player.initialTraderSkill += 2
+    
         case SpecialEventID.princessCentauri:
-            print("not implemented yet")
+            addQuestString("Follow the Scorpion to Inthara.", ID: QuestID.princess)
+            galaxy.setSpecial("Inthara", id: SpecialEventID.princessInthara)
+            
         case SpecialEventID.princessInthara:
-            print("not implemented yet")
+            addQuestString("Follow the Scorpion to Qonos.", ID: QuestID.princess)
+            for planet in galaxy.planets {
+                if planet.name == "Qonos" {
+                    planet.scorpionIsHere = true
+                }
+            }
+            // upon defeat of the scorpion, SpecialEventID.princessQonos will be added
+            
         case SpecialEventID.princessQonos:
-            print("not implemented yet")
+            
+            addQuestString("Transport Ziyal from Qonos to Galvon.", ID: QuestID.princess)
+            galaxy.setSpecial("Galvon", id: SpecialEventID.princessReturned)
+            
         case SpecialEventID.princessReturned:
-            print("not implemented yet")
+            princessElapsedTime = -1
+            addQuestString("Get your Quantum Disruptor at Galvon.", ID: QuestID.princess)
+            galaxy.setSpecial("Galvon", id: SpecialEventID.installQuantumDisruptor)
+            
         case SpecialEventID.installQuantumDisruptor:
-            print("not implemented yet")
+            if player.commanderShip.weapon.count < player.commanderShip.weaponSlots {
+                // add disruptor
+                player.commanderShip.weapon.append(Weapon(type: WeaponType.quantumDisruptor))
+                addQuestString("", ID: QuestID.princess)
+            } else {
+                // **** NOT ENOUGH WEAPON SLOTS MESSAGE
+                galaxy.setSpecial("Galvon", id: SpecialEventID.installQuantumDisruptor)
+            }
+            
         case SpecialEventID.retirement:
-            print("not implemented yet")
+            addQuestString("", ID: QuestID.moon)
+            // **** END GAME
+            
         case SpecialEventID.reactorDelivered:
-            print("not implemented yet")
+            reactorElapsedTime = -1
+            addQuestString("Get your special laser at Nix.", ID: QuestID.reactor)
+            galaxy.setSpecial("Nix", id: SpecialEventID.installMorgansLaser)
+            
         case SpecialEventID.installMorgansLaser:
-            print("not implemented yet")
+            if player.commanderShip.weapon.count < player.commanderShip.weaponSlots {
+                // add laser
+                player.commanderShip.weapon.append(Weapon(type: WeaponType.morgansLaser))
+                addQuestString("", ID: QuestID.reactor)
+            } else {
+                // **** NOT ENOUGH WEAPON SLOTS MESSAGE
+                galaxy.setSpecial("Nix", id: SpecialEventID.installMorgansLaser)
+            }
+            
         case SpecialEventID.scarabDestroyed:
-            print("not implemented yet")
+            addQuestString("Get your hull upgraded at \(galaxy.currentSystem!.name)", ID: QuestID.scarab)
+            galaxy.setSpecial("\(galaxy.currentSystem!.name)", id: SpecialEventID.upgradeHull)
+            
         case SpecialEventID.upgradeHull:
-            print("not implemented yet")
+            // **** ANY MESSAGE HERE?
+            player.commanderShip.hullStrength += 150    // hopefully this is the best way to do this?
+            addQuestString("", ID: QuestID.scarab)
+            
         case SpecialEventID.sculptureDelivered:
-            print("not implemented yet")
+            addQuestString("Have hidden compartments installed at Endor.", ID: QuestID.sculpture)
+            galaxy.setSpecial("Endor", id: SpecialEventID.sculpture)
+            
         case SpecialEventID.installHiddenCompartments:
-            print("not implemented yet")
+            if player.commanderShip.gadget.count < player.commanderShip.gadgetSlots {
+                // add gadget
+                // **** CREATE HIDDEN COMPARTMENT GADGET
+                //player.commanderShip.gadget.append(Gadget(type: GadgetType.FuelCompactor))
+                addQuestString("", ID: QuestID.dragonfly)
+            } else {
+                // **** NOT ENOUGH GADGET SLOTS MESSAGE
+                galaxy.setSpecial("Endor", id: SpecialEventID.sculpture)
+            }
+            
         case SpecialEventID.monsterKilled:
-            print("not implemented yet")
+            addQuestString("", ID: QuestID.spaceMonster)
+            player.credits += 15000
+            
         case SpecialEventID.wildGetsOut:
-            print("not implemented yet")
+            addQuestString("", ID: QuestID.wild)
+            let zeethibal = CrewMember(ID: MercenaryName.zeethibal, pilot: 9, fighter: 9, trader: 9, engineer: 9)
+            zeethibal.costPerDay = 0
+            galaxy.currentSystem!.mercenaries.append(zeethibal)
+            
         case SpecialEventID.tribbleBuyer:
-            print("not implemented yet")
+            addQuestString("", ID: QuestID.tribbles)
+            player.commanderShip.tribbles = 0
+            tribblesOnBoard = false
         }
 
     }
@@ -735,6 +841,21 @@ class SpecialEvents {
             
             if wildElapsedTime == 10 {
                 // **** AT SOME POINT HE MUST GET IMPATIENT, STOP HELPING, AND QUEST STRING MUST BE UPDATED
+            }
+        }
+        
+        // princess
+        if princessElapsedTime != -1 {
+            princessElapsedTime += 1
+            
+            if princessElapsedTime > 6 {
+                // **** "Oh Captain? (giggles.) Would it help if I got out and pushed?"
+                addQuestString("Return Ziyal to Galvon.", ID: QuestID.princess)
+                
+            }
+            if princessElapsedTime > 12 {
+                // **** PRINCESS BECOMES RESTLESS, STOPS HELPING
+                addQuestString("Return Ziyal to Galvon. She is becoming anxious to arrive at home, and is no longer of any help in engineering functions.", ID: QuestID.princess)
             }
         }
         

@@ -417,6 +417,7 @@ enum WeaponType {
     case militaryLaser
     case morgansLaser
     case photonDisruptor
+    case quantumDisruptor
 }
 
 enum ShieldType {

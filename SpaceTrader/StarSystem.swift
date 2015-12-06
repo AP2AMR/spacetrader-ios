@@ -35,6 +35,7 @@ class StarSystem {
     var dragonflyIsHere = false
     var swarmingWithAliens = false
     var spaceMonsterIsHere = false
+    var scorpionIsHere = false
 
     // quantities and prices
     var water: Int = 0
