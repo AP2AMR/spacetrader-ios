@@ -171,113 +171,113 @@ class SpecialEvents {
                 
             // subsequent
             case SpecialEventID.artifactDelivery:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Artifact Delivery"
+                specialEventText = "This is professor Berger. I thank you for delivering the alien artifact to me. I hope the aliens weren't too much of a nuisance. I have transferred 20000 credits to your account, which I assume compensates for your troubles."
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.dragonflyBaratas:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Weird Ship"
+                specialEventText = "A small ship of a weird design docked here recently for repairs. The engineer who worked on it said that it had a weak hull, but incredibly strong shields. I heard it took off in the direction of the Melina system."
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.dragonflyMelina:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Lightning Ship"
+                specialEventText = "A ship with shields that seemed to be like lightning recently fought many other ships in our system. I have never seen anything like it before. After it left, I heard it went to the Regulas system."
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.dragonflyRegulas:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Strange Ship"
+                specialEventText = "A small ship with shields like I have never seen before was here a few days ago. It destroyed at least ten police ships! Last thing I heard was that it went to the Zalkon system."
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.dragonflyDestroyed:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Dragonfly Destroyed"
+                specialEventText = "Hello, Commander. This is Colonel Jackson again. On behalf of the Space Corps, I thank you for your valuable assistance in destroying the Dragonfly. As a reward, we will install one of the experimental shields on your ship. Return here for that when you're ready."
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.lightningShield:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Lightning Shield"
+                specialEventText = "Colonel Jackson here. Do you want us to install a lightning shield on your current ship?"
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.disasterAverted:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Disaster Averted"
+                specialEventText = "Upon your warning, Dr. Fehler calls off the experiment. As your  reward, you are given a Portable Singularity. This device will, for one time only, instantaneously transport you to any system in the galaxy. The Singularity can be accessed by pressing the \"jump\" button on the Galactic Chart."
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.experimentFailed:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Experiment Failed"
+                specialEventText = "Dr. Fehler can't understand why the experiment failed. But the failure has had a dramatic and disastrous effect on the fabric of space-time itself. It seems that Dr. Fehler won't be getting tenure any time soon... and you may have trouble when you warp!"
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.gemulonInvaded:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Gemulon Invaded"
+                specialEventText = "Alas, Gemulon has been invaded by aliens, which has thrown us back to pre-agricultural times. If only we had known the exact coordinates where they first arrived at our system, we might have prevented this tragedy from happening."
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.gemulonRescued:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Gemulon Rescued"
+                specialEventText = "This information of the arrival of the alien invasion force allows us to prepare a defense. You have saved our way of life. As a reward, we have a fuel compactor gadget for you, which will increase the travel distance by 3 parsecs for any ship. Return here to get it installed."
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.fuelCompactor:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Fuel Compactor"
+                specialEventText = "Do you wish us to install the fuel compactor on your current ship? (You need a free gadget slot)"
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.medicineDelivery:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Medicine Delivery"
+                specialEventText = "Thank you for delivering the medicine to us. We don't have any money to reward you, but we do have an alien fast-learning machine with which we will increase your skills."
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.jarekGetsOut:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Jarek Gets Out"
+                specialEventText = "Ambassador Jarek is very grateful to you for delivering him back to Devidia. As a reward, he gives you an experimental handheld haggling computer, which allows you to gain larger discounts when purchasing goods and equipment."
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.princessCentauri:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Dangerous Scorpion"
+                specialEventText = "A ship had its shields upgraded to Lighting Shields just two days ago. A shipyard worker overheard one of the crew saying they were headed to Inthara."
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.princessInthara:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Agressive Ship"
+                specialEventText = "Just yesterday a ship was seen in docking bay 327. A trader sold goods to a member of the crew, who was a native of Qonos. It's possible that's where they were going next."
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
                 
             case SpecialEventID.princessQonos:
-                specialEventTitle = ""
-                specialEventText = ""
+                specialEventTitle = "Royal Rescue"
+                specialEventText = "The Galvonian Ambassador to Qonos approaches you. The Princess needs a ride home. Will you take her? I don't think she'll feel safe with anyone else."
                 yesDismissButtonText = "Ok"
                 //noButtonText = ""
                 noButtonEnabled = false
