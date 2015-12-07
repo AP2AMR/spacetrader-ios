@@ -46,6 +46,7 @@ class WarpVC: UIViewController, ShortRangeChartDelegate {
             shortRangeChart.redrawSelf()
         } else {
             galaxy.setTracked(galaxy.targetSystem!.name)
+            shortRangeChart.redrawSelf()
         }
     }
     

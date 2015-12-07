@@ -58,17 +58,11 @@ class GalacticChartView: UIView {
             
             // draw crosshairs on tracked system
             if galaxy.trackedSystem != nil {
-
-                for planet in planetsOnMap {
-                    if planet.system.name == galaxy.currentSystem!.name {
-                        currentPlanet = planet
-                    }
-                }
                 
                 for mapPanet in planetsOnMap {
                     if mapPlanet.system.name == galaxy.trackedSystem!.name {
                         drawTrackedCrosshairs(mapPlanet)
-                        //drawTrackedArrow(currentSystem!, trackedSystem: mapPlanet)
+                        //drawTrackedArrow(mapPlanet)
                     }
                 }
             }
@@ -242,46 +236,66 @@ class GalacticChartView: UIView {
         let planetZeroY = planetOnMap.mapLocation.y
         
         let upperLTick = UIBezierPath()
-        upperLTick.moveToPoint(CGPoint(x: planetZeroX - 3, y: planetZeroY - 3))
+        upperLTick.moveToPoint(CGPoint(x: planetZeroX - 4, y: planetZeroY - 4))
         upperLTick.addLineToPoint(CGPoint(x: planetZeroX - 7, y: planetZeroY - 7))
         upperLTick.lineWidth = 2.0
         UIColor.blackColor().setStroke()
         upperLTick.stroke()
         
         let lowerLTick = UIBezierPath()
-        lowerLTick.moveToPoint(CGPoint(x: planetZeroX - 3, y: planetZeroY + 3))
+        lowerLTick.moveToPoint(CGPoint(x: planetZeroX - 4, y: planetZeroY + 4))
         lowerLTick.addLineToPoint(CGPoint(x: planetZeroX - 7, y: planetZeroY + 7))
         lowerLTick.lineWidth = 2.0
         UIColor.blackColor().setStroke()
         lowerLTick.stroke()
         
         let lowerRTick = UIBezierPath()
-        lowerRTick.moveToPoint(CGPoint(x: planetZeroX + 3, y: planetZeroY + 3))
+        lowerRTick.moveToPoint(CGPoint(x: planetZeroX + 4, y: planetZeroY + 4))
         lowerRTick.addLineToPoint(CGPoint(x: planetZeroX + 7, y: planetZeroY + 7))
         lowerRTick.lineWidth = 2.0
         UIColor.blackColor().setStroke()
         lowerRTick.stroke()
         
         let upperRTick = UIBezierPath()
-        upperRTick.moveToPoint(CGPoint(x: planetZeroX + 3, y: planetZeroY - 3))
+        upperRTick.moveToPoint(CGPoint(x: planetZeroX + 4, y: planetZeroY - 4))
         upperRTick.addLineToPoint(CGPoint(x: planetZeroX + 7, y: planetZeroY - 7))
         upperRTick.lineWidth = 2.0
         UIColor.blackColor().setStroke()
         upperRTick.stroke()
     }
     
-    func drawTrackedArrow(currentSystem: mapPlanet, trackedSystem: mapPlanet) {
+    func drawTrackedArrow(trackedSystem: mapPlanet) {
+        // this is actually only needed in the short range chart
+        var currentSystem: mapPlanet?
+        for planet in planetsOnMap {
+            if planet.system.name == galaxy.currentSystem!.name {
+                currentSystem = planet
+            }
+        }
+        
         if galaxy.trackedSystem != nil {
-            let startX: CGFloat = currentSystem.mapLocation.x
-            let startY: CGFloat = currentSystem.mapLocation.y
+            let startX: CGFloat = currentSystem!.mapLocation.x
+            let startY: CGFloat = currentSystem!.mapLocation.y
             let endX: CGFloat = trackedSystem.mapLocation.x
             let endY: CGFloat = trackedSystem.mapLocation.y
             
+            let deltaX = endX - startX
+            let deltaY = endY - startY
+            
+            let partialDeltaX = deltaX / 5
+            let partialDeltaY = deltaY / 5
+            
+            let newX = startX + partialDeltaX
+            let newY = startY + partialDeltaY
+            
+            let targetX: CGFloat = newX
+            let targetY: CGFloat = newY
+            
             let redArrow = UIBezierPath()
             redArrow.moveToPoint(CGPoint(x: startX, y: startY))
-            redArrow.addLineToPoint(CGPoint(x: endX, y: endY))
+            redArrow.addLineToPoint(CGPoint(x: targetX, y: targetY))
             redArrow.lineWidth = 1.0
-            UIColor.blackColor().setStroke()
+            UIColor.redColor().setStroke()
             redArrow.stroke()
         }
     }
