@@ -404,6 +404,8 @@ class SpecialEvents {
         case SpecialEventID.dangerousExperiment:
             experimentCountdown = 10
             addQuestString("Stop Dr. Fehler's experiment at Daled within \(experimentCountdown) days.", ID: QuestID.experiment)
+            galaxy.setSpecial("Daled", id: SpecialEventID.disasterAverted)
+            
         case SpecialEventID.gemulonInvasion:
             gemulonInvasionCountdown = 7
             addQuestString("Inform Gemulon about alien invasion within \(gemulonInvasionCountdown) days.", ID: QuestID.gemulon)
