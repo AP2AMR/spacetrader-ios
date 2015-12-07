@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="haZ-Bq-bp2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="haZ-Bq-bp2">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -2285,6 +2285,9 @@
                                 <animations/>
                                 <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                 <state key="normal" title="Find"/>
+                                <connections>
+                                    <segue destination="ymX-eF-L1l" kind="show" id="aR5-X8-HcK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YRq-7A-BkP" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
                                 <rect key="frame" x="436" y="494" width="69" height="34"/>
@@ -2342,6 +2345,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oWf-qV-9NY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3932" y="1071"/>
+        </scene>
+        <!--SearchVC-->
+        <scene sceneID="5q7-Ff-7sY">
+            <objects>
+                <viewController id="ymX-eF-L1l" customClass="SearchVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qDo-fy-a3S"/>
+                        <viewControllerLayoutGuide type="bottom" id="XHL-SS-a7z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="obu-T6-CbH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dZT-Wa-xxN">
+                                <rect key="frame" x="20" y="65" width="560" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter system to search for:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pjY-RK-i9E">
+                                <rect key="frame" x="20" y="28" width="221" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="dZT-Wa-xxN" secondAttribute="leading" id="BlF-6q-OCT"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="pjY-RK-i9E" secondAttribute="leading" id="KeZ-Gl-cqE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dZT-Wa-xxN" secondAttribute="trailing" id="QEE-zL-JQ3"/>
+                            <constraint firstItem="pjY-RK-i9E" firstAttribute="top" secondItem="qDo-fy-a3S" secondAttribute="bottom" constant="8" id="W0z-Ml-oFd"/>
+                            <constraint firstItem="dZT-Wa-xxN" firstAttribute="top" secondItem="pjY-RK-i9E" secondAttribute="bottom" constant="16" id="fxS-wY-ur9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textField" destination="dZT-Wa-xxN" id="xY1-Zj-CpZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G6L-gg-6oS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4617" y="1072"/>
         </scene>
         <!--Warp ViewVC-->
         <scene sceneID="CtC-x3-d1F">

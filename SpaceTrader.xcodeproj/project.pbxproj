@@ -24,6 +24,7 @@
 		5A518FB21BC18C0B00021B13 /* DockVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A518FB11BC18C0B00021B13 /* DockVC.swift */; };
 		5A518FB41BC31E9200021B13 /* ShortRangeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A518FB31BC31E9200021B13 /* ShortRangeChartView.swift */; };
 		5A518FB61BC80CF800021B13 /* FuelRepairModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A518FB51BC80CF800021B13 /* FuelRepairModalVC.swift */; };
+		5A7172581C1639150082BF0C /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7172571C1639150082BF0C /* SearchVC.swift */; };
 		5A723F401BCC531B006FFB13 /* Journey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A723F3F1BCC531B006FFB13 /* Journey.swift */; };
 		5A723F421BCD5EA5006FFB13 /* Encounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A723F411BCD5EA5006FFB13 /* Encounter.swift */; };
 		5A7A52DA1C011ED100FFBF72 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A7A52D91C011ED100FFBF72 /* Images.xcassets */; };
@@ -91,6 +92,7 @@
 		5A518FB11BC18C0B00021B13 /* DockVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DockVC.swift; sourceTree = "<group>"; };
 		5A518FB31BC31E9200021B13 /* ShortRangeChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortRangeChartView.swift; sourceTree = "<group>"; };
 		5A518FB51BC80CF800021B13 /* FuelRepairModalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelRepairModalVC.swift; sourceTree = "<group>"; };
+		5A7172571C1639150082BF0C /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		5A723F3F1BCC531B006FFB13 /* Journey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Journey.swift; sourceTree = "<group>"; };
 		5A723F411BCD5EA5006FFB13 /* Encounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encounter.swift; sourceTree = "<group>"; };
 		5A7A52D91C011ED100FFBF72 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				5AB36E8E1BF18B5200941CF6 /* ShipListVC.swift */,
 				5AE975601C0FEEFA005D78E1 /* NewspaperVC.swift */,
 				5AE975621C10CA2A005D78E1 /* SpecialVC.swift */,
+				5A7172571C1639150082BF0C /* SearchVC.swift */,
 			);
 			name = Menus;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				5AB36E931BF1926D00941CF6 /* MercenariesVC.swift in Sources */,
 				5A81B96D1BE2B3B700BDC351 /* EncounterVC.swift in Sources */,
 				5AD5F8B41B9DEB5300154B21 /* DataTypes.swift in Sources */,
+				5A7172581C1639150082BF0C /* SearchVC.swift in Sources */,
 				5AE975651C10DE24005D78E1 /* Newspaper.swift in Sources */,
 				5A1DBBC51C0E2F3E009E8D0C /* EquipmentListDualTableVC.swift in Sources */,
 				5A723F421BCD5EA5006FFB13 /* Encounter.swift in Sources */,
