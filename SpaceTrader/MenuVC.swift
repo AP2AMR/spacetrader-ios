@@ -64,7 +64,19 @@ class MenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         if indexPath.section == 0 {
             print("selected: section 0, \(indexPath.row)")
         } else if indexPath.section == 1 {
-            print("selected: section 1, \(indexPath.row)")
+            switch indexPath.row {
+            case 0:
+                performSegueWithIdentifier("commanderStatusSegue", sender: nil)
+            case 1:
+                performSegueWithIdentifier("shipSegue", sender: nil)
+            case 2:
+                performSegueWithIdentifier("personnelSegue", sender: nil)
+            case 3:
+                performSegueWithIdentifier("questsSegue", sender: nil)
+            case 4:
+                performSegueWithIdentifier("bankSegue", sender: nil)
+            default: print("error")
+            }
         } else if indexPath.section == 2 {
             print("selected: section 2, \(indexPath.row)")
         } else if indexPath.section == 3 {

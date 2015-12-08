@@ -26,6 +26,7 @@
 		5A518FB61BC80CF800021B13 /* FuelRepairModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A518FB51BC80CF800021B13 /* FuelRepairModalVC.swift */; };
 		5A7172581C1639150082BF0C /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7172571C1639150082BF0C /* SearchVC.swift */; };
 		5A71725A1C1651820082BF0C /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7172591C1651820082BF0C /* MenuVC.swift */; };
+		5A71725C1C1793D40082BF0C /* CommanderStatusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A71725B1C1793D40082BF0C /* CommanderStatusVC.swift */; };
 		5A723F401BCC531B006FFB13 /* Journey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A723F3F1BCC531B006FFB13 /* Journey.swift */; };
 		5A723F421BCD5EA5006FFB13 /* Encounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A723F411BCD5EA5006FFB13 /* Encounter.swift */; };
 		5A7A52DA1C011ED100FFBF72 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A7A52D91C011ED100FFBF72 /* Images.xcassets */; };
@@ -95,6 +96,7 @@
 		5A518FB51BC80CF800021B13 /* FuelRepairModalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelRepairModalVC.swift; sourceTree = "<group>"; };
 		5A7172571C1639150082BF0C /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		5A7172591C1651820082BF0C /* MenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
+		5A71725B1C1793D40082BF0C /* CommanderStatusVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommanderStatusVC.swift; sourceTree = "<group>"; };
 		5A723F3F1BCC531B006FFB13 /* Journey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Journey.swift; sourceTree = "<group>"; };
 		5A723F411BCD5EA5006FFB13 /* Encounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encounter.swift; sourceTree = "<group>"; };
 		5A7A52D91C011ED100FFBF72 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				5AE71F8E1C0399F1004378BD /* ShipDetailVC.swift */,
 				5AB36E8E1BF18B5200941CF6 /* ShipListVC.swift */,
 				5AE975621C10CA2A005D78E1 /* SpecialVC.swift */,
+				5A71725B1C1793D40082BF0C /* CommanderStatusVC.swift */,
 			);
 			name = Menus;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				5A07695D1BEAA0A90007C746 /* CustomButton.swift in Sources */,
 				5A723F401BCC531B006FFB13 /* Journey.swift in Sources */,
 				5AF1CA2F1BAB3E7A00643C5F /* BuyVC.swift in Sources */,
+				5A71725C1C1793D40082BF0C /* CommanderStatusVC.swift in Sources */,
 				5AE71F991C06BCB0004378BD /* Utils.swift in Sources */,
 				5A0265B81B9FCD170079F6DE /* Weapon.swift in Sources */,
 				5AB36E911BF18B6600941CF6 /* EquipmentListVC.swift in Sources */,
