@@ -182,10 +182,10 @@ class ShortRangeChartView: UIView {
         var xOk = false
         var yOk = false
         
-        if xCoord > 20 && xCoord < (self.frame.width - 20) {
+        if xCoord > 5 && xCoord < (self.frame.width - 5) {
             xOk = true
         }
-        if yCoord > 20 && yCoord < (self.frame.height - 20) {
+        if yCoord > 5 && yCoord < (self.frame.height - 5) {
             yOk = true
         }
         
