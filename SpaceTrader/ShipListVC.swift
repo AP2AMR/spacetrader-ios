@@ -23,6 +23,7 @@ class ShipListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
 
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.edgesForExtendedLayout = UIRectEdge.None
         
         //self.tableView.registerClass(UITableViewCell.self, forHeaderFooterViewReuseIdentifier: "cell")
     }

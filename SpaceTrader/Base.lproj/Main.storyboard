@@ -5088,7 +5088,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Menu" id="hrk-Sg-Xzw">
                             <connections>
                                 <action selector="menuTapped:" destination="I0c-F9-5oA" id="HX3-C2-yy5"/>
-                                <segue destination="JYJ-id-j3N" kind="show" id="Rh0-fp-Z1Y"/>
+                                <segue destination="HMX-pU-d8v" kind="presentation" id="Rh0-fp-Z1Y"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -5120,7 +5120,7 @@
             </objects>
             <point key="canvasLocation" x="646" y="-1282"/>
         </scene>
-        <!--MenuVC-->
+        <!--Game Menu-->
         <scene sceneID="rBy-2D-XMs">
             <objects>
                 <viewController id="JYJ-id-j3N" customClass="MenuVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
@@ -5129,36 +5129,43 @@
                         <viewControllerLayoutGuide type="bottom" id="U2D-Mt-nSh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uFt-j7-og0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="efg-tP-33f">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="U1V-Qc-wZC">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="JYJ-id-j3N" id="Ymu-NC-HEO"/>
+                                    <outlet property="delegate" destination="JYJ-id-j3N" id="0hN-qv-3ka"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="U2D-Mt-nSh" firstAttribute="top" secondItem="efg-tP-33f" secondAttribute="bottom" id="9Hr-bF-xX9"/>
-                            <constraint firstItem="efg-tP-33f" firstAttribute="top" secondItem="WtZ-YB-8Hc" secondAttribute="bottom" id="NGB-dB-MSl"/>
-                            <constraint firstItem="efg-tP-33f" firstAttribute="leading" secondItem="uFt-j7-og0" secondAttribute="leadingMargin" constant="-20" id="Txw-t6-mqY"/>
-                            <constraint firstItem="efg-tP-33f" firstAttribute="leading" secondItem="uFt-j7-og0" secondAttribute="leadingMargin" id="ZlQ-Ke-70T"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="efg-tP-33f" secondAttribute="trailing" id="g9i-c0-mdT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="efg-tP-33f" secondAttribute="trailing" constant="-20" id="iOK-jy-9Vy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="U1V-Qc-wZC" secondAttribute="trailing" constant="-20" id="27W-ML-cXi"/>
+                            <constraint firstItem="U2D-Mt-nSh" firstAttribute="top" secondItem="U1V-Qc-wZC" secondAttribute="bottom" id="k3Y-Rs-AN7"/>
+                            <constraint firstItem="U1V-Qc-wZC" firstAttribute="top" secondItem="WtZ-YB-8Hc" secondAttribute="bottom" id="lhU-be-MfC"/>
+                            <constraint firstItem="U1V-Qc-wZC" firstAttribute="leading" secondItem="uFt-j7-og0" secondAttribute="leadingMargin" constant="-20" id="qa0-2V-1P7"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="ZlQ-Ke-70T"/>
-                                <exclude reference="g9i-c0-mdT"/>
-                            </mask>
-                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Game Menu" id="pgs-q8-CwX">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="oXo-K6-9Ab">
+                            <connections>
+                                <action selector="done:" destination="JYJ-id-j3N" id="dD9-QM-gZL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="U1V-Qc-wZC" id="qUT-RE-OOk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Grt-on-Cw1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="109" y="-3032"/>
+            <point key="canvasLocation" x="921" y="-3032"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="vdJ-Vu-z9d">
@@ -5379,6 +5386,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yQD-54-dsw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-712" y="-1290"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YBG-ME-dCr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HMX-pU-d8v" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="loL-eM-cJH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JYJ-id-j3N" kind="relationship" relationship="rootViewController" id="tEB-h7-L9h"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="olb-Rn-ins" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="109" y="-3032"/>
         </scene>
     </scenes>
     <resources>
