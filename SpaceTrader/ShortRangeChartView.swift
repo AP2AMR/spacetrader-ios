@@ -57,7 +57,8 @@ class ShortRangeChartView: UIView {
         for mapPlanet in planetsOnMap {
             if galaxy.trackedSystem != nil {
                 if mapPlanet.system.name == galaxy.trackedSystem!.name {
-                    drawTrackedArrow(mapPlanet)
+                    //drawTrackedArrow(mapPlanet)
+                    drawTrackedArrow2(mapPlanet.system)
                     drawTrackedCrosshairs(mapPlanet)
                 }
             }
@@ -242,6 +243,7 @@ class ShortRangeChartView: UIView {
     }
     
     func drawTrackedArrow(trackedSystem: mapPlanet) {
+        
         // this is actually only needed in the short range chart
         var currentSystem: mapPlanet?
         for planet in planetsOnMap {
@@ -249,6 +251,8 @@ class ShortRangeChartView: UIView {
                 currentSystem = planet
             }
         }
+        
+        print("current system map coords: \(currentSystem!.mapLocation.x), \(currentSystem!.mapLocation.y)")
         
         if galaxy.trackedSystem != nil {
             let startX: CGFloat = currentSystem!.mapLocation.x
@@ -275,6 +279,24 @@ class ShortRangeChartView: UIView {
             UIColor.redColor().setStroke()
             redArrow.stroke()
         }
+    }
+    
+    func drawTrackedArrow2(trackedSystem: StarSystem) {
+        // we know that current system is at (hard coded, but still)
+        let mapCenterX: CGFloat = 175
+        let mapCenterY: CGFloat = 100
+        
+        // with that in mind, we need to get angle from real coords
+        let startRealX = CGFloat(galaxy.currentSystem!.xCoord)
+        let startRealY = CGFloat(galaxy.currentSystem!.yCoord)
+        let endRealX = CGFloat(galaxy.trackedSystem!.xCoord)
+        let endRealY = CGFloat(galaxy.trackedSystem!.yCoord)
+        
+        // goal is coordinates of a point a fixed distance away from map center, in the direction of endReal from endStart
+        let opposite = startRealY - endRealY
+        let adjacent = startRealX - endRealX
+        let angle = atan(opposite / adjacent)
+        print(angle)
     }
     
     func drawTrackedCrosshairs(planetOnMap: mapPlanet) {
