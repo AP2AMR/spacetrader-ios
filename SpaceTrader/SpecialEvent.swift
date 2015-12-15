@@ -48,7 +48,10 @@ class SpecialEvents {
         // if nil, special is set to false, and the "Special" button is disabled
         if galaxy.currentSystem!.specialEvent != nil {
             special = true
+        } else {
+            special = false             // necessary for obvious reasons
         }
+        
         
         if special {
             switch galaxy.currentSystem!.specialEvent! {
