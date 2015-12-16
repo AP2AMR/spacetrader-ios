@@ -14,6 +14,10 @@ class CommanderStatusVC: UITableViewController  {
     @IBOutlet weak var difficultyLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
+    @IBOutlet weak var pilotLabel: UILabel!
+    @IBOutlet weak var fighterLabel: UILabel!
+    @IBOutlet weak var traderLabel: UILabel!
+    @IBOutlet weak var engineerLabel: UILabel!
     
     override func viewDidLoad() {
         loadData()
