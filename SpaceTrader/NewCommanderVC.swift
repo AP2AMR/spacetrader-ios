@@ -187,7 +187,7 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         let zeethibal = CrewMember(ID: MercenaryName.zeethibal, pilot: 9, fighter: 9, trader: 9, engineer: 9)
         player.commanderShip.crew.append(zeethibal)
         
-        player.policeRecord = PoliceRecordType.heroScore
+        //player.policeRecord = PoliceRecordType.heroScore
 
         
         // END TESTING STUFF ********************************************************************

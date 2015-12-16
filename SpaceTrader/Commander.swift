@@ -87,9 +87,13 @@ class Commander {
     var policeKills: Int = 0
     var traderKills: Int = 0
     
-    var netWorth: Int {                                         // OBVIOUSLY THIS NEEDS TO BE IMPLEMENTED
+    var kills: Int {
+        return pirateKills + policeKills + traderKills
+    }
+    
+    var netWorth: Int { 
         get {
-            return credits
+            return credits - debt + player.commanderShip.value
         }
     }
     

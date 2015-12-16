@@ -36,7 +36,24 @@ class CommanderStatusVC: UIViewController  {
         difficultyLabel.text = player.difficulty.rawValue
         timeLabel.text = "\(player.days) days"
         
+        pilotLabel.text = "\(player.initialPilotSkill) (\(player.pilotSkill))"
+        fighterLabel.text = "\(player.initialFighterSkill) (\(player.fighterSkill))"
+        traderLabel.text = "\(player.initialTraderSkill) (\(player.traderSkill))"
+        engineerLabel.text = "\(player.initialEngineerSkill) (\(player.engineerSkill))"
         
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = .DecimalStyle
+        let cashFormatted = numberFormatter.stringFromNumber(player.credits)
+        let debtFormatted = numberFormatter.stringFromNumber(player.debt)
+        let netWorthFormatted = numberFormatter.stringFromNumber(player.netWorth)
+        
+        cashLabel.text = "\(cashFormatted!) cr."
+        debtLabel.text = "\(debtFormatted!) cr."
+        netWorthLabel.text = "\(netWorthFormatted!) cr."
+        
+        killsLabel.text = "\(player.kills)"
+        reputationLabel.text = "\(getPoliceRecordForInt(player.policeRecord.rawValue))"
+        policeRecordLabel.text = "\(getReputationForInt(player.reputation.rawValue))"
     }
 
   }

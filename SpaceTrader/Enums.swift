@@ -58,6 +58,33 @@ enum PoliceRecordType: Int {
     case heroScore
 }
 
+func getPoliceRecordForInt(policeRecord: Int) -> String {
+    switch policeRecord {
+    case 0:
+        return "Psychopath"
+    case 1:
+        return "Villian"
+    case 2:
+        return "Criminal"
+    case 3:
+        return "Crook"
+    case 4:
+        return "Dubious"
+    case 5:
+        return "Clean"
+    case 6:
+        return "Lawful"
+    case 7:
+        return "Trusted"
+    case 8:
+        return "Liked"
+    case 9:
+        return "Hero"
+    default:
+        return "error"
+    }
+}
+
 enum ReputationType: Int {
     case harmlessRep = 0
     case mostlyHarmlessRep
@@ -68,6 +95,31 @@ enum ReputationType: Int {
     case dangerousRep
     case deadlyRep
     case eliteRep
+}
+
+func getReputationForInt(reputation: Int) -> String {
+    switch reputation {
+    case 0:
+        return "Harmless"
+    case 1:
+        return "Mostly Harmless"
+    case 2:
+        return "Poor"
+    case 3:
+        return "Average"
+    case 4:
+        return "Above Average"
+    case 5:
+        return "Competent"
+    case 6:
+        return "Dangerous"
+    case 7:
+        return "Deadly"
+    case 8:
+        return "Elite"
+    default:
+        return "error"
+    }
 }
 
 enum DifficultyType: String {
