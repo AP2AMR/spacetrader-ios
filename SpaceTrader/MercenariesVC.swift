@@ -28,6 +28,8 @@ class MercenariesVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         self.tableView1.registerClass(UITableViewCell.self, forCellReuseIdentifier: "topCell")
         self.tableView2.registerClass(UITableViewCell.self, forCellReuseIdentifier: "bottomCell")
         
+        self.edgesForExtendedLayout = UIRectEdge.None
+        
         initializeArrays()
         
     }

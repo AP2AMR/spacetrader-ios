@@ -28,6 +28,8 @@ class ShipVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func updateData() {
+        typeLabel.text = player.commanderShip.name
+        
         class equipmentEntry {
             var name: String
             var quantity: Int
@@ -104,13 +106,24 @@ class ShipVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             } else {
                 newString = "\(entry.quantity) \(entry.name)"
             }
-            
+            tableView2TextArray = []
             print(newString)
             tableView1TextArray.append(newString)
         }
         
+        // report empty slots
+        let emptyWeaponString = "(\(player.commanderShip.weaponSlots - player.commanderShip.weapon.count) empty weapon slots)"
+        tableView1TextArray.append(emptyWeaponString)
+        let emptyShieldString = "(\(player.commanderShip.shieldSlots - player.commanderShip.shield.count) empty shield slots)"
+        tableView1TextArray.append(emptyShieldString)
+        let emptyGadgetString = "(\(player.commanderShip.gadgetSlots - player.commanderShip.gadget.count) empty gadget slots)"
+        tableView1TextArray.append(emptyGadgetString)
         
+        // special cargo
         
+        for item in player.commanderShip.specialCargo {
+            tableView2TextArray.append(item.name)
+        }
         
         self.tableView1.reloadData()
         self.tableView2.reloadData()

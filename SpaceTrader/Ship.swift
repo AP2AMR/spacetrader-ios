@@ -95,6 +95,7 @@ class SpaceShip {
     var justLootedMarieCeleste = false
     var cloaked = false
     var disabled = false
+    var specialCargo: [SpecialCargoItem] = []
     
     var IFFStatus: IFFStatusType    // player, police, pirate, trader
     // image
@@ -708,4 +709,16 @@ class SpaceShip {
         }
     }
 
+}
+
+class SpecialCargoItem {
+    var name: String
+    var quantity: Int
+    var baysTakenUp: Int
+    
+    init(name: String, quantity: Int, baysTakenUp: Int) {
+        self.name = name
+        self.quantity = quantity
+        self.baysTakenUp = baysTakenUp
+    }
 }
