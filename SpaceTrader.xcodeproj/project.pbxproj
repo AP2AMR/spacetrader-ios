@@ -51,6 +51,7 @@
 		5AD5F8C21B9FB54E00154B21 /* Galaxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8C11B9FB54E00154B21 /* Galaxy.swift */; };
 		5ADE2FCA1C2104E700F3F986 /* ShipVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADE2FC91C2104E700F3F986 /* ShipVC.swift */; };
 		5ADE2FCC1C21148400F3F986 /* QuestsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADE2FCB1C21148400F3F986 /* QuestsVC.swift */; };
+		5ADE2FCE1C21EA5800F3F986 /* TESTTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADE2FCD1C21EA5800F3F986 /* TESTTableViewCell.swift */; };
 		5AE71F8F1C0399F1004378BD /* ShipDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE71F8E1C0399F1004378BD /* ShipDetailVC.swift */; };
 		5AE71F911C054B96004378BD /* BuyShipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE71F901C054B96004378BD /* BuyShipCell.swift */; };
 		5AE71F971C0699C1004378BD /* BuyEquipmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE71F961C0699C1004378BD /* BuyEquipmentCell.swift */; };
@@ -127,6 +128,7 @@
 		5AD5F8C11B9FB54E00154B21 /* Galaxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Galaxy.swift; sourceTree = "<group>"; };
 		5ADE2FC91C2104E700F3F986 /* ShipVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipVC.swift; sourceTree = "<group>"; };
 		5ADE2FCB1C21148400F3F986 /* QuestsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestsVC.swift; sourceTree = "<group>"; };
+		5ADE2FCD1C21EA5800F3F986 /* TESTTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TESTTableViewCell.swift; sourceTree = "<group>"; };
 		5AE71F8E1C0399F1004378BD /* ShipDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipDetailVC.swift; sourceTree = "<group>"; };
 		5AE71F901C054B96004378BD /* BuyShipCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyShipCell.swift; sourceTree = "<group>"; };
 		5AE71F961C0699C1004378BD /* BuyEquipmentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyEquipmentCell.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				5A71725B1C1793D40082BF0C /* CommanderStatusVC.swift */,
 				5ADE2FC91C2104E700F3F986 /* ShipVC.swift */,
 				5ADE2FCB1C21148400F3F986 /* QuestsVC.swift */,
+				5ADE2FCD1C21EA5800F3F986 /* TESTTableViewCell.swift */,
 			);
 			name = Menus;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				5AD5F8BE1B9F3BE700154B21 /* Ship.swift in Sources */,
 				5AE975611C0FEEFA005D78E1 /* NewspaperVC.swift in Sources */,
 				5AB36E931BF1926D00941CF6 /* MercenariesVC.swift in Sources */,
+				5ADE2FCE1C21EA5800F3F986 /* TESTTableViewCell.swift in Sources */,
 				5A81B96D1BE2B3B700BDC351 /* EncounterVC.swift in Sources */,
 				5AD5F8B41B9DEB5300154B21 /* DataTypes.swift in Sources */,
 				5A7172581C1639150082BF0C /* SearchVC.swift in Sources */,

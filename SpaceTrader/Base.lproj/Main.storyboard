@@ -4721,9 +4721,46 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tvq-Ib-nsq">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tvq-Ib-nsq">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="75" id="guJ-3b-z3L" customClass="QuestStringCell" customModule="SpaceTrader" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="guJ-3b-z3L" id="Df5-Kr-hxd">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="74"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Wzs-St-PIR">
+                                                    <rect key="frame" x="8" y="8" width="237" height="58"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Qj-4t-YdU">
+                                                    <rect key="frame" x="434" y="26" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Wzs-St-PIR" secondAttribute="bottom" id="E2r-oK-WB8"/>
+                                                <constraint firstAttribute="topMargin" secondItem="Wzs-St-PIR" secondAttribute="top" id="HXb-Lu-x3V"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="Wzs-St-PIR" secondAttribute="leading" id="h2S-5B-dfQ"/>
+                                                <constraint firstItem="4Qj-4t-YdU" firstAttribute="top" secondItem="Df5-Kr-hxd" secondAttribute="topMargin" constant="18" id="k41-qc-eCh"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Wzs-St-PIR" secondAttribute="trailing" constant="35" id="rdX-0W-nnF"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="4Qj-4t-YdU" secondAttribute="trailing" constant="116" id="y7u-aH-iS5"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="label" destination="4Qj-4t-YdU" id="mZg-EW-zBR"/>
+                                            <outlet property="textGoesHere" destination="Wzs-St-PIR" id="w0e-5i-OfB"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="Lcm-tf-PiG" id="k8B-Vh-oDC"/>
                                     <outlet property="delegate" destination="Lcm-tf-PiG" id="KwM-ZD-M0J"/>
