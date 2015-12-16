@@ -16,7 +16,7 @@ class QuestsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.tableView.registerClass(QuestStringCell.self, forCellReuseIdentifier: "cell")
+        //self.tableView.registerClass(QuestStringCell.self, forCellReuseIdentifier: "customCell")
         
         self.edgesForExtendedLayout = UIRectEdge.None
     }
@@ -31,11 +31,8 @@ class QuestsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         print("generating cell for quest #\(indexPath.row)")
         let cell: QuestStringCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as! QuestStringCell
-        //cell.test()
-        
-        cell.setCell("This sentence is a test string. If it displays correctly, the problem has to do with retrieving information from quest string storage.")
-        //cell.setCell(player.specialEvents.quests[indexPath.row].questString)
-        //cell.textLabel?.text = player.specialEvents.quests[indexPath.row].questString
+
+        cell.setCell(player.specialEvents.quests[indexPath.row].questString)
         return cell
     }
     
@@ -49,10 +46,7 @@ class QuestsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
 class QuestStringCell: UITableViewCell {
     
-
-
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var textGoesHere: UITextView!
+    @IBOutlet weak var textView: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -66,18 +60,10 @@ class QuestStringCell: UITableViewCell {
     }
     
     func setCell(text: String) {
-        //var v = viewcontroller.view
-        
-        //textGoesHere.text = text
-        
-        print("TESTING!")
-        if label == nil {
-            print("label is nil")
-        } else {
-            print("label is not nil")
-        }
-        
-        label.text = "this is supposed to display in label"
+        print("setCell called. Passed text: \(text)")
+        textView.text = text
     }
     
 }
+
+

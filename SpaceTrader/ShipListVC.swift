@@ -22,10 +22,7 @@ class ShipListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.edgesForExtendedLayout = UIRectEdge.None
-        
-        //self.tableView.registerClass(UITableViewCell.self, forHeaderFooterViewReuseIdentifier: "cell")
     }
     
     @IBAction func done(sender: AnyObject) {
