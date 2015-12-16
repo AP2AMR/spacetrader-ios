@@ -8,8 +8,8 @@
 
 import UIKit
 
-class CommanderStatusVC: UITableViewController  {
-    
+class CommanderStatusVC: UIViewController  {
+
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var difficultyLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -19,6 +19,14 @@ class CommanderStatusVC: UITableViewController  {
     @IBOutlet weak var traderLabel: UILabel!
     @IBOutlet weak var engineerLabel: UILabel!
     
+    @IBOutlet weak var cashLabel: UILabel!
+    @IBOutlet weak var debtLabel: UILabel!
+    @IBOutlet weak var netWorthLabel: UILabel!
+    
+    @IBOutlet weak var killsLabel: UILabel!
+    @IBOutlet weak var reputationLabel: UILabel!
+    @IBOutlet weak var policeRecordLabel: UILabel!
+    
     override func viewDidLoad() {
         loadData()
     }
@@ -27,6 +35,8 @@ class CommanderStatusVC: UITableViewController  {
         nameLabel.text = player.commanderName
         difficultyLabel.text = player.difficulty.rawValue
         timeLabel.text = "\(player.days) days"
+        
+        
     }
 
   }
