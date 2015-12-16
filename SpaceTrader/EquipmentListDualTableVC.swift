@@ -35,7 +35,7 @@ class EquipmentListDualTableVC: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView1.registerClass(UITableViewCell.self, forCellReuseIdentifier: "topCell")
+        self.tableView1.registerClass(UITableViewCell.self, forCellReuseIdentifier: "topCell") 
         self.tableView2.registerClass(UITableViewCell.self, forCellReuseIdentifier: "bottomCell")
         
         refreshView()
