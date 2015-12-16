@@ -40,13 +40,6 @@ class ShipListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.setCell(ship)
         
         return cell
-        
-        
-//        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
-//        
-//        cell.textLabel?.text = self.items[indexPath.row]
-//        
-//        return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
