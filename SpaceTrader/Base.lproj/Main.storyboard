@@ -4691,10 +4691,10 @@
             </objects>
             <point key="canvasLocation" x="646" y="-1282"/>
         </scene>
-        <!--View Controller-->
+        <!--Bank-->
         <scene sceneID="1KZ-hg-Ddg">
             <objects>
-                <viewController id="w91-2u-hYv" sceneMemberID="viewController">
+                <viewController title="Bank" id="w91-2u-hYv" customClass="BankVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Pj-HD-wxZ"/>
                         <viewControllerLayoutGuide type="bottom" id="mCV-Oa-78z"/>
@@ -4702,7 +4702,128 @@
                     <view key="view" contentMode="scaleToFill" id="Tps-51-rjG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFJ-XB-mSS">
+                                <rect key="frame" x="20" y="28" width="40" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Debt:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yl3-8i-8Wj">
+                                <rect key="frame" x="20" y="57" width="105" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maximum Loan:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9vS-BI-Duo">
+                                <rect key="frame" x="20" y="86" width="121" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUR-f6-LIw" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
+                                <rect key="frame" x="430" y="127" width="130" height="34"/>
+                                <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
+                                <state key="normal" title="Pay Back Loan"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9kC-jX-KcL" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
+                                <rect key="frame" x="40" y="127" width="92" height="34"/>
+                                <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
+                                <state key="normal" title="Get Loan"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;label&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zK-Ki-hV7">
+                                <rect key="frame" x="195" y="57" width="58" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;label&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Vn-JE-Ets">
+                                <rect key="frame" x="195" y="86" width="58" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insurance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvj-VC-yiv">
+                                <rect key="frame" x="20" y="191" width="82" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ship Value:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlN-Tl-lQh">
+                                <rect key="frame" x="20" y="220" width="85" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No-Claim Discount:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAc-rd-KBf">
+                                <rect key="frame" x="20" y="249" width="150" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Costs:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEV-ib-pdm">
+                                <rect key="frame" x="20" y="278" width="49" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;label&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6F-fw-drq">
+                                <rect key="frame" x="195" y="220" width="58" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;label&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yul-PV-1Yv">
+                                <rect key="frame" x="195" y="249" width="58" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;label&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9r-gO-MkR">
+                                <rect key="frame" x="195" y="278" width="58" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Bo-zQ-K8d" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
+                                <rect key="frame" x="236" y="319" width="128" height="34"/>
+                                <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
+                                <state key="normal" title="Buy Insurance"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2zK-Ki-hV7" firstAttribute="leading" secondItem="Tps-51-rjG" secondAttribute="leadingMargin" constant="175" id="0CE-vW-TyT"/>
+                            <constraint firstItem="9kC-jX-KcL" firstAttribute="baseline" secondItem="XUR-f6-LIw" secondAttribute="baseline" id="0CJ-Xh-6lV"/>
+                            <constraint firstItem="oFJ-XB-mSS" firstAttribute="top" secondItem="9Pj-HD-wxZ" secondAttribute="bottom" constant="8" id="1Pb-6M-Hra"/>
+                            <constraint firstItem="9vS-BI-Duo" firstAttribute="top" secondItem="Yl3-8i-8Wj" secondAttribute="bottom" constant="8" id="2EE-2n-Jle"/>
+                            <constraint firstItem="9kC-jX-KcL" firstAttribute="leading" secondItem="Tps-51-rjG" secondAttribute="leadingMargin" constant="20" id="5SU-Do-lAc"/>
+                            <constraint firstItem="9Vn-JE-Ets" firstAttribute="leading" secondItem="2zK-Ki-hV7" secondAttribute="leading" id="6qo-DC-Ieo"/>
+                            <constraint firstItem="b6F-fw-drq" firstAttribute="leading" secondItem="Tps-51-rjG" secondAttribute="leadingMargin" constant="175" id="JDG-kI-99k"/>
+                            <constraint firstItem="Yul-PV-1Yv" firstAttribute="baseline" secondItem="jAc-rd-KBf" secondAttribute="baseline" id="Kpl-Rl-PoY"/>
+                            <constraint firstItem="b6F-fw-drq" firstAttribute="baseline" secondItem="vlN-Tl-lQh" secondAttribute="baseline" id="O8Y-Qr-Teb"/>
+                            <constraint firstItem="9vS-BI-Duo" firstAttribute="leading" secondItem="Yl3-8i-8Wj" secondAttribute="leading" id="QyD-5n-NGf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XUR-f6-LIw" secondAttribute="trailing" constant="20" id="RPE-FG-ZIW"/>
+                            <constraint firstItem="9kC-jX-KcL" firstAttribute="top" secondItem="9vS-BI-Duo" secondAttribute="bottom" constant="20" id="Rwc-Pg-SFZ"/>
+                            <constraint firstItem="nEV-ib-pdm" firstAttribute="leading" secondItem="jAc-rd-KBf" secondAttribute="leading" id="UCo-rR-Ifc"/>
+                            <constraint firstItem="8Bo-zQ-K8d" firstAttribute="top" secondItem="U9r-gO-MkR" secondAttribute="bottom" constant="20" id="VyN-w9-GeB"/>
+                            <constraint firstItem="Yul-PV-1Yv" firstAttribute="leading" secondItem="b6F-fw-drq" secondAttribute="leading" id="W2x-gt-GcU"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="oFJ-XB-mSS" secondAttribute="leading" id="XMl-Pg-vJS"/>
+                            <constraint firstItem="8Bo-zQ-K8d" firstAttribute="centerX" secondItem="Tps-51-rjG" secondAttribute="centerX" id="Zde-gs-Aeg"/>
+                            <constraint firstItem="U9r-gO-MkR" firstAttribute="leading" secondItem="Yul-PV-1Yv" secondAttribute="leading" id="abe-Lv-FiN"/>
+                            <constraint firstItem="jAc-rd-KBf" firstAttribute="leading" secondItem="vlN-Tl-lQh" secondAttribute="leading" id="b8H-3x-MZe"/>
+                            <constraint firstItem="vlN-Tl-lQh" firstAttribute="top" secondItem="Rvj-VC-yiv" secondAttribute="bottom" constant="8" id="d2S-da-QIr"/>
+                            <constraint firstItem="Yl3-8i-8Wj" firstAttribute="top" secondItem="oFJ-XB-mSS" secondAttribute="bottom" constant="8" id="f4B-Fw-ImB"/>
+                            <constraint firstItem="2zK-Ki-hV7" firstAttribute="baseline" secondItem="Yl3-8i-8Wj" secondAttribute="baseline" id="fBn-hd-Hzw"/>
+                            <constraint firstItem="U9r-gO-MkR" firstAttribute="baseline" secondItem="nEV-ib-pdm" secondAttribute="baseline" id="kEt-iz-6EI"/>
+                            <constraint firstItem="nEV-ib-pdm" firstAttribute="top" secondItem="jAc-rd-KBf" secondAttribute="bottom" constant="8" id="kkT-j2-IxF"/>
+                            <constraint firstItem="Rvj-VC-yiv" firstAttribute="top" secondItem="9kC-jX-KcL" secondAttribute="bottom" constant="30" id="kmg-lA-J2C"/>
+                            <constraint firstItem="Yl3-8i-8Wj" firstAttribute="leading" secondItem="oFJ-XB-mSS" secondAttribute="leading" id="ong-hc-Ek1"/>
+                            <constraint firstItem="9Vn-JE-Ets" firstAttribute="baseline" secondItem="9vS-BI-Duo" secondAttribute="baseline" id="pnW-dI-oTR"/>
+                            <constraint firstItem="Rvj-VC-yiv" firstAttribute="leading" secondItem="oFJ-XB-mSS" secondAttribute="leading" id="qoT-hx-GJb"/>
+                            <constraint firstItem="jAc-rd-KBf" firstAttribute="top" secondItem="vlN-Tl-lQh" secondAttribute="bottom" constant="8" id="vQv-VK-q3X"/>
+                            <constraint firstItem="vlN-Tl-lQh" firstAttribute="leading" secondItem="Rvj-VC-yiv" secondAttribute="leading" id="xUk-5T-mRa"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zO0-s7-OOS" userLabel="First Responder" sceneMemberID="firstResponder"/>
