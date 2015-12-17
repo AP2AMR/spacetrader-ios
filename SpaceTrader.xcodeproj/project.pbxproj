@@ -35,6 +35,7 @@
 		5A83DF541BDECF0400C31AC5 /* WarpViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A83DF531BDECF0400C31AC5 /* WarpViewVC.swift */; };
 		5A9830511BE3224100378EB3 /* EncounterVCBad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9830501BE3224100378EB3 /* EncounterVCBad.swift */; };
 		5AAD55271C234F72001FC8AD /* BankVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAD55261C234F72001FC8AD /* BankVC.swift */; };
+		5AAD55291C235DE0001FC8AD /* BankQuantityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAD55281C235DE0001FC8AD /* BankQuantityVC.swift */; };
 		5AB36E8F1BF18B5200941CF6 /* ShipListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB36E8E1BF18B5200941CF6 /* ShipListVC.swift */; };
 		5AB36E911BF18B6600941CF6 /* EquipmentListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB36E901BF18B6600941CF6 /* EquipmentListVC.swift */; };
 		5AB36E931BF1926D00941CF6 /* MercenariesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB36E921BF1926D00941CF6 /* MercenariesVC.swift */; };
@@ -108,6 +109,7 @@
 		5A83DF531BDECF0400C31AC5 /* WarpViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarpViewVC.swift; sourceTree = "<group>"; };
 		5A9830501BE3224100378EB3 /* EncounterVCBad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncounterVCBad.swift; sourceTree = "<group>"; };
 		5AAD55261C234F72001FC8AD /* BankVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankVC.swift; sourceTree = "<group>"; };
+		5AAD55281C235DE0001FC8AD /* BankQuantityVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankQuantityVC.swift; sourceTree = "<group>"; };
 		5AB36E8E1BF18B5200941CF6 /* ShipListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipListVC.swift; sourceTree = "<group>"; };
 		5AB36E901BF18B6600941CF6 /* EquipmentListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmentListVC.swift; sourceTree = "<group>"; };
 		5AB36E921BF1926D00941CF6 /* MercenariesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MercenariesVC.swift; sourceTree = "<group>"; };
@@ -167,8 +169,11 @@
 		5AB36E8D1BF18B3600941CF6 /* Menus */ = {
 			isa = PBXGroup;
 			children = (
+				5AAD55281C235DE0001FC8AD /* BankQuantityVC.swift */,
+				5AAD55261C234F72001FC8AD /* BankVC.swift */,
 				5AE71F961C0699C1004378BD /* BuyEquipmentCell.swift */,
 				5AE71F901C054B96004378BD /* BuyShipCell.swift */,
+				5A71725B1C1793D40082BF0C /* CommanderStatusVC.swift */,
 				5ABB697C1C0E86C000ABEB9E /* EquipmentDetailVC.swift */,
 				5A1DBBC41C0E2F3E009E8D0C /* EquipmentListDualTableVC.swift */,
 				5AB36E901BF18B6600941CF6 /* EquipmentListVC.swift */,
@@ -176,14 +181,12 @@
 				5AB36E921BF1926D00941CF6 /* MercenariesVC.swift */,
 				5AE9755E1C0FD481005D78E1 /* MercenaryDetailVC.swift */,
 				5AE975601C0FEEFA005D78E1 /* NewspaperVC.swift */,
+				5ADE2FCB1C21148400F3F986 /* QuestsVC.swift */,
 				5A7172571C1639150082BF0C /* SearchVC.swift */,
 				5AE71F8E1C0399F1004378BD /* ShipDetailVC.swift */,
 				5AB36E8E1BF18B5200941CF6 /* ShipListVC.swift */,
-				5AE975621C10CA2A005D78E1 /* SpecialVC.swift */,
-				5A71725B1C1793D40082BF0C /* CommanderStatusVC.swift */,
 				5ADE2FC91C2104E700F3F986 /* ShipVC.swift */,
-				5ADE2FCB1C21148400F3F986 /* QuestsVC.swift */,
-				5AAD55261C234F72001FC8AD /* BankVC.swift */,
+				5AE975621C10CA2A005D78E1 /* SpecialVC.swift */,
 			);
 			name = Menus;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				5A9830511BE3224100378EB3 /* EncounterVCBad.swift in Sources */,
 				5AE71F911C054B96004378BD /* BuyShipCell.swift in Sources */,
 				5A0265BE1B9FD2660079F6DE /* CrewMember.swift in Sources */,
+				5AAD55291C235DE0001FC8AD /* BankQuantityVC.swift in Sources */,
 				5AEC942E1BC8594F00C68F7F /* GalacticChartVC.swift in Sources */,
 				5AD5F8941B9A122200154B21 /* ViewController.swift in Sources */,
 				5AE9755F1C0FD481005D78E1 /* MercenaryDetailVC.swift in Sources */,
