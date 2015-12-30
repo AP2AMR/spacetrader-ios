@@ -16,12 +16,20 @@ class BankVC: UIViewController {
     @IBOutlet weak var noClaimDiscountLabel: UILabel!
     @IBOutlet weak var costsLabel: UILabel!
     
+    @IBOutlet weak var getLoanLabel: CustomButton!
+    @IBOutlet weak var payBackLoanLabel: CustomButton!
+    
+    
     var getVsPayBack = true
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setData()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         setData()
     }
     
@@ -41,6 +49,13 @@ class BankVC: UIViewController {
         let shipValueFormatted = numberFormatter.stringFromNumber(player.commanderShip.value)
         shipValueLabel.text = "\(shipValueFormatted!) cr."
         
+        // disable pay back loan button if no debt
+        if player.debt == 0 {
+            payBackLoanLabel.enabled = false
+        } else {
+            payBackLoanLabel.enabled = true
+        }
+        
         
         
         
@@ -57,6 +72,11 @@ class BankVC: UIViewController {
             // round to 200
             if maxLoan > 1000 {
                 maxLoan = maxLoan - (maxLoan % 200)
+            }
+            
+            maxLoan -= player.debt
+            if maxLoan < 0 {
+                maxLoan = 0
             }
             
             return maxLoan
@@ -80,12 +100,14 @@ class BankVC: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
+        
         if(segue.identifier == "bankQuantitySegue") {
             // set up VC, add getVsPayBack to it as Bool?, maxLoan as Int?
             
             let vc = (segue.destinationViewController as! BankQuantityVC)
             vc.getVsPayBack = getVsPayBack
             vc.maxLoan = getMaxLoan()
+            //print("maxLoan: \(vc.maxLoan)")
         }
         
     }

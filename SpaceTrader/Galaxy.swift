@@ -1230,6 +1230,27 @@ class Galaxy {
             canWeWarp = false
         }
         
+        // charge interest, make sure player can pay
+        var interest = 0
+        switch player.difficulty {
+        case DifficultyType.beginner:
+            interest = 0
+        case DifficultyType.easy:
+            interest = Int(0.05 * Double(player.debt))
+        case DifficultyType.normal:
+            interest = Int(0.10 * Double(player.debt))
+        case DifficultyType.hard:
+            interest = Int(0.15 * Double(player.debt))
+        case DifficultyType.impossible:
+            interest = Int(0.20 * Double(player.debt))
+        }
+        
+        if player.credits < interest {
+            canWeWarp = false
+        } else {
+            player.credits -= interest
+        }
+        
         
         if canWeWarp {
             // housekeeping things
