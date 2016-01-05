@@ -39,9 +39,33 @@ class WarpViewVC: UIViewController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
             (alert: UIAlertAction!) -> Void in
-            self.fleaBuilt()
+            if player.insurance {
+                // insurance refund alert, then fleaBuilt
+                self.insuranceAward()
+            } else {
+                // straight to fleaBuilt
+                self.fleaBuilt()
+            }
+            
         }))
 
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func insuranceAward() {
+        let title = "Insurance"
+        let message = "Since your ship was insured, the bank pays you the total worth of the destroyed ship."
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            player.credits += player.insuredValue
+            // and turn off insurance
+            player.noClaim = 0
+            player.insurance = false
+            self.fleaBuilt()
+        }))
+        
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     

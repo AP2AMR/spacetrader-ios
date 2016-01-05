@@ -1247,10 +1247,18 @@ class Galaxy {
         
         if player.credits < interest {
             canWeWarp = false
+            print("WARP CANCELLED ON THE BASIS OF INTEREST PAYMENTS")
         } else {
             player.credits -= interest
         }
         
+        // charge insurance, make sure player can pay
+        if player.credits < player.insuranceCost {
+            canWeWarp = false
+            print("WARP CANCELLED ON THE BASIS OF INSURANCE PAYMENT")
+        } else {
+            player.credits -= player.insuranceCost
+        }
         
         if canWeWarp {
             // housekeeping things

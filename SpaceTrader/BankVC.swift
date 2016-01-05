@@ -18,6 +18,7 @@ class BankVC: UIViewController {
     
     @IBOutlet weak var getLoanLabel: CustomButton!
     @IBOutlet weak var payBackLoanLabel: CustomButton!
+    @IBOutlet weak var buyInsuranceOutlet: CustomButton!
     
     
     var getVsPayBack = true
@@ -45,15 +46,32 @@ class BankVC: UIViewController {
         let maxLoanFormatted = numberFormatter.stringFromNumber(maxLoan)
         maximumLoanLabel.text = "\(maxLoanFormatted!) cr."
         
-        // ship value
-        let shipValueFormatted = numberFormatter.stringFromNumber(player.commanderShip.value)
-        shipValueLabel.text = "\(shipValueFormatted!) cr."
+        
         
         // disable pay back loan button if no debt
         if player.debt == 0 {
             payBackLoanLabel.enabled = false
         } else {
             payBackLoanLabel.enabled = true
+        }
+        
+        // insurance numbers
+        let shipValueFormatted = numberFormatter.stringFromNumber(player.commanderShip.value)
+        shipValueLabel.text = "\(shipValueFormatted!) cr."
+        
+        let noClaimFormatted = numberFormatter.stringFromNumber(player.noClaim)
+        noClaimDiscountLabel.text = "\(noClaimFormatted!)%"
+        
+        let insuranceCostFormatted = numberFormatter.stringFromNumber(player.insuranceCost)
+        costsLabel.text = "\(insuranceCostFormatted!) cr. daily"
+        
+        // set buy/stop insurance
+        if player.insurance {
+            let controlState = UIControlState()
+            buyInsuranceOutlet.setTitle("Stop Insurance", forState: controlState)
+        } else {
+            let controlState = UIControlState()
+            buyInsuranceOutlet.setTitle("Buy Insurance", forState: controlState)
         }
         
         
@@ -96,6 +114,43 @@ class BankVC: UIViewController {
     }
 
     @IBAction func buyInsurance(sender: AnyObject) {
+        if player.insurance {
+            // stop insurance
+            print("SHOULD NOW LAUNCH ALERT")                // DEBUG
+            let title = "Stop Insurance"
+            let message = "Do you really want to stop your insurance and lose your no-claim?."
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                player.insurance = false
+                self.setData()
+            }))
+            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default ,handler: {
+                (alert: UIAlertAction!) -> Void in
+                // do nothing
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            // buy insurance
+            if player.escapePod {
+                // launch modal/alert/whatever to buy insurance
+                player.insurance = true
+                self.setData()
+                
+            } else {
+                let title = "No Escape Pod"
+                let message = "Insurance isn't useful to you, since you don't have an escape pod."
+                
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+                    (alert: UIAlertAction!) -> Void in
+                    // do nothing
+                }))
+                
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -25,6 +25,23 @@ class Commander {
     var caughtLittering = false
     var portableSingularity = false
     
+    var insurance = false
+    var noClaim = 0                     // HOOK UP
+    var insuranceCost: Int {
+        if !insurance {
+            return 0
+        } else {
+            let shipValue = player.commanderShip.value
+            var cost = shipValue / 400
+            cost = cost - (cost * (noClaim / 100))
+            return cost
+        }
+    }
+    var insuredValue: Int {
+        return player.commanderShip.value
+    }
+    
+    
     // skills
     var pilotSkill: Int {
         get {

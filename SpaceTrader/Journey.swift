@@ -278,6 +278,13 @@ class Journey {
         // fire segue back to sell (or something else later)
         var passedText = NSString(string: "done")
         NSNotificationCenter.defaultCenter().postNotificationName("encounterModalFireNotification", object: passedText)
+        
+        // increment no-claim
+        if player.insurance {
+            if player.noClaim < 30 {
+                player.noClaim += 1
+            }
+        }
     }
     
 //    func generateEncounters() {         // OLD, but with useful code

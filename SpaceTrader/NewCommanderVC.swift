@@ -188,6 +188,9 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         player.commanderShip.crew.append(zeethibal)
         
         //player.policeRecord = PoliceRecordType.heroScore
+        
+        
+        player.credits = 100000     // for testing, give player money
 
         
         // END TESTING STUFF ********************************************************************
