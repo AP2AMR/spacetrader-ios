@@ -19,6 +19,7 @@
 		5A078AC11BB33C100005155D /* BuyModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A078AC01BB33C100005155D /* BuyModalVC.swift */; };
 		5A1DBBC51C0E2F3E009E8D0C /* EquipmentListDualTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DBBC41C0E2F3E009E8D0C /* EquipmentListDualTableVC.swift */; };
 		5A1DBBC71C0E3509009E8D0C /* UniversalGadget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DBBC61C0E3509009E8D0C /* UniversalGadget.swift */; };
+		5A26FC081C3B72E5009F6392 /* SaveGameDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A26FC061C3B72E5009F6392 /* SaveGameDataModel.xcdatamodeld */; };
 		5A278EB01BE5632B00679276 /* PlunderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A278EAF1BE5632B00679276 /* PlunderVC.swift */; };
 		5A518FB01BC0ACC400021B13 /* WarpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A518FAF1BC0ACC400021B13 /* WarpVC.swift */; };
 		5A518FB21BC18C0B00021B13 /* DockVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A518FB11BC18C0B00021B13 /* DockVC.swift */; };
@@ -93,6 +94,7 @@
 		5A078AC01BB33C100005155D /* BuyModalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyModalVC.swift; sourceTree = "<group>"; };
 		5A1DBBC41C0E2F3E009E8D0C /* EquipmentListDualTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmentListDualTableVC.swift; sourceTree = "<group>"; };
 		5A1DBBC61C0E3509009E8D0C /* UniversalGadget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversalGadget.swift; sourceTree = "<group>"; };
+		5A26FC071C3B72E5009F6392 /* SaveGameDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SaveGameDataModel.xcdatamodel; sourceTree = "<group>"; };
 		5A278EAF1BE5632B00679276 /* PlunderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlunderVC.swift; sourceTree = "<group>"; };
 		5A518FAF1BC0ACC400021B13 /* WarpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarpVC.swift; sourceTree = "<group>"; };
 		5A518FB11BC18C0B00021B13 /* DockVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DockVC.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				5AD5F8911B9A122200154B21 /* AppDelegate.swift */,
+				5A26FC061C3B72E5009F6392 /* SaveGameDataModel.xcdatamodeld */,
 				5AD5F8931B9A122200154B21 /* ViewController.swift */,
 				5AD5F8951B9A122200154B21 /* Main.storyboard */,
 				5AD5F89A1B9A122200154B21 /* LaunchScreen.xib */,
@@ -409,6 +412,7 @@
 			files = (
 				5A9830511BE3224100378EB3 /* EncounterVCBad.swift in Sources */,
 				5AE71F911C054B96004378BD /* BuyShipCell.swift in Sources */,
+				5A26FC081C3B72E5009F6392 /* SaveGameDataModel.xcdatamodeld in Sources */,
 				5A0265BE1B9FD2660079F6DE /* CrewMember.swift in Sources */,
 				5AAD55291C235DE0001FC8AD /* BankQuantityVC.swift in Sources */,
 				5AEC942E1BC8594F00C68F7F /* GalacticChartVC.swift in Sources */,
@@ -677,6 +681,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5A26FC061C3B72E5009F6392 /* SaveGameDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5A26FC071C3B72E5009F6392 /* SaveGameDataModel.xcdatamodel */,
+			);
+			currentVersion = 5A26FC071C3B72E5009F6392 /* SaveGameDataModel.xcdatamodel */;
+			path = SaveGameDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5AD5F8841B9A122200154B21 /* Project object */;
 }

@@ -73,11 +73,6 @@ class BankVC: UIViewController {
             let controlState = UIControlState()
             buyInsuranceOutlet.setTitle("Buy Insurance", forState: controlState)
         }
-        
-        
-        
-        
-        
     }
     
     func getMaxLoan() -> Int {
