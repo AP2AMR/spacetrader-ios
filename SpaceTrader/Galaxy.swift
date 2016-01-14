@@ -18,7 +18,7 @@ import Foundation
 import UIKit
 
 
-class Galaxy {
+class Galaxy: NSObject, NSCoding {
     
     var planets: [StarSystem] = []
     var systemsInRange: [StarSystem] = []
@@ -41,9 +41,13 @@ class Galaxy {
             
         }
     }
-    var targetSystemInRange = true                  // NEW ADDITION
+    var targetSystemInRange = true
     var trackedSystem: StarSystem? = nil
     var currentJourney: Journey?
+    
+    override init() {
+        // deliberately empty
+    }
     
     func createGalaxy() {
         print("Initializing galaxy...")
@@ -1277,4 +1281,30 @@ class Galaxy {
         print("warp disallowed. Not enough fuel, or else something something like debt that I haven't implemented yet")
         return false
     }
+    
+    // NSCODING METHODS
+    
+    required init(coder decoder: NSCoder) {
+        self.planets = decoder.decodeObjectForKey("planets") as! [StarSystem]
+        self.systemsInRange = decoder.decodeObjectForKey("systemsInRange") as! [StarSystem]
+        self.currentSystem = decoder.decodeObjectForKey("currentSystem") as! StarSystem?
+        self.targetSystem = decoder.decodeObjectForKey("targetSystem") as! StarSystem?
+        self.targetSystemInRange = decoder.decodeObjectForKey("targetSystemInRange") as! Bool
+        self.trackedSystem = decoder.decodeObjectForKey("trackedSystem") as! StarSystem?
+        self.currentJourney = decoder.decodeObjectForKey("currentJourney") as! Journey?
+
+        super.init()
+    }
+    
+    func encodeWithCoder(encoder: NSCoder) {
+        encoder.encodeObject(planets, forKey: "planets")
+        encoder.encodeObject(systemsInRange, forKey: "systemsInRange")
+        encoder.encodeObject(currentSystem, forKey: "currentSystem")
+        encoder.encodeObject(targetSystem, forKey: "targetSystem")
+        encoder.encodeObject(targetSystemInRange, forKey: "targetSystemInRange")
+        encoder.encodeObject(trackedSystem, forKey: "trackedSystem")
+        encoder.encodeObject(currentJourney, forKey: "currentJourney")
+    }
+    
+    
 }

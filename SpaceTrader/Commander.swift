@@ -26,7 +26,7 @@ class Commander {
     var portableSingularity = false
     
     var insurance = false
-    var noClaim = 0                     // HOOK UP
+    var noClaim = 0
     var insuranceCost: Int {
         if !insurance {
             return 0
