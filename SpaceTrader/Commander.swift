@@ -8,11 +8,10 @@
 
 import Foundation
 
-class Commander {
+class Commander: NSObject, NSCoding {
     var commanderName: String
     var difficulty: DifficultyType
     var commanderShip: SpaceShip
-    //var currentSystem: StarSystemID
     var credits: Int
     var debt: Int = 0
     var days: Int = 0
@@ -537,4 +536,86 @@ class Commander {
     }
     
     // END BUY/SELL FUNCTIONS**************************************************************************
+    
+    // NSCODING METHODS
+    
+    required init(coder decoder: NSCoder) {
+        self.commanderName = decoder.decodeObjectForKey("commanderName") as! String
+        self.difficulty = decoder.decodeObjectForKey("difficulty") as! DifficultyType
+        self.commanderShip = decoder.decodeObjectForKey("commanderShip") as! SpaceShip
+        self.credits = decoder.decodeObjectForKey("credits") as! Int
+        self.debt = decoder.decodeObjectForKey("debt") as! Int
+        self.days = decoder.decodeObjectForKey("days") as! Int
+        self.specialEvents = decoder.decodeObjectForKey("difficulty") as! SpecialEvents
+        
+        self.remindLoans = decoder.decodeObjectForKey("remindLoans") as! Bool
+        self.autoFuel = decoder.decodeObjectForKey("autoFuel") as! Bool
+        self.autoRepair = decoder.decodeObjectForKey("autoRepair") as! Bool
+        self.alreadyPaidForNewspaper = decoder.decodeObjectForKey("alreadyPaidForNewspaper") as! Bool
+        self.caughtLittering = decoder.decodeObjectForKey("caughtLittering") as! Bool
+        self.portableSingularity = decoder.decodeObjectForKey("portableSingularity") as! Bool
+        
+        self.insurance = decoder.decodeObjectForKey("insurance") as! Bool
+        self.noClaim = decoder.decodeObjectForKey("noClaim") as! Int
+        
+        self.initialPilotSkill = decoder.decodeObjectForKey("initialPilotSkill") as! Int
+        self.initialFighterSkill = decoder.decodeObjectForKey("initialFighterSkill") as! Int
+        self.initialTraderSkill = decoder.decodeObjectForKey("initialTraderSkill") as! Int
+        self.initialEngineerSkill = decoder.decodeObjectForKey("initialEngineerSkill") as! Int
+        
+        self.policeRecord = decoder.decodeObjectForKey("policeRecord") as! PoliceRecordType
+        self.reputation = decoder.decodeObjectForKey("reputation") as! ReputationType
+        self.escapePod = decoder.decodeObjectForKey("escapePod") as! Bool
+        
+        self.inspected = decoder.decodeObjectForKey("inspected") as! Bool
+        self.wildStatus = decoder.decodeObjectForKey("wildStatus") as! Bool
+        
+        self.pirateKills = decoder.decodeObjectForKey("pirateKills") as! Int
+        self.policeKills = decoder.decodeObjectForKey("policeKills") as! Int
+        self.traderKills = decoder.decodeObjectForKey("traderKills") as! Int
+        
+        
+
+        
+        super.init()
+    }
+    
+    // NOTE: enums here are encoded as their rawValue. I think this works on the other end?
+    
+    func encodeWithCoder(encoder: NSCoder) {
+        //encoder.encodeObject(planets, forKey: "planets")
+        encoder.encodeObject(commanderName, forKey: "commanderName")
+        encoder.encodeObject(difficulty.rawValue, forKey: "difficulty")         //
+        encoder.encodeObject(commanderShip, forKey: "commanderShip")
+        encoder.encodeObject(credits, forKey: "credits")
+        encoder.encodeObject(debt, forKey: "debt")
+        encoder.encodeObject(days, forKey: "days")
+        encoder.encodeObject(specialEvents, forKey: "specialEvents")
+        
+        encoder.encodeObject(remindLoans, forKey: "remindLoans")
+        encoder.encodeObject(autoFuel, forKey: "autoFuel")
+        encoder.encodeObject(autoRepair, forKey: "autoRepair")
+        encoder.encodeObject(alreadyPaidForNewspaper, forKey: "alreadyPaidForNewspaper")
+        encoder.encodeObject(caughtLittering, forKey: "caughtLittering")
+        encoder.encodeObject(portableSingularity, forKey: "portableSingularity")
+        
+        encoder.encodeObject(insurance, forKey: "insurance")
+        encoder.encodeObject(noClaim, forKey: "noClaim")
+        
+        encoder.encodeObject(initialPilotSkill, forKey: "initialPilotSkill")
+        encoder.encodeObject(initialFighterSkill, forKey: "initialFighterSkill")
+        encoder.encodeObject(initialTraderSkill, forKey: "initialTraderSkill")
+        encoder.encodeObject(initialEngineerSkill, forKey: "initialEngineerSkill")
+        
+        encoder.encodeObject(policeRecord.rawValue, forKey: "policeRecord")     //
+        encoder.encodeObject(reputation.rawValue, forKey: "reputation")         //
+        encoder.encodeObject(escapePod, forKey: "escapePod")
+        
+        encoder.encodeObject(inspected, forKey: "inspected")
+        encoder.encodeObject(wildStatus, forKey: "wildStatus")
+        
+        encoder.encodeObject(pirateKills, forKey: "pirateKills")
+        encoder.encodeObject(policeKills, forKey: "policeKills")
+        encoder.encodeObject(traderKills, forKey: "traderKills")
+    }
 }
