@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Gadget {
+class Gadget: NSObject, NSCoding {
     let type: GadgetType
     let name: String
     let price: Int
@@ -66,4 +66,28 @@ class Gadget {
             self.image = UIImage(named: "fuel")!
         }
     }
+   
+    // NSCODING METHODS
+        required init(coder decoder: NSCoder) {
+            //self.commanderName = decoder.decodeObjectForKey("commanderName") as! String
+            self.type = decoder.decodeObjectForKey("type") as! GadgetType
+            self.name = decoder.decodeObjectForKey("name") as! String
+            self.price = decoder.decodeObjectForKey("price") as! Int
+            self.sellPrice = decoder.decodeObjectForKey("sellPrice") as! Int
+            self.techLevel = decoder.decodeObjectForKey("techLevel") as! TechLevelType
+            self.chance = decoder.decodeObjectForKey("chance") as! Int
+            self.image = decoder.decodeObjectForKey("image") as! UIImage
+    
+            super.init()
+        }
+    
+        func encodeWithCoder(encoder: NSCoder) {
+            encoder.encodeObject(type.rawValue, forKey: "type")
+            encoder.encodeObject(name, forKey: "name")
+            encoder.encodeObject(price, forKey: "price")
+            encoder.encodeObject(sellPrice, forKey: "sellPrice")
+            encoder.encodeObject(techLevel.rawValue, forKey: "techLevel")
+            encoder.encodeObject(chance, forKey: "chance")
+            encoder.encodeObject(image, forKey: "image")
+        }
 }

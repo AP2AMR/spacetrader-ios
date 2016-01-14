@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Encounter {
+class Encounter: NSObject, NSCoding {
     var type: EncounterType
     let opponent: Opponent
     let clicks: Int
@@ -695,5 +695,66 @@ class Encounter {
         setEncounterTextAndButtons()
         fireModal()
     }
+    
+    // NSCODING METHODS
+    
+        required init(coder decoder: NSCoder) {
+            //self.commanderName = decoder.decodeObjectForKey("commanderName") as! String
+            self.type = decoder.decodeObjectForKey("type") as! EncounterType
+            self.opponent = decoder.decodeObjectForKey("opponent") as! Opponent
+            self.clicks = decoder.decodeObjectForKey("clicks") as! Int
+            self.encounterText1 = decoder.decodeObjectForKey("encounterText1") as! String
+            self.encounterText2 = decoder.decodeObjectForKey("encounterText2") as! String
+            self.button1Text = decoder.decodeObjectForKey("button1Text") as! String
+            self.button2Text = decoder.decodeObjectForKey("button2Text") as! String
+            self.button3Text = decoder.decodeObjectForKey("button3Text") as! String
+            self.button4Text = decoder.decodeObjectForKey("button4Text") as! String
+            
+            self.alertTitle = decoder.decodeObjectForKey("alertTitle") as! String
+            self.alertText = decoder.decodeObjectForKey("alertText") as! String
+            
+            self.opponentFleeing = decoder.decodeObjectForKey("opponentFleeing") as! Bool
+            self.playerFleeing = decoder.decodeObjectForKey("playerFleeing") as! Bool
+            
+            self.pilotSkillOpponent = decoder.decodeObjectForKey("pilotSkillOpponent") as! Int
+            self.fighterSkillOpponent = decoder.decodeObjectForKey("fighterSkillOpponent") as! Int
+            self.traderSkillOpponent = decoder.decodeObjectForKey("traderSkillOpponent") as! Int
+            self.engineerSkillOpponent = decoder.decodeObjectForKey("engineerSkillOpponent") as! Int
+            
+            self.youHitThem = decoder.decodeObjectForKey("youHitThem") as! Bool
+            self.theyHitYou = decoder.decodeObjectForKey("theyHitYou") as! Bool
+            
+            self.scoopableItem = decoder.decodeObjectForKey("scoopableItem") as! TradeItem?
+            
+            super.init()
+        }
+    
+        func encodeWithCoder(encoder: NSCoder) {
+            encoder.encodeObject(type.rawValue, forKey: "type")
+            encoder.encodeObject(opponent, forKey: "opponent")
+            encoder.encodeObject(clicks, forKey: "clicks")
+            encoder.encodeObject(encounterText1, forKey: "encounterText1")
+            encoder.encodeObject(encounterText2, forKey: "encounterText2")
+            encoder.encodeObject(button1Text, forKey: "button1Text")
+            encoder.encodeObject(button2Text, forKey: "button2Text")
+            encoder.encodeObject(button3Text, forKey: "button3Text")
+            encoder.encodeObject(button4Text, forKey: "button4Text")
+            
+            encoder.encodeObject(alertTitle, forKey: "alertTitle")
+            encoder.encodeObject(alertText, forKey: "alertText")
+            
+            encoder.encodeObject(opponentFleeing, forKey: "opponentFleeing")
+            encoder.encodeObject(playerFleeing, forKey: "playerFleeing")
+            
+            encoder.encodeObject(pilotSkillOpponent, forKey: "pilotSkillOpponent")
+            encoder.encodeObject(fighterSkillOpponent, forKey: "fighterSkillOpponent")
+            encoder.encodeObject(traderSkillOpponent, forKey: "traderSkillOpponent")
+            encoder.encodeObject(engineerSkillOpponent, forKey: "engineerSkillOpponent")
+            
+            encoder.encodeObject(youHitThem, forKey: "youHitThem")
+            encoder.encodeObject(theyHitYou, forKey: "theyHitYou")
+            
+            encoder.encodeObject(scoopableItem, forKey: "scoopableItem")
+        }
     
 }

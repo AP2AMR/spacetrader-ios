@@ -574,16 +574,12 @@ class Commander: NSObject, NSCoding {
         self.policeKills = decoder.decodeObjectForKey("policeKills") as! Int
         self.traderKills = decoder.decodeObjectForKey("traderKills") as! Int
         
-        
-
-        
         super.init()
     }
     
     // NOTE: enums here are encoded as their rawValue. I think this works on the other end?
     
     func encodeWithCoder(encoder: NSCoder) {
-        //encoder.encodeObject(planets, forKey: "planets")
         encoder.encodeObject(commanderName, forKey: "commanderName")
         encoder.encodeObject(difficulty.rawValue, forKey: "difficulty")         //
         encoder.encodeObject(commanderShip, forKey: "commanderShip")
@@ -618,4 +614,15 @@ class Commander: NSObject, NSCoding {
         encoder.encodeObject(policeKills, forKey: "policeKills")
         encoder.encodeObject(traderKills, forKey: "traderKills")
     }
+    
+// FOR COPYING
+//    required init(coder decoder: NSCoder) {
+//        self.commanderName = decoder.decodeObjectForKey("commanderName") as! String
+//        
+//        super.init()
+//    }
+    
+//    func encodeWithCoder(encoder: NSCoder) {
+//        encoder.encodeObject(planets, forKey: "planets")
+//    }
 }

@@ -453,8 +453,8 @@ enum IFFStatusType: String {
     case Null = "null"
 }
 
-enum GadgetType {
-    case CargoBays
+enum GadgetType: Int {
+    case CargoBays = 0
     case AutoRepair
     case Navigation
     case Targeting
@@ -517,8 +517,8 @@ enum PoliticsType: String {
     case theocracy = "Theocracy"
 }
 
-enum EncounterType {
-    case policeInspection
+enum EncounterType: Int {           // needs a raw value for NSCoding
+    case policeInspection = 0
     case postMariePoliceEncounter
     case policeFlee
     case traderFlee
