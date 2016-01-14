@@ -463,8 +463,8 @@ enum GadgetType: Int {
     case FuelCompactor
 }
 
-enum WeaponType {
-    case pulseLaser
+enum WeaponType: Int {
+    case pulseLaser = 0
     case beamLaser
     case militaryLaser
     case morgansLaser
@@ -472,8 +472,8 @@ enum WeaponType {
     case quantumDisruptor
 }
 
-enum ShieldType {
-    case energyShield
+enum ShieldType: Int {
+    case energyShield = 0
     case reflectiveShield
     // not for sale:
     case lightningShield

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Politics {
+class Politics: NSObject, NSCoding {
     let type: PoliticsType
     let name: String
     let reactionIllegal: Int    // reaction level to illegal goods. 0 = total acceptance
@@ -233,5 +233,36 @@ class Politics {
         }
     }
     
+     // NSCODING METHODS
+        required init(coder decoder: NSCoder) {
+            self.type = decoder.decodeObjectForKey("type") as! PoliticsType
+            self.name = decoder.decodeObjectForKey("name") as! String
+            self.reactionIllegal = decoder.decodeObjectForKey("reactionIllegal") as! Int
+            self.activityPolice = decoder.decodeObjectForKey("activityPolice") as! Int
+            self.activityPirates = decoder.decodeObjectForKey("activityPirates") as! Int
+            self.activityTraders = decoder.decodeObjectForKey("activityTraders") as! Int
+            self.minTech = decoder.decodeObjectForKey("minTech") as! TechLevelType
+            self.maxTech = decoder.decodeObjectForKey("maxTech") as! TechLevelType
+            self.bribeLevel = decoder.decodeObjectForKey("bribeLevel") as! Int
+            self.drugsOk = decoder.decodeObjectForKey("drugsOk") as! Bool
+            self.firearmsOk = decoder.decodeObjectForKey("firearmsOk") as! Bool
+            self.wanted = decoder.decodeObjectForKey("wanted") as! TradeItemType
     
+            super.init()
+        }
+    
+        func encodeWithCoder(encoder: NSCoder) {
+            encoder.encodeObject(type.rawValue, forKey: "type")
+            encoder.encodeObject(name, forKey: "name")
+            encoder.encodeObject(reactionIllegal, forKey: "reactionIllegal")
+            encoder.encodeObject(activityPolice, forKey: "activityPolice")
+            encoder.encodeObject(activityPirates, forKey: "activityPirates")
+            encoder.encodeObject(activityTraders, forKey: "activityTraders")
+            encoder.encodeObject(minTech.rawValue, forKey: "minTech")
+            encoder.encodeObject(maxTech.rawValue, forKey: "maxTech")
+            encoder.encodeObject(bribeLevel, forKey: "bribeLevel")
+            encoder.encodeObject(drugsOk, forKey: "drugsOk")
+            encoder.encodeObject(firearmsOk, forKey: "firearmsOk")
+            encoder.encodeObject(wanted.rawValue, forKey: "wanted")
+        }
 }
