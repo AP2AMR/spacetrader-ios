@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Opponent {
+class Opponent: NSObject, NSCoding {
     var ship: SpaceShip
     var commander: Commander
     var type: IFFStatusType
@@ -491,4 +491,19 @@ class Opponent {
         
         print("hull situation. hullStrength is \(ship.hullStrength), hull is \(ship.hull), hullPercentage is \(ship.hullPercentage)")
     }
+    
+    // NSCODING METHODS
+        required init(coder decoder: NSCoder) {
+            self.ship = decoder.decodeObjectForKey("ship") as! SpaceShip
+            self.commander = decoder.decodeObjectForKey("commander") as! Commander
+            self.type = decoder.decodeObjectForKey("type") as! IFFStatusType
+    
+            super.init()
+        }
+    
+        func encodeWithCoder(encoder: NSCoder) {
+            encoder.encodeObject(ship, forKey: "ship")
+            encoder.encodeObject(commander, forKey: "commander")
+            encoder.encodeObject(type.rawValue, forKey: "type")
+        }
 }
