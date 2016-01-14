@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CrewMember {
+class CrewMember: NSObject, NSCoding {
     var ID: MercenaryName
     var name: String
     var pilot: Int
@@ -27,5 +27,29 @@ class CrewMember {
         self.trader = trader
         self.engineer = engineer
         self.costPerDay = ((pilot + fighter + trader + engineer) * 3)
+    }
+    
+    // NSCODING METHODS
+    required init(coder decoder: NSCoder) {
+        self.ID = decoder.decodeObjectForKey("ID") as! MercenaryName
+        self.name = decoder.decodeObjectForKey("name") as! String
+        self.pilot = decoder.decodeObjectForKey("pilot") as! Int
+        self.fighter = decoder.decodeObjectForKey("fighter") as! Int
+        self.trader = decoder.decodeObjectForKey("trader") as! Int
+        self.engineer = decoder.decodeObjectForKey("engineer") as! Int
+        self.costPerDay = decoder.decodeObjectForKey("costPerDay") as! Int
+
+        super.init()
+    }
+    
+
+    func encodeWithCoder(encoder: NSCoder) {
+        encoder.encodeObject(ID.rawValue, forKey: "ID")
+        encoder.encodeObject(name, forKey: "name")
+        encoder.encodeObject(pilot, forKey: "pilot")
+        encoder.encodeObject(fighter, forKey: "fighter")
+        encoder.encodeObject(trader, forKey: "trader")
+        encoder.encodeObject(engineer, forKey: "engineer")
+        encoder.encodeObject(costPerDay, forKey: "costPerDay")
     }
 }
