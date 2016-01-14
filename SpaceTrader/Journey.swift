@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Journey {
+class Journey: NSObject, NSCoding {
     let origin: StarSystem
     let destination: StarSystem
     var clicks: Int = 20
@@ -21,7 +21,7 @@ class Journey {
     
     var currentEncounter: Encounter?
     
-    let localPolitics = Politics(type: galaxy.targetSystem!.politics)
+    var localPolitics = Politics(type: galaxy.targetSystem!.politics)
     
     let strengthPirates: Int
     let strengthPolice: Int
@@ -328,6 +328,39 @@ class Journey {
 //        // Og system lightning shield easter egg?
 //    }
     
+// NSCODING METHODS
     
-
+        required init(coder decoder: NSCoder) {
+            self.origin = decoder.decodeObjectForKey("origin") as! StarSystem
+            self.destination = decoder.decodeObjectForKey("destination") as! StarSystem
+            self.clicks = decoder.decodeObjectForKey("clicks") as! Int
+            self.pirate = decoder.decodeObjectForKey("pirate") as! Bool
+            self.police = decoder.decodeObjectForKey("police") as! Bool
+            self.trader = decoder.decodeObjectForKey("trader") as! Bool
+            self.mantis = decoder.decodeObjectForKey("mantis") as! Bool
+            self.currentEncounter = decoder.decodeObjectForKey("currentEncounter") as! Encounter?
+            self.localPolitics = decoder.decodeObjectForKey("localPolitics") as! Politics
+            self.strengthPirates = decoder.decodeObjectForKey("strengthPirates") as! Int
+            self.strengthPolice = decoder.decodeObjectForKey("strengthPolice") as! Int
+            self.strengthTraders = decoder.decodeObjectForKey("strengthTraders") as! Int
+            self.uneventfulTrip = decoder.decodeObjectForKey("uneventfulTrip") as! Bool
+    
+            super.init()
+        }
+    
+        func encodeWithCoder(encoder: NSCoder) {
+            encoder.encodeObject(origin, forKey: "origin")
+            encoder.encodeObject(destination, forKey: "destination")
+            encoder.encodeObject(clicks, forKey: "clicks")
+            encoder.encodeObject(pirate, forKey: "pirate")
+            encoder.encodeObject(police, forKey: "police")
+            encoder.encodeObject(trader, forKey: "trader")
+            encoder.encodeObject(mantis, forKey: "mantis")
+            encoder.encodeObject(currentEncounter, forKey: "currentEncounter")
+            encoder.encodeObject(localPolitics, forKey: "localPolitics")
+            encoder.encodeObject(strengthPirates, forKey: "strengthPirates")
+            encoder.encodeObject(strengthPolice, forKey: "strengthPolice")
+            encoder.encodeObject(strengthTraders, forKey: "strengthTraders")
+            encoder.encodeObject(uneventfulTrip, forKey: "uneventfulTrip")
+        }
 }
