@@ -615,7 +615,7 @@ class Commander: NSObject, NSCoding {
         encoder.encodeObject(traderKills, forKey: "traderKills")
     }
     
-// FOR COPYING
+// NSCODING METHODS
 //    required init(coder decoder: NSCoder) {
 //        self.commanderName = decoder.decodeObjectForKey("commanderName") as! String
 //        

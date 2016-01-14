@@ -8,11 +8,11 @@
 
 import Foundation
 
-class Newspaper {
+class Newspaper: NSObject, NSCoding {
     var stories: [String] = []
     
-    init() {
-        
+    override init() {
+        // deliberately empty
     }
     
     func generatePaper() {
@@ -419,6 +419,17 @@ class Newspaper {
             }
         }
         self.stories.append(headline)
+    }
+    
+    // NSCODING METHODS
+    required init(coder decoder: NSCoder) {
+        self.stories = decoder.decodeObjectForKey("stories") as! [String]
+
+        super.init()
+    }
+
+    func encodeWithCoder(encoder: NSCoder) {
+        encoder.encodeObject(stories, forKey: "stories")
     }
 }
 
