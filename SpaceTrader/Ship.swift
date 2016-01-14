@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SpaceShip {
+class SpaceShip: NSObject, NSCoding {
     var type: ShipType
     var name: String
     var cargoBays: Int
@@ -708,10 +708,115 @@ class SpaceShip {
             self.shield.append(lightning)
         }
     }
+    
+     // NSCODING METHODS
+        required init(coder decoder: NSCoder) {
+            self.type = decoder.decodeObjectForKey("type") as! ShipType
+            self.name = decoder.decodeObjectForKey("name") as! String
+            self.cargoBays = decoder.decodeObjectForKey("cargoBays") as! Int
+            self.weaponSlots = decoder.decodeObjectForKey("weaponSlots") as! Int
+            self.shieldSlots = decoder.decodeObjectForKey("shieldSlots") as! Int
+            self.gadgetSlots = decoder.decodeObjectForKey("gadgetSlots") as! Int
+            self.crewQuarters = decoder.decodeObjectForKey("crewQuarters") as! Int
+            self.fuelTanks = decoder.decodeObjectForKey("fuelTanks") as! Int
+            self.size = decoder.decodeObjectForKey("size") as! String
+            self.minTechLevel = decoder.decodeObjectForKey("minTechLevel") as! TechLevelType
+            self.costOfFuel = decoder.decodeObjectForKey("costOfFuel") as! Int
+            self.price = decoder.decodeObjectForKey("price") as! Int
+            self.bounty = decoder.decodeObjectForKey("bounty") as! Int
+            self.occurance = decoder.decodeObjectForKey("occurance") as! Int
+            self.hullStrength = decoder.decodeObjectForKey("hullStrength") as! Int
+            self.police = decoder.decodeObjectForKey("police") as! Int
+            self.pirates = decoder.decodeObjectForKey("pirates") as! Int
+            self.traders = decoder.decodeObjectForKey("traders") as! Int
+            self.repairCosts = decoder.decodeObjectForKey("repairCosts") as! Int
+            self.probabilityOfHit = decoder.decodeObjectForKey("probabilityOfHit") as! Int
+            
+            self.raided = decoder.decodeObjectForKey("raided") as! Bool
+            self.artifactOnBoard = decoder.decodeObjectForKey("artifactOnBoard") as! Bool
+            self.justLootedMarieCeleste = decoder.decodeObjectForKey("justLootedMarieCeleste") as! Bool
+            self.cloaked = decoder.decodeObjectForKey("cloaked") as! Bool
+            self.disabled = decoder.decodeObjectForKey("disabled") as! Bool
+            self.specialCargo = decoder.decodeObjectForKey("specialCargo") as! [SpecialCargoItem]
+            self.IFFStatus = decoder.decodeObjectForKey("IFFStatus") as! IFFStatusType
+            
+            self.cargo = decoder.decodeObjectForKey("cargo") as! [TradeItem]
+            self.weapon = decoder.decodeObjectForKey("weapon") as! [Weapon]
+            self.shield = decoder.decodeObjectForKey("shield") as! [Shield]
+            self.gadget = decoder.decodeObjectForKey("gadget") as! [Gadget]
+            self.crew = decoder.decodeObjectForKey("crew") as! [CrewMember]
+            self.fuel = decoder.decodeObjectForKey("fuel") as! Int
+            self.hull = decoder.decodeObjectForKey("hull") as! Int
+            self.tribbles = decoder.decodeObjectForKey("tribbles") as! Int
+            
+            self.waterOnBoard = decoder.decodeObjectForKey("waterOnBoard") as! Int
+            self.fursOnBoard = decoder.decodeObjectForKey("fursOnBoard") as! Int
+            self.foodOnBoard = decoder.decodeObjectForKey("foodOnBoard") as! Int
+            self.oreOnBoard = decoder.decodeObjectForKey("oreOnBoard") as! Int
+            self.gamesOnBoard = decoder.decodeObjectForKey("gamesOnBoard") as! Int
+            self.firearmsOnBoard = decoder.decodeObjectForKey("firearmsOnBoard") as! Int
+            self.medicineOnBoard = decoder.decodeObjectForKey("medicineOnBoard") as! Int
+            self.machinesOnBoard = decoder.decodeObjectForKey("machinesOnBoard") as! Int
+            self.narcoticsOnBoard = decoder.decodeObjectForKey("narcoticsOnBoard") as! Int
+            self.robotsOnBoard = decoder.decodeObjectForKey("robotsOnBoard") as! Int
+    
+            super.init()
+        }
+    
+        func encodeWithCoder(encoder: NSCoder) {
+            encoder.encodeObject(type.rawValue, forKey: "type")
+            encoder.encodeObject(name, forKey: "name")
+            encoder.encodeObject(cargoBays, forKey: "cargoBays")
+            encoder.encodeObject(weaponSlots, forKey: "weaponSlots")
+            encoder.encodeObject(shieldSlots, forKey: "shieldSlots")
+            encoder.encodeObject(gadgetSlots, forKey: "gadgetSlots")
+            encoder.encodeObject(crewQuarters, forKey: "crewQuarters")
+            encoder.encodeObject(fuelTanks, forKey: "fuelTanks")
+            encoder.encodeObject(size, forKey: "size")
+            encoder.encodeObject(minTechLevel.rawValue, forKey: "minTechLevel")
+            encoder.encodeObject(costOfFuel, forKey: "costOfFuel")
+            encoder.encodeObject(price, forKey: "price")
+            encoder.encodeObject(bounty, forKey: "bounty")
+            encoder.encodeObject(occurance, forKey: "occurance")
+            encoder.encodeObject(hullStrength, forKey: "hullStrength")
+            encoder.encodeObject(police, forKey: "police")
+            encoder.encodeObject(pirates, forKey: "pirates")
+            encoder.encodeObject(traders, forKey: "traders")
+            encoder.encodeObject(repairCosts, forKey: "repairCosts")
+            encoder.encodeObject(probabilityOfHit, forKey: "probabilityOfHit")
+            
+            encoder.encodeObject(raided, forKey: "raided")
+            encoder.encodeObject(artifactOnBoard, forKey: "artifactOnBoard")
+            encoder.encodeObject(justLootedMarieCeleste, forKey: "justLootedMarieCeleste")
+            encoder.encodeObject(cloaked, forKey: "cloaked")
+            encoder.encodeObject(disabled, forKey: "disabled")
+            encoder.encodeObject(specialCargo, forKey: "specialCargo")
+            encoder.encodeObject(IFFStatus.rawValue, forKey: "IFFStatus")
+            
+            encoder.encodeObject(cargo, forKey: "cargo")
+            encoder.encodeObject(weapon, forKey: "weapon")
+            encoder.encodeObject(shield, forKey: "shield")
+            encoder.encodeObject(gadget, forKey: "gadget")
+            encoder.encodeObject(crew, forKey: "crew")
+            encoder.encodeObject(fuel, forKey: "fuel")
+            encoder.encodeObject(hull, forKey: "hull")
+            encoder.encodeObject(tribbles, forKey: "tribbles")
+            
+            encoder.encodeObject(waterOnBoard, forKey: "waterOnBoard")
+            encoder.encodeObject(fursOnBoard, forKey: "fursOnBoard")
+            encoder.encodeObject(foodOnBoard, forKey: "foodOnBoard")
+            encoder.encodeObject(oreOnBoard, forKey: "oreOnBoard")
+            encoder.encodeObject(gamesOnBoard, forKey: "gamesOnBoard")
+            encoder.encodeObject(firearmsOnBoard, forKey: "firearmsOnBoard")
+            encoder.encodeObject(medicineOnBoard, forKey: "medicineOnBoard")
+            encoder.encodeObject(machinesOnBoard, forKey: "machinesOnBoard")
+            encoder.encodeObject(narcoticsOnBoard, forKey: "narcoticsOnBoard")
+            encoder.encodeObject(robotsOnBoard, forKey: "robotsOnBoard")
+        }
 
 }
 
-class SpecialCargoItem {
+class SpecialCargoItem: NSObject, NSCoding {
     var name: String
     var quantity: Int
     var baysTakenUp: Int
@@ -720,5 +825,20 @@ class SpecialCargoItem {
         self.name = name
         self.quantity = quantity
         self.baysTakenUp = baysTakenUp
+    }
+    
+    // NSCODING METHODS
+    required init(coder decoder: NSCoder) {
+        self.name = decoder.decodeObjectForKey("name") as! String
+        self.quantity = decoder.decodeObjectForKey("quantity") as! Int
+        self.baysTakenUp = decoder.decodeObjectForKey("baysTakenUp") as! Int
+
+        super.init()
+    }
+
+    func encodeWithCoder(encoder: NSCoder) {
+        encoder.encodeObject(name, forKey: "name")
+        encoder.encodeObject(quantity, forKey: "quantity")
+        encoder.encodeObject(baysTakenUp, forKey: "baysTakenUp")
     }
 }

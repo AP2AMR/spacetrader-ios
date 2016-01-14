@@ -410,8 +410,8 @@ enum ScarabStatusType {
     
 }
 
-enum ShipType {
-    case Flea
+enum ShipType: Int {
+    case Flea = 0
     case Gnat
     case Firefly
     case Mosquito
@@ -431,8 +431,8 @@ enum ShipType {
     case Bottle
 }
 
-enum EndGameStatus {
-    case Killed
+enum EndGameStatus: Int {
+    case Killed = 0
     case Retired
     case BoughtMoon
     case BoughtMoonGirl
