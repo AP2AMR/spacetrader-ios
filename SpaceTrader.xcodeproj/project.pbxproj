@@ -70,6 +70,7 @@
 		5AF1CA2D1BA36C2300643C5F /* NewCommanderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF1CA2C1BA36C2300643C5F /* NewCommanderVC.swift */; };
 		5AF1CA2F1BAB3E7A00643C5F /* BuyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF1CA2E1BAB3E7A00643C5F /* BuyVC.swift */; };
 		5AFEB63B1C4954E9000F51BE /* SavedGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFEB63A1C4954E9000F51BE /* SavedGame.swift */; };
+		5AFEB63D1C497056000F51BE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFEB63C1C497056000F51BE /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +151,7 @@
 		5AF1CA2C1BA36C2300643C5F /* NewCommanderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCommanderVC.swift; sourceTree = "<group>"; };
 		5AF1CA2E1BAB3E7A00643C5F /* BuyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyVC.swift; sourceTree = "<group>"; };
 		5AFEB63A1C4954E9000F51BE /* SavedGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedGame.swift; sourceTree = "<group>"; };
+		5AFEB63C1C497056000F51BE /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,7 +271,9 @@
 				5A723F3F1BCC531B006FFB13 /* Journey.swift */,
 				5AE975641C10DE24005D78E1 /* Newspaper.swift */,
 				5AF0AAF61BD193B900BBE7CA /* Opponent.swift */,
+				5AFEB63C1C497056000F51BE /* Extensions.swift */,
 				5A0265BF1B9FDE1E0079F6DE /* PoliticsType.swift */,
+				5AFEB63A1C4954E9000F51BE /* SavedGame.swift */,
 				5A0265B91B9FCD2D0079F6DE /* Shield.swift */,
 				5AD5F8BD1B9F3BE700154B21 /* Ship.swift */,
 				5A0265BB1B9FCD8B0079F6DE /* SpecialEvent.swift */,
@@ -278,7 +282,6 @@
 				5A1DBBC61C0E3509009E8D0C /* UniversalGadget.swift */,
 				5AE71F981C06BCB0004378BD /* Utils.swift */,
 				5A0265B71B9FCD170079F6DE /* Weapon.swift */,
-				5AFEB63A1C4954E9000F51BE /* SavedGame.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				5A1DBBC51C0E2F3E009E8D0C /* EquipmentListDualTableVC.swift in Sources */,
 				5A723F421BCD5EA5006FFB13 /* Encounter.swift in Sources */,
 				5AE71F971C0699C1004378BD /* BuyEquipmentCell.swift in Sources */,
+				5AFEB63D1C497056000F51BE /* Extensions.swift in Sources */,
 				5A278EB01BE5632B00679276 /* PlunderVC.swift in Sources */,
 				5A0265BC1B9FCD8B0079F6DE /* SpecialEvent.swift in Sources */,
 				5A83DF541BDECF0400C31AC5 /* WarpViewVC.swift in Sources */,

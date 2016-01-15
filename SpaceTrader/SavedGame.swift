@@ -12,20 +12,20 @@ class SavedGame: NSObject, NSCoding {
     var name: String = ""
     //let timestamp:
     
-    var savedCommander: Commander?
-    var savedGalaxy: Galaxy?
+    var savedCommander: Commander
+    var savedGalaxy: Galaxy
     
-    override init() {
-        name = "not initialized"
-        savedCommander = nil
-        savedGalaxy = nil
+    init(name: String, cdr: Commander, gxy: Galaxy) {
+        self.name = name
+        self.savedCommander = cdr
+        self.savedGalaxy = gxy
     }
     
     // NSCODING METHODS
     required init(coder decoder: NSCoder) {
         self.name = decoder.decodeObjectForKey("name") as! String
-        self.savedCommander = decoder.decodeObjectForKey("savedCommander") as! Commander?
-        self.savedGalaxy = decoder.decodeObjectForKey("savedGalaxy") as! Galaxy?
+        self.savedCommander = decoder.decodeObjectForKey("savedCommander") as! Commander
+        self.savedGalaxy = decoder.decodeObjectForKey("savedGalaxy") as! Galaxy
 
         super.init()
     }
