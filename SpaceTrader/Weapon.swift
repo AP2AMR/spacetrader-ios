@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Weapon {
+class Weapon: NSObject, NSCoding {
     let type: WeaponType
     let name: String
     let power: Int
@@ -80,4 +80,31 @@ class Weapon {
             self.image = UIImage(named: "quantum")!
         }
     }
+    
+    // NSCODING METHODS
+        required init(coder decoder: NSCoder) {
+            self.type = decoder.decodeObjectForKey("type") as! WeaponType
+            self.name = decoder.decodeObjectForKey("name") as! String
+            self.power = decoder.decodeObjectForKey("power") as! Int
+            self.disruptivePower = decoder.decodeObjectForKey("disruptivePower") as! Int
+            self.price = decoder.decodeObjectForKey("price") as! Int
+            self.sellPrice = decoder.decodeObjectForKey("sellPrice") as! Int
+            self.techLevel = decoder.decodeObjectForKey("techLevel") as! TechLevelType
+            self.chance = decoder.decodeObjectForKey("chance") as! Int
+            self.image = decoder.decodeObjectForKey("image") as! UIImage
+    
+            super.init()
+        }
+    
+        func encodeWithCoder(encoder: NSCoder) {
+            encoder.encodeObject(type.rawValue, forKey: "type")
+            encoder.encodeObject(name, forKey: "name")
+            encoder.encodeObject(power, forKey: "power")
+            encoder.encodeObject(disruptivePower, forKey: "disruptivePower")
+            encoder.encodeObject(price, forKey: "price")
+            encoder.encodeObject(sellPrice, forKey: "sellPrice")
+            encoder.encodeObject(techLevel.rawValue, forKey: "techLevel")
+            encoder.encodeObject(chance, forKey: "chance")
+            encoder.encodeObject(image, forKey: "image")
+        }
 }

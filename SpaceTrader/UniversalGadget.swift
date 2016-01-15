@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class UniversalGadget {
+class UniversalGadget: NSObject, NSCoding {
     var typeIndex: Int = 0          // 0 is weapon, 1 is shield, 2 is gadget
     var wType: WeaponType? = nil
     var sType: ShieldType? = nil
@@ -102,5 +102,36 @@ class UniversalGadget {
         }
     }
     
+    // NSCODING METHODS
+        required init(coder decoder: NSCoder) {
+            self.typeIndex = decoder.decodeObjectForKey("typeIndex") as! Int
+            self.wType = decoder.decodeObjectForKey("wType") as! WeaponType?
+            self.sType = decoder.decodeObjectForKey("sType") as! ShieldType?
+            self.gType = decoder.decodeObjectForKey("gType") as! GadgetType?
+            self.weaponItem = decoder.decodeObjectForKey("weaponItem") as! Weapon?
+            self.shieldItem = decoder.decodeObjectForKey("shieldItem") as! Shield?
+            self.gadgetItem = decoder.decodeObjectForKey("gadgetItem") as! Gadget?
+            
+            self.name = decoder.decodeObjectForKey("name") as! String
+            self.type = decoder.decodeObjectForKey("type") as! String
+            self.price = decoder.decodeObjectForKey("price") as! Int
+            self.sellPrice = decoder.decodeObjectForKey("sellPrice") as! Int
+            self.power = decoder.decodeObjectForKey("power") as! String
+            self.techLevel = decoder.decodeObjectForKey("techLevel") as! TechLevelType
+            self.image = decoder.decodeObjectForKey("image") as! UIImage?
+            self.blurb = decoder.decodeObjectForKey("blurb") as! String
+    
+            super.init()
+        }
+    
+        func encodeWithCoder(encoder: NSCoder) {
+            encoder.encodeObject(typeIndex, forKey: "typeIndex")
+            encoder.encodeObject(wType?.rawValue, forKey: "wType")
+            encoder.encodeObject(sType?.rawValue, forKey: "sType")
+            encoder.encodeObject(gType?.rawValue, forKey: "gType")
+            encoder.encodeObject(weaponItem, forKey: "weaponItem")
+            encoder.encodeObject(shieldItem, forKey: "shieldItem")
+            encoder.encodeObject(gadgetItem, forKey: "gadgetItem")
+        }
     
 }
