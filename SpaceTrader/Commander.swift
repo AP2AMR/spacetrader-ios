@@ -541,14 +541,12 @@ class Commander: NSObject, NSCoding {
     
     required init(coder decoder: NSCoder) {
         self.commanderName = decoder.decodeObjectForKey("commanderName") as! String
-//        let difficultyRaw = decoder.decodeObjectForKey("difficulty") as! String!
-//        self.difficulty = DifficultyType(rawValue: difficultyRaw)!
         self.difficulty = DifficultyType(rawValue: decoder.decodeObjectForKey("difficulty") as! String!)!
         self.commanderShip = decoder.decodeObjectForKey("commanderShip") as! SpaceShip
         self.credits = decoder.decodeObjectForKey("credits") as! Int
         self.debt = decoder.decodeObjectForKey("debt") as! Int
         self.days = decoder.decodeObjectForKey("days") as! Int
-        self.specialEvents = decoder.decodeObjectForKey("difficulty") as! SpecialEvents
+        self.specialEvents = decoder.decodeObjectForKey("specialEvents") as! SpecialEvents
         
         self.remindLoans = decoder.decodeObjectForKey("remindLoans") as! Bool
         self.autoFuel = decoder.decodeObjectForKey("autoFuel") as! Bool
@@ -565,8 +563,8 @@ class Commander: NSObject, NSCoding {
         self.initialTraderSkill = decoder.decodeObjectForKey("initialTraderSkill") as! Int
         self.initialEngineerSkill = decoder.decodeObjectForKey("initialEngineerSkill") as! Int
         
-        self.policeRecord = decoder.decodeObjectForKey("policeRecord") as! PoliceRecordType
-        self.reputation = decoder.decodeObjectForKey("reputation") as! ReputationType
+        self.policeRecord = PoliceRecordType(rawValue: decoder.decodeObjectForKey("policeRecord") as! Int!)!
+        self.reputation = ReputationType(rawValue: decoder.decodeObjectForKey("reputation") as! Int!)!
         self.escapePod = decoder.decodeObjectForKey("escapePod") as! Bool
         
         self.inspected = decoder.decodeObjectForKey("inspected") as! Bool

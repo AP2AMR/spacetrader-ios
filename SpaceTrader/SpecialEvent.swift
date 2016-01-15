@@ -891,7 +891,9 @@ class SpecialEvents: NSObject, NSCoding {
         self.wildElapsedTime = decoder.decodeObjectForKey("wildElapsedTime") as! Int
         self.princessElapsedTime = decoder.decodeObjectForKey("princessElapsedTime") as! Int
         
-        self.currentSpecialEventID = SpecialEventID(rawValue: decoder.decodeObjectForKey("currentSpecialEventID") as! Int!)!
+        if let currentSpecialEventIDRaw = decoder.decodeObjectForKey("currentSpecialEventID") as! Int! {
+            self.currentSpecialEventID = SpecialEventID(rawValue: currentSpecialEventIDRaw)
+        }
 
         super.init()
     }

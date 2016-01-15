@@ -77,6 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("saved game recovered!")
             player = autosaveGame.savedCommander
             galaxy = autosaveGame.savedGalaxy
+            print("GAME SUCCESSFULLY RESTORED. NOW SEGUE TO SYSTEM INFO SCREEN")
             
         } else {
             print("saved game not recovered")

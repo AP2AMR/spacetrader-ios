@@ -105,9 +105,9 @@ class UniversalGadget: NSObject, NSCoding {
     // NSCODING METHODS
         required init(coder decoder: NSCoder) {
             self.typeIndex = decoder.decodeObjectForKey("typeIndex") as! Int
-            self.wType = decoder.decodeObjectForKey("wType") as! WeaponType?        // ENUM
-            self.sType = decoder.decodeObjectForKey("sType") as! ShieldType?        // ENUM
-            self.gType = decoder.decodeObjectForKey("gType") as! GadgetType?        // ENUM
+            self.wType = WeaponType(rawValue: decoder.decodeObjectForKey("wType") as! Int!)!    // optional problem?
+            self.sType = ShieldType(rawValue: decoder.decodeObjectForKey("sType") as! Int!)!
+            self.gType = GadgetType(rawValue: decoder.decodeObjectForKey("gType") as! Int!)!
             self.weaponItem = decoder.decodeObjectForKey("weaponItem") as! Weapon?
             self.shieldItem = decoder.decodeObjectForKey("shieldItem") as! Shield?
             self.gadgetItem = decoder.decodeObjectForKey("gadgetItem") as! Gadget?

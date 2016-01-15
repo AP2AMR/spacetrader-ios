@@ -384,8 +384,13 @@ class StarSystem: NSObject, NSCoding {
             self.indexNumber = decoder.decodeObjectForKey("indexNumber") as! Int
             self.mercenaries = decoder.decodeObjectForKey("mercenaries") as! [CrewMember]
             self.newspaper = decoder.decodeObjectForKey("newspaper") as! Newspaper
-            self.newsItemDropBox = decoder.decodeObjectForKey("newsItemDropBox") as! NewsItemID?
-            self.specialEvent = decoder.decodeObjectForKey("specialEvent") as! SpecialEventID?
+            if let newsItemDropBoxRaw = decoder.decodeObjectForKey("newsItemDropBox") as! Int! {
+                self.newsItemDropBox = NewsItemID(rawValue: newsItemDropBoxRaw)
+            }
+            
+            if let specialEventRaw = decoder.decodeObjectForKey("specialEvent") as! Int! {
+                self.specialEvent = SpecialEventID(rawValue: specialEventRaw)
+            }
             
             self.scarabIsHere = decoder.decodeObjectForKey("scarabIsHere") as! Bool
             self.dragonflyIsHere = decoder.decodeObjectForKey("dragonflyIsHere") as! Bool
