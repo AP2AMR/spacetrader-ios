@@ -10,8 +10,11 @@ import Foundation
 
 // these things should remain, but should not necessarily be populated, or should be populated with default values, with proper initialization to follow
 
+// is this overriding things?
 var player = Commander(commanderName: "default", difficulty: DifficultyType.normal, pilotSkill: 1, fighterSkill: 1, traderSkill: 1, engineerSkill: 1)
 var galaxy = Galaxy()
+
+var gameInProgress = true
 
 var currentSystem = StarSystem(
     name: "Daled",

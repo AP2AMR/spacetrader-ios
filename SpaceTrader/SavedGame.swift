@@ -14,11 +14,14 @@ class SavedGame: NSObject, NSCoding {
     
     var savedCommander: Commander
     var savedGalaxy: Galaxy
+    var gameInProgress: Bool
     
-    init(name: String, cdr: Commander, gxy: Galaxy) {
+    init(name: String, cdr: Commander, gxy: Galaxy, gameInProgress: Bool) {
         self.name = name
         self.savedCommander = cdr
         self.savedGalaxy = gxy
+        self.gameInProgress = gameInProgress
+        
     }
     
     // NSCODING METHODS
@@ -26,6 +29,7 @@ class SavedGame: NSObject, NSCoding {
         self.name = decoder.decodeObjectForKey("name") as! String
         self.savedCommander = decoder.decodeObjectForKey("savedCommander") as! Commander
         self.savedGalaxy = decoder.decodeObjectForKey("savedGalaxy") as! Galaxy
+        self.gameInProgress = decoder.decodeObjectForKey("gameInProgress") as! Bool
 
         super.init()
     }
@@ -34,5 +38,6 @@ class SavedGame: NSObject, NSCoding {
         encoder.encodeObject(name, forKey: "name")
         encoder.encodeObject(savedCommander, forKey: "savedCommander")
         encoder.encodeObject(savedGalaxy, forKey: "savedGalaxy")
+        encoder.encodeObject(gameInProgress, forKey: "gameInProgress")
     }
 }

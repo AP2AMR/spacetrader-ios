@@ -3779,7 +3779,7 @@
                                 </constraints>
                                 <state key="normal" title="New Game"/>
                                 <connections>
-                                    <segue destination="haZ-Bq-bp2" kind="show" id="5aM-4q-Pfe"/>
+                                    <action selector="newGamePressed:" destination="LzY-Mh-0aZ" eventType="touchUpInside" id="vEx-Rp-ykB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JcK-Rw-7Rj" customClass="CustomButton" customModule="SpaceTrader" customModuleProvider="target">
@@ -3819,6 +3819,7 @@
                     </view>
                     <connections>
                         <segue destination="Zyg-E7-QYl" kind="show" identifier="restoredGameSegue" animates="NO" id="edr-O9-buG"/>
+                        <segue destination="hAw-Mn-ebQ" kind="show" identifier="newCommanderSegue" id="enc-37-D2s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bCo-yz-j83" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3843,27 +3844,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41V-67-HxK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-709" y="839"/>
-        </scene>
-        <!--New GameVC-->
-        <scene sceneID="CMX-NT-M3M">
-            <objects>
-                <viewController id="haZ-Bq-bp2" customClass="NewGameVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="WtR-Qh-ljs"/>
-                        <viewControllerLayoutGuide type="bottom" id="iPZ-L2-bIy"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="yKd-3L-yaS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <segue destination="hAw-Mn-ebQ" kind="presentation" identifier="newGame" modalPresentationStyle="overCurrentContext" id="kKc-Bk-eyZ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YYk-3A-vMG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-721" y="150"/>
         </scene>
         <!--SpecialVC-->
         <scene sceneID="Mga-S2-nra">

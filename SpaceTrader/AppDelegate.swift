@@ -65,32 +65,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // will need to make sure game is currently active
         
         let path = fileInDocumentsDirectory("autosave.plist")
-        let autosaveGame = SavedGame(name: "Autosave", cdr: player, gxy: galaxy)
+        let autosaveGame = SavedGame(name: "Autosave", cdr: player, gxy: galaxy, gameInProgress: gameInProgress)
         
         NSKeyedArchiver.archiveRootObject(autosaveGame, toFile: path)
     }
     
-    func loadState() {
-        let path = fileInDocumentsDirectory("autosave.plist")
-        print("path: \(path)")
-        
-        print("attempting to recover saved game...")
-        if let autosaveGame = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? SavedGame {
-            player = autosaveGame.savedCommander
-            galaxy = autosaveGame.savedGalaxy
-            print("GAME RESTORED. FIRING SEGUE")
-            //performSegueWithIdentifier("restoredGameSegue", sender: nil)
-            //restoredGameSegue
-            
-            // Access the storyboard and fetch an instance of the view controller
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let viewController: SystemInfoVC = storyboard.instantiateViewControllerWithIdentifier("systemInfo") as! SystemInfoVC
-//////
-//////            // Then push that view controller onto the navigation stack
-//            var rootViewController = self.window!.rootViewController as! UIViewController!   // was UINvigationController
-//            rootViewController.pushViewController(viewController, animated: true)
-        }
-    }
+//    func loadState() {
+//        let path = fileInDocumentsDirectory("autosave.plist")
+//        print("path: \(path)")
+//        
+//        print("attempting to recover saved game...")
+//        if let autosaveGame = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? SavedGame {
+//            player = autosaveGame.savedCommander
+//            galaxy = autosaveGame.savedGalaxy
+//            print("GAME RESTORED. FIRING SEGUE")
+//            //performSegueWithIdentifier("restoredGameSegue", sender: nil)
+//            //restoredGameSegue
+//            
+//            // Access the storyboard and fetch an instance of the view controller
+////            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+////            let viewController: SystemInfoVC = storyboard.instantiateViewControllerWithIdentifier("systemInfo") as! SystemInfoVC
+////////
+////////            // Then push that view controller onto the navigation stack
+////            var rootViewController = self.window!.rootViewController as! UIViewController!   // was UINvigationController
+////            rootViewController.pushViewController(viewController, animated: true)
+//        }
+//    }
     
 }
 
