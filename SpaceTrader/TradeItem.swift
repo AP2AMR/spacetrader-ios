@@ -192,17 +192,17 @@ class TradeItem: NSObject, NSCoding {
     
     // NSCODING METHODS
         required init(coder decoder: NSCoder) {
-            self.item = decoder.decodeObjectForKey("item") as! TradeItemType
+            self.item = decoder.decodeObjectForKey("item") as! TradeItemType        // ENUM
             self.name = decoder.decodeObjectForKey("name") as! String
-            self.techProduction = decoder.decodeObjectForKey("techProduction") as! TechLevelType
-            self.techUsage = decoder.decodeObjectForKey("techUsage") as! TechLevelType
-            self.techTopProduction = decoder.decodeObjectForKey("techTopProduction") as! TechLevelType
+            self.techProduction = decoder.decodeObjectForKey("techProduction") as! TechLevelType    // ENUM
+            self.techUsage = decoder.decodeObjectForKey("techUsage") as! TechLevelType              // ENUM
+            self.techTopProduction = decoder.decodeObjectForKey("techTopProduction") as! TechLevelType  // ENUM
             self.priceLowTech = decoder.decodeObjectForKey("priceLowTech") as! Int
             self.priceIncrease = decoder.decodeObjectForKey("priceIncrease") as! Int
             self.variance = decoder.decodeObjectForKey("variance") as! Int
-            self.doublePriceStatus = decoder.decodeObjectForKey("doublePriceStatus") as! StatusType
-            self.cheapResource = decoder.decodeObjectForKey("cheapResource") as! SpecialResourcesType
-            self.expensiveResource = decoder.decodeObjectForKey("expensiveResource") as! SpecialResourcesType
+            self.doublePriceStatus = decoder.decodeObjectForKey("doublePriceStatus") as! StatusType // ENUM
+            self.cheapResource = decoder.decodeObjectForKey("cheapResource") as! SpecialResourcesType   // ENUM
+            self.expensiveResource = decoder.decodeObjectForKey("expensiveResource") as! SpecialResourcesType       // ENUM
             self.minTradePrice = decoder.decodeObjectForKey("minTradePrice") as! Int
             self.maxTradePrice = decoder.decodeObjectForKey("maxTradePrice") as! Int
             self.roundOff = decoder.decodeObjectForKey("roundOff") as! Int

@@ -235,18 +235,18 @@ class Politics: NSObject, NSCoding {
     
      // NSCODING METHODS
         required init(coder decoder: NSCoder) {
-            self.type = decoder.decodeObjectForKey("type") as! PoliticsType
+            self.type = decoder.decodeObjectForKey("type") as! PoliticsType             // ENUM
             self.name = decoder.decodeObjectForKey("name") as! String
             self.reactionIllegal = decoder.decodeObjectForKey("reactionIllegal") as! Int
             self.activityPolice = decoder.decodeObjectForKey("activityPolice") as! Int
             self.activityPirates = decoder.decodeObjectForKey("activityPirates") as! Int
             self.activityTraders = decoder.decodeObjectForKey("activityTraders") as! Int
-            self.minTech = decoder.decodeObjectForKey("minTech") as! TechLevelType
-            self.maxTech = decoder.decodeObjectForKey("maxTech") as! TechLevelType
+            self.minTech = decoder.decodeObjectForKey("minTech") as! TechLevelType      // ENUM
+            self.maxTech = decoder.decodeObjectForKey("maxTech") as! TechLevelType      // ENUM
             self.bribeLevel = decoder.decodeObjectForKey("bribeLevel") as! Int
             self.drugsOk = decoder.decodeObjectForKey("drugsOk") as! Bool
             self.firearmsOk = decoder.decodeObjectForKey("firearmsOk") as! Bool
-            self.wanted = decoder.decodeObjectForKey("wanted") as! TradeItemType
+            self.wanted = decoder.decodeObjectForKey("wanted") as! TradeItemType        // ENUM
     
             super.init()
         }

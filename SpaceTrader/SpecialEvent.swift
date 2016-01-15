@@ -891,7 +891,7 @@ class SpecialEvents: NSObject, NSCoding {
         self.wildElapsedTime = decoder.decodeObjectForKey("wildElapsedTime") as! Int
         self.princessElapsedTime = decoder.decodeObjectForKey("princessElapsedTime") as! Int
         
-        self.currentSpecialEventID = decoder.decodeObjectForKey("currentSpecialEventID") as! SpecialEventID?
+        self.currentSpecialEventID = decoder.decodeObjectForKey("currentSpecialEventID") as! SpecialEventID?        // ENUM
 
         super.init()
     }

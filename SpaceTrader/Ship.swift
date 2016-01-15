@@ -711,7 +711,7 @@ class SpaceShip: NSObject, NSCoding {
     
      // NSCODING METHODS
         required init(coder decoder: NSCoder) {
-            self.type = decoder.decodeObjectForKey("type") as! ShipType
+            self.type = decoder.decodeObjectForKey("type") as! ShipType     // ENUM
             self.name = decoder.decodeObjectForKey("name") as! String
             self.cargoBays = decoder.decodeObjectForKey("cargoBays") as! Int
             self.weaponSlots = decoder.decodeObjectForKey("weaponSlots") as! Int
@@ -720,7 +720,7 @@ class SpaceShip: NSObject, NSCoding {
             self.crewQuarters = decoder.decodeObjectForKey("crewQuarters") as! Int
             self.fuelTanks = decoder.decodeObjectForKey("fuelTanks") as! Int
             self.size = decoder.decodeObjectForKey("size") as! String
-            self.minTechLevel = decoder.decodeObjectForKey("minTechLevel") as! TechLevelType
+            self.minTechLevel = decoder.decodeObjectForKey("minTechLevel") as! TechLevelType    // ENUM
             self.costOfFuel = decoder.decodeObjectForKey("costOfFuel") as! Int
             self.price = decoder.decodeObjectForKey("price") as! Int
             self.bounty = decoder.decodeObjectForKey("bounty") as! Int
@@ -738,7 +738,7 @@ class SpaceShip: NSObject, NSCoding {
             self.cloaked = decoder.decodeObjectForKey("cloaked") as! Bool
             self.disabled = decoder.decodeObjectForKey("disabled") as! Bool
             self.specialCargo = decoder.decodeObjectForKey("specialCargo") as! [SpecialCargoItem]
-            self.IFFStatus = decoder.decodeObjectForKey("IFFStatus") as! IFFStatusType
+            self.IFFStatus = decoder.decodeObjectForKey("IFFStatus") as! IFFStatusType      // ENUM
             
             self.cargo = decoder.decodeObjectForKey("cargo") as! [TradeItem]
             self.weapon = decoder.decodeObjectForKey("weapon") as! [Weapon]

@@ -62,13 +62,13 @@ class Shield: NSObject, NSCoding {
     
     // NSCODING METHODS
         required init(coder decoder: NSCoder) {
-            self.type = decoder.decodeObjectForKey("type") as! ShieldType
+            self.type = decoder.decodeObjectForKey("type") as! ShieldType                   // ENUM
             self.name = decoder.decodeObjectForKey("name") as! String
             self.power = decoder.decodeObjectForKey("power") as! Int
             self.currentStrength = decoder.decodeObjectForKey("currentStrength") as! Int
             self.price = decoder.decodeObjectForKey("price") as! Int
             self.sellPrice = decoder.decodeObjectForKey("sellPrice") as! Int
-            self.techLevel = decoder.decodeObjectForKey("techLevel") as! TechLevelType
+            self.techLevel = decoder.decodeObjectForKey("techLevel") as! TechLevelType      // ENUM
             self.chance = decoder.decodeObjectForKey("chance") as! Int
             self.image = decoder.decodeObjectForKey("image") as! UIImage
     

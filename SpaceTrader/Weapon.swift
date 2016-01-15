@@ -83,7 +83,7 @@ class Weapon: NSObject, NSCoding {
     
     // NSCODING METHODS
         required init(coder decoder: NSCoder) {
-            self.type = decoder.decodeObjectForKey("type") as! WeaponType
+            self.type = decoder.decodeObjectForKey("type") as! WeaponType       // ENUM
             self.name = decoder.decodeObjectForKey("name") as! String
             self.power = decoder.decodeObjectForKey("power") as! Int
             self.disruptivePower = decoder.decodeObjectForKey("disruptivePower") as! Int
