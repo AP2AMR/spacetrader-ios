@@ -433,8 +433,8 @@ class Newspaper: NSObject, NSCoding {
     }
 }
 
-enum NewsItemID {
-    case artifactDelivery
+enum NewsItemID: Int {
+    case artifactDelivery = 0
     case caughtLittering
     case dragonfly
     case dragonflyBaratas

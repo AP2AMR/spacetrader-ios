@@ -10,7 +10,7 @@ import Foundation
 
 // NOT DONE, COMMENTED OUT SO WON'T INTERFERE
 
-class StarSystem {
+class StarSystem: NSObject, NSCoding {
     var name: String
     var techLevel: TechLevelType
     var politics: PoliticsType
@@ -366,4 +366,123 @@ class StarSystem {
             galaxy.currentSystem!.water += 0
         }
     }
+    
+    // NSCODING METHODS
+        required init(coder decoder: NSCoder) {
+            self.name = decoder.decodeObjectForKey("name") as! String
+            self.techLevel = decoder.decodeObjectForKey("techLevel") as! TechLevelType
+            self.politics = decoder.decodeObjectForKey("politics") as! PoliticsType
+            self.status = decoder.decodeObjectForKey("status") as! StatusType
+            self.xCoord = decoder.decodeObjectForKey("xCoord") as! Int
+            self.yCoord = decoder.decodeObjectForKey("yCoord") as! Int
+            self.specialResources = decoder.decodeObjectForKey("specialResources") as! SpecialResourcesType
+            self.size = decoder.decodeObjectForKey("size") as! SizeType
+            self.countdown = decoder.decodeObjectForKey("countdown") as! Int
+            self.visited = decoder.decodeObjectForKey("visited") as! Bool
+            self.wormhole = decoder.decodeObjectForKey("wormhole") as! Bool
+            self.wormholeDestination = decoder.decodeObjectForKey("wormholeDestination") as! StarSystem?
+            self.indexNumber = decoder.decodeObjectForKey("indexNumber") as! Int
+            self.mercenaries = decoder.decodeObjectForKey("mercenaries") as! [CrewMember]
+            self.newspaper = decoder.decodeObjectForKey("newspaper") as! Newspaper
+            self.newsItemDropBox = decoder.decodeObjectForKey("newsItemDropBox") as! NewsItemID?
+            self.specialEvent = decoder.decodeObjectForKey("specialEvent") as! SpecialEventID?
+            
+            self.scarabIsHere = decoder.decodeObjectForKey("scarabIsHere") as! Bool
+            self.dragonflyIsHere = decoder.decodeObjectForKey("dragonflyIsHere") as! Bool
+            self.swarmingWithAliens = decoder.decodeObjectForKey("swarmingWithAliens") as! Bool
+            self.spaceMonsterIsHere = decoder.decodeObjectForKey("spaceMonsterIsHere") as! Bool
+            self.scorpionIsHere = decoder.decodeObjectForKey("scorpionIsHere") as! Bool
+            
+            self.water = decoder.decodeObjectForKey("water") as! Int
+            self.furs = decoder.decodeObjectForKey("furs") as! Int
+            self.food = decoder.decodeObjectForKey("food") as! Int
+            self.ore = decoder.decodeObjectForKey("ore") as! Int
+            self.games = decoder.decodeObjectForKey("games") as! Int
+            self.firearms = decoder.decodeObjectForKey("firearms") as! Int
+            self.medicine = decoder.decodeObjectForKey("medicine") as! Int
+            self.machines = decoder.decodeObjectForKey("machines") as! Int
+            self.narcotics = decoder.decodeObjectForKey("narcotics") as! Int
+            self.robots = decoder.decodeObjectForKey("robots") as! Int
+            
+            self.waterBuy = decoder.decodeObjectForKey("waterBuy") as! Int
+            self.fursBuy = decoder.decodeObjectForKey("fursBuy") as! Int
+            self.foodBuy = decoder.decodeObjectForKey("foodBuy") as! Int
+            self.oreBuy = decoder.decodeObjectForKey("oreBuy") as! Int
+            self.gamesBuy = decoder.decodeObjectForKey("gamesBuy") as! Int
+            self.firearmsBuy = decoder.decodeObjectForKey("firearmsBuy") as! Int
+            self.medicineBuy = decoder.decodeObjectForKey("medicineBuy") as! Int
+            self.machinesBuy = decoder.decodeObjectForKey("machinesBuy") as! Int
+            self.narcoticsBuy = decoder.decodeObjectForKey("narcoticsBuy") as! Int
+            self.robotsBuy = decoder.decodeObjectForKey("robotsBuy") as! Int
+            self.waterSell = decoder.decodeObjectForKey("waterSell") as! Int
+            self.fursSell = decoder.decodeObjectForKey("fursSell") as! Int
+            self.foodSell = decoder.decodeObjectForKey("foodSell") as! Int
+            self.oreSell = decoder.decodeObjectForKey("oreSell") as! Int
+            self.gamesSell = decoder.decodeObjectForKey("gamesSell") as! Int
+            self.firearmsSell = decoder.decodeObjectForKey("firearmsSell") as! Int
+            self.medicineSell = decoder.decodeObjectForKey("medicineSell") as! Int
+            self.machinesSell = decoder.decodeObjectForKey("machinesSell") as! Int
+            self.narcoticsSell = decoder.decodeObjectForKey("narcoticsSell") as! Int
+            self.robotsSell = decoder.decodeObjectForKey("robotsSell") as! Int
+    
+            super.init()
+        }
+    
+        func encodeWithCoder(encoder: NSCoder) {
+            encoder.encodeObject(name, forKey: "name")
+            encoder.encodeObject(techLevel.rawValue, forKey: "techLevel")
+            encoder.encodeObject(politics.rawValue, forKey: "politics")
+            encoder.encodeObject(status.rawValue, forKey: "status")
+            encoder.encodeObject(xCoord, forKey: "xCoord")
+            encoder.encodeObject(yCoord, forKey: "yCoord")
+            encoder.encodeObject(specialResources.rawValue, forKey: "specialResources")
+            encoder.encodeObject(size.rawValue, forKey: "size")
+            encoder.encodeObject(countdown, forKey: "countdown")
+            encoder.encodeObject(visited, forKey: "visited")
+            encoder.encodeObject(wormhole, forKey: "wormhole")
+            encoder.encodeObject(wormholeDestination, forKey: "wormholeDestination")
+            encoder.encodeObject(indexNumber, forKey: "indexNumber")
+            encoder.encodeObject(mercenaries, forKey: "mercenaries")
+            encoder.encodeObject(newspaper, forKey: "newspaper")
+            encoder.encodeObject(newsItemDropBox?.rawValue, forKey: "newsItemDropBox")
+            encoder.encodeObject(specialEvent?.rawValue, forKey: "specialEvent")
+            
+            encoder.encodeObject(scarabIsHere, forKey: "scarabIsHere")
+            encoder.encodeObject(dragonflyIsHere, forKey: "dragonflyIsHere")
+            encoder.encodeObject(swarmingWithAliens, forKey: "swarmingWithAliens")
+            encoder.encodeObject(spaceMonsterIsHere, forKey: "spaceMonsterIsHere")
+            encoder.encodeObject(scorpionIsHere, forKey: "scorpionIsHere")
+            
+            encoder.encodeObject(water, forKey: "water")
+            encoder.encodeObject(furs, forKey: "furs")
+            encoder.encodeObject(food, forKey: "food")
+            encoder.encodeObject(ore, forKey: "ore")
+            encoder.encodeObject(games, forKey: "games")
+            encoder.encodeObject(firearms, forKey: "firearms")
+            encoder.encodeObject(medicine, forKey: "medicine")
+            encoder.encodeObject(machines, forKey: "machines")
+            encoder.encodeObject(narcotics, forKey: "narcotics")
+            encoder.encodeObject(robots, forKey: "robots")
+
+            encoder.encodeObject(waterBuy, forKey: "waterBuy")
+            encoder.encodeObject(fursBuy, forKey: "fursBuy")
+            encoder.encodeObject(foodBuy, forKey: "foodBuy")
+            encoder.encodeObject(oreBuy, forKey: "oreBuy")
+            encoder.encodeObject(gamesBuy, forKey: "gamesBuy")
+            encoder.encodeObject(firearmsBuy, forKey: "firearmsBuy")
+            encoder.encodeObject(medicineBuy, forKey: "medicineBuy")
+            encoder.encodeObject(machinesBuy, forKey: "machinesBuy")
+            encoder.encodeObject(narcoticsBuy, forKey: "narcoticsBuy")
+            encoder.encodeObject(robotsBuy, forKey: "robotsBuy")
+            encoder.encodeObject(waterSell, forKey: "waterSell")
+            encoder.encodeObject(fursSell, forKey: "fursSell")
+            encoder.encodeObject(foodSell, forKey: "foodSell")
+            encoder.encodeObject(oreSell, forKey: "oreSell")
+            encoder.encodeObject(gamesSell, forKey: "gamesSell")
+            encoder.encodeObject(firearmsSell, forKey: "firearmsSell")
+            encoder.encodeObject(medicineSell, forKey: "medicineSell")
+            encoder.encodeObject(machinesSell, forKey: "machinesSell")
+            encoder.encodeObject(narcoticsSell, forKey: "narcoticsSell")
+            encoder.encodeObject(robotsSell, forKey: "robotsSell")
+        }
 }
