@@ -10,7 +10,7 @@ import Foundation
 
 // leaving off further work on this until the rest of this is further along and I understand better how it will be used
 
-class SpecialEvents {
+class SpecialEvents: NSObject, NSCoding {
     // things referencable from VC
     var special = false
     var specialEventTitle = ""
@@ -40,7 +40,8 @@ class SpecialEvents {
     // internal
     var currentSpecialEventID: SpecialEventID? = nil
     
-    init() {
+    override init() {
+        // deliberately empty
     }
     
     func setSpecialEvent() {
@@ -866,13 +867,67 @@ class SpecialEvents {
         
     }
     
+    // NSCODING METHODS
+    required init(coder decoder: NSCoder) {
+        self.special = decoder.decodeObjectForKey("special") as! Bool
+        self.specialEventTitle = decoder.decodeObjectForKey("specialEventTitle") as! String
+        self.specialEventText = decoder.decodeObjectForKey("specialEventText") as! String
+        self.yesDismissButtonText = decoder.decodeObjectForKey("yesDismissButtonText") as! String
+        self.noButtonText = decoder.decodeObjectForKey("noButtonText") as! String
+        self.yesDismissButtonEnabled = decoder.decodeObjectForKey("yesDismissButtonEnabled") as! Bool
+        self.noButtonEnabled = decoder.decodeObjectForKey("noButtonEnabled") as! Bool
+        
+        self.quests = decoder.decodeObjectForKey("quests") as! [Quest]
+        
+        self.artifactOnBoard = decoder.decodeObjectForKey("artifactOnBoard") as! Bool
+        self.wildOnBoard = decoder.decodeObjectForKey("wildOnBoard") as! Bool
+        self.reactorOnBoard = decoder.decodeObjectForKey("reactorOnBoard") as! Bool
+        self.tribblesOnBoard = decoder.decodeObjectForKey("tribblesOnBoard") as! Bool
+        
+        self.experimentCountdown = decoder.decodeObjectForKey("experimentCountdown") as! Int
+        self.jarekElapsedTime = decoder.decodeObjectForKey("jarekElapsedTime") as! Int
+        self.gemulonInvasionCountdown = decoder.decodeObjectForKey("gemulonInvasionCountdown") as! Int
+        self.reactorElapsedTime = decoder.decodeObjectForKey("reactorElapsedTime") as! Int
+        self.wildElapsedTime = decoder.decodeObjectForKey("wildElapsedTime") as! Int
+        self.princessElapsedTime = decoder.decodeObjectForKey("princessElapsedTime") as! Int
+        
+        self.currentSpecialEventID = decoder.decodeObjectForKey("currentSpecialEventID") as! SpecialEventID?
+
+        super.init()
+    }
+
+    func encodeWithCoder(encoder: NSCoder) {
+        encoder.encodeObject(special, forKey: "special")
+        encoder.encodeObject(specialEventTitle, forKey: "specialEventTitle")
+        encoder.encodeObject(specialEventText, forKey: "specialEventText")
+        encoder.encodeObject(yesDismissButtonText, forKey: "yesDismissButtonText")
+        encoder.encodeObject(noButtonText, forKey: "noButtonText")
+        encoder.encodeObject(yesDismissButtonEnabled, forKey: "yesDismissButtonEnabled")
+        encoder.encodeObject(noButtonEnabled, forKey: "noButtonEnabled")
+        
+        encoder.encodeObject(quests, forKey: "quests")
+        
+        encoder.encodeObject(artifactOnBoard, forKey: "artifactOnBoard")
+        encoder.encodeObject(wildOnBoard, forKey: "wildOnBoard")
+        encoder.encodeObject(reactorOnBoard, forKey: "reactorOnBoard")
+        encoder.encodeObject(tribblesOnBoard, forKey: "tribblesOnBoard")
+        
+        encoder.encodeObject(experimentCountdown, forKey: "experimentCountdown")
+        encoder.encodeObject(jarekElapsedTime, forKey: "jarekElapsedTime")
+        encoder.encodeObject(gemulonInvasionCountdown, forKey: "gemulonInvasionCountdown")
+        encoder.encodeObject(reactorElapsedTime, forKey: "reactorElapsedTime")
+        encoder.encodeObject(wildElapsedTime, forKey: "wildElapsedTime")
+        encoder.encodeObject(princessElapsedTime, forKey: "princessElapsedTime")
+        
+        encoder.encodeObject(currentSpecialEventID?.rawValue, forKey: "currentSpecialEventID")
+    }
     
 }
 
 
-enum SpecialEventID {
+enum SpecialEventID: Int {
     // to be distributed at new game
-    case alienArtifact
+    case alienArtifact = 0
     case dragonfly
     case dangerousExperiment
     case gemulonInvasion
@@ -923,8 +978,8 @@ enum SpecialEventID {
     case tribbleBuyer
 }
 
-enum QuestID {
-    case artifact
+enum QuestID: Int {
+    case artifact = 0
     case dragonfly
     case experiment
     case gemulon
@@ -940,7 +995,7 @@ enum QuestID {
     case wild
 }
 
-class Quest {
+class Quest: NSObject, NSCoding {
     let ID: QuestID
     var questString: String
     var completed = false
@@ -948,6 +1003,21 @@ class Quest {
     init(ID: QuestID, questString: String) {
         self.ID = ID
         self.questString = questString
+    }
+    
+    // NSCODING METHODS
+    required init(coder decoder: NSCoder) {
+        self.ID = decoder.decodeObjectForKey("ID") as! QuestID
+        self.questString = decoder.decodeObjectForKey("questString") as! String
+        self.completed = decoder.decodeObjectForKey("completed") as! Bool
+
+        super.init()
+    }
+
+    func encodeWithCoder(encoder: NSCoder) {
+        encoder.encodeObject(ID.rawValue, forKey: "ID")
+        encoder.encodeObject(questString, forKey: "questString")
+        encoder.encodeObject(completed, forKey: "completed")
     }
 }
 
