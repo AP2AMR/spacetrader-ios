@@ -496,7 +496,7 @@ class Opponent: NSObject, NSCoding {
         required init(coder decoder: NSCoder) {
             self.ship = decoder.decodeObjectForKey("ship") as! SpaceShip
             self.commander = decoder.decodeObjectForKey("commander") as! Commander
-            self.type = decoder.decodeObjectForKey("type") as! IFFStatusType        // ENUM
+            self.type = IFFStatusType(rawValue: decoder.decodeObjectForKey("type") as! String!)!
     
             super.init()
         }

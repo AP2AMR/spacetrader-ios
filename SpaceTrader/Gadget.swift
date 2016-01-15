@@ -69,12 +69,11 @@ class Gadget: NSObject, NSCoding {
    
     // NSCODING METHODS
         required init(coder decoder: NSCoder) {
-            //self.commanderName = decoder.decodeObjectForKey("commanderName") as! String
-            self.type = decoder.decodeObjectForKey("type") as! GadgetType // ENUM
+            self.type = GadgetType(rawValue: decoder.decodeObjectForKey("type") as! Int!)!
             self.name = decoder.decodeObjectForKey("name") as! String
             self.price = decoder.decodeObjectForKey("price") as! Int
             self.sellPrice = decoder.decodeObjectForKey("sellPrice") as! Int
-            self.techLevel = decoder.decodeObjectForKey("techLevel") as! TechLevelType // ENUM
+            self.techLevel = TechLevelType(rawValue: decoder.decodeObjectForKey("techLevel") as! String!)!
             self.chance = decoder.decodeObjectForKey("chance") as! Int
             self.image = decoder.decodeObjectForKey("image") as! UIImage
     

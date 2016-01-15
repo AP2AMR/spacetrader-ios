@@ -370,13 +370,13 @@ class StarSystem: NSObject, NSCoding {
     // NSCODING METHODS
         required init(coder decoder: NSCoder) {
             self.name = decoder.decodeObjectForKey("name") as! String
-            self.techLevel = decoder.decodeObjectForKey("techLevel") as! TechLevelType      // ENUM
-            self.politics = decoder.decodeObjectForKey("politics") as! PoliticsType         // ENUM
-            self.status = decoder.decodeObjectForKey("status") as! StatusType               // ENUM
+            self.techLevel = TechLevelType(rawValue: decoder.decodeObjectForKey("techLevel") as! String!)!
+            self.politics = PoliticsType(rawValue: decoder.decodeObjectForKey("politics") as! String!)!
+            self.status = StatusType(rawValue: decoder.decodeObjectForKey("status") as! String!)!
             self.xCoord = decoder.decodeObjectForKey("xCoord") as! Int
             self.yCoord = decoder.decodeObjectForKey("yCoord") as! Int
-            self.specialResources = decoder.decodeObjectForKey("specialResources") as! SpecialResourcesType     // ENUM
-            self.size = decoder.decodeObjectForKey("size") as! SizeType                     // ENUM
+            self.specialResources = SpecialResourcesType(rawValue: decoder.decodeObjectForKey("specialResources") as! String!)!
+            self.size = SizeType(rawValue: decoder.decodeObjectForKey("size") as! String!)!
             self.countdown = decoder.decodeObjectForKey("countdown") as! Int
             self.visited = decoder.decodeObjectForKey("visited") as! Bool
             self.wormhole = decoder.decodeObjectForKey("wormhole") as! Bool
