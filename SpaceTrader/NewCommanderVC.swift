@@ -99,7 +99,9 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
 
-        // Do any additional setup after loading the view.
+        // WIPE EXISTING GAME
+        player = Commander(commanderName: "NIL", difficulty: DifficultyType.beginner, pilotSkill: 1, fighterSkill: 1, traderSkill: 1, engineerSkill: 1)
+        galaxy = Galaxy()
     }
     
     func DismissKeyboard(){

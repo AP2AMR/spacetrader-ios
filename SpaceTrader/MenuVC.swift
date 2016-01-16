@@ -10,7 +10,7 @@ import UIKit
 
 class MenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    let section0 = ["New Game", "Load Game", "Save", "Save As"]
+    let section0 = ["New Game", "Load Game", "Save Game"]
     let section1 = ["Commander Status", "Ship", "Personnel", "Quests", "Bank"]
     let section2 = ["High Scores"]
     let section3 = ["Options"]
@@ -63,6 +63,16 @@ class MenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 0 {
             print("selected: section 0, \(indexPath.row)")
+            switch indexPath.row {
+            case 0:
+                newGame()
+            case 1:
+                print("load game")
+            case 2:
+                print("save game")
+            default:
+                print("error")
+            }
         } else if indexPath.section == 1 {
             switch indexPath.row {
             case 0:
@@ -78,14 +88,31 @@ class MenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             default: print("error")
             }
         } else if indexPath.section == 2 {
-            print("selected: section 2, \(indexPath.row)")
+            print("high scores")
         } else if indexPath.section == 3 {
-            print("selected: section 3, \(indexPath.row)")
+            print("options")
         }
     }
     
     @IBAction func done(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func newGame() {
+        let title = "New Game?"
+        let message = "Your current game will be lost."
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Destructive ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("newCommander")
+            self.presentViewController(vc, animated: true, completion: nil)
+        }))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // do nothing
+        }))
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
 
