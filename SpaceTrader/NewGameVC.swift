@@ -37,7 +37,8 @@ class NewGameVC: UIViewController {
     }
     
     @IBAction func newGamePressed(sender: AnyObject) {
-        performSegueWithIdentifier("newCommanderSegue", sender: nil)
+        let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("newCommander")
+        self.presentViewController(vc, animated: true, completion: nil)
     }
 
     
