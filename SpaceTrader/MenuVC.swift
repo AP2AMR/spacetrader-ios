@@ -67,9 +67,10 @@ class MenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             case 0:
                 newGame()
             case 1:
-                print("load game")
+                performSegueWithIdentifier("loadGameFromMenu", sender: nil)
             case 2:
                 print("save game")
+                performSegueWithIdentifier("saveGameSegue", sender: nil)
             default:
                 print("error")
             }
