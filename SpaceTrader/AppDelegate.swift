@@ -43,6 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // will be called from initial VC instead.
         
         //loadState()
+        loadSavedGameArchive()
+        
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -62,9 +64,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func saveState() {
         // will need to make sure game is currently active
         
-        let path = fileInDocumentsDirectory("autosave.plist")
-        let autosaveGame = SavedGame(name: "Autosave", cdr: player, gxy: galaxy, gameInProgress: gameInProgress, savedGames: savedGames as! [NamedSavedGame])
+        print("saved games to be saved:")
+        for game in savedGames {
+            print(game.name)
+        }
         
+        let path = fileInDocumentsDirectory("autosave.plist")
+        //let autosaveGame = SavedGame(name: "Autosave", cdr: player, gxy: galaxy, gameInProgress: gameInProgress, savedGames: savedGames)
+        let autosaveGame = AutosavedGame(name: "Autosave", cdr: player, gxy: galaxy, gameInProgress: gameInProgress)
+
         NSKeyedArchiver.archiveRootObject(autosaveGame, toFile: path)
     }
     
@@ -90,6 +98,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
 //    }
     
+    func loadSavedGameArchive() {
+        let path = fileInDocumentsDirectory("savedGameArchive.plist")
+        
+        if let savedGameArchive = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? SavedGameArchive {
+            
+            savedGames = savedGameArchive.savedGames
+            
+            print("saved games recovered from archive:")
+            for game in savedGames {
+                print(game.name)
+            }
+        }
+        
+    }
 }
 
 

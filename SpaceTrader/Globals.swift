@@ -14,7 +14,7 @@ import Foundation
 var player = Commander(commanderName: "default", difficulty: DifficultyType.normal, pilotSkill: 1, fighterSkill: 1, traderSkill: 1, engineerSkill: 1)
 var galaxy = Galaxy()
 
-var savedGames = []       // all saved games stored here on initial restore
+var savedGames: [NamedSavedGame] = []       // all saved games stored here on initial restore
 
 var gameInProgress = true
 

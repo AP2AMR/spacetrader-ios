@@ -26,9 +26,13 @@ class SaveGameVC: UIViewController {
     }
     
     @IBAction func saveButton(sender: AnyObject) {
-        // create NamedSavedGame
-        // append namedSavedGame to savedGames
-        // app delegate method will add that to the bundle that gets saved when app resigns active
+        // make this only work if user has entered something in the text field
+        let newSavedGame = NamedSavedGame(name: textField.text!, cdr: player, gxy: galaxy)
+        savedGames.append(newSavedGame)
+       
+        saveSavedGameArchive()
+        
+
         
         let title = "Game Saved"
         let message = "Your game has been saved."
@@ -53,13 +57,24 @@ class SaveGameVC: UIViewController {
         return documentsDirectory().stringByAppendingPathComponent(filename)
     }
     
-    func saveState() {
+    func saveSavedGameArchive() {
+        // will need to make sure game is currently active
         
         
-        let path = fileInDocumentsDirectory("autosave.plist")
-        let autosaveGame = SavedGame(name: "Autosave", cdr: player, gxy: galaxy, gameInProgress: gameInProgress)
+        let path = fileInDocumentsDirectory("savedGameArchive.plist")
+        let savedGameFileForArchive = SavedGameArchive(savedGames: savedGames)
         
-        NSKeyedArchiver.archiveRootObject(autosaveGame, toFile: path)
+        print("saved games present in global:")
+        for game in savedGames {
+            print(game.name)
+        }
+        
+        print("saved games that made it into saved array:")
+        for game in savedGameFileForArchive.savedGames {
+            print(game.name)
+        }
+        
+        NSKeyedArchiver.archiveRootObject(savedGameFileForArchive, toFile: path)
     }
 
 }

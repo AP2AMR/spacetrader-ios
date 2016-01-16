@@ -46,19 +46,18 @@ class NewGameVC: UIViewController {
     
     func loadAutosavedGame() -> Bool {
         let path = fileInDocumentsDirectory("autosave.plist")
-        print("path: \(path)")
-        if let autosaveGame = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? SavedGame {
+        if let autosaveGame = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? AutosavedGame {
 //            if !autosaveGame.gameInProgress {
 //                print("game was over. loadAutosavedGame is returning false to start a new game.")
 //                return false
 //            }
             player = autosaveGame.savedCommander
             galaxy = autosaveGame.savedGalaxy
-            savedGames = autosaveGame.savedGames
             
             return true
         } else {
             return false
         }
     }
+    
 }

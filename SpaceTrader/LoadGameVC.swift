@@ -13,7 +13,10 @@ class LoadGameVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        print("load game. Games available to load:")
+        for game in savedGames {
+            print(game.name)
+        }
     }
 
     override func didReceiveMemoryWarning() {
