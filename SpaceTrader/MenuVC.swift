@@ -104,15 +104,16 @@ class MenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let message = "Your current game will be lost."
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // do nothing
+        }))
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Destructive ,handler: {
             (alert: UIAlertAction!) -> Void in
             let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("newCommander")
             self.presentViewController(vc, animated: true, completion: nil)
         }))
-        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel ,handler: {
-            (alert: UIAlertAction!) -> Void in
-            // do nothing
-        }))
+        
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
