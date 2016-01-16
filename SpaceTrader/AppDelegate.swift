@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // will need to make sure game is currently active
         
         let path = fileInDocumentsDirectory("autosave.plist")
-        let autosaveGame = SavedGame(name: "Autosave", cdr: player, gxy: galaxy, gameInProgress: gameInProgress)
+        let autosaveGame = SavedGame(name: "Autosave", cdr: player, gxy: galaxy, gameInProgress: gameInProgress, savedGames: savedGames as! [NamedSavedGame])
         
         NSKeyedArchiver.archiveRootObject(autosaveGame, toFile: path)
     }

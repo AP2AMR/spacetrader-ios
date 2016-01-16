@@ -13,24 +13,16 @@ class NewGameVC: UIViewController {
     var foundGame = false
     
     override func viewDidLoad() {
-                if loadAutosavedGame() {
-            print("autosaved game found")
-            // MAYBE TRIGGER MODAL HERE TO ASK IF USER WANTS TO RESUME GAME?
-            //performSegueWithIdentifier("restoreSegue", sender: nil)    // not firing for some reason
-            //resumeSegue(self)
+        if loadAutosavedGame() {
             foundGame = true
-            
         } else {
             print("no autosaved game found.")
         }
-        
-        
-        print("viewDidLoad finishing")
+
 
     }
     
     override func viewDidAppear(animated: Bool) {
-        print("viewDidAppear starting")
         if foundGame {
             performSegueWithIdentifier("restoreSegue", sender: nil)
         }
@@ -62,6 +54,7 @@ class NewGameVC: UIViewController {
 //            }
             player = autosaveGame.savedCommander
             galaxy = autosaveGame.savedGalaxy
+            savedGames = autosaveGame.savedGames
             
             return true
         } else {

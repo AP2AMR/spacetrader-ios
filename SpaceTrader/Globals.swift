@@ -10,9 +10,11 @@ import Foundation
 
 // these things should remain, but should not necessarily be populated, or should be populated with default values, with proper initialization to follow
 
-// is this overriding things?
+// initial setup of these two, to be overridden. Here so they don't have to be optionals.
 var player = Commander(commanderName: "default", difficulty: DifficultyType.normal, pilotSkill: 1, fighterSkill: 1, traderSkill: 1, engineerSkill: 1)
 var galaxy = Galaxy()
+
+var savedGames = []       // all saved games stored here on initial restore
 
 var gameInProgress = true
 

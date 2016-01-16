@@ -10,9 +10,13 @@ import UIKit
 
 class SaveGameVC: UIViewController {
 
+    @IBOutlet weak var textField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        textField.becomeFirstResponder()
+        
         // Do any additional setup after loading the view.
     }
 
@@ -21,15 +25,41 @@ class SaveGameVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func saveButton(sender: AnyObject) {
+        // create NamedSavedGame
+        // append namedSavedGame to savedGames
+        // app delegate method will add that to the bundle that gets saved when app resigns active
+        
+        let title = "Game Saved"
+        let message = "Your game has been saved."
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // go back to menu
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        }))
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
-    */
+    
+    
+    // PERSISTANCE METHODS
+    func documentsDirectory() -> String {
+        let documentsFolderPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]
+        return documentsFolderPath
+    }
+    
+    func fileInDocumentsDirectory(filename: String) -> String {
+        return documentsDirectory().stringByAppendingPathComponent(filename)
+    }
+    
+    func saveState() {
+        
+        
+        let path = fileInDocumentsDirectory("autosave.plist")
+        let autosaveGame = SavedGame(name: "Autosave", cdr: player, gxy: galaxy, gameInProgress: gameInProgress)
+        
+        NSKeyedArchiver.archiveRootObject(autosaveGame, toFile: path)
+    }
 
 }
