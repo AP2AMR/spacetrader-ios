@@ -17,7 +17,7 @@ class Commander: NSObject, NSCoding {
     var days: Int = 0
     var specialEvents = SpecialEvents()
     
-    var remindLoans = false
+    //var remindLoans = false
     var autoFuel = false
     var autoRepair = false
     var alreadyPaidForNewspaper = false
@@ -120,6 +120,15 @@ class Commander: NSObject, NSCoding {
     var policeRecordInt: Int {
         get { return policeRecord.rawValue }
     }
+    
+    // options
+    var fullTanksOnArrival = false
+    var hullRepairsOnArrival = false
+    var newspaperOnArrival = false
+    var remindLoans = true
+    var ignorePirates = false
+    var ignorePolice = false
+    var ignoreTraders = false
     
     
     
@@ -548,7 +557,7 @@ class Commander: NSObject, NSCoding {
         self.days = decoder.decodeObjectForKey("days") as! Int
         self.specialEvents = decoder.decodeObjectForKey("specialEvents") as! SpecialEvents
         
-        self.remindLoans = decoder.decodeObjectForKey("remindLoans") as! Bool
+        //self.remindLoans = decoder.decodeObjectForKey("remindLoans") as! Bool
         self.autoFuel = decoder.decodeObjectForKey("autoFuel") as! Bool
         self.autoRepair = decoder.decodeObjectForKey("autoRepair") as! Bool
         self.alreadyPaidForNewspaper = decoder.decodeObjectForKey("alreadyPaidForNewspaper") as! Bool
@@ -574,6 +583,14 @@ class Commander: NSObject, NSCoding {
         self.policeKills = decoder.decodeObjectForKey("policeKills") as! Int
         self.traderKills = decoder.decodeObjectForKey("traderKills") as! Int
         
+        self.fullTanksOnArrival = decoder.decodeObjectForKey("fullTanksOnArrival") as! Bool
+        self.hullRepairsOnArrival = decoder.decodeObjectForKey("hullRepairsOnArrival") as! Bool
+        self.newspaperOnArrival = decoder.decodeObjectForKey("newspaperOnArrival") as! Bool
+        self.remindLoans = decoder.decodeObjectForKey("remindLoans") as! Bool
+        self.ignorePirates = decoder.decodeObjectForKey("ignorePirates") as! Bool
+        self.ignorePolice = decoder.decodeObjectForKey("ignorePolice") as! Bool
+        self.ignoreTraders = decoder.decodeObjectForKey("ignoreTraders") as! Bool
+        
         super.init()
     }
     
@@ -588,7 +605,7 @@ class Commander: NSObject, NSCoding {
         encoder.encodeObject(days, forKey: "days")
         encoder.encodeObject(specialEvents, forKey: "specialEvents")
         
-        encoder.encodeObject(remindLoans, forKey: "remindLoans")
+        //encoder.encodeObject(remindLoans, forKey: "remindLoans")
         encoder.encodeObject(autoFuel, forKey: "autoFuel")
         encoder.encodeObject(autoRepair, forKey: "autoRepair")
         encoder.encodeObject(alreadyPaidForNewspaper, forKey: "alreadyPaidForNewspaper")
@@ -613,6 +630,14 @@ class Commander: NSObject, NSCoding {
         encoder.encodeObject(pirateKills, forKey: "pirateKills")
         encoder.encodeObject(policeKills, forKey: "policeKills")
         encoder.encodeObject(traderKills, forKey: "traderKills")
+        
+        encoder.encodeObject(fullTanksOnArrival, forKey: "fullTanksOnArrival")
+        encoder.encodeObject(hullRepairsOnArrival, forKey: "hullRepairsOnArrival")
+        encoder.encodeObject(newspaperOnArrival, forKey: "newspaperOnArrival")
+        encoder.encodeObject(remindLoans, forKey: "remindLoans")
+        encoder.encodeObject(ignorePirates, forKey: "ignorePirates")
+        encoder.encodeObject(ignorePolice, forKey: "ignorePolice")
+        encoder.encodeObject(ignoreTraders, forKey: "ignoreTraders")
     }
     
 // NSCODING METHODS

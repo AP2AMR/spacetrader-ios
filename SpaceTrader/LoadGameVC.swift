@@ -43,6 +43,12 @@ class LoadGameVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         self.presentViewController(vc, animated: true, completion: nil)
     }
     
+    func deleteGame(index: Int) {
+        savedGames.removeAtIndex(index)
+        saveSavedGameArchive()
+        tableView.reloadData()
+    }
+    
     // tableView methods
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -75,6 +81,43 @@ class LoadGameVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }))
         
         self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    // swipe to delete
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            deleteGame(indexPath.row)
+        }
+    }
+    
+    // PERSISTANCE METHODS
+    func documentsDirectory() -> String {
+        let documentsFolderPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]
+        return documentsFolderPath
+    }
+    
+    func fileInDocumentsDirectory(filename: String) -> String {
+        return documentsDirectory().stringByAppendingPathComponent(filename)
+    }
+    
+    func saveSavedGameArchive() {
+        // will need to make sure game is currently active
+        
+        
+        let path = fileInDocumentsDirectory("savedGameArchive.plist")
+        let savedGameFileForArchive = SavedGameArchive(savedGames: savedGames)
+        
+        print("saved games present in global:")
+        for game in savedGames {
+            print(game.name)
+        }
+        
+        print("saved games that made it into saved array:")
+        for game in savedGameFileForArchive.savedGames {
+            print(game.name)
+        }
+        
+        NSKeyedArchiver.archiveRootObject(savedGameFileForArchive, toFile: path)
     }
 
 }
