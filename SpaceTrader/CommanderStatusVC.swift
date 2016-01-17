@@ -38,6 +38,8 @@ class CommanderStatusVC: UIViewController  {
         
         pilotLabel.text = "\(player.initialPilotSkill) (\(player.pilotSkill))"
         fighterLabel.text = "\(player.initialFighterSkill) (\(player.fighterSkill))"
+        
+        // BUG FIX HERE
         traderLabel.text = "\(player.initialTraderSkill) (\(player.traderSkill))"
         engineerLabel.text = "\(player.initialEngineerSkill) (\(player.engineerSkill))"
         

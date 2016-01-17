@@ -701,8 +701,14 @@ class Galaxy: NSObject, NSCoding {
                     buyPrice = 0
                 }
                 
+                // DEBUG
+                print("DEBUG: buy price: \(buyPrice)")
+                // END DEBUG
+                
                 // set sell price, as a factor of trader skill
                 sellPrice = (buyPrice * (100 - player.traderSkill)) / 100
+                
+                print("DEBUG: sell price: \(sellPrice)")
                 
                 // criminals have to pay off an intermediary 10% IMPLEMENT THIS LATER
                 

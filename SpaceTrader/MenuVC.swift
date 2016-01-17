@@ -93,6 +93,8 @@ class MenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         } else if indexPath.section == 3 {
             performSegueWithIdentifier("optionsFromMenu", sender: nil)
         }
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     @IBAction func done(sender: AnyObject) {

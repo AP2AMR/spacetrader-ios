@@ -168,23 +168,23 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         
         
         
-        let bigShip = SpaceShip(type: ShipType.Grasshopper, IFFStatus: IFFStatusType.Player)
-        player.commanderShip = bigShip
-        
+//        let bigShip = SpaceShip(type: ShipType.Grasshopper, IFFStatus: IFFStatusType.Player)
+//        player.commanderShip = bigShip
+//        
+////        let reflectiveShield = Shield(type: ShieldType.reflectiveShield)
+////        reflectiveShield.currentStrength = reflectiveShield.power // / 2
+////        player.commanderShip.shield.append(reflectiveShield)
+//        
+//        //player.commanderShip.hull = 50
+//        
+//        let photonDisruptor = Weapon(type: WeaponType.photonDisruptor)
+//        let militaryLaser = Weapon(type: WeaponType.militaryLaser)
+//        player.commanderShip.weapon.append(photonDisruptor)
+//        //player.commanderShip.weapon.append(militaryLaser)
+//        
 //        let reflectiveShield = Shield(type: ShieldType.reflectiveShield)
-//        reflectiveShield.currentStrength = reflectiveShield.power // / 2
+//        reflectiveShield.currentStrength = reflectiveShield.power
 //        player.commanderShip.shield.append(reflectiveShield)
-        
-        //player.commanderShip.hull = 50
-        
-        let photonDisruptor = Weapon(type: WeaponType.photonDisruptor)
-        let militaryLaser = Weapon(type: WeaponType.militaryLaser)
-        player.commanderShip.weapon.append(photonDisruptor)
-        //player.commanderShip.weapon.append(militaryLaser)
-        
-        let reflectiveShield = Shield(type: ShieldType.reflectiveShield)
-        reflectiveShield.currentStrength = reflectiveShield.power
-        player.commanderShip.shield.append(reflectiveShield)
         
         let zeethibal = CrewMember(ID: MercenaryName.zeethibal, pilot: 9, fighter: 9, trader: 9, engineer: 9)
         player.commanderShip.crew.append(zeethibal)
@@ -192,14 +192,11 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         //player.policeRecord = PoliceRecordType.heroScore
         
         
-        player.credits = 100000     // for testing, give player money
+        //player.credits = 100000     // for testing, give player money
 
         
         // END TESTING STUFF ********************************************************************
-        
-        
-        
-        // segue should probably not be "show". Talk to steph about this.
+
         self.performSegueWithIdentifier("newCommanderToMain", sender: nil)
     }
 
