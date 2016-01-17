@@ -64,6 +64,14 @@ class Journey: NSObject, NSCoding {
     }
     
     func executeClick() {
+        // DEBUG
+        print("pilotSkill: \(player.pilotSkill)")
+        print("fighterSkill: \(player.fighterSkill)")
+        print("traderSkill: \(player.traderSkill)")
+        print("engineerSkill: \(player.engineerSkill)")
+        
+        
+        
         var encounterThisClick = false
         
         var encounterTest = Int(arc4random_uniform(UInt32(44 - (2 * player.getDifficultyInt()))))
