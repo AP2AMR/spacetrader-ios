@@ -64,15 +64,15 @@ class SaveGameVC: UIViewController {
         let path = fileInDocumentsDirectory("savedGameArchive.plist")
         let savedGameFileForArchive = SavedGameArchive(savedGames: savedGames)
         
-        print("saved games present in global:")
-        for game in savedGames {
-            print(game.name)
-        }
-        
-        print("saved games that made it into saved array:")
-        for game in savedGameFileForArchive.savedGames {
-            print(game.name)
-        }
+//        print("saved games present in global:")
+//        for game in savedGames {
+//            print(game.name)
+//        }
+//        
+//        print("saved games that made it into saved array:")
+//        for game in savedGameFileForArchive.savedGames {
+//            print(game.name)
+//        }
         
         NSKeyedArchiver.archiveRootObject(savedGameFileForArchive, toFile: path)
     }

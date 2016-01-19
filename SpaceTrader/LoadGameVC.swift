@@ -43,6 +43,33 @@ class LoadGameVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         self.presentViewController(vc, animated: true, completion: nil)
     }
     
+    func deleteGame(index: Int) {
+        print("deleting \(index)")
+        savedGames.removeAtIndex(index)
+        tableView.reloadData()
+        saveSavedGameArchive()
+    }
+    
+    // persistance methods
+    func documentsDirectory() -> String {
+        let documentsFolderPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]
+        return documentsFolderPath
+    }
+    
+    func fileInDocumentsDirectory(filename: String) -> String {
+        return documentsDirectory().stringByAppendingPathComponent(filename)
+    }
+    
+    func saveSavedGameArchive() {
+        // will need to make sure game is currently active
+        
+        
+        let path = fileInDocumentsDirectory("savedGameArchive.plist")
+        let savedGameFileForArchive = SavedGameArchive(savedGames: savedGames)
+        
+        NSKeyedArchiver.archiveRootObject(savedGameFileForArchive, toFile: path)
+    }
+    
     // tableView methods
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -75,6 +102,12 @@ class LoadGameVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }))
         
         self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            deleteGame(indexPath.row)
+        }
     }
 
 }
