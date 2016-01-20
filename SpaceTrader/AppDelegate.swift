@@ -43,9 +43,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // loadState not being called here because of triggering segue issue
         // will be called from initial VC instead.
         
-        //loadState()
+        print("applicationDidBecomeActive running")
         loadSavedGameArchive()
+        print("cleared loadSavedGameArchive")
         loadHighScores()
+        print("cleared loadHighScores")
+//        loadState()
+//        print("CLEARED LOADSTATE!")
         
     }
 
@@ -78,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSKeyedArchiver.archiveRootObject(autosaveGame, toFile: path)
     }
     
-//    func loadState() {
+    func loadState() {
 //        let path = fileInDocumentsDirectory("autosave.plist")
 //        print("path: \(path)")
 //        
@@ -98,7 +102,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ////            var rootViewController = self.window!.rootViewController as! UIViewController!   // was UINvigationController
 ////            rootViewController.pushViewController(viewController, animated: true)
 //        }
-//    }
+    }
     
     func loadSavedGameArchive() {
         let path = fileInDocumentsDirectory("savedGameArchive.plist")
