@@ -192,7 +192,7 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         //player.policeRecord = PoliceRecordType.heroScore
         
         
-        player.credits = 100000     // for testing, give player money
+        //player.credits = 100000     // for testing, give player money
 
         
         // END TESTING STUFF ********************************************************************

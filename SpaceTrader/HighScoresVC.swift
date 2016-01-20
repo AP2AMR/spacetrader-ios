@@ -15,7 +15,7 @@ class HighScoresVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.edgesForExtendedLayout = UIRectEdge.None
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,4 +38,16 @@ class HighScoresVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         let vc = self.storyboard!.instantiateViewControllerWithIdentifier("NewGameVC")
         self.presentViewController(vc, animated: false, completion: nil)
     }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return highScoreArchive.highScores.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell: HighScoresCell = self.tableView.dequeueReusableCellWithIdentifier("HighScoreCell")! as! HighScoresCell
+        cell.setCell(highScoreArchive.highScores[indexPath.row].name, days: highScoreArchive.highScores[indexPath.row].days, score: highScoreArchive.highScores[indexPath.row].score, netWorth: highScoreArchive.highScores[indexPath.row].worth)
+        
+        return cell
+    }
+    
 }
