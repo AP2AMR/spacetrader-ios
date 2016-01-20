@@ -432,7 +432,8 @@ enum ShipType: Int {
 }
 
 enum EndGameStatus: Int {
-    case Killed = 0
+    case GameNotOver = 0
+    case Killed
     case Retired
     case BoughtMoon
     case BoughtMoonGirl

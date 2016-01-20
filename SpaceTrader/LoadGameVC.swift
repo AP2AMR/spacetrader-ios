@@ -47,27 +47,7 @@ class LoadGameVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         print("deleting \(index)")
         savedGames.removeAtIndex(index)
         tableView.reloadData()
-        saveSavedGameArchive()
-    }
-    
-    // persistance methods
-    func documentsDirectory() -> String {
-        let documentsFolderPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]
-        return documentsFolderPath
-    }
-    
-    func fileInDocumentsDirectory(filename: String) -> String {
-        return documentsDirectory().stringByAppendingPathComponent(filename)
-    }
-    
-    func saveSavedGameArchive() {
-        // will need to make sure game is currently active
-        
-        
-        let path = fileInDocumentsDirectory("savedGameArchive.plist")
-        let savedGameFileForArchive = SavedGameArchive(savedGames: savedGames)
-        
-        NSKeyedArchiver.archiveRootObject(savedGameFileForArchive, toFile: path)
+        // not saving archive. That will be done on applicationWillResignActive
     }
     
     // tableView methods

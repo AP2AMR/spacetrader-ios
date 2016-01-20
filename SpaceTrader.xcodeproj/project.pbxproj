@@ -21,6 +21,8 @@
 		5A1DBBC71C0E3509009E8D0C /* UniversalGadget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DBBC61C0E3509009E8D0C /* UniversalGadget.swift */; };
 		5A26FC081C3B72E5009F6392 /* SaveGameDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A26FC061C3B72E5009F6392 /* SaveGameDataModel.xcdatamodeld */; };
 		5A278EB01BE5632B00679276 /* PlunderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A278EAF1BE5632B00679276 /* PlunderVC.swift */; };
+		5A2A5A0C1C4FF9E600E31031 /* HighScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2A5A0B1C4FF9E600E31031 /* HighScore.swift */; };
+		5A2A5A0E1C500CAE00E31031 /* GameOverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2A5A0D1C500CAE00E31031 /* GameOverVC.swift */; };
 		5A518FB01BC0ACC400021B13 /* WarpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A518FAF1BC0ACC400021B13 /* WarpVC.swift */; };
 		5A518FB21BC18C0B00021B13 /* DockVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A518FB11BC18C0B00021B13 /* DockVC.swift */; };
 		5A518FB41BC31E9200021B13 /* ShortRangeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A518FB31BC31E9200021B13 /* ShortRangeChartView.swift */; };
@@ -101,6 +103,8 @@
 		5A1DBBC61C0E3509009E8D0C /* UniversalGadget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversalGadget.swift; sourceTree = "<group>"; };
 		5A26FC071C3B72E5009F6392 /* SaveGameDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SaveGameDataModel.xcdatamodel; sourceTree = "<group>"; };
 		5A278EAF1BE5632B00679276 /* PlunderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlunderVC.swift; sourceTree = "<group>"; };
+		5A2A5A0B1C4FF9E600E31031 /* HighScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScore.swift; sourceTree = "<group>"; };
+		5A2A5A0D1C500CAE00E31031 /* GameOverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverVC.swift; sourceTree = "<group>"; };
 		5A518FAF1BC0ACC400021B13 /* WarpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarpVC.swift; sourceTree = "<group>"; };
 		5A518FB11BC18C0B00021B13 /* DockVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DockVC.swift; sourceTree = "<group>"; };
 		5A518FB31BC31E9200021B13 /* ShortRangeChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortRangeChartView.swift; sourceTree = "<group>"; };
@@ -274,13 +278,14 @@
 				5A0265BD1B9FD2660079F6DE /* CrewMember.swift */,
 				5A07695C1BEAA0A90007C746 /* CustomButton.swift */,
 				5A723F411BCD5EA5006FFB13 /* Encounter.swift */,
+				5AFEB63C1C497056000F51BE /* Extensions.swift */,
 				5A0265B51B9FC8FC0079F6DE /* Gadget.swift */,
 				5AD5F8C11B9FB54E00154B21 /* Galaxy.swift */,
 				5A81AD171BACFBCD001F2918 /* Globals.swift */,
+				5A2A5A0B1C4FF9E600E31031 /* HighScore.swift */,
 				5A723F3F1BCC531B006FFB13 /* Journey.swift */,
 				5AE975641C10DE24005D78E1 /* Newspaper.swift */,
 				5AF0AAF61BD193B900BBE7CA /* Opponent.swift */,
-				5AFEB63C1C497056000F51BE /* Extensions.swift */,
 				5A0265BF1B9FDE1E0079F6DE /* PoliticsType.swift */,
 				5AFEB63A1C4954E9000F51BE /* SavedGame.swift */,
 				5A0265B91B9FCD2D0079F6DE /* Shield.swift */,
@@ -307,6 +312,7 @@
 				5A518FB51BC80CF800021B13 /* FuelRepairModalVC.swift */,
 				5AEC942D1BC8594F00C68F7F /* GalacticChartVC.swift */,
 				5AEC942F1BC85CF100C68F7F /* GalacticChartView.swift */,
+				5A2A5A0D1C500CAE00E31031 /* GameOverVC.swift */,
 				5AF1CA2C1BA36C2300643C5F /* NewCommanderVC.swift */,
 				5AEC942B1BC84B2900C68F7F /* NewGameVC.swift */,
 				5A278EAF1BE5632B00679276 /* PlunderVC.swift */,
@@ -450,6 +456,7 @@
 				5A723F421BCD5EA5006FFB13 /* Encounter.swift in Sources */,
 				5AE71F971C0699C1004378BD /* BuyEquipmentCell.swift in Sources */,
 				5AFEB63D1C497056000F51BE /* Extensions.swift in Sources */,
+				5A2A5A0E1C500CAE00E31031 /* GameOverVC.swift in Sources */,
 				5A278EB01BE5632B00679276 /* PlunderVC.swift in Sources */,
 				5A0265BC1B9FCD8B0079F6DE /* SpecialEvent.swift in Sources */,
 				5A83DF541BDECF0400C31AC5 /* WarpViewVC.swift in Sources */,
@@ -463,6 +470,7 @@
 				5A078AC11BB33C100005155D /* BuyModalVC.swift in Sources */,
 				5AF1CA2D1BA36C2300643C5F /* NewCommanderVC.swift in Sources */,
 				5AEC942C1BC84B2900C68F7F /* NewGameVC.swift in Sources */,
+				5A2A5A0C1C4FF9E600E31031 /* HighScore.swift in Sources */,
 				5A07695D1BEAA0A90007C746 /* CustomButton.swift in Sources */,
 				5A723F401BCC531B006FFB13 /* Journey.swift in Sources */,
 				5AF1CA2F1BAB3E7A00643C5F /* BuyVC.swift in Sources */,

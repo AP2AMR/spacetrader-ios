@@ -16,7 +16,9 @@ var galaxy = Galaxy()
 
 var savedGames: [NamedSavedGame] = []       // all saved games stored here on initial restore
 
-var gameInProgress = true
+var gameInProgress = true           // probably use player.endGameType in place of this
+
+var highScoreArchive = HighScoreArchive()
 
 var currentSystem = StarSystem(
     name: "Daled",

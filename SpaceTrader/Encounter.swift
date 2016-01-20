@@ -629,7 +629,7 @@ class Encounter: NSObject, NSCoding {
     }
     
     func outcomePlayerDestroyedKilled() {
-        print("CALLING THE OLD PLAYERDESTROYEDKILLED FUNCTION")
+        // obsolete
         
         alertTitle = "You Lose"
         alertText = "Your ship has been destroyed by your opponent."

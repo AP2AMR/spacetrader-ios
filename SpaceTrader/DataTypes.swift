@@ -208,21 +208,7 @@ class Reputation {
 //    }
 //}
 
-class HighScore {
-    let name: String
-    let status: EndGameStatus
-    let days: Int
-    let worth: Int
-    let difficulty: DifficultyType
-    
-    init(name: String, status: EndGameStatus, days: Int, worth: Int, difficulty: DifficultyType) {
-        self.name = name
-        self.status = status
-        self.days = days
-        self.worth = worth
-        self.difficulty = difficulty
-    }
-}
+
 
 
 

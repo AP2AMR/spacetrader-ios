@@ -103,6 +103,8 @@ class Commander: NSObject, NSCoding {
     var policeKills: Int = 0
     var traderKills: Int = 0
     
+    var endGameType: EndGameStatus = EndGameStatus.GameNotOver
+    
     var kills: Int {
         return pirateKills + policeKills + traderKills
     }
@@ -574,6 +576,8 @@ class Commander: NSObject, NSCoding {
         self.policeKills = decoder.decodeObjectForKey("policeKills") as! Int
         self.traderKills = decoder.decodeObjectForKey("traderKills") as! Int
         
+        self.endGameType = EndGameStatus(rawValue: decoder.decodeObjectForKey("endGameType") as! Int!)!
+        
         super.init()
     }
     
@@ -613,12 +617,15 @@ class Commander: NSObject, NSCoding {
         encoder.encodeObject(pirateKills, forKey: "pirateKills")
         encoder.encodeObject(policeKills, forKey: "policeKills")
         encoder.encodeObject(traderKills, forKey: "traderKills")
+        
+        encoder.encodeObject(endGameType.rawValue, forKey: "endGameType")
     }
     
 // NSCODING METHODS
 //    required init(coder decoder: NSCoder) {
 //        self.commanderName = decoder.decodeObjectForKey("commanderName") as! String
-//        
+//        self.reputation = ReputationType(rawValue: decoder.decodeObjectForKey("reputation") as! Int!)!
+//
 //        super.init()
 //    }
     

@@ -2914,10 +2914,10 @@
             </objects>
             <point key="canvasLocation" x="3045" y="2729"/>
         </scene>
-        <!--View Controller-->
+        <!--Game OverVC-->
         <scene sceneID="AC6-NE-Dcd">
             <objects>
-                <viewController id="D9y-jd-91M" sceneMemberID="viewController">
+                <viewController id="D9y-jd-91M" customClass="GameOverVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gwo-r9-VRo"/>
                         <viewControllerLayoutGuide type="bottom" id="ciH-lo-OmA"/>
@@ -3866,7 +3866,7 @@
                                     <constraint firstAttribute="width" constant="200" id="pdc-KT-4zf"/>
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="20" minY="15" maxX="20" maxY="15"/>
-                                <state key="normal" title="Options"/>
+                                <state key="normal" title="High Scores"/>
                                 <connections>
                                     <segue destination="tEb-Cf-TS2" kind="show" id="FfQ-cB-B6H"/>
                                 </connections>

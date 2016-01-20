@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
         
         saveState()
-        // do we want to call saveSavedGameArchive here? 
+        saveSavedGameArchive()
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
@@ -45,6 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //loadState()
         loadSavedGameArchive()
+        loadHighScores()
         
     }
 
@@ -112,6 +113,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+    }
+    
+    func saveSavedGameArchive() {
+        let path = fileInDocumentsDirectory("savedGameArchive.plist")
+        let savedGameFileForArchive = SavedGameArchive(savedGames: savedGames)
+        NSKeyedArchiver.archiveRootObject(savedGameFileForArchive, toFile: path)
+    }
+    
+    func loadHighScores() {
+        let path = fileInDocumentsDirectory("highScores.plist")
+        
+        if let highScoreArchiveTemp = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? HighScoreArchive {
+            
+            highScoreArchive = highScoreArchiveTemp
+            
+            print("high scores recovered from archive:")
+            for score in highScoreArchive.highScores {
+                print("name: \(score.name), score: \(score.score)")
+            }
+        }
     }
 }
 

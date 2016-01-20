@@ -772,6 +772,9 @@ class EncounterVC: UIViewController, PlunderDelegate {
     }
     
     func outcomePlayerDestroyedKilled() {
+        player.endGameType = EndGameStatus.Killed
+        print("end game status: \(player.endGameType)")
+        
         print("running new player destroyed killed function")
         
         let title = "You Lose [new function]"

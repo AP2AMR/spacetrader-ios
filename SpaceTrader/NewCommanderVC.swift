@@ -168,8 +168,8 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         
         
         
-        let bigShip = SpaceShip(type: ShipType.Grasshopper, IFFStatus: IFFStatusType.Player)
-        player.commanderShip = bigShip
+//        let bigShip = SpaceShip(type: ShipType.Grasshopper, IFFStatus: IFFStatusType.Player)
+//        player.commanderShip = bigShip
         
 //        let reflectiveShield = Shield(type: ShieldType.reflectiveShield)
 //        reflectiveShield.currentStrength = reflectiveShield.power // / 2
@@ -177,17 +177,17 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         
         //player.commanderShip.hull = 50
         
-        let photonDisruptor = Weapon(type: WeaponType.photonDisruptor)
-        let militaryLaser = Weapon(type: WeaponType.militaryLaser)
-        player.commanderShip.weapon.append(photonDisruptor)
-        //player.commanderShip.weapon.append(militaryLaser)
+//        let photonDisruptor = Weapon(type: WeaponType.photonDisruptor)
+//        let militaryLaser = Weapon(type: WeaponType.militaryLaser)
+//        player.commanderShip.weapon.append(photonDisruptor)
+//        //player.commanderShip.weapon.append(militaryLaser)
+//        
+//        let reflectiveShield = Shield(type: ShieldType.reflectiveShield)
+//        reflectiveShield.currentStrength = reflectiveShield.power
+//        player.commanderShip.shield.append(reflectiveShield)
         
-        let reflectiveShield = Shield(type: ShieldType.reflectiveShield)
-        reflectiveShield.currentStrength = reflectiveShield.power
-        player.commanderShip.shield.append(reflectiveShield)
-        
-        let zeethibal = CrewMember(ID: MercenaryName.zeethibal, pilot: 9, fighter: 9, trader: 9, engineer: 9)
-        player.commanderShip.crew.append(zeethibal)
+//        let zeethibal = CrewMember(ID: MercenaryName.zeethibal, pilot: 9, fighter: 9, trader: 9, engineer: 9)
+//        player.commanderShip.crew.append(zeethibal)
         
         //player.policeRecord = PoliceRecordType.heroScore
         
