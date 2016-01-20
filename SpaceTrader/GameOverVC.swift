@@ -11,6 +11,7 @@ import UIKit
 class GameOverVC: UIViewController {
     
     var madeHighScores = false
+    var score = 0
 
     override func viewDidLoad() {
         // set background image based on game over type
@@ -19,6 +20,7 @@ class GameOverVC: UIViewController {
         // create HighScore object
         let newHighScore = HighScore(name: player.commanderName, status: player.endGameType, days: player.days, worth: player.netWorth, difficulty: player.difficulty)
         madeHighScores = highScoreArchive.addScore(newHighScore)
+        self.score = newHighScore.score
         
         // DEBUG
         print("high score created. madeHighScores? \(madeHighScores)")
@@ -39,20 +41,24 @@ class GameOverVC: UIViewController {
         var message = ""
         
         // number formatter business
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = .DecimalStyle
+        let scoreFormatted = numberFormatter.stringFromNumber(score)
         
         if madeHighScores {
             
             title = "High Score!"
-            message = "You scored \() and made the high score list."
+            message = "You scored \(scoreFormatted!) and made the high score list."
         } else {
-            title = "High Score"
-            message = "This will tell you whether you made the high score list."
+            title = "Score"
+            message = "You scored \(scoreFormatted!). You did not make the high score list."
         }
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
             (alert: UIAlertAction!) -> Void in
-            // do nothing
+            let vc = self.storyboard!.instantiateViewControllerWithIdentifier("HighScores")
+            self.presentViewController(vc, animated: false, completion: nil)
             
         }))
         self.presentViewController(alertController, animated: true, completion: nil)

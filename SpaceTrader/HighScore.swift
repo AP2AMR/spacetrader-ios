@@ -14,7 +14,7 @@ class HighScore: NSObject, NSCoding {
     let days: Int
     let worth: Int
     let difficulty: DifficultyType
-    let score: Int
+    var score: Int
     
     init(name: String, status: EndGameStatus, days: Int, worth: Int, difficulty: DifficultyType) {
         self.name = name
@@ -23,7 +23,38 @@ class HighScore: NSObject, NSCoding {
         self.worth = worth
         self.difficulty = difficulty
         
+        // int for difficulty
+        var difficultyInt: Int {
+            switch difficulty {
+            case DifficultyType.beginner:
+                return 1
+            case DifficultyType.easy:
+                return 2
+            case DifficultyType.normal:
+                return 3
+            case DifficultyType.hard:
+                return 4
+            case DifficultyType.impossible:
+                return 5
+            }
+        
+        }
+        
         self.score = 0      // MEANS OF CALCULATING SCORE GOES HERE
+        
+        if status == EndGameStatus.Killed {
+            self.score = Int((0.9 * Double(worth)) / Double(50000)) * difficultyInt
+        } else if status == EndGameStatus.Retired {
+            self.score = Int((0.95 * Double(worth)) / Double(50000)) * difficultyInt
+        } else {
+            var d = (difficultyInt * 100) - days
+            if d < 0 {
+                d = 0
+            }
+                    
+            self.score = Int(difficultyInt * ((worth + (d * 1000)) / 1000))
+        }
+        
     }
     
     // NSCODING METHODS
