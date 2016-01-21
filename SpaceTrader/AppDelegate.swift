@@ -43,13 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // loadState not being called here because of triggering segue issue
         // will be called from initial VC instead.
         
-        print("applicationDidBecomeActive running")
         loadSavedGameArchive()
-        print("cleared loadSavedGameArchive")
         loadHighScores()
-        print("cleared loadHighScores")
-//        loadState()
-//        print("CLEARED LOADSTATE!")
         
     }
 
@@ -82,27 +77,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSKeyedArchiver.archiveRootObject(autosaveGame, toFile: path)
     }
     
-    func loadState() {
-//        let path = fileInDocumentsDirectory("autosave.plist")
-//        print("path: \(path)")
-//        
-//        print("attempting to recover saved game...")
-//        if let autosaveGame = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? SavedGame {
-//            player = autosaveGame.savedCommander
-//            galaxy = autosaveGame.savedGalaxy
-//            print("GAME RESTORED. FIRING SEGUE")
-//            //performSegueWithIdentifier("restoredGameSegue", sender: nil)
-//            //restoredGameSegue
-//            
-//            // Access the storyboard and fetch an instance of the view controller
-////            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-////            let viewController: SystemInfoVC = storyboard.instantiateViewControllerWithIdentifier("systemInfo") as! SystemInfoVC
-////////
-////////            // Then push that view controller onto the navigation stack
-////            var rootViewController = self.window!.rootViewController as! UIViewController!   // was UINvigationController
-////            rootViewController.pushViewController(viewController, animated: true)
-//        }
-    }
+    
+    // LOADSTATE IS ABANDONED--NEW VERSION LIVES IN NewGameVC
     
     func loadSavedGameArchive() {
         let path = fileInDocumentsDirectory("savedGameArchive.plist")

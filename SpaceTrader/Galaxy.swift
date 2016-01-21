@@ -1291,7 +1291,7 @@ class Galaxy: NSObject, NSCoding {
         self.targetSystem = decoder.decodeObjectForKey("targetSystem") as! StarSystem?
         self.targetSystemInRange = decoder.decodeObjectForKey("targetSystemInRange") as! Bool
         self.trackedSystem = decoder.decodeObjectForKey("trackedSystem") as! StarSystem?
-        self.currentJourney = decoder.decodeObjectForKey("currentJourney") as! Journey?
+        //self.currentJourney = decoder.decodeObjectForKey("currentJourney") as! Journey?
 
         super.init()
     }
@@ -1303,7 +1303,7 @@ class Galaxy: NSObject, NSCoding {
         encoder.encodeObject(targetSystem, forKey: "targetSystem")
         encoder.encodeObject(targetSystemInRange, forKey: "targetSystemInRange")
         encoder.encodeObject(trackedSystem, forKey: "trackedSystem")
-        encoder.encodeObject(currentJourney, forKey: "currentJourney")
+        //encoder.encodeObject(currentJourney, forKey: "currentJourney")
     }
     
     
