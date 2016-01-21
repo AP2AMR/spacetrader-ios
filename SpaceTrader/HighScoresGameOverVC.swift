@@ -1,5 +1,5 @@
 //
-//  HighScoresVC.swift
+//  HighScoresGameOverVC.swift
 //  SpaceTrader
 //
 //  Created by Marc Auger on 1/20/16.
@@ -8,36 +8,19 @@
 
 import UIKit
 
-class HighScoresVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+class HighScoresGameOverVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.edgesForExtendedLayout = UIRectEdge.None
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     @IBAction func doneButton(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-//        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("NewGameVC")
-//        self.presentViewController(vc, animated: false, completion: nil)
+        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("NewGameVC")
+        self.presentViewController(vc, animated: false, completion: nil)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

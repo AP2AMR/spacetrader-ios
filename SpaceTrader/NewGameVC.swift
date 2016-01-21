@@ -45,17 +45,9 @@ class NewGameVC: UIViewController {
     }
     
     func loadAutosavedGame() -> Bool {
-        // right now this loads the previous game when game is over
-        // PROBLEM: game does not autosave when game is lost. Possible solution would to save the game in GameOverVC
-        
-        print("CALLING LOADAUTOSAVEDGAME")
         let path = fileInDocumentsDirectory("autosave.plist")
         if let autosaveGame = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? AutosavedGame {
-//            if !autosaveGame.gameInProgress {
-//                print("game was over. loadAutosavedGame is returning false to start a new game.")
-//                return false
-//            }
-            print("autosaved game's EndGameStatus: \(autosaveGame.savedCommander.endGameType)")
+
             if autosaveGame.savedCommander.endGameType != EndGameStatus.GameNotOver {
                 return false
             }

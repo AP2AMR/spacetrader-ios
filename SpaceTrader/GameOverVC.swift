@@ -61,8 +61,9 @@ class GameOverVC: UIViewController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
             (alert: UIAlertAction!) -> Void in
-            let vc = self.storyboard!.instantiateViewControllerWithIdentifier("HighScores")
-            self.presentViewController(vc, animated: false, completion: nil)
+            self.performSegueWithIdentifier("gameOverHighScores", sender: nil)
+//            let vc = self.storyboard!.instantiateViewControllerWithIdentifier("HighScoresNavController")
+//            self.presentViewController(vc, animated: false, completion: nil)
             
         }))
         self.presentViewController(alertController, animated: true, completion: nil)

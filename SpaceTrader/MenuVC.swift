@@ -89,9 +89,9 @@ class MenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             default: print("error")
             }
         } else if indexPath.section == 2 {
-            print("high scores")
+            performSegueWithIdentifier("highScoresFromMenu", sender: nil)
         } else if indexPath.section == 3 {
-            print("options")
+            performSegueWithIdentifier("optionsSegue", sender: nil)
         }
     }
     

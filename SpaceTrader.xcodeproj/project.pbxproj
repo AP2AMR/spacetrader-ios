@@ -39,6 +39,8 @@
 		5A81B96D1BE2B3B700BDC351 /* EncounterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81B96C1BE2B3B700BDC351 /* EncounterVC.swift */; };
 		5A83DF541BDECF0400C31AC5 /* WarpViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A83DF531BDECF0400C31AC5 /* WarpViewVC.swift */; };
 		5A85A9DB1C502D50007338BE /* HighScoresCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A85A9DA1C502D50007338BE /* HighScoresCell.swift */; };
+		5A85A9DD1C505F82007338BE /* OptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A85A9DC1C505F82007338BE /* OptionsVC.swift */; };
+		5A85A9DF1C509BA1007338BE /* HighScoresGameOverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A85A9DE1C509BA1007338BE /* HighScoresGameOverVC.swift */; };
 		5A9830511BE3224100378EB3 /* EncounterVCBad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9830501BE3224100378EB3 /* EncounterVCBad.swift */; };
 		5AAB08B71C4AD166000BB87F /* LoadGameCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAB08B61C4AD166000BB87F /* LoadGameCellTableViewCell.swift */; };
 		5AAD55271C234F72001FC8AD /* BankVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAD55261C234F72001FC8AD /* BankVC.swift */; };
@@ -123,6 +125,8 @@
 		5A81B96C1BE2B3B700BDC351 /* EncounterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncounterVC.swift; sourceTree = "<group>"; };
 		5A83DF531BDECF0400C31AC5 /* WarpViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarpViewVC.swift; sourceTree = "<group>"; };
 		5A85A9DA1C502D50007338BE /* HighScoresCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoresCell.swift; sourceTree = "<group>"; };
+		5A85A9DC1C505F82007338BE /* OptionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsVC.swift; sourceTree = "<group>"; };
+		5A85A9DE1C509BA1007338BE /* HighScoresGameOverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoresGameOverVC.swift; sourceTree = "<group>"; };
 		5A9830501BE3224100378EB3 /* EncounterVCBad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncounterVCBad.swift; sourceTree = "<group>"; };
 		5AAB08B61C4AD166000BB87F /* LoadGameCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadGameCellTableViewCell.swift; sourceTree = "<group>"; };
 		5AAD55261C234F72001FC8AD /* BankVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankVC.swift; sourceTree = "<group>"; };
@@ -197,12 +201,15 @@
 				5ABB697C1C0E86C000ABEB9E /* EquipmentDetailVC.swift */,
 				5A1DBBC41C0E2F3E009E8D0C /* EquipmentListDualTableVC.swift */,
 				5AB36E901BF18B6600941CF6 /* EquipmentListVC.swift */,
-				5A7DE88C1C49E04E006A3D48 /* LoadGameVC.swift */,
+				5A85A9DA1C502D50007338BE /* HighScoresCell.swift */,
+				5A2A5A0F1C50238600E31031 /* HighScoresVC.swift */,
 				5AAB08B61C4AD166000BB87F /* LoadGameCellTableViewCell.swift */,
+				5A7DE88C1C49E04E006A3D48 /* LoadGameVC.swift */,
 				5A7172591C1651820082BF0C /* MenuVC.swift */,
 				5AB36E921BF1926D00941CF6 /* MercenariesVC.swift */,
 				5AE9755E1C0FD481005D78E1 /* MercenaryDetailVC.swift */,
 				5AE975601C0FEEFA005D78E1 /* NewspaperVC.swift */,
+				5A85A9DC1C505F82007338BE /* OptionsVC.swift */,
 				5ADE2FCB1C21148400F3F986 /* QuestsVC.swift */,
 				5ABF236A1C49E8AF004AE196 /* SaveGameVC.swift */,
 				5A7172571C1639150082BF0C /* SearchVC.swift */,
@@ -210,8 +217,7 @@
 				5AB36E8E1BF18B5200941CF6 /* ShipListVC.swift */,
 				5ADE2FC91C2104E700F3F986 /* ShipVC.swift */,
 				5AE975621C10CA2A005D78E1 /* SpecialVC.swift */,
-				5A2A5A0F1C50238600E31031 /* HighScoresVC.swift */,
-				5A85A9DA1C502D50007338BE /* HighScoresCell.swift */,
+				5A85A9DE1C509BA1007338BE /* HighScoresGameOverVC.swift */,
 			);
 			name = Menus;
 			sourceTree = "<group>";
@@ -437,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A85A9DF1C509BA1007338BE /* HighScoresGameOverVC.swift in Sources */,
 				5A9830511BE3224100378EB3 /* EncounterVCBad.swift in Sources */,
 				5AE71F911C054B96004378BD /* BuyShipCell.swift in Sources */,
 				5A26FC081C3B72E5009F6392 /* SaveGameDataModel.xcdatamodeld in Sources */,
@@ -472,6 +479,7 @@
 				5AEB378D1BE95E5B004B195A /* SystemInfoVC.swift in Sources */,
 				5A518FB21BC18C0B00021B13 /* DockVC.swift in Sources */,
 				5AAD55271C234F72001FC8AD /* BankVC.swift in Sources */,
+				5A85A9DD1C505F82007338BE /* OptionsVC.swift in Sources */,
 				5ABF236B1C49E8AF004AE196 /* SaveGameVC.swift in Sources */,
 				5A078AC11BB33C100005155D /* BuyModalVC.swift in Sources */,
 				5AF1CA2D1BA36C2300643C5F /* NewCommanderVC.swift in Sources */,
