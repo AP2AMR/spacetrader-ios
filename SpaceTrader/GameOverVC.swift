@@ -31,6 +31,10 @@ class GameOverVC: UIViewController {
         
         // save high scores archive to file
         saveHighScoresArchive()
+        
+        // autosave game, so loader will see that game is over and not try to play it again
+        saveState()
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -78,4 +82,13 @@ class GameOverVC: UIViewController {
         let path = fileInDocumentsDirectory("highScores.plist")
         NSKeyedArchiver.archiveRootObject(highScoreArchive, toFile: path)
     }
+    
+    func saveState() {
+        let path = fileInDocumentsDirectory("autosave.plist")
+        let autosaveGame = AutosavedGame(name: "Autosave", cdr: player, gxy: galaxy, gameInProgress: gameInProgress)
+        NSKeyedArchiver.archiveRootObject(autosaveGame, toFile: path)
+    }
+
+        
+        
 }
