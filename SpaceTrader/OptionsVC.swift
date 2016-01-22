@@ -22,19 +22,71 @@ class OptionsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fullTanksOutlet.on = false
-
-        // Do any additional setup after loading the view.
+        fullTanksOutlet.on = player.autoFuel
+        hullRepairOutlet.on = player.autoRepair
+        newspaperOutlet.on = player.autoNewspaper
+        remindLoansOutlet.on = player.remindLoans
+        ignorePiratesOutlet.on = player.ignorePirates
+        ignorePoliceOutlet.on = player.ignorePolice
+        ignoreTradersOutlet.on = player.ignoreTraders
     }
 
     @IBAction func fuelTanksToggled(sender: AnyObject) {
         if fullTanksOutlet.on {
-            print("full tanks on arrival is on")
+            player.autoFuel = true
         } else {
-            print("full tanks on arrival is off")
+            player.autoFuel = false
         }
     }
     
+    @IBAction func hullRepairToggled(sender: AnyObject) {
+        if hullRepairOutlet.on {
+            player.autoRepair = true
+        } else {
+            player.autoRepair = false
+        }
+    }
+    
+    @IBAction func autoNewspaperToggled(sender: AnyObject) {
+        if newspaperOutlet.on {
+            player.autoNewspaper = true
+        } else {
+            player.autoNewspaper = false
+        }
+    }
+    
+    @IBAction func remindLoansToggled(sender: AnyObject) {
+        if remindLoansOutlet.on {
+            player.remindLoans = true
+        } else {
+            player.remindLoans = false
+        }
+    }
+
+    @IBAction func ignorePiratesToggled(sender: AnyObject) {
+        if ignorePiratesOutlet.on {
+            player.ignorePirates = true
+        } else {
+            player.ignorePirates = false
+        }
+    }
+    
+    @IBAction func ignorePoliceToggled(sender: AnyObject) {
+        if ignorePoliceOutlet.on {
+            player.ignorePolice = true
+        } else {
+            player.ignorePolice = false
+        }
+    }
+    
+    @IBAction func ignoreTradersToggled(sender: AnyObject) {
+        if ignoreTradersOutlet.on {
+            player.ignoreTraders = true
+        } else {
+            player.ignoreTraders = false
+        }
+    }
+
 
 
 }

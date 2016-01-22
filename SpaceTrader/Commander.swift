@@ -17,7 +17,7 @@ class Commander: NSObject, NSCoding {
     var days: Int = 0
     var specialEvents = SpecialEvents()
     
-    var remindLoans = false
+    var remindLoans = true
     var autoFuel = false
     var autoRepair = false
     var autoNewspaper = false

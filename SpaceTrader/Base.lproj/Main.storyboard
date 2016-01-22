@@ -6033,9 +6033,15 @@
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zap-cm-Xcs">
                                 <rect key="frame" x="20" y="67" width="51" height="31"/>
+                                <connections>
+                                    <action selector="hullRepairToggled:" destination="dh8-f5-cCL" eventType="valueChanged" id="7Vh-Xn-lK6"/>
+                                </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Al-pD-SKx">
                                 <rect key="frame" x="20" y="114" width="51" height="31"/>
+                                <connections>
+                                    <action selector="autoNewspaperToggled:" destination="dh8-f5-cCL" eventType="valueChanged" id="awz-Y4-VbR"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full tanks on arrival" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mkS-XT-cXc">
                                 <rect key="frame" x="77" y="25" width="148" height="21"/>
@@ -6057,6 +6063,9 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Byc-L3-14H">
                                 <rect key="frame" x="20" y="195" width="51" height="31"/>
+                                <connections>
+                                    <action selector="remindLoansToggled:" destination="dh8-f5-cCL" eventType="valueChanged" id="FRn-JA-exF"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind about loans" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zor-B2-ttq">
                                 <rect key="frame" x="77" y="200" width="151" height="21"/>
@@ -6066,6 +6075,9 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H7n-b6-o1v">
                                 <rect key="frame" x="20" y="313" width="51" height="31"/>
+                                <connections>
+                                    <action selector="ignorePiratesToggled:" destination="dh8-f5-cCL" eventType="valueChanged" id="aFm-7H-dcD"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Always ignore when safe:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmZ-6E-EUa">
                                 <rect key="frame" x="20" y="276" width="208" height="21"/>
@@ -6075,9 +6087,15 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ANy-J2-0qQ">
                                 <rect key="frame" x="20" y="360" width="51" height="31"/>
+                                <connections>
+                                    <action selector="ignorePoliceToggled:" destination="dh8-f5-cCL" eventType="valueChanged" id="b4J-uh-Kea"/>
+                                </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VvE-z2-W4l">
                                 <rect key="frame" x="20" y="407" width="51" height="31"/>
+                                <connections>
+                                    <action selector="ignoreTradersToggled:" destination="dh8-f5-cCL" eventType="valueChanged" id="7sa-dr-DhV"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pirates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cn7-JQ-VRm">
                                 <rect key="frame" x="77" y="318" width="53" height="21"/>
