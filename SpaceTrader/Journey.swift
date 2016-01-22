@@ -265,9 +265,11 @@ class Journey: NSObject, NSCoding {
                 travelByWormhole = true
             }
         }
-        if !travelByWormhole {
+        if !travelByWormhole && !travelBySingularity {
             player.commanderShip.fuel -= journeyDistance
         }
+        
+        travelBySingularity = false
         
         galaxy.getSystemsInRange()
         

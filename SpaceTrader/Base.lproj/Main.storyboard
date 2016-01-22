@@ -2108,6 +2108,9 @@
                                 <rect key="frame" x="436" y="494" width="69" height="34"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                 <state key="normal" title="Jump"/>
+                                <connections>
+                                    <action selector="usePortableSinglularity:" destination="xWp-F5-yqg" eventType="touchUpInside" id="eQX-b3-Fdy"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2151,6 +2154,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="galacticChart" destination="sLV-cC-4dn" id="eA1-h6-8F3"/>
+                        <outlet property="portableSingularityJump" destination="YRq-7A-BkP" id="ieH-gt-AoZ"/>
                         <outlet property="shortRangeChart" destination="4QT-sz-iFf" id="oCr-RO-HOG"/>
                         <outlet property="targetSystemLabel" destination="Rfu-G3-aYA" id="41e-2P-fJT"/>
                     </connections>

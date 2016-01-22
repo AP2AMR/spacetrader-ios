@@ -46,6 +46,8 @@ var systemsInRange: [StarSystem] = []
 var buySellCommodity: TradeItemType?
 var buyAsOpposedToSell: Bool = true
 
+var travelBySingularity = false
+
 
 // settable constants:
 

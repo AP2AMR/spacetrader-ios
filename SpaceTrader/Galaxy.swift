@@ -1282,6 +1282,66 @@ class Galaxy: NSObject, NSCoding {
         return false
     }
     
+    func warpWithSingularity() -> Bool {
+        
+        var canWeWarp = true
+        
+        var mercenarySalary = 0
+        for member in player.commanderShip.crew {
+            mercenarySalary += member.costPerDay
+        }
+        if mercenarySalary > player.credits {
+            canWeWarp = false
+        }
+        
+        // charge interest, make sure player can pay
+        var interest = 0
+        switch player.difficulty {
+        case DifficultyType.beginner:
+            interest = 0
+        case DifficultyType.easy:
+            interest = Int(0.05 * Double(player.debt))
+        case DifficultyType.normal:
+            interest = Int(0.10 * Double(player.debt))
+        case DifficultyType.hard:
+            interest = Int(0.15 * Double(player.debt))
+        case DifficultyType.impossible:
+            interest = Int(0.20 * Double(player.debt))
+        }
+        
+        if player.credits < interest {
+            canWeWarp = false
+            print("WARP CANCELLED ON THE BASIS OF INTEREST PAYMENTS")
+        } else {
+            player.credits -= interest
+        }
+        
+        // charge insurance, make sure player can pay
+        if player.credits < player.insuranceCost {
+            canWeWarp = false
+            print("WARP CANCELLED ON THE BASIS OF INSURANCE PAYMENT")
+        } else {
+            player.credits -= player.insuranceCost
+        }
+        
+        if canWeWarp {
+            // housekeeping things
+            player.inspected = false
+            player.credits -= mercenarySalary
+            player.alreadyPaidForNewspaper = false
+            player.caughtLittering = false
+            player.portableSingularity = false
+            
+            // warp!
+            print("warp function signing off on warp and passing control to journey")
+            currentJourney = Journey(origin: galaxy.currentSystem!, destination: galaxy.targetSystem!)
+            currentJourney!.beginJourney()
+            return true
+        }
+        print("warp by singularity disallowed.")
+        return false
+    }
+    
     // NSCODING METHODS
     
     required init(coder decoder: NSCoder) {
