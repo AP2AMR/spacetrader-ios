@@ -278,6 +278,12 @@ class Journey: NSObject, NSCoding {
         
         travelBySingularity = false
         
+        // untrack system upon arrival
+        if galaxy.currentSystem! == galaxy.trackedSystem! {
+            print("arriving at tracked system. Untracking system.")
+            galaxy.trackedSystem = nil
+        }
+        
         galaxy.getSystemsInRange()
         
         // houskeeping things
