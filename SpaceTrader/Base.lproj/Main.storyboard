@@ -6027,6 +6027,9 @@
                         <subviews>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zYg-mF-RKy">
                                 <rect key="frame" x="20" y="20" width="51" height="31"/>
+                                <connections>
+                                    <action selector="fuelTanksToggled:" destination="dh8-f5-cCL" eventType="valueChanged" id="quK-JA-8W4"/>
+                                </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zap-cm-Xcs">
                                 <rect key="frame" x="20" y="67" width="51" height="31"/>
@@ -6129,6 +6132,15 @@
                             <constraint firstItem="Byc-L3-14H" firstAttribute="top" secondItem="9Al-pD-SKx" secondAttribute="bottom" constant="50" id="zpF-y6-BYl"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="fullTanksOutlet" destination="zYg-mF-RKy" id="1bV-85-EsX"/>
+                        <outlet property="hullRepairOutlet" destination="zap-cm-Xcs" id="nir-Iu-ejo"/>
+                        <outlet property="ignorePiratesOutlet" destination="H7n-b6-o1v" id="fKs-JM-xaB"/>
+                        <outlet property="ignorePoliceOutlet" destination="ANy-J2-0qQ" id="TlS-Kg-Hs4"/>
+                        <outlet property="ignoreTradersOutlet" destination="VvE-z2-W4l" id="JjM-Aa-hHX"/>
+                        <outlet property="newspaperOutlet" destination="9Al-pD-SKx" id="TTd-11-4th"/>
+                        <outlet property="remindLoansOutlet" destination="Byc-L3-14H" id="dD5-Aq-hqE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FCO-21-LcE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -20,6 +20,10 @@ class Commander: NSObject, NSCoding {
     var remindLoans = false
     var autoFuel = false
     var autoRepair = false
+    var autoNewspaper = false
+    var ignorePirates = false
+    var ignorePolice = false
+    var ignoreTraders = false
     var alreadyPaidForNewspaper = false
     var caughtLittering = false
     var portableSingularity = false
@@ -104,6 +108,7 @@ class Commander: NSObject, NSCoding {
     var traderKills: Int = 0
     
     var endGameType: EndGameStatus = EndGameStatus.GameNotOver
+    
     
     var kills: Int {
         return pirateKills + policeKills + traderKills
@@ -553,6 +558,12 @@ class Commander: NSObject, NSCoding {
         self.remindLoans = decoder.decodeObjectForKey("remindLoans") as! Bool
         self.autoFuel = decoder.decodeObjectForKey("autoFuel") as! Bool
         self.autoRepair = decoder.decodeObjectForKey("autoRepair") as! Bool
+        self.autoNewspaper = decoder.decodeObjectForKey("autoNewspaper") as! Bool
+        self.ignorePirates = decoder.decodeObjectForKey("ignorePirates") as! Bool
+        self.ignorePolice = decoder.decodeObjectForKey("ignorePolice") as! Bool
+        self.ignoreTraders = decoder.decodeObjectForKey("ignoreTraders") as! Bool
+        
+        
         self.alreadyPaidForNewspaper = decoder.decodeObjectForKey("alreadyPaidForNewspaper") as! Bool
         self.caughtLittering = decoder.decodeObjectForKey("caughtLittering") as! Bool
         self.portableSingularity = decoder.decodeObjectForKey("portableSingularity") as! Bool
@@ -595,6 +606,11 @@ class Commander: NSObject, NSCoding {
         encoder.encodeObject(remindLoans, forKey: "remindLoans")
         encoder.encodeObject(autoFuel, forKey: "autoFuel")
         encoder.encodeObject(autoRepair, forKey: "autoRepair")
+        encoder.encodeObject(autoNewspaper, forKey: "autoNewspaper")
+        encoder.encodeObject(ignorePirates, forKey: "ignorePirates")
+        encoder.encodeObject(ignorePolice, forKey: "ignorePolice")
+        encoder.encodeObject(ignoreTraders, forKey: "ignoreTraders")
+
         encoder.encodeObject(alreadyPaidForNewspaper, forKey: "alreadyPaidForNewspaper")
         encoder.encodeObject(caughtLittering, forKey: "caughtLittering")
         encoder.encodeObject(portableSingularity, forKey: "portableSingularity")
