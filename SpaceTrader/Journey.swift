@@ -47,8 +47,15 @@ class Journey: NSObject, NSCoding {
         print("WARP SEQUENCE INITIATED")
         
         // go to WarpViewVC, pause momentarily
-        let passedText = NSString(string: "notification")
-        NSNotificationCenter.defaultCenter().postNotificationName("fireWarpViewSegueNotification", object: passedText)
+        
+        if !travelBySingularity {
+            let passedText = NSString(string: "notification")
+            NSNotificationCenter.defaultCenter().postNotificationName("fireWarpViewSegueNotification", object: passedText)
+        } else {
+            let passedText = NSString(string: "notification")
+            NSNotificationCenter.defaultCenter().postNotificationName("singularityWarpSegueNotification", object: passedText)
+        }
+        
         
         resumeJourney()
         

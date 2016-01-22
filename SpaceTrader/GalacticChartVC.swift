@@ -38,6 +38,15 @@ class GalacticChartVC: UIViewController, ShortRangeChartDelegate {
         } else {
             portableSingularityJump.enabled = false
         }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "messageHandler:", name: "singularityWarpSegueNotification", object: nil)
+    }
+    
+    func messageHandler(notification: NSNotification) {
+        // force load the VC, to avoid getting tied up in the nav controller
+        
+        let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("warpViewVC")
+        self.presentViewController(vc, animated: true, completion: nil)
     }
     
     @IBAction func closeButton() {
