@@ -97,6 +97,50 @@ class SpaceShip: NSObject, NSCoding {
     var disabled = false
     var specialCargo: [SpecialCargoItem] = []
     
+    // ALT METHOD: special cargo bools:
+    
+    var artifactSpecialCargo = false
+    var experimentSpecialCargo = false
+    var japoriSpecialCargo = false
+    var jarekHagglingComputerSpecialCargo = false
+    var reactorSpecialCargo = false
+    var sculptureSpecialCargo = false
+    var reactorFuelSpecialCargo = false
+    var reactorFuelBays = 0
+    var tribblesInfestationSpecialCargo = false
+    var tribblesCuteSpecialCargo = false
+    
+    var noSpecialCargo: Bool {
+        get {
+            if !artifactSpecialCargo && !experimentSpecialCargo && !japoriSpecialCargo && !jarekHagglingComputerSpecialCargo && !reactorSpecialCargo && !reactorFuelSpecialCargo && !tribblesInfestationSpecialCargo && !tribblesCuteSpecialCargo {
+                    return true
+            } else {
+                return false
+            }
+        }
+    }
+    
+    var specialCargoStrings: [String] {
+        get {
+            var returnArray: [String] = []
+            // TODO
+            return returnArray
+        }
+    }
+    
+    // var baysTakenUpBySpecialCargo: Int {
+    
+//    case artifact = "An alien artifact."
+//    case experiment = "A portable singularity."
+//    case japori = "10 bays of antidote."
+//    case jarek = "A portable haggling computer."
+//    case none = "No special items."
+//    case reactor = "An unstable reactor taking up 5 bays."
+//    case sculpture = "A stolen plastic sculpture of a man holding some kind of light sword."
+//    case reactorBays = "**** bays of enriched fuel."
+//    case tribblesInfestation = "An infestation of tribbles."
+//    case tribblesCute = "cute, furry tribble"
+    
     var IFFStatus: IFFStatusType    // player, police, pirate, trader
     // image
     // image shielded
@@ -759,6 +803,17 @@ class SpaceShip: NSObject, NSCoding {
             self.machinesOnBoard = decoder.decodeObjectForKey("machinesOnBoard") as! Int
             self.narcoticsOnBoard = decoder.decodeObjectForKey("narcoticsOnBoard") as! Int
             self.robotsOnBoard = decoder.decodeObjectForKey("robotsOnBoard") as! Int
+            
+            self.artifactSpecialCargo = decoder.decodeObjectForKey("artifactSpecialCargo") as! Bool
+            self.experimentSpecialCargo = decoder.decodeObjectForKey("experimentSpecialCargo") as! Bool
+            self.japoriSpecialCargo = decoder.decodeObjectForKey("japoriSpecialCargo") as! Bool
+            self.jarekHagglingComputerSpecialCargo = decoder.decodeObjectForKey("jarekHagglingComputerSpecialCargo") as! Bool
+            self.reactorSpecialCargo = decoder.decodeObjectForKey("reactorSpecialCargo") as! Bool
+            self.sculptureSpecialCargo = decoder.decodeObjectForKey("sculptureSpecialCargo") as! Bool
+            self.reactorFuelSpecialCargo = decoder.decodeObjectForKey("reactorFuelSpecialCargo") as! Bool
+            self.reactorFuelBays = decoder.decodeObjectForKey("reactorFuelBays") as! Int
+            self.tribblesInfestationSpecialCargo = decoder.decodeObjectForKey("tribblesInfestationSpecialCargo") as! Bool
+            self.tribblesCuteSpecialCargo = decoder.decodeObjectForKey("tribblesCuteSpecialCargo") as! Bool
     
             super.init()
         }
@@ -812,6 +867,17 @@ class SpaceShip: NSObject, NSCoding {
             encoder.encodeObject(machinesOnBoard, forKey: "machinesOnBoard")
             encoder.encodeObject(narcoticsOnBoard, forKey: "narcoticsOnBoard")
             encoder.encodeObject(robotsOnBoard, forKey: "robotsOnBoard")
+            
+            encoder.encodeObject(artifactSpecialCargo, forKey: "artifactSpecialCargo")
+            encoder.encodeObject(experimentSpecialCargo, forKey: "experimentSpecialCargo")
+            encoder.encodeObject(japoriSpecialCargo, forKey: "japoriSpecialCargo")
+            encoder.encodeObject(jarekHagglingComputerSpecialCargo, forKey: "jarekHagglingComputerSpecialCargo")
+            encoder.encodeObject(reactorSpecialCargo, forKey: "reactorSpecialCargo")
+            encoder.encodeObject(sculptureSpecialCargo, forKey: "sculptureSpecialCargo")
+            encoder.encodeObject(reactorFuelSpecialCargo, forKey: "reactorFuelSpecialCargo")
+            encoder.encodeObject(reactorFuelBays, forKey: "reactorFuelBays")
+            encoder.encodeObject(tribblesInfestationSpecialCargo, forKey: "tribblesInfestationSpecialCargo")
+            encoder.encodeObject(tribblesCuteSpecialCargo, forKey: "tribblesCuteSpecialCargo")
         }
 
 }

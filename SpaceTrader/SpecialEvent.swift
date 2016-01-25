@@ -421,6 +421,8 @@ class SpecialEvents: NSObject, NSCoding {
             addQuestString("Deliver antidote to Japori.", ID: QuestID.japori)
             // create new special in Japori--medicineDelivery
             galaxy.setSpecial("Japori", id: SpecialEventID.medicineDelivery)
+            // add special cargo
+            
             
         case SpecialEventID.ambassadorJarek:
             jarekElapsedTime = 0
