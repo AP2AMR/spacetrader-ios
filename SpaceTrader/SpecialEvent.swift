@@ -660,8 +660,10 @@ class SpecialEvents: NSObject, NSCoding {
                 player.commanderShip.weapon.append(Weapon(type: WeaponType.quantumDisruptor))
                 addQuestString("", ID: QuestID.princess)
             } else {
-                // **** NOT ENOUGH WEAPON SLOTS MESSAGE
+                // **** NOT ENOUGH WEAPON SLOTS MESSAGE                                 ALERT
                 galaxy.setSpecial("Galvon", id: SpecialEventID.installQuantumDisruptor)
+                dontDeleteLocalSpecialEvent = true
+                
             }
             
         case SpecialEventID.retirement:

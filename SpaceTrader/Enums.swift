@@ -209,6 +209,7 @@ enum StarSystemID {
     case Capelle		// The city I lived in while programming this game
     case Carzon
     case Castor         // A Greek demi-god
+    case Centauri
     case Cestus
     case Cheron
     case Courteney      // After Courteney Cox...
