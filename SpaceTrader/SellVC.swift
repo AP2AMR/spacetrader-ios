@@ -218,8 +218,7 @@ class SellVC: UIViewController, BuyModalVCDelegate {
         
         cashLabel.text = "Cash: \(player.credits) cr."
         
-        let baysInUse = player.commanderShip.cargoBays - player.commanderShip.baysAvailable
-        baysAvailableLabel.text = "Bays: \(baysInUse)/\(player.commanderShip.cargoBays)"
+        baysAvailableLabel.text = "Bays: \(player.commanderShip.baysFilled)/\(player.commanderShip.cargoBays)"
     }
     
     func loadPrices() {

@@ -106,8 +106,7 @@ class ShipVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             } else {
                 newString = "\(entry.quantity) \(entry.name)"
             }
-            tableView2TextArray = []
-            print(newString)
+            tableView2TextArray = player.commanderShip.specialCargoStrings  // load special cargo data
             tableView1TextArray.append(newString)
         }
         
@@ -121,9 +120,9 @@ class ShipVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         // special cargo
         
-        for item in player.commanderShip.specialCargo {
-            tableView2TextArray.append(item.name)
-        }
+//        for item in player.commanderShip.specialCargo {
+//            tableView2TextArray.append(item.name)
+//        }
         
         self.tableView1.reloadData()
         self.tableView2.reloadData()

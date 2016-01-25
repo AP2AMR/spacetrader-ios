@@ -128,7 +128,6 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         // fill out info at the bottom
         
         targetSystemLabel.text = "Target system: \(galaxy.targetSystem!.name)"
-        //baysLabel.text = "Bays: 0/\(player.commanderShip.cargoBays)"    // FIX
         cashLabel.text = "Cash: \(player.credits) cr."
         
         
@@ -298,7 +297,7 @@ class BuyVC: UIViewController, BuyModalVCDelegate {
         // ISSUE: should display positive P/L numbers in smaller font. Need to learn how to change font size of label programmatically
         
         targetSystemLabel.text = "Target system: \(galaxy.targetSystem!.name)"
-        baysLabel.text = "Bays: \(player.commanderShip.totalCargo)/\(player.commanderShip.cargoBays)"    // FIX
+        baysLabel.text = "Bays: \(player.commanderShip.baysFilled)/\(player.commanderShip.cargoBays)"    // FIX
         cashLabel.text = "Cash: \(player.credits) cr."
         
         let controlState = UIControlState()

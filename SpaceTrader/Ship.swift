@@ -123,23 +123,71 @@ class SpaceShip: NSObject, NSCoding {
     var specialCargoStrings: [String] {
         get {
             var returnArray: [String] = []
-            // TODO
+            if artifactSpecialCargo {
+                returnArray.append("An alien artifact.")
+            }
+            if experimentSpecialCargo {
+                returnArray.append("A portable singularity.")
+            }
+            if japoriSpecialCargo {
+                returnArray.append("10 bays of antidote.")
+            }
+            if reactorSpecialCargo {
+                returnArray.append("An unstable reactor taking up 5 bays.")
+            }
+            if sculptureSpecialCargo {
+                returnArray.append("A stolen plastic sculpture of a man holding some kind of light sword.")
+            }
+            if reactorFuelSpecialCargo {
+                returnArray.append("\(reactorFuelBays) bays of enriched fuel.")
+            }
+            if tribblesCuteSpecialCargo {
+                returnArray.append("A cute, furry tribble.")
+            }
+            if tribblesInfestationSpecialCargo {
+                returnArray.append("An infestation of tribbles.")
+            }
+            if noSpecialCargo {
+                returnArray.append("No special items.")
+            }
             return returnArray
         }
     }
     
-    // var baysTakenUpBySpecialCargo: Int {
-    
-//    case artifact = "An alien artifact."
-//    case experiment = "A portable singularity."
-//    case japori = "10 bays of antidote."
-//    case jarek = "A portable haggling computer."
-//    case none = "No special items."
-//    case reactor = "An unstable reactor taking up 5 bays."
-//    case sculpture = "A stolen plastic sculpture of a man holding some kind of light sword."
-//    case reactorBays = "**** bays of enriched fuel."
-//    case tribblesInfestation = "An infestation of tribbles."
-//    case tribblesCute = "cute, furry tribble"
+    var baysTakenUpBySpecialCargo: Int {
+        get {
+            var returnInt = 0
+            if artifactSpecialCargo {
+                returnInt += 0
+            }
+            if experimentSpecialCargo {
+                returnInt += 1
+            }
+            if japoriSpecialCargo {
+                returnInt += 10
+            }
+            if reactorSpecialCargo {
+                returnInt += 5
+            }
+            if sculptureSpecialCargo {
+                returnInt += 1
+            }
+            if reactorFuelSpecialCargo {
+                returnInt += reactorFuelBays
+            }
+            if tribblesCuteSpecialCargo {
+                returnInt += 0              // DO TRIBBLES TAKE UP ROOM?
+            }
+            if tribblesInfestationSpecialCargo {
+                returnInt += 0              // DO TRIBBLES TAKE UP ROOM?
+            }
+            if noSpecialCargo {
+                returnInt += 0
+            }
+            return returnInt
+            
+        }
+    }
     
     var IFFStatus: IFFStatusType    // player, police, pirate, trader
     // image
@@ -197,7 +245,14 @@ class SpaceShip: NSObject, NSCoding {
     
     var baysAvailable: Int {
         get {
-            return cargoBays - totalCargo
+            print("cargo bays: \(cargoBays), totalCargo: \(totalCargo), special: \(baysTakenUpBySpecialCargo)")
+            return cargoBays - totalCargo - baysTakenUpBySpecialCargo
+        }
+    }
+    
+    var baysFilled: Int {
+        get {
+            return totalCargo + baysTakenUpBySpecialCargo
         }
     }
     

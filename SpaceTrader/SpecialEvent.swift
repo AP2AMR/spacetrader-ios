@@ -422,6 +422,14 @@ class SpecialEvents: NSObject, NSCoding {
             // create new special in Japori--medicineDelivery
             galaxy.setSpecial("Japori", id: SpecialEventID.medicineDelivery)
             // add special cargo
+            if player.commanderShip.baysAvailable >= 10 {
+                player.commanderShip.japoriSpecialCargo = true
+            } else {
+                print("error. Not enough bays available. CREATE ALERT.")
+                galaxy.setSpecial("Gemulon", id: SpecialEventID.fuelCompactor)
+                dontDeleteLocalSpecialEvent = true
+            }
+            
             
             
         case SpecialEventID.ambassadorJarek:

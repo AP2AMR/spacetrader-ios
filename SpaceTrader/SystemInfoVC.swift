@@ -55,7 +55,7 @@ class SystemInfoVC: UIViewController {
         policeLabel.text = galaxy.getActivityForInt(localPolitics.activityPolice)
         piratesLabel.text = galaxy.getActivityForInt(localPolitics.activityPirates)
         
-        baysLabel.text = "Bays: \(player.commanderShip.getTotalCargo())/\(player.commanderShip.totalBays)"
+        baysLabel.text = "Bays: \(player.commanderShip.baysFilled)/\(player.commanderShip.totalBays)"
         cashLabel.text = "Cash: \(player.credits) cr."
         
 //        fuelButton.backgroundColor = UIColor.clearColor()
@@ -112,9 +112,6 @@ class SystemInfoVC: UIViewController {
         } else {
             specialButton.enabled = false
         }
-        
-        print("updateUI special report: \(galaxy.currentSystem!.specialEvent)")
-        
     }
     
     @IBAction func maxFuel(sender: AnyObject) {
