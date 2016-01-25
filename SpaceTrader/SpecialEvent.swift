@@ -425,7 +425,7 @@ class SpecialEvents: NSObject, NSCoding {
             if player.commanderShip.baysAvailable >= 10 {
                 player.commanderShip.japoriSpecialCargo = true
             } else {
-                print("error. Not enough bays available. CREATE ALERT.")
+                print("error. Not enough bays available. CREATE ALERT.")        // ADD ALERT
                 galaxy.setSpecial("Gemulon", id: SpecialEventID.fuelCompactor)
                 dontDeleteLocalSpecialEvent = true
             }
@@ -598,8 +598,9 @@ class SpecialEvents: NSObject, NSCoding {
             }
             
         case SpecialEventID.medicineDelivery:
+            player.commanderShip.japoriSpecialCargo = false     // remove special cargo
             addQuestString("", ID: QuestID.japori)
-            increaseRandomSkill()
+            increaseRandomSkill()                               // DO WE WANT AN ALERT HERE?
             
         case SpecialEventID.jarekGetsOut:
             addQuestString("", ID: QuestID.jarek)

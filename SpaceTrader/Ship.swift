@@ -95,7 +95,6 @@ class SpaceShip: NSObject, NSCoding {
     var justLootedMarieCeleste = false
     var cloaked = false
     var disabled = false
-    var specialCargo: [SpecialCargoItem] = []
     
     // ALT METHOD: special cargo bools:
     
@@ -836,7 +835,6 @@ class SpaceShip: NSObject, NSCoding {
             self.justLootedMarieCeleste = decoder.decodeObjectForKey("justLootedMarieCeleste") as! Bool
             self.cloaked = decoder.decodeObjectForKey("cloaked") as! Bool
             self.disabled = decoder.decodeObjectForKey("disabled") as! Bool
-            self.specialCargo = decoder.decodeObjectForKey("specialCargo") as! [SpecialCargoItem]
             self.IFFStatus = IFFStatusType(rawValue: decoder.decodeObjectForKey("IFFStatus") as! String!)!
             
             self.cargo = decoder.decodeObjectForKey("cargo") as! [TradeItem]
@@ -900,7 +898,6 @@ class SpaceShip: NSObject, NSCoding {
             encoder.encodeObject(justLootedMarieCeleste, forKey: "justLootedMarieCeleste")
             encoder.encodeObject(cloaked, forKey: "cloaked")
             encoder.encodeObject(disabled, forKey: "disabled")
-            encoder.encodeObject(specialCargo, forKey: "specialCargo")
             encoder.encodeObject(IFFStatus.rawValue, forKey: "IFFStatus")
             
             encoder.encodeObject(cargo, forKey: "cargo")
