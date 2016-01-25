@@ -417,15 +417,16 @@ class SpecialEvents: NSObject, NSCoding {
             galaxy.setSpecial("Gemulon", id: SpecialEventID.gemulonRescued)
             
         case SpecialEventID.japoriDisease:
-            // quest
-            addQuestString("Deliver antidote to Japori.", ID: QuestID.japori)
-            // create new special in Japori--medicineDelivery
-            galaxy.setSpecial("Japori", id: SpecialEventID.medicineDelivery)
-            // add special cargo
+            // player can accept quest only if ship has 10 bays free
             if player.commanderShip.baysAvailable >= 10 {
+                // quest
+                addQuestString("Deliver antidote to Japori.", ID: QuestID.japori)
+                // create new special in Japori--medicineDelivery
+                galaxy.setSpecial("Japori", id: SpecialEventID.medicineDelivery)
                 player.commanderShip.japoriSpecialCargo = true
             } else {
-                print("error. Not enough bays available. CREATE ALERT.")        // ADD ALERT
+                // if bays not free, create alert, put back special
+                print("error. Not enough bays available. CREATE ALERT.")                // ADD ALERT
                 galaxy.setSpecial("Gemulon", id: SpecialEventID.fuelCompactor)
                 dontDeleteLocalSpecialEvent = true
             }
@@ -433,11 +434,23 @@ class SpecialEvents: NSObject, NSCoding {
             
             
         case SpecialEventID.ambassadorJarek:
+            
+            
             jarekElapsedTime = 0
             addQuestString("Take ambassador Jarek to Devidia.", ID: QuestID.jarek)
             galaxy.setSpecial("Devidia", id: SpecialEventID.jarekGetsOut)
-            // **** MAKE SURE YOU CAN ADD JAREK TO THE CREW
-            // **** ADD JAREK TO CREW, MAKE HIS SKILLS COUNT (see how this works)
+            
+            if player.commanderShip.crewSlotsAvailable >= 1 {
+                // take him on
+                let jarek = CrewMember(ID: MercenaryName.jarek, pilot: 1, fighter: 1, trader: 10, engineer: 1)    // are these the numbers we want to use for Jarek? Maybe find out?
+                player.commanderShip.crew.append(jarek)
+            } else {
+                // can't take him on
+                print("error. Not enough crew slots available. CREATE ALERT.")            // ADD ALERT
+                // restore special event at current system
+                galaxy.setSpecial(galaxy.currentSystem!.name, id: SpecialEventID.ambassadorJarek)
+                dontDeleteLocalSpecialEvent = true
+            }
             
         case SpecialEventID.princess:
             addQuestString("Follow the Scorpion to Centauri.", ID: QuestID.princess)
@@ -603,8 +616,20 @@ class SpecialEvents: NSObject, NSCoding {
             increaseRandomSkill()                               // DO WE WANT AN ALERT HERE?
             
         case SpecialEventID.jarekGetsOut:
+            // remove jarek
+            player.commanderShip.removeCrewMember(MercenaryName.jarek)
+            // stop countdown, remove quest string
+            jarekElapsedTime = -1
             addQuestString("", ID: QuestID.jarek)
-            player.initialTraderSkill += 2
+            // add special cargo, if possible
+            if player.commanderShip.baysAvailable >= 1 {
+                player.initialTraderSkill += 2
+                player.commanderShip.jarekHagglingComputerSpecialCargo = true
+                print("haggling computer bool: \(player.commanderShip.jarekHagglingComputerSpecialCargo)")
+            }
+            // I guess otherwise you don't get the bump in trader skill?
+            
+            
     
         case SpecialEventID.princessCentauri:
             addQuestString("Follow the Scorpion to Inthara.", ID: QuestID.princess)

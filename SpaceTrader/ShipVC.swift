@@ -11,12 +11,13 @@ import UIKit
 class ShipVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var crewQuartersLabel: UILabel!
     
     @IBOutlet weak var tableView1: UITableView!
     @IBOutlet weak var tableView2: UITableView!
    
-    var tableView1TextArray: [String] = ["1 Photon Disruptor", "2 Reflective Shields"]
-    var tableView2TextArray: [String] = ["10 Bays of Antidote"]
+    var tableView1TextArray: [String] = []
+    var tableView2TextArray: [String] = ["Test initial item"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,14 @@ class ShipVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func updateData() {
         typeLabel.text = player.commanderShip.name
+        crewQuartersLabel.text = "\(player.commanderShip.crewSlotsFilled)/\(player.commanderShip.crewQuarters)"
+        
+        tableView2TextArray = player.commanderShip.specialCargoStrings  // load special cargo data
+        
+        print("loading specialCargoStrings:")
+        for item in player.commanderShip.specialCargoStrings {
+            print(item)
+        }
         
         class equipmentEntry {
             var name: String
@@ -106,7 +115,8 @@ class ShipVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             } else {
                 newString = "\(entry.quantity) \(entry.name)"
             }
-            tableView2TextArray = player.commanderShip.specialCargoStrings  // load special cargo data
+            
+                
             tableView1TextArray.append(newString)
         }
         
@@ -118,11 +128,6 @@ class ShipVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let emptyGadgetString = "(\(player.commanderShip.gadgetSlots - player.commanderShip.gadget.count) empty gadget slots)"
         tableView1TextArray.append(emptyGadgetString)
         
-        // special cargo
-        
-//        for item in player.commanderShip.specialCargo {
-//            tableView2TextArray.append(item.name)
-//        }
         
         self.tableView1.reloadData()
         self.tableView2.reloadData()

@@ -90,6 +90,14 @@ class SpaceShip: NSObject, NSCoding {
         return total
     }
     
+    var crewSlotsAvailable: Int {
+        return crewQuarters - crew.count - 1
+    }
+    
+    var crewSlotsFilled: Int {
+        return crew.count + 1
+    }
+    
     var raided = false
     var artifactOnBoard = false
     var justLootedMarieCeleste = false
@@ -131,6 +139,15 @@ class SpaceShip: NSObject, NSCoding {
             if japoriSpecialCargo {
                 returnArray.append("10 bays of antidote.")
             }
+            if jarekHagglingComputerSpecialCargo {
+                returnArray.append("A handheld haggling computer.")
+                
+                print("haggling computer appended.")
+                print("array now reads:")
+                for item in returnArray {
+                    print("\(item)")
+                }
+            }
             if reactorSpecialCargo {
                 returnArray.append("An unstable reactor taking up 5 bays.")
             }
@@ -164,6 +181,9 @@ class SpaceShip: NSObject, NSCoding {
             }
             if japoriSpecialCargo {
                 returnInt += 10
+            }
+            if jarekHagglingComputerSpecialCargo {
+                returnInt += 1
             }
             if reactorSpecialCargo {
                 returnInt += 5
@@ -804,6 +824,23 @@ class SpaceShip: NSObject, NSCoding {
         if lightningShield && (shieldSlots >= 1) {
             let lightning = Shield(type: ShieldType.lightningShield)
             self.shield.append(lightning)
+        }
+    }
+    
+    func removeCrewMember(id: MercenaryName) -> Bool {
+        var removeIndex: Int?
+        var i = 0
+        for member in crew {
+            if member.ID == id {
+                removeIndex = i
+            }
+            i += 1
+        }
+        if removeIndex != nil {
+            crew.removeAtIndex(removeIndex!)
+            return true
+        } else {
+            return false
         }
     }
     

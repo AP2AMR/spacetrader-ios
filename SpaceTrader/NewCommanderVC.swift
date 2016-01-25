@@ -156,7 +156,7 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         
         // THIS IS PURELY FOR TESTING SPECIAL EVENTS
         if player.difficulty == DifficultyType.normal {
-            galaxy.currentSystem!.specialEvent = SpecialEventID.japoriDisease
+            galaxy.currentSystem!.specialEvent = SpecialEventID.ambassadorJarek
             player.specialEvents.setSpecialEvent()
         }
         
@@ -168,8 +168,8 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         
         
         
-//        let bigShip = SpaceShip(type: ShipType.Grasshopper, IFFStatus: IFFStatusType.Player)
-//        player.commanderShip = bigShip
+        let bigShip = SpaceShip(type: ShipType.Grasshopper, IFFStatus: IFFStatusType.Player)
+        player.commanderShip = bigShip
         
 //        let reflectiveShield = Shield(type: ShieldType.reflectiveShield)
 //        reflectiveShield.currentStrength = reflectiveShield.power // / 2
@@ -192,7 +192,7 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         //player.policeRecord = PoliceRecordType.heroScore
         
         
-        //player.credits = 100000     // for testing, give player money
+        player.credits = 100000     // for testing, give player money
 
         
         // END TESTING STUFF ********************************************************************
