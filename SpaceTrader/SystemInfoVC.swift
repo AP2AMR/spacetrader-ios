@@ -18,6 +18,7 @@ class SystemInfoVC: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        player.specialEvents.setSpecialEvent()              // experimental, to set second special
         updateUI()
     }
 
@@ -111,6 +112,8 @@ class SystemInfoVC: UIViewController {
         } else {
             specialButton.enabled = false
         }
+        
+        print("updateUI special report: \(galaxy.currentSystem!.specialEvent)")
         
     }
     

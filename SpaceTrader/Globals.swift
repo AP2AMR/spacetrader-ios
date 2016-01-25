@@ -47,6 +47,7 @@ var buySellCommodity: TradeItemType?
 var buyAsOpposedToSell: Bool = true
 
 var travelBySingularity = false
+var dontDeleteLocalSpecialEvent = false
 
 
 // settable constants:

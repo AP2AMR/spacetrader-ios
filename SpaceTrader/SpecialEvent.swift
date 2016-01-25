@@ -391,6 +391,7 @@ class SpecialEvents: NSObject, NSCoding {
             // initial
         case SpecialEventID.alienArtifact:
             addQuestString("Deliver the alien artifact to Professor Berger at some hi-tech system.", ID: QuestID.artifact)
+            player.commanderShip.artifactOnBoard = true
             // add artifact delivery to some high tech system without a specialEvent set
             for planet in galaxy.planets {
                 if planet.techLevel == TechLevelType.techLevel7 {
@@ -519,6 +520,7 @@ class SpecialEvents: NSObject, NSCoding {
             // subsequent
         case SpecialEventID.artifactDelivery:
             artifactOnBoard = false
+            player.commanderShip.artifactOnBoard = false
             player.credits += 20000
             addQuestString("", ID: QuestID.artifact)        // close quest
             
@@ -542,6 +544,7 @@ class SpecialEvents: NSObject, NSCoding {
         case SpecialEventID.dragonflyDestroyed:
             addQuestString("Get your lightning shield at Zalkon.", ID: QuestID.dragonfly)
             galaxy.setSpecial("Zalkon", id: SpecialEventID.lightningShield)
+            dontDeleteLocalSpecialEvent = true
             
         case SpecialEventID.lightningShield:
             if player.commanderShip.shield.count < player.commanderShip.shieldSlots {
@@ -551,6 +554,7 @@ class SpecialEvents: NSObject, NSCoding {
             } else {
                 // **** NOT ENOUGH SHIELD SLOTS MESSAGE
                 galaxy.setSpecial("Zalkon", id: SpecialEventID.lightningShield)
+                dontDeleteLocalSpecialEvent = true
             }
             
         case SpecialEventID.disasterAverted:
@@ -570,6 +574,7 @@ class SpecialEvents: NSObject, NSCoding {
             gemulonInvasionCountdown = -1   // deactivate countdown
             addQuestString("", ID: QuestID.gemulon)
             galaxy.setSpecial("Gemulon", id: SpecialEventID.fuelCompactor)
+            dontDeleteLocalSpecialEvent = true
             
         case SpecialEventID.fuelCompactor:
             if player.commanderShip.gadget.count < player.commanderShip.gadgetSlots {
@@ -579,6 +584,7 @@ class SpecialEvents: NSObject, NSCoding {
             } else {
                 // **** NOT ENOUGH GADGET SLOTS MESSAGE
                 galaxy.setSpecial("Gemulon", id: SpecialEventID.fuelCompactor)
+                dontDeleteLocalSpecialEvent = true
             }
             
         case SpecialEventID.medicineDelivery:
@@ -636,9 +642,11 @@ class SpecialEvents: NSObject, NSCoding {
                 // add laser
                 player.commanderShip.weapon.append(Weapon(type: WeaponType.morgansLaser))
                 addQuestString("", ID: QuestID.reactor)
+                dontDeleteLocalSpecialEvent = true
             } else {
                 // **** NOT ENOUGH WEAPON SLOTS MESSAGE
                 galaxy.setSpecial("Nix", id: SpecialEventID.installMorgansLaser)
+                dontDeleteLocalSpecialEvent = true
             }
             
         case SpecialEventID.scarabDestroyed:

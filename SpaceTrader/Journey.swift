@@ -279,7 +279,9 @@ class Journey: NSObject, NSCoding {
         travelBySingularity = false
         
         // untrack system upon arrival
-        if galaxy.currentSystem! == galaxy.trackedSystem! {
+//        print("seeing if system needs to be untracked.")
+//        print("trackedSystem: \(galaxy.trackedSystem)")
+        if galaxy.currentSystem == galaxy.trackedSystem {
             print("arriving at tracked system. Untracking system.")
             galaxy.trackedSystem = nil
         }
@@ -287,7 +289,6 @@ class Journey: NSObject, NSCoding {
         galaxy.getSystemsInRange()
         
         // houskeeping things
-        player.specialEvents.setSpecialEvent()
         player.specialEvents.incrementCountdown()
         
         // fire segue back to sell (or something else later)

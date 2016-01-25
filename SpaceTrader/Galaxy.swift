@@ -1194,6 +1194,7 @@ class Galaxy: NSObject, NSCoding {
     }
     
     func setSpecial(system: String, id: SpecialEventID) {
+        print("setSpecial firing: setting \(id)")                                  // DEBUG, REMOVE
         for planet in planets {
             if planet.name == system {
                 planet.specialEvent = id
@@ -1330,7 +1331,7 @@ class Galaxy: NSObject, NSCoding {
             player.credits -= mercenarySalary
             player.alreadyPaidForNewspaper = false
             player.caughtLittering = false
-            player.portableSingularity = false
+            player.portableSingularity = true                  // TESTING ONLY
             
             // warp!
             print("warp function signing off on warp and passing control to journey")
@@ -1338,7 +1339,7 @@ class Galaxy: NSObject, NSCoding {
             currentJourney!.beginJourney()
             return true
         }
-        print("warp by singularity disallowed.")
+        print("e by singularity disallowed.")
         return false
     }
     

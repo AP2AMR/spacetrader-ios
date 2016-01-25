@@ -16,6 +16,10 @@ class SpecialVC: UIViewController {
     @IBOutlet weak var noButtonOutlet: CustomButton!
     
     override func viewDidLoad() {
+        // DEBUG
+        print("special screen invoked. Special event to load: \(galaxy.currentSystem!.specialEvent)")
+        print("title: \(player.specialEvents.specialEventTitle)")
+        
         super.viewDidLoad()
         loadData()
         // Do any additional setup after loading the view.
@@ -23,6 +27,10 @@ class SpecialVC: UIViewController {
     
     func loadData() {
         if player.specialEvents.special {
+            // DEBUG
+            print("SpecialVC reporting in. specialEventID: \(galaxy.currentSystem!.specialEvent)")
+            print("title, from player.specialEvents: \(player.specialEvents.specialEventTitle)")
+            
             specialEventTitle.text = player.specialEvents.specialEventTitle
             specialEventText.text = player.specialEvents.specialEventText
             
@@ -41,8 +49,24 @@ class SpecialVC: UIViewController {
         
         // dismiss and remove special. No button will not remove special, that can be done manually in SpecialEvent
         self.dismissViewControllerAnimated(true, completion: nil)
-        player.specialEvents.special = false
-        galaxy.currentSystem!.specialEvent = nil
+        
+        
+        print("yes/dismiss pushed. dontDeleteLocalSpecialEventFlag: \(dontDeleteLocalSpecialEvent)")
+        print("special event currently set: \(galaxy.currentSystem!.specialEvent)")
+        
+        // spare special event if dontDeleteLocalSpecialEvent flag is true
+        if !dontDeleteLocalSpecialEvent {
+            galaxy.currentSystem!.specialEvent = nil
+            player.specialEvents.special = false
+        } else {
+            // spare special event. It has been reset to something else, like claim item
+
+            // make sure button points to correct special
+        }
+        dontDeleteLocalSpecialEvent = false
+        
+        print("code run. Special is now \(galaxy.currentSystem!.specialEvent)")
+        
     }
 
     @IBAction func noButton(sender: AnyObject) {

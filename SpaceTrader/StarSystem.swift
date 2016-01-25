@@ -29,7 +29,11 @@ class StarSystem: NSObject, NSCoding {
     var mercenaries: [CrewMember] = []
     var newspaper: Newspaper = Newspaper()
     var newsItemDropBox: NewsItemID?
-    var specialEvent: SpecialEventID?
+    var specialEvent: SpecialEventID? {
+        didSet {
+            print("\(name)'s specialEvent set to \(specialEvent)")
+        }
+    }
     
     var scarabIsHere = false
     var dragonflyIsHere = false

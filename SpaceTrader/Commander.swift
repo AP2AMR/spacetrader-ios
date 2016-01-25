@@ -26,7 +26,7 @@ class Commander: NSObject, NSCoding {
     var ignoreTraders = false
     var alreadyPaidForNewspaper = false
     var caughtLittering = false
-    var portableSingularity = false
+    var portableSingularity = true                  // TESTING ONLY, FIX
     
     var insurance = false
     var noClaim = 0
