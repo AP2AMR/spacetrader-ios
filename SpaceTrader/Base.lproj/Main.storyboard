@@ -2922,7 +2922,7 @@
         <!--Game OverVC-->
         <scene sceneID="AC6-NE-Dcd">
             <objects>
-                <viewController id="D9y-jd-91M" customClass="GameOverVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gameOverVC" id="D9y-jd-91M" customClass="GameOverVC" customModule="SpaceTrader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gwo-r9-VRo"/>
                         <viewControllerLayoutGuide type="bottom" id="ciH-lo-OmA"/>

@@ -22,13 +22,6 @@ class GameOverVC: UIViewController {
         madeHighScores = highScoreArchive.addScore(newHighScore)
         self.score = newHighScore.score
         
-        // DEBUG
-        print("high score created. madeHighScores? \(madeHighScores)")
-        print("current high scores list:")
-        for score in highScoreArchive.highScores {
-            print("name: \(score.name), score: \(score.score)")
-        }
-        
         // save high scores archive to file
         saveHighScoresArchive()
         
@@ -61,6 +54,7 @@ class GameOverVC: UIViewController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
             (alert: UIAlertAction!) -> Void in
+            print("supposed to perform segue to gameOverHighScores now")
             self.performSegueWithIdentifier("gameOverHighScores", sender: nil)
 //            let vc = self.storyboard!.instantiateViewControllerWithIdentifier("HighScoresNavController")
 //            self.presentViewController(vc, animated: false, completion: nil)

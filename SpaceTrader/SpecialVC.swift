@@ -22,7 +22,12 @@ class SpecialVC: UIViewController {
         
         super.viewDidLoad()
         loadData()
-        // Do any additional setup after loading the view.
+        
+        let gameOverNotification = NSNotificationCenter.defaultCenter().addObserver(self, selector: "messageHandler:", name: "gameOverFromSpecialVC", object: nil)
+    }
+    
+    func messageHandler(notification: NSNotification) {
+        gameOver()
     }
     
     func loadData() {
@@ -72,6 +77,11 @@ class SpecialVC: UIViewController {
     @IBAction func noButton(sender: AnyObject) {
         // for now, I'm going to assume that this will be unnecessary. Maybe I can change the text on it, but I think it will just dismiss the window without taking away the special?
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func gameOver() {
+        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("gameOverVC")
+        self.presentViewController(vc, animated: false, completion: nil)
     }
 
 }

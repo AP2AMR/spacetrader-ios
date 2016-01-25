@@ -156,7 +156,7 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         
         // THIS IS PURELY FOR TESTING SPECIAL EVENTS
         if player.difficulty == DifficultyType.normal {
-            galaxy.currentSystem!.specialEvent = SpecialEventID.princess
+            galaxy.currentSystem!.specialEvent = SpecialEventID.moonForSale
             player.specialEvents.setSpecialEvent()
         }
         
@@ -192,7 +192,7 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         //player.policeRecord = PoliceRecordType.heroScore
         
         
-        player.credits = 100000     // for testing, give player money
+        player.credits = 1000000     // for testing, give player money
 
         
         // END TESTING STUFF ********************************************************************

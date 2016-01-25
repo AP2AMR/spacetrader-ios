@@ -457,8 +457,19 @@ class SpecialEvents: NSObject, NSCoding {
             galaxy.setSpecial("Centauri", id: SpecialEventID.princessCentauri)
             
         case SpecialEventID.moonForSale:
-            addQuestString("Claim your moon at Utopia.", ID: QuestID.moon)
-            galaxy.setSpecial("Utopia", id: SpecialEventID.retirement)
+            if player.credits >= 500000 {
+                // go for it
+                player.credits -= 500000
+                addQuestString("Claim your moon at Utopia.", ID: QuestID.moon)
+                galaxy.setSpecial("Utopia", id: SpecialEventID.retirement)
+            } else {
+                // too poor message                                         ALERT
+                // put back special
+                galaxy.setSpecial(galaxy.currentSystem!.name, id: SpecialEventID.moonForSale)
+                dontDeleteLocalSpecialEvent = true
+            }
+            
+            
 
         case SpecialEventID.morgansReactor:
             addQuestString("Deliver the unstable reactor to Nix for Henry Morgan.", ID: QuestID.reactor)
@@ -668,7 +679,12 @@ class SpecialEvents: NSObject, NSCoding {
             
         case SpecialEventID.retirement:
             addQuestString("", ID: QuestID.moon)
-            // **** END GAME
+            // end game
+            player.endGameType = EndGameStatus.BoughtMoon
+            // fire gameOver() in SpecialVC with notificationCenter
+            NSNotificationCenter.defaultCenter().postNotificationName("gameOverFromSpecialVC", object: NSString(string: "empty"))
+            
+            
             
         case SpecialEventID.reactorDelivered:
             reactorElapsedTime = -1
