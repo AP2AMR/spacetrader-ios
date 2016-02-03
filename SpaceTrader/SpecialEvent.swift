@@ -110,8 +110,8 @@ class SpecialEvents: NSObject, NSCoding {
                 specialEventTitle = "Moon for Sale"
                 specialEventText = "There is a small but habitable moon for sale in the Utopia system, for the very reasonable sum of half a million credits. If you accept it, you can retire to it and live a peaceful, happy, and wealthy life. Do you wish to buy it?"
                 yesDismissButtonText = "Ok"
-                //noButtonText = ""
-                noButtonEnabled = false
+                noButtonText = "No Thanks"
+                noButtonEnabled = true
                 
             case SpecialEventID.morgansReactor:
                 specialEventTitle = "Morgan's Reactor"
