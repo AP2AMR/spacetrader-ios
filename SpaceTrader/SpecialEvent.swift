@@ -678,6 +678,7 @@ class SpecialEvents: NSObject, NSCoding {
             }
             
         case SpecialEventID.retirement:
+            //print("pushed yes on retire screen")
             addQuestString("", ID: QuestID.moon)
             // end game
             player.endGameType = EndGameStatus.BoughtMoon

@@ -34,6 +34,8 @@ class GameOverVC: UIViewController {
         // wait, display alert
         sleep(1)
         
+        // sleep seems to keep this VC around for a second. Otherwise it loads and instantly dismisses
+        
         var title = ""
         var message = ""
         

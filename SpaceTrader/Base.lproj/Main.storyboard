@@ -4177,6 +4177,7 @@
                         <outlet property="noButtonOutlet" destination="IPm-ka-C1R" id="TFR-O4-Mks"/>
                         <outlet property="specialEventText" destination="nXX-2d-JDU" id="ey8-qy-aQl"/>
                         <outlet property="specialEventTitle" destination="l27-Ka-OXa" id="g2S-gP-03j"/>
+                        <segue destination="D9y-jd-91M" kind="show" identifier="gameOverFromSpecial" id="ATZ-Oj-oTW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gMC-FO-1RT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -6245,11 +6246,12 @@
         <image name="badge_bang" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Cl3-zi-3cm"/>
         <segue reference="LdK-j7-SWM"/>
         <segue reference="ufr-wM-KNn"/>
         <segue reference="LND-dr-SJk"/>
-        <segue reference="g1Q-Jj-Pqv"/>
+        <segue reference="ATZ-Oj-oTW"/>
+        <segue reference="Cl3-zi-3cm"/>
         <segue reference="NzW-sD-RNT"/>
+        <segue reference="g1Q-Jj-Pqv"/>
     </inferredMetricsTieBreakers>
 </document>

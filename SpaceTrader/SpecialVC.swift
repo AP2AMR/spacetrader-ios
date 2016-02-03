@@ -53,24 +53,23 @@ class SpecialVC: UIViewController {
         player.specialEvents.yesDismissButton()
         
         // dismiss and remove special. No button will not remove special, that can be done manually in SpecialEvent
-        self.dismissViewControllerAnimated(true, completion: nil)
         
-        
-        print("yes/dismiss pushed. dontDeleteLocalSpecialEventFlag: \(dontDeleteLocalSpecialEvent)")
-        print("special event currently set: \(galaxy.currentSystem!.specialEvent)")
+        if player.endGameType == EndGameStatus.GameNotOver {
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
         
         // spare special event if dontDeleteLocalSpecialEvent flag is true
         if !dontDeleteLocalSpecialEvent {
+            print("flag not set, deleting special event")
             galaxy.currentSystem!.specialEvent = nil
             player.specialEvents.special = false
         } else {
+            print("not deleting special event, as per flag")
             // spare special event. It has been reset to something else, like claim item
 
             // make sure button points to correct special
         }
         dontDeleteLocalSpecialEvent = false
-        
-        print("code run. Special is now \(galaxy.currentSystem!.specialEvent)")
         
     }
 
@@ -80,8 +79,14 @@ class SpecialVC: UIViewController {
     }
     
     func gameOver() {
+        print("this is the gameOver method in special")
+        //performSegueWithIdentifier("gameOverFromSpecial", sender: nil)
         let vc = self.storyboard!.instantiateViewControllerWithIdentifier("gameOverVC")
         self.presentViewController(vc, animated: false, completion: nil)
+        
+        // this goes to a blank, test VC
+//        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("testGameOver")
+//        self.presentViewController(vc, animated: false, completion: nil)
     }
 
 }
