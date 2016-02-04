@@ -33,6 +33,7 @@
 		5A71725C1C1793D40082BF0C /* CommanderStatusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A71725B1C1793D40082BF0C /* CommanderStatusVC.swift */; };
 		5A723F401BCC531B006FFB13 /* Journey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A723F3F1BCC531B006FFB13 /* Journey.swift */; };
 		5A723F421BCD5EA5006FFB13 /* Encounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A723F411BCD5EA5006FFB13 /* Encounter.swift */; };
+		5A76AD601C63B54000EF1809 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A76AD5F1C63B54000EF1809 /* Alerts.swift */; };
 		5A7A52DA1C011ED100FFBF72 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A7A52D91C011ED100FFBF72 /* Images.xcassets */; };
 		5A7DE88D1C49E04E006A3D48 /* LoadGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DE88C1C49E04E006A3D48 /* LoadGameVC.swift */; };
 		5A81AD181BACFBCD001F2918 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81AD171BACFBCD001F2918 /* Globals.swift */; };
@@ -119,6 +120,7 @@
 		5A71725B1C1793D40082BF0C /* CommanderStatusVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommanderStatusVC.swift; sourceTree = "<group>"; };
 		5A723F3F1BCC531B006FFB13 /* Journey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Journey.swift; sourceTree = "<group>"; };
 		5A723F411BCD5EA5006FFB13 /* Encounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encounter.swift; sourceTree = "<group>"; };
+		5A76AD5F1C63B54000EF1809 /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		5A7A52D91C011ED100FFBF72 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
 		5A7DE88C1C49E04E006A3D48 /* LoadGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadGameVC.swift; sourceTree = "<group>"; };
 		5A81AD171BACFBCD001F2918 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 		5AD5F8BC1B9E948F00154B21 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5A76AD5F1C63B54000EF1809 /* Alerts.swift */,
 				5A0265C11BA329670079F6DE /* Commander.swift */,
 				5A0265BD1B9FD2660079F6DE /* CrewMember.swift */,
 				5A07695C1BEAA0A90007C746 /* CustomButton.swift */,
@@ -469,6 +472,7 @@
 				5A723F421BCD5EA5006FFB13 /* Encounter.swift in Sources */,
 				5AE71F971C0699C1004378BD /* BuyEquipmentCell.swift in Sources */,
 				5AFEB63D1C497056000F51BE /* Extensions.swift in Sources */,
+				5A76AD601C63B54000EF1809 /* Alerts.swift in Sources */,
 				5A2A5A0E1C500CAE00E31031 /* GameOverVC.swift in Sources */,
 				5A278EB01BE5632B00679276 /* PlunderVC.swift in Sources */,
 				5A0265BC1B9FCD8B0079F6DE /* SpecialEvent.swift in Sources */,

@@ -472,9 +472,22 @@ class SpecialEvents: NSObject, NSCoding {
             
 
         case SpecialEventID.morgansReactor:
-            addQuestString("Deliver the unstable reactor to Nix for Henry Morgan.", ID: QuestID.reactor)
-            reactorElapsedTime = 0
-            galaxy.setSpecial("Nix", id: SpecialEventID.reactorDelivered)
+            
+            // add special cargo        FIX
+            if player.commanderShip.baysAvailable >= 10 {
+                // quest
+                addQuestString("Deliver the unstable reactor to Nix for Henry Morgan.", ID: QuestID.reactor)
+                reactorElapsedTime = 0
+                galaxy.setSpecial("Nix", id: SpecialEventID.reactorDelivered)
+                player.commanderShip.reactorSpecialCargo = true
+                player.commanderShip.reactorFuelSpecialCargo = true
+                player.commanderShip.reactorFuelBays = 15
+            } else {
+                // if bays not free, create alert, put back special
+                print("error. Not enough bays available. CREATE ALERT.")                // ADD ALERT
+                galaxy.setSpecial("Gemulon", id: SpecialEventID.fuelCompactor)
+                dontDeleteLocalSpecialEvent = true
+            }
             
         case SpecialEventID.scarabStolen:
             addQuestString("Find and destroy the Scarab (which is hiding at the exit to a wormhole).", ID: QuestID.scarab)
