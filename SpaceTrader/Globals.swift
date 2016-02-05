@@ -49,6 +49,8 @@ var buyAsOpposedToSell: Bool = true
 var travelBySingularity = false
 var dontDeleteLocalSpecialEvent = false
 
+var specialVCAlert: Alert?
+
 
 // settable constants:
 

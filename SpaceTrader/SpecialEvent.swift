@@ -8,7 +8,8 @@
 
 import Foundation
 
-// leaving off further work on this until the rest of this is further along and I understand better how it will be used
+// note: alerts are created by first setting specialVCAlert to be the desired alert, and then calling 
+
 
 class SpecialEvents: NSObject, NSCoding {
     // things referencable from VC
@@ -482,6 +483,11 @@ class SpecialEvents: NSObject, NSCoding {
                 player.commanderShip.reactorSpecialCargo = true
                 player.commanderShip.reactorFuelSpecialCargo = true
                 player.commanderShip.reactorFuelBays = 15
+                
+                // create test alert
+                print("SHOULD NOW CREATE TEST ALERT")
+                specialVCAlert = Alert(ID: AlertID.ReactorOnBoard, passedString1: nil, passedString2: nil, passedString3: nil)
+                NSNotificationCenter.defaultCenter().postNotificationName("generateSpecialAlert", object: NSString(string: "empty"))
             } else {
                 // if bays not free, create alert, put back special
                 print("error. Not enough bays available. CREATE ALERT.")                // ADD ALERT
@@ -697,8 +703,6 @@ class SpecialEvents: NSObject, NSCoding {
             player.endGameType = EndGameStatus.BoughtMoon
             // fire gameOver() in SpecialVC with notificationCenter
             NSNotificationCenter.defaultCenter().postNotificationName("gameOverFromSpecialVC", object: NSString(string: "empty"))
-            
-            
             
         case SpecialEventID.reactorDelivered:
             reactorElapsedTime = -1

@@ -93,7 +93,7 @@ class HighScoreArchive: NSObject, NSCoding {
         // delete everything after top ten
         print("initial count: \(highScores.count)")
         while highScores.count > 10 {
-            highScores.removeAtIndex(highScores.count)
+            highScores.removeAtIndex(highScores.count - 1)
         }
         print("truncated. New count: \(highScores.count)")
     }
