@@ -22,21 +22,7 @@ class SpecialVC: UIViewController {
         
         super.viewDidLoad()
         loadData()
-        
-        let gameOverNotification = NSNotificationCenter.defaultCenter().addObserver(self, selector: "messageHandler:", name: "gameOverFromSpecialVC", object: nil)
-        
-        let _ = NSNotificationCenter.defaultCenter().addObserver(self, selector: "alertHandler:", name: "generateSpecialAlert", object: nil)
     }
-    
-//    func messageHandler(notification: NSNotification) {
-//        gameOver()
-//    }
-//    
-//    func alertHandler(notification: NSNotification) {
-//        print("SpecialVC: alertHandler firing")
-//        let newAlert = specialVCAlert!
-//        specialVCAlert = nil
-//    }
     
     func loadData() {
         if player.specialEvents.special {
@@ -155,16 +141,14 @@ class SpecialVC: UIViewController {
                     player.commanderShip.reactorSpecialCargo = true
                     player.commanderShip.reactorFuelSpecialCargo = true
                     player.commanderShip.reactorFuelBays = 15
+
+                    // ReactorOnBoard alert; close on dismiss
+                    generateAlert(Alert(ID: AlertID.ReactorOnBoard, passedString1: nil, passedString2: nil, passedString3: nil))
                     
-                    // create test alert
-                    print("SHOULD NOW CREATE TEST ALERT")
-                    specialVCAlert = Alert(ID: AlertID.ReactorOnBoard, passedString1: nil, passedString2: nil, passedString3: nil)
-                    NSNotificationCenter.defaultCenter().postNotificationName("generateSpecialAlert", object: NSString(string: "empty"))
                 } else {
-                    // if bays not free, create alert, put back special
-                    print("error. Not enough bays available. CREATE ALERT.")                // ADD ALERT
-                    galaxy.setSpecial("Gemulon", id: SpecialEventID.fuelCompactor)
+                    // if bays not free, don't delete, create alert
                     dontDeleteLocalSpecialEvent = true
+                    generateAlert(Alert(ID: AlertID.SpecialNotEnoughBays, passedString1: nil, passedString2: nil, passedString3: nil))
                 }
                 
             case SpecialEventID.scarabStolen:
@@ -373,8 +357,7 @@ class SpecialVC: UIViewController {
                 player.specialEvents.addQuestString("", ID: QuestID.moon)
                 // end game
                 player.endGameType = EndGameStatus.BoughtMoon
-                // fire gameOver() in SpecialVC with notificationCenter
-                NSNotificationCenter.defaultCenter().postNotificationName("gameOverFromSpecialVC", object: NSString(string: "empty"))
+                gameOver()
                 
             case SpecialEventID.reactorDelivered:
                 player.specialEvents.reactorElapsedTime = -1
@@ -434,11 +417,14 @@ class SpecialVC: UIViewController {
             
         }
         // END yesDismiss FUNCTIONALITY*************************************************************
+        
         // OLD WAY--call relevant function in SpecialEvent
         //player.specialEvents.yesDismissButton()
         
         // dismiss and remove special. No button will not remove special, that can be done manually in SpecialEvent
-        
+    }
+    
+    func closeSpecialVC() {
         if player.endGameType == EndGameStatus.GameNotOver {
             self.dismissViewControllerAnimated(true, completion: nil)
         }
@@ -451,11 +437,10 @@ class SpecialVC: UIViewController {
         } else {
             print("not deleting special event, as per flag")
             // spare special event. It has been reset to something else, like claim item
-
+            
             // make sure button points to correct special
         }
         dontDeleteLocalSpecialEvent = false
-        
     }
 
     @IBAction func noButton(sender: AnyObject) {
@@ -474,41 +459,18 @@ class SpecialVC: UIViewController {
 //        self.presentViewController(vc, animated: false, completion: nil)
     }
     
-    func generateAlert(alert: Alert) -> Bool {
-        var outcome = false
-        
-        // create actual alert
+    func generateAlert(alert: Alert) {
+        // this is the new version. It's functionality is completely contained within the VC
         
         let alertController = UIAlertController(title: alert.header, message: alert.text, preferredStyle: UIAlertControllerStyle.Alert)
         
-        if alert.yesIsDestructive {
-            // destructive yes version
-            alertController.addAction(UIAlertAction(title: alert.yesButton, style: UIAlertActionStyle.Destructive ,handler: {
-                (alert: UIAlertAction!) -> Void in
-                // if yes pressed, return true
-                outcome = true
-            }))
-        } else {
-            // non-destructive yes version
-            alertController.addAction(UIAlertAction(title: alert.yesButton, style: UIAlertActionStyle.Default ,handler: {
-                (alert: UIAlertAction!) -> Void in
-                // if yes pressed, return true
-                outcome = true
-            }))
-        }
-        // add "no" button only if called for
-        if alert.noButton != nil {
-            alertController.addAction(UIAlertAction(title: alert.noButton!, style: UIAlertActionStyle.Default ,handler: {
-                (alert: UIAlertAction!) -> Void in
-                // if no pressed, return false
-                outcome = false
-            }))
-        }
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // if yes pressed, return true
+            self.closeSpecialVC()
+        }))
         
         self.presentViewController(alertController, animated: true, completion: nil)
-        
-        print("generateAlert returning \(outcome)")
-        return outcome
     }
 
 }

@@ -474,7 +474,6 @@ class SpecialEvents: NSObject, NSCoding {
 
         case SpecialEventID.morgansReactor:
             
-            // add special cargo        FIX
             if player.commanderShip.baysAvailable >= 10 {
                 // quest
                 addQuestString("Deliver the unstable reactor to Nix for Henry Morgan.", ID: QuestID.reactor)
@@ -484,8 +483,7 @@ class SpecialEvents: NSObject, NSCoding {
                 player.commanderShip.reactorFuelSpecialCargo = true
                 player.commanderShip.reactorFuelBays = 15
                 
-                // create test alert
-                print("SHOULD NOW CREATE TEST ALERT")
+                // alert
                 specialVCAlert = Alert(ID: AlertID.ReactorOnBoard, passedString1: nil, passedString2: nil, passedString3: nil)
                 NSNotificationCenter.defaultCenter().postNotificationName("generateSpecialAlert", object: NSString(string: "empty"))
             } else {
@@ -916,8 +914,15 @@ class SpecialEvents: NSObject, NSCoding {
         if reactorElapsedTime != -1 {
             reactorElapsedTime += 1
             
-            if reactorElapsedTime == 5 {
-                // **** FIGURE OUT EVERYTHING THAT HAPPENS WITH THE REACTOR, IMPLEMENT IT HERE
+            if reactorElapsedTime == 6 {
+                print("time for ReactorWarningFuel")
+            } else if reactorElapsedTime == 12 {
+                print("ReactorWarningFuelGone")
+            } else if reactorElapsedTime == 14 {
+                print("ReactorWarningTemp")
+            } else if reactorElapsedTime == 16 {
+                print("ReactorDestroyedKilled")
+                // destroy ship. Game over or escape pod activated
             }
         }
         

@@ -20,6 +20,12 @@ class SystemInfoVC: UIViewController {
     override func viewDidAppear(animated: Bool) {
         player.specialEvents.setSpecialEvent()              // experimental, to set second special
         updateUI()
+        
+        // arrival alerts
+        if galaxy.journeyJustFinished {
+            galaxy.journeyJustFinished = false
+            arrivalAlerts()
+        }
     }
 
     @IBOutlet weak var nameLabel: UILabel!
@@ -180,7 +186,17 @@ class SystemInfoVC: UIViewController {
         }
     }
     
-    
-    
-    
+    func arrivalAlerts() {
+        
+        
+        let alertController = UIAlertController(title: "Just Arrived!", message: "Testing ability to fire an alert on arrival.", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
+            (alert: UIAlertAction!) -> Void in
+            // ok pressed. Launch next one here.
+            
+        }))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
 }

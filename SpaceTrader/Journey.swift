@@ -301,6 +301,9 @@ class Journey: NSObject, NSCoding {
                 player.noClaim += 1
             }
         }
+        
+        // flag
+        galaxy.journeyJustFinished = true
     }
     
 //    func generateEncounters() {         // OLD, but with useful code
