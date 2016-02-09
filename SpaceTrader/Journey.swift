@@ -96,6 +96,28 @@ class Journey: NSObject, NSCoding {
             }
         }
         
+        // if reactor is on board, do damage
+        if player.commanderShip.reactorSpecialCargo {
+            // assigns damage appropriately to player.
+            let amountOfDamage = 1
+            var remainingDamage = amountOfDamage
+            if player.commanderShip.shield.count != 0 {
+                var i = 0
+                for shield in player.commanderShip.shield {
+                    shield.currentStrength -= remainingDamage
+                    remainingDamage = 0
+                    if shield.currentStrength < 0 {
+                        remainingDamage = abs(shield.currentStrength)
+                        shield.currentStrength = 0
+                    }
+                    i += 1
+                }
+            } else {
+                remainingDamage = amountOfDamage
+            }
+            player.commanderShip.hull -= remainingDamage
+        }
+        
         // Special, specific encounter?
         // encounter with space monster at acamar?
         // encounter with stolen scarab?

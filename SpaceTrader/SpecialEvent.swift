@@ -923,7 +923,7 @@ class SpecialEvents: NSObject, NSCoding {
             } else if reactorElapsedTime == 14 {
                 print("ReactorWarningTemp")
                 galaxy.alertsToFireOnArrival.append(AlertID.ReactorWarningTemp)
-            } else if reactorElapsedTime == 1 {     // really 16, FIX
+            } else if reactorElapsedTime == 16 {
                 galaxy.meltdownOnArrival = true
             }
         }
