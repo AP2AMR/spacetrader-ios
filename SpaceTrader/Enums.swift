@@ -465,6 +465,7 @@ enum GadgetType: Int {
     case Cloaking
     // not for sale:
     case FuelCompactor
+    case HBays
 }
 
 enum WeaponType: Int {

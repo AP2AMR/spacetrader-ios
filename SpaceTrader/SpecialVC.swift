@@ -157,15 +157,19 @@ class SpecialVC: UIViewController {
                 for planet in galaxy.planets {
                     if (planet.wormhole == true) && (planet.specialEvent == nil) {
                         planet.scarabIsHere = true
+                        print("scarab is at \(planet.name)")
+                        break
                     }
                 }
+                closeSpecialVC()
                 // **** UPON DESTRUCTION OF SCARAB, UPDATE QUESTSTRING AND ADD SCARABDESTROYED SPECIAL TO CURRENT SYSTEM
                 
                 
             case SpecialEventID.sculpture:
                 player.specialEvents.addQuestString("Deliver the stolen sculpture to Endor.", ID: QuestID.sculpture)
                 galaxy.setSpecial("Endor", id: SpecialEventID.sculptureDelivered)
-                // **** DO WE NEED ALIENS OR ANYTHING HERE?
+                player.commanderShip.sculptureSpecialCargo = true
+                closeSpecialVC()
                 
             case SpecialEventID.spaceMonster:
                 player.specialEvents.addQuestString("Kill the space monster at Acamar.", ID: QuestID.spaceMonster)
@@ -394,18 +398,22 @@ class SpecialVC: UIViewController {
                 player.specialEvents.addQuestString("", ID: QuestID.scarab)
                 
             case SpecialEventID.sculptureDelivered:
+                player.commanderShip.sculptureSpecialCargo = false
                 player.specialEvents.addQuestString("Have hidden compartments installed at Endor.", ID: QuestID.sculpture)
-                galaxy.setSpecial("Endor", id: SpecialEventID.sculpture)
+                galaxy.setSpecial("Endor", id: SpecialEventID.installHiddenCompartments)
+                dontDeleteLocalSpecialEvent = true
+                closeSpecialVC()
                 
             case SpecialEventID.installHiddenCompartments:
                 if player.commanderShip.gadget.count < player.commanderShip.gadgetSlots {
                     // add gadget
-                    // **** CREATE HIDDEN COMPARTMENT GADGET
-                    //player.commanderShip.gadget.append(Gadget(type: GadgetType.FuelCompactor))
+                    player.commanderShip.gadget.append(Gadget(type: GadgetType.HBays))
                     player.specialEvents.addQuestString("", ID: QuestID.dragonfly)
+                    generateAlert(Alert(ID: AlertID.EquipmentHiddenCompartments, passedString1: nil, passedString2: nil, passedString3: nil))
                 } else {
-                    // **** NOT ENOUGH GADGET SLOTS MESSAGE
                     galaxy.setSpecial("Endor", id: SpecialEventID.sculpture)
+                    dontDeleteLocalSpecialEvent = true
+                    generateAlert(Alert(ID: AlertID.EquipmentNotEnoughSlots, passedString1: nil, passedString2: nil, passedString3: nil))
                 }
                 
             case SpecialEventID.monsterKilled:

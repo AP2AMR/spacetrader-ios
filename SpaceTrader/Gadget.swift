@@ -29,6 +29,13 @@ class Gadget: NSObject, NSCoding {
             self.techLevel = TechLevelType.techLevel4
             self.chance = 35
             self.image = UIImage(named: "bays")!
+        case GadgetType.HBays:
+            self.name = "Hidden cargo bays"
+            self.price = 0
+            self.sellPrice = 0
+            self.techLevel = TechLevelType.techLevel8
+            self.chance = 0
+            self.image = UIImage(named: "hbays")!
         case GadgetType.AutoRepair:
             self.name = "Auto-repair system"
             self.price = 7450

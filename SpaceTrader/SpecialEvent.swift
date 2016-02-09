@@ -861,6 +861,14 @@ class SpecialEvents: NSObject, NSCoding {
         }
     }
     
+    func scarabDestroyed() {
+        // update quest string
+        player.specialEvents.addQuestString("Notify the authorities at \(galaxy.currentSystem!.name) that the Scarab has been destroyed.", ID: QuestID.scarab)
+        // set special on local system
+        galaxy.setSpecial(galaxy.currentSystem!.name, id: SpecialEventID.scarabDestroyed)
+        
+    }
+    
     func incrementCountdown() {
         // is called every day on warp, decrements each countdown. Checks if they are zero, acts accordingly if so
         
