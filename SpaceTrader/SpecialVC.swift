@@ -362,16 +362,24 @@ class SpecialVC: UIViewController {
             case SpecialEventID.reactorDelivered:
                 player.specialEvents.reactorElapsedTime = -1
                 player.specialEvents.addQuestString("Get your special laser at Nix.", ID: QuestID.reactor)
+                // remove reactor
+                player.commanderShip.reactorSpecialCargo = false
+                player.commanderShip.reactorFuelSpecialCargo = false
+                player.commanderShip.reactorFuelBays = 0
+                
                 galaxy.setSpecial("Nix", id: SpecialEventID.installMorgansLaser)
+                print("special is now \(galaxy.currentSystem!.specialEvent!)")
+                dontDeleteLocalSpecialEvent = true
+                closeSpecialVC()
                 
             case SpecialEventID.installMorgansLaser:
                 if player.commanderShip.weapon.count < player.commanderShip.weaponSlots {
                     // add laser
                     player.commanderShip.weapon.append(Weapon(type: WeaponType.morgansLaser))
                     player.specialEvents.addQuestString("", ID: QuestID.reactor)
-                    dontDeleteLocalSpecialEvent = true
+                    generateAlert(Alert(ID: AlertID.EquipmentMorgansLaser, passedString1: nil, passedString2: nil, passedString3: nil))
                 } else {
-                    // **** NOT ENOUGH WEAPON SLOTS MESSAGE
+                    generateAlert(Alert(ID: AlertID.EquipmentNotEnoughSlots, passedString1: nil, passedString2: nil, passedString3: nil))
                     galaxy.setSpecial("Nix", id: SpecialEventID.installMorgansLaser)
                     dontDeleteLocalSpecialEvent = true
                 }
