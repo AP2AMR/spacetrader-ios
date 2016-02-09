@@ -24,7 +24,13 @@ class SystemInfoVC: UIViewController {
         // arrival alerts
         if galaxy.journeyJustFinished {
             galaxy.journeyJustFinished = false
-            arrivalAlerts()
+            fireNextArrivalAlert()
+            
+            if galaxy.meltdownOnArrival {
+                // go to meltdown VC
+                let vc: UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("meltdownVC")
+                self.presentViewController(vc, animated: false, completion: nil)
+            }
         }
     }
 
@@ -186,17 +192,37 @@ class SystemInfoVC: UIViewController {
         }
     }
     
-    func arrivalAlerts() {
+    func fireNextArrivalAlert() {
+        if galaxy.alertsToFireOnArrival.count >= 1 {
+            generateAlert(Alert(ID: galaxy.alertsToFireOnArrival[0], passedString1: nil, passedString2: nil, passedString3: nil))
+            galaxy.alertsToFireOnArrival.removeAtIndex(0)
+        }
+    }
+    
+    func generateAlert(alert: Alert) {
+        // NOTE: the alerts fired here need to be modified to require no passed strings, getting whatever they need directly
         
-        
-        let alertController = UIAlertController(title: "Just Arrived!", message: "Testing ability to fire an alert on arrival.", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: alert.header, message: alert.text, preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default ,handler: {
             (alert: UIAlertAction!) -> Void in
-            // ok pressed. Launch next one here.
-            
+            // when OK pressed, call fireNextArrivalAlert. Will end when no more.
+            self.fireNextArrivalAlert()
         }))
         
         self.presentViewController(alertController, animated: true, completion: nil)
+        
+        // if alert is reactor meltdown destroy ship!
+        if alert.ID == AlertID.ReactorMeltdown {
+            print("SHIP IS DESTROYED")
+            if player.escapePod {
+                // escape pod activated
+                
+            } else {
+                // game over
+                player.endGameType = EndGameStatus.Killed
+                // transition to gameOver VC
+            }
+        }
     }
 }

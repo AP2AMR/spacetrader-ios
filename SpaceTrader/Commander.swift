@@ -309,6 +309,17 @@ class Commander: NSObject, NSCoding {
 //        }
 //    }
     
+    func insurancePayout() {
+        player.credits += self.insuredValue
+        player.insurance = false
+        player.noClaim = 0
+    }
+    
+    func escapedNewFlea() {
+        let newShip = SpaceShip(type: ShipType.Flea, IFFStatus: IFFStatusType.Player)
+        player.commanderShip = newShip
+        player.escapePod = false
+    }
     
     func buyFuel(units: Int) -> Bool {
         let cost = units * player.commanderShip.costOfFuel

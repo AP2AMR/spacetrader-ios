@@ -51,6 +51,7 @@
 		5AB36E931BF1926D00941CF6 /* MercenariesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB36E921BF1926D00941CF6 /* MercenariesVC.swift */; };
 		5ABB697D1C0E86C000ABEB9E /* EquipmentDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABB697C1C0E86C000ABEB9E /* EquipmentDetailVC.swift */; };
 		5ABF236B1C49E8AF004AE196 /* SaveGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABF236A1C49E8AF004AE196 /* SaveGameVC.swift */; };
+		5ACE0CB81C697A5F00DB0F4A /* MeltdownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACE0CB71C697A5F00DB0F4A /* MeltdownVC.swift */; };
 		5AD5F8921B9A122200154B21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8911B9A122200154B21 /* AppDelegate.swift */; };
 		5AD5F8941B9A122200154B21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5F8931B9A122200154B21 /* ViewController.swift */; };
 		5AD5F8971B9A122200154B21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD5F8951B9A122200154B21 /* Main.storyboard */; };
@@ -138,6 +139,7 @@
 		5AB36E921BF1926D00941CF6 /* MercenariesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MercenariesVC.swift; sourceTree = "<group>"; };
 		5ABB697C1C0E86C000ABEB9E /* EquipmentDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmentDetailVC.swift; sourceTree = "<group>"; };
 		5ABF236A1C49E8AF004AE196 /* SaveGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveGameVC.swift; sourceTree = "<group>"; };
+		5ACE0CB71C697A5F00DB0F4A /* MeltdownVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeltdownVC.swift; sourceTree = "<group>"; };
 		5AD5F88C1B9A122200154B21 /* SpaceTrader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceTrader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD5F8901B9A122200154B21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AD5F8911B9A122200154B21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -204,9 +206,11 @@
 				5A1DBBC41C0E2F3E009E8D0C /* EquipmentListDualTableVC.swift */,
 				5AB36E901BF18B6600941CF6 /* EquipmentListVC.swift */,
 				5A85A9DA1C502D50007338BE /* HighScoresCell.swift */,
+				5A85A9DE1C509BA1007338BE /* HighScoresGameOverVC.swift */,
 				5A2A5A0F1C50238600E31031 /* HighScoresVC.swift */,
 				5AAB08B61C4AD166000BB87F /* LoadGameCellTableViewCell.swift */,
 				5A7DE88C1C49E04E006A3D48 /* LoadGameVC.swift */,
+				5ACE0CB71C697A5F00DB0F4A /* MeltdownVC.swift */,
 				5A7172591C1651820082BF0C /* MenuVC.swift */,
 				5AB36E921BF1926D00941CF6 /* MercenariesVC.swift */,
 				5AE9755E1C0FD481005D78E1 /* MercenaryDetailVC.swift */,
@@ -219,7 +223,6 @@
 				5AB36E8E1BF18B5200941CF6 /* ShipListVC.swift */,
 				5ADE2FC91C2104E700F3F986 /* ShipVC.swift */,
 				5AE975621C10CA2A005D78E1 /* SpecialVC.swift */,
-				5A85A9DE1C509BA1007338BE /* HighScoresGameOverVC.swift */,
 			);
 			name = Menus;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				5A85A9DD1C505F82007338BE /* OptionsVC.swift in Sources */,
 				5ABF236B1C49E8AF004AE196 /* SaveGameVC.swift in Sources */,
 				5A078AC11BB33C100005155D /* BuyModalVC.swift in Sources */,
+				5ACE0CB81C697A5F00DB0F4A /* MeltdownVC.swift in Sources */,
 				5AF1CA2D1BA36C2300643C5F /* NewCommanderVC.swift in Sources */,
 				5AEC942C1BC84B2900C68F7F /* NewGameVC.swift in Sources */,
 				5A2A5A0C1C4FF9E600E31031 /* HighScore.swift in Sources */,

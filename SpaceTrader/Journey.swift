@@ -304,6 +304,7 @@ class Journey: NSObject, NSCoding {
         
         // flag
         galaxy.journeyJustFinished = true
+        
     }
     
 //    func generateEncounters() {         // OLD, but with useful code

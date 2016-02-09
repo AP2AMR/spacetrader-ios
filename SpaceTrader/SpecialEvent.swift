@@ -916,13 +916,15 @@ class SpecialEvents: NSObject, NSCoding {
             
             if reactorElapsedTime == 6 {
                 print("time for ReactorWarningFuel")
+                galaxy.alertsToFireOnArrival.append(AlertID.ReactorWarningFuel)
             } else if reactorElapsedTime == 12 {
                 print("ReactorWarningFuelGone")
+                galaxy.alertsToFireOnArrival.append(AlertID.ReactorWarningFuelGone)
             } else if reactorElapsedTime == 14 {
                 print("ReactorWarningTemp")
-            } else if reactorElapsedTime == 16 {
-                print("ReactorDestroyedKilled")
-                // destroy ship. Game over or escape pod activated
+                galaxy.alertsToFireOnArrival.append(AlertID.ReactorWarningTemp)
+            } else if reactorElapsedTime == 1 {     // really 16, FIX
+                galaxy.meltdownOnArrival = true
             }
         }
         
