@@ -113,7 +113,7 @@ class SpaceShip: NSObject, NSCoding {
     var reactorSpecialCargo = false
     var sculptureSpecialCargo = false
     var reactorFuelSpecialCargo = false
-    var reactorFuelBays = 0
+    var reactorFuelBays: Double = 0
     var tribblesInfestationSpecialCargo = false
     var tribblesCuteSpecialCargo = false
     
@@ -155,7 +155,7 @@ class SpaceShip: NSObject, NSCoding {
                 returnArray.append("A stolen plastic sculpture of a man holding some kind of light sword.")
             }
             if reactorFuelSpecialCargo {
-                returnArray.append("\(reactorFuelBays) bays of enriched fuel.")
+                returnArray.append("\(Int(reactorFuelBays)) bays of enriched fuel.")
             }
             if tribblesCuteSpecialCargo {
                 returnArray.append("A cute, furry tribble.")
@@ -192,7 +192,7 @@ class SpaceShip: NSObject, NSCoding {
                 returnInt += 1
             }
             if reactorFuelSpecialCargo {
-                returnInt += reactorFuelBays
+                returnInt += Int(reactorFuelBays)
             }
             if tribblesCuteSpecialCargo {
                 returnInt += 0              // DO TRIBBLES TAKE UP ROOM?
@@ -901,7 +901,7 @@ class SpaceShip: NSObject, NSCoding {
             self.reactorSpecialCargo = decoder.decodeObjectForKey("reactorSpecialCargo") as! Bool
             self.sculptureSpecialCargo = decoder.decodeObjectForKey("sculptureSpecialCargo") as! Bool
             self.reactorFuelSpecialCargo = decoder.decodeObjectForKey("reactorFuelSpecialCargo") as! Bool
-            self.reactorFuelBays = decoder.decodeObjectForKey("reactorFuelBays") as! Int
+            self.reactorFuelBays = decoder.decodeObjectForKey("reactorFuelBays") as! Double
             self.tribblesInfestationSpecialCargo = decoder.decodeObjectForKey("tribblesInfestationSpecialCargo") as! Bool
             self.tribblesCuteSpecialCargo = decoder.decodeObjectForKey("tribblesCuteSpecialCargo") as! Bool
     

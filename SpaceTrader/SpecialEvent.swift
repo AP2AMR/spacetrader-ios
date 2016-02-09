@@ -481,7 +481,7 @@ class SpecialEvents: NSObject, NSCoding {
                 galaxy.setSpecial("Nix", id: SpecialEventID.reactorDelivered)
                 player.commanderShip.reactorSpecialCargo = true
                 player.commanderShip.reactorFuelSpecialCargo = true
-                player.commanderShip.reactorFuelBays = 15
+                player.commanderShip.reactorFuelBays = 10
                 
                 // alert
                 specialVCAlert = Alert(ID: AlertID.ReactorOnBoard, passedString1: nil, passedString2: nil, passedString3: nil)
@@ -913,6 +913,20 @@ class SpecialEvents: NSObject, NSCoding {
         // reactor
         if reactorElapsedTime != -1 {
             reactorElapsedTime += 1
+            
+            if reactorElapsedTime > 0 && reactorElapsedTime < 6 {
+                // consume at a slow rate
+                player.commanderShip.reactorFuelBays -= 0.25
+            } else if reactorElapsedTime < 10 {
+                // consume faster
+                player.commanderShip.reactorFuelBays -= 0.5
+            } else {
+                player.commanderShip.reactorFuelBays -= 1
+            }
+            
+            if player.commanderShip.reactorFuelBays < 0 {
+                player.commanderShip.reactorFuelBays = 0
+            }
             
             if reactorElapsedTime == 6 {
                 print("time for ReactorWarningFuel")

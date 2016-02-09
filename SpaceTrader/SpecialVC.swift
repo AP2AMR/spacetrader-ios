@@ -140,7 +140,7 @@ class SpecialVC: UIViewController {
                     galaxy.setSpecial("Nix", id: SpecialEventID.reactorDelivered)
                     player.commanderShip.reactorSpecialCargo = true
                     player.commanderShip.reactorFuelSpecialCargo = true
-                    player.commanderShip.reactorFuelBays = 15
+                    player.commanderShip.reactorFuelBays = 10
 
                     // ReactorOnBoard alert; close on dismiss
                     generateAlert(Alert(ID: AlertID.ReactorOnBoard, passedString1: nil, passedString2: nil, passedString3: nil))
