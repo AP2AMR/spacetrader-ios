@@ -214,14 +214,30 @@ class SpecialVC: UIViewController {
                 }
                 
             case SpecialEventID.merchantPrice:
-                player.commanderShip.tribbles = 1       // NEED UPDATETRIBBLE FUNCTION
-                player.specialEvents.addQuestString("Get rid of those pesky tribbles.", ID: QuestID.tribbles) // is it time for this yet?
-                // add tribble buyer somewhere. **** IS IT TIME FOR THIS YET?
-                for planet in galaxy.planets {
-                    if planet.specialEvent == nil {
-                        planet.specialEvent = SpecialEventID.tribbleBuyer
+                if player.credits < 1000 {
+                    // can't do it
+                    dontDeleteLocalSpecialEvent = true
+                    generateAlert(Alert(ID: AlertID.SpecialIF, passedString1: nil, passedString2: nil, passedString3: nil))
+                } else {
+                    player.credits -= 1000
+                    player.commanderShip.tribbles = 1
+                    player.specialEvents.tribblesOnBoard = true
+                    player.specialEvents.addQuestString("Get rid of those pesky tribbles.", ID: QuestID.tribbles)
+                    for planet in galaxy.planets {
+                        if planet.specialEvent == nil {
+                            let random = rand(20)
+                            if random == 6 {
+                                planet.specialEvent = SpecialEventID.tribbleBuyer
+                                print("tribbleBuyer assigned to \(planet.name)")
+                                break
+                            }
+                            
+                        }
                     }
+                    generateAlert(Alert(ID: AlertID.TribblesOwn, passedString1: nil, passedString2: nil, passedString3: nil))
                 }
+                
+            
                 
             case SpecialEventID.eraseRecord:
                 if player.credits >= 5000 {
@@ -462,6 +478,8 @@ class SpecialVC: UIViewController {
                 player.specialEvents.addQuestString("", ID: QuestID.tribbles)
                 player.commanderShip.tribbles = 0
                 player.specialEvents.tribblesOnBoard = false
+                player.credits += Int(Double(player.commanderShip.tribbles) * 0.5)
+                generateAlert(Alert(ID: AlertID.TribblesGone, passedString1: nil, passedString2: nil, passedString3: nil))
             
         }
         // END yesDismiss FUNCTIONALITY*************************************************************
@@ -493,6 +511,7 @@ class SpecialVC: UIViewController {
 
     @IBAction func noButton(sender: AnyObject) {
         // for now, I'm going to assume that this will be unnecessary. Maybe I can change the text on it, but I think it will just dismiss the window without taking away the special?
+        print("NO BUTTON PRESSED. Should now dismiss and do nothing more.")
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

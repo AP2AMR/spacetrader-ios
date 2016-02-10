@@ -114,12 +114,10 @@ class SpaceShip: NSObject, NSCoding {
     var sculptureSpecialCargo = false
     var reactorFuelSpecialCargo = false
     var reactorFuelBays: Double = 0
-    var tribblesInfestationSpecialCargo = false
-    var tribblesCuteSpecialCargo = false
     
     var noSpecialCargo: Bool {
         get {
-            if !artifactSpecialCargo && !experimentSpecialCargo && !japoriSpecialCargo && !jarekHagglingComputerSpecialCargo && !reactorSpecialCargo && !reactorFuelSpecialCargo && !tribblesInfestationSpecialCargo && !tribblesCuteSpecialCargo {
+            if !artifactSpecialCargo && !experimentSpecialCargo && !japoriSpecialCargo && !jarekHagglingComputerSpecialCargo && !reactorSpecialCargo && !reactorFuelSpecialCargo {
                     return true
             } else {
                 return false
@@ -157,12 +155,17 @@ class SpaceShip: NSObject, NSCoding {
             if reactorFuelSpecialCargo {
                 returnArray.append("\(Int(reactorFuelBays)) bays of enriched fuel.")
             }
-            if tribblesCuteSpecialCargo {
-                returnArray.append("A cute, furry tribble.")
+            if tribbles > 0 {
+                if tribbles == 1 {
+                    returnArray.append("A cute, furry tribble.")
+                } else if tribbles < 100000 {
+                    returnArray.append("\(tribbles) cute, furry tribbles.")
+                } else {
+                    returnArray.append("An infestation of tribbles.")
+                }
+                
             }
-            if tribblesInfestationSpecialCargo {
-                returnArray.append("An infestation of tribbles.")
-            }
+
             if noSpecialCargo {
                 returnArray.append("No special items.")
             }
@@ -193,12 +196,6 @@ class SpaceShip: NSObject, NSCoding {
             }
             if reactorFuelSpecialCargo {
                 returnInt += Int(reactorFuelBays)
-            }
-            if tribblesCuteSpecialCargo {
-                returnInt += 0              // DO TRIBBLES TAKE UP ROOM?
-            }
-            if tribblesInfestationSpecialCargo {
-                returnInt += 0              // DO TRIBBLES TAKE UP ROOM?
             }
             if noSpecialCargo {
                 returnInt += 0
@@ -902,8 +899,6 @@ class SpaceShip: NSObject, NSCoding {
             self.sculptureSpecialCargo = decoder.decodeObjectForKey("sculptureSpecialCargo") as! Bool
             self.reactorFuelSpecialCargo = decoder.decodeObjectForKey("reactorFuelSpecialCargo") as! Bool
             self.reactorFuelBays = decoder.decodeObjectForKey("reactorFuelBays") as! Double
-            self.tribblesInfestationSpecialCargo = decoder.decodeObjectForKey("tribblesInfestationSpecialCargo") as! Bool
-            self.tribblesCuteSpecialCargo = decoder.decodeObjectForKey("tribblesCuteSpecialCargo") as! Bool
     
             super.init()
         }
@@ -965,8 +960,6 @@ class SpaceShip: NSObject, NSCoding {
             encoder.encodeObject(sculptureSpecialCargo, forKey: "sculptureSpecialCargo")
             encoder.encodeObject(reactorFuelSpecialCargo, forKey: "reactorFuelSpecialCargo")
             encoder.encodeObject(reactorFuelBays, forKey: "reactorFuelBays")
-            encoder.encodeObject(tribblesInfestationSpecialCargo, forKey: "tribblesInfestationSpecialCargo")
-            encoder.encodeObject(tribblesCuteSpecialCargo, forKey: "tribblesCuteSpecialCargo")
         }
 
 }

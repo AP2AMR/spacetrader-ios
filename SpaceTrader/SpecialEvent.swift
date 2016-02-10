@@ -1017,6 +1017,36 @@ class SpecialEvents: NSObject, NSCoding {
             }
         }
         
+        // tribbles
+        if tribblesOnBoard {
+            // increment number of tribbles
+            player.commanderShip.tribbles += 50 + Int(Double(player.commanderShip.tribbles) * 0.3)
+            print("new number of tribbles: \(player.commanderShip.tribbles)")
+            
+            // if food on board, more tribbles, tribbles eat food, alert
+            if player.commanderShip.foodOnBoard >= 1 {
+                let oldFood = player.commanderShip.foodOnBoard      // DEBUG ONLY
+                player.commanderShip.tribbles += player.commanderShip.foodOnBoard * 400
+                player.commanderShip.foodOnBoard -= Int(Double(player.commanderShip.foodOnBoard) * 0.3)
+                galaxy.alertsToFireOnArrival.append(AlertID.TribblesAteFood)
+                print("tribbles ate food. Food was \(oldFood), now \(player.commanderShip.foodOnBoard), tribbles now \(player.commanderShip.tribbles).")
+            }
+            
+            // if narcotics on board, fewer tribbles, tribbles eat narcotics, alert
+            if player.commanderShip.narcoticsOnBoard >= 1 {
+                let oldNarc = player.commanderShip.narcoticsOnBoard         // DEBUG ONLY
+                player.commanderShip.tribbles -= player.commanderShip.narcoticsOnBoard * 400
+                player.commanderShip.narcoticsOnBoard -= Int(Double(player.commanderShip.narcoticsOnBoard) * 0.3)
+                galaxy.alertsToFireOnArrival.append(AlertID.TribblesMostDead)
+                print("tribbles ate narcotics. Food was \(oldNarc), now \(player.commanderShip.narcoticsOnBoard), tribbles now \(player.commanderShip.tribbles).")
+            }
+            
+            // if over 100k, cap
+            if player.commanderShip.tribbles > 100000 {
+                player.commanderShip.tribbles = 100000
+            }
+        }
+        
     }
     
     // NSCODING METHODS
