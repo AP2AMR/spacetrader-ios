@@ -749,6 +749,12 @@ class SpecialEvents: NSObject, NSCoding {
             
         case SpecialEventID.wildGetsOut:
             addQuestString("", ID: QuestID.wild)
+            // remove wild from ship
+            player.specialEvents.wildOnBoard = false
+            
+            // reset wild countdown
+            wildElapsedTime = -1
+            
             let zeethibal = CrewMember(ID: MercenaryName.zeethibal, pilot: 9, fighter: 9, trader: 9, engineer: 9)
             zeethibal.costPerDay = 0
             galaxy.currentSystem!.mercenaries.append(zeethibal)
@@ -869,6 +875,11 @@ class SpecialEvents: NSObject, NSCoding {
         
     }
     
+    func spaceMonsterKilled() {
+        player.specialEvents.addQuestString("Go to Acamar to collect your reward for killing the space monster.", ID: QuestID.spaceMonster)
+        galaxy.setSpecial("Acamar", id: SpecialEventID.monsterKilled)
+    }
+    
     func incrementCountdown() {
         // is called every day on warp, decrements each countdown. Checks if they are zero, acts accordingly if so
         
@@ -954,8 +965,25 @@ class SpecialEvents: NSObject, NSCoding {
         if wildElapsedTime != -1 {
             wildElapsedTime += 1
             
-            if wildElapsedTime == 10 {
-                // **** AT SOME POINT HE MUST GET IMPATIENT, STOP HELPING, AND QUEST STRING MUST BE UPDATED
+            if wildElapsedTime == 6 {
+                // mildly annoyed
+            }
+            if wildElapsedTime == 12 {
+                // annoyed, stops helping
+                
+                for person in player.commanderShip.crew {
+                    if person.ID == MercenaryName.wild {
+                        person.pilot = 1
+                        person.fighter = 1
+                        person.trader = 1
+                        person.engineer = 1
+                    }
+                }
+                addQuestString("Wild is getting impatient, and will no longer aid your crew along the way.", ID: QuestID.wild)
+            }
+            
+            if wildElapsedTime == 14 {
+                // gets out
             }
         }
         
@@ -971,6 +999,14 @@ class SpecialEvents: NSObject, NSCoding {
             if princessElapsedTime > 12 {
                 // **** PRINCESS BECOMES RESTLESS, STOPS HELPING
                 addQuestString("Return Ziyal to Galvon. She is becoming anxious to arrive at home, and is no longer of any help in engineering functions.", ID: QuestID.princess)
+//                for person in player.commanderShip.crew {
+//                    if person.ID == MercenaryName.wild {
+//                        person.pilot = 1
+//                        person.fighter = 1
+//                        person.trader = 1
+//                        person.engineer = 1
+//                    }
+//                }
             }
         }
         

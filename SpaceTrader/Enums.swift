@@ -191,6 +191,7 @@ enum MercenaryName: String {
     case zeethibal = "Zeethibal"
     // special
     case jarek = "Jarek"
+    case wild = "Jonathan Wild"
     case null = "Null"
 }
 

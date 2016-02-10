@@ -915,6 +915,11 @@ class Alert {
             self.text = "The Pirate Captain turns out to be an old associate of Jonathan Wild's. They talk about old times, and you get the feeling that Wild would switch ships if the Pirates had any quarters available."
             self.yesButton = "OK"
             self.noButton = nil
+        case .WildComesAboard:
+            self.header = "Jonathan Wild"
+            self.text = "Jonathan Wild boards your ship. He will help out en route, but if you take too long he may become impatient and stop helping."
+            self.yesButton = "OK"
+            self.noButton = nil
         case .WildGoesPirates:
             self.header = "Wild Goes With Pirates"
             self.text = "The Pirate Captain turns out to be an old associate of Jonathan Wild's, and invites him to go to Kravat aboard the Pirate ship. Wild accepts the offer and thanks you for the ride."
@@ -952,6 +957,11 @@ class Alert {
             self.yesButton = "Say Goodbye to Wild"
             self.noButton = "Cancel"
             self.yesIsDestructive = true
+        case .WildZeethibalAvailable:
+            self.header = "Zeethibal Available"
+            self.text = "To pick up Zeethibal, go to the Mercenaries for Hire screen."
+            self.yesButton = "OK"
+            self.noButton = nil
         }
     }
     
@@ -1133,6 +1143,7 @@ enum AlertID: Int {
     case TribblesTradeIn
     case WildArrested
     case WildChatsPirates
+    case WildComesAboard
     case WildGoesPirates
     case WildLeavesShip
     case WildSculpture
@@ -1140,4 +1151,5 @@ enum AlertID: Int {
     case WildWontBoardReactor
     case WildWontStayAboardLaser
     case WildWontStayAboardReactor
+    case WildZeethibalAvailable
 }

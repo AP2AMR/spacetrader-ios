@@ -178,14 +178,40 @@ class SpecialVC: UIViewController {
                         planet.spaceMonsterIsHere = true
                     }
                 }
+                closeSpecialVC()
                 
             case SpecialEventID.wild:
-                // **** MAKE SURE ENOUGH SPACE TO TAKE ON WILD
-                player.specialEvents.wildOnBoard = true
-                player.specialEvents.wildElapsedTime = 0
-                player.specialEvents.addQuestString("Smuggle Jonathan Wild to Kravat", ID: QuestID.wild)
-                galaxy.setSpecial("Kravat", id: SpecialEventID.wildGetsOut)
-                // **** ADD WILD TO CREW, TAKE HIS SKILLS INTO ACCOUNT
+                var shipHasBeamLaser = false
+                for weapon in player.commanderShip.weapon {
+                    if weapon.type == WeaponType.beamLaser || weapon.type == WeaponType.morgansLaser || weapon.type == WeaponType.militaryLaser {
+                        shipHasBeamLaser = true
+                    }
+                }
+                
+                if player.commanderShip.crewSlotsAvailable < 1 {
+                    // no quarters
+                    dontDeleteLocalSpecialEvent = true
+                    generateAlert(Alert(ID: AlertID.SpecialNoQuarters, passedString1: nil, passedString2: nil, passedString3: nil))
+                } else if !shipHasBeamLaser {
+                    dontDeleteLocalSpecialEvent = true
+                    generateAlert(Alert(ID: AlertID.WildWontBoardLaser, passedString1: nil, passedString2: nil, passedString3: nil))
+                } else if player.commanderShip.reactorSpecialCargo {
+                    dontDeleteLocalSpecialEvent = true
+                    generateAlert(Alert(ID: AlertID.WildWontBoardReactor, passedString1: nil, passedString2: nil, passedString3: nil))
+                } else {
+                    // wild comes aboard
+                    player.specialEvents.wildOnBoard = true
+                    player.specialEvents.wildElapsedTime = 0
+                    player.specialEvents.addQuestString("Smuggle Jonathan Wild to Kravat", ID: QuestID.wild)
+                    galaxy.setSpecial("Kravat", id: SpecialEventID.wildGetsOut)
+                    // add wild to crew
+                    let wild = CrewMember(ID: MercenaryName.wild, pilot: 8, fighter: 10, trader: 4, engineer: 5)
+                    wild.costPerDay = 0
+                    player.commanderShip.crew.append(wild)
+                    player.specialEvents.wildOnBoard = true
+                    
+                    generateAlert(Alert(ID: AlertID.WildComesAboard, passedString1: nil, passedString2: nil, passedString3: nil))
+                }
                 
             case SpecialEventID.merchantPrice:
                 player.commanderShip.tribbles = 1       // NEED UPDATETRIBBLE FUNCTION
@@ -419,12 +445,18 @@ class SpecialVC: UIViewController {
             case SpecialEventID.monsterKilled:
                 player.specialEvents.addQuestString("", ID: QuestID.spaceMonster)
                 player.credits += 15000
+                closeSpecialVC()
                 
             case SpecialEventID.wildGetsOut:
                 player.specialEvents.addQuestString("", ID: QuestID.wild)
+                player.specialEvents.wildOnBoard = false
+                player.commanderShip.removeCrewMember(MercenaryName.wild)
+                
                 let zeethibal = CrewMember(ID: MercenaryName.zeethibal, pilot: 9, fighter: 9, trader: 9, engineer: 9)
                 zeethibal.costPerDay = 0
                 galaxy.currentSystem!.mercenaries.append(zeethibal)
+                // alert: Zeethibal available for hire
+                generateAlert(Alert(ID: AlertID.WildZeethibalAvailable, passedString1: nil, passedString2: nil, passedString3: nil))
                 
             case SpecialEventID.tribbleBuyer:
                 player.specialEvents.addQuestString("", ID: QuestID.tribbles)
