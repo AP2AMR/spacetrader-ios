@@ -967,9 +967,11 @@ class SpecialEvents: NSObject, NSCoding {
             
             if wildElapsedTime == 6 {
                 // mildly annoyed
+                galaxy.alertsToFireOnArrival.append(AlertID.SpecialPassengerConcernedWild)
             }
             if wildElapsedTime == 12 {
                 // annoyed, stops helping
+                galaxy.alertsToFireOnArrival.append(AlertID.SpecialPassengerImpatientWild)
                 
                 for person in player.commanderShip.crew {
                     if person.ID == MercenaryName.wild {
@@ -984,6 +986,10 @@ class SpecialEvents: NSObject, NSCoding {
             
             if wildElapsedTime == 14 {
                 // gets out
+                addQuestString("", ID: QuestID.wild)
+                player.specialEvents.wildOnBoard = false
+                wildElapsedTime = -1
+                galaxy.alertsToFireOnArrival.append(AlertID.WildLeavesShip)
             }
         }
         
@@ -992,13 +998,14 @@ class SpecialEvents: NSObject, NSCoding {
             princessElapsedTime += 1
             
             if princessElapsedTime > 6 {
-                // **** "Oh Captain? (giggles.) Would it help if I got out and pushed?"
+                galaxy.alertsToFireOnArrival.append(AlertID.SpecialPassengerImpatientPrincess)
                 addQuestString("Return Ziyal to Galvon.", ID: QuestID.princess)
                 
             }
             if princessElapsedTime > 12 {
-                // **** PRINCESS BECOMES RESTLESS, STOPS HELPING
+                galaxy.alertsToFireOnArrival.append(AlertID.SpecialPassengerConcernedPrincess)
                 addQuestString("Return Ziyal to Galvon. She is becoming anxious to arrive at home, and is no longer of any help in engineering functions.", ID: QuestID.princess)
+                // PRINCESS NEEDS TO BE PROPERLY IN CREW
 //                for person in player.commanderShip.crew {
 //                    if person.ID == MercenaryName.wild {
 //                        person.pilot = 1

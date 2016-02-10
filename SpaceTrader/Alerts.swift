@@ -927,7 +927,7 @@ class Alert {
             self.noButton = nil
         case .WildLeavesShip:
             self.header = "Wild Leaves Ship"
-            self.text = "Jonathan Wild leaves your ship, and goes into hiding on \(self.passedString1)."
+            self.text = "Jonathan Wild leaves your ship, and goes into hiding on \(galaxy.currentSystem!.name)."
             self.yesButton = "OK"
             self.noButton = nil
         case .WildSculpture:
