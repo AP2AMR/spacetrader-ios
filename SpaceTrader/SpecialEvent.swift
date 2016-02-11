@@ -793,13 +793,7 @@ class SpecialEvents: NSObject, NSCoding {
         }
     }
     
-    func messUpSpacetime() {
-        // called when/if the experiment fails. Sets warp wrinkle business
-        print("not implemented yet, but assume spacetime is now fucked up")
-    }
-    
     func increaseRandomSkill() {
-        // **** SHOULD THIS INSTEAD LET YOU GO OVER 9?
         var redo = true
         while redo {
             redo = false
@@ -888,17 +882,20 @@ class SpecialEvents: NSObject, NSCoding {
     func incrementCountdown() {
         // is called every day on warp, decrements each countdown. Checks if they are zero, acts accordingly if so
         
-        // experiment
+        // experiments
         if experimentCountdown != -1 {
             experimentCountdown -= 1
             
-            if experimentCountdown == 1 {
+            if experimentCountdown > 1 {
+                addQuestString("Stop Dr. Fehler's experiment at Daled within \(experimentCountdown) days.", ID: QuestID.experiment)
+            } else if experimentCountdown == 1 {
                 addQuestString("Stop Dr. Fehler's experiment at Daled by tomorrow.", ID: QuestID.experiment)
             } else if experimentCountdown == 0 {
                 experimentCountdown = -1    // inactivate counter
                 addQuestString("", ID: QuestID.experiment)  // inactivate quest
-                messUpSpacetime()
+                galaxy.spaceTimeMessedUp = true
                 galaxy.setSpecial("Daled", id: SpecialEventID.experimentFailed)
+                galaxy.alertsToFireOnArrival.append(AlertID.SpecialExperimentPerformed)
             }
         }
         
@@ -918,14 +915,16 @@ class SpecialEvents: NSObject, NSCoding {
         if gemulonInvasionCountdown != -1 {
             gemulonInvasionCountdown -= 1
             
-            if gemulonInvasionCountdown == 1 {
+            if gemulonInvasionCountdown > 1 {
+                addQuestString("Inform Gemulon about alien invasion within \(gemulonInvasionCountdown) days.", ID: QuestID.gemulon)
+            } else if gemulonInvasionCountdown == 1 {
                 addQuestString("Inform Gemulon about alien invasion by tomorrow.", ID: QuestID.gemulon)
             }
             
             if gemulonInvasionCountdown == 0 {
                 gemulonInvasionCountdown == -1              // inactivate countdown
                 addQuestString("", ID: QuestID.gemulon)     // inactivate quest
-                galaxy.setSpecial("Gemulon", id: SpecialEventID.gemulonInvaded)
+                galaxy.setSpecial("Gemulon", id: SpecialEventID.gemulonInvasion)
                 for planet in galaxy.planets {
                     if planet.name == "Gemulon" {
                         planet.swarmingWithAliens = true

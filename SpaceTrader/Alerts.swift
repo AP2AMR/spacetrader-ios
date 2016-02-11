@@ -837,7 +837,7 @@ class Alert {
             self.noButton = nil
         case .SpecialSpacetimeFabricRip:
             self.header = "Spacetime Fabric Rip"
-            self.text = "You have flown through a tear in the spacetime continuum caused by Dr. Fehler's failed experiment. You may not have reached \(self.passedString1), your planned destination!"
+            self.text = "You have flown through a tear in the spacetime continuum caused by Dr. Fehler's failed experiment. You may not have reached \(galaxy.targetSystem!.name), your planned destination!"
             self.yesButton = "OK"
             self.noButton = nil
         case .SpecialTrainingCompleted:

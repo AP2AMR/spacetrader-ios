@@ -282,7 +282,24 @@ class Journey: NSObject, NSCoding {
     func completeJourney() {            // accomplishes warp, decrements fuel, updates galaxy
         let journeyDistance = galaxy.getDistance(galaxy.currentSystem!, system2: galaxy.targetSystem!)
         let oldSystem = galaxy.currentSystem
-        galaxy.currentSystem = galaxy.targetSystem
+        if !galaxy.spaceTimeMessedUp {
+            galaxy.currentSystem = galaxy.targetSystem
+        } else {
+            // if spacetime is messed up, possibility of ending up somewhere else
+            // in this case, arrival alert SpecialSpacetimeFabricRip
+            let random = rand(100)
+            if random > 80 {
+                galaxy.alertsToFireOnArrival.append(AlertID.SpecialSpacetimeFabricRip)
+                // randomly choose planet
+                let randomPlanetIndex = rand(galaxy.planets.count)
+                galaxy.currentSystem = galaxy.planets[randomPlanetIndex]
+                
+            } else {
+                // no rip drama
+                galaxy.currentSystem = galaxy.targetSystem
+            }
+        }
+        
         galaxy.currentSystem!.visited = true
         galaxy.getSystemsInRange()
         galaxy.updateGalaxy()          // now just increments days and runs shuffleStatus. Will eventially hold special event related things

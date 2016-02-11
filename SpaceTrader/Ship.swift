@@ -116,7 +116,7 @@ class SpaceShip: NSObject, NSCoding {
     
     var noSpecialCargo: Bool {
         get {
-            if !artifactSpecialCargo && !experimentSpecialCargo && !japoriSpecialCargo && !jarekHagglingComputerSpecialCargo && !reactorSpecialCargo && !reactorFuelSpecialCargo {
+            if !artifactSpecialCargo && !experimentSpecialCargo && !japoriSpecialCargo && !jarekHagglingComputerSpecialCargo && !reactorSpecialCargo && !reactorFuelSpecialCargo && !player.portableSingularity {
                     return true
             } else {
                 return false
@@ -153,6 +153,9 @@ class SpaceShip: NSObject, NSCoding {
             }
             if reactorFuelSpecialCargo {
                 returnArray.append("\(Int(reactorFuelBays)) bays of enriched fuel.")
+            }
+            if player.portableSingularity {
+                returnArray.append("A portable singularity.")
             }
             if tribbles > 0 {
                 if tribbles == 1 {

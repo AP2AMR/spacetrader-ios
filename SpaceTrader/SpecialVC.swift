@@ -80,11 +80,13 @@ class SpecialVC: UIViewController {
                 player.specialEvents.experimentCountdown = 10
                 player.specialEvents.addQuestString("Stop Dr. Fehler's experiment at Daled within \(player.specialEvents.experimentCountdown) days.", ID: QuestID.experiment)
                 galaxy.setSpecial("Daled", id: SpecialEventID.disasterAverted)
+                closeSpecialVC()
                 
             case SpecialEventID.gemulonInvasion:
                 player.specialEvents.gemulonInvasionCountdown = 7
                 player.specialEvents.addQuestString("Inform Gemulon about alien invasion within \(player.specialEvents.gemulonInvasionCountdown) days.", ID: QuestID.gemulon)
                 galaxy.setSpecial("Gemulon", id: SpecialEventID.gemulonRescued)
+                closeSpecialVC()
                 
             case SpecialEventID.japoriDisease:
                 // player can accept quest only if ship has 10 bays free
@@ -94,11 +96,10 @@ class SpecialVC: UIViewController {
                     // create new special in Japori--medicineDelivery
                     galaxy.setSpecial("Japori", id: SpecialEventID.medicineDelivery)
                     player.commanderShip.japoriSpecialCargo = true
+                    generateAlert(Alert(ID: AlertID.AntidoteOnBoard, passedString1: nil, passedString2: nil, passedString3: nil))
                 } else {
-                    // if bays not free, create alert, put back special
-                    print("error. Not enough bays available. CREATE ALERT.")                // ADD ALERT
-                    galaxy.setSpecial("Gemulon", id: SpecialEventID.fuelCompactor)
                     dontDeleteLocalSpecialEvent = true
+                    generateAlert(Alert(ID: AlertID.SpecialNotEnoughBays, passedString1: nil, passedString2: nil, passedString3: nil))
                 }
                 
                 
@@ -333,33 +334,38 @@ class SpecialVC: UIViewController {
                 }
                 
             case SpecialEventID.disasterAverted:
-                player.specialEvents.experimentCountdown = -1        // deactivate countdown
+                player.specialEvents.experimentCountdown = -1
                 player.portableSingularity = true
                 player.specialEvents.addQuestString("", ID: QuestID.experiment)
+                closeSpecialVC()
                 
             case SpecialEventID.experimentFailed:
                 player.specialEvents.addQuestString("", ID: QuestID.experiment)
                 // spacetime was already messed up when the timer expired
+                closeSpecialVC()
                 
             case SpecialEventID.gemulonInvaded:
                 // aliens already appeared when timer expired
                 player.specialEvents.addQuestString("", ID: QuestID.gemulon)
+                closeSpecialVC()
                 
             case SpecialEventID.gemulonRescued:
                 player.specialEvents.gemulonInvasionCountdown = -1   // deactivate countdown
                 player.specialEvents.addQuestString("", ID: QuestID.gemulon)
                 galaxy.setSpecial("Gemulon", id: SpecialEventID.fuelCompactor)
                 dontDeleteLocalSpecialEvent = true
+                closeSpecialVC()
                 
             case SpecialEventID.fuelCompactor:
                 if player.commanderShip.gadget.count < player.commanderShip.gadgetSlots {
                     // add gadget
                     player.commanderShip.gadget.append(Gadget(type: GadgetType.FuelCompactor))
                     player.specialEvents.addQuestString("", ID: QuestID.dragonfly)
+                    generateAlert(Alert(ID: AlertID.EquipmentFuelCompactor, passedString1: nil, passedString2: nil, passedString3: nil))
                 } else {
-                    // **** NOT ENOUGH GADGET SLOTS MESSAGE
                     galaxy.setSpecial("Gemulon", id: SpecialEventID.fuelCompactor)
                     dontDeleteLocalSpecialEvent = true
+                    generateAlert(Alert(ID: AlertID.EquipmentNotEnoughSlots, passedString1: nil, passedString2: nil, passedString3: nil))
                 }
                 
             case SpecialEventID.medicineDelivery:

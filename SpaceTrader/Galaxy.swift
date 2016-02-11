@@ -48,6 +48,8 @@ class Galaxy: NSObject, NSCoding {
     var alertsToFireOnArrival: [AlertID] = []
     var meltdownOnArrival = false
     
+    var spaceTimeMessedUp = false
+    
     override init() {
         // deliberately empty
     }
@@ -1358,8 +1360,7 @@ class Galaxy: NSObject, NSCoding {
         self.targetSystemInRange = decoder.decodeObjectForKey("targetSystemInRange") as! Bool
         self.trackedSystem = decoder.decodeObjectForKey("trackedSystem") as! StarSystem?
         self.journeyJustFinished = decoder.decodeObjectForKey("journeyJustFinished") as! Bool
-        //self.alertsToFireOnArrival = decoder.decodeObjectForKey("alertsToFireOnArrival") as! [AlertID]
-        //self.currentJourney = decoder.decodeObjectForKey("currentJourney") as! Journey?
+        self.spaceTimeMessedUp = decoder.decodeObjectForKey("spaceTimeMessedUp") as! Bool
 
         super.init()
     }
@@ -1372,8 +1373,7 @@ class Galaxy: NSObject, NSCoding {
         encoder.encodeObject(targetSystemInRange, forKey: "targetSystemInRange")
         encoder.encodeObject(trackedSystem, forKey: "trackedSystem")
         encoder.encodeObject(journeyJustFinished, forKey: "journeyJustFinished")
-        //encoder.encodeObject(alertsToFireOnArrival, forKey: "alertsToFireOnArrival")
-        //encoder.encodeObject(currentJourney, forKey: "currentJourney")
+        encoder.encodeObject(spaceTimeMessedUp, forKey: "spaceTimeMessedUp")
     }
     
     
