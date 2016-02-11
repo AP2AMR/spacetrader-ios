@@ -71,6 +71,11 @@ class Alert {
             self.text = "The alien artifact has been lost in the wreckage of your ship."
             self.yesButton = "OK"
             self.noButton = nil
+        case .ArtifactOnBoard:
+            self.header = "Artifact On Board"
+            self.text = "The artifact is now in your cargo hold."
+            self.yesButton = "OK"
+            self.noButton = nil
         case .ArtifactRelinquished:
             self.header = "Artifact Relinquished"
             self.text = "The aliens take the artifact from you."
@@ -977,6 +982,7 @@ enum AlertID: Int {
     case ArrivalIFNewspaper
     case ArrivalIFRepairs
     case ArtifactLost
+    case ArtifactOnBoard
     case ArtifactRelinquished
     case CargoIF
     case CargoNoEmptyBays

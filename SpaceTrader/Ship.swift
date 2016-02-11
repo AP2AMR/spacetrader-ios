@@ -99,7 +99,6 @@ class SpaceShip: NSObject, NSCoding {
     }
     
     var raided = false
-    var artifactOnBoard = false
     var justLootedMarieCeleste = false
     var cloaked = false
     var disabled = false
@@ -177,7 +176,7 @@ class SpaceShip: NSObject, NSCoding {
         get {
             var returnInt = 0
             if artifactSpecialCargo {
-                returnInt += 0
+                returnInt += 1
             }
             if experimentSpecialCargo {
                 returnInt += 1
@@ -865,7 +864,6 @@ class SpaceShip: NSObject, NSCoding {
             self.probabilityOfHit = decoder.decodeObjectForKey("probabilityOfHit") as! Int
             
             self.raided = decoder.decodeObjectForKey("raided") as! Bool
-            self.artifactOnBoard = decoder.decodeObjectForKey("artifactOnBoard") as! Bool
             self.justLootedMarieCeleste = decoder.decodeObjectForKey("justLootedMarieCeleste") as! Bool
             self.cloaked = decoder.decodeObjectForKey("cloaked") as! Bool
             self.disabled = decoder.decodeObjectForKey("disabled") as! Bool
@@ -926,7 +924,6 @@ class SpaceShip: NSObject, NSCoding {
             encoder.encodeObject(probabilityOfHit, forKey: "probabilityOfHit")
             
             encoder.encodeObject(raided, forKey: "raided")
-            encoder.encodeObject(artifactOnBoard, forKey: "artifactOnBoard")
             encoder.encodeObject(justLootedMarieCeleste, forKey: "justLootedMarieCeleste")
             encoder.encodeObject(cloaked, forKey: "cloaked")
             encoder.encodeObject(disabled, forKey: "disabled")

@@ -136,7 +136,7 @@ class Journey: NSObject, NSCoding {
         } // else if Wild status/Kravat...
         
         if !pirate && !police && !trader {
-            if player.commanderShip.artifactOnBoard && (arc4random_uniform(20) <= 3) {
+            if player.commanderShip.artifactSpecialCargo && (arc4random_uniform(20) <= 3) {
                 // mantis
                 mantis = true
                 print("MANTIS ENCOUNTER AT \(clicks) CLICKS")

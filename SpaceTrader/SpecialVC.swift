@@ -49,21 +49,32 @@ class SpecialVC: UIViewController {
         switch galaxy.currentSystem!.specialEvent! {
             // initial
             case SpecialEventID.alienArtifact:
-                player.specialEvents.addQuestString("Deliver the alien artifact to Professor Berger at some hi-tech system.", ID: QuestID.artifact)
-                player.commanderShip.artifactOnBoard = true
-                // add artifact delivery to some high tech system without a specialEvent set
-                for planet in galaxy.planets {
-                    if planet.techLevel == TechLevelType.techLevel7 {
-                        if planet.specialEvent == nil {
-                            galaxy.setSpecial(planet.name, id: SpecialEventID.artifactDelivery)
+                if player.commanderShip.baysAvailable >= 1 {
+                    player.specialEvents.addQuestString("Deliver the alien artifact to Professor Berger at some hi-tech system.", ID: QuestID.artifact)
+                    player.commanderShip.artifactSpecialCargo = true
+                    // add artifact delivery to some high tech system without a specialEvent set
+                    for planet in galaxy.planets {
+                        if planet.techLevel == TechLevelType.techLevel7 {
+                            if planet.specialEvent == nil {
+                                galaxy.setSpecial(planet.name, id: SpecialEventID.artifactDelivery)
+                                print("artifact is on \(planet.name)")
+                                break
+                            }
                         }
                     }
+                    player.specialEvents.artifactOnBoard = true         // one of these is redundant
+                    generateAlert(Alert(ID: AlertID.ArtifactOnBoard, passedString1: nil, passedString2: nil, passedString3: nil))
+                } else {
+                    dontDeleteLocalSpecialEvent = true
+                    generateAlert(Alert(ID: AlertID.SpecialNotEnoughBays, passedString1: nil, passedString2: nil, passedString3: nil))
                 }
-                player.specialEvents.artifactOnBoard = true
+                
+            
                 
             case SpecialEventID.dragonfly:
                 player.specialEvents.addQuestString("Follow the Dragonfly to Melina.", ID: QuestID.dragonfly)
                 galaxy.setSpecial("Melina", id: SpecialEventID.dragonflyMelina)
+                closeSpecialVC()
                 
             case SpecialEventID.dangerousExperiment:
                 player.specialEvents.experimentCountdown = 10
@@ -243,21 +254,24 @@ class SpecialVC: UIViewController {
                 if player.credits >= 5000 {
                     player.policeRecord = PoliceRecordType.cleanScore
                     player.credits -= 5000
+                    generateAlert(Alert(ID: AlertID.SpecialCleanRecord, passedString1: nil, passedString2: nil, passedString3: nil))
                 } else {
-                    // **** YOU CAN'T AFFORD THIS ALERT
-                    // **** REINSTATE SPECIAL EVENT, SINCE WE HAVEN'T USED IT AND DON'T WANT IT GONE
+                    dontDeleteLocalSpecialEvent = true
+                    generateAlert(Alert(ID: AlertID.SpecialIF, passedString1: nil, passedString2: nil, passedString3: nil))
                 }
                 
                 
             case SpecialEventID.lotteryWinner:
                 player.credits += 1000
+                closeSpecialVC()
                 
             case SpecialEventID.skillIncrease:
                 if player.credits >= 3000 {
                     player.credits -= 3000
                     player.specialEvents.increaseRandomSkill()
+                    generateAlert(Alert(ID: AlertID.SpecialSkillIncrease, passedString1: nil, passedString2: nil, passedString3: nil))
                 } else {
-                    // **** TOO POOR MESSAGE & REINSTATE SPECIAL
+                    generateAlert(Alert(ID: AlertID.SpecialIF, passedString1: nil, passedString2: nil, passedString3: nil))
                 }
                 
             case SpecialEventID.cargoForSale:
@@ -265,27 +279,31 @@ class SpecialVC: UIViewController {
                     if player.commanderShip.cargoBays >= 3 {
                         player.credits -= 1000
                         player.specialEvents.addRandomCargo()
+                        generateAlert(Alert(ID: AlertID.SpecialSealedCanisters, passedString1: nil, passedString2: nil, passedString3: nil))
                     } else {
-                        // **** TOO FEW BAYS MESSAGE
+                        generateAlert(Alert(ID: AlertID.SpecialNotEnoughBays, passedString1: nil, passedString2: nil, passedString3: nil))
                     }
                 } else {
-                    // **** TOO POOR MESSAGE
+                    generateAlert(Alert(ID: AlertID.SpecialIF, passedString1: nil, passedString2: nil, passedString3: nil))
                 }
                 
                 // subsequent
             case SpecialEventID.artifactDelivery:
                 player.specialEvents.artifactOnBoard = false
-                player.commanderShip.artifactOnBoard = false
+                player.commanderShip.artifactSpecialCargo = false
                 player.credits += 20000
                 player.specialEvents.addQuestString("", ID: QuestID.artifact)        // close quest
+                closeSpecialVC()
                 
             case SpecialEventID.dragonflyBaratas:
                 player.specialEvents.addQuestString("Follow the Dragonfly to Melina.", ID: QuestID.dragonfly)
                 galaxy.setSpecial("Melina", id: SpecialEventID.dragonflyMelina)
+                closeSpecialVC()
                 
             case SpecialEventID.dragonflyMelina:
                 player.specialEvents.addQuestString("Follow the Dragonfly to Regulas", ID: QuestID.dragonfly)
                 galaxy.setSpecial("Regulas", id: SpecialEventID.dragonflyRegulas)
+                closeSpecialVC()
                 
             case SpecialEventID.dragonflyRegulas:
                 player.specialEvents.addQuestString("Follow the Dragonfly to Zalkon.", ID: QuestID.dragonfly)
@@ -294,12 +312,14 @@ class SpecialVC: UIViewController {
                         planet.dragonflyIsHere = true
                     }
                 }
+                closeSpecialVC()
                 // no new special. Will be added at Zalkon when dragonfly is destroyed
                 
             case SpecialEventID.dragonflyDestroyed:
                 player.specialEvents.addQuestString("Get your lightning shield at Zalkon.", ID: QuestID.dragonfly)
                 galaxy.setSpecial("Zalkon", id: SpecialEventID.lightningShield)
                 dontDeleteLocalSpecialEvent = true
+                closeSpecialVC()
                 
             case SpecialEventID.lightningShield:
                 if player.commanderShip.shield.count < player.commanderShip.shieldSlots {
@@ -307,9 +327,9 @@ class SpecialVC: UIViewController {
                     player.commanderShip.shield.append(Shield(type: ShieldType.lightningShield))
                     player.specialEvents.addQuestString("", ID: QuestID.dragonfly)
                 } else {
-                    // **** NOT ENOUGH SHIELD SLOTS MESSAGE
                     galaxy.setSpecial("Zalkon", id: SpecialEventID.lightningShield)
                     dontDeleteLocalSpecialEvent = true
+                    generateAlert(Alert(ID: AlertID.EquipmentNotEnoughSlots, passedString1: nil, passedString2: nil, passedString3: nil))
                 }
                 
             case SpecialEventID.disasterAverted:
@@ -345,7 +365,8 @@ class SpecialVC: UIViewController {
             case SpecialEventID.medicineDelivery:
                 player.commanderShip.japoriSpecialCargo = false     // remove special cargo
                 player.specialEvents.addQuestString("", ID: QuestID.japori)
-                player.specialEvents.increaseRandomSkill()                               // DO WE WANT AN ALERT HERE?
+                player.specialEvents.increaseRandomSkill()
+                generateAlert(Alert(ID: AlertID.SpecialSkillIncrease, passedString1: nil, passedString2: nil, passedString3: nil))
                 
             case SpecialEventID.jarekGetsOut:
                 // remove jarek
