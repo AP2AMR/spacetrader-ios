@@ -113,14 +113,13 @@ class SpecialVC: UIViewController {
                 
                 if player.commanderShip.crewSlotsAvailable >= 1 {
                     // take him on
-                    let jarek = CrewMember(ID: MercenaryName.jarek, pilot: 1, fighter: 1, trader: 10, engineer: 1)    // are these the numbers we want to use for Jarek? Maybe find out?
+                    let jarek = CrewMember(ID: MercenaryName.jarek, pilot: 3, fighter: 1, trader: 10, engineer: 2)
                     player.commanderShip.crew.append(jarek)
+                    generateAlert(Alert(ID: AlertID.JarekOnBoard, passedString1: nil, passedString2: nil, passedString3: nil))
                 } else {
                     // can't take him on
-                    print("error. Not enough crew slots available. CREATE ALERT.")            // ADD ALERT
-                    // restore special event at current system
-                    galaxy.setSpecial(galaxy.currentSystem!.name, id: SpecialEventID.ambassadorJarek)
                     dontDeleteLocalSpecialEvent = true
+                    generateAlert(Alert(ID: AlertID.SpecialNoQuarters, passedString1: nil, passedString2: nil, passedString3: nil))
                 }
                 
             case SpecialEventID.princess:
@@ -380,15 +379,9 @@ class SpecialVC: UIViewController {
                 // stop countdown, remove quest string
                 player.specialEvents.jarekElapsedTime = -1
                 player.specialEvents.addQuestString("", ID: QuestID.jarek)
-                // add special cargo, if possible
-                if player.commanderShip.baysAvailable >= 1 {
-                    player.initialTraderSkill += 2
-                    player.commanderShip.jarekHagglingComputerSpecialCargo = true
-                    print("haggling computer bool: \(player.commanderShip.jarekHagglingComputerSpecialCargo)")
-                }
-                // I guess otherwise you don't get the bump in trader skill?
                 
-                
+                player.commanderShip.jarekHagglingComputerSpecialCargo = true
+                generateAlert(Alert(ID: AlertID.HagglingComputer, passedString1: nil, passedString2: nil, passedString3: nil))
                 
             case SpecialEventID.princessCentauri:
                 player.specialEvents.addQuestString("Follow the Scorpion to Inthara.", ID: QuestID.princess)

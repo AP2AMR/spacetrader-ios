@@ -542,6 +542,11 @@ class Alert {
             self.yesButton = "Yes"
             self.noButton = "No"
             self.yesIsDestructive = true
+        case .HagglingComputer:
+            self.header = "Haggling Computer"
+            self.text = "You now have a handheld haggling computer. It takes up very little space, and will boost your effective trading skills."
+            self.yesButton = "OK"
+            self.noButton = nil
         case .InsuranceNoEscapePod:
             self.header = "No Escape Pod"
             self.text = "Insurance isn't useful for you, since you don't have an escape pod."
@@ -591,6 +596,11 @@ class Alert {
         case .JailShipSold:
             self.header = "Ship Sold"
             self.text = "Because you don't have the credits to pay your fine, your ship is sold."
+            self.yesButton = "OK"
+            self.noButton = nil
+        case .JarekOnBoard:
+            self.header = "Jarek On Board"
+            self.text = "Ambassador Jarek boards your ship. While on board he will help out, but if you take too long getting him home he may become frustrated and stop helping."
             self.yesButton = "OK"
             self.noButton = nil
         case .JarekTakenHome:
@@ -1074,6 +1084,7 @@ enum AlertID: Int {
     case GameEndRetired
     case GameEndScore
     case GameRetire
+    case HagglingComputer
     case InsuranceNoEscapePod
     case InsurancePayoff
     case InsuranceStop
@@ -1084,6 +1095,7 @@ enum AlertID: Int {
     case JailInsuranceLost
     case JailMercenariesLeave
     case JailShipSold
+    case JarekOnBoard
     case JarekTakenHome
     case LeavingIFInsurance
     case LeavingIFMercenaries

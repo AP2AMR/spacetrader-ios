@@ -903,11 +903,22 @@ class SpecialEvents: NSObject, NSCoding {
         if jarekElapsedTime != -1 {
             jarekElapsedTime += 1
             
-            if jarekElapsedTime > 10 {
+            if jarekElapsedTime == 6 {
+                galaxy.alertsToFireOnArrival.append(AlertID.SpecialPassengerConcernedJarek)
+            }
+            
+            if jarekElapsedTime == 12 {
+                galaxy.alertsToFireOnArrival.append(AlertID.SpecialPassengerImpatientJarek)
                 // jarek gets less helpful
                 addQuestString("Jarek is wondering why the journey is taking so long, and is no longer of much help in negotiating trades.", ID: QuestID.jarek)
-                // **** CREATE JAREK ALERT
-                // **** CHANGE JAREK STATUS TO BE LESS HELPFUL
+                for person in player.commanderShip.crew {
+                    if person.ID == MercenaryName.jarek {
+                        person.pilot = 1
+                        person.fighter = 1
+                        person.trader = 1
+                        person.engineer = 1
+                    }
+                }
             }
         }
         

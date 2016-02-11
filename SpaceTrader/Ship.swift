@@ -188,7 +188,7 @@ class SpaceShip: NSObject, NSCoding {
                 returnInt += 10
             }
             if jarekHagglingComputerSpecialCargo {
-                returnInt += 1
+                returnInt += 0
             }
             if reactorSpecialCargo {
                 returnInt += 5

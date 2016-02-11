@@ -156,7 +156,7 @@ class NewCommanderVC: UIViewController, UITextFieldDelegate {
         
         // THIS IS PURELY FOR TESTING SPECIAL EVENTS
         if player.difficulty == DifficultyType.normal {
-            galaxy.currentSystem!.specialEvent = SpecialEventID.japoriDisease
+            galaxy.currentSystem!.specialEvent = SpecialEventID.ambassadorJarek
             player.specialEvents.setSpecialEvent()
         }
         

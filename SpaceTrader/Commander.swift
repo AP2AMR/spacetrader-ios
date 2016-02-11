@@ -45,7 +45,7 @@ class Commander: NSObject, NSCoding {
     }
     
     
-    // skills
+    // skills                       DO WE WANT TO DO THIS BY MAX OR TOTAL? SEE WHAT ORIGINAL DOES
     var pilotSkill: Int {
         get {
             var max = initialPilotSkill
@@ -75,6 +75,9 @@ class Commander: NSObject, NSCoding {
                 if member.trader > max {
                     max = member.trader
                 }
+            }
+            if player.commanderShip.jarekHagglingComputerSpecialCargo {
+                max += 2
             }
             return max
         }
